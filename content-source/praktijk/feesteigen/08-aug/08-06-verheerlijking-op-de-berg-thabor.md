@@ -120,9 +120,9 @@ Zalig is het volk dat weet te juichen; Heer, zij zullen wandelen in het Licht va
 
 ---
 
-## Prijslied
+## Moeder Godslied v/h feest v/d Transfiguratie
 ::: vsa-notatie
-<!-- Prijslied - Verheerlijking op de berg Thabor (Liturgikon, p270) -->
+<!-- Prijslied / Moeder Godslied - Transfiguratie / Verheerlijking op de berg Thabor (Liturgikon, p270) -->
 [\:] {/&/Ver}{/hef_}, {\mij}{/ne} {\\ziel_}, {/&/met} {/blij}{\\de} {/zang_} *
 {Chris_}{\tus} {/de} {/&\Heer_&_}, {\&/Die.&.} {/op.} {/de.} {\&\Tha.&.}{\bor.} {\ver.}{//heer_}{\lijkt_} {\is_}. [:]
 [:] Ver{heug_} {\u}, {/Ko}{\nin}{\gin_}, *

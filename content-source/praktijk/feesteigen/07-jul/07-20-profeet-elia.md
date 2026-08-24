@@ -6,10 +6,8 @@ source-note: "Mogelijk uit 'Heiligenjaar, deel 7'"
 layout: "feesteigen-pagina"
 ---
 
-### Tropaar (Toon 4)
-
 ::: vsa-notatie
-<!-- Tropaar Profeet Elia, Toon 4 -->
+<!-- Tropaar Profeet Elia, Toon 4, Liturgikon p.266-267 -->
 [//:] Gij waart een {En_}gel {/in} het {\vlees_} *
 {/de} grondslag der pro{fe_}{\ten_} *
 en de tweede Voorloper van {Chris_}{/tus_} {\komst_}, *
@@ -22,7 +20,7 @@ en doet zo ook genezing opwellen voor allen die u ver{-&\e_&_}{/ren_} [//:]
 ### Kondak (Toon 2)
 
 ::: vsa-notatie
-<!-- Kondak Profeet Elia, Toon 2 -->
+<!-- Kondak Profeet Elia, Toon 2, Liturgikon p.267 -->
 [/:] Profeet en {/Schouw}er van Gods machti{/ge_} {/&\da_&_}{\den_}, *
 vermaarde E{\li_}{\a_}, *
 {/die} door uw {/woord_} de regenwolken {/ge}{/van_}{\gen_} {\hield_}, **

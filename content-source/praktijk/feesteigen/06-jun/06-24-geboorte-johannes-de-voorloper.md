@@ -1,6 +1,6 @@
 ---
 title: "Geboorte van Johannes de Voorloper"
-feestdag: "25 juni"
+feestdag: "24 juni"
 source: "Hemelum"
 layout: "feesteigen-pagina"
 ---
