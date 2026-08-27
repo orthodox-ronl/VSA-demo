@@ -32,7 +32,7 @@ Beschut mij tegen de samenzwering der booswichten;<br>
 ### Woensdag (Lk. 1:46–48, Toon 3)
 
 ::: vsa-notatie
-<!-- Liturgikon, p247 -->
+<!-- Liturgikon, p247 (op ELMs na hetzelfde als p271) -->
 [//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
 en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
 :::
