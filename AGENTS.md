@@ -65,26 +65,26 @@ is geen modelkeuze-issue; markeringen signaleren fouten in de gezongen tekst.
 Eerste keer / na tool-update:
 
 ```cmd
-cd /d C:\Git\orthodox-ronl\VSA-demo
-scripts\bootstrap.cmd
+cd /d C:\Git\orthodox-groningen\VSA-demo
+check --strict
 ```
 
 **Vóór commit** (zelfde als [CONTRIBUTING.md](CONTRIBUTING.md) en CI):
 
 ```cmd
-scripts\check.cmd --strict
+check --strict
 ```
 
 Preview na groene check:
 
 ```cmd
-scripts\serve-hugo.cmd --no-build
+serve --no-build
 ```
 
 Scripts vinden / man-pages: `scripts\h.cmd` (detail: `scripts\h.cmd check`).  
 Uitleg: [scripts/README.md](scripts/README.md).
 
-`bootstrap.cmd` installeert catalogus (bron) + `vsa-tool[rendering]` (VSA-tooling).
+`_ensure` installeert catalogus (bron) + vsa-tool[rendering] in Python 3.14.
 
 ### Scripts onderhouden
 
@@ -92,7 +92,7 @@ Wijzig, voeg toe of verwijder je iets onder `scripts/`:
 
 1. Werk [scripts/README.md](scripts/README.md) bij (tabellen, testladder, begrippen).
 2. Werk `scripts\h.cmd` bij (catalogus + man-page).
-3. Gedeelde keten: `_pipeline.cmd` (wrappers: check, build-hugo, serve-hugo).
+3. Gedeelde keten: `_pipeline.cmd` (wrappers: check, build, serve).
 4. Console-tekst in `.cmd` (`echo`): **alleen eenvoudige ASCII** (`->`, `-`, geen
    Unicode-pijlen/em-dashes) — Windows-cmd verknoeit UTF-8 anders.
 
@@ -126,4 +126,4 @@ Zelfde patroon als `bron` (`docs-pages.yml`). Deploy via reusable workflow in VS
 Conventional Commits. Alleen committen als de gebruiker dat vraagt.
 
 Menselijke bijdragers: [CONTRIBUTING.md](CONTRIBUTING.md) — groen vóór commit =
-`scripts\check.cmd --strict`.
+`check --strict`.

@@ -21,10 +21,10 @@ if not "%FILTER%"=="" (
 
 if "%FILTER%"=="" goto catalog
 
-if /I "%FILTER%"=="bootstrap" goto man_bootstrap
+if /I "%FILTER%"=="bootstrap" goto man_ensure
 if /I "%FILTER%"=="check" goto man_check
-if /I "%FILTER%"=="build-hugo" goto man_build_hugo
-if /I "%FILTER%"=="serve-hugo" goto man_serve_hugo
+if /I "%FILTER%"=="build" goto man_build
+if /I "%FILTER%"=="serve" goto man_serve
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
@@ -34,14 +34,13 @@ goto filter_list
 :catalog
 echo.
 echo === VSA-demo scripts ===
-echo Detail ^(man-page^): scripts\h.cmd ^<naam^>   bijv. scripts\h.cmd bootstrap
+echo Detail ^(man-page^): h ^<naam^>   bijv. h check
 echo Begrippen + wanneer-wat: scripts\README.md
-echo Groen voor commit ^(CI-spiegel^): scripts\check.cmd --strict
+echo Groen voor commit ^(CI-spiegel^): check --strict
 echo.
-call :emit_short bootstrap "venv + catalogus (bron) + vsa-tool[rendering]" "-"
 call :emit_short check "preflight / CI-spiegel" "--strict --external --skip-hugo"
-call :emit_short build-hugo "volledige sitebuild + interne linkcheck" "-"
-call :emit_short serve-hugo "lokale Hugo-preview" "--no-build"
+call :emit_short build "volledige sitebuild + interne linkcheck" "-"
+call :emit_short serve "lokale Hugo-preview" "--no-build"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
@@ -57,10 +56,9 @@ echo.
 echo === VSA-demo scripts ^(filter: %FILTER%^) ===
 echo Voor detail: scripts\h.cmd ^<exacte-naam^>   bijv. scripts\h.cmd bootstrap
 echo.
-call :try_short bootstrap "venv + catalogus (bron) + vsa-tool[rendering]" "-"
 call :try_short check "preflight / CI-spiegel" "--strict --external --skip-hugo"
-call :try_short build-hugo "volledige sitebuild + interne linkcheck" "-"
-call :try_short serve-hugo "lokale Hugo-preview" "--no-build"
+call :try_short build "volledige sitebuild + interne linkcheck" "-"
+call :try_short serve "lokale Hugo-preview" "--no-build"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
@@ -71,7 +69,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: bootstrap, check, build-hugo, serve-hugo, sync-bron-zondagen, h
+echo Bekende namen: check, build, serve, sync-bron-zondagen, h
 echo.
 goto end_fail
 
@@ -105,29 +103,14 @@ echo Begrippen ^(preflight, CI-spiegel, ...^): scripts\README.md
 echo.
 goto end_ok
 
-:man_bootstrap
+:man_ensure
 echo.
 echo NAME
-echo   scripts\bootstrap.cmd
-echo.
-echo SYNOPSIS
-echo   scripts\bootstrap.cmd
+echo   _ensure (called by check/serve/build)
 echo.
 echo DESCRIPTION
-echo   Eenmalige ^(of periodieke^) setup van de lokale Python-omgeving:
-echo   - maakt .venv aan als die ontbreekt
-echo   - installeert catalogus uit sibling ..\bron of vendor\bron
-echo   - installeert vsa-tool[rendering] uit ..\VSA-tooling, vendor\, of GitHub
-echo.
-echo   Zonder bootstrap werken validate/generate en catalogus-includes niet
-echo   ^(of niet met je lokale bron/tooling^).
-echo.
-echo WHEN
-echo   Eerste checkout; na Python-upgrade; als vsa/catalogus-commando's ontbreken.
-echo.
-echo SEE ALSO
-echo   scripts\h.cmd check
-echo   scripts\README.md
+echo   Checks PATH (.\scripts, python 3.14, hugo, vsa) and pip-installs
+echo   catalogus + vsa-tool into that Python. No separate bootstrap step.
 echo.
 goto end_ok
 
@@ -158,18 +141,18 @@ echo   Altijd voor committen/pushen: scripts\check.cmd --strict
 echo   Tussendoor itereren op VSA: scripts\check.cmd --skip-hugo
 echo.
 echo SEE ALSO
-echo   scripts\h.cmd serve-hugo
+echo   scripts\h.cmd serve
 echo   scripts\README.md  ^(testladder + CI-spiegel^)
 echo.
 goto end_ok
 
-:man_build_hugo
+:man_build
 echo.
 echo NAME
-echo   scripts\build-hugo.cmd
+echo   scripts\build.cmd
 echo.
 echo SYNOPSIS
-echo   scripts\build-hugo.cmd
+echo   scripts\build.cmd
 echo.
 echo DESCRIPTION
 echo   Volledige sitebuild naar generated\site. Zelfde keten als check.cmd --strict
@@ -183,17 +166,17 @@ echo   Voor preflight voor commit: check.cmd --strict is genoeg.
 echo.
 echo SEE ALSO
 echo   scripts\h.cmd check
-echo   scripts\h.cmd serve-hugo
+echo   scripts\h.cmd serve
 echo.
 goto end_ok
 
-:man_serve_hugo
+:man_serve
 echo.
 echo NAME
-echo   scripts\serve-hugo.cmd
+echo   scripts\serve.cmd
 echo.
 echo SYNOPSIS
-echo   scripts\serve-hugo.cmd [--no-build]
+echo   scripts\serve.cmd [--no-build]
 echo.
 echo DESCRIPTION
 echo   Start de Hugo-development server ^(http://localhost:1313/^).
@@ -231,7 +214,7 @@ echo   Met argument: expliciet pad naar een bron-checkout.
 echo.
 echo WHEN
 echo   Handmatig als je bron net hebt bijgewerkt en alleen sync wilt.
-echo   check.cmd / build-hugo / serve-hugo roepen sync zelf al aan.
+echo   check.cmd / build / serve roepen sync zelf al aan.
 echo.
 echo SEE ALSO
 echo   scripts\h.cmd check
