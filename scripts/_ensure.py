@@ -58,7 +58,7 @@ def check_vsa() -> None:
         fail(
             "vsa not found on PATH",
             "Add the VSA-tooling venv Scripts folder to PATH after installing vsa-tool there.",
-            "Reference: C:\\Git\\orthodox-groningen\\VSA-tooling\\.venv\\Scripts",
+            "Reference: C:\\Git\\orthodox-ronl\\VSA-tooling\\.venv\\Scripts",
         )
 
 

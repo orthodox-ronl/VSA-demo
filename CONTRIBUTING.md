@@ -27,7 +27,7 @@ Uitleg, begrippen en testladder: [scripts/README.md](scripts/README.md).
 Vereist sibling-checkouts (of `vendor/`) van **bron** en **VSA-tooling**:
 
 ```cmd
-cd /d C:\Git\orthodox-groningen\VSA-demo
+cd /d C:\Git\orthodox-ronl\VSA-demo
 check
 ```
 
@@ -37,7 +37,7 @@ check
 [README.md](README.md) en wat `validate.yml` / `pages.yml` draaien.
 
 ```cmd
-cd /d C:\Git\orthodox-groningen\VSA-demo
+cd /d C:\Git\orthodox-ronl\VSA-demo
 check --strict
 ```
 

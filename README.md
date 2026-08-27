@@ -21,7 +21,7 @@ Bijdragen: [CONTRIBUTING.md](CONTRIBUTING.md).
 **Groen vóór commit = CI-blocking checks** (`validate.yml` / `pages.yml`).
 
 ```cmd
-cd /d C:\Git\orthodox-groningen\VSA-demo
+cd /d C:\Git\orthodox-ronl\VSA-demo
 check --strict
 ```
 
@@ -42,7 +42,7 @@ check --strict --external
 Vereist sibling-checkouts (of `vendor/`) van **bron** en **VSA-tooling**:
 
 ```text
-C:\Git\orthodox-groningen\
+C:\Git\orthodox-ronl\
   bron\
   VSA-tooling\
   VSA-demo\

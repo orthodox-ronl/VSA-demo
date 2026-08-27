@@ -65,7 +65,7 @@ is geen modelkeuze-issue; markeringen signaleren fouten in de gezongen tekst.
 Eerste keer / na tool-update:
 
 ```cmd
-cd /d C:\Git\orthodox-groningen\VSA-demo
+cd /d C:\Git\orthodox-ronl\VSA-demo
 check --strict
 ```
 
