@@ -25,6 +25,7 @@ if /I "%FILTER%"=="bootstrap" goto man_ensure
 if /I "%FILTER%"=="check" goto man_check
 if /I "%FILTER%"=="build" goto man_build
 if /I "%FILTER%"=="serve" goto man_serve
+if /I "%FILTER%"=="pdf" goto man_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
@@ -41,6 +42,7 @@ echo.
 call :emit_short check "preflight / CI-spiegel" "--strict --external --skip-hugo"
 call :emit_short build "volledige sitebuild + interne linkcheck" "-"
 call :emit_short serve "lokale Hugo-preview" "--no-build"
+call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
@@ -59,6 +61,7 @@ echo.
 call :try_short check "preflight / CI-spiegel" "--strict --external --skip-hugo"
 call :try_short build "volledige sitebuild + interne linkcheck" "-"
 call :try_short serve "lokale Hugo-preview" "--no-build"
+call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
@@ -69,7 +72,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, sync-bron-zondagen, h
+echo Bekende namen: check, build, serve, pdf, sync-bron-zondagen, h
 echo.
 goto end_fail
 
@@ -190,6 +193,35 @@ echo   --no-build   sla sync/validate/generate over; sneller herstarten
 echo.
 echo WHEN
 echo   Browser-preview. CI-gelijk: eerst check.cmd --strict, dan --no-build.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd check
+echo.
+goto end_ok
+
+:man_pdf
+echo.
+echo NAME
+echo   scripts\pdf.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\pdf.cmd ^<bestand.md^> [-o uit.pdf] [--content-root DIR]
+echo.
+echo DESCRIPTION
+echo   Maakt een A4-PDF van een Markdownbestand met VSA-blokken.
+echo   Includes, pagebreaks, print-only en SVG-rendering lopen via vsa pdf
+echo   ^(zelfde keten als build-markdown voor dat ene bestand^).
+echo.
+echo   Validatiefouten: bestand, regel, kolom, code, bronregel - hetzelfde
+echo   formaat als check / vsa validate.
+echo.
+echo OPTIONS
+echo   -o, --output FILE     uitvoer-PDF ^(default: ^<stem^>.pdf in de cwd^)
+echo   --content-root DIR    root voor catalogus-includes ^(lokaal/^)
+echo   --chrome PATH         Edge/Chrome als auto-detectie faalt
+echo.
+echo WHEN
+echo   Koormap / liturgie-blad uit content-source printen, zonder Hugo.
 echo.
 echo SEE ALSO
 echo   scripts\h.cmd check
