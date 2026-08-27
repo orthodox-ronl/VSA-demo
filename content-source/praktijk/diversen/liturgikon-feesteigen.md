@@ -25,19 +25,46 @@ Zegen, Heer, de jaarkrans Uwer {\goed_}{\heid_}. *
 
 ## 6 jan. DOOP DES HEREN
 
-**1e Ant. Ps.113**
-1. – Bij de uittocht van Israël uit Egypte, * van het huis Jacob uit een vreemd volk.
-2. – Toen werd Judea Zijn Heiligdom, * Israël Zijn machtsgebied. – Door...
-3. – De zee zag het en vluchtte, * de Jordaan week achterwaarts. – Door...
-4. – Voor het aangezicht des Heren beefde de aarde, * voor het aangezicht van de God van Jacob. – Door...
-5. – Eer... nu... blz. 174
+### Eerste Antifoon (Ps.113)
 
-**2e Ant. Ps.114**
-1. Ik heb Hem lief, * want de Heer verhoort de stem van mijn smeking. –
-REFREIN – Verlos, o Zoon Gods, * Die door Joannes in de Jordaan gedoopt zijt, * ons die U zingen: Alleluia. –
-2. – Hij heeft Zijn oor naar mij geneigd, * in al mijn dagen wil ik Hem aanroepen. – Verlos...
-3. – Barmhartig en rechtvaardig is de Heer, * onze God is genadig. – Verlos...
-4. – Ik wil den Heer welgevallig zijn * in het land der levenden. – Verlos... 5.
+::: vsb-notatie
+1. Ps.113 [:] Bij de uittocht van Israël uit Egypte, *
+van het huis Jacob uit een vreemd volk. [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] Toen werd Judea Zijn Heiligdom, *
+Israël Zijn machtsgebied. [:] Door...
+3. [:] De zee zag het en vluchtte, *
+de Jordaan week achterwaarts. [:] Door...
+4. [:] Voor het aangezicht des Heren beefde de aarde, *
+voor het aangezicht van de God van Jacob. [:] Door...
+<!-- Liturgikon, p174 -->
+5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
+{\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]  (Door de ....)
+:::
+
+### Tweede Antifoon (Ps.114)
+
+::: vsb-notatie
+1. [:] Ik heb Hem lief, *
+want de Heer verhoort de stem van mijn smeking. [:]
+
+REFREIN [:] Verlos, o Zoon Gods, *
+Die door Joannes in de Jordaan gedoopt zijt, *
+ons die U zingen: Alleluia. [:]
+
+2. [:] Hij heeft Zijn oor naar mij geneigd, *
+in al mijn dagen wil ik Hem aanroepen. [:] Verlos...
+3. [:] Barmhartig en rechtvaardig is de Heer, *
+onze God is genadig. [:] Verlos...
+4. [:] Ik wil den Heer welgevallig zijn *
+in het land der levenden. [:] Verlos...
+<!-- Liturgikon, p174 -->
+5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:] Verlos...
+:::
 
 **3e Ant. Ps.117**
 1. Belijd den Heer want Hij is goed, * in eeuwigheid duurt Zijn erbarmen.
@@ -82,18 +109,42 @@ De Heer schenkt Zijn volk kracht; de Heer zegent Zijn volk met vrede. *Mt. 3;13-
 
 ## 2 feb. OPDRACHT IN DE TEMPEL (Ontmoeting)
 
-**1e Ant. Ps.44**
-1. Een goed woord welt op uit mijn hart, * ik zeg mijn werken aan de Koning. –
-2. – Gij zijt schoon boven alle zonen der mensen, * gratie is uitgestort op uw lippen. – Door... blz. 174
-3. – Daarom heeft God u gezegend * in alle eeuwigheid. – Door...
-4. – Ruk met geluk vooruit en heers * omwille van waarheid, zachtmoedigheid en gerechtigheid.
+### Eerste Antifoon (Ps.44)
 
-**2e Ant. Ps.44**
-1. Uw rechterhand * zal U wonderbaar geleiden. –
-REFREIN: – Verlos, o Zoon Gods, Die gedragen werd in de armen van de rechtvaardige Simeon, * ons die U zingen: Alleluia. –
-2. – God, Uw troon is in de eeuwen der eeuwen, * een scepter van gerechtigheid is de scepter van Uw Rijk. – Verlos... blz. 174
-3. – Daarom heeft God, uw God, U gezalfd * met olie der vreugde boven uw gezellen. – Verlos...
-4. – De Koningin staat aan Uw rechterzijde * met een gewaad van goudbrokaat getooid. – Verlos...
+::: vsb-notatie
+1. Ps.44 [:] Een goed woord welt op uit mijn hart, *
+ik zeg mijn werken aan de Koning. [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] Gij zijt schoon boven alle zonen der mensen, *
+gratie is uitgestort op uw lippen. [:] Door...
+3. [:] Daarom heeft God u gezegend *
+in alle eeuwigheid. [:] Door...
+4. [:] Ruk met geluk vooruit en heers *
+omwille van waarheid, zachtmoedigheid en gerechtigheid. [:]
+:::
+
+### Tweede Antifoon (Ps.44)
+
+::: vsb-notatie
+1. [:] Uw rechterhand *
+zal U wonderbaar geleiden. [:]
+
+REFREIN [:] Verlos, o Zoon Gods, Die gedragen werd in de armen van de rechtvaardige Simeon, *
+ons die U zingen: Alleluia. [:]
+
+2. [:] God, Uw troon is in de eeuwen der eeuwen, *
+een scepter van gerechtigheid is de scepter van Uw Rijk. [:] Verlos...
+3. [:] Daarom heeft God, uw God, U gezalfd *
+met olie der vreugde boven uw gezellen. [:] Verlos...
+4. [:] De Koningin staat aan Uw rechterzijde *
+met een gewaad van goudbrokaat getooid. [:] Verlos...
+<!-- Liturgikon, p174 
+5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:] Verlos... -->
+:::
 
 **3e Ant. Ps.44**
 1. Luister, dochter, zie en neig uw oor, * vergeet uw volk en het huis van...
@@ -126,20 +177,46 @@ Licht tot verlichting der heidenen, en tot glorie van Uw volk Israël. *Lk. 2;22
 
 ## 25 mrt. VERKONDIGING der Blijde Boodschap
 
-**1e Ant. Ps.71**
-1. – God, schenk de Koning Uw oordeel, * uw rechtvaardigheid aan de koningszoon. – Door de gebeden... blz. 174
-2. – De bergen ontvangen vrede voor het volk, * en de heuvelen gerechtigheid. – Door...
-3. – Hij blijft bestaan met de zon en voor de maan, * van geslacht tot geslacht. – Door...
-4. – Hij daalt neer als regen op een vacht, * als regendruppels die in de aarde dringen. – Door...
-5. – Eer... nu... blz. 174
+### Eerste Antifoon (Ps.71)
 
-**2e Ant. Ps.71**
-1. – In Zijn dagen zal gerechtigheid opbloeien * en overvloedige vrede. –
-REFREIN – Verlos, o Zoon Gods, * Die vlees geworden zijt uit de Maagd, * ons die U zingen:
-2. – Hij zal heersen van zee tot zee, * vanaf de stroom tot aan de grenzen der wereld. – Verlos...
-3. – Zijn Naam zij gezegend in eeuwigheid; * langer dan de zon zal Zijn Naam bestaan. – Ref.
-4. – In Hem worden alle stammen der aarde gezegend, * alle volkeren prijzen Hem zalig. – Ref.
-5. – Eer... Eengeboren Zoon... blz. 174
+::: vsb-notatie
+1. Ps.71 [:] God, schenk de Koning Uw oordeel, *
+uw rechtvaardigheid aan de koningszoon. [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] De bergen ontvangen vrede voor het volk, *
+en de heuvelen gerechtigheid. [:] Door...
+3. [:] Hij blijft bestaan met de zon en voor de maan, *
+van geslacht tot geslacht. [:] Door...
+4. [:] Hij daalt neer als regen op een vacht, *
+als regendruppels die in de aarde dringen. [:] Door...
+5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
+{\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]
+<!-- (Door de ....) -->
+:::
+
+### Tweede Antifoon (Ps.71)
+
+::: vsb-notatie
+1. [:] In Zijn dagen zal gerechtigheid opbloeien *
+en overvloedige vrede. [:]
+
+REFREIN [:] Verlos, o Zoon Gods, *
+Die vlees geworden zijt uit de Maagd, *
+ons die U zingen. [:]
+
+2. [:] Hij zal heersen van zee tot zee, *
+vanaf de stroom tot aan de grenzen der wereld. [:] Verlos...
+3. [:] Zijn Naam zij gezegend in eeuwigheid; *
+langer dan de zon zal Zijn Naam bestaan. [:] Verlos...
+4. [:] In Hem worden alle stammen der aarde gezegend, *
+alle volkeren prijzen Hem zalig. [:] Verlos...
+<!-- Liturgikon, p174 -->
+5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:] Verlos...
+:::
 
 **3e Ant.**
 1. Ps.49 – God verschijnt zichtbaar: * onze God zal niet zwijgen. – TROP. blz. 262
@@ -507,17 +584,56 @@ Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 
 ## 20 aug. Profeet Samuel
 
-**TROPARION t.4** – Reeds voor uw ontvangenis waart gij als een kostbare gave aan God gewijd, * en vanaf uw kindsheid hebt gij Hem als een Engel gediend. * Gij waart geroepen om de toekomst te verkondigen. * Daarom roepen wij u toe: * verheug U, Profeet Samuel, grote Hogepriester.
+### Tropaar (Toon 4)
+
+::: vsb-notatie
+<!-- Tropaar Profeet Samuel, Toon 4 (Liturgikon) -->
+[//:] Reeds voor uw ontvangenis waart gij als een kostbare gave aan God gewijd, *
+en vanaf uw kindsheid hebt gij Hem als een Engel gediend. *
+Gij waart geroepen om de toekomst te verkondigen. *
+Daarom roepen wij u toe: *
+verheug U, Profeet Samuel, grote Hogepriester. [//:]
+:::
 
 ## 4 sept. Profeet Mozes, de Godschouwende
 
-**TROPARION t.2** – Gij zijt opgestegen tot de top der deugden * en hebt Gods Heerlijkheid mogen aanschouwen. * Gij hebt van Hem de Tafelen der Wet ontvangen, * die gij diep in uw hart hebt gegrift. * Gij zijt de roem van de scharen der Profeten, * want gij hebt het Mysterie van Gods wezen aanschouwd.
+### Tropaar (Toon 2)
 
-**KONDAKION t.2** – Het koor der Profeten * jubelt heden met Mozes en Aäron, * want in ons is nu hun profetie in vervulling gegaan. * Het kruis, waaraan Gij ons gered hebt, * straalt nu over de gehele wereld. * Door hun gebeden, Christus God, ontferm U onzer.
+::: vsb-notatie
+<!-- Tropaar Profeet Mozes, Toon 2 (Liturgikon) -->
+[/:] Gij zijt opgestegen tot de top der deugden *
+en hebt Gods Heerlijkheid mogen aanschouwen. *
+Gij hebt van Hem de Tafelen der Wet ontvangen, *
+die gij diep in uw hart hebt gegrift. *
+Gij zijt de roem van de scharen der Profeten, *
+want gij hebt het Mysterie van Gods wezen aanschouwd. [:]
+:::
+
+### Kondak (Toon 2)
+
+::: vsb-notatie
+<!-- Kondak Profeet Mozes, Toon 2 (Liturgikon) -->
+Het koor der Profeten *
+jubelt heden met Mozes en Aäron, *
+want in ons is nu hun profetie in vervulling gegaan. *
+Het kruis, waaraan Gij ons gered hebt, *
+straalt nu over de gehele wereld. *
+Door hun gebeden, Christus God, ontferm U onzer.
+:::
 
 ## 7 sept. Voorfeest Geboorte der Moeder Gods
 
-**KONDAKION t.3** Heden wordt de Maagd Maria geboren * uit de onvruchtbare, volgens de Wil van God, * Zij wordt het oneindig Paleis van de hemelse Bruidegom, * gereedgemaakt voor God, het Woord. * Zij is de goddelijke Poort, * en de Moeder van het waarachtige Leven.
+### Kondak (Toon 3)
+
+::: vsb-notatie
+<!-- Kondak Voorfeest Geboorte Moeder Gods, Toon 3 (Liturgikon) -->
+Heden wordt de Maagd Maria geboren *
+uit de onvruchtbare, volgens de Wil van God, *
+Zij wordt het oneindig Paleis van de hemelse Bruidegom, *
+gereedgemaakt voor God, het Woord. *
+Zij is de goddelijke Poort, *
+en de Moeder van het waarachtige Leven.
+:::
 
 ## 8 sept. Geboorte van de Moeder Gods
 
@@ -616,28 +732,78 @@ en daarom {roe_}pen {/wij} tot {\U_}:
 
 ## 14 sept. Kruisverheffing (zie ook blz. 277/8)
 
-**1e Ant. Ps.21**
-1. – God, mijn God, zie naar mij: * waarom hebt Gij Mij verlaten? – blz. 174
-2. – Ik ben ver van mijn heil verwijderd * door de woorden mijner zonden. – Door...
-3. – Mijn God, overdag roep ik tot U, maar Gij verhoort mij niet; * ik roep in de nacht, en het is mij geen dwaasheid. – Door...
-4. – Gij woont in het Heiligdom, Roem van Israël: * op U vertrouwden onze Vaderen, en Gij hebt hen bevrijd. – Door... 5. Eer... blz. 174
+### Eerste Antifoon (Ps.21)
 
-**2e Ant. Ps.73**
-1. – God, waarom hebt Gij ons verstoten tot aan het einde? * Waarom woedt Uw toorn over Uw kudde? –
-REFR. – Verlos, o Zoon Gods, Die in Uw vlees zijt gekruisigd, ons die U zingen: Alleluia.
-2. – Gedenk uw Gemeente * die Gij van den beginne af hebt vrijgekocht. – Verlos...
-3. – Hier is de berg Sion, * die Gij Uzelf als woonplaats hebt uitverkoren. – Verlos...
-4. – God is van eeuwigheid onze Koning: * Hij bewerkt Verlossing in het midden der aarde. –
+::: vsb-notatie
+1. Ps.21 [:] God, mijn God, zie naar mij: *
+waarom hebt Gij Mij verlaten? [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] Ik ben ver van mijn heil verwijderd *
+door de woorden mijner zonden. [:] Door...
+3. [:] Mijn God, overdag roep ik tot U, maar Gij verhoort mij niet; *
+ik roep in de nacht, en het is mij geen dwaasheid. [:] Door...
+4. [:] Gij woont in het Heiligdom, Roem van Israël: *
+op U vertrouwden onze Vaderen, en Gij hebt hen bevrijd. [:] Door...
+5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
+{\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]
+<!-- (Door de ....) -->
+:::
+
+### Tweede Antifoon (Ps.73)
+
+::: vsb-notatie
+1. [:] God, waarom hebt Gij ons verstoten tot aan het einde? *
+Waarom woedt Uw toorn over Uw kudde? [:]
+
+REFREIN [:] Verlos, o Zoon Gods, Die in Uw vlees zijt gekruisigd, *
+ons die U zingen: Alleluia. [:]
+
+2. [:] Gedenk uw Gemeente *
+die Gij van den beginne af hebt vrijgekocht. [:] Verlos...
+3. [:] Hier is de berg Sion, *
+die Gij Uzelf als woonplaats hebt uitverkoren. [:] Verlos...
+4. [:] God is van eeuwigheid onze Koning: *
+Hij bewerkt Verlossing in het midden der aarde. [:] Verlos...
+<!-- Liturgikon, p174 -->
+5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:] Verlos...
+
+:::
 
 **3e Ant. Ps.98**
-1. – De Heer regeert, de volkeren beven; * Hij zetelt op de Cherubim, de aarde siddert. –
 
-**TROPARION t.1** – Heer, red Uw volk en zegen uw erfdeel: * en bescherm uw Gemeente door Uw Kruis.
+::: vsb-notatie
+<!-- Derde Antifoon Kruisverheffing - Liturgikon, p.276 -->
+1. [//:] De Heer regeert, de volkeren {be_}{/ven_}; *
+   Hij zetelt op de Cherubim, de aarde {\sid_}{dert_}. [//:]
+:::
+
+### Tropaar (Toon 1)
+
+::: vsb-notatie
+<!-- Tropaar Kruisverheffing, Toon 1 (Liturgikon, p.275-276) -->
+[//:] Heer, red Uw volk en zegen uw erfdeel: *
+   en bescherm uw Gemeente door Uw Kruis. [//:]
+:::
+
 2. – Groot is de Heer in Sion, * Hij is verheven boven alle volkeren. – Heer, red...
 3. – Dat zij Uw grote Naam belijden, * want Hij is ontzagwekkend en heilig. – Heer...
 4. – Eer... nu... blz. 175
 
-**KONTAKION t.1** – Gij die U vrijwillig op het Kruis hebt verheven, o Christus God, * schenk Uw erbarmingen aan Uw nieuwe Gemeente die naar U genoemd is. * En verblijd ons met uw kracht * in de strijd tegen de vijand. * Want Gij zijt onze Helper * door het onoverwinnelijke Vredeswapen van Uw Kruis.
+### Kondak (Toon 1)
+
+::: vsb-notatie
+<!-- Kondak Kruisverheffing, Toon 1 (Liturgikon, p.277) -->
+[:] Gij die U vrij{/wil_}{/lig_} {\\op} het Kruis hebt verheven, o {/Chris}{/tus} {/God_}, *
+ {\schenk} Uw erbarmingen aan Uw nieuwe Gemeente die naar U ge{\noemd_} {\is_}. *
+En ver{/blijd_} {/ons_} {\\met} {/&/Uw} {/kracht_} *
+ {\in} de strijd tegen de {\vij_}{\and_}. *
+ Want {/&/Gij_&_} {\\zijt} {/on}{/ze} {/Hel_}{per_} *
+// {\door} het onoverwinnelijke Vredeswapen {/van} {Uw_} {\Kruis_}. [//:]
+:::
 
 **KLEINE INTOCHT** (Ps.98) Uw H. Kruis... Verheft de Heer onze God; valt neer voor de steun Zijner voeten, want Hij is heilig. – Verlos...
 
@@ -761,18 +927,46 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 ## Advent
 
-**1e Ant.**
-1. – Dauwt Hemelen van boven * en wolken, regent den Gerechte. – Door... 174
-2. – De aarde opene zich * en spruite den Verlosser voort. – Door...
-3. – Ontspruiten zal een Rijs aan de wortel Jesse * en heel de aarde zal vervuld worden van de heerlijkheid des Heren. – Door...
-4. – Een Ster zal opgaan uit Jacob, * een Maan zal opstaan uit Israël. – Door... 5. Eer... 174
+### Eerste Antifoon
 
-**2e Ant.**
-1. – Zie, de Heer zal komen, * en al Zijn Heiligen met Hem. –
-REFREIN – Verlos, o Zoon Gods, * Die uit de Maagd zijt geboren, * ons die U zingen:
-2. – Hij is de Koning der koningen, * Hij is de Heer der heersers. – Verlos...
-3. – Hij zal onze ongerechtigheden van ons wegnemen, * Onze zonden werpen in het diepste der zee.
-4. – Hij zal heerschappij voeren van zee tot zee * vanaf de stroom tot aan de grenzen der aarde. – Verlos... 5. Eer... blz. 174
+::: vsb-notatie
+1. [:] Dauwt Hemelen van boven *
+en wolken, regent den Gerechte. [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] De aarde opene zich *
+en spruite den Verlosser voort. [:] Door...
+3. [:] Ontspruiten zal een Rijs aan de wortel Jesse *
+en heel de aarde zal vervuld worden van de heerlijkheid des Heren. [:] Door...
+4. [:] Een Ster zal opgaan uit Jacob *
+een Maan zal opstaan uit Israël. [:] Door...
+5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
+{\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]
+<!-- (Door de ....) -->
+:::
+
+### Tweede Antifoon
+
+::: vsb-notatie
+1. [:] Zie, de Heer zal komen, *
+en al Zijn Heiligen met Hem. [:]
+
+REFREIN [:] Verlos, o Zoon Gods, *
+Die uit de Maagd zijt geboren, *
+ons die U zingen. [:]
+
+2. [:] Hij is de Koning der koningen, *
+Hij is de Heer der heersers. [:] Verlos...
+3. [:] Hij zal onze ongerechtigheden van ons wegnemen, *
+Onze zonden werpen in het diepste der zee. [:] Verlos...
+4. [:] Hij zal heerschappij voeren van zee tot zee *
+vanaf de stroom tot aan de grenzen der aarde. [:] Verlos...
+<!-- Liturgikon, p174 -->
+1. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:]
+:::
 
 **3e Ant.**
 1. – De Heer zal aan het einde komen * en Hij zal ons niet misleiden. –
@@ -841,19 +1035,46 @@ Een scepter van kracht zal de Heer U zenden vanuit Sion. Uit de schoot heb Ik U 
 
 ## 25 dec. Geboorte des Heren
 
-**1e Ant. Ps.110**
-1. – U wil ik belijden, Heer, uit heel mijn hart: * al Uw wonderwerken verhalen. – (Ps.9) Door de gebeden... 174
-2. – Groot zijn de werken des Heren, * uitgelezen naar al Zijn welbehagen. – Door...
-3. – Belijdenis en luister is Zijn werk, * Zijn gerechtigheid blijft in de eeuwen der eeuwen. –
-4. – Hij heeft bevrijding gezonden aan Zijn volk * voor eeuwig Zijn Verbond gehouden. – Door...
-5. – Eer... nu... Door... blz. 174
+### Eerste Antifoon (Ps.110)
 
-**2e Ant. Ps.111**
-1. – Gelukkig de mens die den Heer vreest, * die Zijn geboden vurig liefheeft –
-REFREIN – Verlos, o Zoon Gods, * Die uit de Maagd zijt geboren, * ons die U zingen:
-2. – Zijn Zaad zal machtig zijn op aarde, * het geslacht der gerechten zal gezegend zijn. – Ref.
-3. – Heerlijkheid en rijkdom zijn in Zijn Huis: * Zijn gerechtigheid blijft in de eeuwen der eeuwen. –
-4. – In de duisternis is een Licht opgegaan voor de oprechten: * de liefderijke Barmhartige en Rechtvaardige. – Verlos... 5. Eer... blz. 174
+::: vsb-notatie
+1. Ps.110 [:] U wil ik belijden, Heer, uit heel mijn hart: *
+al Uw wonderwerken verhalen. [:]
+
+[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+    {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
+
+2. [:] Groot zijn de werken des Heren, *
+uitgelezen naar al Zijn welbehagen. [:] Door...
+3. [:] Belijdenis en luister is Zijn werk, *
+Zijn gerechtigheid blijft in de eeuwen der eeuwen. [:] Door...
+4. [:] Hij heeft bevrijding gezonden aan Zijn volk *
+voor eeuwig Zijn Verbond gehouden. [:] Door...
+5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
+{\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]
+<!-- (Door de ....) -->
+:::
+
+### Tweede Antifoon (Ps.111)
+
+::: vsb-notatie
+1. [:] Gelukkig de mens die den Heer vreest, *
+die Zijn geboden vurig liefheeft. [:]
+
+REFREIN [:] Verlos, o Zoon Gods, *
+Die uit de Maagd zijt geboren, *
+ons die U zingen. [:]
+
+2. [:] Zijn Zaad zal machtig zijn op aarde, *
+het geslacht der gerechten zal gezegend zijn. [:] Verlos...
+3. [:] Heerlijkheid en rijkdom zijn in Zijn Huis, *
+Zijn gerechtigheid blijft in de eeuwen der eeuwen. [:] Verlos...
+4. [:] In de duisternis is een Licht opgegaan voor de oprechten, *
+de liefderijke Barmhartige en Rechtvaardige. [:] Verlos...
+<!-- Liturgikon, p174 -->
+1. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_},
+{\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:]
+:::
 
 **3e Ant. Ps.109**
 1. – De Heer zeide tot Mijn Heer: zit neder aan Mijn rechterhand, * opdat Ik Uw vijanden make tot een steun onder uw voeten.
