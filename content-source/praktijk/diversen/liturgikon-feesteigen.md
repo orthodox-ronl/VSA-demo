@@ -281,7 +281,7 @@ Ere {\zij} {\Uw} {/&/&/&\&\&\&/macht-&-&-&-&-&-&_}, {o_} {\Heer_}. [:]
 
 *(1 aug: begin van de Moeder-Gods-vasten)*
 
-## Eerste Antifoon (Ps.47)
+### Eerste Antifoon (Ps.47)
 ::: vsa-notatie
 <!-- 1e Antifoon - Verheerlijking op de berg Thabor (Liturgikon, p268) -->
 1. Ps.47 [:] Groot is {/de} {/Heer} en al{\le} {/lof} {/waar__}{\dig_}, *
@@ -305,7 +305,7 @@ Ere {\zij} {\Uw} {/&/&/&\&\&\&/macht-&-&-&-&-&-&_}, {o_} {\Heer_}. [:]
    {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}. {/A_}{\men_}. [:]
 :::
 
-## Tweede Antifoon (Ps.86)
+### Tweede Antifoon (Ps.86)
 ::: vsa-notatie
 <!-- 2e Antifoon - Verheerlijking op de berg Thabor (Liturgikon, p268) -->
 1. [:] {-&/Haar} {/grond}vesten zijn op de hei{\li}{/ge} {/ber__}{\gen_}, *
@@ -330,7 +330,7 @@ Die op {/de} {/Tha_}bor ver{\heer}{/lijkt} {/zijt_},
    {\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:]
 :::
 
-## Derde Antifoon (Ps.88)
+### Derde Antifoon (Ps.88)
 ::: vsa-notatie
 <!-- 3e Antifoon - Verheerlijking op de berg Thabor (Liturgikon, p268-269) -->
 1. [//:] Uw barmhartigheden, {/Heer_}, *
@@ -359,7 +359,6 @@ Gij die ons het {\Licht_} {schenkt_}, {/e}re zij {\U_}. [/:]
    nu en altijd en in de eeuwen der eeuwen. {\A_}{men_}. [//:]
 :::
 
-
 ### Kondak (Toon 7)
 ::: vsa-notatie
 <!-- Kondak Verheerlijking op de berg Thabor, Toon 7 (Liturgikon, p.269) -->
@@ -371,14 +370,14 @@ en aan de {/&\we}{\reld} zouden {/ver}{/kon_}di{gen_}, *
 dat Gij in waarheid zijt de {\Af_}{\glans} {\des} {/Va__}{\ders}. [\:] 
 :::
 
-## Kleine Intocht (Ps.88) 
+### Kleine Intocht (Ps.88) 
 Het Noorden en de Zee hebt Gij geschapen; 
 Thabor en Hermon zullen juichen om Uw Naam. 
 ::: vsa-notatie
 [:] Ver{//los} {\\ons}...
 :::
 
-## Prokimen (Ps.103, Toon 4)
+### Prokimen (Ps.103, Toon 4)
 ::: vsa-notatie
 [//:] Hoe groot zijn Uw werken, o {Heer_}, * 
 Gij hebt {/&\&\al_&-&-}{/les_} met {/Wijs_}{\heid} ge{\maakt_}. [/:]
@@ -394,7 +393,7 @@ Aan U zijn de hemelen, en van U is de aarde; de wereld en haar volheid hebt Gij 
 Zalig is het volk dat weet te juichen; Heer, zij zullen wandelen in het Licht van Uw aanschijn. *Mt. 17;1-9*
 :::
 
-## Prijslied
+### Prijslied
 ::: vsa-notatie
 <!-- Prijslied - Verheerlijking op de berg Thabor (Liturgikon, p270) -->
 [\:] {/&/Ver}{/hef_}, {\mij}{/ne} {\\ziel_}, {/&/met} {/blij}{\\de} {/zang_} *
@@ -408,7 +407,7 @@ en {//geen} {/en}kel ver{\stand_} {\is} in {/staat_} *
 Daarom verheffen wij u met een{/pa_}{\ri}ge {\stem_}. [\:]
 :::
 
-## Communievers (Ps.88)
+### Communievers (Ps.88)
 ::: vsa-notatie
 <!-- Communievers Verheerlijking op de berg Thabor (Liturgikon p.270) -->
 Heer, zij zullen wandelen in het Licht van Uw aanschijn;
@@ -417,13 +416,13 @@ in Uw Naam juichen zij heel de dag.
 
 ## 15 aug. Ontslaping van de Moeder Gods
 
-## Eerste Antifoon
+### Eerste Antifoon
 :::include svg id:antifoon-1-weekdagen/liturgikon-weekdagen/Hemelum alt="1e antifoon weekdagen (Hemelum)":::
 
-## Tweede Antifoon
+### Tweede Antifoon
 :::include svg id:antifoon-2-weekdagen/liturgikon-weekdagen/Hemelum alt="2e antifoon weekdagen (Hemelum)":::
 
-## Derde Antifoon
+### Derde Antifoon
 ::: vsa-notatie
 1. Ps.107 [//:] Mijn hart is bereid, o God, mijn {hart_} is be{/reid_}; *
 ik wil zingen en psalmodiëren in mijn {\Glo_}{rie_}. [//:]
@@ -479,7 +478,7 @@ Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid.
 De Heer heeft naar waarheid gezworen aan David, Hij zal het zeker gestand doen:
 Vrucht van uw lichaam zal Ik plaatsen op uw troon. *Luk. 10;38-42, 11;27-28*
 
-## Prijslied
+### Prijslied
 ::: vsa-notatie
 <!-- Prijslied Ontslaping Moeder Gods (Liturgikon p.272) -->
 [/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
@@ -497,7 +496,7 @@ Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 {\&/die} {/al}{\leen_} {\&/Gods} {\Moe_}{der_} {\zijt_}. [:]
 :::
 
-## Communievers Moeder Gods
+### Communievers Moeder Gods
 ::: vsa-notatie
 <!-- Communievers Moeder Gods (Liturgikon p.90) -->
 [//:] Ik {/zal_} {\de} {\Kelk_} *
@@ -522,7 +521,7 @@ Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 
 ## 8 sept. Geboorte van de Moeder Gods
 
-## Eerste Antifoon
+### Eerste Antifoon
 
 ::: vsa-notatie
 <!-- Liturgikon, 274 -->
@@ -544,7 +543,7 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    {\\God} {/helpt} {/haar} bij het {\eer}{\ste} {/mor_.}gen{\licht_} [:] (refrein)
 :::
 
-## Tweede Antifoon
+### Tweede Antifoon
 
 ::: vsa-notatie
 <!-- Liturgikon, pp.270 -->
@@ -564,7 +563,7 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
    Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:] (refrein)
 :::
 
-## Derde Antifoon
+### Derde Antifoon
 
 ::: vsa-notatie
 1. Ps. 131 [//:] Daar zal Ik {wo_}{/nen_},
