@@ -28,7 +28,7 @@ Vereist sibling-checkouts (of `vendor/`) van **bron** en **VSA-tooling**:
 
 ```cmd
 cd /d C:\Git\orthodox-ronl\VSA-demo
-scripts\bootstrap.cmd
+check
 ```
 
 ## Vóór commit
@@ -38,13 +38,13 @@ scripts\bootstrap.cmd
 
 ```cmd
 cd /d C:\Git\orthodox-ronl\VSA-demo
-scripts\check.cmd --strict
+check --strict
 ```
 
 Optioneel (externe links; in CI non-blocking, lokaal wél hard fail):
 
 ```cmd
-scripts\check.cmd --strict --external
+check --strict --external
 ```
 
 Daarna mag je committen. Push naar `main` triggert Pages-deploy.
@@ -54,7 +54,7 @@ Daarna mag je committen. Push naar `main` triggert Pages-deploy.
 Na een geslaagde `check.cmd --strict`:
 
 ```cmd
-scripts\serve-hugo.cmd --no-build
+serve --no-build
 ```
 
 Open http://localhost:1313/
@@ -62,13 +62,13 @@ Open http://localhost:1313/
 Volledige preview inclusief opnieuw genereren:
 
 ```cmd
-scripts\serve-hugo.cmd
+serve
 ```
 
 Alleen artifact in `generated\site` (zonder server):
 
 ```cmd
-scripts\build-hugo.cmd
+build
 ```
 
 ## Commits

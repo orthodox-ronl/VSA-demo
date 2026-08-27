@@ -2,17 +2,11 @@
 setlocal EnableExtensions
 cd /d %~dp0\..
 
-REM Gedeelde build-/check-keten. Niet direct aanroepen.
-REM Gebruik check.cmd, build-hugo.cmd of serve-hugo.cmd.
-REM
-REM Omgevingsvariabelen (optioneel, voor aanroeper):
-REM   PIPELINE_STRICT=1      validate_content.py --fail-on-warnings
-REM   PIPELINE_SKIP_HUGO=1   stop na generate (geen hugo/linkcheck)
-REM   PIPELINE_EXTERNAL=1    ook externe http(s)-links checken
-REM   PIPELINE_TITLE=...     banner (default: VSA-demo pipeline)
+call scripts\_ensure.cmd --hugo --vsa --catalogus --vsa-tool --import vsa --import yaml
+if errorlevel 1 exit /b 1
 
 set "PY=python"
-if exist .venv\Scripts\python.exe set "PY=.venv\Scripts\python.exe"
+
 
 if not defined PIPELINE_TITLE set "PIPELINE_TITLE=VSA-demo pipeline"
 

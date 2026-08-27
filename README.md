@@ -22,13 +22,13 @@ Bijdragen: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```cmd
 cd /d C:\Git\orthodox-ronl\VSA-demo
-scripts\check.cmd --strict
+check --strict
 ```
 
 Optioneel — externe `http(s)`-links (in CI non-blocking; lokaal hard fail):
 
 ```cmd
-scripts\check.cmd --strict --external
+check --strict --external
 ```
 
 | Optie         | Effect                                      |
@@ -48,17 +48,12 @@ C:\Git\orthodox-ronl\
   VSA-demo\
 ```
 
-Eerste keer / na tool-update:
+Eerste keer / na tool-update: `check` of `serve` (installeert packages zelf).
+
+Na een geslaagde `check --strict` — preview zonder opnieuw te genereren:
 
 ```cmd
-cd /d C:\Git\orthodox-ronl\VSA-demo
-scripts\bootstrap.cmd
-```
-
-Na een geslaagde `check.cmd --strict` — preview zonder opnieuw te genereren:
-
-```cmd
-scripts\serve-hugo.cmd --no-build
+serve --no-build
 ```
 
 Open http://localhost:1313/
@@ -66,13 +61,13 @@ Open http://localhost:1313/
 Volledige preview (sync + validate + generate + server):
 
 ```cmd
-scripts\serve-hugo.cmd
+serve
 ```
 
 Volledige sitebuild + interne linkcheck (artifact in `generated\site`):
 
 ```cmd
-scripts\build-hugo.cmd
+build
 ```
 
 ## Structuur
@@ -82,14 +77,14 @@ scripts\build-hugo.cmd
 | `content-source/` | Broncontent (bewerken), inclusief `lokaal/` — zie [CONTENT-STRUCTURE.md](CONTENT-STRUCTURE.md) |
 | `layouts/`        | Hugo-templates en shortcodes                     |
 | `static/`         | CSS, favicons; gegenereerde SVG in `static/vsa/` |
-| `scripts/`        | Bootstrap, sync, build, check, serve             |
+| `scripts/`        | `check`, `serve`, `build`, `_ensure` |
 | `_deferred/`      | Uitgesteld: TEv2                                 |
 
 ## Afhankelijkheden
 
-- Python ≥ 3.12
-- Hugo ≥ 0.156 (vereist voor `hugo.Data` in layouts; lokaal getest met 0.160)
-- `catalogus` uit [bron](https://github.com/orthodox-ronl/bron) (via bootstrap)
+- Python 3.14
+- Hugo Extended 0.160.1
+- `catalogus` uit [bron](https://github.com/orthodox-ronl/bron) (via `_ensure`)
 - `vsa-tool[rendering]` uit [VSA-tooling](https://github.com/orthodox-ronl/VSA-tooling)
 
 ## CI-checks
@@ -99,7 +94,7 @@ scripts\build-hugo.cmd
 | `validate.yml`  | pull request     | sync, validate (+warnings), generate, hugo, interne links/assets | externe links        |
 | `pages.yml`     | push / handmatig | hetzelfde + deploy naar `gh-pages`                               | externe links        |
 
-Lokaal equivalent: `scripts\check.cmd --strict` (zie [CONTRIBUTING.md](CONTRIBUTING.md)).
+Lokaal equivalent: `check --strict` (zie [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## GitHub Pages
 
