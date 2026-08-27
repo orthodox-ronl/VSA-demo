@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zondagen on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/</link><description>Recent content in Zondagen on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/index.xml" rel="self" type="application/rss+xml"/><item><title>Antifonen - zondag (Groningen)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/antifonen-zondag-groningen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/antifonen-zondag-groningen/</guid><description>&lt;h2 id="antifonen---zondag-groningen"&gt;Antifonen - zondag (Groningen)&lt;/h2&gt;
+&lt;p&gt;Op &lt;strong&gt;zondag&lt;/strong&gt; worden in Slavische traditie vaak de &lt;strong&gt;Typika-psalmen&lt;/strong&gt; (1e en 2e) en de &lt;strong&gt;Zaligsprekingen&lt;/strong&gt; (3e) gezongen — gangbaar ook “1e/2e/3e antifoon” genoemd. Hier de koormap-scans uit &lt;strong&gt;bron&lt;/strong&gt; via logische id (&lt;code&gt;bron:…&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Zie ook &lt;a href="https://github.com/orthodox-ronl/bron/blob/main/docs/specs/terminologie.md"&gt;terminologie — vier niveaus&lt;/a&gt;
+: elk nummer is een &lt;strong&gt;eigen zangstuk-id&lt;/strong&gt; (&lt;code&gt;antifoon-1-zondag&lt;/code&gt;, …), niet één zangstuk “antifoon”.&lt;/p&gt;
+&lt;details&gt;
+ &lt;summary&gt;1e antifoon (zondag)&lt;/summary&gt;
+&lt;embed src="../../../vsa/koormap-003.pdf" type="application/pdf" class="scan-pdf" title="1e antifoon zondag (koormap Groningen)" /&gt;
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;2e antifoon (zondag)&lt;/summary&gt;
+&lt;embed src="../../../vsa/koormap-005.pdf" type="application/pdf" class="scan-pdf" title="2e antifoon zondag (koormap Groningen)" /&gt;
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;3e antifoon — Zaligsprekingen (zondag)&lt;/summary&gt;
+&lt;embed src="../../../vsa/koormap-008-zaligsprekingen.pdf" type="application/pdf" class="scan-pdf" title="Zaligsprekingen zondag (koormap Groningen)" /&gt;
+&lt;p&gt;Alias in catalogus: &lt;code&gt;zaligsprekingen&lt;/code&gt; → &lt;code&gt;antifoon-3-zondag&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Demo: exporttypes</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/export-demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/export-demo/</guid><description>&lt;div class="web-only"&gt;&lt;h1 id="exporttypes-svg--coria--mxl"&gt;Exporttypes (svg · coria · mxl)&lt;/h1&gt;
+&lt;p&gt;Demonstratie van exportmechanismen op één &lt;code&gt;.vsa&lt;/code&gt;-bron.
+Conversie (&lt;code&gt;vsa svg&lt;/code&gt;, &lt;code&gt;vsa musicxml&lt;/code&gt;) gebeurt in de build; deze pagina toont export.&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class="keep-together" style="width: 100%"&gt;&lt;h2 id="svg-afdruk--online"&gt;SVG (afdruk + online)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-export-demo-block-1.svg" alt="Tropaar toon 3" style="width: 570px" loading="lazy"&gt;&lt;/div&gt;
+&lt;h2 id="coria-online-oefenen"&gt;Coria (online oefenen)&lt;/h2&gt;
+&lt;p class="coria-play"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/coria/praktijk/zondagen/tropaar-zondag-toon-3.html" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="mxl-bewerking"&gt;MXL (bewerking)&lt;/h2&gt;
+&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/mxl/praktijk/zondagen/tropaar-zondag-toon-3.mxl" download&gt;Download MusicXML&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>Kondak van de zondag - toon 1</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-1/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-2/"&gt;Volgende: Kondak (toon 2)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-1-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Ver{/re_}{/zen_} {\\zijt} Gij uit het {/graf} {/in} {/heer_}lijk{heid_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\Gij} hebt de wereld met U mede {\op_}ge{\wekt_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/&amp;amp;/al_&amp;amp;_}{\\les} wat sterfelijk is prijst {/U} {/als} {/God_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\want} de dood is ver{\nie_}{\tigd_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;o Ge{/bie_}{/der_}, {\\A}dam jubelt en Eva {/is} {/ver}{/heugd_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\want} heden zijn zij van de {\boe_}ien be{\vrijd_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zij {/roe_}{/pen_}: {\\Gij} zijt {/het}, {/o} {/Chris_}tus,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {\die} aan allen de {/op_}standing {\schenkt}. [//:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 2</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-2/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-1/"&gt;Vorige: Kondak (toon 1)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-3/"&gt;Volgende: Kondak (toon 3)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-2-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[/:] Uit het {/graf_} zijn Gij, o Verlos{/ser}, {/op_}{\ge_}{\staan_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gij Al{\mach_}ti{\ge_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/toen} de {/ha_}des dit wonder {/aan}{/&amp;amp;\schouw_&amp;amp;_}{\de_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;was hij ver{\sla_}{\gen_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/toen} de {/sche_}pping zag dat de doden wa{/ren} {/op_}{\ge_}{\staan_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;was zij vervuld met {\vreu_}{\gde_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Adam} {/ju_}belt en het heelal zingt U lof ten al{/le} {/&amp;amp;\tij_&amp;amp;_}{\den_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// Gij {\mijn} {/Ver}{/&amp;amp;\&amp;amp;/los_&amp;amp;~&amp;amp;~}{\ser_} {\en_} {\Heer_}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 3</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-3/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-2/"&gt;Vorige: Kondak (toon 2)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-4/"&gt;Volgende: Kondak (toon 4)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-3-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[\\:] Uit {/het} {/graf} zijt {\Gij} {/thans} {/&amp;amp;/op}ge{staan_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;o Barm{\har_}{\ti}{\ge} {\Heer_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gij {/hebt} {/ons} geleid {\uit} {/de} {/&amp;amp;/poor}ten des {doods_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Heden jubelen Adam en Eva vol {\&amp;amp;\&amp;amp;\vreug_&amp;amp;~&amp;amp;~}{\de_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;de {/pro}{/fe}ten en {\pa}{/tri}{/&amp;amp;/ar}{chen_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bezingen {\U} {/zon}{/der} {/&amp;amp;\ein_&amp;amp;_}{\de_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De goddelijke macht van Uw {Heer_}schappij
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {\zij} {\ge}{/&amp;amp;/&amp;amp;/&amp;amp;\&amp;amp;\&amp;amp;\loofd..&amp;amp;..&amp;amp;..&amp;amp;..&amp;amp;..&amp;amp;..}, {/o} {\Heer__}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 4</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-4/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-3/"&gt;Vorige: Kondak (toon 3)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-5/"&gt;Volgende: Kondak (toon 5)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-4-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[\:] Mijn Heiland en Verlosser heeft als Barm{har_}{/tige} {\Heer_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/de}genen die op aarde zijn ge{bo_}{\ren_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uit de graven {op_}{/ge_}{\wekt} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/en} van de {boe_}ien be{\vrijd_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De poorten van de hades heeft Hij ver{-&amp;amp;/bro_&amp;amp;_}{\ken_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/als} Ge{bie_}der en {\Heer_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// en na drie dagen is Hij {op_}{\ge_}{/staan_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 5</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-5/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-4/"&gt;Vorige: Kondak (toon 4)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-6/"&gt;Volgende: Kondak (toon 6)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-5-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[///:] In de {ha_}des {\zijt} {/Gij} {/ne_}{\\der}ge{daald_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{//Gij}, mijn Ver{-&amp;amp;\&amp;amp;\lo_&amp;amp;-&amp;amp;-}{/sser},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;als Al{mach_}tige hebt Gij de poorten {\\ver}{/&amp;amp;\brij_&amp;amp;~}{\zeld_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{///als} {Schep_}per hebt Gij de {\do}{/den} {/op_}{\\ge}{wekt_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{//en} de prikkel des doods ver{-&amp;amp;\&amp;amp;\nie_&amp;amp;~&amp;amp;~}{/tigd_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{Gij_} hebt Adam van de vloek bevrijd, o {\\Mens}{/lie_}{\ven}{\de_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{///laat_} ons daarom {\tot} {/U} {/roe_}{\\pen_}:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {//kom} en ver{\&amp;amp;\los_&amp;amp;_} {\&amp;amp;/ons_&amp;amp;~}, {\o} {\Heer_}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 6</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-6/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-5/"&gt;Vorige: Kondak (toon 5)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-7/"&gt;Volgende: Kondak (toon 7)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-6-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Met Zijn le{/ven}{/schen_}kende {\hand_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\heeft} Hij {/de} {/do}den opgewekt uit het dal {\der} {/duis_}{\ter_}{\nis_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/De} Levenschenken{/de}, {/Chris_}{tus_} {\God_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\heeft} aan {/het} {/men}selijk geslacht de opstanding {\ge}{/&amp;amp;\schon_&amp;amp;_}{\ken_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Hij} is waarlijk de Heiland {/van} {/al_}{\len_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\Hij} is de {/ver}{/rij}zenis en {\het} {/&amp;amp;\le_&amp;amp;_}{\ven_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Hij} is {/de} {/God_} {en_} {\Heer_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {\\van} {//he}mel {\en} {/&amp;amp;\aar_&amp;amp;_}{\de_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 7</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-7/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-6/"&gt;Vorige: Kondak (toon 6)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-8/"&gt;Volgende: Kondak (toon 8)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-7-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[/:] Het {/do}{\den}{\rijk} is niet in staat de doden gevangen te {-&amp;amp;/hou}{/den_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;want Christus is {af_}ge{\daald_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;en {/heeft} {\zijn} {\kracht} ver{-&amp;amp;/nie}{/tigd_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De hades werd ge{bon_}{\den_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Een{/stem}{\mig} {\ju}belen en roepen de pro{-&amp;amp;/fe}{/ten_}: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;de Verlosser is aan hen die geloven ver{sche_}{\nen_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {/Hij} sprak: ver{\heft_} {\u}, {\sta} {/op_} uit de {\dood_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Kondak van de zondag - toon 8</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/kondak-toon-8/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../kondak-toon-7/"&gt;Vorige: Kondak (toon 7)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-kondak-toon-8-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Toen {/Gij} {/uit} {/het} graf {\zijt} opgestaan, hebt Gij de doden {\op}ge{\wekt_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;en {/met} {/U} {/is} Adam weer ver{\re_}{\zen_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De {/ein}{/den} {/der} aar{\de} {\ju}be{\len_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;om{/dat} {/Gij} {/ont}waakt {\zijt} uit de doden, Gij enig barm{\har_}tige {\Heer_}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 1</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-1/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-2/"&gt;Volgende: Tropaar (toon 2)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-1-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Ter{/&amp;amp;/wijl_&amp;amp;_} {\\de} steen door de israëlie{/ten} {/ver}{/ze_}geld {was_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\en} de soldaten Uw allerzuiverst lichaam be{\waak_}{\ten_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;O, Ver{/los_}{/ser_}, {\\zijt} Gij na drie {/da}{/gen} {/op_}gestaan
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\om} aan de wereld het Leven te {\schen_}{\ken_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Daarom {/roe_}{/pen_} {\\de} hemelse mach{/ten} {/U} {/toe_}:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\O} Levenschenker, {\e_}re zij {\U_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/e_}{/re_} {\\zij} Uw verrijze{/nis}, {/o} {/Chris_}{tus_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\e}re {\zij} {/Uw} {/Ko_}ning{schap_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\e}re zij {\Uw} {/Voor}{/zie_}nig{heid_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {\Gij} enig Mens{\lie_}{ven_}{\de_} [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 2</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-2/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-1/"&gt;Vorige: Tropaar (toon 1)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-3/"&gt;Volgende: Tropaar (toon 3)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-2-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[/:] Toen {/Gij_} tot de dood {/zijt} {/ne_}{\der}ge{\daald_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\Gij} onsterfelijk {\le_}{\ven_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/hebt} Gij de {/ha_}des gedood door het hemellicht {/der} {/God_}{\heid}, o {\Heer_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;de gestorvenen hebt Gij opgewekt uit het {\do_}den{\rijk_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Al}le {/he_}melse machten hebben U toe {/ge}{/&amp;amp;\roe_&amp;amp;_}{\pen_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gij Schenker van het {\le_}{\ven_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {//O} Christus {\on}{/ze} {/&amp;amp;\&amp;amp;/God_&amp;amp;~&amp;amp;~}, {\e_}{\re} zij {\U_} [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 3</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-3/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-2/"&gt;Vorige: Tropaar (toon 2)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-4/"&gt;Volgende: Tropaar (toon 4)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-3-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[\\:] Dat {//he}melse en {\aard}{/se} {/&amp;amp;/we}{zens_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jubelen en zich ver{\&amp;amp;\&amp;amp;\blij_&amp;amp;~&amp;amp;~}{\den_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;want {/de} {/Heer} heeft de kracht van Zijn {\arm} {/ge}{/&amp;amp;/o}pen{baard_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Uit de doden was Hij de eerstge{/bo_}re{\ne_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uit de schoot van de {-&amp;amp;\ha}{/des} {/heeft} {/Hij_} {\ons} ver{\lost_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// en aan de wereld grote ge{na_}{\de} {\ge}{/&amp;amp;/&amp;amp;/&amp;amp;\&amp;amp;\&amp;amp;\&amp;amp;/schon..&amp;amp;..&amp;amp;..&amp;amp;..&amp;amp;..&amp;amp;..&amp;amp;~}{\ken__}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 4</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-4/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-3/"&gt;Vorige: Tropaar (toon 3)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-5/"&gt;Volgende: Tropaar (toon 5)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-4-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [\:] Toen zij van de {-&amp;amp;/en_&amp;amp;_}/{\gel_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/de} blijde boodschap van de opstanding hadden ver{no_}{\men_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wierpen zij {van_} {/zich_} {\af_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/de} veroordeling van de {voor_}ou{\ders_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De vrouwen die de Heer {-&amp;amp;/dien_&amp;amp;_}{\den_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/rie}pen jubelend tot de a{pos_}te{\len_}: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ver{nie_}{/tigd} is de {\dood_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/want} opgestaan is {Chris_}tus {\God_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// om aan de wereld te schenken de grote ge{-&amp;amp;\na_&amp;amp;_}{/de_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 5</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-5/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-4/"&gt;Vorige: Tropaar (toon 4)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-6/"&gt;Volgende: Tropaar (toon 6)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-5-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[////:] {Komt_} ge{/lo_}{\\vi}{gen_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{//laat} ons aanbidden en be{-&amp;amp;\&amp;amp;\zin_&amp;amp;-&amp;amp;-}{/gen_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;het met de {Va_}der en de Geest me{\\de}{/eeu_}wi{\ge} {\woord_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{///dat_} uit de Maagd omwille van onze verlossing {\is}{/ge} {/bo_}{\\ren_}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{//want} Hij heeft zich ver{-&amp;amp;\&amp;amp;\waar_&amp;amp;~&amp;amp;~}{/digd_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;om zich in het vlees aan het Kruis te {\\ver}{/&amp;amp;\hef_&amp;amp;~}{\fen_},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{///Hij_} heeft de {/dood_} {\\on}der{gaan_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{//en} door Zijn roemrijke ver{rij_}{\&amp;amp;\ze}{/nis}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {/heeft} Hij de {\do_}{\den_} {\op_}{/&amp;amp;\ge}{\wekt_} [/:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 6</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-6/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-5/"&gt;Vorige: Tropaar (toon 5)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-7/"&gt;Volgende: Tropaar (toon 7)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-6-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Scharen der engelen wa{/ren} {/aan_} {Uw_} {\graf_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\de} wach{/ters} {/la}gen als {\ge}{/&amp;amp;\stor_&amp;amp;_}{\ven_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Bij} het graf stond Maria Mag{/da}{/le_}{\na_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\zoe}kend {/het} {/al}lerzuiverst li{\chaam} {/van_} {\haar_} {\Heer_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Gij} hebt de hades gevangen {/ge}{/no_}{\men_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\zon}der {/er}{/door} {\ver}{/strikt_} {\te_} {\zijn_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Tot} de Maagd zijt Gij {/ge}{/ko_}{\men_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{\\&amp;amp;/Gij} {/die} {\het} {/le_}{\ven_} {\schenkt_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{/Uit} de doden zijt {/Gij} {/op_}{ge_}{\staan_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {\\&amp;amp;/e}{/re} {\zij} {/U_}, {\o_} {\Heer_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 7</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-7/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-6/"&gt;Vorige: Tropaar (toon 6)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-8/"&gt;Volgende: Tropaar (toon 8)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-7-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[/:] Door Uw {/Kruis} {\zijt} {\Gij} de overwinnaar van {/de} {/dood_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Voor de moordenaar hebt Gij het paradijs ge{o_}{\pend_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;De {/droef}{\heid} {\van} de myrondraagsters aan {/het} {/graf_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hebt Gij in vreugde ver{an_}{\derd_}.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Ge{/zon}{\den} {\hebt} Gij hen naar de apos{/te}{/len_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;om te verkondigen dat Gij zijt opgestaan, o {Chris_}tus {\God_}, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// {/om} aan de wereld te schenken de {\gro_}{\te} {\ge}{/na_}{\de_}. [\:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Tropaar van de zondag - toon 8</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/tropaar-toon-8/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../"&gt;Overzicht praktijkvoorbeelden&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="../tropaar-toon-7/"&gt;Vorige: Tropaar (toon 7)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaar-toon-8-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[:] Uit {/de} {/ho}{/ge} zijt {\Gij} neergedaald, o Barm{\har_}ti{\ge_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Drie {/da}{/gen} {/zijt} Gij {\in} het graf ge{\ble_}{\ven_} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;om {/ons} {/van} {/het} lij{\den} te ver{\los_}{\sen_}. 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Gij {/zijt} {/ons} {/le}ven {\en} onze verrijzenis, Heer, {\e_}re zij {\U_}. [:]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Zondag - toon 1</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-1/</guid><description>&lt;h1 id="zondag---toon-1"&gt;Zondag - Toon 1&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-1"&gt;Tropaar (Toon 1)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-1-block-1.svg" alt="Tropaar van de zondag, Toon 1" style="width: 532px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-1.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-1"&gt;Kondak (Toon 1)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-1-block-2.svg" alt="Kondak van de zondag, Toon 1" style="width: 444px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-1.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-1.jpg" alt="Tropaarmelodie (Toon 1)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 2</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-2/</guid><description>&lt;h1 id="zondag---toon-2"&gt;Zondag - Toon 2&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-2"&gt;Tropaar (Toon 2)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-2-block-1.svg" alt="Tropaar van de zondag, Toon 2" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-2.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-2"&gt;Kondak (Toon 2)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-2-block-2.svg" alt="Kondak van de zondag, Toon 2" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-2.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-2.jpg" alt="Tropaarmelodie (Toon 2)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 3</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-3/</guid><description>&lt;h1 id="zondag---toon-3"&gt;Zondag - Toon 3&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-3"&gt;Tropaar (Toon 3)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-3-block-1.svg" alt="Tropaar van de zondag, Toon 3" style="width: 570px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-3.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-3"&gt;Kondak (Toon 3)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-3-block-2.svg" alt="Kondak van de zondag, Toon 3" style="width: 446px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-3.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-3.jpg" alt="Tropaarmelodie (Toon 3)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 4</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-4/</guid><description>&lt;h1 id="zondag---toon-4"&gt;Zondag - Toon 4&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-4"&gt;Tropaar (Toon 4)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-4-block-1.svg" alt="Tropaar van de zondag, Toon 4" style="width: 544px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-4.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-4"&gt;Kondak (Toon 4)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-4-block-2.svg" alt="Kondak van de zondag, Toon 4" style="width: 524px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-4.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-4.jpg" alt="Tropaarmelodie (Toon 4)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 5</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-5/</guid><description>&lt;h1 id="zondag---toon-5"&gt;Zondag - Toon 5&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-5"&gt;Tropaar (Toon 5)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-5-block-1.svg" alt="Tropaar van de zondag, Toon 5" style="width: 601px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-5.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-5"&gt;Kondak (Toon 5)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-5-block-2.svg" alt="Kondak van de zondag, Toon 5" style="width: 557px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-5.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-5.jpg" alt="Tropaarmelodie (Toon 5)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 6</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-6/</guid><description>&lt;h1 id="zondag---toon-6"&gt;Zondag - Toon 6&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-6"&gt;Tropaar (Toon 6)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-6-block-1.svg" alt="Tropaar van de zondag, Toon 6" style="width: 465px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-6.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-6"&gt;Kondak (Toon 6)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-6-block-2.svg" alt="Kondak van de zondag, Toon 6" style="width: 578px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-6.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-6.jpg" alt="Tropaarmelodie (Toon 6)" style="width: 90%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 7</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-7/</guid><description>&lt;h1 id="zondag---toon-7"&gt;Zondag - Toon 7&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-7"&gt;Tropaar (Toon 7)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-7-block-1.svg" alt="Tropaar van de zondag, Toon 7" style="width: 536px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-7.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-7"&gt;Kondak (Toon 7)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-7-block-2.svg" alt="Kondak van de zondag, Toon 7" style="width: 611px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-7.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-7.jpg" alt="Tropaarmelodie (Toon 7)" style="width: 100%" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Zondag - toon 8</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/zondagen/zondag-toon-8/</guid><description>&lt;h1 id="zondag---toon-8"&gt;Zondag - Toon 8&lt;/h1&gt;
+&lt;h2 id="tropaar-toon-8"&gt;Tropaar (Toon 8)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-8-block-1.svg" alt="Tropaar van de zondag, Toon 8" style="width: 562px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "tropaar-zondag-toon-8.vsa" label="Deze tropaar oefenen in Coria"::: --&gt;
+&lt;h2 id="kondak-toon-8"&gt;Kondak (Toon 8)&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-zondag-toon-8-block-2.svg" alt="Kondak van de zondag, Toon 8" style="width: 679px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;!-- :::include coria "kondak-zondag-toon-8.vsa" label="Deze kondak oefenen in Coria"::: --&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-zondagen-tropaarmelodie-toon-8.jpg" alt="Tropaarmelodie (Toon 8)" style="width: 85%" loading="lazy"&gt;&lt;/div&gt;</description></item></channel></rss>
