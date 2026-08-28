@@ -1,9 +1,11 @@
+<!-- titelblad -->
 # FEESTEIGEN
 
 Dit bestand is ontstaan door het 'Feesteigen' deel van het Liturgikon (p253-293),
 in te scannen waardoor de kale teksten overbleven, iņ een markdown structuur te 
 zetten, en tenslotte (een begin te maken met het) van VSA notatie te voorzien.
 
+<!-- pagina 253 -->
 ## 1 jan. BESNIJDENIS DES HEREN. Nieuwjaar.
 
 **TROP. t.1** – Gij die zetelt op de vlammende Troon, * tezamen met de beginloze Vader en de Goddelijke Geest, * zijt vrijwillig op aarde geboren, * zonder menselijke vader, * uit een maagdelijke Moeder * volgens Uw eeuwig raadsbesluit. * Daarom zijt Gij ook op de achtste dag besneden: * ere zij Uw voorzienigheid; * ere zij Uw nederdaling, * want Gij zijt de enig Menslievende.
@@ -23,6 +25,7 @@ Zegen, Heer, de jaarkrans Uwer {\goed_}{\heid_}. *
 
 *Zondags: zie blz. 293*
 
+<!-- pagina 254 -->
 ## 6 jan. DOOP DES HEREN
 
 ### Eerste Antifoon (Ps.113)
@@ -66,6 +69,7 @@ in het land der levenden. [:] Verlos...
 {\\en} {/aan} {/de} {\Hei_}lige {\Geest_}. [:] Verlos...
 :::
 
+<!-- pagina 255 -->
 **3e Ant. Ps.117**
 1. Belijd den Heer want Hij is goed, * in eeuwigheid duurt Zijn erbarmen.
 
@@ -81,6 +85,7 @@ in het land der levenden. [:] Verlos...
 des Heren. God is Heer: Hij is ons verschenen,
 Verlos... i.p.v. Trisagion: Gij allen... blz. 58
 
+<!-- pagina 256 -->
 **PROKIMEN Ps.117 t.4**
 Gezegend Hij die komt in de Naam des Heren: * God is Heer, Hij is ons verschenen.
 Belijdt den Heer want Hij is goed: in eeuwigheid duurt Zijn erbarmen.
@@ -93,6 +98,7 @@ De Heer schenkt Zijn volk kracht; de Heer zegent Zijn volk met vrede. *Mt. 3;13-
 
 **COMM:** Verschenen is de genade Gods, die verlossing brengt aan heel de wereld. *Tit. 2;11*
 
+<!-- pagina 257 -->
 ## 17 jan. Antonios de Grote, Vader der Monniken
 
 **TROPARION t.4** – In de vurige ijver van Elia * hebt gij de rechte paden van de Doper gevolgd. * Daarom hebt gij de woestijn bewoond * en de wereld vast doen staan door uw gebeden. * Heilige Vader Antonios, * bid tot Christus God * om onze zielen te redden.
@@ -107,6 +113,7 @@ De Heer schenkt Zijn volk kracht; de Heer zegent Zijn volk met vrede. *Mt. 3;13-
 
 ## 28 jan. Efraim de Syriër
 
+<!-- pagina 258 -->
 ## 2 feb. OPDRACHT IN DE TEMPEL (Ontmoeting)
 
 ### Eerste Antifoon (Ps.44)
@@ -149,7 +156,9 @@ met een gewaad van goudbrokaat getooid. [:] Verlos...
 **3e Ant. Ps.44**
 1. Luister, dochter, zie en neig uw oor, * vergeet uw volk en het huis van...
 
-**TROPARION t.1** – Verheug u, Hoogbegenadigde * Moeder Gods en Maagd: * want uit U is opgegaan de Zon der Gerechtigheid: * Christus onze God, * om hen te verlichten, die in de duisternis gezeten zijn. * Verheug u ook, rechtvaardige Grijsaard, * want in uw armen hebt gij gedragen de Bevrijder onzer zielen, * Die ons ook de Opstanding schenkt.
+**TROPARION t.1** – Verheug u, Hoogbegenadigde * Moeder Gods en Maagd: * want uit U is opgegaan de Zon der Gerechtigheid: * Christus onze God, * om hen te verlichten, die in de duisternis gezeten zijn. * 
+<!-- pagina 259 -->
+Verheug u ook, rechtvaardige Grijsaard, * want in uw armen hebt gij gedragen de Bevrijder onzer zielen, * Die ons ook de Opstanding schenkt.
 2. – Zij zullen Uw Naam gedenken * van geslacht tot geslacht. – Verheug...
 3. – Daarom zullen de volken U belijden in eeuwigheid, * en in de eeuwen der eeuwen. –
 4. – Eer... nu... blz. 175
@@ -165,7 +174,9 @@ Machtigen heeft Hij neergehaald van de troon, maar geringen heeft Hij verheven. 
 **ALLELUIA** Nu laat Gij, o Heer, Uw dienaar heengaan in vrede volgens Uw woord, want mijn ogen hebben Uw Heil aanschouwd.
 Licht tot verlichting der heidenen, en tot glorie van Uw volk Israël. *Lk. 2;22-40*
 
-**PRIJSLIED** – De Wet die slechts een dode letter wordt, * wordt voor de gelovigen tot een voorafbeelding. * Nu wordt dit gebod voor ons zichtbaar: * al het mannelijke dat de moederschoot opent, * zal aan God worden toegeheiligd. * Daarom verheffen wij de Eengeboren Zoon van de eeuwige Vader, * Die de Eerstgeborene is geworden van een altijdmaagdelijke Moeder.
+**PRIJSLIED** – De Wet die slechts een dode letter wordt, * wordt voor de gelovigen tot een voorafbeelding. * 
+<!-- pagina 260 -->
+Nu wordt dit gebod voor ons zichtbaar: * al het mannelijke dat de moederschoot opent, * zal aan God worden toegeheiligd. * Daarom verheffen wij de Eengeboren Zoon van de eeuwige Vader, * Die de Eerstgeborene is geworden van een altijdmaagdelijke Moeder.
 
 **COMM.VERS** – Ik zal de Kelk... blz. 90
 
@@ -175,6 +186,7 @@ Licht tot verlichting der heidenen, en tot glorie van Uw volk Israël. *Lk. 2;22
 
 **KONDAKION t.6** – Gij waart rijk aan goddelijke genaden * en uw daden hebben uw roeping getoond. * Door gebed en vasten hebt gij behaagd aan Christus God * en gij waart vervuld van Heilige Geest. * Gij hebt de zieken genezen * en de vijanden verdreven. * Wees een voortdurende beschermer van onze zielen, * heilige Vader Benedictus.
 
+<!-- pagina 261 -->
 ## 25 mrt. VERKONDIGING der Blijde Boodschap
 
 ### Eerste Antifoon (Ps.71)
@@ -222,6 +234,7 @@ alle volkeren prijzen Hem zalig. [:] Verlos...
 1. Ps.49 – God verschijnt zichtbaar: * onze God zal niet zwijgen. – TROP. blz. 262
 2. Ps.45 – De Allerhoogste * heiligt Zijn woontent. – TROP.
 
+<!-- pagina 262 -->
 **TROPARION t.4** – Heden is de aanvang onzer Verlossing: * de openbaring van het eeuwig Heilsmysterie. * De Zoon Gods wordt geboren als Zoon der Maagd. * Gabriël verkondigt de Blijde Boodschap der genade. * Met hem roepen ook wij tot de Moeder Gods: * Verheug u, Hoogbegenadigde: * de Heer is met u.
 3. – Ps.131 – De Heer heeft naar waarheid gezworen aan David: * Vrucht van uw lichaam zal Ik plaatsen op uw troon. – Heden...
 4. – Eer... nu... blz. 175
@@ -237,6 +250,7 @@ Hij komt, ja Hij komt om de aarde te oordelen.
 **ALL. Ps.71** Hij daalt neer als regen op een vacht, als regendruppels die in de aarde dringen.
 Zijn Naam zij gezegend in eeuwigheid; langer dan de zon zal Zijn Naam bestaan. *Lk. 1;24-38*
 
+<!-- pagina 263 -->
 **PRIJSLIED** – Verkondig, o aarde, * grote vreugde; * zingt de lofzang, hemelen * verheft uw stem, God ter eer. – Geen ongewijde hand * mag raken aan de bezielde ark van God. * Maar de lippen der gelovigen * mogen zonder ophouden het woord van de Engel richten tot de Moeder Gods, * en vol vreugde roepen: * Verheug u, Hoogbegenadigde, * de Heer is met u.
 
 **COMMUNIEVERS** – De Heer heeft Sion uitverkoren: Hij heeft haar gekozen tot een woonplaats voor Zichzelf.
@@ -251,6 +265,7 @@ Zijn Naam zij gezegend in eeuwigheid; langer dan de zon zal Zijn Naam bestaan. *
 
 **PROKIMEN Ps.92 t.4** – Uw Huis, Heer, past heiligheid * tot in lengte van dagen. –
 De Heer is Koning, met luister getooid: de Heer heeft Zich bekleed met macht en Zich omgord.
+<!-- pagina 264 -->
 Hij heeft heel de wereld gegrondvest: zij staat onwankelbaar. *Hebr. 3;1-4*
 
 **ALLELUIA Ps.86 t.2** Haar grondvesten zijn op de heilige bergen: de Heer bemint Sions poorten boven alle tenten van Jacob.
@@ -266,6 +281,7 @@ Hoe groot is de vreugde van allen die woning hebben in U. *Mt. 16;13-18*
 
 **KONDAKION t.3** – Door den Geest hebt gij uw lichtstralend hart gereinigd, * grote Profeet en martelaar Jeremia. * Gij hebt de gave der profetie ontvangen, * en luid over alle landen geroepen: * Deze is onze God, en buiten Hem is er geen andere: * Hij is op aarde in het vlees verschenen.
 
+<!-- pagina 265 -->
 ## 6 mei. Job, de Veelduldende
 
 **TROPARION t.1** – Toen hij de rijkdom van Jobs deugden aanschouwde * zocht de vijand hem met list te beroven. * De vesting van zijn lichaam wist hij te doorbreken, * maar de schat van zijn geest kon hij niet roven. * Want de ziel van de vlekkeloze * trof hij aan in volle wapenrusting. * Maar mij heeft hij ontbloot * en gevangen genomen. * Red mij voor het einde: Verlosser, verlos mij.
@@ -283,6 +299,7 @@ Hoe groot is de vreugde van allen die woning hebben in U. *Mt. 16;13-18*
 [//:] Profeet en Voorloper van {Chris_}{/tus_} {\komst_},
 {/wij} zijn niet in staat u naar waarde te {lo_.}{\ven_} 
 die wij met liefde ver{-&/e_&_}{\ren_}.
+<!-- pagina 266 -->
 {/Want} de onvruchtbaarheid van uw moeder en de stomheid
     van uw vader werd opge{he_.}{\ven_} 
 door uw roemrijke en eerbiedwaardige Ge{-&/boor_&_}{\te_}.
@@ -309,6 +326,7 @@ door uw roemrijke en eerbiedwaardige Ge{-&/boor_&_}{\te_}.
 en de tweede Voorloper van {Chris_}{/tus_} {\komst_}, *
 {/roem}rijke E{li_}{\a_} *
 Gij hebt uit den hoge uw geest gezonden op E{-&/li_&_}{\sa_} *
+<!-- pagina 267 -->
 {/gij} verjaagt ziekten en reinigt me{laat_}{\sen_}: *
 en doet zo ook genezing opwellen voor allen die u ver{-&\e_&_}{/ren_} [//:]
 :::
@@ -354,6 +372,7 @@ Ere {\zij} {\Uw} {/&/&/&\&\&\&/macht-&-&-&-&-&-&_}, {o_} {\Heer_}. [:]
 
 **TROPARION t.2** – Haar die het Leven geboren heeft * hebt gij gedragen in uw schoot. * Nu verheugt gij u in het hemels erfdeel * in de woning der juichenden. * Bid voor ons die u in liefde vereren, * om vergeving der zonden, altijd...
 
+<!-- pagina 268 -->
 ## 6 aug. Verheerlijking op de berg Thabor
 
 *(1 aug: begin van de Moeder-Gods-vasten)*
@@ -425,6 +444,7 @@ Gij die ons het {\Licht_} {schenkt_}, {/e}re zij {\U_}. [/:]
 
 ::: vsa-notatie
 <!-- Vervolg 3e Antifoon -->
+<!-- pagina 269 -->
 2. [//:] De Hemelen belijden Uw {won_}deren, o {/Heer_}, * 
    en Uw waarachtigheid in de Kerk der {\Hei_}li{gen_}. [//:] TROPAAR
 
@@ -470,6 +490,7 @@ Aan U zijn de hemelen, en van U is de aarde; de wereld en haar volheid hebt Gij 
 Zalig is het volk dat weet te juichen; Heer, zij zullen wandelen in het Licht van Uw aanschijn. *Mt. 17;1-9*
 :::
 
+<!-- pagina 270 -->
 ### Prijslied
 ::: vsa-notatie
 <!-- Prijslied - Verheerlijking op de berg Thabor (Liturgikon, p270) -->
@@ -499,6 +520,7 @@ in Uw Naam juichen zij heel de dag.
 ### Tweede Antifoon
 :::include svg id:antifoon-2-weekdagen/liturgikon-weekdagen/Hemelum alt="2e antifoon weekdagen (Hemelum)":::
 
+<!-- pagina 271 -->
 ### Derde Antifoon
 ::: vsa-notatie
 1. Ps.107 [//:] Mijn hart is bereid, o God, mijn {hart_} is be{/reid_}; *
@@ -546,6 +568,7 @@ nu en altijd en in de eeuwen der eeuwen. {\A_}{men_}. [//:]
 en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
 :::
 
+<!-- pagina 272 -->
 Machtigen heeft Hij neergehaald van de troon, maar geringen heeft Hij verheven. 
 Want Hij heeft neergezien op de geringheid Zijner dienstmaagd; 
 want zie, van nu af zullen alle geslachten mij zaligprijzen. *Fil. 2;5-11*
@@ -591,6 +614,7 @@ Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 [//:] Reeds voor uw ontvangenis waart gij als een kostbare gave aan God gewijd, *
 en vanaf uw kindsheid hebt gij Hem als een Engel gediend. *
 Gij waart geroepen om de toekomst te verkondigen. *
+<!-- pagina 273 -->
 Daarom roepen wij u toe: *
 verheug U, Profeet Samuel, grote Hogepriester. [//:]
 :::
@@ -635,6 +659,7 @@ Zij is de goddelijke Poort, *
 en de Moeder van het waarachtige Leven.
 :::
 
+<!-- pagina 274 -->
 ## 8 sept. Geboorte van de Moeder Gods
 
 ### Eerste Antifoon
@@ -692,6 +717,7 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
 [//:] Uw Geboorte, o {Moe_.}{/der} {\Gods_},
 {/heeft} de Vreugde geopenbaard aan {/heel} {\de} {\we__}{reld_}.
 Want uit U is opgegaan de Zon der Gerechtigheid: Christus {on_}{/ze} {\God_};
+<!-- pagina 275 -->
 {/Hij} heeft ons van de vervloeking be{\vrijd_}
 en schenkt ons Zijn {-&/ze_&_}{\gen_}.
 {/Hij} heeft de dood te{niet_.} ge{\daan_}
@@ -745,6 +771,7 @@ waarom hebt Gij Mij verlaten? [:]
 door de woorden mijner zonden. [:] Door...
 3. [:] Mijn God, overdag roep ik tot U, maar Gij verhoort mij niet; *
 ik roep in de nacht, en het is mij geen dwaasheid. [:] Door...
+<!-- pagina 276 -->
 4. [:] Gij woont in het Heiligdom, Roem van Israël: *
 op U vertrouwden onze Vaderen, en Gij hebt hen bevrijd. [:] Door...
 5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest_},
@@ -793,6 +820,7 @@ Hij bewerkt Verlossing in het midden der aarde. [:] Verlos...
 3. – Dat zij Uw grote Naam belijden, * want Hij is ontzagwekkend en heilig. – Heer...
 4. – Eer... nu... blz. 175
 
+<!-- pagina 277 -->
 ### Kondak (Toon 1)
 
 ::: vsb-notatie
@@ -825,6 +853,7 @@ God is van eeuwigheid onze Koning; Hij bewerkt Verlossing in het midden der aard
 
 **TROPARION:** blz. 212-215
 
+<!-- pagina 278 -->
 **TROPARION t.4** – Het levenschenkend Kruis Uwer goedheid, * dat Gij ons, onwaardigen, hebt geschonken, o Heer, * brengen wij tot U met de bede: * Red uw volk, * o enig Menslievende.
 
 *Zondag voor 14 sept.*
@@ -843,7 +872,9 @@ Mijn hand zal Hem werkelijk steunen, Mijn arm zal Hem kracht schenken. *Jo. 3;13
 
 **TROPARION t.2** – Apostel, die bemind werd door Christus God, * kom het weerloze volk verlossen. * Want Hij op Wiens borst gij uw hoofd gebogen had, * neemt u aan wanneer gij u voor Hem nederbuigt. * Smeek tot Hem, Theoloog Joannes, * om de donkere wolk van het ongeloof van ons weg te nemen, * opdat Hij ons de vrede schenkt, * en de grote genade.
 
-**KONDAKION t.2** – Wie kan uw daden naar waarheid verhalen, * reine Apostel Joannes? * Want als uit een bron schenkt gij wonderbare genezingen, * en gij bidt voor onze zielen * als de Theoloog en de Vriend van Christus.
+**KONDAKION t.2** – Wie kan uw daden naar waarheid verhalen, * reine Apostel Joannes? * Want als uit een bron schenkt gij wonderbare genezingen, * 
+<!-- pagina 279 -->
+en gij bidt voor onze zielen * als de Theoloog en de Vriend van Christus.
 
 *PROK. en ALL. van donderdag blz. 249*
 Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
@@ -859,7 +890,9 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 ## 18 oct. Lukas, de Evangelist
 
-**TROPARION t.5** – De Chronist van de Handelingen der Apostelen * en de heerlijke Schrijver van het Evangelie van Christus, * de alombezongen Apostel Lukas, * willen wij bezingen als de wijze Arts, * die heel de mens geneest: * niet slechts de zwakheden van het lichaam, * maar ook de diepe wonden der ziel. * Want hij bidt onophoudelijk voor ons allen.
+**TROPARION t.5** – De Chronist van de Handelingen der Apostelen * en de heerlijke Schrijver van het Evangelie van Christus, * de alombezongen Apostel Lukas, * willen wij bezingen als de wijze Arts, * die heel de mens geneest: * 
+<!-- pagina 280 -->
+niet slechts de zwakheden van het lichaam, * maar ook de diepe wonden der ziel. * Want hij bidt onophoudelijk voor ons allen.
 
 **KONDAKION t.5** – Wij loven de Verkondiger der ware vroomheid, * de Beschrijver der onzegbare Mysteriën, * de lichtende Ster der Kerk, * de Godbeminde Lukas. * Want hij werd gekozen door het Woord, * om met de wijze Paulos alle volkeren te onderrichten.
 
@@ -875,6 +908,7 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 ## 2 nov. Gedachtenis van alle Overledenen – zie blz. 250/1
 
+<!-- pagina 281 -->
 ## 7 nov. Willibrord, eerste Bisschop van Utrecht
 
 **TROPARION t.4** – Als een Regel van geloof, * en een voorbeeld van zachtmoedigheid, * heeft de waarheid uwer daden u aan uw kudde getoond. * Daarom zijt gij door nederigheid groot * en door armoede rijk geworden, * Vader en Hogepriester Willibrord. * Bid Christus God, onze zielen te redden.
@@ -889,6 +923,7 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 *(16 nov.) 1 Kor.4;9-16 (Jo.21;15-25) Mt. 9;9-13*
 
+<!-- pagina 282 -->
 ## 21 nov. Tempelgang van de Moeder Gods
 
 **TROPARION t.4** – Heden is het begin van Gods welbehagen: * de voorbereidende Verkondiging van de Verlossing der mensen. * De Maagd komt in de Tempel Gods * en verkondigt reeds aan allen de Christus. * Tot haar willen ook wij met de Engel roepen: * Verheug U, * Vervulling van het Heilsplan van de Schepper.
@@ -901,7 +936,9 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 **TROPARION t.4** – Gij zijt de Eerstgeroepene der Apostelen, * en de broeder van Petros. * Bid daarom, heilige Andreas, tot de Meester van het heelal, * om aan de wereld vrede te schenken, * en aan onze zielen de grote genade.
 
-**KONDAKION t.2** – Bezingen wij hem, die de Manhaftige heet, * de uit God sprekende, * de Eerstgeroepene door de Verlosser, * de broeder van Petros, * Want zoals tot hem roept Andreas nog steeds tot ons: * "Wij hebben Hem gevonden naar Wie wij zozeer verlangden."
+**KONDAKION t.2** – Bezingen wij hem, die de Manhaftige heet, * de uit God sprekende, * de Eerstgeroepene door de Verlosser, * de broeder van Petros, * Want zoals tot hem roept Andreas nog steeds tot ons: * 
+<!-- pagina 283 -->
+"Wij hebben Hem gevonden naar Wie wij zozeer verlangden."
 
 *1 Kor. 4;9-16 Jo. 1;35-51*
 
@@ -915,6 +952,7 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 **TROPARION t.4** – Heden worden de boeien der kinderloosheid ontbonden, * want God verhoort Joachim en Anna, * en belooft dat zij tegen alle verwachting * de Bruid Gods als dochter gaat ontvangen, * die den Onbeschrijflijke Zelf zou baren, * Die wilde komen als Mens, * terwijl Hij haar door de Engel deed toeroepen: * Verheug U, Hoogbegenadigde: * de Heer is met U.
 
+<!-- pagina 284 -->
 **KONDAKION t.4** – Heden verheugt zich de gehele wereld * over het door God geschonken Ontvangen der heilige Anna. * Want uit haar wordt de Maagd geboren, * die boven elk woord * het Woord gebaard heeft.
 
 *Gal. 4;22-31 Lk. 8;16-21*
@@ -925,6 +963,7 @@ Lb. Jo.4;7-19 Jo. 19;25-27, 21;24-25
 
 **KONDAKION t.3** – Door de Heilige Geest gereinigd, * werd uw zuiver hart de ontvangplaats van stralende profetieën. * Wat nog ver af was hebt gij geschouwd alsof het toen gebeurde. * In de leeuwenkuil hebt gij de wilde dieren getemd. * Daarom willen wij U allen vereren, * zalige roemrijke Profeet Daniël.
 
+<!-- pagina 285 -->
 ## Advent
 
 ### Eerste Antifoon
@@ -971,6 +1010,7 @@ vanaf de stroom tot aan de grenzen der aarde. [:] Verlos...
 **3e Ant.**
 1. – De Heer zal aan het einde komen * en Hij zal ons niet misleiden. –
 
+<!-- pagina 286 -->
 **TROPARION** Maagd die God hebt gebaard, verheug u. * Hoogbegenadigde Maria, de Heer is met u. * Gij zijt de meest gezegende, * en gezegend is de Vrucht van uw schoot. * Want gij hebt voor ons gebaard de Redder onzer zielen.
 2. – Indien Hij wachten laat, verbeid Hem, * want Hij zal zeker komen. – Maagd die...
 3. – Reeds is gekomen de volheid der tijden, * waarin God Zijn Zoon op aarde zal zenden. – TR.
@@ -989,6 +1029,7 @@ Denk aan mij volgens Uw barmhartigheid, omwille van Uw goedheid, o Heer. *Lk. 3;
 Brengt Zijn gewijden voor Hem bijeen.
 Vuur is voor Zijn aanschijn, storm omringt Hem.
 
+<!-- pagina 287 -->
 **ALL. Ps.84** Toon ons, Heer, Uw barmhartigheid, en schenk ons Uw Heil.
 
 **3e Zondag PROK. Ps.79** Gij die zetelt op de Cherubim, * wek op Uw macht en kom. –
@@ -1006,6 +1047,7 @@ Wie is die Koning der heerlijkheid? De Heer der heerscharen, Hij is de Koning de
 
 **TROPARION t.2** – In het geloof hebt Gij de Voorouders gerechtvaardigd, * en in hen hebt Gij reeds tevoren * de Kerk uit de volkeren aan U verloofd, * terwijl zij zich verheugen in heerlijkheid, * omdat uit hun zaad de vrucht gekomen is * die U zonder zaad gebaard heeft. * Door hun gebeden, o Christus God, ontferm U onzer.
 
+<!-- pagina 288 -->
 **KONDAKION t.6** – Het met handen gemaakte beeld * hebt gij niet willen vereren. * Daarom werd gij beschut door de niet-gemaakte Wezenheid, * en in de arena van het vuur zijt gij verheerlijkt. * Onoverwonnen temidden van de vlammengloed * heeft Uw drietal de Ene God aangeroepen. * Kom ook ons te hulp, Menslievende, * want Gij kunt alles wat Gij wilt.
 
 ## 21 dec.
@@ -1016,7 +1058,9 @@ Wie is die Koning der heerlijkheid? De Heer der heerscharen, Hij is de Koning de
 
 ## 23 dec.
 
-**TROPARION t.2** – Volgens het voorschrift van de keizer * gingen Maria en de eerbiedwaardige Jozef naar Bethlehem * als afstammelingen van David. * In haar schoot droeg zij de Vrucht die niet gezaaid was. * De tijd van haar baren was nabij, * doch er was geen verblijfplaats beschikbaar. * Toen werd de grot een paleis voor de Koningin, * en Christus werd geboren * om de gevallen ikoon weer op te richten.
+**TROPARION t.2** – Volgens het voorschrift van de keizer * gingen Maria en de eerbiedwaardige Jozef naar Bethlehem * als afstammelingen van David. * In haar schoot droeg zij de Vrucht die niet gezaaid was. * 
+<!-- pagina 289 -->
+De tijd van haar baren was nabij, * doch er was geen verblijfplaats beschikbaar. * Toen werd de grot een paleis voor de Koningin, * en Christus werd geboren * om de gevallen ikoon weer op te richten.
 
 **KONDAKION t.2** – In Bethlehem zien wij Hem in windsels gehuld, * Die in Zijn hand de gehele wereld draagt. * Zingt de hymne van het voorfeest voor haar, * die Hem in het vlees gebaard heeft. * Want zij geniet de vreugde van het moederschap, * nu zij de Zoon Gods in haar schoot draagt.
 
@@ -1033,6 +1077,7 @@ Ik heb Hem door Hem als Koning gesteld over Sion, Zijn heilige berg. *Heb. 1;1-1
 **ALLELUIA Ps.109** De Heer zegt tot mijn Heer: zit neder aan Mijn rechterhand, opdat Ik uw vijanden make tot een steun onder uw voeten.
 Een scepter van kracht zal de Heer U zenden vanuit Sion. Uit de schoot heb Ik U voortgebracht voor de morgenster. *Lk. 2;1-20*
 
+<!-- pagina 290 -->
 ## 25 dec. Geboorte des Heren
 
 ### Eerste Antifoon (Ps.110)
@@ -1079,6 +1124,7 @@ de liefderijke Barmhartige en Rechtvaardige. [:] Verlos...
 **3e Ant. Ps.109**
 1. – De Heer zeide tot Mijn Heer: zit neder aan Mijn rechterhand, * opdat Ik Uw vijanden make tot een steun onder uw voeten.
 
+<!-- pagina 291 -->
 **TROPARION t.4** – Uw Geboorte, o Christus, onze God, * bracht aan de wereld het Licht der kennis: * een ster onderwees de aanbidders der sterren * om U te aanbidden * als Zon der Gerechtigheid * en als de Opgang uit den hoge: * Heer, ere zij U.
 
 – Een scepter van kracht zal de Heer U zenden vanuit Sion: * heers temidden van Uw vijanden. –
@@ -1095,6 +1141,7 @@ de liefderijke Barmhartige en Rechtvaardige. [:] Verlos...
 Zeg tot God: hoe ontzagwekkend zijn Uw werken.
 Zij worden verblijd door Hem die door Zijn kracht heerst in eeuwigheid. *Gal. 4;4-7*
 
+<!-- pagina 292 -->
 **ALLELUIA Ps.18** De hemelen verhalen de heerlijkheid Gods, het uitspansel verkondigt het werk Zijner handen.
 Hij juicht als een reus om Zijn baan te doorlopen; Hij gaat op aan het einde des hemels. *Mt. 2;1-12*
 
@@ -1110,6 +1157,7 @@ Hij juicht als een reus om Zijn baan te doorlopen; Hij gaat op aan het einde des
 
 ## Zondag voor Theofanie
 
+<!-- pagina 293 -->
 **KONDAKION t.3** – Heden wordt David vervuld met goddelijke vreugde, * en Jozef zingt lof met Jakobos, * Want de verwantschap met Christus schenkt hun een gloriekroon. * Zij verheugen zich over Hem die onzegbaar op aarde geboren is, * en roepen: Medelijdende, * verlos allen die U vereren.
 
 **PROKIMEN Ps.67 t.6** – Wonderbaar is God in Zijn Heiligen, * de God van Israël. –
