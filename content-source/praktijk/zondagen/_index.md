@@ -10,6 +10,7 @@ title: "Zondagen"
     "Feesteigen | ../feesteigen/"
     "Hemelum    | ../hemelum-eigen/"
     "Samenstellingen | ../samenstellingen/"
+    "Liturgikon | ../liturgikon/"
     "Diversen   | ../diversen/"
 >}}
 

@@ -27,7 +27,7 @@ if defined NO_BUILD (
     echo        of serve zonder --no-build.
     exit /b 1
   )
-  echo [1/1] Generate overgeslagen (--no-build); start Hugo server
+  echo [1/1] Generate overgeslagen --no-build. Start Hugo server
   echo.
   goto start_server
 )
