@@ -16,44 +16,6 @@
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
 
 --- --&gt;
 &lt;h2 id="dinsdag--h-joannes-de-doper"&gt;Dinsdag — H. Joannes de Doper&lt;/h2&gt;
@@ -97,44 +59,6 @@ Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die 
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
 
 --- --&gt;
 &lt;h2 id="donderdag--h-apostelen"&gt;Donderdag — H. Apostelen&lt;/h2&gt;
@@ -176,44 +100,6 @@ De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Z
  Zaterdag
  &lt;/a&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
 
 
 --- --&gt;
@@ -269,44 +155,6 @@ Beschut mij tegen de samenzwering der booswichten;&lt;br&gt;
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
 
 ---
  --&gt;
@@ -354,44 +202,6 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
  Zaterdag
  &lt;/a&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
 
 
 ---
@@ -441,44 +251,6 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
 
 --- --&gt;
 &lt;h2 id="woensdag--het-heilig-kruis"&gt;Woensdag — het Heilig Kruis&lt;/h2&gt;
@@ -508,7 +280,13 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-woensdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
-maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
+maar geringen heeft Hij verheven.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 131 (Woensdag)
+
+Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
+Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. --&gt;
+&lt;/details&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -525,44 +303,6 @@ maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Woe
  Zaterdag
  &lt;/a&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
 
 
 --- --&gt;
@@ -593,7 +333,13 @@ maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Woe
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-woensdag-hemelum-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
-maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
+maar geringen heeft Hij verheven.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 131 (Woensdag)
+
+Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
+Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. --&gt;
+&lt;/details&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -610,44 +356,6 @@ maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Zat
  Zaterdag
  &lt;/a&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
 
 
 --- --&gt;
@@ -675,4 +383,29 @@ maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Zat
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-zaterdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 &lt;p&gt;Gij zijt mijn toevlucht en mijn vreugde in de beproeving die mij omgeeft.&lt;br&gt;
-Die op den Heer vertrouwen, omringt Hij met genaden.&lt;/p&gt;</description></item></channel></rss>
+Die op den Heer vertrouwen, omringt Hij met genaden.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 64
+
+Zalig die Gij hebt uitverkoren en opgenomen, om in Uw Voorhoven te wonen.
+Zij zullen roepen, ja een hymne zingen. --&gt;
+&lt;/details&gt;
+&lt;div class="pagebreak"&gt;&lt;/div&gt;
+&lt;h2 id="zaterdag--de-koren-der-heiligengestorvenen-1"&gt;Zaterdag — de Koren der Heiligen/Gestorvenen&lt;/h2&gt;
+&lt;h3 id="voor-de-gestorvenen"&gt;Voor de gestorvenen&lt;/h3&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 2)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-zaterdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONDAKION (Toon 8)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-zaterdag-block-6.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;PROKIMEN Ps. 31, Toon 8&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-zaterdag-block-7.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;p&gt;Zalig zij wier overtredingen zijn vergeven, en wier zonden zijn bedekt.&lt;br&gt;
+Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></item></channel></rss>
