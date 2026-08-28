@@ -13,17 +13,7 @@
 &lt;details&gt;
  &lt;summary&gt;3e antifoon — Zaligsprekingen (zondag)&lt;/summary&gt;
 &lt;embed src="../../../vsa/koormap-008-zaligsprekingen.pdf" type="application/pdf" class="scan-pdf" title="Zaligsprekingen zondag (koormap Groningen)" /&gt;
-&lt;p&gt;Alias in catalogus: &lt;code&gt;zaligsprekingen&lt;/code&gt; → &lt;code&gt;antifoon-3-zondag&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Demo: exporttypes</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/export-demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/export-demo/</guid><description>&lt;div class="web-only"&gt;&lt;h1 id="exporttypes-svg--coria--mxl"&gt;Exporttypes (svg · coria · mxl)&lt;/h1&gt;
-&lt;p&gt;Demonstratie van exportmechanismen op één &lt;code&gt;.vsa&lt;/code&gt;-bron.
-Conversie (&lt;code&gt;vsa svg&lt;/code&gt;, &lt;code&gt;vsa musicxml&lt;/code&gt;) gebeurt in de build; deze pagina toont export.&lt;/p&gt;&lt;/div&gt;
-
-&lt;div class="keep-together" style="width: 100%"&gt;&lt;h2 id="svg-afdruk--online"&gt;SVG (afdruk + online)&lt;/h2&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-zondagen-export-demo-block-1.svg" alt="Tropaar toon 3" style="width: 570px" loading="lazy"&gt;&lt;/div&gt;
-&lt;h2 id="coria-online-oefenen"&gt;Coria (online oefenen)&lt;/h2&gt;
-&lt;p class="coria-play"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/coria/praktijk/zondagen/tropaar-zondag-toon-3.html" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="mxl-bewerking"&gt;MXL (bewerking)&lt;/h2&gt;
-&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/vsa/mxl/praktijk/zondagen/tropaar-zondag-toon-3.mxl" download&gt;Download MusicXML&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>Kondak van de zondag - toon 1</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/kondak-toon-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/kondak-toon-1/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
+&lt;p&gt;Alias in catalogus: &lt;code&gt;zaligsprekingen&lt;/code&gt; → &lt;code&gt;antifoon-3-zondag&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Kondak van de zondag - toon 1</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/kondak-toon-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/zondagen/kondak-toon-1/</guid><description>&lt;h1 id="voorbeelden-uit-de-praktijk"&gt;Voorbeelden uit de praktijk&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="../../../"&gt;Home&lt;/a&gt;
 &lt;/li&gt;
