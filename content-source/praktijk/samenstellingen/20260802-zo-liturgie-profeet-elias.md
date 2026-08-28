@@ -1,5 +1,5 @@
 ---
-titel: zondag-profeet-elias
+titel: 20260802 - zondag-profeet-elias
 default:
   toon: 4
   uitvoeringsvorm: Groningen

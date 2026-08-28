@@ -1,5 +1,5 @@
 ---
-title: "H. Liturgie, Dinsdag 11 aug 2026 (Hemelum)"
+title: "20260811 - H. Liturgie, Dinsdag 11 aug 2026 (Hemelum)"
 source: "Koorinstructie dinsdag 11 augustus 2026 (Hemelum)"
 ---
 
@@ -27,7 +27,7 @@ source: "Koorinstructie dinsdag 11 augustus 2026 (Hemelum)"
 
 ### Kleine intocht
 
-#### Tropaar H. Nicolaas T.4 ***(Nls en Ksl)***
+#### Tropaar H. Nikolaas T.4 ***(Nls en Ksl)***
 
 ::: vsa-notatie
 [//:] Als de {Re_}gel {/des} ge{\loofs_}

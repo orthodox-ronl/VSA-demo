@@ -1,5 +1,5 @@
 ---
-title: "Feest van de Kruisuitdraging en Kleine Waterwijding + processie, vrijdag 14 aug 2026 (Hemelum)"
+title: "20260814 - Feest van de Kruisuitdraging en Kleine Waterwijding + processie, vrijdag 14 aug 2026 (Hemelum)"
 source: "Koorinstructie vrijdag 14 augustus 2026 (Hemelum)"
 ---
 
@@ -47,7 +47,7 @@ Red ons die tot U zingen: Alle{/&\lu_&_}{\ia_} [/:]
 {//en} bescherm uw gemeente {/door_} {Uw_} {\kruis_}. [//:]
 :::
 
-#### Tropaar H. Nicolaas T.4 ***(Nls en Ksl)***
+#### Tropaar H. Nikolaas T.4 ***(Nls en Ksl)***
 
 ::: vsa-notatie
 [//:] Als de {Re_}gel {/des} ge{\loofs_}

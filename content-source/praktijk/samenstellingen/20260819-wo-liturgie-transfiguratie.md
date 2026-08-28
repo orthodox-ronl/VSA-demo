@@ -1,5 +1,5 @@
 ---
-title: "Feest van de H. Transfiguratie vd Heer - Преображение, woensdag 19 aug 2026 (Hemelum)"
+title: "20260819 - Feest van de H. Transfiguratie vd Heer - Преображение, woensdag 19 aug 2026 (Hemelum)"
 source: "Koorinstructie woensdag 19 augustus 2026 (Hemelum)"
 ---
 

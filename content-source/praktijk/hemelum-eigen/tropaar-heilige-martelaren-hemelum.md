@@ -6,7 +6,7 @@ bron: V. Jewsewy
 titel: Tropaar van de Heilige Martelaren
 ---
 
-## Tropaar HH. Martelaren T.4
+### Tropaar HH. Martelaren (Toon 4)
 
 ::: vsa-notatie
 <!-- Tropaar HH. Martelaren, Toon 4 (melodie: tonenboek; tekst: Hemelum) -->

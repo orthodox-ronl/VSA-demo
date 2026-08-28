@@ -4,10 +4,10 @@ linkTitle: "Hemelum"
 weight: 40
 ---
 
-Parochie-specifiek materiaal (Hemelum-praktijk): bronpagina's met inline VSA,
-losse `.vsa`-bestanden, en feestteksten die niet in de catalogus-demo zitten.
-
-Overzicht weekdag-antifonen via catalogus: [Samenstellingen - Antifonen Hemelum](../samenstellingen/antifonen-hemelum/).
+Deze map bevat materiaal dat wordt/is gebruikt in (het klooster van) Hemelum.
+Het meeste materiaal komt uit het Liturgikon, maar er zijn ook een paar dingen
+overgenomen uit de praktijk van Groningen. Ook zijn er door V. Jewsewy verschillende
+aanpassingen gedaan.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Feest van de Ontslaping van de Moeder Gods, vrijdag 28 aug 2026 (Hemelum)"
+title: "20260828 - Feest van de Ontslaping van de Moeder Gods, vrijdag 28 aug 2026 (Hemelum)"
 source: "Koorinstructie vrijdag 28 augustus 2026 (Hemelum)"
 ---
 

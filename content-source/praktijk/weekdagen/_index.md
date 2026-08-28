@@ -3,12 +3,8 @@ title: "Weekdagen"
 weight: 10
 ---
 
----
-
-- [Antifonen - weekdagen (catalogus-demo)](../samenstellingen/antifonen-weekdagen-catalogus/)
-- [Antifonen - weekdagen (Liturgikon)](../samenstellingen/antifonen-liturgikon/)
-- [Antifonen - weekdagen (Hemelum)](../samenstellingen/antifonen-hemelum/)
-- [Prokimena - weekdagen (Liturgikon)](prokimena-weekdagen/)
+Deze map bevat bestanden die nodig zijn voor de H. Liturgie op doordeweekse dagen.
+Zaken die op alle
 
 ---
 

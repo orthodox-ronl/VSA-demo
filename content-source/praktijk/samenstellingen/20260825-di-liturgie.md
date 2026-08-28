@@ -37,7 +37,7 @@ Doe ook voor {/&\ons}, {\zon}daars, Uw eeuwig {/Licht} {/stra_}{len_}: *
 Gij die ons het {\Licht_} {schenkt_}, {/e}re zij {\U_}. [/:]
 :::
 
-#### Tropaar H. Nicolaas T.4 ***(Ksl)***
+#### Tropaar H. Nikolaas T.4 ***(Ksl)***
 
 #### Tropaar H. Gregorios van Utrecht T.4 ***(Ksl)***
 
