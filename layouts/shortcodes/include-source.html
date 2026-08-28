@@ -1,0 +1,24 @@
+{{- /*
+  Toon de ruwe inhoud van een bestand (relatief t.o.v. de huidige pagina)
+  in een codeblok. Probeert generated/content en content-source.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "include-source: parameter src is verplicht" -}}
+{{- end -}}
+{{- $lang := or (.Get "lang") "markdown" -}}
+{{- $rel := replace (path.Join .Page.File.Dir $src) "\\" "/" -}}
+{{- $candidates := slice
+      (printf "content-source/%s" $rel)
+      (printf "generated/content/%s" $rel)
+-}}
+{{- $text := "" -}}
+{{- range $candidates -}}
+  {{- if and (eq $text "") (fileExists .) -}}
+    {{- $text = readFile . -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $text "" -}}
+  {{- errorf "include-source: bestand niet gevonden voor %q (geprobeerd: %s)" $src (delimit $candidates ", ") -}}
+{{- end -}}
+{{- highlight $text $lang "" -}}

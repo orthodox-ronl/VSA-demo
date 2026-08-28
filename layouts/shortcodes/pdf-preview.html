@@ -1,0 +1,12 @@
+{{- $src := .Get "src" -}}
+{{- $src = replaceRE "^/" "" $src -}}
+{{- $label := or (.Get "label") "Download PDF" -}}
+{{- $height := or (.Get "height") "520" -}}
+<iframe
+  class="demo-pdf-preview"
+  src="{{ $src | relURL }}"
+  title="{{ $label }}"
+  width="100%"
+  height="{{ $height }}"
+  style="border:1px solid #ccc;border-radius:4px;"></iframe>
+<p class="mxl-download"><a href="{{ $src | relURL }}" download>{{ $label }}</a></p>

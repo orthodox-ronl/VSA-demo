@@ -15,13 +15,13 @@ echo === %PIPELINE_TITLE% ===
 echo Python: %PY%
 echo.
 
-echo [1/6] Sync zondag bronbestanden
+echo [1/7] Sync zondag bronbestanden
 call scripts\sync-bron-zondagen.cmd
 if errorlevel 1 exit /b 1
 echo OK
 echo.
 
-echo [2/6] Validate content-source
+echo [2/7] Validate content-source
 if defined PIPELINE_STRICT (
   "%PY%" scripts\validate_content.py --summary --fail-on-warnings content-source
 ) else (
@@ -31,7 +31,7 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
-echo [3/6] Generate Markdown + SVG + MusicXML
+echo [3/7] Generate Markdown + SVG + MusicXML
 if exist generated\content rmdir /s /q generated\content
 if exist static\vsa rmdir /s /q static\vsa
 "%PY%" -m vsa.cli build-markdown ^
@@ -53,10 +53,16 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
+echo [4/7] Demo-PDF up-to-date
+"%PY%" scripts\check_demo_pdf_fresh.py
+if errorlevel 1 exit /b 1
+echo OK
+echo.
+
 if defined PIPELINE_SKIP_HUGO (
-  echo [4/6] Hugo overgeslagen ^(--skip-hugo^)
+  echo [5/7] Hugo overgeslagen ^(--skip-hugo^)
   echo.
-  echo Pipeline OK tot en met generate.
+  echo Pipeline OK tot en met generate + demo-PDF-check.
   endlocal
   exit /b 0
 )
@@ -67,7 +73,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-echo [4/6] Build Hugo site
+echo [5/7] Build Hugo site
 if exist generated\site rmdir /s /q generated\site
 hugo ^
   --source . ^
@@ -78,20 +84,20 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
-echo [5/6] Interne links en assets
+echo [6/7] Interne links en assets
 "%PY%" scripts\check_hugo_links_and_assets.py --site-dir generated\site
 if errorlevel 1 exit /b 1
 echo OK
 echo.
 
 if defined PIPELINE_EXTERNAL (
-  echo [6/6] Externe http^(s^)-links
+  echo [7/7] Externe http^(s^)-links
   "%PY%" scripts\check_external_links.py --site-dir generated\site
   if errorlevel 1 exit /b 1
   echo OK
   echo.
 ) else (
-  echo [6/6] Externe links overgeslagen ^(gebruik check.cmd --external^)
+  echo [7/7] Externe links overgeslagen ^(gebruik check.cmd --external^)
   echo.
 )
 

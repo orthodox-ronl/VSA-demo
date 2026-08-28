@@ -15,6 +15,7 @@ content-source/
     samenstellingen/  catalogus-demo's, samengestelde liturgieen
     liturgikon/       liturgikon-teksten
     diversen/         losse zangstukken buiten de andere secties
+    demo/             tooling-demo's (svg CLI/inline/include, mxl, coria, pdf) + assets/
   lokaal/             parochie-lokaal (manifest + repr per zangstuk)
   _index.md           site-home
 ```
@@ -26,6 +27,7 @@ content-source/
 | Catalogus-includes (`id:...`)              | `samenstellingen/`         | publiceert via `lokaal/` + bron    |
 | Inline VSA ter referentie/bewerking        | `hemelum-eigen/`           | geen duplicate stub-pagina's       |
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
+| Tooling-demo (svg CLI → inline → include; mxl; coria; pdf) | `demo/` (+ `demo/assets/`) | één topic per pagina |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
 | Rubriek-navigatie                          | header (`layouts/partials/site-nav.html`) | alle secties onder `praktijk/`     |
 | Weekdag-overzicht                          | `weekdagen/_index.md`      | linkt naar samenstellingen         |

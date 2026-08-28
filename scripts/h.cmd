@@ -26,6 +26,7 @@ if /I "%FILTER%"=="check" goto man_check
 if /I "%FILTER%"=="build" goto man_build
 if /I "%FILTER%"=="serve" goto man_serve
 if /I "%FILTER%"=="pdf" goto man_pdf
+if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
@@ -43,12 +44,14 @@ call :emit_short check "preflight / CI-spiegel" "--strict --external --skip-hugo
 call :emit_short build "volledige sitebuild + interne linkcheck" "-"
 call :emit_short serve "lokale Hugo-preview" "--no-build"
 call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
+call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, write_build_stamp.py,
-echo   check_hugo_links_and_assets.py, check_external_links.py
+echo   check_demo_pdf_fresh.py, check_hugo_links_and_assets.py,
+echo   check_external_links.py
 echo.
 goto end_ok
 
@@ -62,6 +65,7 @@ call :try_short check "preflight / CI-spiegel" "--strict --external --skip-hugo"
 call :try_short build "volledige sitebuild + interne linkcheck" "-"
 call :try_short serve "lokale Hugo-preview" "--no-build"
 call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
+call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
@@ -72,7 +76,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, sync-bron-zondagen, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, h
 echo.
 goto end_fail
 
@@ -224,7 +228,34 @@ echo WHEN
 echo   Koormap / liturgie-blad uit content-source printen, zonder Hugo.
 echo.
 echo SEE ALSO
+echo   scripts\h.cmd demo-pdf
 echo   scripts\h.cmd check
+echo.
+goto end_ok
+
+:man_demo_pdf
+echo.
+echo NAME
+echo   scripts\demo-pdf.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\demo-pdf.cmd
+echo.
+echo DESCRIPTION
+echo   Bouwt static\demo\voorbeeld-blad.pdf uit het demo-Markdownblad.
+echo   Wrapper om scripts\pdf.cmd met vaste paden.
+echo.
+echo   check / build / serve ^(met build^) controleren of die PDF niet ouder
+echo   is dan voorbeeld-blad.md en voorbeeld.vsa. Bij veroudering: fout +
+echo   dit commando als herstel.
+echo.
+echo WHEN
+echo   Na wijziging van content-source\praktijk\demo\assets\voorbeeld-blad.md
+echo   of voorbeeld.vsa, voordat je commit of serve opnieuw draait.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd pdf
+echo   scripts\check_demo_pdf_fresh.py
 echo.
 goto end_ok
 

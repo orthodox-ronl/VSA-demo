@@ -6,4 +6,4 @@ Onderdelen die **nog niet** in de Hugo-pipeline zitten:
 | ------- | ------------------------------------------- |
 | `tev2/` | TEv2-config, glossaries, terminologie-stubs |
 
-Overige content (samenstellingen, antifonen, zondag-toon-*, export-demo, `lokaal/`) zit weer in `content-source/`.
+Overige content (samenstellingen, antifonen, zondag-toon-*, demo/, `lokaal/`) zit weer in `content-source/`.
