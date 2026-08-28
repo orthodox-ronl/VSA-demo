@@ -5,7 +5,7 @@ source: "Liturgikon (pp.174-175)"
 
 ## Antifonen - weekdagen (tijdeigen)
 
-Variant **liturgikon-weekdagen**; uitvoeringsvorm **liturgikon** (tekst uit Liturgikon) of **hemelum** (parochiepraktijk — zie [Hemelum](../antifonen-hemelum/)).  
+Variant **liturgikon-weekdagen**; uitvoeringsvorm **liturgikon** (tekst uit Liturgikon) of **hemelum** (parochiepraktijk — zie [Hemelum](../../hemelum-eigen/weekdagen-antifonen-hemelum/)).  
 Weekdag-antifonen in Groningen: geen koormap-materiaal (anders dan [zondag](../../zondagen/antifonen-zondag-groningen/)).
 
 <details>
@@ -67,4 +67,4 @@ Bij de Kleine Intocht soms nog eens: Verlos ons …
 
 </details>
 
-Overzicht met Hemelum: [Antifonen - weekdagen (catalogus-demo)](../antifonen-weekdagen-catalogus/).
+Overzicht met Hemelum: [Weekdagen - Antifonen (Hemelum)](../../hemelum-eigen/weekdagen-antifonen-hemelum/).
