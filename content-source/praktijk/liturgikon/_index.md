@@ -1,23 +1,8 @@
 ---
-title: "Diversen"
+title: "Liturgikon"
+weight: 60
 ---
 
-Losse zangstukken en teksten die niet onder weekdagen, zondagen of feesteigen vallen.
-
-{{< navbuttons
-    "Home       | ../../"
-    "Omhoog     | ../"
-    "Weekdagen  | ../weekdagen/"
-    "Zondagen   | ../zondagen/"
-    "Feesteigen | ../feesteigen/"
-    "Hemelum    | ../hemelum-eigen/"
-    "Samenstellingen | ../samenstellingen/"
-    "Liturgikon | ../liturgikon/"
-    "Diversen   | ../diversen/"
->}}
-
----
+Materiaal uit het Liturgikon.
 
 <!-- VSA-NAV:PAGES-HERE -->
-
----

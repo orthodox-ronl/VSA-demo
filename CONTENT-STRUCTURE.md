@@ -13,6 +13,7 @@ content-source/
     feesteigen/       kalenderfeesten (maand/_index + dd-mm-*.md)
     hemelum-eigen/    parochie Hemelum: inline VSA-bron, losse .vsa
     samenstellingen/  catalogus-demo's, samengestelde liturgieen
+    liturgikon/       liturgikon-teksten
     diversen/         losse zangstukken buiten de andere secties
   lokaal/             parochie-lokaal (manifest + repr per zangstuk)
   _index.md           site-home
@@ -26,7 +27,8 @@ content-source/
 | Inline VSA ter referentie/bewerking        | `hemelum-eigen/`           | geen duplicate stub-pagina's       |
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
-| Weekdag-navigatie                          | `weekdagen/_index.md`      | linkt naar samenstellingen         |
+| Rubriek-navigatie                          | header (`layouts/partials/site-nav.html`) | alle secties onder `praktijk/`     |
+| Weekdag-overzicht                          | `weekdagen/_index.md`      | linkt naar samenstellingen         |
 | Feest-varianten (zelfde dag)               | `feesteigen/<mm-mon>/`     | aparte bestanden + onderlinge link |
 
 ## Antifonen weekdagen (voorbeeld)

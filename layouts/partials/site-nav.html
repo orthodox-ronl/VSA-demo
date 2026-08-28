@@ -1,0 +1,23 @@
+{{- $page := . -}}
+<nav class="site-nav" aria-label="Hoofdnavigatie">
+  <a href="{{ site.Home.RelPermalink }}"{{ if $page.IsHome }} aria-current="page"{{ end }}>Home</a>
+  {{- with site.GetPage "/praktijk" }}
+    {{- $weighted := slice }}
+    {{- $rest := slice }}
+    {{- range .Sections }}
+      {{- if gt .Weight 0 }}
+        {{- $weighted = $weighted | append . }}
+      {{- else }}
+        {{- $rest = $rest | append . }}
+      {{- end }}
+    {{- end }}
+    {{- range $weighted }}
+      {{- $active := or ($page.Eq .) ($page.IsDescendant .) }}
+      <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+    {{- end }}
+    {{- range sort $rest "Title" }}
+      {{- $active := or ($page.Eq .) ($page.IsDescendant .) }}
+      <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+    {{- end }}
+  {{- end }}
+</nav>

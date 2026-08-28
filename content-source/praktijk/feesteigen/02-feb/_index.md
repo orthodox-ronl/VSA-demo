@@ -3,17 +3,6 @@ title: "Februari"
 ---
 
 {{< navbuttons 
-    "Home       | ../../../"
-    "Omhoog     | ../"
-    "Weekdagen  | ../../weekdagen/"
-    "Zondagen   | ../../zondagen/"
-    "Feesteigen | ../../feesteigen/"
-    "Hemelum    | ../../hemelum-eigen/"
->}}
-
----
-
-{{< navbuttons 
     "Jan | ../01-jan/"
     "Feb | ../02-feb/"
     "Mrt | ../03-mrt/"

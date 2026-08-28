@@ -10,10 +10,7 @@
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <nav class="site-nav" aria-label="Hoofdnavigatie">
-        <a href="{{ "" | relURL }}">Home</a>
-        <a href="{{ "praktijk/" | relURL }}">Praktijk</a>
-      </nav>
+      {{ partial "site-nav.html" . }}
       {{ partial "site-jumps.html" . }}
     </div>
   </header>
