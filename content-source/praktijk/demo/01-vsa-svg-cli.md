@@ -46,7 +46,7 @@ Optioneel eerst valideren: `vsa validate assets\voorbeeld.vsa`.
 
 Het geschreven SVG-bestand (hier geopend vanaf `static\demo\voorbeeld.svg`):
 
-![Tropaar toon 3 — resultaat van vsa svg](/demo/voorbeeld.svg)
+{{< vsa src="demo/voorbeeld.svg" alt="Tropaar toon 3 — resultaat van vsa svg" >}}
 
 Open het bestand ook in een browser of image-viewer als je lokaal werkt.
 
