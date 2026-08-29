@@ -66,49 +66,17 @@ voor download, MuseScore of handmatig importeren in Coria.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:::include mxl &amp;#34;assets/voorbeeld.vsa&amp;#34; label=&amp;#34;voorbeeld.mxl — download MusicXML&amp;#34;:::
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/vsa/mxl/praktijk/demo/assets/voorbeeld.mxl" download&gt;voorbeeld.mxl — download MusicXML&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Generate: &lt;code&gt;scripts\check.cmd --skip-hugo&lt;/code&gt; (zet &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;static\vsa\mxl\…&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Coria oefenen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/05-coria-oefenen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/05-coria-oefenen/</guid><description>&lt;h1 id="coria-oefenen"&gt;Coria oefenen&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; op de website een oefenknop tonen die gevoed wordt door
-een &lt;code&gt;.coria.html&lt;/code&gt; naast het &lt;code&gt;.vsa&lt;/code&gt;-bestand.&lt;/p&gt;
-&lt;h2 id="benodigd"&gt;Benodigd&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;assets\voorbeeld.vsa&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;assets\voorbeeld.coria.html&lt;/code&gt; (zelfde bestandsnaam-stam,zelfde map)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="in-markdown"&gt;In Markdown&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:::include coria &amp;#34;assets/voorbeeld.vsa&amp;#34; label=&amp;#34;Oefenen in Coria&amp;#34;:::
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Generate: &lt;code&gt;scripts\check.cmd --skip-hugo&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="resultaat"&gt;Resultaat&lt;/h2&gt;
-&lt;p class="coria-play"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/coria/praktijk/demo/assets/voorbeeld.html" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id="mxl-download-versus-coria-oefenlink"&gt;MXL-download versus Coria-oefenlink&lt;/h2&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;&lt;/th&gt;
- &lt;th&gt;MusicXML-download&lt;/th&gt;
- &lt;th&gt;Coria-oefenlink&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;Bron&lt;/td&gt;
- &lt;td&gt;&lt;code&gt;.vsa&lt;/code&gt; (build maakt &lt;code&gt;.mxl&lt;/code&gt;)&lt;/td&gt;
- &lt;td&gt;&lt;code&gt;.vsa&lt;/code&gt; + sibling &lt;code&gt;.coria.html&lt;/code&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Bezoeker&lt;/td&gt;
- &lt;td&gt;Downloaden en zelf importeren&lt;/td&gt;
- &lt;td&gt;Direct oefenen via de knop&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Directive&lt;/td&gt;
- &lt;td&gt;&lt;code&gt;:::include mxl …:::&lt;/code&gt;&lt;/td&gt;
- &lt;td&gt;&lt;code&gt;:::include coria …:::&lt;/code&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Zonder &lt;code&gt;.coria.html&lt;/code&gt; kan &lt;code&gt;include coria&lt;/code&gt; terugvallen op een MXL-URL. Voor
-deze demo hoort de HTML-sibling erbij.&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
+&lt;p&gt;Generate: &lt;code&gt;scripts\check.cmd --skip-hugo&lt;/code&gt; (zet &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;static\vsa\mxl\…&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Oefenen met Coria</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/05-coria-oefenen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/05-coria-oefenen/</guid><description>&lt;h1 id="oefenen-met-coria"&gt;Oefenen met Coria&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://coria.nl"&gt;Coria&lt;/a&gt;
+ is een &lt;strong&gt;online oefenomgeving voor zangers&lt;/strong&gt;. Je
+opent een melodie in de browser, hoort hoe die klinkt, en kunt passages
+herhalen of een partij volgen — zonder app-installatie. Het is bedoeld om
+thuis of in de koorzaal een zangstuk in het gehoor te krijgen, naast de
+geschreven notatie.&lt;/p&gt;
+&lt;p&gt;Op deze site hoort daar een &lt;strong&gt;oefenknop&lt;/strong&gt; bij: die opent het stuk meteen in
+Coria. Bezoekers hoeven geen MusicXML te downloaden of zelf te importeren
+(dat kan wél; zie &lt;a href="../04-vsa-naar-mxl/"&gt;VSA naar MusicXML&lt;/a&gt;
+).&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; van een Markdownblad (tekst, VSA, includes,
 paginascheidingen) een A4-PDF maken. De site-build maakt de PDF niet
 automatisch; wel controleert &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt; of de demo-PDF up-to-date is.&lt;/p&gt;
