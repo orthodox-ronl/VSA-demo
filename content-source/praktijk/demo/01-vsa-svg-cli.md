@@ -1,6 +1,6 @@
 ---
 title: "VSA naar SVG (vsa svg)"
-linkTitle: "vsa svg"
+linkTitle: "VSA naar SVG"
 weight: 10
 aliases:
   - /praktijk/zondagen/export-demo/

@@ -1,6 +1,6 @@
 ---
 title: "VSA-bestand includen"
-linkTitle: "Bestand includen"
+linkTitle: "VSA-bestand includen"
 weight: 30
 ---
 

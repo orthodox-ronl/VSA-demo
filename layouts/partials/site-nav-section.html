@@ -1,0 +1,23 @@
+{{- $page := .page -}}
+{{- $sec := .section -}}
+{{- $items := slice -}}
+{{- range $sec.RegularPages.ByWeight }}
+  {{- if not .Params.vsa_nav_exclude }}
+    {{- $items = $items | append . }}
+  {{- end }}
+{{- end }}
+{{- $current := or ($page.Eq $sec) ($page.IsDescendant $sec) }}
+{{- if $items }}
+        <details class="site-nav-group{{ if $current }} is-current{{ end }}">
+          <summary>{{ $sec.LinkTitle }}</summary>
+          <div class="site-nav-menu">
+            <a href="{{ $sec.RelPermalink }}"{{ if $page.Eq $sec }} aria-current="page"{{ end }}>Overzicht</a>
+            {{- range $items }}
+              {{- $active := $page.Eq . }}
+              <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+            {{- end }}
+          </div>
+        </details>
+{{- else }}
+        <a href="{{ $sec.RelPermalink }}"{{ if $current }} aria-current="page"{{ end }}>{{ $sec.LinkTitle }}</a>
+{{- end }}

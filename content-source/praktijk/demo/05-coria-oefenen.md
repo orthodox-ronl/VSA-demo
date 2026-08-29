@@ -1,15 +1,25 @@
 ---
-title: "Coria oefenen"
-linkTitle: "Coria oefenen"
+title: "Oefenen met Coria"
+linkTitle: "Oefenen met Coria"
 weight: 50
 aliases:
   - /praktijk/demo/03-coria-oefenen/
 ---
 
-# Coria oefenen
+# Oefenen met Coria
 
-**Wat je hier leert:** op de website een oefenknop tonen die gevoed wordt door
-een `.coria.html` naast het `.vsa`-bestand.
+[Coria](https://coria.nl) is een **online oefenomgeving voor zangers**. Je
+opent een melodie in de browser, hoort hoe die klinkt, en kunt passages
+herhalen of een partij volgen — zonder app-installatie. Het is bedoeld om
+thuis of in de koorzaal een zangstuk in het gehoor te krijgen, naast de
+geschreven notatie.
+
+Op deze site hoort daar een **oefenknop** bij: die opent het stuk meteen in
+Coria. Bezoekers hoeven geen MusicXML te downloaden of zelf te importeren
+(dat kan wél; zie [VSA naar MusicXML](../04-vsa-naar-mxl/)).
+
+**Wat je hier leert:** die knop in Markdown zetten, gevoed door een
+`.coria.html` naast het `.vsa`-bestand.
 
 ## Benodigd
 
@@ -38,5 +48,3 @@ Generate: `scripts\check.cmd --skip-hugo`.
 
 Zonder `.coria.html` kan `include coria` terugvallen op een MXL-URL. Voor
 deze demo hoort de HTML-sibling erbij.
-
-Zie ook: [VSA naar MusicXML](../04-vsa-naar-mxl/).

@@ -1,5 +1,7 @@
 ---
 title: "Dinsdag — H. Joannes de Doper"
+linkTitle: "Dinsdag"
+weight: 2
 alias: "Dinsdag — H. Johannes de Doper"
 source: "Liturgikon"
 ---

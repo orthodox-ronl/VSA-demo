@@ -1,6 +1,6 @@
 ---
 title: "VSA inline in Markdown"
-linkTitle: "Inline in Markdown"
+linkTitle: "VSA inline in Markdown"
 weight: 20
 ---
 

@@ -10,7 +10,7 @@ content-source/
   praktijk/
     weekdagen/        per-weekdag liturgie (Liturgikon)
     zondagen/         toon 1-8; tropaar/kondak gesynchroniseerd uit bron
-    feesteigen/       kalenderfeesten (maand/_index + dd-mm-*.md)
+    feesteigen/       kalenderfeesten (maand/_index + mm-dd-*.md)
     hemelum-eigen/    parochie Hemelum: inline VSA-bron, losse .vsa
     samenstellingen/  catalogus-demo's, samengestelde liturgieen
     liturgikon/       liturgikon-teksten
@@ -29,9 +29,13 @@ content-source/
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
 | Tooling-demo (svg CLI → inline → include; mxl; coria; pdf) | `demo/` (+ `demo/assets/`) | één topic per pagina |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
-| Rubriek-navigatie                          | header (`layouts/partials/site-nav.html`) | alle secties onder `praktijk/`     |
-| Weekdag-overzicht                          | `weekdagen/_index.md`      | linkt naar samenstellingen         |
+| Header-nav                                 | `nav_group` op sectie-`_index.md` | `diensten` / `materiaal`; sectie zonder groep (Demo) wordt dropdown van haar pagina’s |
+| Weekdag-subnav                             | balk onder de header       | ma–za via `weight` 1–6             |
+| Feesteigen-subnav                          | balk onder de header       | maanden via `weight` 1–12          |
+| Paginalijst op `_index`                    | Hugo `page-list.html`      | default bestandsnaam (`mm-dd-…`); `nav_sort: weight` op weekdagen |
 | Feest-varianten (zelfde dag)               | `feesteigen/<mm-mon>/`     | aparte bestanden + onderlinge link |
+
+Zet `hide_page_list: true` als de `_index` zelf al een overzicht heeft (zondagen-tabel, demo-leerpad).
 
 ## Antifonen weekdagen (voorbeeld)
 

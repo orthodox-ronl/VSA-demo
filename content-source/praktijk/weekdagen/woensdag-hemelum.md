@@ -1,5 +1,6 @@
 ---
 title: "Woensdag — het Heilig Kruis (Hemelum)"
+weight: 21
 sources: 
   - Hemelum
   - Liturgikon

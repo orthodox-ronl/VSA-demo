@@ -1,6 +1,6 @@
 ---
 title: "VSA naar MusicXML (MXL)"
-linkTitle: "MusicXML (MXL)"
+linkTitle: "VSA naar MusicXML"
 weight: 40
 aliases:
   - /praktijk/demo/02-vsa-naar-mxl/
@@ -45,4 +45,4 @@ Generate: `scripts\check.cmd --skip-hugo` (zet `.mxl` onder `static\vsa\mxl\…`
 4. Speel af of oefen.
 
 Kant-en-klare oefenknop zonder handmatig importeren:
-[Coria oefenen](../05-coria-oefenen/).
+[Oefenen met Coria](../05-coria-oefenen/).

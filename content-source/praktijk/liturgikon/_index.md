@@ -1,6 +1,7 @@
 ---
 title: "Liturgikon"
 weight: 60
+nav_group: materiaal
 ---
 
 Deze map bevat materiaal uit het Liturgikon in verschillende stadia van bruikbaarheid, zoals:
@@ -12,6 +13,3 @@ Bewerkingen zijn onder meer:
 - het vervangen van stukken tekst door markdown;
 - het invoegen van kommentaar (bijv. voor paginanummers);
 - het weer toevoegen van de gebruikte muzieknotatie (in vsa-notatie).
-
-
-<!-- VSA-NAV:PAGES-HERE -->

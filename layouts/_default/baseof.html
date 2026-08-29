@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}">
   <link rel="manifest" href="{{ "images/site.webmanifest" | relURL }}">
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  <script src="{{ "js/site-nav.js" | relURL }}" defer></script>
 </head>
 
 <body>
@@ -25,6 +26,8 @@
       {{ partial "site-jumps.html" . }}
     </div>
   </header>
+
+  {{ partial "section-subnav.html" . }}
 
   <main class="page">
     {{ block "main" . }}{{ end }}

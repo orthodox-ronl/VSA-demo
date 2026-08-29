@@ -1,5 +1,7 @@
 ---
 title: "Woensdag — het Heilig Kruis"
+linkTitle: "Woensdag"
+weight: 3
 source: "Liturgikon"
 ---
 <!-- 

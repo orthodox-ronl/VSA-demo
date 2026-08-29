@@ -1,0 +1,27 @@
+{{- $page := . -}}
+{{- with site.GetPage "/praktijk/feesteigen" }}
+  {{- if or ($page.Eq .) ($page.IsDescendant .) }}
+<nav class="site-subnav" aria-label="Maanden">
+  <div class="site-subnav-inner">
+    {{- range sort .Sections "Weight" }}
+      {{- $active := or ($page.Eq .) ($page.IsDescendant .) }}
+      <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+    {{- end }}
+  </div>
+</nav>
+  {{- end }}
+{{- end }}
+{{- with site.GetPage "/praktijk/weekdagen" }}
+  {{- if or ($page.Eq .) ($page.IsDescendant .) }}
+<nav class="site-subnav" aria-label="Weekdagen">
+  <div class="site-subnav-inner">
+    {{- range sort .RegularPages "Weight" }}
+      {{- if and (ge .Weight 1) (le .Weight 6) }}
+        {{- $active := $page.Eq . }}
+        <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+      {{- end }}
+    {{- end }}
+  </div>
+</nav>
+  {{- end }}
+{{- end }}

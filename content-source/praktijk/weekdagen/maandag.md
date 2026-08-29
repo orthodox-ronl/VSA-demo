@@ -1,5 +1,7 @@
 ---
 title: "Maandag - de Heilige Engelen"
+linkTitle: "Maandag"
+weight: 1
 source: "Liturgikon"
 ---
 <!-- 

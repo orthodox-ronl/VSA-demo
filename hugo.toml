@@ -9,6 +9,14 @@ disableKinds = ["taxonomy", "term"]
   linksVsaTooling = "https://orthodox-ronl.github.io/VSA-tooling/"
   linksGithub = "https://github.com/orthodox-ronl/VSA-demo"
 
+[[params.nav_groups]]
+id = "diensten"
+title = "Diensten"
+
+[[params.nav_groups]]
+id = "materiaal"
+title = "Materiaal"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

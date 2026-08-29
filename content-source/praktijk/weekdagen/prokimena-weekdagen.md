@@ -1,5 +1,6 @@
 ---
 title: "Prokimena - weekdagen (Hemelum)"
+weight: 10
 sources:
   - "Liturgikon, pp.174-175, 270-271"
   - "Praktijk in Groningen ('Verlos ons Zoon van God')"

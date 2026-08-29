@@ -1,5 +1,7 @@
 ---
 title: "Donderdag — H. Apostelen"
+linkTitle: "Donderdag"
+weight: 4
 source: "Liturgikon"
 ---
 <!-- 

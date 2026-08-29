@@ -1,0 +1,21 @@
+{{- if and .RegularPages (not .Params.hide_page_list) }}
+  {{- $pages := .RegularPages -}}
+  {{- if eq .Params.nav_sort "weight" }}
+    {{- $pages = .RegularPages.ByWeight -}}
+  {{- else }}
+    {{- $pages = sort .RegularPages "File.TranslationBaseName" -}}
+  {{- end }}
+  {{- $shown := slice -}}
+  {{- range $pages }}
+    {{- if not .Params.vsa_nav_exclude }}
+      {{- $shown = $shown | append . }}
+    {{- end }}
+  {{- end }}
+  {{- if $shown }}
+<ul class="page-list">
+    {{- range $shown }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+</ul>
+  {{- end }}
+{{- end }}

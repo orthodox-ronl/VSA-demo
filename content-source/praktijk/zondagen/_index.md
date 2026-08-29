@@ -1,8 +1,8 @@
 ---
 title: "Zondagen"
 weight: 20
----
-
+nav_group: diensten
+hide_page_list: true
 ---
 
 | Tropaar                   | Kondak                   | Tropaar en Kondak        |

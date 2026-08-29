@@ -1,5 +1,7 @@
 ---
 title: "Zaterdag — de Koren der Heiligen/Gestorvenen"
+linkTitle: "Zaterdag"
+weight: 6
 source: "Liturgikon"
 ---
 <!-- 
