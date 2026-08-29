@@ -58,6 +58,37 @@ body {
     max(var(--page-padding), env(safe-area-inset-left));
 }
 
+.site-header-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  min-width: 0;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.site-logo img {
+  display: block;
+  height: 1.6rem;
+  width: auto;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  text-decoration: none;
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -285,6 +316,10 @@ svg:not(.site-jump-icon),
   .site-header-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .site-header-start {
+    width: 100%;
   }
 
   .site-jumps {
