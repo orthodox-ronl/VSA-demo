@@ -12,7 +12,7 @@ title: "Tropaar van de zondag - toon 5"
 ---
 
 ::: vsa-notatie
-[////:] {Komt_} ge{/lo_}{\\vi}{gen_}
+[/:] {Komt_} ge{/lo_}{\\vi}{gen_}
 {//laat} ons aanbidden en be{-&\&\zin_&-&-}{/gen_},
 het met de {Va_}der en de Geest me{\\de}{/eeu_}wi{\ge} {\woord_},
 {///dat_} uit de Maagd omwille van onze verlossing {\is}{/ge} {/bo_}{\\ren_}
@@ -20,13 +20,13 @@ het met de {Va_}der en de Geest me{\\de}{/eeu_}wi{\ge} {\woord_},
 om zich in het vlees aan het Kruis te {\\ver}{/&\hef_&~}{\fen_},
 {///Hij_} heeft de {/dood_} {\\on}der{gaan_}.
 {//en} door Zijn roemrijke ver{rij_}{\&\ze}{/nis}
-// {/heeft} Hij de {\do_}{\den_} {\op_}{/&\ge}{\wekt_} [/:]
+// {/heeft} Hij de {\do_}{\den_} {\op_}{/&\ge}{\wekt_} [\\:]
 :::
 
 ---
 
 ```text
-[////:] {Komt_} ge{/lo_}{\\vi}{gen_}
+[/:] {Komt_} ge{/lo_}{\\vi}{gen_}
 {//laat} ons aanbidden en be{-&\&\zin_&-&-}{/gen_},
 het met de {Va_}der en de Geest me{\\de}{/eeu_}wi{\ge} {\woord_},
 {///dat_} uit de Maagd omwille van onze verlossing {\is}{/ge} {/bo_}{\\ren_}
@@ -34,7 +34,7 @@ het met de {Va_}der en de Geest me{\\de}{/eeu_}wi{\ge} {\woord_},
 om zich in het vlees aan het Kruis te {\\ver}{/&\hef_&~}{\fen_},
 {///Hij_} heeft de {/dood_} {\\on}der{gaan_}.
 {//en} door Zijn roemrijke ver{rij_}{\&\ze}{/nis}
-// {/heeft} Hij de {\do_}{\den_} {\op_}{/&\ge}{\wekt_} [/:]
+// {/heeft} Hij de {\do_}{\den_} {\op_}{/&\ge}{\wekt_} [\\:]
 ```
 
 ---
