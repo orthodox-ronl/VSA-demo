@@ -1,0 +1,12 @@
+# Parochie-lokaal manifest — uitvoeringsvorm liturgikon
+uitvoeringsvorm-id: liturgikon
+herkomst:
+  author: Liturgikon
+  reference: "Liturgikon, p. 283"
+
+aliases:
+  - { text: "Liturgikon", lang: nl }
+
+representaties:
+  - representatie-id: liturgikon
+    file: repr/liturgikon.vsa

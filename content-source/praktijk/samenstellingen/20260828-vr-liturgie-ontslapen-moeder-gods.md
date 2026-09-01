@@ -96,7 +96,7 @@ Vrucht van uw lichaam zal Ik plaatsen op uw troon. *Luk. 10;38-42, 11;27-28*
 
 ## Moeder Godslied (Liturgikon, p.272) 
 ::: vsa-notatie
-<!-- Prijslied Ontslaping Moeder Gods (Liturgikon p.272) -->
+<!-- Prijslied/Moeder Godslied - Ontslaping Moeder Gods (Liturgikon p.272) -->
 [/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
 za{/&/gen.&.} {/met} {\&\ver.&.}{/won}{\de}{\ring_}, *
 hoe {b\de} {\Jonk_}vrouw {/op.}{/ge.}{/no}{\&+\men.&.} {/werd_}, *

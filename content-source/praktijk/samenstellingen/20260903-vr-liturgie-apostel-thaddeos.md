@@ -1,24 +1,9 @@
 ---
-title: "Ontslaping van de Moeder Gods"
-alternatief: "Ontslapen van de Moeder Gods"
-feestdag: "15 aug"
-source: "Liturgikon, p.270-272"
-layout: "feesteigen-pagina"
+title: "20260903 - Nafeest van Ontslapen - H. Apostel Thaddeos (Hemelum)"
+source: "Koorinstructie do 3 september 2026 (Hemelum)"
 ---
 
-## Eerste Antifoon
-:::include svg id:antifoon-1-weekdagen/liturgikon-weekdagen/Hemelum alt="1e antifoon weekdagen (Hemelum)":::
-
-## Tweede Antifoon
-:::include svg id:antifoon-2-weekdagen/liturgikon-weekdagen/Hemelum alt="2e antifoon weekdagen (Hemelum)":::
-
-## Derde Antifoon
-::: vsa-notatie
-1. Ps.107 [//:] Mijn hart is bereid, o God, mijn {hart_} is be{/reid_}; *
-ik wil zingen en psalmodiëren in mijn {\Glo_}{rie_}. [//:]
-:::
-
-### Tropaar (Toon 1)
+### Tropaar van Ontslapen (Toon 1) ***Nls en Ksl***
 ::: vsa-notatie
 <!-- Tropaar Ontslaping van de Moeder Gods, Toon 1 (Liturgikon, p.271) -->
 [//:] {\\Hoe}wel gij ge{/baard_} {/hebt}, {\\zijt} gij {/Maagd} {/ge}{/ble_}{ven_}, *
@@ -27,15 +12,31 @@ Gij zijt opgegaan tot het {/le_}{/ven_}, {\\o} Moe{/der} {/des} {/le_}{vens_}, *
 {\en} door uw gebeden redt gij onze zielen {/van_} {de_} {\dood_}. [//:] 
 :::
 
+### Tropaar H. Nikolaas (Toon 4) ***Nls en Ksl***
+
+:::include svg id:troparion-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
+
+***EER AAN DE VADER ...***
+
+### Kondak H. Apostel Thaddeos (Toon 4) ***Nls***
 ::: vsa-notatie
-<!-- Vervolg 3e Antifoon -->
-2. Ps.115 – [//:] Wat kan ik den Heer te{rug_}{ge_}{/ven_} * 
-   voor alles wat Hij mij ge{\schon_}ken {heeft_}? [//:] TROPAAR
-3. Ps.115 – [//:] Ik zal de Kelk des {Heils_} {ne_}{/men} *
-   en de Naam des Heren {\aan_}roe{pen_}. [//:] TROPAAR
+<!-- Kondak H. Apostel Thaddeos, Toon 4 (Koorinstructie 20260903) -->
+[//:] De Kerk heeft u ontvangen als een {stra_}{/len}de {\ster_} *
+{/want} zij wordt {hel_}der ver{\licht_} *
+door de menigte uwer {won_}{/de_}{\ren_}, *
+{/hei}lige Apostel Thad{de_}{\os_}. *
+Daarom roepen wij tot {Chris}{/tus_} {\God_}: *
+{/Ver}los ons Barm{har_}{ti_}{\ge_}, **
+die in ge{loof_} de gedachtenis van Uw Apostel {-&\vie_&_}{/ren_}. [//:]
 :::
 
-### Kondak (Toon 2)
+***NU EN ALTIJD ...***
+
+### Kondak van Ontslapen (Toon 2) ***Ksl !!!***
+
+{{< pagebreak >}}
+
+### Kondak van Ontslapen (Toon 2) ***Ksl***
 ::: vsa-notatie
 <!-- Kondak Ontslaping van de Moeder Gods, Toon 2 (Liturgikon, p.271) -->
 [/:] De Moeder {/Gods_}, die onvermoeibaar on{/ze} {/voor_}{\spraak_} {\is_}, *
@@ -46,16 +47,10 @@ Want als de Moeder des {\Le_}{\vens_} *
 Die {\&/eens} {/woon_}de {\in} {/Haar} {\maag_}de{\lij}ke {\schoot_}. [:]
 :::
 
-::: vsa-notatie
-<!-- Eer aan de Vader, de Zoon en de Heilige Geest - (Liturgikon, p175) -->
-[//:] Eer aan de Vader, de Zoon en de {Hei_}lige {/Geest_},
-nu en altijd en in de eeuwen der eeuwen. {\A_}{men_}. [//:]
-:::
-
 ### Prokimen (Toon 3)
 ::: vsa-notatie
-<!-- PROKIMEN (Liturgikon, p247) -->
-[//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
+<!-- PROKIMEN Ontslapen (Toon 3, Liturgikon p271 = dagelijkse prokimen van de woensdag) -->
+[//:] Mijn ziel ver{/heft_} {de_} {\Heer_},
 en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
 :::
 
@@ -63,18 +58,18 @@ Machtigen heeft Hij neergehaald van de troon, maar geringen heeft Hij verheven.
 Want Hij heeft neergezien op de geringheid Zijner dienstmaagd; 
 want zie, van nu af zullen alle geslachten mij zaligprijzen. *Fil. 2;5-11*
 
-### Alleluia
+### Alleluia (Toon 3)
 Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid.
 De Heer heeft naar waarheid gezworen aan David, Hij zal het zeker gestand doen:
 Vrucht van uw lichaam zal Ik plaatsen op uw troon. *Luk. 10;38-42, 11;27-28*
 
-## Prijslied
+{{< pagebreak >}}
+
+## Moeder Godslied (Liturgikon, p.272) 
 ::: vsa-notatie
 <!-- Prijslied/Moeder Godslied - Ontslaping Moeder Gods (Liturgikon p.272) -->
-<!-- DEZE NOTATIE IS WEL VOLGENS LITURGIKON MAAR LEVERT PROBLEMEN MET DE TOOLS:
-1. Niet alle lettergrepen krijgen bij conversie naar .mxl een kwartnoot.
--->
-[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
+[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen 
+          der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
 za{/&/gen.&.} {/met} {\&\ver.&.}{/won}{\de}{\ring_}, *
 hoe {b\de} {\Jonk_}vrouw {/op.}{/ge.}{/no}{\&+\men.&.} {/werd_}, *
 {/van} {/de} {/aar_}{de.} {\naar} {\de} {\&+\He_&_}{b/mel_}. * [/:]
@@ -88,6 +83,8 @@ en {/uw} {/ster}{\ven} {+\&b/brengt} {/het} {/le_}{ven_}; *
 Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 {\&/die} {/al}{\leen_} {\&/Gods} {\Moe_}{der_} {\zijt_}. [:]
 :::
+
+{{< pagebreak >}}
 
 ## Communievers Moeder Gods
 ::: vsa-notatie
