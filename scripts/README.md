@@ -15,6 +15,9 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
 
+Generate kopieert extra page-bundle bestanden (`.mxl`) via
+`copy_content_extras.py`, zodat Coria ze van de gepubliceerde site kan halen.
+
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 
 Oude namen `serve-hugo` / `build-hugo` / `bootstrap` zijn aliases (`use: ...`).
