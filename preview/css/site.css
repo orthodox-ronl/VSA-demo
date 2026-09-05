@@ -379,6 +379,36 @@ svg:not(.site-jump-icon),
   background: #ffffff;
 }
 
+.oefenhoek-page .vsa-container {
+  overflow-x: hidden;
+}
+
+.oefenhoek-page .vsa-notation {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pdf-sheet-pages canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pdf-sheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0.6rem 0 0;
+}
+
+.pdf-sheet-print-frame {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 @media (min-width: 1400px) {
   :root {
     --page-max-width: 1280px;
