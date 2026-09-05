@@ -11,10 +11,17 @@ function debounce(fn, ms) {
   };
 }
 
-async function renderPages(pdf, host) {
-  const cssWidth = host.clientWidth;
-  if (cssWidth < 32) {
-    return;
+function contentBoxWidth(el) {
+  const style = getComputedStyle(el);
+  const padding =
+    (parseFloat(style.paddingLeft) || 0) + (parseFloat(style.paddingRight) || 0);
+  return el.clientWidth - padding;
+}
+
+async function renderPages(pdf, host, renderedWidth) {
+  const cssWidth = Math.floor(contentBoxWidth(host));
+  if (cssWidth < 32 || cssWidth === renderedWidth) {
+    return renderedWidth;
   }
   const dpr = window.devicePixelRatio || 1;
   host.replaceChildren();
@@ -26,14 +33,15 @@ async function renderPages(pdf, host) {
     const canvas = document.createElement("canvas");
     canvas.width = viewport.width;
     canvas.height = viewport.height;
-    canvas.style.width = `${cssWidth}px`;
-    canvas.style.height = `${base.height * scale}px`;
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
     await page.render({
       canvasContext: canvas.getContext("2d"),
       viewport,
     }).promise;
     host.appendChild(canvas);
   }
+  return cssWidth;
 }
 
 function wirePrint(root, src) {
@@ -76,10 +84,13 @@ async function initSheet(root) {
     const pdfjs = await import(PDFJS_SRC);
     pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
     const pdf = await pdfjs.getDocument(src).promise;
+    let renderedWidth = 0;
     const redraw = debounce(() => {
-      renderPages(pdf, host);
+      renderPages(pdf, host, renderedWidth).then((width) => {
+        renderedWidth = width;
+      });
     }, 120);
-    await renderPages(pdf, host);
+    renderedWidth = await renderPages(pdf, host, renderedWidth);
     new ResizeObserver(redraw).observe(host);
   } catch {
     host.replaceChildren();
