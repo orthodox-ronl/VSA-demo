@@ -10,6 +10,6 @@ weight: 10
 
 {{< pdf-sheet src="praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf" >}}
 
-{{< coria src="praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.mxl" label="Oefenen in Coria" >}}
+:::include coria "T4-11-nicolaas-van-myra.vsa" label="Oefenen in Coria":::
 
 Dit is een oefenpagina: bruikbaar, maar geen afgeronde uitgave.
