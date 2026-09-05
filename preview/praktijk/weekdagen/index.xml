@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weekdagen on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/</link><description>Recent content in Weekdagen on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/index.xml" rel="self" type="application/rss+xml"/><item><title>Dinsdag — H. Joannes de Doper</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/dinsdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/dinsdag/</guid><description>&lt;!-- 
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weekdagen on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/</link><description>Recent content in Weekdagen on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/index.xml" rel="self" type="application/rss+xml"/><item><title>Maandag - de Heilige Engelen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/maandag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/maandag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -16,43 +16,47 @@
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
 
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
+--- --&gt;
+&lt;h2 id="maandag---de-heilige-engelen"&gt;Maandag - de Heilige Engelen&lt;/h2&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 4)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
+&lt;/details&gt;
+&lt;!-- 
+&lt;details&gt;
+ &lt;summary&gt;THEOTOKION (Toon 4)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
+&lt;/details&gt; --&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONDAKION (Toon 2)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;/style&gt;
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;Prokimen (Ps. 103, Toon 4) en Alleluia (Ps. 148)&lt;/summary&gt;
+&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+Gij gebruikt wolken als voertuig, Gij wandelt op de wieken der wind.&lt;br&gt;
+Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;</description></item><item><title>Dinsdag — H. Joannes de Doper</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/dinsdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/dinsdag/</guid><description>&lt;!-- 
+&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
+ Antifonen
+ &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
+ Maandag
+ &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
+ Dinsdag
+ &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
+ Woensdag
+ &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
+ Donderdag
+ &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
+ Vrijdag
+ &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
+ Zaterdag
+ &lt;/a&gt;
+&lt;/div&gt;
 
 
 --- --&gt;
@@ -79,7 +83,7 @@
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-dinsdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 God, verhoor mijn gebed als ik mij tot U richt; maak mijn ziel vrij van vrees voor de vijand.&lt;br&gt;
-Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Donderdag — H. Apostelen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/donderdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/donderdag/</guid><description>&lt;!-- 
+Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -97,43 +101,58 @@ Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die 
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
 
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
+--- --&gt;
+&lt;h2 id="woensdag--het-heilig-kruis"&gt;Woensdag — het Heilig Kruis&lt;/h2&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 1, als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
+&lt;/details&gt;
+&lt;!-- 
+&lt;details&gt;
+ &lt;summary&gt;THEOTOKION (Toon 1, als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
+&lt;/details&gt; --&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONDAKION (Toon 1 - als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;/style&gt;
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;Uw Heilig Kruis&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;Prokimen (Lk. 1:46–48, Toon 3) en Alleluia (Ps. 131)&lt;/summary&gt;
+&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
+maar geringen heeft Hij verheven.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 131 (Woensdag)
+
+Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
+Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. --&gt;
+&lt;/details&gt;</description></item><item><title>Donderdag — H. Apostelen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/donderdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/donderdag/</guid><description>&lt;!-- 
+&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
+ Antifonen
+ &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
+ Maandag
+ &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
+ Dinsdag
+ &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
+ Woensdag
+ &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
+ Donderdag
+ &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
+ Vrijdag
+ &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
+ Zaterdag
+ &lt;/a&gt;
+&lt;/div&gt;
 
 
 --- --&gt;
@@ -159,7 +178,7 @@ Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die 
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-donderdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Elke dag openbaart een woord aan de volgende dag; * van nacht tot nacht wordt kennis verkondigd.&lt;br&gt;
-De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Zijner handen.&lt;/p&gt;</description></item><item><title>Maandag - de Heilige Engelen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/maandag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/maandag/</guid><description>&lt;!-- 
+De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Zijner handen.&lt;/p&gt;</description></item><item><title>Vrijdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -176,136 +195,6 @@ De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Z
  Zaterdag
  &lt;/a&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
-
---- --&gt;
-&lt;h2 id="maandag---de-heilige-engelen"&gt;Maandag - de Heilige Engelen&lt;/h2&gt;
-&lt;details&gt;
- &lt;summary&gt;TROPARION (Toon 4)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;!-- 
-&lt;details&gt;
- &lt;summary&gt;THEOTOKION (Toon 4)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt; --&gt;
-&lt;details&gt;
- &lt;summary&gt;KONDAKION (Toon 2)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;Prokimen (Ps. 103, Toon 4) en Alleluia (Ps. 148)&lt;/summary&gt;
-&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-maandag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-Gij gebruikt wolken als voertuig, Gij wandelt op de wieken der wind.&lt;br&gt;
-Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;</description></item><item><title>Prokimena - weekdagen (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</guid><description>&lt;h2 id="prokimena---weekdagen-hemelum"&gt;Prokimena - weekdagen (Hemelum)&lt;/h2&gt;
-&lt;h3 id="maandag-ps-103-toon-4"&gt;Maandag (Ps. 103, Toon 4)&lt;/h3&gt;
-&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-prokimena-weekdagen-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-Gij gebruikt wolken als voertuig, Gij wandelt op de wieken der wind.&lt;br&gt;
-Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;
-&lt;h3 id="dinsdag-ps-63-toon-7"&gt;Dinsdag (Ps. 63, Toon 7)&lt;/h3&gt;
-&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-prokimena-weekdagen-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-God, verhoor mijn gebed als ik mij tot U richt;&lt;br&gt;
-    maak mijn ziel vrij van vrees voor de vijand.&lt;br&gt;
-Beschut mij tegen de samenzwering der booswichten;&lt;br&gt;
-    tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Vrijdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag/</guid><description>&lt;!-- 
-&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
- Antifonen
- &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
- Maandag
- &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
- Dinsdag
- &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
- Woensdag
- &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
- Donderdag
- &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
- Vrijdag
- &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
- Zaterdag
- &lt;/a&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
 
 
 ---
@@ -337,7 +226,7 @@ Beschut mij tegen de samenzwering der booswichten;&lt;br&gt;
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-vrijdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Groot is de Heer in Sion; Hij is verheven boven alle volkeren.&lt;br&gt;
-Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>Vrijdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag-hemelum/</guid><description>&lt;!-- 
+Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -355,43 +244,139 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
  &lt;/a&gt;
 &lt;/div&gt;
 
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
 
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
+--- --&gt;
+&lt;h2 id="zaterdag--de-koren-der-heiligengestorvenen"&gt;Zaterdag — de Koren der Heiligen/Gestorvenen&lt;/h2&gt;
+&lt;h3 id="gewone-zaterdagen"&gt;Gewone zaterdagen&lt;/h3&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 2)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
+&lt;/details&gt;
+&lt;!-- 
+&lt;details&gt;
+ &lt;summary&gt;THEOTOKION (Toon 2)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
+&lt;/details&gt;
+ --&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONTAKION (Toon 8)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;/style&gt;
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;PROKIMEN (Ps. 31, Toon 8) en Alleluia&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;p&gt;Gij zijt mijn toevlucht en mijn vreugde in de beproeving die mij omgeeft.&lt;br&gt;
+Die op den Heer vertrouwen, omringt Hij met genaden.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 64
+
+Zalig die Gij hebt uitverkoren en opgenomen, om in Uw Voorhoven te wonen.
+Zij zullen roepen, ja een hymne zingen. --&gt;
+&lt;/details&gt;
+&lt;div class="pagebreak"&gt;&lt;/div&gt;
+&lt;h2 id="zaterdag--de-koren-der-heiligengestorvenen-1"&gt;Zaterdag — de Koren der Heiligen/Gestorvenen&lt;/h2&gt;
+&lt;h3 id="voor-de-gestorvenen"&gt;Voor de gestorvenen&lt;/h3&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 2)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONDAKION (Toon 8)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-6.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;PROKIMEN Ps. 31, Toon 8&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-7.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;p&gt;Zalig zij wier overtredingen zijn vergeven, en wier zonden zijn bedekt.&lt;br&gt;
+Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></item><item><title>Prokimena - weekdagen (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</guid><description>&lt;h2 id="prokimena---weekdagen-hemelum"&gt;Prokimena - weekdagen (Hemelum)&lt;/h2&gt;
+&lt;h3 id="maandag-ps-103-toon-4"&gt;Maandag (Ps. 103, Toon 4)&lt;/h3&gt;
+&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-prokimena-weekdagen-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+Gij gebruikt wolken als voertuig, Gij wandelt op de wieken der wind.&lt;br&gt;
+Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;
+&lt;h3 id="dinsdag-ps-63-toon-7"&gt;Dinsdag (Ps. 63, Toon 7)&lt;/h3&gt;
+&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-prokimena-weekdagen-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+God, verhoor mijn gebed als ik mij tot U richt;&lt;br&gt;
+    maak mijn ziel vrij van vrees voor de vijand.&lt;br&gt;
+Beschut mij tegen de samenzwering der booswichten;&lt;br&gt;
+    tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
+&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
+ Antifonen
+ &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
+ Maandag
+ &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
+ Dinsdag
+ &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
+ Woensdag
+ &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
+ Donderdag
+ &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
+ Vrijdag
+ &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
+ Zaterdag
+ &lt;/a&gt;
+&lt;/div&gt;
+
+
+--- --&gt;
+&lt;h2 id="woensdag--het-heilig-kruis"&gt;Woensdag — het Heilig Kruis&lt;/h2&gt;
+&lt;details&gt;
+ &lt;summary&gt;TROPARION (Toon 1, als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;!-- 
+&lt;details&gt;
+ &lt;summary&gt;THEOTOKION (Toon 1, als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt; --&gt;
+&lt;details&gt;
+ &lt;summary&gt;KONDAKION (Toon 1 - als vrijdag)&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;Uw Heilig Kruis&lt;/summary&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;/details&gt;
+&lt;details&gt;
+ &lt;summary&gt;Prokimen (Lk. 1:46–48, Toon 3) en Alleluia (Ps. 131)&lt;/summary&gt;
+&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
+
+Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
+maar geringen heeft Hij verheven.&lt;/p&gt;
+&lt;!-- 
+#### ALLELUIA Ps. 131 (Woensdag)
+
+Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
+Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. --&gt;
+&lt;/details&gt;</description></item><item><title>Vrijdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/vrijdag-hemelum/</guid><description>&lt;!-- 
+&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
+ Antifonen
+ &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
+ Maandag
+ &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
+ Dinsdag
+ &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
+ Woensdag
+ &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
+ Donderdag
+ &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
+ Vrijdag
+ &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
+ Zaterdag
+ &lt;/a&gt;
+&lt;/div&gt;
 
 
 ---
@@ -423,256 +408,4 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-vrijdag-hemelum-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Groot is de Heer in Sion; Hij is verheven boven alle volkeren.&lt;br&gt;
-Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag/</guid><description>&lt;!-- 
-&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
- Antifonen
- &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
- Maandag
- &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
- Dinsdag
- &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
- Woensdag
- &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
- Donderdag
- &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
- Vrijdag
- &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
- Zaterdag
- &lt;/a&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
-
---- --&gt;
-&lt;h2 id="woensdag--het-heilig-kruis"&gt;Woensdag — het Heilig Kruis&lt;/h2&gt;
-&lt;details&gt;
- &lt;summary&gt;TROPARION (Toon 1, als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;!-- 
-&lt;details&gt;
- &lt;summary&gt;THEOTOKION (Toon 1, als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt; --&gt;
-&lt;details&gt;
- &lt;summary&gt;KONDAKION (Toon 1 - als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;Uw Heilig Kruis&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;Prokimen (Lk. 1:46–48, Toon 3) en Alleluia (Ps. 131)&lt;/summary&gt;
-&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
-maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
-&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
- Antifonen
- &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
- Maandag
- &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
- Dinsdag
- &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
- Woensdag
- &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
- Donderdag
- &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
- Vrijdag
- &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
- Zaterdag
- &lt;/a&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
-
---- --&gt;
-&lt;h2 id="woensdag--het-heilig-kruis"&gt;Woensdag — het Heilig Kruis&lt;/h2&gt;
-&lt;details&gt;
- &lt;summary&gt;TROPARION (Toon 1, als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;!-- 
-&lt;details&gt;
- &lt;summary&gt;THEOTOKION (Toon 1, als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt; --&gt;
-&lt;details&gt;
- &lt;summary&gt;KONDAKION (Toon 1 - als vrijdag)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;Uw Heilig Kruis&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;Prokimen (Lk. 1:46–48, Toon 3) en Alleluia (Ps. 131)&lt;/summary&gt;
-&lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-woensdag-hemelum-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-Machtigen heeft Hij neergehaald van de troon,&lt;br&gt;
-maar geringen heeft Hij verheven.&lt;/p&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
-&lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
- Antifonen
- &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
- Maandag
- &lt;/a&gt;&lt;a class="btn" href="../dinsdag/"&gt;
- Dinsdag
- &lt;/a&gt;&lt;a class="btn" href="../woensdag/"&gt;
- Woensdag
- &lt;/a&gt;&lt;a class="btn" href="../donderdag/"&gt;
- Donderdag
- &lt;/a&gt;&lt;a class="btn" href="../vrijdag/"&gt;
- Vrijdag
- &lt;/a&gt;&lt;a class="btn" href="../zaterdag/"&gt;
- Zaterdag
- &lt;/a&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
-.nav-buttons {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
- gap: 0.75rem;
- margin: 1rem 0;
-}
-
- 
-.nav-buttons .btn {
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- text-align: center;
- padding: 0.75rem 0.5rem; 
- background: #eee;
- border-radius: 6px;
- text-decoration: none;
- border: 1px solid #ccc;
- color: #000;
- transition: background 0.2s ease;
-}
-
- 
-.nav-buttons .btn span {
- display: block;
- line-height: 1.25;
- white-space: normal;
-}
-
- 
-.nav-buttons .btn:hover {
- background: #ddd;
-}
-
-&lt;/style&gt;
-
-
---- --&gt;
-&lt;h2 id="zaterdag--de-koren-der-heiligengestorvenen"&gt;Zaterdag — de Koren der Heiligen/Gestorvenen&lt;/h2&gt;
-&lt;h3 id="gewone-zaterdagen"&gt;Gewone zaterdagen&lt;/h3&gt;
-&lt;details&gt;
- &lt;summary&gt;TROPARION (Toon 2)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;!-- 
-&lt;details&gt;
- &lt;summary&gt;THEOTOKION (Toon 2)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-2.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
- --&gt;
-&lt;details&gt;
- &lt;summary&gt;KONTAKION (Toon 8)&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-3.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;/details&gt;
-&lt;details&gt;
- &lt;summary&gt;PROKIMEN (Ps. 31, Toon 8) en Alleluia&lt;/summary&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-zaterdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;p&gt;Gij zijt mijn toevlucht en mijn vreugde in de beproeving die mij omgeeft.&lt;br&gt;
-Die op den Heer vertrouwen, omringt Hij met genaden.&lt;/p&gt;</description></item></channel></rss>
+Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item></channel></rss>

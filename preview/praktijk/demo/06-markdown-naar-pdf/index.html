@@ -1,0 +1,71 @@
+<!doctype html><html lang=nl><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Markdown naar PDF</title><link rel=icon href=/VSA-demo/preview/images/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/VSA-demo/preview/images/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=/VSA-demo/preview/images/favicon-32x32.png><link rel=apple-touch-icon sizes=180x180 href=/VSA-demo/preview/images/apple-touch-icon.png><link rel=manifest href=/VSA-demo/preview/images/site.webmanifest><link rel=stylesheet href=/VSA-demo/preview/css/site.css><script src=/VSA-demo/preview/js/site-nav.js defer></script></head><body><header class=site-header><div class=site-header-inner><div class=site-header-start><a class=site-logo href=/VSA-demo/preview/><img src=/VSA-demo/preview/images/favicon-32x32.png width=26 height=26 alt>
+<span class=site-logo-text>VSA Demo</span></a><nav class=site-nav aria-label=Hoofdnavigatie><a href=/VSA-demo/preview/>Home</a><details class=site-nav-group><summary>Diensten</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/weekdagen/>Weekdagen</a>
+<a href=/VSA-demo/preview/praktijk/zondagen/>Zondagen</a>
+<a href=/VSA-demo/preview/praktijk/feesteigen/>Feesteigen</a></div></details><details class=site-nav-group><summary>Materiaal</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/hemelum-eigen/>Hemelum</a>
+<a href=/VSA-demo/preview/praktijk/samenstellingen/>Samenstellingen</a>
+<a href=/VSA-demo/preview/praktijk/liturgikon/>Liturgikon</a>
+<a href=/VSA-demo/preview/praktijk/diversen/>Diversen</a></div></details><details class="site-nav-group is-current"><summary>Demo</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/preview/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
+<a href=/VSA-demo/preview/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
+<a href=/VSA-demo/preview/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
+<a href=/VSA-demo/preview/praktijk/demo/04-vsa-naar-mxl/>VSA naar MusicXML</a>
+<a href=/VSA-demo/preview/praktijk/demo/05-coria-oefenen/>Oefenen met Coria</a>
+<a href=/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/ aria-current=page>Markdown naar PDF</a></div></details></nav></div><nav class=site-jumps aria-label="Gerelateerde sites"><a class=site-jump href=https://orthodox-ronl.github.io/bron/ title="bron - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6 4h12a2 2 0 012 2v13.5L12 15 4 19.5V6a2 2 0 012-2zm0-2A4 4 0 002 6v16l8-4.5 8 4.5V6a4 4 0 00-4-4H6z"/></svg>
+<span class=site-jump-label>bron</span>
+</a><a class=site-jump href=https://orthodox-ronl.github.io/VSA-tooling/ title="VSA-tooling - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.5 3 7 8.5 1.5 10 7 11.5 8.5 17 10 11.5 15.5 10 10 8.5 8.5 3zm7 4L14 10.5 9.5 12 14 13.5 15.5 19 17 13.5 22.5 12 17 10.5 15.5 7z"/></svg>
+<span class=site-jump-label>VSA-tooling</span>
+</a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
+<span class=site-jump-label>GitHub</span></a></nav></div></header><main class=page><h1 id=markdown-naar-pdf>Markdown naar PDF</h1><p><strong>Wat je hier leert:</strong> van een Markdownblad (tekst, VSA, includes,
+paginascheidingen) een A4-PDF maken. De site-build maakt de PDF niet
+automatisch; wel controleert <code>check</code> / <code>serve</code> of de demo-PDF up-to-date is.</p><h2 id=bron>Bron</h2><p><code>assets\voorbeeld-blad.md</code> — niet als Hugo-pagina gepubliceerd; alleen bron
+voor de PDF. Gebruikt o.a. <code>::: vsa-notatie</code> en <code>:::include svg</code> (zie de
+SVG-demootjes voor die onderwerpen apart).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Tropaar voor het voorbeeldblad&#34;
+</span></span><span style=display:flex><span>build:
+</span></span><span style=display:flex><span>  render: never
+</span></span><span style=display:flex><span>  list: never
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Tropaar voor het Voorbeeldblad
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Dit blad is bedoeld om te laten zien hoe Markdown met VSA tot een printbare
+</span></span><span style=display:flex><span>PDF wordt. Onderstaande melodie staat eerst inline, daarna via een include
+</span></span><span style=display:flex><span>van <span style=color:#e6db74>`voorbeeld.vsa`</span> (zie de SVG-demootjes voor die vormen apart).
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>::: vsa-notatie
+</span></span><span style=display:flex><span>[\\:] Dat {//he}melse en {\aard}{/se} {/&amp;/we}{zens_} *
+</span></span><span style=display:flex><span>jubelen en zich ver{\&amp;\&amp;\blij_&amp;~&amp;~}{\den_}, *
+</span></span><span style=display:flex><span>want {/de} {/Heer} heeft de kracht van Zijn {\arm} {/ge}{/&amp;/o}pen{baard_}. *
+</span></span><span style=display:flex><span>Uit de doden was Hij de eerstge{/bo_}re{\ne_}, *
+</span></span><span style=display:flex><span>uit de schoot van de {-&amp;\ha}{/des} {/heeft} {/Hij_} {\ons} ver{\lost_} *
+</span></span><span style=display:flex><span>// en aan de wereld grote ge{na_}{\de} {\ge}{/&amp;/&amp;/&amp;\&amp;\&amp;\&amp;/schon.&amp;.&amp;.&amp;.&amp;.&amp;.&amp;~}{\ken__}. [:]
+</span></span><span style=display:flex><span>:::
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Zelfde melodie via bestand (handig bij hergebruik; in <span style=color:#e6db74>`.vsa`</span> geen
+</span></span><span style=display:flex><span><span style=color:#e6db74>`::: vsa-notatie`</span>-hekjes):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>:::include svg &#34;voorbeeld.vsa&#34; alt=&#34;Tropaar toon 3 (include)&#34; scale=&#34;85%&#34;:::
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>:::pagebreak:::
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Tweede blad: kleinere schaal
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Na de paginascheiding volgt dezelfde melodie nog eens, kleiner gezet.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>:::include svg &#34;voorbeeld.vsa&#34; alt=&#34;Tropaar toon 3 (kleiner)&#34; scale=&#34;70%&#34;:::
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>:::print-only:::
+</span></span><span style=display:flex><span>[<span style=color:#f92672>Oefenen in Coria</span>](<span style=color:#a6e22e>https://orthodox-ronl.github.io/VSA-demo/coria/praktijk/demo/assets/voorbeeld.html</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>*Dit zinnetje en de Coria-link hierboven staan alleen in de PDF
+</span></span><span style=display:flex><span>(<span style=color:#e6db74>`print-only`</span>), niet op de website. De link wijst naar de gepubliceerde
+</span></span><span style=display:flex><span>site (niet naar localhost).*
+</span></span><span style=display:flex><span>:::end-print-only:::
+</span></span></code></pre></div><ul><li><code>:::pagebreak:::</code> forceert een nieuw A4-blad.</li><li><code>:::print-only:::</code> … <code>:::end-print-only:::</code> verschijnt wel in de PDF,
+niet op de website.</li><li>Een Coria-oefenlink in de PDF is een gewone markdown-link met een
+<strong>absoluut</strong> adres op de gepubliceerde site (zie het blad). De directive
+<code>:::include coria</code> is voor de website; in PDF-export wordt die
+weggelaten — een relatieve site-knop werkt niet vanuit een PDF-bestand.</li></ul><h2 id=resultaat>Resultaat</h2><iframe class=demo-pdf-preview src=/VSA-demo/preview/demo/voorbeeld-blad.pdf title="voorbeeld-blad.pdf — download" width=100% height=560 style="border:1px solid #ccc;border-radius:4px"></iframe><p class=mxl-download><a href=/VSA-demo/preview/demo/voorbeeld-blad.pdf download>voorbeeld-blad.pdf — download</a></p><h2 id=commando>Commando</h2><p>Na wijziging van het blad (of <code>voorbeeld.vsa</code>):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\demo-pdf.cmd
+</span></span></code></pre></div><p>Dat schrijft <code>static\demo\voorbeeld-blad.pdf</code>. Hard refresh in de browser
+als de oude PDF gecached blijft.</p><p>Is de PDF ouder dan de bronnen, dan faalt <code>check</code> / <code>serve</code> met precies dit
+commando als herstel.</p><p>Generiek (andere bestanden): <code>scripts\pdf.cmd</code> — zie <code>scripts\h.cmd pdf</code>.</p><table><thead><tr><th>Probleem</th><th>Controle</th></tr></thead><tbody><tr><td>Include niet gevonden</td><td><code>--content-root</code> naar <code>content-source</code> (zit in <code>demo-pdf.cmd</code>)</td></tr><tr><td>Geen browser</td><td>Edge/Chrome; of <code>CHROME_PATH</code> / <code>--chrome</code></td></tr><tr><td>Validatiefout</td><td>Zelfde meldingen als <code>vsa validate</code></td></tr></tbody></table><p>Zie ook: <code>scripts\h.cmd demo-pdf</code>.</p></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-05</p></div></footer></body></html>
