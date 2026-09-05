@@ -48,6 +48,8 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\inject_git_dates.py generated\content content-source
 if errorlevel 1 exit /b 1
+"%PY%" scripts\copy_content_extras.py
+if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
 if errorlevel 1 exit /b 1
 echo OK

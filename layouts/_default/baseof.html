@@ -11,9 +11,10 @@
   <link rel="manifest" href="{{ "images/site.webmanifest" | relURL }}">
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   <script src="{{ "js/site-nav.js" | relURL }}" defer></script>
+  <script type="module" src="{{ "js/pdf-sheet.js" | relURL }}"></script>
 </head>
 
-<body>
+<body{{ if strings.Contains .RelPermalink "/praktijk/oefenhoek/" }} class="oefenhoek-page"{{ end }}>
   <header class="site-header">
     <div class="site-header-inner">
       <div class="site-header-start">
