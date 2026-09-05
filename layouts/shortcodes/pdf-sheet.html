@@ -1,0 +1,12 @@
+{{- $src := .Get "src" -}}
+{{- $src = replaceRE "^/" "" $src -}}
+{{- $href := $src | relURL -}}
+{{- $download := or (.Get "download") "Downloaden" -}}
+{{- $print := or (.Get "print") "Printen" -}}
+<div class="pdf-sheet vsa-container" data-pdf-src="{{ $href }}">
+  <div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"></div>
+  <p class="pdf-sheet-actions">
+    <a href="{{ $href }}" download>{{ $download }}</a>
+    <a href="{{ $href }}" class="pdf-sheet-print">{{ $print }}</a>
+  </p>
+</div>
