@@ -19,24 +19,24 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Checkout bron repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: orthodox-ronl/bron
           path: vendor/bron
           ref: main
 
       - name: Checkout VSA-tooling
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: orthodox-ronl/VSA-tooling
           path: vendor/VSA-tooling
           ref: main
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.14"
 
