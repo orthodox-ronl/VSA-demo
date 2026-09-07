@@ -54,3 +54,16 @@ en de Naam des {\He}{/ren} {/aan}roe{pen_} *
 :::
 
 ***Hierna het alleluia als gebruikelijk in VOKN-25***
+
+{{< pagebreak >}}
+
+## Prijslied (na de slotzegen)
+
+::: vsa-notatie
+<!-- Wij verheerlijken U, ongerepte Moeder van Christus onze God - praktijk Hemelum -->
+[:] Wij {/ver}{/heer_}{\lij_}{+\ken_}, *
+{b/wij} {/ver}{/&\heer}{\lij}{+\ken} {b/u__} *
+ongerepte Moeder van Christus {+\on_}{ze_}{b/God} *
+{\en} {/ver}{/e_}{ren_} {-&\\en} {/&/be}{/&\&\&+\zin}{b/gen_}, *
+{//Uw} {/roem_}{rij_}{\ke_} {\i_}{\coon__}. [/:]
+:::

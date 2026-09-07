@@ -90,11 +90,11 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
 
 ::: vsa-notatie
 <!-- Communievers Woensdag/Moeder Gods (tekst: Apostel p.436, muziek: VOKN-25, arr.: Hemelum) -->
-[//:] Ik {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} des {/&\heils} {\ne_.}{/men__} *
-{\Ik} {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} {\\des} {/&\heils} {/ne_.}{/men__} *
-{/en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. *
-en de Naam des {\He}{/ren} {/aan}{roe}{pen_} *
-{\en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. *
+[//:] Ik {zal_} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} des {/&\heils_&_} {\ne__}{/men__} *
+{\Ik} {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} {\\des} {/&\heils_&_} {//ne__}{men__} *
+{/en} de {/Naam} des {\He}ren {\aan_}{roe_}{/pen__}. *
+en de Naam des {\He}{/ren} {/aan}roe{pen_} *
+{\en} de {/Naam} des {\He}ren {\aan_}{roe_}{/pen__}. [//:] 
 :::
 
 ***Hierna het alleluia als gebruikelijk in VOKN-25***
