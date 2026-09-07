@@ -5,6 +5,7 @@ resources/
 data/build.yaml
 static/vsa/
 static/coria/
+static/mxl/
 
 # Hugo lock
 .hugo_build.lock
