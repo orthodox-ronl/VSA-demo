@@ -11,11 +11,11 @@ source: "Koorinstructie di 8 september 2026 (Hemelum)"
 {/zo}als de hemelse Koningin een {zon_}nestraal ont{\ving_} *
 naar Uw wonderdoende icoon komen wij en {sme_}{/ken_} {\U_}, *
 {/al}heilige en wonderbare {Moe_}der van {\God_}: *
-Bid voor ons tot {Chris_}tus {/on}ze {\Heer_} *
+Bid voor ons tot Christus {on_}{/ze_} {\Heer_} *
 {/Die} uit u het vlees heeft aange{no_}{\men_}, *
-dat Hij onze stad met alle steden en landen onge{deerd_} {/be}{\waart_} *
-{/te}gen de aanvallen van de {Vij_}{\and}, **
-en dat Hij ons redt in Zijn barm{har_}{\tig_}{/heid_}. [//:] 
+dat Hij onze stad met alle steden en landen onge{deerd_} {/be_}{\waart_} *
+{/te}gen de aanvallen van de {Vij_}{\and_}, **
+en dat Hij ons redt in Zijn barm{har_}{\tig_}{/heid_}. [//:]
 :::
 
 ### Tropaar H. Nikolaas (Toon 4) ***Nls en Ksl***
@@ -46,11 +46,11 @@ red {/nu} {/ook} uit alle ge{/va}{\ren} het bevrijde volk dat {\tot} u {\zingt_}
 
 ::: vsa-notatie
 <!-- Communievers Woensdag/Moeder Gods (tekst: Apostel p.436, muziek: VOKN-25, arr.: Hemelum) -->
-[//:] Ik {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} des {/&\heils} {\ne_.}{/men__} *
-{\Ik} {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} {\\des} {/&\heils} {/ne_.}{/men__} *
-{/en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. *
-en de Naam des {\He}{/ren} {/aan}{roe}{pen_} *
-{\en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. [//:] 
+[//:] Ik {zal_} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} des {/&\heils_&_} {\ne__}{/men__} *
+{\Ik} {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} {\\des} {/&\heils_&_} {//ne__}{men__} *
+{/en} de {/Naam} des {\He}ren {\aan_}{roe_}{/pen__}. *
+en de Naam des {\He}{/ren} {/aan}roe{pen_} *
+{\en} de {/Naam} des {\He}ren {\aan_}{roe_}{/pen__}. [//:] 
 :::
 
 ***Hierna het alleluia als gebruikelijk in VOKN-25***
