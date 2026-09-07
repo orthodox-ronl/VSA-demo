@@ -82,3 +82,27 @@ maar geringen heeft Hij verheven.
 Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
 Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. -->
 </details>
+
+<details>
+  <summary>Communieverzen - van het Heilig Kruis</summary>
+
+#### Woensdag
+
+::: vsa-notatie
+<!-- Communievers woensdag - van het Heilig Kruis (Liturgikon p.90) -->
+[//:] Ik zal de Kelk des heils ne{men_} *
+en de Naam des Heren aan{\pen_}. *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+#### Feest van de Moeder Gods
+
+::: vsa-notatie
+<!-- Communievers Moeder Gods (Liturgikon p.90) -->
+[//:] Ik {/zal_} {\de} {\Kelk_} *
+{//des} {heils_} {/&\ne}{\men_} *
+{/en} de Naam des {\He_}{\&//ren} {\aan_}{\roe_}{\pen_}. *
+{//Al}le{/&\lu_&~}{\ia}, al{//le}luia, {/al}le{\&\lu_&_}{\ia_} [/:]
+:::
+
+</details>

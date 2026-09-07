@@ -82,3 +82,14 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
 Gedenk Uw Gemeente, die Gij van den beginne af hebt vrijgekocht.
 God is van eeuwigheid onze Koning; Hij bewerkt Verlossing in het midden der aarde. -->
 </details>
+
+<details>
+  <summary>Communievers - van het heilig Kruis </summary>
+
+::: vsa-notatie
+<!-- Communievers - Vrijdag - H. Kruis (Liturgikon, p90) -->
+[//:] Heer, het Licht van Uw aanschijn is een teken over {ons_} *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+</details>

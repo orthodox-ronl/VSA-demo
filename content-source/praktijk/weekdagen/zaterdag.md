@@ -126,3 +126,25 @@ Zalig de mens, wien de Heer de zonden niet toerekent.
 Ps.  64: Zalig die Gij hebt uitverkoren en opgenomen, om in Uw voorhoven te wonen.
 Ps. 134: Hun gedachtenis leeft van geslacht tot geslacht.
 </details> -->
+
+<details>
+  <summary>Communievers - van de Gestorvenen - </summary>
+
+#### Zaterdag
+
+::: vsa-notatie
+<!-- Communievers - Zaterdag (Liturgikon, p90) -->
+[//:] Rechtvaardigen, juicht in de Heer; de gerechten past {lof_}{zang_}. *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+#### Gestorvenen
+
+::: vsa-notatie
+<!-- Communievers - Gestorvenen (Liturgikon, p90) -->
+[//:] Zalig die Gij hebt uitverkoren en opgenomen, {Heer_}; *
+hun gedachtenis leeft van geslacht tot ge{slacht_}; *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+</details>

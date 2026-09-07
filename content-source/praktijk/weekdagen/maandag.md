@@ -82,3 +82,15 @@ looft Hem in den hoge.
 Looft Hem, al Zijn Engelen;  
 looft Hem, al Zijn Krachten.  -->
 </details>
+
+<details>
+  <summary>Communievers - H. Engelen - </summary>
+
+::: vsa-notatie
+<!-- Communievers - Maandag - H. Engelen (Liturgikon, p90) -->
+[//:] Gij maakt stormen tot Uw {En_}ge{len_}, *
+vuurvlammen tot Uw diena{ren_}. *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+</details>

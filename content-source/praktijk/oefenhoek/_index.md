@@ -4,8 +4,8 @@ linkTitle: "Oefenhoek"
 weight: 80
 ---
 
-Materiaal om **thuis of in de koorzaal mee te oefenen**. Het mag bruikbaar
-zijn zonder al af te zijn: geen catalogus, geen dienstblad.
-
-Als een stuk rijp is, komt het onder **Diensten** of **Materiaal** te staan.
-Tot die tijd is dit de vaste link om door te geven.
+In deze Oefenhoek staat materiaal dat is bedoeld voor hen die individueel (thuis)
+de hier aanwezige zangstukken willen oefenen.  Zij zijn zich er van bewust dat het
+materiaal dat hier staat niet 'af' is, en mogelijk ook niet hetgeen is dat ze in
+de koorpraktijk daadwerkelijk zullen gebruiken; immers, als het 'af' zou zijn, dan
+zou het in de toepasselijke koormap(pen) staan.

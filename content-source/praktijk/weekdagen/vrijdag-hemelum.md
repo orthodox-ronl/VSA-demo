@@ -84,3 +84,12 @@ Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de H
 Gedenk Uw Gemeente, die Gij van den beginne af hebt vrijgekocht.
 God is van eeuwigheid onze Koning; Hij bewerkt Verlossing in het midden der aarde. -->
 </details>
+
+<details>
+  <summary>Communievers - van het heilig Kruis </summary>
+
+Hij heeft Heil bewerkt in het midden der aarde, Christus onze God.
+
+*Melodie nog te arrangeren, gebaseerd op VOKN-25*
+
+</details>

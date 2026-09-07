@@ -81,3 +81,14 @@ Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die 
 De Gerechte zal bloeien als een palmboom; als een ceder van de Libanon zal hij uitgroeien.  
 Zij worden geplant in het Huis des Heren, en zullen bloeien in de voorhoven van onze God.  -->
 </details>
+
+<details>
+  <summary>Communievers - van de Voorloper - </summary>
+
+::: vsa-notatie
+<!-- Communievers - Dinsdag - Johannes de Voorloper (Liturgikon, p90) -->
+[//:] Tot eeuwige gedachtenis zal de rechtvaardige {zijn_}. *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+</details>

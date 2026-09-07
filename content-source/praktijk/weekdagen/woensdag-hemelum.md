@@ -84,3 +84,18 @@ maar geringen heeft Hij verheven.
 Sta op, Heer, ga in tot Uw rust: Gij en de Ark Uwer heiligheid. 
 Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zichzelf. -->
 </details>
+
+<details>
+  <summary>Communievers - Ik zal de Kelk des heils nemen</summary>
+
+::: vsa-notatie
+<!-- Communievers Woensdag/Moeder Gods (tekst: Apostel p.436, muziek: VOKN-25, arr.: Hemelum) -->
+[//:] Ik {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} des {/&\heils} {\ne_.}{/men__} *
+{\Ik} {zal_.} de {/&\&\&\&/&/Kelk_&_.&-&-&-&-} {\\des} {/&\heils} {/ne_.}{/men__} *
+{/en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. *
+en de Naam des {\He}{/ren} {/aan}{roe}{pen_} *
+{\en} de Naam des {/He}{\ren} {\aan}roe{/pen_}. *
+:::
+
+***Hierna het alleluia als gebruikelijk in VOKN-25***
+</details>

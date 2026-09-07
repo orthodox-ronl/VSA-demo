@@ -75,3 +75,15 @@ De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Z
 De hemelen belijden Uw wonderen, o Heer; en Uw waarachtigheid in de Kerk der Heiligen. 
 God is verheerlijkt in de raad der Heiligen; groot en ontzagwekkend boven allen die rond Hem staan. -->
 </details>
+
+<details>
+  <summary>Communievers - van de H. Apostelen - </summary>
+
+::: vsa-notatie
+<!-- Communievers - Donderdag - H. Apostelen (Liturgikon, p90) -->
+[//:] Over heel de aarde klinkt hun bood{schap_}; *
+tot aan de grenzen der wereld hun {woor_}{den_}. *
+Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
+:::
+
+</details>

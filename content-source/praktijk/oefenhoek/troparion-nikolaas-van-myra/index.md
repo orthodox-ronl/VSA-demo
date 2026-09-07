@@ -6,7 +6,7 @@ weight: 10
 
 # Tropaar H. Nikolaas van Myra (toon 4)
 
-Deze oefenpagina is bruikbaar, maar is geen afgeronde uitgave.
+Deze oefenpagina is werk-in-uitvoering; het is nog niet klaar/afgerond.
 
 :::include svg "T4-11-nicolaas-van-myra.vsa" alt="Tropaar H. Nikolaas van Myra (toon 4)":::
 

@@ -91,7 +91,7 @@ Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 
 ## Communievers Moeder Gods
 ::: vsa-notatie
-<!-- Communievers Moeder Gods (Liturgikon p.90) -->
+<!-- Communievers Woensdag/Moeder Gods (Apostel p.436 en Liturgikon p.90) -->
 [//:] Ik {/zal_} {\de} {\Kelk_} *
 {//des} {heils_} {/&\ne}{\men_} *
 {/en} de Naam des {\He_}{\&//ren} {\aan_}{\roe_}{\pen_}. *
