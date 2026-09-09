@@ -1,6 +1,24 @@
-{{- $src := .Get "src" -}}
-{{- $src = replaceRE "^/" "" $src -}}
-{{- $href := $src | relURL -}}
+{{- /*
+  src: bladermap-relatief (T4-11-….pdf, ./…, ../…) of vanaf de site-root
+  (praktijk/…/x.pdf of /praktijk/…/x.pdf). Page-bundle PDF wint als die bestaat.
+*/ -}}
+{{- $raw := .Get "src" -}}
+{{- if not $raw -}}
+  {{- errorf "pdf-sheet: parameter src is verplicht" -}}
+{{- end -}}
+{{- $href := "" -}}
+{{- if strings.HasPrefix $raw "/" -}}
+  {{- $href = replaceRE "^/" "" $raw | relURL -}}
+{{- else -}}
+  {{- $res := .Page.Resources.GetMatch (path.Clean $raw) -}}
+  {{- if $res -}}
+    {{- $href = $res.RelPermalink -}}
+  {{- else if or (not (strings.Contains $raw "/")) (strings.HasPrefix $raw "./") (strings.HasPrefix $raw "../") -}}
+    {{- $href = urls.JoinPath .Page.RelPermalink $raw -}}
+  {{- else -}}
+    {{- $href = $raw | relURL -}}
+  {{- end -}}
+{{- end -}}
 {{- $download := or (.Get "download") "Downloaden" -}}
 {{- $print := or (.Get "print") "Printen" -}}
 <div class="pdf-sheet vsa-container" data-pdf-src="{{ $href }}">

@@ -12,4 +12,4 @@ Deze oefenpagina is werk-in-uitvoering; het is nog niet klaar/afgerond.
 
 :::include coria "T4-11-nicolaas-van-myra.mxl" label="Oefenen in Coria":::
 
-{{< pdf-sheet src="praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf" >}}
+{{< pdf-sheet src="T4-11-nicolaas-van-myra.pdf" >}}
