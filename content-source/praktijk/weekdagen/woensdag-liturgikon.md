@@ -90,7 +90,7 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
 
 ::: vsa-notatie
 <!-- Communievers woensdag - van het Heilig Kruis (Liturgikon p.90) -->
-[//:] Ik zal de Kelk des heils ne{men_} *
+[//:] Ik zal de Kelk des heils ne{/men_} *
 en de Naam des Heren aan{\pen_}. *
 Alleluia, alleluia, alle{/lu_}i{\a_}. [//:]
 :::
