@@ -1,13 +1,13 @@
 ---
 title: "H. Nikolaas van Myra (6 December)"
-source: "Liturgikon"
+feestdag: "6 dec"
+source: "Hemelum"
+layout: "feesteigen-pagina"
 ---
 
-## H. Nikolaas van Myra
-
-### TROPAAR (Toon 4)
+### Tropaar (Toon 4)
 ::: vsa-notatie
-<!-- Tropaar H. Nikolaas van Myra, Toon 4 (Liturgikon, p283) -->
+<!-- Tropaar H. Nikolaas van Myra, Toon 4 (Tekst: Hemelum, Muziek: Liturgikon, p.283) -->
 [//:] Als een {Re_}gel {/van} ge{\loof_} 
 {/en} een voor-beeld van zacht{moe__}dig{\heid_} 
 heeft de waar-heid van uw da-den u aan uw {kud_}{/de} ge{\toond_}. 
@@ -17,9 +17,9 @@ en door ar-moe-de rijk ge{-&/wor_&_}{\den_},
 // bid Chris-tus {God_}, on-ze zie-len te {-&/red_&_}{\den_}. [//:]
 :::
 
-### KONDAK (Toon 3)
+### Kondak (Toon 3)
 ::: vsa-notatie
-<!-- Tropaar H. Nikolaas van Myra, Toon 3 (Liturgikon, p283) -->
+<!-- Kondak H. Nikolaas van Myra, Toon 3 (Liturgikon, p.283) -->
 [\\:] Hei-li{/ge} {/Ni}ko{\laas} {/van} {/&/My}{ra_}, 
 gij zijt wer-ke-lijk de Ho-ge-pries-ter van {\&\&\Chris_&~&~}{\tus_}. 
 Vol-gens het E{/van}{/ge}lie hebt gij uw {\le}{/ven} {/&/in}ge{zet_} 
