@@ -16,7 +16,9 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
 
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
-`copy_content_extras.py`, zodat Coria ze van de gepubliceerde site kan halen.
+`copy_content_extras.py`. `fingerprint_coria_mxl.py` zet dezelfde MXL onder
+`/mxl/c/<hash>/…` (URL eindigt op `.mxl`), zodat Coria verse tekst laadt
+zonder query-string.
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

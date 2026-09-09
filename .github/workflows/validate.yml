@@ -57,7 +57,7 @@ jobs:
 
       - name: Generate Markdown + SVG
         run: |
-          rm -rf generated/content static/vsa
+          rm -rf generated/content static/vsa static/mxl
           vsa build-markdown \
             content-source \
             generated/content \
@@ -73,6 +73,8 @@ jobs:
       - name: Inject git dates and build stamp
         run: |
           python scripts/inject_git_dates.py generated/content content-source
+          python scripts/copy_content_extras.py
+          python scripts/fingerprint_coria_mxl.py
           python scripts/write_build_stamp.py
 
       - name: Setup Hugo

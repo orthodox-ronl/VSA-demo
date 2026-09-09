@@ -3,6 +3,7 @@ generated/
 public/
 resources/
 data/build.yaml
+data/coria-fp.json
 static/vsa/
 static/coria/
 static/mxl/

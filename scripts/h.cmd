@@ -50,7 +50,7 @@ call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
-echo   write_build_stamp.py, check_demo_pdf_fresh.py,
+echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py
 echo.
 goto end_ok

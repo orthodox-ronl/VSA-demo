@@ -1,22 +1,23 @@
 {{- $src := .Get "src" -}}
 {{- $src = replaceRE "^/" "" $src -}}
 {{- $label := or (.Get "label") "Oefenen in Coria" -}}
+{{- $fps := dict -}}
+{{- if fileExists "data/coria-fp.json" -}}
+  {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
+{{- end -}}
+{{- $fp := "" -}}
+{{- with index $fps (replace $src "/" "__") -}}
+  {{- $fp = strings.TrimSpace . -}}
+{{- end -}}
+{{- if $fp -}}
+  {{- if strings.HasPrefix $src "vsa/mxl/" -}}
+    {{- $rest := strings.TrimPrefix "vsa/mxl/" $src -}}
+    {{- $src = printf "vsa/mxl/c/%s/%s" $fp $rest -}}
+  {{- else if strings.HasPrefix $src "mxl/" -}}
+    {{- $rest := strings.TrimPrefix "mxl/" $src -}}
+    {{- $src = printf "mxl/c/%s/%s" $fp $rest -}}
+  {{- end -}}
+{{- end -}}
 {{- $absolute := absURL $src -}}
-{{- /* Coria cache't play_from_url op de bestands-URL; fingerprint forceert een verse fetch. */ -}}
-{{- $fpFile := "" -}}
-{{- $staticFile := printf "static/%s" $src -}}
-{{- if fileExists $staticFile -}}
-  {{- $fpFile = $staticFile -}}
-{{- else if strings.HasPrefix $src "mxl/" -}}
-  {{- $native := printf "content-source/%s" (strings.TrimPrefix $src "mxl/") -}}
-  {{- if fileExists $native -}}
-    {{- $fpFile = $native -}}
-  {{- end -}}
-{{- end -}}
-{{- if $fpFile -}}
-  {{- with os.Stat $fpFile -}}
-    {{- $absolute = printf "%s?v=%d-%d" $absolute .ModTime.Unix .Size -}}
-  {{- end -}}
-{{- end -}}
 {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
 <p class="coria-play"><a href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a></p>

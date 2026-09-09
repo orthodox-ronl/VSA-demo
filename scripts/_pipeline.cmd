@@ -34,6 +34,7 @@ echo.
 echo [3/7] Generate Markdown + SVG + MusicXML
 if exist generated\content rmdir /s /q generated\content
 if exist static\vsa rmdir /s /q static\vsa
+if exist static\mxl rmdir /s /q static\mxl
 "%PY%" -m vsa.cli build-markdown ^
   content-source ^
   generated\content ^
@@ -49,6 +50,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\inject_git_dates.py generated\content content-source
 if errorlevel 1 exit /b 1
 "%PY%" scripts\copy_content_extras.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\fingerprint_coria_mxl.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
 if errorlevel 1 exit /b 1
