@@ -6,7 +6,10 @@
   {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
 {{- end -}}
 {{- with index $fps (replace $src "/" "__") -}}
-  {{- $src = strings.TrimSpace . -}}
+  {{- $mapped := strings.TrimSpace . -}}
+  {{- if or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix ".mxl" $mapped) -}}
+    {{- $src = $mapped -}}
+  {{- end -}}
 {{- end -}}
 {{- $absolute := absURL $src -}}
 {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}

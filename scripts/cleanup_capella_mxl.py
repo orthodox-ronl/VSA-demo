@@ -42,8 +42,8 @@ XML. 'Laatste pagina niet uitzetten' is grotendeels MuseScore-stijl
 ----------------------------------------------------------------------
 Laag 4 - .mscz -> PDF en later MXL voor Coria
 ----------------------------------------------------------------------
-Buiten dit script. Het opgekuiste MXL is het importbestand. Aanpassingen
-in MuseScore; van daaruit PDF en een Coria-MXL exporteren (playback).
+`scripts/apply_mscz_layout.py` + `scripts/mscz-layout-contract.md`.
+Het opgekuiste MXL is het importbestand; daarna A4-layout op het .mscz.
 
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl

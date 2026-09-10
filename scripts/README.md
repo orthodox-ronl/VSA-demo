@@ -19,10 +19,14 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 op te kuisen (reciteerkwarten, lettergrepen, titel, lege maten, lyrics tussen
 de balken). Geen MuseScore-stijl tot op de pixel. Niet in `check`.
 
+`apply_mscz_layout.py` is de proef voor laag 4: A4-standaard-layout op een
+`.mscz` (idempotent). Contract: `scripts/mscz-layout-contract.md`. Niet in
+`check`. Later verhuizen naar VSA-tooling.
+
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
-`copy_content_extras.py`. `fingerprint_coria_mxl.py` zet dezelfde MXL onder
-`/mxl/c/<hash>/…` (URL eindigt op `.mxl`), zodat Coria verse tekst laadt
-zonder query-string.
+`copy_content_extras.py`. `fingerprint_coria_mxl.py` publiceert Coria-MXL
+als `/mxl/c/<hash>.mxl` (URL eindigt altijd op `.mxl`, geen spaties of
+query-string; Coria weigert anders het bestand).
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

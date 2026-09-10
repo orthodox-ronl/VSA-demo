@@ -1,8 +1,9 @@
-"""Copy native/generated MXL under a content-hash path for Coria.
+"""Publish Coria MXL as /mxl/c/<md5>.mxl (URL always ends with .mxl).
 
-Coria play_from_url requires the URL to end in .mxl/.xml/.musicxml, so a
-query-string cache buster is rejected. A path segment /c/<hash>/ keeps the
-suffix and still changes the URL when lyrics change.
+Coria play_from_url rejects URLs that do not end in .xml/.mxl/.musicxml
+(query strings) and cannot fetch GitHub paths with spaces or %2520.
+A single ASCII filename under /mxl/c/ avoids all of that; the hash
+changes when file bytes change, so Coria loads fresh lyrics.
 """
 
 from __future__ import annotations
@@ -14,10 +15,12 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = REPO_ROOT / "data" / "coria-fp.json"
+DEST_ROOT = REPO_ROOT / "static" / "mxl" / "c"
+URL_PREFIX = "mxl/c"
 SUFFIXES = {".mxl", ".musicxml"}
-TREES = (
-    (REPO_ROOT / "static" / "mxl", "mxl"),
-    (REPO_ROOT / "static" / "vsa" / "mxl", "vsa/mxl"),
+SOURCE_TREES = (
+    REPO_ROOT / "static" / "mxl",
+    REPO_ROOT / "static" / "vsa" / "mxl",
 )
 
 
@@ -25,32 +28,36 @@ def _fingerprint(path: Path) -> str:
     return hashlib.md5(path.read_bytes()).hexdigest()[:12]
 
 
-def _copy_tree(root: Path, url_prefix: str) -> dict[str, str]:
-    mapping: dict[str, str] = {}
-    cache_root = root / "c"
-    if cache_root.exists():
-        shutil.rmtree(cache_root)
-    if not root.is_dir():
-        return mapping
-    for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.suffix.lower() not in SUFFIXES:
+def _iter_source_files() -> list[tuple[str, Path]]:
+    files: list[tuple[str, Path]] = []
+    for root in SOURCE_TREES:
+        if not root.is_dir():
             continue
-        relative = path.relative_to(root)
-        if relative.parts and relative.parts[0] == "c":
-            continue
-        fp = _fingerprint(path)
-        target = cache_root / fp / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(path, target)
-        key = f"{url_prefix}/{relative.as_posix()}".replace("/", "__")
-        mapping[key] = fp
-    return mapping
+        prefix = "mxl" if root == SOURCE_TREES[0] else "vsa/mxl"
+        for path in sorted(root.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in SUFFIXES:
+                continue
+            relative = path.relative_to(root)
+            if relative.parts and relative.parts[0] == "c":
+                continue
+            key = f"{prefix}/{relative.as_posix()}".replace("/", "__")
+            files.append((key, path))
+    return files
 
 
 def main() -> int:
+    if DEST_ROOT.exists():
+        shutil.rmtree(DEST_ROOT)
+    DEST_ROOT.mkdir(parents=True, exist_ok=True)
+
     mapping: dict[str, str] = {}
-    for root, url_prefix in TREES:
-        mapping.update(_copy_tree(root, url_prefix))
+    for key, path in _iter_source_files():
+        fp = _fingerprint(path)
+        target = DEST_ROOT / f"{fp}.mxl"
+        if not target.exists():
+            shutil.copy2(path, target)
+        mapping[key] = f"{URL_PREFIX}/{fp}.mxl"
+
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(
         json.dumps(mapping, indent=2, sort_keys=True) + "\n",
