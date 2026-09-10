@@ -25,7 +25,8 @@ de balken). Geen MuseScore-stijl tot op de pixel. Niet in `check`.
 
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
-sectie-pickups weg, `[PAUZE]` na dubbele streep, kwart-rust na cesuur).
+sectie-pickups weg, `[PAUZE]` na dubbele streep, kwart-rust na cesuur,
+BPM-markers als `sound tempo` op alle parts).
 Niet in `check`.
 
 Generate kopieert extra page-bundle bestanden (`.mxl`) via

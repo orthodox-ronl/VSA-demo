@@ -75,8 +75,11 @@ rusten **wissen**, de maat korter maken (`senza-misura`). Daarna:
 | Dubbele maatstreep | extra maat: 4 kwarten rust, lyric `[PAUZE]`; `P:`/`D:`/`K:`-cue van de volgende koormaat erboven (niet meer op de inzet) |
 | Gebogen cesuur (`caesuraCurved`) | 1 kwart rust na die noot, geen lyric |
 
-Onzichtbare rusten in het midden/einde van een maat blijven als gewone rust
-(anders loopt SATB uit de pas). De `.mscz` verandert niet.
+Onzichtbare MuseScore-tempo (`<Tempo visible=0>`) komt in de MuseScore-MXL
+als losse `<sound tempo="…"/>` (geen metronoomtekst). Het exportscript zet
+dat op **alle** SATB-parts als `<metronome>` + `<sound tempo>`, zodat Coria
+het kan spelen en je het in de `.mxl` kunt zien. Print-`.mscz` blijft
+onzichtbaar.
 
 ## Melisma (niet laag 4)
 

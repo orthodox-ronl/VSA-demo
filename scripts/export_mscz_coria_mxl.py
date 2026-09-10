@@ -8,7 +8,8 @@ kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
 de maat wordt korter. Daarna een extra maat: 4 kwarten rust, lyric
 [PAUZE], P:/D:/K:-cue van de volgende koormaat erboven. Gebogen cesuur:
-1 kwart rust in alle parts, geen lyric. Overige print-object=no-rusten
+1 kwart rust na die noot, geen lyric. Onzichtbare BPM-marker in de `.mscz`
+wordt `<sound tempo>` + metronoom op alle parts. Overige print-object=no-rusten
 worden zichtbaar. Time: senza-misura.
 
 Geen roundtrip terug naar .mscz. Niet in check. Later: VSA-tooling.
@@ -266,6 +267,21 @@ def prepare_note(note: ET.Element) -> ET.Element:
     return n
 
 
+def tempo_direction(bpm: str) -> ET.Element:
+    """Zichtbare metronoom + sound tempo (Coria-test; in .mscz mag die onzichtbaar zijn)."""
+    try:
+        shown = str(int(float(bpm)))
+    except ValueError:
+        shown = bpm
+    direction = ET.Element("direction", placement="above")
+    dt = ET.SubElement(direction, "direction-type")
+    metro = ET.SubElement(dt, "metronome", parentheses="no")
+    ET.SubElement(metro, "beat-unit").text = "quarter"
+    ET.SubElement(metro, "per-minute").text = shown
+    ET.SubElement(direction, "sound", tempo=shown)
+    return direction
+
+
 def extract_measure(
     src: ET.Element,
     *,
@@ -297,6 +313,11 @@ def extract_measure(
                     d.remove(st)
                 out.append(d)
             continue
+        if tag == "sound":
+            tempo = el.get("tempo")
+            if tempo:
+                out.append(tempo_direction(tempo))
+            continue
         if tag == "note":
             if note_matches(el, staff, voice):
                 out.append(prepare_note(el))
@@ -304,7 +325,7 @@ def extract_measure(
         if tag == "barline":
             out.append(copy.deepcopy(el))
             continue
-        if tag in {"harmony", "sound", "listening"}:
+        if tag in {"harmony", "listening"}:
             continue
         if keep_direction:
             out.append(copy.deepcopy(el))
@@ -587,9 +608,17 @@ def apply_coria_timing(root: ET.Element) -> None:
     n_pad = equalize_measure_durations(parts)
     set_senza_misura(root)
     renumber_measures(root)
+    n_tempo = 0
+    for part in parts:
+        for measure in children(part, "measure"):
+            for d in children(measure, "direction"):
+                snd = child(d, "sound")
+                if snd is not None and snd.get("tempo"):
+                    n_tempo += 1
     print(
         f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
-        f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad}"
+        f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad} "
+        f"tempo-markers={n_tempo}"
     )
 
 
