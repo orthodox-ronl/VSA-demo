@@ -23,7 +23,8 @@ Laag 2 - Tekst-noot-binding
   noten INVOEGEN met dezelfde duur als het origineel (blijven kwarten),
   niet de originele kwart in triolen/achten/16en knippen.
 - Melisma: bestaande langere noten of noten zonder tekst houden;
-  extender, geen extra korte noten.
+  extender op de lettergreep (`<extend/>`), geen extra korte noten; slurs
+  blijven (frase ≠ melisma).
 - Lyrics alleen op stem 1, tussen de twee notenbalken (niet onder de bas,
   niet per stem herhaald). SATB blijft homofoon in de noten.
 - Extra noten op alle stemmen op dezelfde index; daarna ``<backup>``
@@ -44,6 +45,7 @@ Laag 4 - .mscz -> PDF en later MXL voor Coria
 ----------------------------------------------------------------------
 `scripts/apply_mscz_layout.py` + `scripts/mscz-layout-contract.md`.
 Het opgekuiste MXL is het importbestand; daarna A4-layout op het .mscz.
+Coria-MXL vanuit dat .mscz: `scripts/export_mscz_coria_mxl.py`.
 
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
@@ -516,6 +518,53 @@ def split_lyrics_keep_quarters(root: ET.Element) -> int:
     return splits
 
 
+def _lyric_plain(note: ET.Element) -> str:
+    lys = lyric_elements(note)
+    if not lys:
+        return ""
+    txt = child(lys[0], "text")
+    return (txt.text or "").replace("\xa0", " ").strip() if txt is not None else ""
+
+
+def apply_melisma_extenders(root: ET.Element) -> int:
+    """Lettergreep + volgende noten zonder tekst: <extend/> op de lettergreep.
+
+    Rusten breken de keten. Slurs blijven. Idempotent.
+    """
+    n = 0
+    for part in [c for c in root if local(c.tag) == "part"]:
+        notes: list[ET.Element] = []
+        for measure in children(part, "measure"):
+            for el in measure:
+                if local(el.tag) != "note" or is_chord(el):
+                    continue
+                v = child(el, "voice")
+                vid = v.text if v is not None and v.text else "1"
+                if vid != "1":
+                    continue
+                notes.append(el)
+        i = 0
+        while i < len(notes):
+            note = notes[i]
+            if is_rest(note) or not _lyric_plain(note):
+                i += 1
+                continue
+            j = i + 1
+            while j < len(notes) and not is_rest(notes[j]) and not _lyric_plain(notes[j]):
+                j += 1
+            ly = lyric_elements(note)[0]
+            ext = child(ly, "extend")
+            if j > i + 1:
+                if ext is None:
+                    ET.SubElement(ly, "extend")
+                    n += 1
+            elif ext is not None:
+                ly.remove(ext)
+                n += 1
+            i += 1
+    return n
+
+
 def strip_lyrics_from_lower_voices(root: ET.Element) -> int:
     """Lyrics alleen op stem 1, tussen de balken - niet onder het systeem."""
     n = 0
@@ -681,6 +730,7 @@ def cleanup(root: ET.Element) -> None:
     hide_part_name(root)
     n_split = split_lyrics_keep_quarters(root)
     n_stripped = strip_lyrics_from_lower_voices(root)
+    n_melisma = apply_melisma_extenders(root)
     n_empty = drop_empty_measures(root)
     for part in [c for c in root if local(c.tag) == "part"]:
         for measure in children(part, "measure"):
@@ -689,7 +739,7 @@ def cleanup(root: ET.Element) -> None:
     print(
         f"  unhide={n_unhide} page-words={n_pages} title={title!r} "
         f"subtitle={subtitle!r} splits={n_split} lyrics_stripped={n_stripped} "
-        f"empty_measures={n_empty}"
+        f"melisma_extend={n_melisma} empty_measures={n_empty}"
     )
     print(f"  {summarize(root)}")
 

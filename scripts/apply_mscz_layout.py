@@ -16,6 +16,8 @@ import argparse
 import io
 import re
 import zipfile
+from collections import defaultdict
+from fractions import Fraction
 from pathlib import Path
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
@@ -48,7 +50,11 @@ STYLE_OVERRIDES: dict[str, str] = {
     "hideInstrumentNameIfOneInstrument": "1",
     "firstSystemInstNameVisibility": "0",
     "subsSystemInstNameVisibility": "0",
-    "showMeasureNumber": "0",
+    "showMeasureNumber": "1",
+    "showMeasureNumberOne": "1",
+    "measureNumberSystem": "1",
+    "measureNumberInterval": "0",
+    "frameSystemDistance": "14",
     "lyricsPlacement": "1",
     "lyricsOddFontFace": _FONT,
     "lyricsEvenFontFace": _FONT,
@@ -79,7 +85,22 @@ STYLE_OVERRIDES: dict[str, str] = {
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 VBOX_RE = re.compile(r"[ \t]*<VBox>.*?</VBox>", re.S)
 STAFF_TEXT_RE = re.compile(r"<StaffText>.*?</StaffText>", re.S)
+MEASURE_RE = re.compile(r"<Measure\b.*?</Measure>", re.S)
+VOICE_RE = re.compile(r"<voice>.*?</voice>", re.S)
+CHORD_REST_RE = re.compile(r"<(Chord|Rest)\b.*?</\1>", re.S)
+LYRICS_RE = re.compile(r"<Lyrics>.*?</Lyrics>", re.S)
 TEXT_INNER_RE = re.compile(r"<text>(.*?)</text>", re.S)
+_QUARTERS = {
+    "long": Fraction(16),
+    "breve": Fraction(8),
+    "whole": Fraction(4),
+    "half": Fraction(2),
+    "quarter": Fraction(1),
+    "eighth": Fraction(1, 2),
+    "16th": Fraction(1, 4),
+    "32nd": Fraction(1, 8),
+    "64th": Fraction(1, 16),
+}
 STYLE_INNER_RE = re.compile(r"<style>(.*?)</style>", re.S)
 META_RE = re.compile(
     r'<metaTag name="(?P<name>[^"]*)">(?P<val>.*?)</metaTag>',
@@ -162,6 +183,7 @@ def _build_vbox(title: str, composer: str) -> str:
     lines = [
         "      <VBox>",
         "        <boxAutoSize>1</boxAutoSize>",
+        "        <bottomGap>2</bottomGap>",
         "        <Text>",
         "          <style>title</style>",
         f"          <text>{_xml_text(title)}</text>",
@@ -212,6 +234,251 @@ def _strip_arial_on_stafftext(mscx: str) -> str:
         return b
 
     return STAFF_TEXT_RE.sub(fix, mscx)
+
+
+def _double_bar(meas: str) -> bool:
+    return bool(re.search(r"<BarLine>.*?<subtype>double</subtype>", meas, re.S))
+
+
+def _ensure_rest_gap(rest: str) -> str:
+    """Geen kolombreedte, wel ticks (MuseScore gap-rest)."""
+    if "<gap>" not in rest:
+        rest = rest.replace("<Rest>", "<Rest>\n            <gap>1</gap>", 1)
+    else:
+        rest = re.sub(r"<gap>.*?</gap>", "<gap>1</gap>", rest, count=1)
+    if "<visible>0</visible>" not in rest:
+        rest = rest.replace("<Rest>", "<Rest>\n            <visible>0</visible>", 1)
+    return rest
+
+
+def _move_last_rest_to_front(voice: str) -> str:
+    items = list(CHORD_REST_RE.finditer(voice))
+    if len(items) < 2:
+        return voice
+    if items[0].group(1) != "Chord" or items[-1].group(1) != "Rest":
+        return voice
+    last = items[-1]
+    rest = last.group(0)
+    without = voice[: last.start()] + voice[last.end() :]
+    first = CHORD_REST_RE.search(without)
+    if first is None:
+        return voice
+    return without[: first.start()] + rest + without[first.start() :]
+
+
+def _gap_leading_rests(meas: str) -> str:
+    def fix_voice(vm: re.Match[str]) -> str:
+        v = vm.group(0)
+        out = []
+        pos = 0
+        leading = True
+        for cr in CHORD_REST_RE.finditer(v):
+            out.append(v[pos : cr.start()])
+            block = cr.group(0)
+            if leading and cr.group(1) == "Rest":
+                block = _ensure_rest_gap(block)
+            else:
+                leading = False
+            out.append(block)
+            pos = cr.end()
+        out.append(v[pos:])
+        return "".join(out)
+
+    return VOICE_RE.sub(fix_voice, meas)
+
+
+def _restore_swapped_leading_rest(meas: str) -> str:
+    """Herstel: noten stonden na een leidende rust; korting zette de rust achteraan."""
+    new_meas = VOICE_RE.sub(lambda vm: _move_last_rest_to_front(vm.group(0)), meas)
+    donor = None
+    for vm in VOICE_RE.finditer(new_meas):
+        cr = CHORD_REST_RE.search(vm.group(0))
+        if cr is not None and cr.group(1) == "Rest":
+            donor = cr.group(0)
+            break
+    if donor is None:
+        return new_meas
+
+    def fill_voice(vm: re.Match[str]) -> str:
+        v = vm.group(0)
+        cr = CHORD_REST_RE.search(v)
+        if cr is None or cr.group(1) != "Chord":
+            return v
+        return v[: cr.start()] + donor + v[cr.start() :]
+
+    return VOICE_RE.sub(fill_voice, new_meas)
+
+
+# Maten waar de pickup-korting rust en noot verwisselde (0-based, per balk).
+_SWAPPED_LEADING_REST = {0, 10, 14, 56}
+
+
+def _fix_leading_rest_spacing(mscx: str) -> tuple[str, int, int]:
+    n_restore = 0
+    n_gap = 0
+
+    def fix_staff(staff_m: re.Match[str]) -> str:
+        nonlocal n_restore, n_gap
+        body = staff_m.group(0)
+        if "<Measure" not in body:
+            return body
+        idx = 0
+        prev = ""
+
+        def fix_meas(mm: re.Match[str]) -> str:
+            nonlocal idx, n_restore, n_gap, prev
+            meas = mm.group(0)
+            after_double = _double_bar(prev)
+            if idx in _SWAPPED_LEADING_REST:
+                before = meas
+                meas = _restore_swapped_leading_rest(meas)
+                if meas != before:
+                    n_restore += 1
+            if idx == 0 or after_double:
+                before = meas
+                meas = _gap_leading_rests(meas)
+                if meas != before:
+                    n_gap += 1
+            prev = meas
+            idx += 1
+            return meas
+
+        inner = MEASURE_RE.sub(fix_meas, body)
+        return inner
+
+    out = re.sub(
+        r"<Staff id=\"\d+\">.*?</Staff>",
+        fix_staff,
+        mscx,
+        flags=re.S,
+    )
+    return out, n_restore, n_gap
+
+
+def _block_ticks(block: str, division: int) -> int:
+    dt = re.search(r"<durationType>(.*?)</durationType>", block)
+    if not dt:
+        return 0
+    base = _QUARTERS.get(dt.group(1).strip())
+    if base is None:
+        return 0
+    dots_m = re.search(r"<dots>(\d+)</dots>", block)
+    dots = int(dots_m.group(1)) if dots_m else (1 if "<dots>" in block else 0)
+    add = base
+    extra = Fraction(0)
+    for _ in range(dots):
+        add /= 2
+        extra += add
+    return int((base + extra) * division)
+
+
+def _chord_lyric_plain(chord: str) -> str:
+    ly = LYRICS_RE.search(chord)
+    if ly is None:
+        return ""
+    t = TEXT_INNER_RE.search(ly.group(0))
+    return _plain(t.group(1)) if t else ""
+
+
+def _set_chord_lyric_ticks(chord: str, ticks: int, division: int) -> str:
+    ly_m = LYRICS_RE.search(chord)
+    if ly_m is None:
+        return chord
+    ly = ly_m.group(0)
+    ly = re.sub(r"\s*<ticks>.*?</ticks>", "", ly)
+    ly = re.sub(r"\s*<ticks_f>.*?</ticks_f>", "", ly)
+    if ticks > 0:
+        fr = Fraction(ticks, division)
+        ins = (
+            f"\n              <ticks>{ticks}</ticks>"
+            f"\n              <ticks_f>{fr.numerator}/{fr.denominator}</ticks_f>"
+        )
+        if "</syllabic>" in ly:
+            ly = ly.replace("</syllabic>", "</syllabic>" + ins, 1)
+        else:
+            ly = ly.replace("<text>", ins + "\n              <text>", 1)
+    return chord[: ly_m.start()] + ly + chord[ly_m.end() :]
+
+
+def _melisma_ticks_for_blocks(blocks: list[str], division: int) -> tuple[list[str], int]:
+    kinds: list[str] = []
+    for b in blocks:
+        if b.startswith("<Rest"):
+            kinds.append("rest")
+        elif _chord_lyric_plain(b):
+            kinds.append("lyric")
+        else:
+            kinds.append("bare")
+    out = list(blocks)
+    n = 0
+    for i, b in enumerate(blocks):
+        if kinds[i] != "lyric":
+            continue
+        total = 0
+        j = i + 1
+        while j < len(blocks) and kinds[j] == "bare":
+            total += _block_ticks(blocks[j], division)
+            j += 1
+        new = _set_chord_lyric_ticks(b, total, division)
+        if new != b:
+            n += 1
+            out[i] = new
+    return out, n
+
+
+def _apply_melisma_extenders(mscx: str) -> tuple[str, int]:
+    dm = re.search(r"<Division>(\d+)</Division>", mscx)
+    division = int(dm.group(1)) if dm else 480
+    n_total = 0
+
+    def fix_staff(staff_m: re.Match[str]) -> str:
+        nonlocal n_total
+        body = staff_m.group(0)
+        measures = [m.group(0) for m in MEASURE_RE.finditer(body)]
+        if not measures:
+            return body
+        nvoices = max(len(VOICE_RE.findall(m)) for m in measures)
+        per: dict[tuple[int, int], list[str]] = defaultdict(list)
+        for vi in range(nvoices):
+            blocks: list[str] = []
+            coords: list[tuple[int, int]] = []
+            for mi, meas in enumerate(measures):
+                voices = list(VOICE_RE.finditer(meas))
+                if vi >= len(voices):
+                    continue
+                for cr in CHORD_REST_RE.finditer(voices[vi].group(0)):
+                    blocks.append(cr.group(0))
+                    coords.append((mi, vi))
+            new_blocks, n = _melisma_ticks_for_blocks(blocks, division)
+            n_total += n
+            for (mi, vj), nb in zip(coords, new_blocks, strict=True):
+                per[(mi, vj)].append(nb)
+
+        new_measures: list[str] = []
+        for mi, meas in enumerate(measures):
+            state = {"vi": 0}
+
+            def fix_voice(vm: re.Match[str]) -> str:
+                vi = state["vi"]
+                state["vi"] += 1
+                nb = per.get((mi, vi))
+                if not nb:
+                    return vm.group(0)
+                it = iter(nb)
+                return CHORD_REST_RE.sub(lambda _m: next(it), vm.group(0))
+
+            new_measures.append(VOICE_RE.sub(fix_voice, meas))
+
+        itm = iter(new_measures)
+        return MEASURE_RE.sub(lambda _m: next(itm), body)
+
+    out = re.sub(
+        r'<Staff id="\d+">.*?</Staff>',
+        fix_staff,
+        mscx,
+        flags=re.S,
+    )
+    return out, n_total
 
 
 def _promote_composer(mscx: str, composer: str) -> tuple[str, str, list[str]]:
@@ -275,6 +542,14 @@ def apply_mscx(mscx: str) -> tuple[str, list[str]]:
     notes.append(f"VBox title={title!r} composer={composer!r}")
 
     mscx = _strip_arial_on_stafftext(mscx)
+    mscx, n_restore, n_gap = _fix_leading_rest_spacing(mscx)
+    if n_restore:
+        notes.append(f"leidende rust terug voor de noten: {n_restore} maten")
+    if n_gap:
+        notes.append(f"leidende rusten na dubbele streep/start: gap (geen kolom): {n_gap}")
+    mscx, n_mel = _apply_melisma_extenders(mscx)
+    if n_mel:
+        notes.append(f"melisma-extenders (ticks): {n_mel}")
 
     if cue:
         mscx = _ensure_first_measure_stafftext(mscx, cue)

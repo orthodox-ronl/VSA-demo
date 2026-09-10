@@ -23,6 +23,10 @@ de balken). Geen MuseScore-stijl tot op de pixel. Niet in `check`.
 `.mscz` (idempotent). Contract: `scripts/mscz-layout-contract.md`. Niet in
 `check`. Later verhuizen naar VSA-tooling.
 
+`export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
+voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE). Niet
+in `check`.
+
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
 `copy_content_extras.py`. `fingerprint_coria_mxl.py` publiceert Coria-MXL
 als `/mxl/c/<hash>.mxl` (URL eindigt altijd op `.mxl`, geen spaties of

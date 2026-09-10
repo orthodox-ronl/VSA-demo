@@ -12,8 +12,8 @@ niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
 ## Doel
 
 SATB-partituur netjes op **A4**, PDF-export en papier. Muziek (noten, duren,
-lyrics, stemmen) blijft onaangeroerd. Later: aparte playback-MXL voor Coria
-vanuit hetzelfde `.mscz`.
+lyrics, stemmen) blijft onaangeroerd. Playback-MXL voor Coria: dezelfde
+`.mscz` via `scripts/export_mscz_coria_mxl.py` (geen roundtrip).
 
 ## Pagina en stijl (waarden = `STYLE_OVERRIDES` in het script)
 
@@ -25,8 +25,9 @@ vanuit hetzelfde `.mscz`.
 | Laatste systeem (partituur én na sectiebreuk) | niet uitrekken (`lastSystemFillLimit=1`) |
 | Verticaal | pagina niet vullen (`enableVerticalSpread=0`) |
 | Partijnamen | uit (een instrument / SATB-akkolade) |
-| Maatnummers | uit |
+| Maatnummers | eerste maat van elke regel (`measureNumberSystem`), ook maat 1 |
 | Lyrics | onder de bovenste balk (tussen de twee balken) |
+| Titel → eerste systeem | extra ruimte (`frameSystemDistance=14`), zodat p.1-systemen lager komen |
 
 ## Typografie (VSA-defaults)
 
@@ -56,6 +57,30 @@ Niet in het titelvak:
 - willekeurige staff-tekst
 
 `boxAutoSize=1` (geen vaste hoogte die tekst van de pagina duwt).
+
+## Leidende rusten (na dubbele streep)
+
+Rusten aan het begin van een maat blijven **ritmisch** staan (noten schuiven
+niet naar voren). Alleen de **kolombreedte** gaat naar 0: MuseScore `gap` +
+onzichtbaar. Dat geldt voor de eerste maat en voor de maat **direct na een
+dubbele maatstreep** (priester/koor-wissel).
+
+Niet: maat inkorten of de rust wissen. Dat verwisselt rust en noot.
+
+## Melisma (niet laag 4)
+
+Hyphen (`Barm-har-tig`) ≠ melisma (één lettergreep over extra noten). In dit
+Feofan-bestand: `syllabic` begin/middle/end voor koppeltekens, ~40 keer een
+lyric-noot gevolgd door een kale noot, **geen** lyric-extender (`ticks`), wel
+veel slurs (vaak Capella-melisma).
+
+Consequent: extender op de lettergreep, slurs alleen als frase.
+
+- MXL: `cleanup_capella_mxl.py` zet `<extend/>` op stem 1.
+- `.mscz`: `apply_mscz_layout.py` zet MuseScore `<ticks>` / `<ticks_f>` (lengte
+  van de kale noten erna). Rusten breken de keten. Slurs blijven.
+- Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts en
+  zet opnieuw `<extend/>` (MuseScore-export laat ticks/extend vaak vallen).
 
 ## Tekstrollen
 
