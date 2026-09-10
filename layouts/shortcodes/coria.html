@@ -5,17 +5,10 @@
 {{- if fileExists "data/coria-fp.json" -}}
   {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
 {{- end -}}
-{{- $fp := "" -}}
 {{- with index $fps (replace $src "/" "__") -}}
-  {{- $fp = strings.TrimSpace . -}}
-{{- end -}}
-{{- if $fp -}}
-  {{- if strings.HasPrefix $src "vsa/mxl/" -}}
-    {{- $rest := strings.TrimPrefix "vsa/mxl/" $src -}}
-    {{- $src = printf "vsa/mxl/c/%s/%s" $fp $rest -}}
-  {{- else if strings.HasPrefix $src "mxl/" -}}
-    {{- $rest := strings.TrimPrefix "mxl/" $src -}}
-    {{- $src = printf "mxl/c/%s/%s" $fp $rest -}}
+  {{- $mapped := strings.TrimSpace . -}}
+  {{- if or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix ".mxl" $mapped) -}}
+    {{- $src = $mapped -}}
   {{- end -}}
 {{- end -}}
 {{- $absolute := absURL $src -}}

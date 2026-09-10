@@ -10,6 +10,7 @@ static/mxl/
 
 # MuseScore backup files
 .mscbackup/
+.archief/
 
 # Hugo lock
 .hugo_build.lock
