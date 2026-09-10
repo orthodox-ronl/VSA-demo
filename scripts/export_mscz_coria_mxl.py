@@ -6,8 +6,10 @@ kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
 (DTD-fetch laat Coria falen).
 
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
-de maat wordt korter. Overige print-object=no-rusten worden zichtbaar
-(duur blijft, anders loopt SATB uit sync). Time: senza-misura.
+de maat wordt korter. Daarna een extra maat: 4 kwarten rust, lyric
+[PAUZE], P:/D:/K:-cue van de volgende koormaat erboven. Gebogen cesuur:
+1 kwart rust in alle parts, geen lyric. Overige print-object=no-rusten
+worden zichtbaar. Time: senza-misura.
 
 Geen roundtrip terug naar .mscz. Niet in check. Later: VSA-tooling.
 
@@ -20,12 +22,16 @@ import argparse
 import copy
 import io
 import json
+import re
 import shutil
 import subprocess
 import tempfile
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
+PAUSE_LYRIC = "[PAUZE]"
 
 MUSESCORE_CANDIDATES = (
     Path(r"C:\Program Files\MuseScore 4\bin\MuseScore4.exe"),
@@ -354,6 +360,132 @@ def has_double_bar(measure: ET.Element) -> bool:
     return False
 
 
+def note_has_caesura(note: ET.Element) -> bool:
+    return any(local(el.tag) == "caesura" for el in note.iter())
+
+
+def direction_is_cue(direction: ET.Element) -> bool:
+    words = " ".join(
+        (el.text or "") for el in direction.iter() if local(el.tag) == "words"
+    )
+    return bool(CUE_RE.search(words.strip()))
+
+
+def steal_cue_directions(measure: ET.Element) -> list[ET.Element]:
+    stolen: list[ET.Element] = []
+    for el in list(measure):
+        if local(el.tag) == "direction" and direction_is_cue(el):
+            measure.remove(el)
+            stolen.append(el)
+    return stolen
+
+
+def divisions_of(root: ET.Element) -> int:
+    for part in music_parts(root):
+        for measure in children(part, "measure"):
+            attrs = child(measure, "attributes")
+            if attrs is None:
+                continue
+            div = child(attrs, "divisions")
+            if div is not None and text(div).isdigit():
+                return int(text(div))
+    return 2
+
+
+def make_rest_note(
+    duration: int, *, type_name: str, lyric: str | None = None
+) -> ET.Element:
+    note = ET.Element("note")
+    ET.SubElement(note, "rest")
+    ET.SubElement(note, "duration").text = str(duration)
+    ET.SubElement(note, "voice").text = "1"
+    ET.SubElement(note, "type").text = type_name
+    if lyric:
+        ly = ET.SubElement(note, "lyric", number="1")
+        ET.SubElement(ly, "syllabic").text = "single"
+        ET.SubElement(ly, "text").text = lyric
+    return note
+
+
+def make_pause_measure(
+    number: str, *, rest_dur: int, cues: list[ET.Element]
+) -> ET.Element:
+    measure = ET.Element("measure", number=number)
+    for cue in cues:
+        measure.append(copy.deepcopy(cue))
+    measure.append(make_rest_note(rest_dur, type_name="whole", lyric=PAUSE_LYRIC))
+    bar = ET.SubElement(measure, "barline", location="right")
+    ET.SubElement(bar, "bar-style").text = "light-light"
+    return measure
+
+
+def insert_pause_measures(parts: list[ET.Element], whole_dur: int) -> int:
+    """Na elke dubbele streep: 4-kwart rust + [PAUZE]; cue van de volgende maat."""
+    if not parts:
+        return 0
+    n = 0
+    soprano = children(parts[0], "measure")
+    insert_after = [
+        i
+        for i in range(len(soprano) - 1)
+        if has_double_bar(soprano[i])
+    ]
+    for i in reversed(insert_after):
+        next_measures = [children(p, "measure")[i + 1] for p in parts]
+        cues = steal_cue_directions(next_measures[0])
+        for extra in next_measures[1:]:
+            steal_cue_directions(extra)
+        number = f"{next_measures[0].get('number', i + 2)}p"
+        for part, nxt in zip(parts, next_measures):
+            pause = make_pause_measure(number, rest_dur=whole_dur, cues=cues)
+            part.insert(list(part).index(nxt), pause)
+        n += 1
+    return n
+
+
+def insert_rest_after_time(measure: ET.Element, t_cut: int, duration: int) -> bool:
+    t = 0
+    for el in list(measure):
+        if local(el.tag) != "note" or is_chord(el):
+            continue
+        t += note_duration(el)
+        if t == t_cut:
+            rest = make_rest_note(duration, type_name="quarter")
+            measure.insert(list(measure).index(el) + 1, rest)
+            return True
+    return False
+
+
+def insert_caesura_quarter_rests(parts: list[ET.Element], quarter: int) -> int:
+    """Gebogen cesuur: 1 kwart rust op hetzelfde moment in alle parts, geen lyric."""
+    if not parts:
+        return 0
+    n = 0
+    n_meas = len(children(parts[0], "measure"))
+    for mi in range(n_meas):
+        group = [children(p, "measure")[mi] for p in parts]
+        cuts: set[int] = set()
+        for m in group:
+            t = 0
+            for note in children(m, "note"):
+                if is_chord(note):
+                    continue
+                t += note_duration(note)
+                if note_has_caesura(note):
+                    cuts.add(t)
+        for t_cut in sorted(cuts, reverse=True):
+            for m in group:
+                if insert_rest_after_time(m, t_cut, quarter):
+                    n += 1
+    return n
+
+
+def renumber_measures(root: ET.Element) -> None:
+    for part in music_parts(root):
+        for i, measure in enumerate(children(part, "measure"), start=1):
+            measure.set("number", str(i))
+
+
 def measure_duration(measure: ET.Element) -> int:
     t = 0
     for note in children(measure, "note"):
@@ -436,7 +568,7 @@ def set_senza_misura(root: ET.Element) -> None:
 
 
 def apply_coria_timing(root: ET.Element) -> None:
-    """Print-pickups weg; geen onzichtbare rusten; maten mogen ongelijk lang zijn."""
+    """Print-pickups weg; [PAUZE] na dubbele streep; kwart na cesuur; geen hidden rusten."""
     parts = music_parts(root)
     if not parts:
         return
@@ -448,10 +580,17 @@ def apply_coria_timing(root: ET.Element) -> None:
             for ms in measures:
                 n_lead += strip_leading_rests(ms[mi])
         prev_double = has_double_bar(measures[0][mi])
+    div = divisions_of(root)
+    n_pause = insert_pause_measures(parts, whole_dur=4 * div)
+    n_caes = insert_caesura_quarter_rests(parts, quarter=div)
     n_hide = unhide_notes(root)
     n_pad = equalize_measure_durations(parts)
     set_senza_misura(root)
-    print(f"  sectie-pickup rusten weg={n_lead} unhide={n_hide} duur-pad={n_pad}")
+    renumber_measures(root)
+    print(
+        f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
+        f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad}"
+    )
 
 
 def apply_melisma_extenders(root: ET.Element) -> int:

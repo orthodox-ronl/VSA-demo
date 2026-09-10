@@ -45,7 +45,8 @@ Laag 4 - .mscz -> PDF en later MXL voor Coria
 ----------------------------------------------------------------------
 `scripts/apply_mscz_layout.py` + `scripts/mscz-layout-contract.md`.
 Het opgekuiste MXL is het importbestand; daarna A4-layout op het .mscz.
-Coria-MXL vanuit dat .mscz: `scripts/export_mscz_coria_mxl.py`.
+Coria-MXL vanuit dat .mscz: `scripts/export_mscz_coria_mxl.py`
+(`[PAUZE]` na dubbele streep, kwart-rust na gebogen cesuur).
 
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl

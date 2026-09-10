@@ -68,9 +68,15 @@ dubbele maatstreep** (priester/koor-wissel).
 Niet: maat inkorten of de rust wissen. Dat verwisselt rust en noot.
 
 Coria-MXL (`export_mscz_coria_mxl.py`) doet het omgekeerde: die leidende
-rusten **wissen**, de maat korter maken (`senza-misura`). Onzichtbare rusten
-in het midden/einde van een maat blijven als gewone rust (anders loopt SATB
-uit de pas).
+rusten **wissen**, de maat korter maken (`senza-misura`). Daarna:
+
+| In `.mscz` | In Coria-`.mxl` (alle SATB-parts, zelfde duur) |
+| ---------- | ----------------------------------------------- |
+| Dubbele maatstreep | extra maat: 4 kwarten rust, lyric `[PAUZE]`; `P:`/`D:`/`K:`-cue van de volgende koormaat erboven (niet meer op de inzet) |
+| Gebogen cesuur (`caesuraCurved`) | 1 kwart rust na die noot, geen lyric |
+
+Onzichtbare rusten in het midden/einde van een maat blijven als gewone rust
+(anders loopt SATB uit de pas). De `.mscz` verandert niet.
 
 ## Melisma (niet laag 4)
 
