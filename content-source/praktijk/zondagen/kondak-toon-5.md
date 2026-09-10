@@ -13,7 +13,7 @@ title: "Kondak van de zondag - toon 5"
 
 ::: vsa-notatie
 [/:] In de {ha_}des {\zijt} {/Gij} {/ne_}{\\der}ge{daald_}
-{//Gij}, mijn Ver{-&\&\lo_&-&-}{/sser},
+{//Gij}, mijn Ver{-&\&\los_&-&-}{/ser_},
 als Al{mach_}tige hebt Gij de poorten {\\ver}{/&\brij_&~}{\zeld_},
 {///als} {Schep_}per hebt Gij de {\do}{/den} {/op_}{\\ge}{wekt_}
 {//en} de prikkel des doods ver{-&\&\nie_&~&~}{/tigd_},
@@ -26,7 +26,7 @@ als Al{mach_}tige hebt Gij de poorten {\\ver}{/&\brij_&~}{\zeld_},
 
 ```text
 [/:] In de {ha_}des {\zijt} {/Gij} {/ne_}{\\der}ge{daald_}
-{//Gij}, mijn Ver{-&\&\lo_&-&-}{/sser},
+{//Gij}, mijn Ver{-&\&\los_&-&-}{/ser_},
 als Al{mach_}tige hebt Gij de poorten {\\ver}{/&\brij_&~}{\zeld_},
 {///als} {Schep_}per hebt Gij de {\do}{/den} {/op_}{\\ge}{wekt_}
 {//en} de prikkel des doods ver{-&\&\nie_&~&~}{/tigd_},
