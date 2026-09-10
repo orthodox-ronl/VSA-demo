@@ -15,9 +15,9 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
 
-`cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` op te kuisen
-(titel, paginacijfers, verborgen recitatiefnoten, lettergrepen, lyrics op SATB).
-Niet onderdeel van `check`.
+`cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
+op te kuisen (reciteerkwarten, lettergrepen, titel, lege maten, lyrics tussen
+de balken). Geen MuseScore-stijl tot op de pixel. Niet in `check`.
 
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
 `copy_content_extras.py`. `fingerprint_coria_mxl.py` zet dezelfde MXL onder

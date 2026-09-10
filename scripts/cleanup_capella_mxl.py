@@ -1,14 +1,49 @@
-"""Proefscript: Capella/CapToMusic-MXL opkuisen voor oefengebruik.
+"""Capella/CapToMusic-MXL: inhoudelijke opkuis naar een MuseScore-uitgangspunt.
 
-Doel (homofone recitatief-scores zoals 7 / 6b):
-- titel uit staff-tekst naar work-title + credit
-- boekpagina-cijfers als losse words verwijderen
-- print-object=no klinkende noten zichtbaar maken
-- meerlettergrepige lyric-tokens splitsen (1 lettergreep per noot)
-- lyrics van stem 1 naar stem 2-4 kopieren (zelfde nootindex per maat)
+Dit is geen alles-in-een 'maak het mooi in MuseScore'. Er zijn lagen.
+Zie ook VSA `reciting-mode: quarters` en MusicXML-profielen playback/engraving
+in VSA-tooling (docs/specification/rendering.md).
 
-Geen extra Python-pakketten. Hyphenatie: uitzonderingenlijst + eenvoudige
-Nederlandse regels. Polyfone stukken (cherubijnenhymne) vragen meer werk.
+----------------------------------------------------------------------
+Laag 1 - Capella-semantiek (wat de XML bedoelde)
+----------------------------------------------------------------------
+Onzichtbare klinkende noten (`print-object=no`) zijn reciteerkwarten: extra
+lettergrepen op dezelfde toon, al als kwart gecodeerd. Zichtbaar maken
+zonder de duur of het noottype te veranderen.
+
+Een maat is hier geen metrische waarheid (`senza-misura`). Maatlengte mag
+groeien als er lettergrepen bijkomen. Halve/hele noten op cadensen blijven
+halve/hele noten (echte melodische lengte, geen recitatief-dummy).
+
+----------------------------------------------------------------------
+Laag 2 - Tekst-noot-binding
+----------------------------------------------------------------------
+- Een lettergreep <-> een noot (recitatief: een kwart).
+- Meerdere lettergrepen op een token (`koninkrijk`, `aanbidden`): extra
+  noten INVOEGEN met dezelfde duur als het origineel (blijven kwarten),
+  niet de originele kwart in triolen/achten/16en knippen.
+- Melisma: bestaande langere noten of noten zonder tekst houden;
+  extender, geen extra korte noten.
+- Lyrics alleen op stem 1, tussen de twee notenbalken (niet onder de bas,
+  niet per stem herhaald). SATB blijft homofoon in de noten.
+- Extra noten op alle stemmen op dezelfde index; daarna ``<backup>``
+  bijwerken (anders start A/T/B in MuseScore 2/4/6 noten te laat).
+- Geen partijnamen (SATB) op elk systeem.
+- Titels uit staff-tekst naar work-title/credit; boekpagina-cijfers weg.
+- Geen maten die alleen rusten of helemaal leeg zijn (Capella-maat 0).
+
+----------------------------------------------------------------------
+Laag 3 - Partituurhint (MXL als start voor .mscz)
+----------------------------------------------------------------------
+Compacte systeem- en balkafstand; geen extra eerste-systeem-inspring in de
+XML. 'Laatste pagina niet uitzetten' is grotendeels MuseScore-stijl
+(last-system-fill / max system distance), niet betrouwbaar in MusicXML.
+
+----------------------------------------------------------------------
+Laag 4 - .mscz -> PDF en later MXL voor Coria
+----------------------------------------------------------------------
+Buiten dit script. Het opgekuiste MXL is het importbestand. Aanpassingen
+in MuseScore; van daaruit PDF en een Coria-MXL exporteren (playback).
 
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
@@ -36,6 +71,7 @@ HYPHEN_EXCEPTIONS: dict[str, str] = {
     "gedenk": "ge-denk",
     "gekomen": "ge-ko-men",
     "geschieden": "ge-schie-den",
+    "heilige": "hei-li-ge",
     "hongeren": "hon-ge-ren",
     "kinderen": "kin-de-ren",
     "koninkrijk": "ko-nink-rijk",
@@ -43,6 +79,7 @@ HYPHEN_EXCEPTIONS: dict[str, str] = {
     "nedervallen": "ne-der-val-len",
     "opgestaan": "op-ge-staan",
     "treurenden": "treu-ren-den",
+    "vader": "va-der",
     "verheugt": "ver-heugt",
     "vervolgd": "ver-volgd",
     "vredestichters": "vre-de-stich-ters",
@@ -202,62 +239,16 @@ def lyric_elements(note: ET.Element) -> list[ET.Element]:
     return children(note, "lyric")
 
 
-def set_note_type(note: ET.Element, dur: int, divisions: int) -> None:
-    type_el = child(note, "type")
-    tm = child(note, "time-modification")
-    if tm is not None:
-        note.remove(tm)
-    q = divisions
-    mapping = [
-        (q * 8, "breve"),
-        (q * 4, "whole"),
-        (q * 2, "half"),
-        (q, "quarter"),
-        (q // 2, "eighth"),
-        (q // 4, "16th"),
-        (q // 8, "32nd"),
-    ]
-    name = None
-    for d, n in mapping:
-        if d and dur == d:
-            name = n
-            break
-    if name is None and q and 3 * dur == q:
-        name = "eighth"
-        _add_time_mod(note, type_el, 3, 2)
-    elif name is None and q and 3 * dur == 2 * q:
-        name = "quarter"
-        _add_time_mod(note, type_el, 3, 2)
-    if name is None:
-        return
-    if type_el is None:
-        type_el = ET.Element("type")
-        dur_el = child(note, "duration")
-        idx = list(note).index(dur_el) + 1 if dur_el is not None else 0
-        note.insert(idx, type_el)
-    type_el.text = name
-
-
-def _add_time_mod(note: ET.Element, type_el: ET.Element | None, actual: int, normal: int) -> None:
-    tm = ET.Element("time-modification")
-    ET.SubElement(tm, "actual-notes").text = str(actual)
-    ET.SubElement(tm, "normal-notes").text = str(normal)
-    if type_el is not None:
-        idx = list(note).index(type_el) + 1
-        note.insert(idx, tm)
-    else:
-        note.append(tm)
-
-
 def set_lyric_syllables(note: ET.Element, text: str, syllabic: str) -> None:
     lys = lyric_elements(note)
     if not lys:
-        ly = ET.Element("lyric", {"number": "1"})
+        ly = ET.Element("lyric", {"number": "1", "default-y": "-80"})
         ET.SubElement(ly, "syllabic").text = syllabic
         ET.SubElement(ly, "text").text = text
         note.append(ly)
         return
     ly = lys[0]
+    ly.set("default-y", "-80")
     syll = child(ly, "syllabic")
     txt = child(ly, "text")
     if syll is None:
@@ -274,28 +265,24 @@ def clear_lyrics(note: ET.Element) -> None:
         note.remove(ly)
 
 
-def split_note(
+def replicate_note(
     note: ET.Element,
     n: int,
-    divisions: int,
     parts: list[str] | None = None,
 ) -> list[ET.Element]:
+    """N kopieen van dezelfde noot (zelfde duur en type). Geen triolen."""
     if n <= 1:
         if parts:
             set_lyric_syllables(note, parts[0], "single")
         return [note]
-    total = note_duration(note)
-    base = total // n
-    rem = total % n
-    durs = [base] * n
-    durs[-1] += rem
     out = [note]
     for _ in range(n - 1):
         out.append(copy.deepcopy(note))
-    for i, (el, dur) in enumerate(zip(out, durs)):
-        set_text(child(el, "duration"), str(dur))
-        set_note_type(el, dur, divisions)
+    for i, el in enumerate(out):
         el.attrib.pop("print-object", None)
+        tm = child(el, "time-modification")
+        if tm is not None:
+            el.remove(tm)
         for beam in children(el, "beam"):
             el.remove(beam)
         if parts:
@@ -318,16 +305,6 @@ def split_note(
     return out
 
 
-def measure_divisions(measure: ET.Element, current: int) -> int:
-    attrs = child(measure, "attributes")
-    if attrs is None:
-        return current
-    div = child(attrs, "divisions")
-    if div is not None and div.text:
-        return int(float(div.text))
-    return current
-
-
 def notes_by_voice(measure: ET.Element) -> dict[str, list[ET.Element]]:
     voices: dict[str, list[ET.Element]] = {}
     for el in measure:
@@ -345,6 +322,24 @@ def replace_note_with_sequence(measure: ET.Element, old: ET.Element, new_notes: 
     measure.remove(old)
     for i, n in enumerate(new_notes):
         measure.insert(idx + i, n)
+
+
+def fix_backups_in_measure(measure: ET.Element) -> None:
+    """Zet backup-duur op de som van de noten sinds de vorige backup/maatstart."""
+    chunk = 0
+    for el in measure:
+        ln = local(el.tag)
+        if ln == "note" and child(el, "chord") is None:
+            chunk += note_duration(el)
+        elif ln == "backup":
+            d = child(el, "duration")
+            if d is not None:
+                d.text = str(chunk)
+            chunk = 0
+        elif ln == "forward":
+            d = child(el, "duration")
+            if d is not None and d.text:
+                chunk += int(d.text)
 
 
 def unhide_pitched_notes(root: ET.Element) -> int:
@@ -467,97 +462,27 @@ def promote_titles(root: ET.Element) -> tuple[str | None, str | None]:
     return title, subtitle
 
 
-def set_part_name(root: ET.Element) -> None:
+def hide_part_name(root: ET.Element) -> None:
     for sp in findall(root, "score-part"):
         pn = child(sp, "part-name")
-        if pn is not None and not (pn.text or "").strip():
-            pn.text = "SATB"
+        if pn is not None:
+            pn.text = None
+            pn.set("print-object", "no")
         pa = child(sp, "part-abbreviation")
-        if pa is not None and not (pa.text or "").strip():
-            pa.text = "SATB"
+        if pa is not None:
+            pa.text = None
+            pa.set("print-object", "no")
 
 
-def voice_timeline(measure: ET.Element, vid: str) -> list[tuple[int, int, ET.Element]]:
-    out: list[tuple[int, int, ET.Element]] = []
-    t = 0
-    for note in notes_by_voice(measure).get(vid, []):
-        d = note_duration(note)
-        out.append((t, d, note))
-        t += d
-    return out
-
-
-def split_note_to_durs(note: ET.Element, durs: list[int], divisions: int) -> list[ET.Element]:
-    if len(durs) <= 1:
-        return [note]
-    out = [note]
-    for _ in range(len(durs) - 1):
-        out.append(copy.deepcopy(note))
-    for i, (el, dur) in enumerate(zip(out, durs)):
-        set_text(child(el, "duration"), str(dur))
-        set_note_type(el, dur, divisions)
-        el.attrib.pop("print-object", None)
-        for beam in children(el, "beam"):
-            el.remove(beam)
-        if i > 0:
-            clear_lyrics(el)
-            notations = child(el, "notations")
-            if notations is not None:
-                for sl in [s for s in list(notations) if local(s.tag) == "slur"]:
-                    notations.remove(sl)
-                if len(list(notations)) == 0:
-                    el.remove(notations)
-    return out
-
-
-def copy_lyric(src: ET.Element, dst: ET.Element) -> None:
-    clear_lyrics(dst)
-    for ly in lyric_elements(src):
-        dst.append(copy.deepcopy(ly))
-
-
-def add_extend(note: ET.Element) -> None:
-    """Melismanoot: geen nieuwe lettergreep, wel verbinding."""
-    clear_lyrics(note)
-    ly = ET.Element("lyric", {"number": "1"})
-    ext = ET.SubElement(ly, "extend")
-    ext.set("type", "stop")
-    note.append(ly)
-    # vorige noot met tekst: extend start
-    # (wordt in een tweede pass gezet)
-
-
-def mark_extend_starts(measure: ET.Element) -> None:
-    for vid in notes_by_voice(measure):
-        seq = notes_by_voice(measure)[vid]
-        for i, note in enumerate(seq):
-            lys = lyric_elements(note)
-            if not lys:
-                continue
-            ext = child(lys[0], "extend")
-            if ext is None or ext.get("type") != "stop":
-                continue
-            if i == 0:
-                continue
-            prev = seq[i - 1]
-            ply = lyric_elements(prev)
-            if not ply:
-                continue
-            if child(ply[0], "extend") is None:
-                e = ET.SubElement(ply[0], "extend")
-                e.set("type", "start")
-
-
-def split_lyrics_homophonic(root: ET.Element) -> int:
-    """Split meerlettergrepige tokens alleen op stem 1."""
+def split_lyrics_keep_quarters(root: ET.Element) -> int:
+    """Split tokens op stem 1; zelfde extra noten op dezelfde index in A/T/B."""
     splits = 0
     for part in [c for c in root if local(c.tag) == "part"]:
-        divisions = 480
         for measure in children(part, "measure"):
-            divisions = measure_divisions(measure, divisions)
-            v1 = notes_by_voice(measure).get("1", [])
-            for i in range(len(v1) - 1, -1, -1):
-                note = v1[i]
+            voices = notes_by_voice(measure)
+            v1 = voices.get("1", [])
+            ops: list[tuple[int, list[str]]] = []
+            for i, note in enumerate(v1):
                 lys = lyric_elements(note)
                 if not lys:
                     continue
@@ -565,62 +490,121 @@ def split_lyrics_homophonic(root: ET.Element) -> int:
                 txt_el = child(lys[0], "text")
                 syll_v = (syll.text or "single") if syll is not None else "single"
                 raw = (txt_el.text or "") if txt_el is not None else ""
-                raw = raw.replace("\xa0", " ")
+                raw = raw.replace("\xa0", " ").strip()
                 if syll_v in ("begin", "middle", "end"):
                     if txt_el is not None:
-                        txt_el.text = raw.strip()
+                        txt_el.text = raw
                     continue
                 parts = hyphenate_token(raw)
                 if len(parts) <= 1:
                     if txt_el is not None:
-                        txt_el.text = raw.strip()
+                        txt_el.text = raw
                     continue
-                new_v1 = split_note(note, len(parts), divisions, parts)
-                replace_note_with_sequence(measure, note, new_v1)
+                ops.append((i, parts))
+            for i, parts in reversed(ops):
+                n = len(parts)
+                for vid, vnotes in voices.items():
+                    if i >= len(vnotes):
+                        continue
+                    note = vnotes[i]
+                    replicas = replicate_note(
+                        note, n, parts if vid == "1" else None
+                    )
+                    replace_note_with_sequence(measure, note, replicas)
                 splits += 1
+            fix_backups_in_measure(measure)
     return splits
 
 
-def match_other_voices_to_soprano(root: ET.Element) -> tuple[int, int]:
-    """Onderverdeel stem 2-4 waar ze meerdere sopraannoten overspannen; kopieer lyrics."""
-    splits = 0
-    copied = 0
+def strip_lyrics_from_lower_voices(root: ET.Element) -> int:
+    """Lyrics alleen op stem 1, tussen de balken - niet onder het systeem."""
+    n = 0
+    for note in findall(root, "note"):
+        v = child(note, "voice")
+        vid = v.text if v is not None and v.text else "1"
+        if vid == "1":
+            for ly in lyric_elements(note):
+                ly.set("number", "1")
+                ly.set("default-y", "-80")
+            continue
+        if lyric_elements(note):
+            clear_lyrics(note)
+            n += 1
+    return n
+
+
+def merge_attributes(src: ET.Element, dst: ET.Element) -> None:
+    src_attr = child(src, "attributes")
+    if src_attr is None:
+        return
+    dst_attr = child(dst, "attributes")
+    if dst_attr is None:
+        dst.insert(0, copy.deepcopy(src_attr))
+        return
+    for field in ("divisions", "key", "time", "staves"):
+        if child(dst_attr, field) is None:
+            src_field = child(src_attr, field)
+            if src_field is not None:
+                dst_attr.insert(0, copy.deepcopy(src_field))
+    dst_clef_nums = {c.get("number") for c in children(dst_attr, "clef")}
+    for cl in children(src_attr, "clef"):
+        if cl.get("number") not in dst_clef_nums:
+            dst_attr.append(copy.deepcopy(cl))
+
+
+def drop_empty_measures(root: ET.Element) -> int:
+    dropped = 0
     for part in [c for c in root if local(c.tag) == "part"]:
-        divisions = 480
-        for measure in children(part, "measure"):
-            divisions = measure_divisions(measure, divisions)
-            src = voice_timeline(measure, "1")
-            other_ids = [v for v in notes_by_voice(measure) if v != "1"]
-            for vid in other_ids:
-                dst = voice_timeline(measure, vid)
-                for t, d, note in reversed(dst):
-                    covering = [(st, sd, sn) for st, sd, sn in src if t <= st < t + d]
-                    if not covering:
-                        continue
-                    cover_durs = [sd for _, sd, _ in covering]
-                    if sum(cover_durs) != d:
-                        continue
-                    if len(covering) > 1:
-                        new_notes = split_note_to_durs(note, cover_durs, divisions)
-                        replace_note_with_sequence(measure, note, new_notes)
-                        splits += 1
-                        pairs = list(zip(new_notes, covering))
-                    else:
-                        pairs = [(note, covering[0])]
-                    for dst_note, (_st, _sd, src_note) in pairs:
-                        if lyric_elements(src_note):
-                            copy_lyric(src_note, dst_note)
-                            copied += 1
-                        elif is_pitched(dst_note) and not is_rest(dst_note):
-                            add_extend(dst_note)
-                            copied += 1
-            mark_extend_starts(measure)
-            # ook sopranen-melisma's (noot zonder tekst)
-            for _t, _d, sn in voice_timeline(measure, "1"):
-                if not lyric_elements(sn) and is_pitched(sn) and not is_rest(sn):
-                    add_extend(sn)
-            mark_extend_starts(measure)
-    return splits, copied
+        measures = children(part, "measure")
+        for i, measure in enumerate(list(measures)):
+            notes = [n for n in measure if local(n.tag) == "note"]
+            empty = not notes or all(is_rest(n) for n in notes)
+            if not empty:
+                continue
+            found_next = None
+            seen = False
+            for m in children(part, "measure"):
+                if m is measure:
+                    seen = True
+                    continue
+                if seen:
+                    found_next = m
+                    break
+            if found_next is None:
+                continue
+            merge_attributes(measure, found_next)
+            for el in list(measure):
+                if local(el.tag) in ("direction",):
+                    found_next.insert(0, copy.deepcopy(el))
+            part.remove(measure)
+            dropped += 1
+        for i, measure in enumerate(children(part, "measure"), start=1):
+            measure.set("number", str(i))
+    return dropped
+
+
+def compact_layout(root: ET.Element) -> None:
+    for sl in findall(root, "staff-layout"):
+        sd = child(sl, "staff-distance")
+        if sd is None:
+            continue
+        if sl.get("number") == "2":
+            sd.text = "70"
+        else:
+            sd.text = "40"
+    for el in root.iter():
+        ln = local(el.tag)
+        if ln in ("system-distance", "top-system-distance"):
+            try:
+                if float(el.text or "0") > 50:
+                    el.text = "50"
+            except ValueError:
+                pass
+    for sl in findall(root, "system-layout"):
+        for mar in children(sl, "system-margins"):
+            lm = child(mar, "left-margin")
+            if lm is not None:
+                lm.text = "0"
 
 
 def load_mxl(path: Path) -> tuple[ET.Element, str, dict[str, bytes]]:
@@ -694,22 +678,46 @@ def cleanup(root: ET.Element) -> None:
     n_unhide = unhide_pitched_notes(root)
     n_pages = remove_page_number_directions(root)
     title, subtitle = promote_titles(root)
-    set_part_name(root)
-    n_split = split_lyrics_homophonic(root)
-    n_match, n_copy = match_other_voices_to_soprano(root)
+    hide_part_name(root)
+    n_split = split_lyrics_keep_quarters(root)
+    n_stripped = strip_lyrics_from_lower_voices(root)
+    n_empty = drop_empty_measures(root)
+    for part in [c for c in root if local(c.tag) == "part"]:
+        for measure in children(part, "measure"):
+            fix_backups_in_measure(measure)
+    compact_layout(root)
     print(
         f"  unhide={n_unhide} page-words={n_pages} title={title!r} "
-        f"subtitle={subtitle!r} splits_v1={n_split} splits_other={n_match} "
-        f"lyrics_copied={n_copy}"
+        f"subtitle={subtitle!r} splits={n_split} lyrics_stripped={n_stripped} "
+        f"empty_measures={n_empty}"
     )
     print(f"  {summarize(root)}")
 
 
+def expand_paths(paths: list[Path]) -> list[Path]:
+    out: list[Path] = []
+    for path in paths:
+        if path.is_dir():
+            out.extend(sorted(p for p in path.glob("*.mxl") if p.is_file()))
+        else:
+            out.append(path)
+    return out
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Capella-MXL opkuisen (proef).")
-    parser.add_argument("paths", nargs="+", type=Path, help="Een of meer .mxl-bestanden")
+    parser.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Een of meer .mxl-bestanden, of een map (alleen directe *.mxl, geen submappen)",
+    )
     args = parser.parse_args()
-    for path in args.paths:
+    files = expand_paths(args.paths)
+    if not files:
+        print("Geen .mxl-bestanden gevonden.", flush=True)
+        return 1
+    for path in files:
         print(f"== {path}")
         root, xml_name, extras = load_mxl(path)
         cleanup(root)
