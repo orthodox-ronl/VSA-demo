@@ -67,6 +67,11 @@ dubbele maatstreep** (priester/koor-wissel).
 
 Niet: maat inkorten of de rust wissen. Dat verwisselt rust en noot.
 
+Coria-MXL (`export_mscz_coria_mxl.py`) doet het omgekeerde: die leidende
+rusten **wissen**, de maat korter maken (`senza-misura`). Onzichtbare rusten
+in het midden/einde van een maat blijven als gewone rust (anders loopt SATB
+uit de pas).
+
 ## Melisma (niet laag 4)
 
 Hyphen (`Barm-har-tig`) ≠ melisma (één lettergreep over extra noten). In dit

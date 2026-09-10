@@ -5,6 +5,10 @@ partij op score-part, niet op voice: dit script explodeert naar S/A/T/B,
 kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
 (DTD-fetch laat Coria falen).
 
+Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
+de maat wordt korter. Overige print-object=no-rusten worden zichtbaar
+(duur blijft, anders loopt SATB uit sync). Time: senza-misura.
+
 Geen roundtrip terug naar .mscz. Niet in check. Later: VSA-tooling.
 
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz
@@ -343,6 +347,113 @@ def copy_lyrics_from_soprano(parts: list[ET.Element]) -> int:
     return n
 
 
+def has_double_bar(measure: ET.Element) -> bool:
+    for bar in children(measure, "barline"):
+        if text(child(bar, "bar-style")) == "light-light":
+            return True
+    return False
+
+
+def measure_duration(measure: ET.Element) -> int:
+    t = 0
+    for note in children(measure, "note"):
+        if is_chord(note):
+            continue
+        t += note_duration(note)
+    return t
+
+
+def strip_leading_rests(measure: ET.Element) -> int:
+    n = 0
+    for el in list(measure):
+        if local(el.tag) != "note":
+            continue
+        if is_chord(el) or not is_rest(el):
+            break
+        measure.remove(el)
+        n += 1
+    return n
+
+
+def unhide_notes(root: ET.Element) -> int:
+    n = 0
+    for part in music_parts(root):
+        for el in part.iter():
+            if local(el.tag) != "note":
+                continue
+            if el.get("print-object") == "no":
+                del el.attrib["print-object"]
+                n += 1
+    return n
+
+
+def equalize_measure_durations(parts: list[ET.Element]) -> int:
+    """Kortere stem in een maat: rust achteraan, zodat Coria per maat gelijk blijft."""
+    n = 0
+    groups = list(zip(*(children(p, "measure") for p in parts)))
+    for group in groups:
+        durs = [measure_duration(m) for m in group]
+        target = max(durs) if durs else 0
+        for measure, dur in zip(group, durs):
+            gap = target - dur
+            if gap <= 0:
+                continue
+            rest = ET.Element("note")
+            ET.SubElement(rest, "rest")
+            ET.SubElement(rest, "duration").text = str(gap)
+            ET.SubElement(rest, "voice").text = "1"
+            bar = child(measure, "barline")
+            if bar is not None:
+                measure.insert(list(measure).index(bar), rest)
+            else:
+                measure.append(rest)
+            n += 1
+    return n
+
+
+def set_senza_misura(root: ET.Element) -> None:
+    for part in music_parts(root):
+        for mi, measure in enumerate(children(part, "measure")):
+            attrs = child(measure, "attributes")
+            if attrs is None:
+                continue
+            tm = child(attrs, "time")
+            if tm is None:
+                continue
+            attrs.remove(tm)
+            if mi != 0:
+                continue
+            new = ET.Element("time")
+            ET.SubElement(new, "senza-misura")
+            key = child(attrs, "key")
+            div = child(attrs, "divisions")
+            if key is not None:
+                attrs.insert(list(attrs).index(key) + 1, new)
+            elif div is not None:
+                attrs.insert(list(attrs).index(div) + 1, new)
+            else:
+                attrs.insert(0, new)
+
+
+def apply_coria_timing(root: ET.Element) -> None:
+    """Print-pickups weg; geen onzichtbare rusten; maten mogen ongelijk lang zijn."""
+    parts = music_parts(root)
+    if not parts:
+        return
+    measures = [children(p, "measure") for p in parts]
+    n_lead = 0
+    prev_double = False
+    for mi in range(len(measures[0])):
+        if mi == 0 or prev_double:
+            for ms in measures:
+                n_lead += strip_leading_rests(ms[mi])
+        prev_double = has_double_bar(measures[0][mi])
+    n_hide = unhide_notes(root)
+    n_pad = equalize_measure_durations(parts)
+    set_senza_misura(root)
+    print(f"  sectie-pickup rusten weg={n_lead} unhide={n_hide} duur-pad={n_pad}")
+
+
 def apply_melisma_extenders(root: ET.Element) -> int:
     n = 0
     for part in music_parts(root):
@@ -457,9 +568,21 @@ def process(mscz: Path, out: Path) -> None:
         musescore_export(mscz, raw_mxl, musescore)
         root = load_score_xml(raw_mxl)
     root = convert_root(root)
+    apply_coria_timing(root)
     n_ext = apply_melisma_extenders(root)
     print(f"  melisma-extend={n_ext}")
     print(f"  {summarize(root)}")
+    parts = music_parts(root)
+    if len(parts) >= 2:
+        bad = []
+        for mi, group in enumerate(
+            zip(*(children(p, "measure") for p in parts)), start=1
+        ):
+            durs = [measure_duration(m) for m in group]
+            if len(set(durs)) > 1:
+                bad.append(f"m{mi}:{durs}")
+        if bad:
+            print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}")
     write_mxl(out, root)
     print(f"geschreven: {out}")
 
