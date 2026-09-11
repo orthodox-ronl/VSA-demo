@@ -384,8 +384,10 @@ Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></i
 &lt;/div&gt;</description></item><item><title>Kondak H. Nikolaas van Myra (toon 3)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondakion-nikolaas-van-myra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondakion-nikolaas-van-myra/</guid><description>&lt;h1 id="kondak-h-nikolaas-van-myra-toon-3"&gt;Kondak H. Nikolaas van Myra (toon 3)&lt;/h1&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-oefenhoek-liturgiemap-hemelum-troparen-en-kondaken-kondakion-nikolaas-van-myra-index-block-1.svg" alt="Kondak H. Nikolaas van Myra (Toon 3)" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;!-- :::include coria "kondak-nikolaas-van-myra.mxl" label="Oefenen in Coria"::: --&gt;
-&lt;!-- score-actions pdf="kondak-nikolaas-van-myra.pdf" --&gt;
+&lt;div class="score-actions"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fpreview%2Fmxl%2Fc%2Fe66ffc6151dd.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+&lt;/div&gt;
+
 &lt;!-- pdf-sheet src="kondak-nikolaas-van-myra.pdf" actions="false" --&gt;</description></item><item><title>Prokimena - weekdagen (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/prokimena-weekdagen/</guid><description>&lt;h2 id="prokimena---weekdagen-hemelum"&gt;Prokimena - weekdagen (Hemelum)&lt;/h2&gt;
 &lt;h3 id="maandag-ps-103-toon-4"&gt;Maandag (Ps. 103, Toon 4)&lt;/h3&gt;
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-weekdagen-prokimena-weekdagen-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
@@ -491,8 +493,10 @@ met de CLI. Geen Markdown, geen site-build — alleen conversie.&lt;/p&gt;
 &lt;/div&gt;</description></item><item><title>Kondak H. Moeder Gods (toon 6)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondak-moeder-gods-toon-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondak-moeder-gods-toon-6/</guid><description>&lt;h1 id="kondak-h-moeder-gods-toon-6"&gt;Kondak H. Moeder Gods (toon 6)&lt;/h1&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/praktijk-oefenhoek-liturgiemap-hemelum-troparen-en-kondaken-kondak-moeder-gods-toon-6-index-block-1.svg" alt="Kondak H. Moeder Gods (Hemelum, Toon 6)" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;!-- :::include coria "kondak-moeder-gods-toon-6.mxl" label="Oefenen in Coria"::: --&gt;
-&lt;!-- score-actions pdf="kondak-moeder-gods-toon-6.pdf" --&gt;
+&lt;div class="score-actions"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fpreview%2Fmxl%2Fc%2F87b8cac1c5e1.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+&lt;/div&gt;
+
 &lt;!-- pdf-sheet src="kondak-moeder-gods-toon-6.pdf" actions="false" --&gt;</description></item><item><title>VSA inline in Markdown</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/02-vsa-inline-markdown/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/02-vsa-inline-markdown/</guid><description>&lt;h1 id="vsa-inline-in-markdown"&gt;VSA inline in Markdown&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; VSA-notatie &lt;strong&gt;in de Markdownpagina zelf&lt;/strong&gt; zetten. Bij
 generate (&lt;code&gt;vsa build-markdown&lt;/code&gt; / &lt;code&gt;scripts\check.cmd&lt;/code&gt;) wordt elk
