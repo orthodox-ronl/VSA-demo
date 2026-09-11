@@ -8,6 +8,8 @@ weight: 20
 
 :::include svg id:kondak-moeder-gods-toon-6/hemelum/Hemelum alt="Kondak H. Moeder Gods (Hemelum, Toon 6)":::
 
-<!-- :::include coria "kondak-moeder-gods-toon-6.mxl" label="Oefenen in Coria"::: -->
-<!-- score-actions pdf="kondak-moeder-gods-toon-6.pdf" -->
+{{< score-actions >}}
+:::include coria id:kondak-moeder-gods-toon-6/hemelum/Hemelum label="Oefenen in Coria":::
+{{< /score-actions >}}
+
 <!-- pdf-sheet src="kondak-moeder-gods-toon-6.pdf" actions="false" -->
