@@ -1,4 +1,8 @@
-"""Copy page-bundle extras that vsa build-markdown does not copy (e.g. .mxl)."""
+"""Copy page-bundle extras that vsa build-markdown does not copy (e.g. .mxl).
+
+Slaat oefenhoek/input over (ruwe Capella/VOW). Weigert .mxl met spaties in
+de naam (Coria/GitHub).
+"""
 
 from __future__ import annotations
 
@@ -19,7 +23,16 @@ def main() -> int:
     for path in SOURCE.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in EXTRA_SUFFIXES:
             continue
-        target = DEST / path.relative_to(SOURCE)
+        rel = path.relative_to(SOURCE)
+        if "input" in rel.parts:
+            continue
+        if " " in path.name:
+            print(
+                f"FAIL: .mxl-naam mag geen spaties hebben: {rel.as_posix()}",
+                flush=True,
+            )
+            return 1
+        target = DEST / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, target)
         copied += 1

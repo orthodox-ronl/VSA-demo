@@ -52,8 +52,9 @@ echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py,
-echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py
-echo   - proef, niet in check
+echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py,
+echo   score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
+echo   - proef, niet in check; publicatienamen zonder spaties
 echo.
 goto end_ok
 

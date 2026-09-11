@@ -13,9 +13,11 @@ wordt `<sound tempo>` + metronoom op alle parts. Overige print-object=no-rusten
 worden zichtbaar. Time: senza-misura.
 
 Geen roundtrip terug naar .mscz. Niet in check. Later: VSA-tooling.
+Bestandsnamen: geen spaties (`scripts/score_filenames.py`).
 
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz -o uit.mxl
+  python scripts/export_mscz_coria_mxl.py content-source\\praktijk
 """
 from __future__ import annotations
 
@@ -30,6 +32,8 @@ import tempfile
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+from score_filenames import published_path, require_no_spaces
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 PAUSE_LYRIC = "[PAUZE]"
@@ -755,18 +759,58 @@ def process(mscz: Path, out: Path) -> None:
     print(f"geschreven: {out}")
 
 
+def expand_mscz(paths: list[Path]) -> list[Path]:
+    out: list[Path] = []
+    for path in paths:
+        if path.is_dir():
+            found = sorted(p for p in path.rglob("*.mscz") if p.is_file())
+            if path.name != "input" and "input" not in path.parts:
+                found = [p for p in found if "input" not in p.parts]
+            out.extend(found)
+        else:
+            out.append(path)
+    return out
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="Layout-.mscz naar Coria-MXL.")
-    p.add_argument("mscz", type=Path)
-    p.add_argument("-o", "--output", type=Path, help="Doel-.mxl (default: naast .mscz)")
+    p.add_argument(
+        "mscz",
+        nargs="+",
+        type=Path,
+        help="Een of meer .mscz-bestanden, of een map (recursief; sla input\\ over)",
+    )
+    p.add_argument("-o", "--output", type=Path, help="Doel-.mxl (alleen bij een bestand)")
     args = p.parse_args()
-    path = args.mscz
-    if not path.is_file():
-        raise SystemExit(f"niet gevonden: {path}")
-    if path.suffix.lower() != ".mscz":
-        raise SystemExit("verwacht een .mscz")
-    out = args.output if args.output is not None else path.with_suffix(".mxl")
-    process(path, out)
+    files = expand_mscz(args.mscz)
+    if not files:
+        print("Geen .mscz-bestanden gevonden.", flush=True)
+        return 1
+    if args.output is not None and len(files) != 1:
+        raise SystemExit("-o alleen bij precies een .mscz")
+    failed = 0
+    for path in files:
+        print(f"== {path}", flush=True)
+        if not path.is_file():
+            print(f"  niet gevonden: {path}", flush=True)
+            failed += 1
+            continue
+        if path.suffix.lower() != ".mscz":
+            print(f"  geen .mscz: {path}", flush=True)
+            failed += 1
+            continue
+        try:
+            require_no_spaces(path)
+            out = args.output if args.output is not None else path.with_suffix(".mxl")
+            out = published_path(out)
+            require_no_spaces(out)
+            process(path, out)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  FAILED {exc}", flush=True)
+            failed += 1
+    if failed:
+        print(f"{failed} mislukt van {len(files)}", flush=True)
+        return 1
     return 0
 
 

@@ -49,6 +49,7 @@ catalogus en geen tooling-demo.
 | -------- | ----------- |
 | Eigen rubriek, geen `nav_group` | Balk-knop **Oefenhoek** (weight lager dan Demo, dus links daarvan) |
 | Eén bladermap per zangstuk | `oefenhoek/<zangstuk-id>/index.md` (Hugo leaf bundle); oefenbestanden ernaast (`.mxl` via `copy_content_extras.py`) |
+| Geen spaties in publicatienamen | Map + `.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
 | Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
