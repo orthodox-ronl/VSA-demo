@@ -5,14 +5,8 @@
 <a href=/VSA-demo/preview/praktijk/samenstellingen/>Samenstellingen</a>
 <a href=/VSA-demo/preview/praktijk/liturgikon/>Liturgikon</a>
 <a href=/VSA-demo/preview/praktijk/diversen/>Diversen</a></div></details><details class=site-nav-group><summary>Oefenhoek</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/oefenhoek/>Overzicht</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/19a-eucharistische-kanon/>19a Eucharistische Kanon</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/>Communievers (Onthoofding Johannes de Doper)</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/>Moeder Godslied (Ontslapen van de Moeder Gods)</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/troparion-nikolaas-van-myra/>Tropaar Nikolaas</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/15c-cherubijnenhymne-kastorski/>15c Cherubijnenhymne</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/8a-trisagion-slav/>8a Trisagion (Slavisch)</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/8a-trisagion/>8a Trisagion</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/20d-in-waarheid-moeder-godslied/>20d In waarheid</a></div></details><details class="site-nav-group is-current"><summary>Demo</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a>
+<a href=/VSA-demo/preview/praktijk/oefenhoek/overig/>Overig</a></div></details><details class="site-nav-group is-current"><summary>Demo</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/demo/>Overzicht</a>
 <a href=/VSA-demo/preview/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
 <a href=/VSA-demo/preview/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
 <a href=/VSA-demo/preview/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
@@ -33,5 +27,5 @@ Coria. Bezoekers hoeven geen MusicXML te downloaden of zelf te importeren
 (dat kan wél; zie <a href=../04-vsa-naar-mxl/>VSA naar MusicXML</a>
 ).</p><p><strong>Wat je hier leert:</strong> die knop in Markdown zetten, gevoed door een
 <code>.coria.html</code> naast het <code>.vsa</code>-bestand.</p><h2 id=benodigd>Benodigd</h2><ul><li><code>assets\voorbeeld.vsa</code></li><li><code>assets\voorbeeld.coria.html</code> (zelfde bestandsnaam-stam,zelfde map)</li></ul><h2 id=in-markdown>In Markdown</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-markdown data-lang=markdown><span style=display:flex><span>:::include coria &#34;assets/voorbeeld.vsa&#34; label=&#34;Oefenen in Coria&#34;:::
-</span></span></code></pre></div><p>Generate: <code>scripts\check.cmd --skip-hugo</code>.</p><h2 id=resultaat>Resultaat</h2><p class=coria-play><a href=/VSA-demo/preview/coria/praktijk/demo/assets/voorbeeld.html target=_blank rel="noopener noreferrer">Oefenen in Coria</a></p><h2 id=mxl-download-versus-coria-oefenlink>MXL-download versus Coria-oefenlink</h2><table><thead><tr><th></th><th>MusicXML-download</th><th>Coria-oefenlink</th></tr></thead><tbody><tr><td>Bron</td><td><code>.vsa</code> (build maakt <code>.mxl</code>)</td><td><code>.vsa</code> + sibling <code>.coria.html</code></td></tr><tr><td>Bezoeker</td><td>Downloaden en zelf importeren</td><td>Direct oefenen via de knop</td></tr><tr><td>Directive</td><td><code>:::include mxl …:::</code></td><td><code>:::include coria …:::</code></td></tr></tbody></table><p>Zonder <code>.coria.html</code> kan <code>include coria</code> terugvallen op een MXL-URL. Voor
+</span></span></code></pre></div><p>Generate: <code>scripts\check.cmd --skip-hugo</code>.</p><h2 id=resultaat>Resultaat</h2><a class="btn coria-play" href=/VSA-demo/preview/coria/praktijk/demo/assets/voorbeeld.html target=_blank rel="noopener noreferrer">Oefenen in Coria</a><h2 id=mxl-download-versus-coria-oefenlink>MXL-download versus Coria-oefenlink</h2><table><thead><tr><th></th><th>MusicXML-download</th><th>Coria-oefenlink</th></tr></thead><tbody><tr><td>Bron</td><td><code>.vsa</code> (build maakt <code>.mxl</code>)</td><td><code>.vsa</code> + sibling <code>.coria.html</code></td></tr><tr><td>Bezoeker</td><td>Downloaden en zelf importeren</td><td>Direct oefenen via de knop</td></tr><tr><td>Directive</td><td><code>:::include mxl …:::</code></td><td><code>:::include coria …:::</code></td></tr></tbody></table><p>Zonder <code>.coria.html</code> kan <code>include coria</code> terugvallen op een MXL-URL. Voor
 deze demo hoort de HTML-sibling erbij.</p></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-11</p></div></footer></body></html>

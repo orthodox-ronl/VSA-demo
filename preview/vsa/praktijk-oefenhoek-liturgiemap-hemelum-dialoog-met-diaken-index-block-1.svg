@@ -1,0 +1,64 @@
+<svg class="vsa-svg" xmlns="http://www.w3.org/2000/svg" width="535" height="55" viewBox="0 0 535 55">
+<rect width="100%" height="100%" fill="white"/>
+<g class="vsa-score">
+<g class="vsa-line" data-vsa-line="1">
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="1">
+<text class="vsa-text vsa-free-text" x="8.00" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">K:</text>
+</g>
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="3">
+<g class="vsa-pitch-marker-upper-glyph vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="43.44" y1="26.16" x2="53.04" y2="21.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="43.44" y1="22.48" x2="53.04" y2="18.16" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<line class="vsa-pitch-marker-dash" x1="43.74" y1="31.00" x2="52.74" y2="31.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="5">
+<text class="vsa-text vsa-free-text" x="72.64" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Heer,</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="7">
+<text class="vsa-text vsa-free-text" x="137.29" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">red</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="9">
+<text class="vsa-text vsa-free-text" x="180.49" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Uw</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="11">
+<text class="vsa-text vsa-free-text" x="221.89" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">vro-men</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="13">
+<text class="vsa-text vsa-free-text" x="316.21" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">en</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="15">
+<text class="vsa-text vsa-free-text" x="351.59" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ver</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="16">
+<text class="vsa-text vsa-sung-text" x="383.97" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">hoor</text>
+<line class="vsa-filler-line" x1="432.33" y1="30.00" x2="441.33" y2="30.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="393.91" y1="13.57" x2="404.71" y2="18.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="393.91" y1="9.89" x2="404.71" y2="14.75" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="424.59" y1="18.43" x2="435.39" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="392.71" y1="41.00" x2="405.91" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="423.39" y1="41.00" x2="436.59" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="18">
+<text class="vsa-text vsa-sung-text" x="455.73" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ons</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="469.00" y1="18.43" x2="479.79" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="467.79" y1="41.00" x2="481.00" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="20">
+<g class="vsa-pitch-marker-upper-glyph vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="508.66" y1="26.16" x2="518.26" y2="21.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="508.66" y1="22.48" x2="518.26" y2="18.16" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<line class="vsa-pitch-marker-dash" x1="508.96" y1="31.00" x2="517.96" y2="31.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+</g>
+</g>
+</g>
+</svg>

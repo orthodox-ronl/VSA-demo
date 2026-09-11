@@ -105,3 +105,6 @@ async function initSheet(root) {
 }
 
 document.querySelectorAll(".pdf-sheet").forEach(initSheet);
+document.querySelectorAll(".score-actions[data-pdf-src]").forEach((row) => {
+  wirePrint(row, row.dataset.pdfSrc);
+});
