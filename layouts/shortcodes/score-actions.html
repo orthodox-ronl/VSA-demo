@@ -1,0 +1,25 @@
+{{- $raw := .Get "pdf" -}}
+{{- $href := "" -}}
+{{- if $raw -}}
+  {{- if strings.HasPrefix $raw "/" -}}
+    {{- $href = replaceRE "^/" "" $raw | relURL -}}
+  {{- else -}}
+    {{- $res := .Page.Resources.GetMatch (path.Clean $raw) -}}
+    {{- if $res -}}
+      {{- $href = $res.RelPermalink -}}
+    {{- else if or (not (strings.Contains $raw "/")) (strings.HasPrefix $raw "./") (strings.HasPrefix $raw "../") -}}
+      {{- $href = urls.JoinPath .Page.RelPermalink $raw -}}
+    {{- else -}}
+      {{- $href = $raw | relURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $download := or (.Get "download") "Downloaden" -}}
+{{- $print := or (.Get "print") "Printen" -}}
+<div class="score-actions"{{ if $href }} data-pdf-src="{{ $href }}"{{ end }}>
+{{ .Inner | .Page.RenderString }}
+{{- if $href }}
+  <a class="btn" href="{{ $href }}" download>{{ $download }}</a>
+  <a class="btn pdf-sheet-print" href="{{ $href }}">{{ $print }}</a>
+{{- end }}
+</div>

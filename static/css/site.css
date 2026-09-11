@@ -408,6 +408,40 @@ svg:not(.site-jump-icon),
   margin: 0.6rem 0 0;
 }
 
+.score-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin: 1rem 0;
+}
+
+.score-actions .btn,
+a.btn.coria-play {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 8rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  background: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  color: #003366;
+  box-sizing: border-box;
+}
+
+.score-actions .btn:hover,
+.score-actions .btn:focus,
+a.btn.coria-play:hover,
+a.btn.coria-play:focus {
+  background: #eee;
+}
+
 .pdf-sheet-print-frame {
   position: absolute;
   width: 0;
@@ -520,6 +554,7 @@ svg:not(.site-jump-icon),
   .site-subnav,
   .site-jumps,
   .nav-buttons,
+  .score-actions,
   footer {
     display: none;
   }

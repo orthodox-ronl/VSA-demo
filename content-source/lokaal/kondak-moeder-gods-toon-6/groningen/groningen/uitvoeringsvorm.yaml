@@ -1,0 +1,12 @@
+# Parochie-lokaal manifest — uitvoeringsvorm liturgikon
+uitvoeringsvorm-id: groningen
+herkomst:
+  author: groningen
+  reference: "Koormap Groningen, 2025"
+
+aliases:
+  - { text: "Groningen", lang: nl }
+
+representaties:
+  - representatie-id: groningen
+    file: repr/groningen.vsa

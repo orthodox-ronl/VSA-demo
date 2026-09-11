@@ -13,4 +13,4 @@
 {{- end -}}
 {{- $absolute := absURL $src -}}
 {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
-<p class="coria-play"><a href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a></p>
+<a class="btn coria-play" href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a>

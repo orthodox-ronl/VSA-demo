@@ -23,6 +23,8 @@ SRC = (
     / "content-source"
     / "praktijk"
     / "oefenhoek"
+    / "liturgiemap-hemelum"
+    / "20-moeder-godslied"
     / "20d-in-waarheid-moeder-godslied"
     / "20d-in-waarheid-moeder-godslied.mscz"
 )

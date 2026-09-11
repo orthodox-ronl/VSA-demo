@@ -1,3 +1,14 @@
+{{- $sections := slice -}}
+{{- range .Sections.ByWeight }}
+  {{- $sections = $sections | append . }}
+{{- end }}
+{{- if and $sections (not .Params.hide_section_list) }}
+<ul class="page-list">
+    {{- range $sections }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+</ul>
+{{- end -}}
 {{- if and .RegularPages (not .Params.hide_page_list) }}
   {{- $pages := .RegularPages -}}
   {{- if eq .Params.nav_sort "weight" }}
