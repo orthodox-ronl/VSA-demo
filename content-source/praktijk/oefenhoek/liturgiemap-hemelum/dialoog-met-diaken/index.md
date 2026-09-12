@@ -33,6 +33,7 @@ sources:
 </div>
 
 ::: vsa-notatie
+# scale: 110%
 K: [//:] Heer, red Uw vro-men en ver{\\&/hoor_&_} {/ons_} [//:]
 :::
 
@@ -47,6 +48,7 @@ K: [//:] Heer, red Uw vro-men en ver{\\&/hoor_&_} {/ons_} [//:]
 </div>
 
 ::: vsa-notatie
+# scale: 120%
 K: [//:] A-men [//:]
 :::
 

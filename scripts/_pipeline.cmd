@@ -28,6 +28,8 @@ if defined PIPELINE_STRICT (
   "%PY%" scripts\validate_content.py --summary content-source
 )
 if errorlevel 1 exit /b 1
+"%PY%" scripts\check_coria_mxl.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 

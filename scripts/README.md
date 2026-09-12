@@ -30,8 +30,11 @@ Contract: `scripts/mscz-layout-contract.md`. Niet in
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 sectie-pickups weg, `[PAUZE]` na dubbele streep, kwart-rust na cesuur,
-BPM-markers als `sound tempo` op alle parts). Een map mag: recursief,
-`input\` overslaan. Niet in `check`. Uitvoernamen zonder spaties.
+BPM-markers als `sound tempo` op alle parts, daarna Coria-veilige markup).
+Een map mag: recursief, `input\` overslaan. Uitvoernamen zonder spaties.
+`--sanitize-mxl` kuist bestaande publicatie-`.mxl` in-place (geen MuseScore).
+`check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl` met markup waar
+Coria `translation failed` op geeft.
 
 `patch_oefenhoek_trisagion.py` is een inhoudelijke patch op de twee
 trisagion-`.mscz` (herhaling m1-m4, noten 'O Heilige God' uit Slavisch maat 5,

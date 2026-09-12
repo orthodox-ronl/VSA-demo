@@ -106,8 +106,9 @@ over twee akkoorden) wél. Koppeltekens (begin/middle) blijven hyphen.
   per maat (niet over de maatstreep heen). Rusten breken de keten. Slurs blijven.
   Opt-out: `--no-extenders` of meta `vsaNoLyricExtenders` (underlines uit; niet
   terugzetten bij een volgende run).
-- Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts en
-  zet opnieuw `<extend/>` (MuseScore-export laat ticks/extend vaak vallen).
+- Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts,
+  zet `<extend/>` (MuseScore-export laat ticks/extend vaak vallen), en
+  stript daarna layout-markup waar Coria `translation failed` op geeft.
 
 ## Tekstrollen
 
