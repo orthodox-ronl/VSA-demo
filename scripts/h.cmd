@@ -52,6 +52,7 @@ echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
+echo   sync_mscz_products.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py,
 echo   score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
@@ -134,7 +135,8 @@ echo   scripts\check.cmd [--strict] [--external] [--skip-hugo]
 echo.
 echo DESCRIPTION
 echo   Draait lokaal de blocking pipeline die CI ook doet:
-echo   sync zondag -^> validate -^> generate ^(md/svg/mxl^) -^> hugo -^> interne links.
+echo   sync zondag -^> validate -^> mscz PDF/MXL -^> generate ^(md/svg/mxl^)
+echo   -^> hugo -^> interne links.
 echo   Wrapper om scripts\_pipeline.cmd ^(zie scripts\README.md testladder^).
 echo.
 echo   "Preflight" = check voor commit. "CI-spiegel" = met --strict dezelfde

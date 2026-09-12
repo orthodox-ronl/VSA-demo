@@ -22,6 +22,8 @@ niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
 SATB-partituur netjes op **A4**, PDF-export en papier. Muziek (noten, duren,
 lyrics, stemmen) blijft onaangeroerd. Playback-MXL voor Coria: dezelfde
 `.mscz` via `scripts/export_mscz_coria_mxl.py` (geen roundtrip).
+`sync_mscz_products.py` (in check/build/serve) houdt sibling-PDF en Coria-`.mxl`
+gelijk aan de hub-`.mscz`.
 
 ## Pagina en stijl (waarden = `STYLE_OVERRIDES` in het script)
 

@@ -36,6 +36,11 @@ Een map mag: recursief, `input\` overslaan. Uitvoernamen zonder spaties.
 `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl` met markup waar
 Coria `translation failed` op geeft.
 
+`sync_mscz_products.py` (in `check` / `build` / `serve`) exporteert PDF en
+Coria-`.mxl` opnieuw als ze ontbreken of ouder zijn dan de publicatie-`.mscz`
+in dezelfde bladermap. Heeft MuseScore 4 nodig. Zonder MuseScore: lokaal
+fout bij stale bestanden, op CI overslaan.
+
 `patch_oefenhoek_trisagion.py` is een inhoudelijke patch op de twee
 trisagion-`.mscz` (herhaling m1-m4, noten 'O Heilige God' uit Slavisch maat 5,
 transliteratie als 2e couplet). Daarna `apply_mscz_layout.py`. Niet in `check`.
