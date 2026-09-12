@@ -81,10 +81,26 @@ Preview na groene check:
 serve --no-build
 ```
 
+Preview: **http://127.0.0.1:18731/** — nooit poort **1313** (lokaal gereserveerd).
+Agent die zelf `hugo server` start: `--port 18731 --bind 127.0.0.1`.
+
 Scripts vinden / man-pages: `scripts\h.cmd` (detail: `scripts\h.cmd check`).  
 Uitleg: [scripts/README.md](scripts/README.md).
 
 `_ensure` installeert catalogus (bron) + vsa-tool[rendering] in Python 3.14.
+
+### Oefenhoek (input en publicatiestatus)
+
+- Dumps: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
+- `_inbox/` en `_werk/` niet committen. Geen `_index.md` onder `input/`.
+- Register: `input/werkvoorraad.md` (een rij per dump). De tabel wordt bij
+  sitebuild bijgewerkt; doel-id en notitie in bestaande rijen blijven staan.
+  Onbekend doel-id: **vragen**, niet raden.
+- Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:
+  `voorzien` | `concept` | `reviewable` | `productie`.
+- Stub zonder oefenbare inhoud -> `voorzien`. Bladermap mét partituur/include -> `reviewable`
+  tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal `concept`.
+- **Niet raden** op `productie`. Onbekend doel-id of onbekende status: **vragen**.
 
 ### Scripts onderhouden
 

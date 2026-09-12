@@ -2,6 +2,7 @@
 title: "20d In waarheid (Moeder Godslied)"
 linkTitle: "20d In waarheid"
 weight: 10
+publicatiestatus: reviewable
 ---
 
 # 20d In waarheid (Moeder Godslied)

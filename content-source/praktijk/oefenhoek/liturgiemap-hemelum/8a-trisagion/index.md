@@ -2,6 +2,7 @@
 title: "8a Trisagion (Nederlands)"
 linkTitle: "8a Trisagion"
 weight: 8
+publicatiestatus: reviewable
 ---
 
 # 8a Trisagion (Nederlands)

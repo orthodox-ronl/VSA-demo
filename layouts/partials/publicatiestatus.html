@@ -1,0 +1,44 @@
+{{/* Publieke publicatiestatus op Oefenhoek-pagina's (frontmatter publicatiestatus). */}}
+{{- $raw := .Params.publicatiestatus -}}
+{{- if $raw -}}
+{{- $key := $raw | lower -}}
+{{- $labels := dict
+      "voorzien" "Voorzien"
+      "concept" "Concept"
+      "reviewable" "Reviewable"
+      "productie" "Productie"
+-}}
+{{- $meanings := dict
+      "voorzien" "Nog geen oefenbare uitgave; gepland."
+      "concept" "Eerste versie; er zitten waarschijnlijk fouten in."
+      "reviewable" "Zou goed moeten zijn; feedback is welkom."
+      "productie" "Bruikbaar als oefenmateriaal; fouten alsnog doorgeven."
+-}}
+{{- $label := index $labels $key | default $raw -}}
+{{- $meaning := index $meanings $key | default "" -}}
+{{- $email := site.Params.feedback_email -}}
+{{- $github := site.Params.linksGithub | default "https://github.com/orthodox-ronl/VSA-demo" -}}
+{{- $pageTitle := .Title -}}
+{{- $pageURL := .Permalink -}}
+{{- $mailSubject := printf "Oefenhoek: %s (%s)" $pageTitle $label -}}
+{{- $mailBody := printf "Pagina: %s\nAdres: %s\n\nUw opmerking:\n" $pageTitle $pageURL -}}
+{{- $issueTitle := printf "Oefenhoek: %s" $pageTitle -}}
+{{- $issueBody := printf "Pagina: %s\nAdres: %s\n\nOpmerking:\n" $pageTitle $pageURL -}}
+{{- $mailto := printf "mailto:%s?subject=%s&body=%s" $email ($mailSubject | urlquery) ($mailBody | urlquery) -}}
+{{- $issue := printf "%s/issues/new?title=%s&body=%s" $github ($issueTitle | urlquery) ($issueBody | urlquery) -}}
+<aside class="publicatiestatus" data-publicatiestatus="{{ $key }}">
+  <div class="publicatiestatus-line">
+    <span class="publicatiestatus-label">{{ $label }}</span>
+    <details class="publicatiestatus-help">
+      <summary>Wat betekent dit?</summary>
+      <p>{{ $meaning }}</p>
+    </details>
+  </div>
+  <p class="publicatiestatus-feedback">
+    Feedback:
+    {{ if $email }}<a href="{{ $mailto }}">e-mail</a>{{ end }}{{ if and $email $github }}
+    ·{{ end }}
+    {{ if $github }}<a href="{{ $issue }}">GitHub-issue</a>{{ end }}
+  </p>
+</aside>
+{{- end -}}

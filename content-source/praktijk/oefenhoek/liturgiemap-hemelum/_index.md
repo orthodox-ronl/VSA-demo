@@ -4,6 +4,7 @@ linkTitle: "Liturgiemap Hemelum"
 weight: 10
 hide_page_list: true
 hide_section_list: true
+publicatiestatus: concept
 ---
 
 Inhoudsopgave van de liturgiemap van Hemelum (Nederlandse gedeelte). 

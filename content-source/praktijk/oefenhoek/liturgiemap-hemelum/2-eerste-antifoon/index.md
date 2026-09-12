@@ -2,6 +2,7 @@
 title: "2 Eerste Antifoon"
 linkTitle: "2 Eerste Antifoon"
 weight: 2
+publicatiestatus: voorzien
 ---
 
 # 2 Eerste Antifoon

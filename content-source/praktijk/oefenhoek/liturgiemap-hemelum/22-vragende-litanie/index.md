@@ -2,6 +2,7 @@
 title: "22 Vragende Litanie/Ektinia"
 linkTitle: "22 Vragende Litanie"
 weight: 22
+publicatiestatus: voorzien
 ---
 
 # 22 Vragende Litanie/Ektinia

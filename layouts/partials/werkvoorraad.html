@@ -1,0 +1,14 @@
+{{- /*
+  Interne werkvoorraad, onderaan de Oefenhoek-overzichtspagina.
+  Bron: content-source (input/ is geen Hugo-sectie).
+*/ -}}
+{{- $path := "content-source/praktijk/oefenhoek/input/werkvoorraad.md" -}}
+{{- if not (fileExists $path) -}}
+  {{- errorf "werkvoorraad: %s ontbreekt" $path -}}
+{{- end -}}
+<details class="werkvoorraad">
+  <summary>Werkvoorraad (interne dumps)</summary>
+  <div class="werkvoorraad-body">
+    {{ readFile $path | .Page.RenderString }}
+  </div>
+</details>

@@ -57,7 +57,7 @@ Na een geslaagde `check.cmd --strict`:
 serve --no-build
 ```
 
-Open http://localhost:1313/
+Open http://127.0.0.1:18731/
 
 Volledige preview inclusief opnieuw genereren:
 

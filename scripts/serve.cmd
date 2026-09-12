@@ -40,10 +40,13 @@ if errorlevel 1 exit /b 1
 
 echo [2/2] Start Hugo server
 :start_server
+REM Niet 1313: die poort is lokaal voor de ontwikkelaar gereserveerd.
 hugo server ^
   --source . ^
   --contentDir generated\content ^
   --baseURL / ^
+  --port 18731 ^
+  --bind 127.0.0.1 ^
   --disableFastRender ^
   --forceSyncStatic ^
   --noHTTPCache

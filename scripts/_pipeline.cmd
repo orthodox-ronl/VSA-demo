@@ -32,6 +32,8 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_coria_mxl.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\check_publicatiestatus.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 
@@ -45,6 +47,7 @@ if exist static\mxl rmdir /s /q static\mxl
   static\vsa ^
   --output-mode shortcode
 if errorlevel 1 exit /b 1
+if exist generated\content\praktijk\oefenhoek\input rmdir /s /q generated\content\praktijk\oefenhoek\input
 "%PY%" -m vsa.cli musicxml ^
   content-source ^
   static\vsa\mxl
@@ -60,6 +63,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\inject_git_dates.py generated\content content-source
 if errorlevel 1 exit /b 1
 "%PY%" scripts\copy_content_extras.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\update_werkvoorraad.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\fingerprint_coria_mxl.py
 if errorlevel 1 exit /b 1

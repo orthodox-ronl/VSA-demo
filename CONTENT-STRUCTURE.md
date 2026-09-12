@@ -55,6 +55,11 @@ catalogus en geen tooling-demo.
 | Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
+| Input vs publicatie | Ruwe dumps in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
+| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per dump; tabel bij sitebuild). Uitklapbaar onderaan de Oefenhoek-`_index`, na de deelrubrieken. |
+| Publicatiestatus | Frontmatter `publicatiestatus` op elke oefenhoek-`_index.md` en `index.md`: `voorzien` (gepland, nog geen uitgave), `concept` (eerste versie), `reviewable` (feedback gevraagd), `productie`. Balk + e-mail/GitHub-issue. Secties: collectie als geheel. |
+
+Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus`.
 
 Nog niet in deze ronde: oefenmodus-schakelaar, audio-player, automatische sync
 uit VSA-tooling.

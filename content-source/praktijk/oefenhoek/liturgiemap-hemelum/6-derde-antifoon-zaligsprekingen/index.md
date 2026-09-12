@@ -2,6 +2,7 @@
 title: "6 Derde Antifoon / Zaligsprekingen"
 linkTitle: "6 Derde Antifoon"
 weight: 6
+publicatiestatus: voorzien
 ---
 
 # 6 Derde Antifoon / Zaligsprekingen

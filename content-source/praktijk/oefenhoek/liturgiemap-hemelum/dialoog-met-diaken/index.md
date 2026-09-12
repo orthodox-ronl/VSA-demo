@@ -2,6 +2,7 @@
 title: "dialoog-met-diaken"
 sources:
   - "H. Liturgie - koormap - Groningen"
+publicatiestatus: voorzien
 ---
 
 ## Dialoog met de Diaken
