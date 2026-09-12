@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/</link><description>Recent content on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/index.xml" rel="self" type="application/rss+xml"/><item><title>Maandag - de Heilige Engelen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/maandag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/maandag/</guid><description>&lt;!-- 
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/</link><description>Recent content on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/index.xml" rel="self" type="application/rss+xml"/><item><title>1 Vredeslitanie</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/1-vredeslitanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/1-vredeslitanie/</guid><description>&lt;h1 id="1-vredeslitanie"&gt;1 Vredeslitanie&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "1-vredeslitanie.vsa" alt="1 Vredeslitanie"::: --&gt;
+&lt;!-- :::include coria "1-vredeslitanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="1-vredeslitanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="1-vredeslitanie.pdf" actions="false" --&gt;</description></item><item><title>Maandag - de Heilige Engelen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/maandag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/maandag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -40,7 +45,12 @@
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-maandag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Gij gebruikt wolken als voertuig, Gij wandelt op de wieken der wind.&lt;br&gt;
-Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;</description></item><item><title>Dinsdag — H. Joannes de Doper</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/dinsdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/dinsdag/</guid><description>&lt;!-- 
+Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;/p&gt;</description></item><item><title>2 Eerste Antifoon</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/2-eerste-antifoon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/2-eerste-antifoon/</guid><description>&lt;h1 id="2-eerste-antifoon"&gt;2 Eerste Antifoon&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "2-eerste-antifoon.vsa" alt="2 Eerste Antifoon"::: --&gt;
+&lt;!-- :::include coria "2-eerste-antifoon.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="2-eerste-antifoon.pdf" --&gt;
+&lt;!-- pdf-sheet src="2-eerste-antifoon.pdf" actions="false" --&gt;</description></item><item><title>Dinsdag — H. Joannes de Doper</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/dinsdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/dinsdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -83,7 +93,12 @@ Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-dinsdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 God, verhoor mijn gebed als ik mij tot U richt; maak mijn ziel vrij van vrees voor de vijand.&lt;br&gt;
-Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-liturgikon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-liturgikon/</guid><description>&lt;!-- 
+Beschut mij tegen de samenzwering der booswichten; tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>3 Eerste Kleine Litanie / Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/3-eerste-kleine-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/3-eerste-kleine-litanie/</guid><description>&lt;h1 id="3-eerste-kleine-litanie--ektinia"&gt;3 Eerste Kleine Litanie / Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "3-eerste-kleine-litanie.vsa" alt="3 Eerste Kleine Litanie / Ektinia"::: --&gt;
+&lt;!-- :::include coria "3-eerste-kleine-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="3-eerste-kleine-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="3-eerste-kleine-litanie.pdf" actions="false" --&gt;</description></item><item><title>Woensdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-liturgikon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-liturgikon/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -145,7 +160,12 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
 &lt;h4 id="feest-van-de-moeder-gods"&gt;Feest van de Moeder Gods&lt;/h4&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-woensdag-liturgikon-block-7.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;/details&gt;</description></item><item><title>Donderdag — H. Apostelen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/donderdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/donderdag/</guid><description>&lt;!-- 
+&lt;/details&gt;</description></item><item><title>4 Tweede Antifoon</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/4-tweede-antifoon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/4-tweede-antifoon/</guid><description>&lt;h1 id="4-tweede-antifoon"&gt;4 Tweede Antifoon&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "4-tweede-antifoon.vsa" alt="4 Tweede Antifoon"::: --&gt;
+&lt;!-- :::include coria "4-tweede-antifoon.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="4-tweede-antifoon.pdf" --&gt;
+&lt;!-- pdf-sheet src="4-tweede-antifoon.pdf" actions="false" --&gt;</description></item><item><title>Donderdag — H. Apostelen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/donderdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/donderdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -187,7 +207,12 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-donderdag-block-4.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Elke dag openbaart een woord aan de volgende dag; * van nacht tot nacht wordt kennis verkondigd.&lt;br&gt;
-De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Zijner handen.&lt;/p&gt;</description></item><item><title>Vrijdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-liturgikon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-liturgikon/</guid><description>&lt;!-- 
+De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Zijner handen.&lt;/p&gt;</description></item><item><title>5 Eniggeboren Zoon</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/5-eniggeboren-zoon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/5-eniggeboren-zoon/</guid><description>&lt;h1 id="5-eniggeboren-zoon"&gt;5 Eniggeboren Zoon&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "5-eniggeboren-zoon.vsa" alt="5 Eniggeboren Zoon"::: --&gt;
+&lt;!-- :::include coria "5-eniggeboren-zoon.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="5-eniggeboren-zoon.pdf" --&gt;
+&lt;!-- pdf-sheet src="5-eniggeboren-zoon.pdf" actions="false" --&gt;</description></item><item><title>Vrijdag — het Heilig Kruis</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-liturgikon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-liturgikon/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -235,7 +260,12 @@ De hemelen verhalen de heerlijkheid Gods, * het uitspansel verkondigt het werk Z
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-vrijdag-liturgikon-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Groot is de Heer in Sion; Hij is verheven boven alle volkeren.&lt;br&gt;
-Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
+Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>6 Derde Antifoon / Zaligsprekingen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/6-derde-antifoon-zaligsprekingen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/6-derde-antifoon-zaligsprekingen/</guid><description>&lt;h1 id="6-derde-antifoon--zaligsprekingen"&gt;6 Derde Antifoon / Zaligsprekingen&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "6-derde-antifoon-zaligsprekingen.vsa" alt="6 Derde Antifoon / Zaligsprekingen"::: --&gt;
+&lt;!-- :::include coria "6-derde-antifoon-zaligsprekingen.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="6-derde-antifoon-zaligsprekingen.pdf" --&gt;
+&lt;!-- pdf-sheet src="6-derde-antifoon-zaligsprekingen.pdf" actions="false" --&gt;</description></item><item><title>Zaterdag — de Koren der Heiligen/Gestorvenen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/zaterdag/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -304,42 +334,61 @@ Zij zullen roepen, ja een hymne zingen. --&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-zaterdag-block-7.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 &lt;p&gt;Zalig zij wier overtredingen zijn vergeven, en wier zonden zijn bedekt.&lt;br&gt;
-Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></item><item><title>19a Eucharistische Kanon</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/19a-eucharistische-kanon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/19a-eucharistische-kanon/</guid><description>&lt;h1 id="19a-eucharistische-kanon"&gt;19a Eucharistische Kanon&lt;/h1&gt;
+Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></item><item><title>7 Kleine Intocht</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/</guid><description>&lt;h1 id="7-kleine-intocht"&gt;7 Kleine Intocht&lt;/h1&gt;
 &lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
-&lt;p class="coria-play"&gt;&lt;a href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F68a1e9956b62.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
+&lt;!-- :::include svg "7-kleine-intocht.vsa" alt="7 Kleine Intocht"::: --&gt;
+&lt;!-- :::include coria "7-kleine-intocht.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="7-kleine-intocht.pdf" --&gt;
+&lt;!-- pdf-sheet src="7-kleine-intocht.pdf" actions="false" --&gt;</description></item><item><title>8a Trisagion (Nederlands)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/</guid><description>&lt;h1 id="8a-trisagion-nederlands"&gt;8a Trisagion (Nederlands)&lt;/h1&gt;
+&lt;!-- :::include svg "8a-trisagion.vsa" alt="8a Trisagion"::: --&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/8a-trisagion.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2Fc19f9a28f167.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/8a-trisagion.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/8a-trisagion.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
 
-&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf"&gt;
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion/8a-trisagion.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
- &lt;p class="pdf-sheet-actions"&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf" download&gt;Downloaden&lt;/a&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf" class="pdf-sheet-print"&gt;Printen&lt;/a&gt;
- &lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>Communievers (Onthoofding Johannes de Doper)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/</guid><description>&lt;h1 id="communievers-onthoofding-johannes-de-doper"&gt;Communievers (Onthoofding Johannes de Doper)&lt;/h1&gt;
+&lt;/div&gt;</description></item><item><title>8a Trisagion (met Slavisch)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/</guid><description>&lt;h1 id="8a-trisagion-met-slavisch"&gt;8a Trisagion (met Slavisch)&lt;/h1&gt;
+&lt;!-- :::include svg "8a-trisagion-slav.vsa" alt="8a Trisagion (met Slavisch)"::: --&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/8a-trisagion-slav.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2Fbfc0dc36a4bb.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/8a-trisagion-slav.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/8a-trisagion-slav.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/8a-trisagion-slav/8a-trisagion-slav.pdf"&gt;
+ &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>9 Prokimens</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/9-prokimens/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/9-prokimens/</guid><description>&lt;h1 id="9-prokimens"&gt;9 Prokimens&lt;/h1&gt;
 &lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
-&lt;p&gt;Dit is NIET een van de belangrijke stukken voor beginnende koorleden om te oefenen!&lt;/p&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-communievers-onthoofding-johannes-de-doper-index-block-1.svg" alt="Communievers (Onthoofding Johannes de Doper)" loading="lazy"&gt;&lt;/div&gt;
-
-&lt;p class="coria-play"&gt;&lt;a href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F4ce905767148.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf"&gt;
- &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
- &lt;p class="pdf-sheet-actions"&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf" download&gt;Downloaden&lt;/a&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf" class="pdf-sheet-print"&gt;Printen&lt;/a&gt;
- &lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>Moeder Godslied (Ontslapen van de Moeder Gods)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/</guid><description>&lt;h1 id="moeder-godslied-ontslapen-van-de-moeder-gods"&gt;Moeder Godslied (Ontslapen van de Moeder Gods)&lt;/h1&gt;
+&lt;!-- :::include svg "9-prokimens.vsa" alt="9 Prokimens"::: --&gt;
+&lt;!-- :::include coria "9-prokimens.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="9-prokimens.pdf" --&gt;
+&lt;!-- pdf-sheet src="9-prokimens.pdf" actions="false" --&gt;</description></item><item><title>10 Evangelielezing</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</guid><description>&lt;h1 id="10-evangelielezing"&gt;10 Evangelielezing&lt;/h1&gt;
 &lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-moeder-godslied-ontslapen-mgods-index-block-1.svg" alt="Moeder Godslied (Ontslapen van de Moeder Gods)" loading="lazy"&gt;&lt;/div&gt;
+&lt;!-- :::include svg "10-evangelielezing.vsa" alt="10 Evangelielezing"::: --&gt;
+&lt;!-- :::include coria "10-evangelielezing.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="10-evangelielezing.pdf" --&gt;
+&lt;!-- pdf-sheet src="10-evangelielezing.pdf" actions="false" --&gt;</description></item><item><title>20d In waarheid (Moeder Godslied)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</guid><description>&lt;h1 id="20d-in-waarheid-moeder-godslied"&gt;20d In waarheid (Moeder Godslied)&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;p&gt;Proef met 4/4 (opmaat 1 tel op &lt;em&gt;In&lt;/em&gt;, daarna om de 4 kwarten; geen zichtbare maatsoort): &lt;code&gt;20d-in-waarheid-moeder-godslied-4kwart.mscz&lt;/code&gt; (origineel ongewijzigd).&lt;/p&gt;
+&lt;!-- :::include svg "20d-in-waarheid-moeder-godslied.vsa" alt="20d In waarheid (Moeder Godslied)"::: --&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/20d-in-waarheid-moeder-godslied.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F82562c29a186.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/20d-in-waarheid-moeder-godslied.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/20d-in-waarheid-moeder-godslied.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
 
-&lt;p class="coria-play"&gt;&lt;a href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F82f58e357274.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf"&gt;
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/20d-in-waarheid-moeder-godslied.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
- &lt;p class="pdf-sheet-actions"&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf" download&gt;Downloaden&lt;/a&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf" class="pdf-sheet-print"&gt;Printen&lt;/a&gt;
- &lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>Prokimena - weekdagen (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/prokimena-weekdagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/prokimena-weekdagen/</guid><description>&lt;h2 id="prokimena---weekdagen-hemelum"&gt;Prokimena - weekdagen (Hemelum)&lt;/h2&gt;
+&lt;/div&gt;</description></item><item><title>Kondak H. Nikolaas van Myra (toon 3)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondakion-nikolaas-van-myra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondakion-nikolaas-van-myra/</guid><description>&lt;h1 id="kondak-h-nikolaas-van-myra-toon-3"&gt;Kondak H. Nikolaas van Myra (toon 3)&lt;/h1&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-troparen-en-kondaken-kondakion-nikolaas-van-myra-index-block-1.svg" alt="Kondak H. Nikolaas van Myra (Toon 3)" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div class="score-actions"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2Fabd9222ea5d5.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- pdf-sheet src="kondak-nikolaas-van-myra.pdf" actions="false" --&gt;</description></item><item><title>Prokimena - weekdagen (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/prokimena-weekdagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/prokimena-weekdagen/</guid><description>&lt;h2 id="prokimena---weekdagen-hemelum"&gt;Prokimena - weekdagen (Hemelum)&lt;/h2&gt;
 &lt;h3 id="maandag-ps-103-toon-4"&gt;Maandag (Ps. 103, Toon 4)&lt;/h3&gt;
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-prokimena-weekdagen-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
@@ -351,18 +400,17 @@ Den Heer zij roem in eeuwigheid; dat de Heer Zich verheuge over Zijn werken.&lt;
 God, verhoor mijn gebed als ik mij tot U richt;&lt;br&gt;
     maak mijn ziel vrij van vrees voor de vijand.&lt;br&gt;
 Beschut mij tegen de samenzwering der booswichten;&lt;br&gt;
-    tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Tropaar H. Nikolaas van Myra (toon 4)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/troparion-nikolaas-van-myra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/troparion-nikolaas-van-myra/</guid><description>&lt;h1 id="tropaar-h-nikolaas-van-myra-toon-4"&gt;Tropaar H. Nikolaas van Myra (toon 4)&lt;/h1&gt;
-&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het is nog niet klaar/afgerond.&lt;/p&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-troparion-nikolaas-van-myra-index-block-1.svg" alt="Tropaar H. Nikolaas van Myra (toon 4)" loading="lazy"&gt;&lt;/div&gt;
+    tegen de menigte van hen die onrecht bedrijven.&lt;/p&gt;</description></item><item><title>Tropaar H. Nikolaas van Myra (toon 4)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/</guid><description>&lt;h1 id="tropaar-h-nikolaas-van-myra-toon-4"&gt;Tropaar H. Nikolaas van Myra (toon 4)&lt;/h1&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-troparen-en-kondaken-troparion-nikolaas-van-myra-index-block-1.svg" alt="Tropaar H. Nikolaas van Myra (toon 4)" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;p class="coria-play"&gt;&lt;a href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F50d61f2c1f92.mxl" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;&lt;/p&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F39cd5c4775d5.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
 
-&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf"&gt;
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
- &lt;p class="pdf-sheet-actions"&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf" download&gt;Downloaden&lt;/a&gt;
- &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.pdf" class="pdf-sheet-print"&gt;Printen&lt;/a&gt;
- &lt;/p&gt;
 &lt;/div&gt;</description></item><item><title>VSA naar SVG (vsa svg)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/01-vsa-svg-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/01-vsa-svg-cli/</guid><description>&lt;h1 id="vsa-naar-svg-vsa-svg"&gt;VSA naar SVG (&lt;code&gt;vsa svg&lt;/code&gt;)&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; één &lt;code&gt;.vsa&lt;/code&gt;-bestand omzetten naar een &lt;code&gt;.svg&lt;/code&gt;-bestand
 met de CLI. Geen Markdown, geen site-build — alleen conversie.&lt;/p&gt;
@@ -375,7 +423,81 @@ met de CLI. Geen Markdown, geen site-build — alleen conversie.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uit de schoot van de {-&amp;amp;\ha}{/des} {/heeft} {/Hij_} {\ons} ver{\lost_} *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// en aan de wereld grote ge{na_}{\de} {\ge}{/&amp;amp;/&amp;amp;/&amp;amp;\&amp;amp;\&amp;amp;\&amp;amp;/schon.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;~}{\ken__}. [:]
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="commando"&gt;Commando&lt;/h2&gt;
-&lt;p&gt;Werkmap = deze demo-map (&lt;code&gt;content-source\praktijk\demo&lt;/code&gt;):&lt;/p&gt;</description></item><item><title>VSA inline in Markdown</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/02-vsa-inline-markdown/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/02-vsa-inline-markdown/</guid><description>&lt;h1 id="vsa-inline-in-markdown"&gt;VSA inline in Markdown&lt;/h1&gt;
+&lt;p&gt;Werkmap = deze demo-map (&lt;code&gt;content-source\praktijk\demo&lt;/code&gt;):&lt;/p&gt;</description></item><item><title>11 Dringende Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/11-dringende-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/11-dringende-litanie/</guid><description>&lt;h1 id="11-dringende-litanieektinia"&gt;11 Dringende Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "11-dringende-litanie.vsa" alt="11 Dringende Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "11-dringende-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="11-dringende-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="11-dringende-litanie.pdf" actions="false" --&gt;</description></item><item><title>12 Ontslapenen Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/12-ontslapenen-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/12-ontslapenen-litanie/</guid><description>&lt;h1 id="12-ontslapenen-litanieektinia"&gt;12 Ontslapenen Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "12-ontslapenen-litanie.vsa" alt="12 Ontslapenen Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "12-ontslapenen-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="12-ontslapenen-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="12-ontslapenen-litanie.pdf" actions="false" --&gt;</description></item><item><title>13 Catehumenen Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/13-catehumenen-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/13-catehumenen-litanie/</guid><description>&lt;h1 id="13-catehumenen-litanieektinia"&gt;13 Catehumenen Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "13-catehumenen-litanie.vsa" alt="13 Catehumenen Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "13-catehumenen-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="13-catehumenen-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="13-catehumenen-litanie.pdf" actions="false" --&gt;</description></item><item><title>14 Gelovigen Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/14-gelovigen-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/14-gelovigen-litanie/</guid><description>&lt;h1 id="14-gelovigen-litanieektinia"&gt;14 Gelovigen Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "14-gelovigen-litanie.vsa" alt="14 Gelovigen Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "14-gelovigen-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="14-gelovigen-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="14-gelovigen-litanie.pdf" actions="false" --&gt;</description></item><item><title>15c Cherubijnenhymne (Kastorski)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/</guid><description>&lt;h1 id="15c-cherubijnenhymne-kastorski"&gt;15c Cherubijnenhymne (Kastorski)&lt;/h1&gt;
+&lt;!-- :::include svg "15c-cherubijnenhymne-kastorski.vsa" alt="15c Cherubijnenhymne (Kastorski)"::: --&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/15c-cherubijnenhymne-kastorski.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2Fb1cb523c3045.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/15c-cherubijnenhymne-kastorski.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/15c-cherubijnenhymne-kastorski.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/15c-cherubijnenhymne-kastorski.pdf"&gt;
+ &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>16 Vragende Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/16-vragende-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/16-vragende-litanie/</guid><description>&lt;h1 id="16-vragende-litanieektinia"&gt;16 Vragende Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "16-vragende-litanie.vsa" alt="16 Vragende Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "16-vragende-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="16-vragende-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="16-vragende-litanie.pdf" actions="false" --&gt;</description></item><item><title>17 Vredeswens</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/17-vredeswens/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/17-vredeswens/</guid><description>&lt;h1 id="17-vredeswens"&gt;17 Vredeswens&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "17-vredeswens.vsa" alt="17 Vredeswens"::: --&gt;
+&lt;!-- :::include coria "17-vredeswens.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="17-vredeswens.pdf" --&gt;
+&lt;!-- pdf-sheet src="17-vredeswens.pdf" actions="false" --&gt;</description></item><item><title>18 Geloofsbelijdenis</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/18-geloofsbelijdenis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/18-geloofsbelijdenis/</guid><description>&lt;h1 id="18-geloofsbelijdenis"&gt;18 Geloofsbelijdenis&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "18-geloofsbelijdenis.vsa" alt="18 Geloofsbelijdenis"::: --&gt;
+&lt;!-- :::include coria "18-geloofsbelijdenis.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="18-geloofsbelijdenis.pdf" --&gt;
+&lt;!-- pdf-sheet src="18-geloofsbelijdenis.pdf" actions="false" --&gt;</description></item><item><title>19a Eucharistische Kanon</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/</guid><description>&lt;h1 id="19a-eucharistische-kanon"&gt;19a Eucharistische Kanon&lt;/h1&gt;
+&lt;!-- :::include svg "19a-eucharistische-kanon-feofan.vsa" alt="19a Eucharistische Kanon"::: --&gt;
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F02d8a191748f.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.pdf"&gt;
+ &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Communievers (Onthoofding Johannes de Doper)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/</guid><description>&lt;h1 id="communievers-onthoofding-johannes-de-doper"&gt;Communievers (Onthoofding Johannes de Doper)&lt;/h1&gt;
+&lt;p&gt;Dit is NIET een van de belangrijke stukken voor beginnende koorleden om te oefenen!&lt;/p&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-25-communievers-communievers-onthoofding-johannes-de-doper-index-block-1.svg" alt="Communievers (Onthoofding Johannes de Doper)" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2Fe3231d99a4f3.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/25-communievers/communievers-onthoofding-johannes-de-doper/communievers-onthoofding-johannes-de-doper.pdf"&gt;
+ &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Kondak H. Moeder Gods (toon 6)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondak-moeder-gods-toon-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/kondak-moeder-gods-toon-6/</guid><description>&lt;h1 id="kondak-h-moeder-gods-toon-6"&gt;Kondak H. Moeder Gods (toon 6)&lt;/h1&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-troparen-en-kondaken-kondak-moeder-gods-toon-6-index-block-1.svg" alt="Kondak H. Moeder Gods (Hemelum, Toon 6)" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div class="score-actions"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F2deb67af8c55.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- pdf-sheet src="kondak-moeder-gods-toon-6.pdf" actions="false" --&gt;</description></item><item><title>VSA inline in Markdown</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/02-vsa-inline-markdown/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/02-vsa-inline-markdown/</guid><description>&lt;h1 id="vsa-inline-in-markdown"&gt;VSA inline in Markdown&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; VSA-notatie &lt;strong&gt;in de Markdownpagina zelf&lt;/strong&gt; zetten. Bij
 generate (&lt;code&gt;vsa build-markdown&lt;/code&gt; / &lt;code&gt;scripts\check.cmd&lt;/code&gt;) wordt elk
 &lt;code&gt;::: vsa-notatie&lt;/code&gt;-blok omgezet naar een SVG op de site.&lt;/p&gt;
@@ -389,7 +511,12 @@ generate (&lt;code&gt;vsa build-markdown&lt;/code&gt; / &lt;code&gt;scripts\chec
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uit de schoot van de {-&amp;amp;\ha}{/des} {/heeft} {/Hij_} {\ons} ver{\lost_} *
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// en aan de wereld grote ge{na_}{\de} {\ge}{/&amp;amp;/&amp;amp;/&amp;amp;\&amp;amp;\&amp;amp;\&amp;amp;/schon.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;.&amp;amp;~}{\ken__}. [:]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:::
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Daarna, vanuit de repo-root:&lt;/p&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Daarna, vanuit de repo-root:&lt;/p&gt;</description></item><item><title>21 En Allen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</guid><description>&lt;h1 id="21-en-allen"&gt;21 En Allen&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "21-en-allen.vsa" alt="21 En Allen"::: --&gt;
+&lt;!-- :::include coria "21-en-allen.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="21-en-allen.pdf" --&gt;
+&lt;!-- pdf-sheet src="21-en-allen.pdf" actions="false" --&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -447,7 +574,12 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
  &lt;summary&gt;Communievers - Ik zal de Kelk des heils nemen&lt;/summary&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-woensdag-hemelum-block-6.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Hierna het alleluia als gebruikelijk in VOKN-25&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Vrijdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-hemelum/</guid><description>&lt;!-- 
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Hierna het alleluia als gebruikelijk in VOKN-25&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description></item><item><title>22 Vragende Litanie/Ektinia</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/22-vragende-litanie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/22-vragende-litanie/</guid><description>&lt;h1 id="22-vragende-litanieektinia"&gt;22 Vragende Litanie/Ektinia&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "22-vragende-litanie.vsa" alt="22 Vragende Litanie/Ektinia"::: --&gt;
+&lt;!-- :::include coria "22-vragende-litanie.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="22-vragende-litanie.pdf" --&gt;
+&lt;!-- pdf-sheet src="22-vragende-litanie.pdf" actions="false" --&gt;</description></item><item><title>Vrijdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/weekdagen/vrijdag-hemelum/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -495,7 +627,37 @@ Want de Heer heeft Sion uitverkoren; Hij heeft haar gekozen tot Woning voor Zich
 &lt;p&gt;&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-weekdagen-vrijdag-hemelum-block-5.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 Groot is de Heer in Sion; Hij is verheven boven alle volkeren.&lt;br&gt;
-Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>VSA-bestand includen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/03-vsa-include-bestand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/03-vsa-include-bestand/</guid><description>&lt;h1 id="vsa-bestand-includen"&gt;VSA-bestand includen&lt;/h1&gt;
+Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; want heilig is de Heer onze God.&lt;/p&gt;</description></item><item><title>23 Onze Vader</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/23-onze-vader/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/23-onze-vader/</guid><description>&lt;h1 id="23-onze-vader"&gt;23 Onze Vader&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "23-onze-vader.vsa" alt="23 Onze Vader"::: --&gt;
+&lt;!-- :::include coria "23-onze-vader.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="23-onze-vader.pdf" --&gt;
+&lt;!-- pdf-sheet src="23-onze-vader.pdf" actions="false" --&gt;</description></item><item><title>24 Een is Heilig</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/24-een-is-heilig/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/24-een-is-heilig/</guid><description>&lt;h1 id="24-een-is-heilig"&gt;24 Een is Heilig&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "24-een-is-heilig.vsa" alt="24 Een is Heilig"::: --&gt;
+&lt;!-- :::include coria "24-een-is-heilig.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="24-een-is-heilig.pdf" --&gt;
+&lt;!-- pdf-sheet src="24-een-is-heilig.pdf" actions="false" --&gt;</description></item><item><title>26 Gezegend Hij, Die komt ...</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/26-gezegend-hij-die-komt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/26-gezegend-hij-die-komt/</guid><description>&lt;h1 id="26-gezegend-hij-die-komt-"&gt;26 Gezegend Hij, Die komt &amp;hellip;&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "26-gezegend-hij-die-komt.vsa" alt="26 Gezegend Hij, Die komt ..."::: --&gt;
+&lt;!-- :::include coria "26-gezegend-hij-die-komt.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="26-gezegend-hij-die-komt.pdf" --&gt;
+&lt;!-- pdf-sheet src="26-gezegend-hij-die-komt.pdf" actions="false" --&gt;</description></item><item><title>27 Communiezang</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/27-communiezang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/27-communiezang/</guid><description>&lt;h1 id="27-communiezang"&gt;27 Communiezang&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "27-communiezang.vsa" alt="27 Communiezang"::: --&gt;
+&lt;!-- :::include coria "27-communiezang.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="27-communiezang.pdf" --&gt;
+&lt;!-- pdf-sheet src="27-communiezang.pdf" actions="false" --&gt;</description></item><item><title>28 Wij hebben het Ware Licht</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/28-wij-hebben-het-ware-licht/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/28-wij-hebben-het-ware-licht/</guid><description>&lt;h1 id="28-wij-hebben-het-ware-licht"&gt;28 Wij hebben het Ware Licht&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "28-wij-hebben-het-ware-licht.vsa" alt="28 Wij hebben het Ware Licht"::: --&gt;
+&lt;!-- :::include coria "28-wij-hebben-het-ware-licht.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="28-wij-hebben-het-ware-licht.pdf" --&gt;
+&lt;!-- pdf-sheet src="28-wij-hebben-het-ware-licht.pdf" actions="false" --&gt;</description></item><item><title>29 De Naam des Heren zij gezegend</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/29-de-naam-des-heren-zij-gezegend/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/29-de-naam-des-heren-zij-gezegend/</guid><description>&lt;h1 id="29-de-naam-des-heren-zij-gezegend"&gt;29 De Naam des Heren zij gezegend&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "29-de-naam-des-heren-zij-gezegend.vsa" alt="29 De Naam des Heren zij gezegend"::: --&gt;
+&lt;!-- :::include coria "29-de-naam-des-heren-zij-gezegend.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="29-de-naam-des-heren-zij-gezegend.pdf" --&gt;
+&lt;!-- pdf-sheet src="29-de-naam-des-heren-zij-gezegend.pdf" actions="false" --&gt;</description></item><item><title>VSA-bestand includen</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/03-vsa-include-bestand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/03-vsa-include-bestand/</guid><description>&lt;h1 id="vsa-bestand-includen"&gt;VSA-bestand includen&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; vanuit Markdown naar een apart &lt;code&gt;.vsa&lt;/code&gt;-bestand
 verwijzen met &lt;code&gt;:::include svg …:::&lt;/code&gt;. De build leest dat bestand en toont de
 SVG op de pagina.&lt;/p&gt;
@@ -615,7 +777,24 @@ weggelaten — een relatieve site-knop werkt niet vanuit een PDF-bestand.&lt;/li
  width="100%"
  height="560"
  style="border:1px solid #ccc;border-radius:4px;"&gt;&lt;/iframe&gt;
-&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/demo/voorbeeld-blad.pdf" download&gt;voorbeeld-blad.pdf — download&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/diversen/kondak-moeder-gods-t6-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/diversen/kondak-moeder-gods-t6-hemelum/</guid><description>&lt;h2 id="kondak-moeder-gods---toon-6-stichier-melodie"&gt;Kondak Moeder Gods - Toon 6 (Stichier melodie)&lt;/h2&gt;
+&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/demo/voorbeeld-blad.pdf" download&gt;voorbeeld-blad.pdf — download&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Moeder Godslied (Ontslapen van de Moeder Gods)</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</guid><description>&lt;h1 id="moeder-godslied-ontslapen-van-de-moeder-gods"&gt;Moeder Godslied (Ontslapen van de Moeder Gods)&lt;/h1&gt;
+&lt;p&gt;Dit is het Moeder Godslied dat gezongen wordt in de H. Liturgie op het feest van het Ontslapen van de Moeder Gods (15 augustus).&lt;/p&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-20-moeder-godslied-moeder-godslied-ontslapen-mgods-index-block-1.svg" alt="Moeder Godslied (Ontslapen van de Moeder Gods)" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div class="score-actions" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf"&gt;
+&lt;a class="btn coria-play" href="https://coria.nl/play_from_url?back=coria.nl&amp;amp;url=https%3A%2F%2Forthodox-ronl.github.io%2FVSA-demo%2Fmxl%2Fc%2F93a1c172bfe6.musicxml" target="_blank" rel="noopener noreferrer"&gt;Oefenen in Coria&lt;/a&gt;
+ &lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf" download&gt;Downloaden&lt;/a&gt;
+ &lt;a class="btn pdf-sheet-print" href="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf"&gt;Printen&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.pdf"&gt;
+ &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>9b Alleluja</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/9b-alleluja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/9b-alleluja/</guid><description>&lt;h1 id="9b-alleluja"&gt;9b Alleluja&lt;/h1&gt;
+&lt;p&gt;Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.&lt;/p&gt;
+&lt;!-- :::include svg "9b-alleluja.vsa" alt="9b Alleluja"::: --&gt;
+&lt;!-- :::include coria "9b-alleluja.mxl" label="Oefenen in Coria"::: --&gt;
+&lt;!-- score-actions pdf="9b-alleluja.pdf" --&gt;
+&lt;!-- pdf-sheet src="9b-alleluja.pdf" actions="false" --&gt;</description></item><item><title/><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/diversen/kondak-moeder-gods-t6-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/diversen/kondak-moeder-gods-t6-hemelum/</guid><description>&lt;h2 id="kondak-moeder-gods---toon-6-stichier-melodie"&gt;Kondak Moeder Gods - Toon 6 (Stichier melodie)&lt;/h2&gt;
 &lt;!-- Hemelum: t. 6 “Vrijmoedige beschermster der christenen,* standvastige middelares bij de Schepper * veracht niet onze zondaarsgebeden, * maar voorkom ons in uw goedheid en help ons, * die vol vertrouwen tot u roepen:* Haast u, om ons bij te staan, * dring aan door uw gebeden, Moeder Gods, * die altijd waakt over hen die u vereren..” --&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-diversen-kondak-moeder-gods-t6-hemelum-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title/><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/08-aug/08-15-mgods-ontslapen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/08-aug/08-15-mgods-ontslapen/</guid><description>&lt;h2 id="moeder-godslied-liturgikon-p272"&gt;Moeder Godslied (Liturgikon, p.272)&lt;/h2&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-feesteigen-08-aug-08-15-mgods-ontslapen-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title/><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/hemelum-eigen/tropaar-heilige-martelaren-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/hemelum-eigen/tropaar-heilige-martelaren-hemelum/</guid><description>&lt;h3 id="tropaar-hh-martelaren-toon-4"&gt;Tropaar HH. Martelaren (Toon 4)&lt;/h3&gt;
@@ -1069,7 +1248,48 @@ Weekdag-antifonen in Groningen: geen koormap-materiaal (anders dan &lt;a href=".
 
 &lt;hr&gt;</description></item><item><title>Besnijdenis des Heren</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/01-jan/01-01-besnijdenis-des-heren/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/01-jan/01-01-besnijdenis-des-heren/</guid><description>&lt;p&gt;&lt;strong&gt;DIT IS NOG NIET COMPLEET!&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id="tropaar-toon-2"&gt;Tropaar (Toon 2)&lt;/h3&gt;
-&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-feesteigen-01-jan-01-01-besnijdenis-des-heren-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>Geboorte van de Moeder Gods</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/09-sep/09-08-geboorte-van-de-moeder-gods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/09-sep/09-08-geboorte-van-de-moeder-gods/</guid><description>&lt;h2 id="eerste-antifoon"&gt;Eerste Antifoon&lt;/h2&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-feesteigen-01-jan-01-01-besnijdenis-des-heren-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;</description></item><item><title>dialoog-met-diaken</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/dialoog-met-diaken/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/oefenhoek/liturgiemap-hemelum/dialoog-met-diaken/</guid><description>&lt;h2 id="dialoog-met-de-diaken"&gt;Dialoog met de Diaken&lt;/h2&gt;
+&lt;!-- Dit hoort HTML te zijn - dat is geen fout van een generator of zo --&gt;
+&lt;div style="font-size:120%; line-height:1.4;"&gt;
+ &lt;div style="display:flex; align-items:flex-start; gap:0.1rem;"&gt;
+ &lt;div style="min-width:3ch; flex-shrink:0;"&gt;D:&lt;/div&gt;
+ &lt;div&gt;Laat ons de Here bidden&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;br&gt;
+ &lt;div style="display:flex; align-items:flex-start; gap:0.1rem;"&gt;
+ &lt;div style="min-width:3ch; flex-shrink:0;"&gt;P:&lt;/div&gt;
+ &lt;div&gt;
+ Want heilig zijt Gij, onze God&lt;br&gt;
+ en tot U zenden wij onze lof:&lt;br&gt;
+ Vader, Zoon en Heilige Geest;&lt;br&gt;
+ nu en altijd (en iņ de eeuwen der eeuwen)
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;br&gt;
+ &lt;div style="display:flex; align-items:flex-start; gap:0.1rem;"&gt;
+ &lt;div style="min-width:3ch; flex-shrink:0;"&gt;D:&lt;/div&gt;
+ &lt;div&gt;
+ &lt;em&gt;(heft orarion naar Christusikoon en roept:)&lt;/em&gt;&lt;br&gt;
+ Heer, red Uw vromen en verhoor ons
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-dialoog-met-diaken-index-block-1.svg" alt="VSA notatie" style="width: 588px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div style="font-size:120%; line-height:1.4;"&gt;
+ &lt;div style="display:flex; align-items:flex-start; gap:0.1rem;"&gt;
+ &lt;div style="min-width:3ch; flex-shrink:0;"&gt;D:&lt;/div&gt;
+ &lt;div&gt;
+ &lt;em&gt;(keert verder rond in de Poort en roept:)&lt;/em&gt;&lt;br&gt;
+ En in de eeuwen der eeuwen.
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-oefenhoek-liturgiemap-hemelum-dialoog-met-diaken-index-block-2.svg" alt="VSA notatie" style="width: 216px" loading="lazy"&gt;&lt;/div&gt;
+
+&lt;div style="font-size:120%; line-height:1.4;"&gt;
+ &lt;em&gt;(hierna volgt het Trisagion)&lt;/em&gt;
+&lt;/div&gt;</description></item><item><title>Geboorte van de Moeder Gods</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/09-sep/09-08-geboorte-van-de-moeder-gods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/feesteigen/09-sep/09-08-geboorte-van-de-moeder-gods/</guid><description>&lt;h2 id="eerste-antifoon"&gt;Eerste Antifoon&lt;/h2&gt;
 &lt;div class="vsa-container"&gt;&lt;img class="vsa-notation" src="https://orthodox-ronl.github.io/VSA-demo/vsa/praktijk-feesteigen-09-sep-09-08-geboorte-van-de-moeder-gods-block-1.svg" alt="VSA notatie" loading="lazy"&gt;&lt;/div&gt;
 
 &lt;h2 id="tweede-antifoon"&gt;Tweede Antifoon&lt;/h2&gt;
