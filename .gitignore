@@ -12,6 +12,10 @@ static/mxl/
 .mscbackup/
 .archief/
 
+# Oefenhoek: lokale inbox en tussenwerk (dumps in capella/vow/… blijven in git)
+content-source/praktijk/oefenhoek/input/_inbox/
+content-source/praktijk/oefenhoek/input/_werk/
+
 # Hugo lock
 .hugo_build.lock
 

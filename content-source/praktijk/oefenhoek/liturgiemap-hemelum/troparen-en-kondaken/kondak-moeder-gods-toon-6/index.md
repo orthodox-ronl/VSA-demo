@@ -2,6 +2,7 @@
 title: "Kondak H. Moeder Gods (toon 6)"
 linkTitle: "Kondak Moeder Gods (toon 6)"
 weight: 20
+publicatiestatus: reviewable
 ---
 
 # Kondak H. Moeder Gods (toon 6)

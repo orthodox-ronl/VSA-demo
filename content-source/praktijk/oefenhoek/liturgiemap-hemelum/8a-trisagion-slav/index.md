@@ -2,6 +2,7 @@
 title: "8a Trisagion (met Slavisch)"
 linkTitle: "8a Trisagion (Slavisch)"
 weight: 8
+publicatiestatus: reviewable
 ---
 
 # 8a Trisagion (met Slavisch)

@@ -2,6 +2,8 @@
 title: "Oefenhoek"
 linkTitle: "Oefenhoek"
 weight: 80
+publicatiestatus: concept
+layout: oefenhoek-overzicht
 ---
 
 De "Oefenhoek" is bedoeld voor mensen die de hier aanwezige zangstukken willen oefenen.

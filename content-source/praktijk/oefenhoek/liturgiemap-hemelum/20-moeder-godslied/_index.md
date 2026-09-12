@@ -3,6 +3,7 @@ title: "Moeder Godslied"
 linkTitle: "Moeder Godslied"
 weight: 20
 nav_sort: weight
+publicatiestatus: concept
 ---
 
 Varianten van het Moeder Godslied in de liturgiemap van Hemelum. Een titel is

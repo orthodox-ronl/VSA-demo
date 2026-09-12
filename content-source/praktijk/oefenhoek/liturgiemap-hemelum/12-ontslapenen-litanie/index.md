@@ -2,6 +2,7 @@
 title: "12 Ontslapenen Litanie/Ektinia"
 linkTitle: "12 Ontslapenen Litanie"
 weight: 12
+publicatiestatus: voorzien
 ---
 
 # 12 Ontslapenen Litanie/Ektinia

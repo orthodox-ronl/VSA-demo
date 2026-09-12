@@ -8,6 +8,7 @@ disableKinds = ["taxonomy", "term"]
   linksBron = "https://orthodox-ronl.github.io/bron/"
   linksVsaTooling = "https://orthodox-ronl.github.io/VSA-tooling/"
   linksGithub = "https://github.com/orthodox-ronl/VSA-demo"
+  feedback_email = "orthodoxronl@duck.com"
 
 [[params.nav_groups]]
 id = "diensten"

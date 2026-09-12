@@ -9,7 +9,7 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | -------- | ---- | ------ |
 | `h` | catalogus / man-page | `[naam]` |
 | `check` | preflight / CI-spiegel | `--strict --external --skip-hugo` |
-| `serve` | Hugo-preview | `--no-build` |
+| `serve` | Hugo-preview op http://127.0.0.1:18731/ (niet 1313) | `--no-build` |
 | `build` | site in `generated\site` + interne links | — |
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
@@ -59,6 +59,12 @@ Generate kopieert extra page-bundle bestanden (`.mxl`) via
 naam). `fingerprint_coria_mxl.py` publiceert uncompressed MusicXML
 als `/mxl/c/<hash>.musicxml` (URL eindigt op `.musicxml`, geen spaties of
 query-string; compressed `.mxl` laat Coria op sommige stukken falen).
+`check_publicatiestatus.py` (in `check`) eist `publicatiestatus` op elke
+oefenhoek-`_index.md` / `index.md` (niet `input/`): `voorzien`, `concept`,
+`reviewable` of `productie`.
+`update_werkvoorraad.py` (in `check` / `build` / `serve`) vult de tabel in
+`oefenhoek/input/werkvoorraad.md` en verwijdert `generated/.../oefenhoek/input`
+zodat dumps geen Hugo-pagina's worden.
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

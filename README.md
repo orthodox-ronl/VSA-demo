@@ -56,7 +56,7 @@ Na een geslaagde `check --strict` — preview zonder opnieuw te genereren:
 serve --no-build
 ```
 
-Open http://localhost:1313/
+Open http://127.0.0.1:18731/
 
 Volledige preview (sync + validate + generate + server):
 

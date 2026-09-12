@@ -32,6 +32,8 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_coria_mxl.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\check_publicatiestatus.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 
@@ -60,6 +62,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\inject_git_dates.py generated\content content-source
 if errorlevel 1 exit /b 1
 "%PY%" scripts\copy_content_extras.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\update_werkvoorraad.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\fingerprint_coria_mxl.py
 if errorlevel 1 exit /b 1

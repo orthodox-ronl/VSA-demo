@@ -1,6 +1,6 @@
 ---
-title: "Demo"
-linkTitle: "Demo"
+title: "Tooling Demo"
+linkTitle: "Tooling Demo"
 weight: 90
 hide_page_list: true
 ---

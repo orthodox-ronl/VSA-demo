@@ -52,7 +52,7 @@ echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
-echo   sync_mscz_products.py,
+echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py,
 echo   score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
@@ -191,7 +191,8 @@ echo SYNOPSIS
 echo   scripts\serve.cmd [--no-build]
 echo.
 echo DESCRIPTION
-echo   Start de Hugo-development server ^(http://localhost:1313/^).
+echo   Start de Hugo-development server ^(http://127.0.0.1:18731/^).
+echo   Poort 18731, niet 1313 ^(1313 is lokaal gereserveerd^).
 echo   Standaard: pipeline ^(sync/validate/generate via _pipeline.cmd^), daarna server.
 echo   Validate zonder --strict ^(snellere preview^).
 echo   Met --no-build: alleen server; vereist bestaande generated\content

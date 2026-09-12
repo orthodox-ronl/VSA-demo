@@ -18,7 +18,7 @@
   {{- end }}
   {{- $shown := slice -}}
   {{- range $pages }}
-    {{- if not .Params.vsa_nav_exclude }}
+    {{- if and .Title (not .Params.vsa_nav_exclude) }}
       {{- $shown = $shown | append . }}
     {{- end }}
   {{- end }}

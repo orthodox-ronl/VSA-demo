@@ -2,6 +2,7 @@
 title: "Kondak H. Nikolaas van Myra (toon 3)"
 linkTitle: "Kondak Nikolaas"
 weight: 10
+publicatiestatus: reviewable
 ---
 
 # Kondak H. Nikolaas van Myra (toon 3)

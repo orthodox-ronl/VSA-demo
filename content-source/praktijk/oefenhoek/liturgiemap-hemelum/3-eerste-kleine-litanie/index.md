@@ -2,6 +2,7 @@
 title: "3 Eerste Kleine Litanie / Ektinia"
 linkTitle: "3 Eerste Kleine Litanie"
 weight: 3
+publicatiestatus: voorzien
 ---
 
 # 3 Eerste Kleine Litanie / Ektinia

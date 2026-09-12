@@ -1,0 +1,12 @@
+---
+description: Hugo-preview nooit op poort 1313 (lokaal gereserveerd)
+alwaysApply: true
+---
+
+# Hugo-serverpoort
+
+Poort **1313** is voor de ontwikkelaar. Start **nooit** `hugo server` (of `serve`) op 1313.
+
+- Deze repo: `scripts\serve.cmd` luistert op **http://127.0.0.1:18731/**
+- Zelf `hugo server` aanroepen: altijd `--port 18731 --bind 127.0.0.1`
+- In de browser die URL gebruiken, niet localhost:1313
