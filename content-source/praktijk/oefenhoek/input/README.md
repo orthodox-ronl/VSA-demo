@@ -26,7 +26,7 @@ de publieke site. Daarom geen `_index.md` hier.
 
 **Namen:** dumps mag je laten zoals ze binnenkwamen. Publicatiebestanden in de bladermap: geen spaties, stam `[a-z0-9_-]+` (`scripts/score_filenames.py`).
 
-**Overzicht:** [werkvoorraad.md](werkvoorraad.md) — één rij per dump. De tabel wordt bij een sitebuild (`check` / `build` / `serve`) opnieuw gevuld. Handmatige **notitie** en **doel-id** in een bestaande rij blijven staan. Op de Oefenhoek-pagina staat dezelfde tekst uitklapbaar onderaan.
+**Overzicht:** `werkvoorraad.md` in deze map — één rij per dump. De tabel wordt bij een sitebuild (`check` / `build` / `serve`) opnieuw gevuld. Handmatige **notitie** en **doel-id** in een bestaande rij blijven staan. Op de Oefenhoek-pagina staat dezelfde tekst uitklapbaar onderaan.
 
 ## Workflow (kort)
 
@@ -36,4 +36,4 @@ de publieke site. Daarom geen `_index.md` hier.
 4. Publiceren in `oefenhoek/<deelrubriek>/<doel-id>/` (`index.md` + `.mscz` / Coria-`.mxl` / PDF) als de pipeline groen is.
 5. `publicatiestatus` op die bladermap: `voorzien` (nog geen uitgave), `reviewable` (er staat iets in), `concept` (secties), `productie` alleen bewust.
 
-Uitgebreider: onderaan [werkvoorraad.md](werkvoorraad.md).
+Uitgebreider: onderaan `werkvoorraad.md`.

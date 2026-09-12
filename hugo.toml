@@ -4,6 +4,9 @@ title = "VSA Demo"
 
 disableKinds = ["taxonomy", "term"]
 
+# Ruwe dumps + register: geen Hugo-pagina's (README/werkvoorraad.md).
+ignoreFiles = ['(?i)praktijk[/\\\\]oefenhoek[/\\\\]input']
+
 [params]
   linksBron = "https://orthodox-ronl.github.io/bron/"
   linksVsaTooling = "https://orthodox-ronl.github.io/VSA-tooling/"

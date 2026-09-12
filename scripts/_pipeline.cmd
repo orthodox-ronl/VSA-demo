@@ -47,6 +47,7 @@ if exist static\mxl rmdir /s /q static\mxl
   static\vsa ^
   --output-mode shortcode
 if errorlevel 1 exit /b 1
+if exist generated\content\praktijk\oefenhoek\input rmdir /s /q generated\content\praktijk\oefenhoek\input
 "%PY%" -m vsa.cli musicxml ^
   content-source ^
   static\vsa\mxl
