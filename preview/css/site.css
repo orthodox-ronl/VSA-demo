@@ -555,6 +555,8 @@ a.btn.coria-play:focus {
   .site-jumps,
   .nav-buttons,
   .score-actions,
+  .publicatiestatus,
+  .werkvoorraad,
   footer {
     display: none;
   }
@@ -577,6 +579,60 @@ a.btn.coria-play:focus {
   .keep-together .vsa-notation {
     width: var(--vsa-scale, auto);
   }
+}
+
+.publicatiestatus {
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  background: var(--nav-bg);
+  font-size: 0.9rem;
+}
+
+.publicatiestatus-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.35rem;
+}
+
+.publicatiestatus-label {
+  font-weight: 600;
+}
+
+.publicatiestatus-help {
+  display: inline-block;
+}
+
+.publicatiestatus-help summary {
+  cursor: pointer;
+  color: #333;
+}
+
+.publicatiestatus-help p,
+.publicatiestatus-feedback {
+  margin: 0.35rem 0 0;
+}
+
+.publicatiestatus-feedback {
+  margin-top: 0.15rem;
+}
+
+.werkvoorraad {
+  margin: 2rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.werkvoorraad summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.werkvoorraad-body {
+  overflow-x: auto;
+  margin-top: 0.75rem;
 }
 
 .print-only { display: none; }
