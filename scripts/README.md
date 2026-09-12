@@ -29,12 +29,13 @@ Contract: `scripts/mscz-layout-contract.md`. Niet in
 
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
-sectie-pickups weg, `[PAUZE]` na dubbele streep, kwart-rust na cesuur,
-BPM-markers als `sound tempo` op alle parts, daarna Coria-veilige markup).
-Een map mag: recursief, `input\` overslaan. Uitvoernamen zonder spaties.
-`--sanitize-mxl` kuist bestaande publicatie-`.mxl` in-place (geen MuseScore).
-`check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl` met markup waar
-Coria `translation failed` op geeft.
+MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na
+dubbele streep, kwart-rust na cesuur, BPM-markers als `sound tempo` op
+alle parts, daarna Coria-veilige markup). Een map mag: recursief, `input\`
+overslaan. Uitvoernamen zonder spaties. `--sanitize-mxl` kuist bestaande
+publicatie-`.mxl` in-place (geen MuseScore), en na `vsa musicxml` ook
+`static\vsa\mxl`. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
+met markup waar Coria `translation failed` op geeft.
 
 `sync_mscz_products.py` (in `check` / `build` / `serve`) exporteert PDF en
 Coria-`.mxl` opnieuw als ze ontbreken of ouder zijn dan de publicatie-`.mscz`
@@ -55,9 +56,9 @@ zet meta `vsaNoLyricExtenders`, zodat een volgende layout-run ze niet
 terugzet.
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
 `copy_content_extras.py` (niet `oefenhoek/input/`; fout bij spaties in de
-naam). `fingerprint_coria_mxl.py` publiceert Coria-MXL
-als `/mxl/c/<hash>.mxl` (URL eindigt altijd op `.mxl`, geen spaties of
-query-string; Coria weigert anders het bestand).
+naam). `fingerprint_coria_mxl.py` publiceert uncompressed MusicXML
+als `/mxl/c/<hash>.musicxml` (URL eindigt op `.musicxml`, geen spaties of
+query-string; compressed `.mxl` laat Coria op sommige stukken falen).
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

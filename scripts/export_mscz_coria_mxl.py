@@ -5,7 +5,9 @@ partij op score-part, niet op voice: dit script explodeert naar S/A/T/B,
 kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
 (DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern (foutmelding
 "translation failed"); layout-only markup (balken, stokken, slur-notations,
-toonvoortekens, default-x/y) gaat eraf. Pitch/alter, duur en lyrics blijven.
+toonvoortekens, default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
+Pitch/alter, duur en lyrics blijven. Coria krijgt uncompressed `.musicxml`
+via fingerprint_coria_mxl.py (ZIP-.mxl faalt op o.a. Kastorski).
 
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
 de maat wordt korter. Daarna een extra maat: 4 kwarten rust, lyric
@@ -145,6 +147,14 @@ def musescore_export(mscz: Path, dest: Path, musescore: Path) -> None:
         raise RuntimeError(f"MuseScore schreef geen {dest}")
 
 
+_DOCTYPE_RE = re.compile(rb"<!DOCTYPE[\s\S]*?>", re.IGNORECASE)
+
+
+def parse_score_xml(raw: bytes) -> ET.Element:
+    """Parse MusicXML; strip DOCTYPE (vsa-export) so ElementTree niet weigert."""
+    return ET.fromstring(_DOCTYPE_RE.sub(b"", raw, count=1))
+
+
 def load_score_xml(path: Path) -> ET.Element:
     if path.suffix.lower() == ".mxl":
         with zipfile.ZipFile(path) as z:
@@ -158,17 +168,13 @@ def load_score_xml(path: Path) -> ET.Element:
             raw = z.read(names[0])
     else:
         raw = path.read_bytes()
-    return ET.fromstring(raw)
+    return parse_score_xml(raw)
 
 
 def write_mxl(path: Path, root: ET.Element) -> None:
     ET.indent(root, space="  ")
     body = ET.tostring(root, encoding="unicode")
-    xml_text = (
-        '<?xml version="1.0" encoding="UTF-8"?>\n'
-        "<!-- playback-MXL voor Coria; scripts/export_mscz_coria_mxl.py -->\n"
-        + body
-    )
+    xml_text = '<?xml version="1.0" encoding="UTF-8"?>\n' + body
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as z:
         z.writestr("META-INF/container.xml", _MXL_CONTAINER)
@@ -210,16 +216,27 @@ def satb_voice_map(part: ET.Element) -> list[tuple[str, str]] | None:
 _NOTE_MARKUP = frozenset({"beam", "stem", "notations", "accidental"})
 _LAYOUT_ATTR_PREFIXES = ("default-", "relative-")
 _LAYOUT_ATTRS = frozenset({"width", "print-object", "color"})
-CORIA_FORBIDDEN_TAGS = _NOTE_MARKUP | frozenset({"part-group"})
+CORIA_FORBIDDEN_TAGS = _NOTE_MARKUP | frozenset({"part-group", "movement-title", "supports", "tie"})
 
 
 def sanitize_coria_importer(root: ET.Element) -> None:
     """Strip visuele MusicXML die Coria's vertaler laat crashen.
 
-    Playback blijft pitch+alter+duration+lyric. Getest: Cherubijnenhymne
-    Kastorski faalde in Coria tot deze markup weg was; Feofan (zelfde
-    exportketen) had die combinatie niet nodig.
+    Playback blijft pitch+alter+duration+lyric. Getest tegen Coria:
+    Cherubijnenhymne Kastorski faalt tot deze markup weg is, versie 3.1,
+    geen movement-title. (Feofan werkte toevallig al zonder deze strip.)
     """
+    root.set("version", "3.1")
+    for el in list(root):
+        if local(el.tag) == "movement-title":
+            root.remove(el)
+    ident = child(root, "identification")
+    if ident is not None:
+        enc = child(ident, "encoding")
+        if enc is not None:
+            for el in list(enc):
+                if local(el.tag) == "supports":
+                    enc.remove(el)
     for el in list(root.iter()):
         for attr in list(el.attrib):
             if attr.startswith(_LAYOUT_ATTR_PREFIXES) or attr in _LAYOUT_ATTRS:
@@ -228,7 +245,7 @@ def sanitize_coria_importer(root: ET.Element) -> None:
             continue
         for child_el in list(el):
             ctag = local(child_el.tag)
-            if ctag in _NOTE_MARKUP:
+            if ctag in _NOTE_MARKUP or ctag == "tie":
                 el.remove(child_el)
                 continue
             if ctag != "lyric":
@@ -236,9 +253,6 @@ def sanitize_coria_importer(root: ET.Element) -> None:
             for grand in list(child_el):
                 if local(grand.tag) == "extend":
                     child_el.remove(grand)
-            txt = child(child_el, "text")
-            if txt is None or not (txt.text or "").strip() or (txt.text or "").strip() == "-":
-                el.remove(child_el)
     plist = child(root, "part-list")
     if plist is not None:
         for el in list(plist):
@@ -817,8 +831,8 @@ def coria_importer_violations(root: ET.Element) -> list[str]:
         tag = local(el.tag)
         if tag in CORIA_FORBIDDEN_TAGS:
             found.add(tag)
-        if tag == "text" and (el.text or "").strip() == "-":
-            found.add("lyric:-")
+    if root.attrib.get("version") not in {"3.0", "3.1"}:
+        found.add(f"version:{root.attrib.get('version')}")
     return sorted(found)
 
 
@@ -858,7 +872,7 @@ def main() -> int:
         files = expand_score_files(args.paths, ".mxl")
         if not files:
             print("Geen .mxl-bestanden gevonden.", flush=True)
-            return 1
+            return 0
         if args.output is not None:
             raise SystemExit("-o niet samen met --sanitize-mxl")
         failed = 0

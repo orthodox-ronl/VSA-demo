@@ -49,6 +49,12 @@ if errorlevel 1 exit /b 1
   content-source ^
   static\vsa\mxl
 if errorlevel 1 exit /b 1
+if exist static\vsa\mxl (
+  "%PY%" scripts\export_mscz_coria_mxl.py --sanitize-mxl static\vsa\mxl
+  if errorlevel 1 exit /b 1
+  "%PY%" scripts\check_coria_mxl.py static\vsa\mxl
+  if errorlevel 1 exit /b 1
+)
 "%PY%" scripts\update-nav-placeholders.py generated\content
 if errorlevel 1 exit /b 1
 "%PY%" scripts\inject_git_dates.py generated\content content-source

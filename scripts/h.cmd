@@ -136,7 +136,7 @@ echo.
 echo DESCRIPTION
 echo   Draait lokaal de blocking pipeline die CI ook doet:
 echo   sync zondag -^> validate -^> mscz PDF/MXL -^> generate ^(md/svg/mxl^)
-echo   -^> hugo -^> interne links.
+echo   -^> Coria-kuis vsa-mxl -^> hugo -^> interne links.
 echo   Wrapper om scripts\_pipeline.cmd ^(zie scripts\README.md testladder^).
 echo.
 echo   "Preflight" = check voor commit. "CI-spiegel" = met --strict dezelfde

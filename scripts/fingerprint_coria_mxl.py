@@ -1,9 +1,13 @@
-"""Publish Coria MXL as /mxl/c/<md5>.mxl (URL always ends with .mxl).
+"""Publish Coria scores as /mxl/c/<md5>.musicxml (uncompressed XML).
 
 Coria play_from_url rejects URLs that do not end in .xml/.mxl/.musicxml
 (query strings) and cannot fetch GitHub paths with spaces or %2520.
 A single ASCII filename under /mxl/c/ avoids all of that; the hash
 changes when file bytes change, so Coria loads fresh lyrics.
+
+Coria's importer ("translation failed") is unreliable on compressed
+.mxl ZIP for some scores (Cherubijnenhymne Kastorski). Uncompressed
+MusicXML 3.1 from the same payload loads. We always serve that.
 """
 
 from __future__ import annotations
@@ -11,6 +15,7 @@ from __future__ import annotations
 import hashlib
 import json
 import shutil
+import zipfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -24,8 +29,25 @@ SOURCE_TREES = (
 )
 
 
-def _fingerprint(path: Path) -> str:
-    return hashlib.md5(path.read_bytes()).hexdigest()[:12]
+def _fingerprint(data: bytes) -> str:
+    return hashlib.md5(data).hexdigest()[:12]
+
+
+def _payload_for_coria(path: Path) -> bytes:
+    if path.suffix.lower() != ".mxl":
+        return path.read_bytes()
+    try:
+        with zipfile.ZipFile(path) as z:
+            names = [
+                n
+                for n in z.namelist()
+                if n.endswith((".xml", ".musicxml")) and not n.startswith("META")
+            ]
+            if not names:
+                raise ValueError(f"geen MusicXML in {path}")
+            return z.read(names[0])
+    except zipfile.BadZipFile:
+        return path.read_bytes()
 
 
 def _iter_source_files() -> list[tuple[str, Path]]:
@@ -52,18 +74,19 @@ def main() -> int:
 
     mapping: dict[str, str] = {}
     for key, path in _iter_source_files():
-        fp = _fingerprint(path)
-        target = DEST_ROOT / f"{fp}.mxl"
+        payload = _payload_for_coria(path)
+        fp = _fingerprint(payload)
+        target = DEST_ROOT / f"{fp}.musicxml"
         if not target.exists():
-            shutil.copy2(path, target)
-        mapping[key] = f"{URL_PREFIX}/{fp}.mxl"
+            target.write_bytes(payload)
+        mapping[key] = f"{URL_PREFIX}/{fp}.musicxml"
 
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(
         json.dumps(mapping, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    print(f"Coria MXL fingerprints: {len(mapping)} bestand(en)", flush=True)
+    print(f"Coria MusicXML fingerprints: {len(mapping)} bestand(en)", flush=True)
     return 0
 
 
