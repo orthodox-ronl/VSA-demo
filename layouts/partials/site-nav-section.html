@@ -1,5 +1,9 @@
 {{- $page := .page -}}
 {{- $sec := .section -}}
+{{- $childSecs := slice -}}
+{{- range $sec.Sections.ByWeight }}
+  {{- $childSecs = $childSecs | append . }}
+{{- end }}
 {{- $items := slice -}}
 {{- range $sec.RegularPages.ByWeight }}
   {{- if not .Params.vsa_nav_exclude }}
@@ -7,7 +11,18 @@
   {{- end }}
 {{- end }}
 {{- $current := or ($page.Eq $sec) ($page.IsDescendant $sec) }}
-{{- if $items }}
+{{- if $childSecs }}
+        <details class="site-nav-group{{ if $current }} is-current{{ end }}">
+          <summary>{{ $sec.LinkTitle }}</summary>
+          <div class="site-nav-menu">
+            <a href="{{ $sec.RelPermalink }}"{{ if $page.Eq $sec }} aria-current="page"{{ end }}>Overzicht</a>
+            {{- range $childSecs }}
+              {{- $active := or ($page.Eq .) ($page.IsDescendant .) }}
+              <a href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+            {{- end }}
+          </div>
+        </details>
+{{- else if $items }}
         <details class="site-nav-group{{ if $current }} is-current{{ end }}">
           <summary>{{ $sec.LinkTitle }}</summary>
           <div class="site-nav-menu">

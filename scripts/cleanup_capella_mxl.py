@@ -22,9 +22,13 @@ Laag 2 - Tekst-noot-binding
 - Meerdere lettergrepen op een token (`koninkrijk`, `aanbidden`): extra
   noten INVOEGEN met dezelfde duur als het origineel (blijven kwarten),
   niet de originele kwart in triolen/achten/16en knippen.
-- Melisma: bestaande langere noten of noten zonder tekst houden;
-  extender op de lettergreep (`<extend/>`), geen extra korte noten; slurs
-  blijven (frase ≠ melisma).
+- Melisma: bestaande langere noten of noten zonder tekst houden.
+  Lyric-extender (`<extend/>`) alleen als die extra noten niet onder een
+  slur vanaf de lettergreep vallen (Capella-slur = frase/doorgangsnoot;
+  een underline onder Hei-li-ge hoort daar niet). Geen extender op
+  begin/middle (koppelteken bindt het woord al).
+- Recitatief: hele woorden (`altijd`, `eeuwen`) in lettergrepen hakken
+  en per lettergreep een noot (zelfde duur, geen triolen).
 - Lyrics alleen op stem 1, tussen de twee notenbalken (niet onder de bas,
   niet per stem herhaald). SATB blijft homofoon in de noten.
 - Extra noten op alle stemmen op dezelfde index; daarna ``<backup>``
@@ -48,8 +52,14 @@ Het opgekuiste MXL is het importbestand; daarna A4-layout op het .mscz.
 Coria-MXL vanuit dat .mscz: `scripts/export_mscz_coria_mxl.py`
 (`[PAUZE]` na dubbele streep, kwart-rust na gebogen cesuur).
 
+Publicatiebestanden: geen spaties in de naam (`scripts/score_filenames.py`).
+Capella-input in `oefenhoek/input/` mag spaties houden; schrijf opgekuiste
+uitvoer met `-o` naar een naam zonder spaties. In-place op een naam mét
+spaties is geweigerd.
+
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
+  python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl -o uit.mxl
 """
 from __future__ import annotations
 
@@ -61,9 +71,13 @@ import zipfile
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+from score_filenames import published_path, require_no_spaces
+
 # Handmatige splitsing voor liturgische woorden die de naive regel mist
 # of verkeerd zou doen. Alleen de stam, zonder leestekens.
 HYPHEN_EXCEPTIONS: dict[str, str] = {
+    "altijd": "al-tijd",
+    "eeuwen": "eeuw-en",
     "aanbidden": "aan-bid-den",
     "aanschouwen": "aan-schou-wen",
     "aarde": "aar-de",
@@ -96,6 +110,11 @@ HYPHEN_EXCEPTIONS: dict[str, str] = {
 }
 
 VOWELS = "aeiouyáéíóúàèëïöü"
+DIPHTHONGS = (
+    "aa", "ee", "oo", "uu", "ie", "ei", "ij", "ou", "au", "ui", "eu", "oe",
+)
+# Niet splitsen midden in deze clusters (VC-CV zou ch/ng stukmaken).
+_CONS_KEEP = ("sch", "ch", "ng", "nk")
 
 
 def local(tag: str) -> str:
@@ -124,8 +143,33 @@ def strip_punct(token: str) -> tuple[str, str, str]:
     return m.group(1), m.group(2), m.group(3)
 
 
+def _letter_units(stem: str) -> list[tuple[str, int, int]]:
+    """('v'|'c', start, end) met tweeklanken als een klinker."""
+    w = stem.lower()
+    units: list[tuple[str, int, int]] = []
+    i = 0
+    while i < len(w):
+        if w[i : i + 2] in DIPHTHONGS:
+            units.append(("v", i, i + 2))
+            i += 2
+        elif w[i] in VOWELS:
+            units.append(("v", i, i + 1))
+            i += 1
+        else:
+            j = i
+            while (
+                j < len(w)
+                and w[j] not in VOWELS
+                and w[j : j + 2] not in DIPHTHONGS
+            ):
+                j += 1
+            units.append(("c", i, j))
+            i = j
+    return units
+
+
 def naive_hyphen(stem: str) -> list[str]:
-    """Eenvoudige NL-splitsing: dubbele medeklinker, V-CV, prefixen."""
+    """Eenvoudige NL-splitsing: prefix, dubbele cons, V-CV / VC-CV."""
     w = stem.lower()
     if len(w) < 4:
         return [stem]
@@ -160,16 +204,20 @@ def naive_hyphen(stem: str) -> list[str]:
         i = m.start() + 1
         return _restore_case(stem[:i], stem) + naive_hyphen(stem[i:])
 
-    # V-CV: za-lig (niet in diphthong)
-    diph = ("aa", "ee", "oo", "uu", "ie", "ei", "ij", "ou", "au", "ui", "eu", "oe")
-    i = 1
-    while i < len(w) - 1:
-        a, b, c = w[i - 1], w[i], w[i + 1]
-        if a in VOWELS and b not in VOWELS and c in VOWELS:
-            pair = (w[i - 1 : i + 1] if i >= 1 else "")
-            if w[max(0, i - 2) : i] not in diph:
-                return _restore_case(stem[:i], stem) + naive_hyphen(stem[i:])
-        i += 1
+    units = _letter_units(stem)
+    for i in range(len(units) - 2):
+        kind0, _, _ = units[i]
+        kind1, c0, c1 = units[i + 1]
+        kind2, _, _ = units[i + 2]
+        if kind0 != "v" or kind1 != "c" or kind2 != "v":
+            continue
+        cluster = w[c0:c1]
+        if cluster in _CONS_KEEP or len(cluster) == 1:
+            cut = c0
+        else:
+            cut = c0 + 1
+        if 0 < cut < len(stem):
+            return _restore_case(stem[:cut], stem) + naive_hyphen(stem[cut:])
     return [stem]
 
 
@@ -527,10 +575,40 @@ def _lyric_plain(note: ET.Element) -> str:
     return (txt.text or "").replace("\xa0", " ").strip() if txt is not None else ""
 
 
-def apply_melisma_extenders(root: ET.Element) -> int:
-    """Lettergreep + volgende noten zonder tekst: <extend/> op de lettergreep.
+def _lyric_syllabic(note: ET.Element) -> str:
+    lys = lyric_elements(note)
+    if not lys:
+        return "single"
+    syll = child(lys[0], "syllabic")
+    return (syll.text or "single") if syll is not None else "single"
 
-    Rusten breken de keten. Slurs blijven. Idempotent.
+
+def _slur_starts(note: ET.Element) -> bool:
+    notations = child(note, "notations")
+    if notations is None:
+        return False
+    return any(sl.get("type") == "start" for sl in children(notations, "slur"))
+
+
+def _pitch_key(note: ET.Element) -> tuple[str, str, str] | None:
+    p = child(note, "pitch")
+    if p is None:
+        return None
+    step = child(p, "step")
+    alter = child(p, "alter")
+    octv = child(p, "octave")
+    return (
+        (step.text or "") if step is not None else "",
+        (alter.text or "0") if alter is not None else "0",
+        (octv.text or "") if octv is not None else "",
+    )
+
+
+def apply_melisma_extenders(root: ET.Element) -> int:
+    """Extender alleen bij kale noten op dezelfde toon (recitatief-rest).
+
+    Doorgangsnoten (andere toon) en noten onder een slur krijgen geen
+    underline. Begin/middle (koppelteken) ook niet. Idempotent.
     """
     n = 0
     for part in [c for c in root if local(c.tag) == "part"]:
@@ -555,11 +633,21 @@ def apply_melisma_extenders(root: ET.Element) -> int:
                 j += 1
             ly = lyric_elements(note)[0]
             ext = child(ly, "extend")
-            if j > i + 1:
-                if ext is None:
-                    ET.SubElement(ly, "extend")
-                    n += 1
-            elif ext is not None:
+            syll = _lyric_syllabic(note)
+            key = _pitch_key(note)
+            same = key is not None and all(
+                _pitch_key(notes[k]) == key for k in range(i + 1, j)
+            )
+            want = (
+                j > i + 1
+                and same
+                and syll not in ("begin", "middle")
+                and not _slur_starts(note)
+            )
+            if want and ext is None:
+                ET.SubElement(ly, "extend")
+                n += 1
+            elif not want and ext is not None:
                 ly.remove(ext)
                 n += 1
             i += 1
@@ -763,17 +851,38 @@ def main() -> int:
         type=Path,
         help="Een of meer .mxl-bestanden, of een map (alleen directe *.mxl, geen submappen)",
     )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        help="Doel-.mxl of doelmap (default: in-place). Spaties/leestekens in de naam gaan eruit.",
+    )
     args = parser.parse_args()
     files = expand_paths(args.paths)
     if not files:
         print("Geen .mxl-bestanden gevonden.", flush=True)
         return 1
+    if args.output is not None and len(files) > 1 and not args.output.is_dir():
+        print("Bij meerdere invoerbestanden moet -o een map zijn.", flush=True)
+        return 1
     for path in files:
         print(f"== {path}")
+        if args.output is None:
+            dest = published_path(path) if " " in path.name else path
+            if dest != path:
+                raise SystemExit(
+                    f"in-place geweigerd (spaties in de naam); gebruik -o, bijv. {dest.name}"
+                )
+        elif args.output.suffix.lower() == ".mxl":
+            dest = published_path(args.output)
+        else:
+            dest = published_path(args.output / path.name)
+        require_no_spaces(dest)
+        dest.parent.mkdir(parents=True, exist_ok=True)
         root, xml_name, extras = load_mxl(path)
         cleanup(root)
-        write_mxl(path, root, xml_name, extras)
-        print(f"  geschreven: {path}")
+        write_mxl(dest, root, xml_name, extras)
+        print(f"  geschreven: {dest}")
     return 0
 
 

@@ -4,6 +4,10 @@ Contract: scripts/mscz-layout-contract.md
 Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
 
   python scripts/apply_mscz_layout.py pad\\naar\\file.mscz
+  python scripts/apply_mscz_layout.py pad\\naar\\file.mxl -o uit.mscz
+
+Bestandsnamen: geen spaties (`scripts/score_filenames.py`). `.mxl` als
+invoer wordt via MuseScore naar `.mscz` geconverteerd en daarna gelayout.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
 opnieuw opgebouwd. Muziek (noten, lyrics, stemmen) blijft staan.
@@ -14,11 +18,17 @@ from __future__ import annotations
 
 import argparse
 import io
+import json
 import re
+import shutil
+import subprocess
+import tempfile
 import zipfile
 from collections import defaultdict
 from fractions import Fraction
 from pathlib import Path
+
+from score_filenames import published_path, require_no_spaces
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
 _A4_W = "8.26772"
@@ -136,7 +146,10 @@ def _set_meta(mscx: str, name: str, value: str) -> str:
     repl = f'<metaTag name="{name}">{_xml_text(value)}</metaTag>'
     if re.search(pat, mscx, re.S):
         return re.sub(pat, repl, mscx, count=1, flags=re.S)
-    return mscx
+    insert = f"    {repl}\n    "
+    if "</Score>" in mscx:
+        return mscx.replace("</Score>", insert + "</Score>", 1)
+    return mscx + insert
 
 
 def _vbox_fields(vbox: str) -> dict[str, str]:
@@ -155,17 +168,20 @@ def _staff_plain(block: str) -> str:
     return _plain(xm.group(1)) if xm else ""
 
 
-def overlay_style(mss: str) -> str:
+def overlay_style(mss: str, extra: dict[str, str] | None = None) -> str:
+    overrides = dict(STYLE_OVERRIDES)
+    if extra:
+        overrides.update(extra)
     if "<Style>" not in mss:
         body = "\n".join(
-            f"    <{k}>{v}</{k}>" for k, v in STYLE_OVERRIDES.items()
+            f"    <{k}>{v}</{k}>" for k, v in overrides.items()
         )
         return (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<museScore version="4.70">\n  <Style>\n'
             f"{body}\n  </Style>\n</museScore>\n"
         )
-    for tag, value in STYLE_OVERRIDES.items():
+    for tag, value in overrides.items():
         pat = rf"<{tag}>.*?</{tag}>"
         repl = f"<{tag}>{value}</{tag}>"
         if re.search(pat, mss, re.S):
@@ -380,6 +396,25 @@ def _chord_lyric_plain(chord: str) -> str:
     return _plain(t.group(1)) if t else ""
 
 
+def _chord_syllabic(chord: str) -> str:
+    ly = LYRICS_RE.search(chord)
+    if ly is None:
+        return "single"
+    m = re.search(r"<syllabic>(.*?)</syllabic>", ly.group(0))
+    return m.group(1).strip() if m else "single"
+
+
+def _chord_midi(chord: str) -> str | None:
+    m = re.search(r"<Note>.*?<pitch>(\d+)</pitch>", chord, re.S)
+    return m.group(1) if m else None
+
+
+def _chord_slur_starts(chord: str) -> bool:
+    return bool(
+        re.search(r'<Spanner type="Slur">(?:(?!</Spanner>).)*<next>', chord, re.S)
+    )
+
+
 def _set_chord_lyric_ticks(chord: str, ticks: int, division: int) -> str:
     ly_m = LYRICS_RE.search(chord)
     if ly_m is None:
@@ -419,11 +454,32 @@ def _melisma_ticks_for_blocks(blocks: list[str], division: int) -> tuple[list[st
         while j < len(blocks) and kinds[j] == "bare":
             total += _block_ticks(blocks[j], division)
             j += 1
-        new = _set_chord_lyric_ticks(b, total, division)
+        next_lyric = j < len(blocks) and kinds[j] == "lyric"
+        syll = _chord_syllabic(b)
+        key = _chord_midi(b)
+        same = key is not None and all(
+            _chord_midi(blocks[k]) == key for k in range(i + 1, j)
+        )
+        if syll in ("begin", "middle"):
+            ticks = 0
+        elif not next_lyric:
+            ticks = total
+        elif _chord_slur_starts(b) or not same:
+            ticks = 0
+        else:
+            ticks = total
+        new = _set_chord_lyric_ticks(b, ticks, division)
         if new != b:
             n += 1
             out[i] = new
     return out, n
+
+
+def _strip_lyric_ticks(mscx: str) -> tuple[str, int]:
+    n = len(re.findall(r"<ticks>.*?</ticks>", mscx))
+    mscx = re.sub(r"\s*<ticks>.*?</ticks>", "", mscx)
+    mscx = re.sub(r"\s*<ticks_f>.*?</ticks_f>", "", mscx)
+    return mscx, n
 
 
 def _apply_melisma_extenders(mscx: str) -> tuple[str, int]:
@@ -440,19 +496,16 @@ def _apply_melisma_extenders(mscx: str) -> tuple[str, int]:
         nvoices = max(len(VOICE_RE.findall(m)) for m in measures)
         per: dict[tuple[int, int], list[str]] = defaultdict(list)
         for vi in range(nvoices):
-            blocks: list[str] = []
-            coords: list[tuple[int, int]] = []
             for mi, meas in enumerate(measures):
                 voices = list(VOICE_RE.finditer(meas))
                 if vi >= len(voices):
                     continue
-                for cr in CHORD_REST_RE.finditer(voices[vi].group(0)):
-                    blocks.append(cr.group(0))
-                    coords.append((mi, vi))
-            new_blocks, n = _melisma_ticks_for_blocks(blocks, division)
-            n_total += n
-            for (mi, vj), nb in zip(coords, new_blocks, strict=True):
-                per[(mi, vj)].append(nb)
+                blocks = [
+                    cr.group(0) for cr in CHORD_REST_RE.finditer(voices[vi].group(0))
+                ]
+                new_blocks, n = _melisma_ticks_for_blocks(blocks, division)
+                n_total += n
+                per[(mi, vi)] = new_blocks
 
         new_measures: list[str] = []
         for mi, meas in enumerate(measures):
@@ -547,9 +600,14 @@ def apply_mscx(mscx: str) -> tuple[str, list[str]]:
         notes.append(f"leidende rust terug voor de noten: {n_restore} maten")
     if n_gap:
         notes.append(f"leidende rusten na dubbele streep/start: gap (geen kolom): {n_gap}")
-    mscx, n_mel = _apply_melisma_extenders(mscx)
-    if n_mel:
-        notes.append(f"melisma-extenders (ticks): {n_mel}")
+    no_ext = bool(_meta(mscx, "vsaNoLyricExtenders"))
+    if no_ext:
+        mscx, n_strip = _strip_lyric_ticks(mscx)
+        notes.append(f"lyric-underlines (ticks) verwijderd: {n_strip}")
+    else:
+        mscx, n_mel = _apply_melisma_extenders(mscx)
+        if n_mel:
+            notes.append(f"melisma-extenders (ticks): {n_mel}")
 
     if cue:
         mscx = _ensure_first_measure_stafftext(mscx, cue)
@@ -571,7 +629,59 @@ def _pick_mscx_name(names: list[str]) -> str:
     return nested[0]
 
 
-def process_mscz(path: Path) -> list[str]:
+MUSESCORE_CANDIDATES = (
+    Path(r"C:\Program Files\MuseScore 4\bin\MuseScore4.exe"),
+    Path(r"C:\Program Files\MuseScore 3\bin\MuseScore3.exe"),
+)
+
+
+def find_musescore() -> Path:
+    which = shutil.which("MuseScore4") or shutil.which("mscore") or shutil.which("MuseScore3")
+    if which:
+        return Path(which)
+    for path in MUSESCORE_CANDIDATES:
+        if path.is_file():
+            return path
+    raise SystemExit(
+        "MuseScore niet gevonden (verwacht o.a. "
+        r"C:\Program Files\MuseScore 4\bin\MuseScore4.exe)"
+    )
+
+
+def musescore_convert(src: Path, dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists():
+        dest.unlink()
+    musescore = find_musescore()
+    job = [{"in": str(src.resolve()), "out": [str(dest.resolve())]}]
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".json", delete=False, encoding="utf-8"
+    ) as fh:
+        json.dump(job, fh)
+        job_path = Path(fh.name)
+    try:
+        proc = subprocess.run(
+            [str(musescore), "-j", str(job_path)],
+            timeout=180,
+        )
+        if proc.returncode != 0 or not dest.is_file():
+            subprocess.run(
+                [str(musescore), "-f", "-o", str(dest), str(src)],
+                check=True,
+                timeout=180,
+            )
+    finally:
+        job_path.unlink(missing_ok=True)
+    if not dest.is_file():
+        raise RuntimeError(f"MuseScore schreef geen {dest}")
+
+
+def process_mscz(
+    path: Path,
+    *,
+    extra_style: dict[str, str] | None = None,
+    no_extenders: bool = False,
+) -> list[str]:
     notes: list[str] = []
     with zipfile.ZipFile(path, "r") as zin:
         names = zin.namelist()
@@ -585,9 +695,11 @@ def process_mscz(path: Path) -> list[str]:
             if n != mscx_name and n != mss_name
         }
 
+    if no_extenders:
+        mscx = _set_meta(mscx, "vsaNoLyricExtenders", "1")
     new_mscx, mscx_notes = apply_mscx(mscx)
     notes.extend(mscx_notes)
-    new_mss = overlay_style(mss)
+    new_mss = overlay_style(mss, extra_style)
     notes.append("score_style.mss overlays toegepast")
 
     buf = io.BytesIO()
@@ -602,12 +714,43 @@ def process_mscz(path: Path) -> list[str]:
 
 def main() -> int:
     p = argparse.ArgumentParser(description="A4-standaard-layout op .mscz (idempotent).")
-    p.add_argument("mscz", type=Path)
+    p.add_argument("mscz", type=Path, help=".mscz of opgekuiste .mxl")
+    p.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        help="Doel-.mscz (verplicht bij .mxl-invoer; anders in-place)",
+    )
+    p.add_argument(
+        "--no-extenders",
+        action="store_true",
+        help="Geen lyric-underlines (ticks); zet meta vsaNoLyricExtenders",
+    )
     args = p.parse_args()
-    path = args.mscz
-    if not path.is_file():
-        raise SystemExit(f"niet gevonden: {path}")
-    notes = process_mscz(path)
+    src = args.mscz
+    if not src.is_file():
+        raise SystemExit(f"niet gevonden: {src}")
+    suffix = src.suffix.lower()
+    if suffix == ".mxl":
+        dest = args.output if args.output is not None else src.with_suffix(".mscz")
+        if dest.suffix.lower() != ".mscz":
+            dest = dest / published_path(src.with_suffix(".mscz")).name
+        dest = published_path(dest)
+        require_no_spaces(dest)
+        print(f"mxl -> mscz via MuseScore: {dest}")
+        musescore_convert(src, dest)
+        path = dest
+    elif suffix == ".mscz":
+        path = published_path(args.output) if args.output is not None else src
+        require_no_spaces(path)
+        if path != src:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(src.read_bytes())
+    else:
+        raise SystemExit("verwacht een .mscz of .mxl")
+    if " " in src.name and suffix == ".mscz" and args.output is None:
+        raise SystemExit(f"bestandsnaam mag geen spaties hebben: {src.name}")
+    notes = process_mscz(path, no_extenders=args.no_extenders)
     print(f"ok {path}")
     for n in notes:
         print(f"  {n}")

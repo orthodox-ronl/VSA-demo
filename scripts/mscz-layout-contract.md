@@ -4,7 +4,15 @@ Proef in VSA-demo (laag 4). **Niet in `check`.** Bij productierijpheid: verhuize
 naar VSA-tooling, inclusief documentatie en een demo-verhaal in deze repo.
 
 Script: `python scripts/apply_mscz_layout.py <bestand.mscz>`
-(idempotent: opnieuw draaien past een nieuwe contractversie toe).
+(of opgekuiste `.mxl` + `-o <bestand.mscz>`).
+Idempotent: opnieuw draaien past een nieuwe contractversie toe.
+
+## Bestandsnamen
+
+Publicatie in de oefenhoek (map, `.mscz`, Coria-`.mxl`, PDF): **geen spaties**.
+` - ` en overige spaties worden `-`; leestekens (`(`, `+`, …) ook, zodat de
+stam `[a-z0-9_-]+` is. Ruwe input in `oefenhoek/input/` mag spaties houden.
+Helper: `scripts/score_filenames.py`.
 
 MuseScore 4.x (getest tegen 4.7): stijl staat in `score_style.mss` in de `.mscz`,
 niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
@@ -14,6 +22,8 @@ niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
 SATB-partituur netjes op **A4**, PDF-export en papier. Muziek (noten, duren,
 lyrics, stemmen) blijft onaangeroerd. Playback-MXL voor Coria: dezelfde
 `.mscz` via `scripts/export_mscz_coria_mxl.py` (geen roundtrip).
+`sync_mscz_products.py` (in check/build/serve) houdt sibling-PDF en Coria-`.mxl`
+gelijk aan de hub-`.mscz`.
 
 ## Pagina en stijl (waarden = `STYLE_OVERRIDES` in het script)
 
@@ -88,13 +98,19 @@ Feofan-bestand: `syllabic` begin/middle/end voor koppeltekens, ~40 keer een
 lyric-noot gevolgd door een kale noot, **geen** lyric-extender (`ticks`), wel
 veel slurs (vaak Capella-melisma).
 
-Consequent: extender op de lettergreep, slurs alleen als frase.
+Consequent: extender alleen op single/end. Doorgangsnoten naar een
+**volgende lettergreep** (andere toon of slur-start) krijgen geen underline.
+Een afsluitend melisma (kale noten tot het einde van de maat, zoals *God*
+over twee akkoorden) wél. Koppeltekens (begin/middle) blijven hyphen.
 
-- MXL: `cleanup_capella_mxl.py` zet `<extend/>` op stem 1.
-- `.mscz`: `apply_mscz_layout.py` zet MuseScore `<ticks>` / `<ticks_f>` (lengte
-  van de kale noten erna). Rusten breken de keten. Slurs blijven.
-- Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts en
-  zet opnieuw `<extend/>` (MuseScore-export laat ticks/extend vaak vallen).
+- MXL: `cleanup_capella_mxl.py` zet `<extend/>` alleen dan.
+- `.mscz`: `apply_mscz_layout.py` zet MuseScore `<ticks>` / `<ticks_f>` hetzelfde
+  per maat (niet over de maatstreep heen). Rusten breken de keten. Slurs blijven.
+  Opt-out: `--no-extenders` of meta `vsaNoLyricExtenders` (underlines uit; niet
+  terugzetten bij een volgende run).
+- Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts,
+  zet `<extend/>` (MuseScore-export laat ticks/extend vaak vallen), en
+  stript daarna layout-markup waar Coria `translation failed` op geeft.
 
 ## Tekstrollen
 

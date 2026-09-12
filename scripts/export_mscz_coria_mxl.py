@@ -3,7 +3,11 @@
 SATB in MuseScore is meestal 1 part / 2 balken / 4 stemmen. Coria kiest een
 partij op score-part, niet op voice: dit script explodeert naar S/A/T/B,
 kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
-(DTD-fetch laat Coria falen).
+(DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern (foutmelding
+"translation failed"); layout-only markup (balken, stokken, slur-notations,
+toonvoortekens, default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
+Pitch/alter, duur en lyrics blijven. Coria krijgt uncompressed `.musicxml`
+via fingerprint_coria_mxl.py (ZIP-.mxl faalt op o.a. Kastorski).
 
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
 de maat wordt korter. Daarna een extra maat: 4 kwarten rust, lyric
@@ -12,10 +16,13 @@ de maat wordt korter. Daarna een extra maat: 4 kwarten rust, lyric
 wordt `<sound tempo>` + metronoom op alle parts. Overige print-object=no-rusten
 worden zichtbaar. Time: senza-misura.
 
-Geen roundtrip terug naar .mscz. Niet in check. Later: VSA-tooling.
+Geen roundtrip terug naar .mscz. Publicatie-.mxl: check_coria_mxl.py in check. Later: VSA-tooling.
+Bestandsnamen: geen spaties (`scripts/score_filenames.py`).
 
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz -o uit.mxl
+  python scripts/export_mscz_coria_mxl.py content-source\\praktijk
+  python scripts/export_mscz_coria_mxl.py --sanitize-mxl content-source\\praktijk
 """
 from __future__ import annotations
 
@@ -30,6 +37,8 @@ import tempfile
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+from score_filenames import published_path, require_no_spaces
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 PAUSE_LYRIC = "[PAUZE]"
@@ -138,6 +147,14 @@ def musescore_export(mscz: Path, dest: Path, musescore: Path) -> None:
         raise RuntimeError(f"MuseScore schreef geen {dest}")
 
 
+_DOCTYPE_RE = re.compile(rb"<!DOCTYPE[\s\S]*?>", re.IGNORECASE)
+
+
+def parse_score_xml(raw: bytes) -> ET.Element:
+    """Parse MusicXML; strip DOCTYPE (vsa-export) so ElementTree niet weigert."""
+    return ET.fromstring(_DOCTYPE_RE.sub(b"", raw, count=1))
+
+
 def load_score_xml(path: Path) -> ET.Element:
     if path.suffix.lower() == ".mxl":
         with zipfile.ZipFile(path) as z:
@@ -151,17 +168,13 @@ def load_score_xml(path: Path) -> ET.Element:
             raw = z.read(names[0])
     else:
         raw = path.read_bytes()
-    return ET.fromstring(raw)
+    return parse_score_xml(raw)
 
 
 def write_mxl(path: Path, root: ET.Element) -> None:
     ET.indent(root, space="  ")
     body = ET.tostring(root, encoding="unicode")
-    xml_text = (
-        '<?xml version="1.0" encoding="UTF-8"?>\n'
-        "<!-- playback-MXL voor Coria; scripts/export_mscz_coria_mxl.py -->\n"
-        + body
-    )
+    xml_text = '<?xml version="1.0" encoding="UTF-8"?>\n' + body
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as z:
         z.writestr("META-INF/container.xml", _MXL_CONTAINER)
@@ -198,6 +211,53 @@ def satb_voice_map(part: ET.Element) -> list[tuple[str, str]] | None:
         (staves[1], voices[1][0]),
         (staves[1], voices[1][1]),
     ]
+
+
+_NOTE_MARKUP = frozenset({"beam", "stem", "notations", "accidental"})
+_LAYOUT_ATTR_PREFIXES = ("default-", "relative-")
+_LAYOUT_ATTRS = frozenset({"width", "print-object", "color"})
+CORIA_FORBIDDEN_TAGS = _NOTE_MARKUP | frozenset({"part-group", "movement-title", "supports", "tie"})
+
+
+def sanitize_coria_importer(root: ET.Element) -> None:
+    """Strip visuele MusicXML die Coria's vertaler laat crashen.
+
+    Playback blijft pitch+alter+duration+lyric. Getest tegen Coria:
+    Cherubijnenhymne Kastorski faalt tot deze markup weg is, versie 3.1,
+    geen movement-title. (Feofan werkte toevallig al zonder deze strip.)
+    """
+    root.set("version", "3.1")
+    for el in list(root):
+        if local(el.tag) == "movement-title":
+            root.remove(el)
+    ident = child(root, "identification")
+    if ident is not None:
+        enc = child(ident, "encoding")
+        if enc is not None:
+            for el in list(enc):
+                if local(el.tag) == "supports":
+                    enc.remove(el)
+    for el in list(root.iter()):
+        for attr in list(el.attrib):
+            if attr.startswith(_LAYOUT_ATTR_PREFIXES) or attr in _LAYOUT_ATTRS:
+                del el.attrib[attr]
+        if local(el.tag) != "note":
+            continue
+        for child_el in list(el):
+            ctag = local(child_el.tag)
+            if ctag in _NOTE_MARKUP or ctag == "tie":
+                el.remove(child_el)
+                continue
+            if ctag != "lyric":
+                continue
+            for grand in list(child_el):
+                if local(grand.tag) == "extend":
+                    child_el.remove(grand)
+    plist = child(root, "part-list")
+    if plist is not None:
+        for el in list(plist):
+            if local(el.tag) == "part-group":
+                plist.remove(el)
 
 
 def strip_layout(root: ET.Element) -> None:
@@ -751,22 +811,116 @@ def process(mscz: Path, out: Path) -> None:
                 bad.append(f"m{mi}:{durs}")
         if bad:
             print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}")
+    sanitize_coria_importer(root)
     write_mxl(out, root)
     print(f"geschreven: {out}")
 
 
+def process_existing_mxl(path: Path) -> None:
+    require_no_spaces(path)
+    root = load_score_xml(path)
+    sanitize_coria_importer(root)
+    write_mxl(path, root)
+    print(f"  {summarize(root)}")
+    print(f"gesaneerd: {path}")
+
+
+def coria_importer_violations(root: ET.Element) -> list[str]:
+    found: set[str] = set()
+    for el in root.iter():
+        tag = local(el.tag)
+        if tag in CORIA_FORBIDDEN_TAGS:
+            found.add(tag)
+    if root.attrib.get("version") not in {"3.0", "3.1"}:
+        found.add(f"version:{root.attrib.get('version')}")
+    return sorted(found)
+
+
+def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
+    out: list[Path] = []
+    for path in paths:
+        if path.is_dir():
+            found = sorted(p for p in path.rglob(f"*{suffix}") if p.is_file())
+            if path.name != "input" and "input" not in path.parts:
+                found = [p for p in found if "input" not in p.parts]
+            out.extend(found)
+        else:
+            out.append(path)
+    return out
+
+
+def expand_mscz(paths: list[Path]) -> list[Path]:
+    return expand_score_files(paths, ".mscz")
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="Layout-.mscz naar Coria-MXL.")
-    p.add_argument("mscz", type=Path)
-    p.add_argument("-o", "--output", type=Path, help="Doel-.mxl (default: naast .mscz)")
+    p.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Een of meer .mscz/.mxl, of een map (recursief; sla input\\ over)",
+    )
+    p.add_argument("-o", "--output", type=Path, help="Doel-.mxl (alleen bij een .mscz)")
+    p.add_argument(
+        "--sanitize-mxl",
+        action="store_true",
+        help="Bestaande publicatie-.mxl in-place Coria-veilig maken (geen MuseScore)",
+    )
     args = p.parse_args()
-    path = args.mscz
-    if not path.is_file():
-        raise SystemExit(f"niet gevonden: {path}")
-    if path.suffix.lower() != ".mscz":
-        raise SystemExit("verwacht een .mscz")
-    out = args.output if args.output is not None else path.with_suffix(".mxl")
-    process(path, out)
+    if args.sanitize_mxl:
+        files = expand_score_files(args.paths, ".mxl")
+        if not files:
+            print("Geen .mxl-bestanden gevonden.", flush=True)
+            return 0
+        if args.output is not None:
+            raise SystemExit("-o niet samen met --sanitize-mxl")
+        failed = 0
+        for path in files:
+            print(f"== {path}", flush=True)
+            if not path.is_file() or path.suffix.lower() != ".mxl":
+                print(f"  overgeslagen: {path}", flush=True)
+                failed += 1
+                continue
+            try:
+                process_existing_mxl(path)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  FAILED {exc}", flush=True)
+                failed += 1
+        if failed:
+            print(f"{failed} mislukt van {len(files)}", flush=True)
+            return 1
+        return 0
+
+    files = expand_mscz(args.paths)
+    if not files:
+        print("Geen .mscz-bestanden gevonden.", flush=True)
+        return 1
+    if args.output is not None and len(files) != 1:
+        raise SystemExit("-o alleen bij precies een .mscz")
+    failed = 0
+    for path in files:
+        print(f"== {path}", flush=True)
+        if not path.is_file():
+            print(f"  niet gevonden: {path}", flush=True)
+            failed += 1
+            continue
+        if path.suffix.lower() != ".mscz":
+            print(f"  geen .mscz: {path}", flush=True)
+            failed += 1
+            continue
+        try:
+            require_no_spaces(path)
+            out = args.output if args.output is not None else path.with_suffix(".mxl")
+            out = published_path(out)
+            require_no_spaces(out)
+            process(path, out)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  FAILED {exc}", flush=True)
+            failed += 1
+    if failed:
+        print(f"{failed} mislukt van {len(files)}", flush=True)
+        return 1
     return 0
 
 

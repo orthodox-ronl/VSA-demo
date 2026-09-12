@@ -1,0 +1,12 @@
+# Parochie-lokaal manifest — uitvoeringsvorm liturgikon
+uitvoeringsvorm-id: hemelum
+herkomst:
+  author: hemelum
+  reference: "Koormap Hemelum, 2025"
+
+aliases:
+  - { text: "Hemelum", lang: nl }
+
+representaties:
+  - representatie-id: hemelum
+    file: repr/hemelum.vsa
