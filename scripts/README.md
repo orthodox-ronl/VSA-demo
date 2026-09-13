@@ -25,10 +25,11 @@ wordt geweigerd. Ruwe Capella-inputs blijven in `oefenhoek/input/`.
 
 `apply_mscz_layout.py` is de proef voor laag 4: A4-standaard-layout op een
 `.mscz` (idempotent), plus lettergreep-splitsing (`melse` -> twee noten
-`mel` + `se`, zelfde duur, SATB) en het weghalen van een lege extra
-notenbalk (SAT+B-import). Accepteert ook opgekuiste `.mxl`
-(MuseScore-import). Geen PDF of Coria-`.mxl`. Contract:
-`scripts/mscz-layout-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`
+`mel` + `se`, zelfde duur, SATB), knippen van langere noten in andere
+partijen zodat elke lettergreep van de lead-stem overal minstens één noot
+heeft, en het weghalen van een lege extra notenbalk (SAT+B-import).
+Accepteert ook opgekuiste `.mxl` (MuseScore-import). Geen PDF of Coria-`.mxl`.
+Contract: `scripts/mscz-layout-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`
 (gedeeld met `cleanup_capella_mxl.py`). Niet in `check`. Later verhuizen
 naar VSA-tooling.
 

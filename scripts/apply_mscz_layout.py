@@ -13,8 +13,10 @@ Geen PDF of Coria-`.mxl`: dat is `scripts\\mscz-products.cmd` na de editslag.
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
 opnieuw opgebouwd. Lettergrepen op een noot die nog meerdere klinkergroepen
 hebben (`melse` -> `mel` + `se`) worden gesplitst: extra noten met dezelfde
-duur, SATB homofoon. Een lege extra notenbalk (na SAT+B-import) verdwijnt.
-Overige pitches/slurs blijven staan.
+duur, SATB homofoon. Waar S een lettergreep heeft en T/B een langere noot
+over die inzet heen, wordt die noot geknipt (zelfde toon, som van duren
+gelijk) zodat elke partij per lettergreep minstens een noot heeft. Een lege
+extra notenbalk (na SAT+B-import) verdwijnt. Overige pitches/slurs blijven.
 
 Productierijp -> verhuizen naar VSA-tooling (docs + demo-verhaal in VSA-demo).
 """
@@ -583,6 +585,158 @@ def _event_quarters(block: str) -> Fraction:
     return base + extra
 
 
+def _encode_duration(quarters: Fraction) -> tuple[str, int] | None:
+    """(durationType, dots) of None als geen enkele MuseScore-duur past."""
+    if quarters <= 0:
+        return None
+    for dots in (0, 1, 2):
+        for name, base in _QUARTERS.items():
+            total = base
+            add = base
+            for _ in range(dots):
+                add /= 2
+                total += add
+            if total == quarters:
+                return name, dots
+    return None
+
+
+def _set_event_duration(block: str, quarters: Fraction) -> str:
+    enc = _encode_duration(quarters)
+    if enc is None:
+        raise ValueError(f"geen durationType voor {quarters} kwarten")
+    name, dots = enc
+    out = re.sub(
+        r"<durationType>.*?</durationType>",
+        f"<durationType>{name}</durationType>",
+        block,
+        count=1,
+    )
+    out = re.sub(r"\s*<dots>.*?</dots>", "", out)
+    if dots:
+        out = re.sub(
+            r"(<durationType>.*?</durationType>)",
+            rf"\1\n            <dots>{dots}</dots>",
+            out,
+            count=1,
+        )
+    return out
+
+
+def _lyric_onset_times(voice: str) -> list[Fraction]:
+    """Starttijden (in kwarten) van lettergreep-noten in een stem."""
+    t = Fraction(0)
+    onsets: list[Fraction] = []
+    for ev in CHORD_REST_RE.finditer(voice):
+        if ev.group(1) == "Chord" and _chord_lyric_plain(ev.group(0)):
+            if not _in_tuplet(voice, ev.start()):
+                onsets.append(t)
+        t += _event_quarters(ev.group(0))
+    return onsets
+
+
+def _split_event_at_cuts(block: str, start: Fraction, end: Fraction, cuts: list[Fraction]) -> list[str]:
+    points = [start, *cuts, end]
+    pieces: list[str] = []
+    for i, (a, b) in enumerate(zip(points, points[1:])):
+        dur = b - a
+        if dur <= 0:
+            continue
+        piece = block if i == 0 else _strip_eids(block)
+        piece = _set_event_duration(piece, dur)
+        if i > 0:
+            piece = LYRICS_RE.sub("", piece)
+        pieces.append(piece)
+    return pieces
+
+
+def _split_voice_at_lyric_onsets(voice: str, onsets: list[Fraction]) -> tuple[str, int]:
+    """Knip noten/rusten die over een lettergreep-inzet heen liggen."""
+    if not onsets:
+        return voice, 0
+    onset_set = set(onsets)
+    events = list(CHORD_REST_RE.finditer(voice))
+    if not events:
+        return voice, 0
+    n_split = 0
+    # Van achter naar voren, zodat indices geldig blijven.
+    for ev in reversed(events):
+        if _in_tuplet(voice, ev.start()):
+            continue
+        start = Fraction(0)
+        for prev in events:
+            if prev.start() >= ev.start():
+                break
+            start += _event_quarters(prev.group(0))
+        dur = _event_quarters(ev.group(0))
+        end = start + dur
+        cuts = sorted(t for t in onset_set if start < t < end)
+        if not cuts:
+            continue
+        try:
+            pieces = _split_event_at_cuts(ev.group(0), start, end, cuts)
+        except ValueError:
+            continue
+        if len(pieces) <= 1:
+            continue
+        voice = voice[: ev.start()] + "".join(pieces) + voice[ev.end() :]
+        n_split += 1
+    return voice, n_split
+
+
+def _ensure_note_per_syllable(mscx: str) -> tuple[str, int]:
+    """Elke partij: minstens een noot-inzet per lettergreep van de lead-stem.
+
+    Lead = eerste stem van de bovenste muziekbalk (lyrics). Langere noten in
+    andere stemmen die over zo'n inzet heen liggen, worden geknipt (zelfde
+    toon; som van duren blijft gelijk). Idempotent.
+    """
+    staff_pat = re.compile(r'(<Staff id="\d+">)(.*?)(</Staff>)', re.S)
+    staffs = [
+        m
+        for m in staff_pat.finditer(mscx)
+        if MEASURE_RE.search(m.group(2))
+    ]
+    if not staffs:
+        return mscx, 0
+
+    inners = [list(MEASURE_RE.finditer(m.group(2))) for m in staffs]
+    nmeas = min(len(x) for x in inners)
+    total = 0
+
+    new_inners: list[str] = []
+    for si, sm in enumerate(staffs):
+        body = sm.group(2)
+        pieces: list[str] = []
+        pos = 0
+        for mi, mm in enumerate(inners[si]):
+            pieces.append(body[pos : mm.start()])
+            meas = mm.group(0)
+            if mi < nmeas:
+                lead = inners[0][mi].group(0)
+                lead_voices = list(VOICE_RE.finditer(lead))
+                onsets: list[Fraction] = []
+                if lead_voices:
+                    onsets = _lyric_onset_times(lead_voices[0].group(0))
+                if onsets:
+                    def fix_voice(vm: re.Match[str]) -> str:
+                        nonlocal total
+                        new_v, n = _split_voice_at_lyric_onsets(vm.group(0), onsets)
+                        total += n
+                        return new_v
+
+                    meas = VOICE_RE.sub(fix_voice, meas)
+            pieces.append(meas)
+            pos = mm.end()
+        pieces.append(body[pos:])
+        new_inners.append("".join(pieces))
+
+    out = mscx
+    for sm, inner in zip(reversed(staffs), reversed(new_inners)):
+        out = out[: sm.start()] + sm.group(1) + inner + sm.group(3) + out[sm.end() :]
+    return out, total
+
+
 def _in_tuplet(voice: str, pos: int) -> bool:
     before = voice[:pos]
     return before.count("<Tuplet>") > before.count("<endTuplet/>")
@@ -957,7 +1111,10 @@ def process_mscz(
         mscx = _set_meta(mscx, "vsaNoLyricExtenders", "1")
     mscx, n_empty = _strip_empty_staves(mscx)
     mscx, n_split = _split_undersplit_lyrics(mscx)
+    mscx, n_syll = _ensure_note_per_syllable(mscx)
     new_mscx, mscx_notes = apply_mscx(mscx)
+    if n_syll:
+        mscx_notes.insert(0, f"noten per lettergreep geknipt: {n_syll}")
     if n_split:
         mscx_notes.insert(0, f"lettergrepen gesplitst: {n_split}")
     if n_empty:

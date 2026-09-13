@@ -20,7 +20,8 @@ niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
 ## Doel
 
 SATB-partituur netjes op **A4**, PDF-export en papier. Pitches, slurs en
-echte cadensduren blijven staan. Lettergrepen die nog meerdere klinkers
+echte cadensduren blijven staan, behalve waar een partij een lettergreep
+mist (zie hieronder). Lettergrepen die nog meerdere klinkers
 op één noot hebben (`melse` in `he-melse`) worden gesplitst: extra noten
 met dezelfde duur (kwart blijft kwart), op alle SATB-stemmen.
 
@@ -194,9 +195,16 @@ balk.
 krijgt extra akkoorden, zelfde `durationType`. Al gesplitste begin/middle/end
 tokens worden opnieuw bekeken. Maatlengte (`len`) groeit mee. Geen triolen.
 
+Daarnaast: **elke partij minstens één noot per lettergreep**. De lead-stem
+(bovenste balk, eerste voice, met lyrics) bepaalt de inzetten. Ligt in een
+andere stem een langere noot over zo'n inzet heen (bijv. T/B halve noot op
+`al`+`le` terwijl S twee kwarten heeft), dan wordt die noot geknipt in
+stukken met dezelfde toon; de maatlengte blijft gelijk. Kale melismanoten
+zonder lyric tellen niet als nieuwe lettergreep. Idempotent.
+
 ## Wat het script niet doet
 
-- Pitches, slurs/ties, cadenshalven tot kwarten knippen
+- Willekeurig cadenshalven tot kwarten knippen (wel: knippen voor lettergreep-dekking)
 - Overige Capella-opkuis (reciteerkwarten zichtbaar, lege maten, titels):
   `cleanup_capella_mxl.py`, lagen 1–3
 
