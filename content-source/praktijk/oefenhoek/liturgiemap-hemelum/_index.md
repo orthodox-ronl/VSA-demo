@@ -16,13 +16,13 @@ van zangstukken die op die plek in de H. Liturgie gezongen zouden kunnen worden.
 
 |  Nr  | Titel |
 | :--: | :---- |
-|   1  | Vredeslitanie |
-|   2  | Eerste Antifoon |
-|   3  | Eerste Kleine Litanie / Ektinia |
-|   4  | Tweede Antifoon |
-|   5  | Eniggeboren Zoon... |
-|   6  | Derde Antifoon / Zaligsprekingen |
-|   7  | Kleine Intocht |
+|   1  | [Vredeslitanie](1-vredeslitanie/) |
+|   2  | [Eerste Antifoon](2-eerste-antifoon/) |
+|   3  | [Eerste Kleine Litanie / Ektinia](3-eerste-kleine-litanie/) |
+|   4  | [Tweede Antifoon](4-tweede-antifoon/) |
+|   5  | [Eniggeboren Zoon...](5-eniggeboren-zoon/) |
+|   6  | [Derde Antifoon / Zaligsprekingen](6-derde-antifoon/) |
+|   7  | [Kleine Intocht](7-kleine-intocht/) |
 |  --  | [Troparen en Kondaken](troparen-en-kondaken/) |
 |  --  | [Kondak Moeder Gods - Toon 6](troparen-en-kondaken/kondak-moeder-gods-toon-6/) |
 |  --  | [Dialoog met de Diaken](dialoog-met-diaken/) |

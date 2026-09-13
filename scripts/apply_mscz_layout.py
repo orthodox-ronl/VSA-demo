@@ -8,9 +8,13 @@ Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
 
 Bestandsnamen: geen spaties (`scripts/score_filenames.py`). `.mxl` als
 invoer wordt via MuseScore naar `.mscz` geconverteerd en daarna gelayout.
+Geen PDF of Coria-`.mxl`: dat is `scripts\\mscz-products.cmd` na de editslag.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
-opnieuw opgebouwd. Muziek (noten, lyrics, stemmen) blijft staan.
+opnieuw opgebouwd. Lettergrepen op een noot die nog meerdere klinkergroepen
+hebben (`melse` -> `mel` + `se`) worden gesplitst: extra noten met dezelfde
+duur, SATB homofoon. Een lege extra notenbalk (na SAT+B-import) verdwijnt.
+Overige pitches/slurs blijven staan.
 
 Productierijp -> verhuizen naar VSA-tooling (docs + demo-verhaal in VSA-demo).
 """
@@ -28,6 +32,7 @@ from collections import defaultdict
 from fractions import Fraction
 from pathlib import Path
 
+from nl_hyphen import hyphenate_token, split_syllabic
 from score_filenames import published_path, require_no_spaces
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
@@ -557,6 +562,186 @@ def _promote_composer(mscx: str, composer: str) -> tuple[str, str, list[str]]:
     return mscx, composer, notes
 
 
+def _frac_attr(fr: Fraction) -> str:
+    return f"{fr.numerator}/{fr.denominator}"
+
+
+def _event_quarters(block: str) -> Fraction:
+    dt = re.search(r"<durationType>(.*?)</durationType>", block)
+    if not dt:
+        return Fraction(0)
+    base = _QUARTERS.get(dt.group(1).strip())
+    if base is None:
+        return Fraction(0)
+    dots_m = re.search(r"<dots>(\d+)</dots>", block)
+    dots = int(dots_m.group(1)) if dots_m else 0
+    add = base
+    extra = Fraction(0)
+    for _ in range(dots):
+        add /= 2
+        extra += add
+    return base + extra
+
+
+def _in_tuplet(voice: str, pos: int) -> bool:
+    before = voice[:pos]
+    return before.count("<Tuplet>") > before.count("<endTuplet/>")
+
+
+def _strip_eids(xml: str) -> str:
+    return re.sub(r"\s*<eid>.*?</eid>", "", xml)
+
+
+def _set_chord_lyric(chord: str, text: str, syllabic: str) -> str:
+    ly_m = LYRICS_RE.search(chord)
+    if ly_m is None:
+        insert = (
+            "            <Lyrics>\n"
+            f"              <syllabic>{syllabic}</syllabic>\n"
+            f"              <text>{_xml_text(text)}</text>\n"
+            "              </Lyrics>\n"
+        )
+        return re.sub(r"<Note>", insert + "            <Note>", chord, count=1)
+    block = ly_m.group(0)
+    if "<syllabic>" in block:
+        block = re.sub(
+            r"<syllabic>.*?</syllabic>",
+            f"<syllabic>{syllabic}</syllabic>",
+            block,
+            count=1,
+        )
+    else:
+        block = block.replace(
+            "<Lyrics>",
+            f"<Lyrics>\n              <syllabic>{syllabic}</syllabic>",
+            1,
+        )
+    block = re.sub(
+        r"<text>.*?</text>",
+        f"<text>{_xml_text(text)}</text>",
+        block,
+        count=1,
+        flags=re.S,
+    )
+    return chord[: ly_m.start()] + block + chord[ly_m.end() :]
+
+
+def _rewrite_measure_len(meas: str, wholes: Fraction) -> str:
+    attr = _frac_attr(wholes)
+    if re.match(r"<Measure\b[^>]*\blen=", meas):
+        return re.sub(r'\blen="[^"]*"', f'len="{attr}"', meas, count=1)
+    return re.sub(r"<Measure\b", f'<Measure len="{attr}"', meas, count=1)
+
+
+def _split_voice_lyrics(
+    voice: str,
+    ops: list[tuple[int, list[str], str]],
+    *,
+    with_lyrics: bool,
+) -> str:
+    """Voeg kopie-akkoorden in; ops van achter naar voren (index blijft geldig)."""
+    for idx, parts, orig_syll in reversed(ops):
+        items = list(CHORD_REST_RE.finditer(voice))
+        if idx >= len(items):
+            continue
+        hit = items[idx]
+        if hit.group(1) != "Chord" or _in_tuplet(voice, hit.start()):
+            continue
+        src = hit.group(0)
+        n = len(parts)
+        first = src
+        extras: list[str] = []
+        if with_lyrics:
+            first = _set_chord_lyric(
+                src, parts[0], split_syllabic(orig_syll, 0, n)
+            )
+            for i in range(1, n):
+                copy = _strip_eids(src)
+                copy = _set_chord_lyric(
+                    copy, parts[i], split_syllabic(orig_syll, i, n)
+                )
+                extras.append(copy)
+        else:
+            for _ in range(n - 1):
+                extras.append(_strip_eids(src))
+        voice = voice[: hit.start()] + first + "".join(extras) + voice[hit.end() :]
+    return voice
+
+
+def _split_undersplit_lyrics(mscx: str) -> tuple[str, int]:
+    """Tokens met meerdere klinkergroepen -> extra noten (zelfde duur), SATB."""
+    staff_pat = re.compile(r'(<Staff id="\d+">)(.*?)(</Staff>)', re.S)
+    staffs = [
+        m
+        for m in staff_pat.finditer(mscx)
+        if MEASURE_RE.search(m.group(2))
+    ]
+    if not staffs:
+        return mscx, 0
+
+    inners = [list(MEASURE_RE.finditer(m.group(2))) for m in staffs]
+    nmeas = min(len(x) for x in inners)
+    splits = 0
+
+    new_inners: list[str] = []
+    for si, sm in enumerate(staffs):
+        body = sm.group(2)
+        pieces: list[str] = []
+        pos = 0
+        for mi, mm in enumerate(inners[si]):
+            pieces.append(body[pos : mm.start()])
+            meas = mm.group(0)
+            if mi < nmeas:
+                lead = inners[0][mi].group(0)
+                lead_voices = list(VOICE_RE.finditer(lead))
+                ops: list[tuple[int, list[str], str]] = []
+                if lead_voices:
+                    v0 = lead_voices[0].group(0)
+                    events = list(CHORD_REST_RE.finditer(v0))
+                    for i, ev in enumerate(events):
+                        if ev.group(1) != "Chord" or _in_tuplet(v0, ev.start()):
+                            continue
+                        chord = ev.group(0)
+                        raw = _chord_lyric_plain(chord)
+                        if not raw:
+                            continue
+                        parts = hyphenate_token(raw)
+                        if len(parts) <= 1:
+                            continue
+                        ops.append((i, parts, _chord_syllabic(chord)))
+                if ops:
+                    vi = 0
+
+                    def fix_voice(vm: re.Match[str]) -> str:
+                        nonlocal vi
+                        with_ly = si == 0 and vi == 0
+                        vi += 1
+                        return _split_voice_lyrics(
+                            vm.group(0), ops, with_lyrics=with_ly
+                        )
+
+                    meas = VOICE_RE.sub(fix_voice, meas)
+                    v1 = VOICE_RE.search(meas)
+                    if v1 is not None:
+                        q = sum(
+                            _event_quarters(ev.group(0))
+                            for ev in CHORD_REST_RE.finditer(v1.group(0))
+                        )
+                        if q > 0:
+                            meas = _rewrite_measure_len(meas, q / 4)
+                    if si == 0:
+                        splits += len(ops)
+            pieces.append(meas)
+            pos = mm.end()
+        pieces.append(body[pos:])
+        new_inners.append("".join(pieces))
+
+    out = mscx
+    for sm, inner in zip(reversed(staffs), reversed(new_inners)):
+        out = out[: sm.start()] + sm.group(1) + inner + sm.group(3) + out[sm.end() :]
+    return out, splits
+
+
 def apply_mscx(mscx: str) -> tuple[str, list[str]]:
     notes: list[str] = []
     vbox_m = VBOX_RE.search(mscx)
@@ -676,6 +861,79 @@ def musescore_convert(src: Path, dest: Path) -> None:
         raise RuntimeError(f"MuseScore schreef geen {dest}")
 
 
+def _strip_empty_staves(mscx: str) -> tuple[str, int]:
+    """Verwijder balken zonder noten (Capella SAT+B -> SA/TB + lege 3e balk)."""
+    score_pat = re.compile(r'<Staff id="(\d+)">.*?</Staff>', re.S)
+    hits = list(score_pat.finditer(mscx))
+    if len(hits) < 2:
+        return mscx, 0
+    drop_ids: set[int] = set()
+    keep: list[tuple[int, str]] = []
+    for m in hits:
+        sid = int(m.group(1))
+        block = m.group(0)
+        empty = "<Chord" not in block and "<Note" not in block
+        if empty:
+            drop_ids.add(sid)
+        else:
+            keep.append((sid, block))
+    if not drop_ids or not keep:
+        return mscx, 0
+
+    mapping = {old: i + 1 for i, (old, _) in enumerate(keep)}
+    n_keep = len(keep)
+    pieces: list[str] = []
+    pos = 0
+    for m in hits:
+        pieces.append(mscx[pos : m.start()])
+        sid = int(m.group(1))
+        if sid not in drop_ids:
+            block = m.group(0)
+            new_id = mapping[sid]
+            if new_id != sid:
+                block = re.sub(
+                    rf'<Staff id="{sid}">',
+                    f'<Staff id="{new_id}">',
+                    block,
+                    count=1,
+                )
+            pieces.append(block)
+        pos = m.end()
+    pieces.append(mscx[pos:])
+    out = "".join(pieces)
+
+    def fix_part(pm: re.Match[str]) -> str:
+        head, inner, tail = pm.group(1), pm.group(2), pm.group(3)
+        defs = list(re.finditer(r"<Staff>.*?</Staff>\s*", inner, re.S))
+        if not defs:
+            return pm.group(0)
+        buf: list[str] = []
+        p0 = 0
+        for i, d in enumerate(defs):
+            buf.append(inner[p0 : d.start()])
+            if (i + 1) not in drop_ids:
+                buf.append(d.group(0))
+            p0 = d.end()
+        buf.append(inner[p0:])
+        inner = "".join(buf)
+        inner = re.sub(
+            r'(<bracket\b[^>]*\bspan=")(\d+)(")',
+            lambda bm: f"{bm.group(1)}{n_keep}{bm.group(3)}",
+            inner,
+            count=1,
+        )
+        return head + inner + tail
+
+    out = re.sub(
+        r"(<Part(?:\s[^>]*)?>)(.*?)(</Part>)",
+        fix_part,
+        out,
+        count=1,
+        flags=re.S,
+    )
+    return out, len(drop_ids)
+
+
 def process_mscz(
     path: Path,
     *,
@@ -697,7 +955,13 @@ def process_mscz(
 
     if no_extenders:
         mscx = _set_meta(mscx, "vsaNoLyricExtenders", "1")
+    mscx, n_empty = _strip_empty_staves(mscx)
+    mscx, n_split = _split_undersplit_lyrics(mscx)
     new_mscx, mscx_notes = apply_mscx(mscx)
+    if n_split:
+        mscx_notes.insert(0, f"lettergrepen gesplitst: {n_split}")
+    if n_empty:
+        mscx_notes.insert(0, f"lege notenbalken verwijderd: {n_empty}")
     notes.extend(mscx_notes)
     new_mss = overlay_style(mss, extra_style)
     notes.append("score_style.mss overlays toegepast")

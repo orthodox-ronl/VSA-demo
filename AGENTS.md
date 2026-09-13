@@ -91,9 +91,9 @@ Uitleg: [scripts/README.md](scripts/README.md).
 
 ### Oefenhoek (input en publicatiestatus)
 
-- Dumps: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
+- Inputs: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
 - `_inbox/` en `_werk/` niet committen. Geen `_index.md` onder `input/`.
-- Register: `input/werkvoorraad.md` (een rij per dump). De tabel wordt bij
+- Register: `input/werkvoorraad.md` (een rij per input). De tabel wordt bij
   sitebuild bijgewerkt; doel-id en notitie in bestaande rijen blijven staan.
   Onbekend doel-id: **vragen**, niet raden.
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:

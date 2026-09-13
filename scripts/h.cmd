@@ -28,6 +28,8 @@ if /I "%FILTER%"=="serve" goto man_serve
 if /I "%FILTER%"=="pdf" goto man_pdf
 if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
+if /I "%FILTER%"=="mscz-products" goto man_mscz_products
+if /I "%FILTER%"=="sync_mscz_products.py" goto man_mscz_products
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
 
@@ -46,6 +48,7 @@ call :emit_short serve "lokale Hugo-preview" "--no-build"
 call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
+call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
@@ -54,7 +57,7 @@ echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py,
-echo   score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
+echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
 echo.
 goto end_ok
@@ -71,6 +74,7 @@ call :try_short serve "lokale Hugo-preview" "--no-build"
 call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
+call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
 echo.
@@ -135,9 +139,10 @@ echo   scripts\check.cmd [--strict] [--external] [--skip-hugo]
 echo.
 echo DESCRIPTION
 echo   Draait lokaal de blocking pipeline die CI ook doet:
-echo   sync zondag -^> validate -^> mscz PDF/MXL -^> generate ^(md/svg/mxl^)
+echo   sync zondag -^> validate -^> generate ^(md/svg/mxl^)
 echo   -^> Coria-kuis vsa-mxl -^> hugo -^> interne links.
 echo   Wrapper om scripts\_pipeline.cmd ^(zie scripts\README.md testladder^).
+echo   Geen MuseScore-PDF/Coria-MXL: scripts\mscz-products.cmd
 echo.
 echo   "Preflight" = check voor commit. "CI-spiegel" = met --strict dezelfde
 echo   strengheid als GitHub Actions ^(ook VSA-warnings laten falen^).
@@ -288,6 +293,32 @@ echo.
 echo SEE ALSO
 echo   scripts\h.cmd check
 echo   scripts\README.md  ^(begrip: Sync zondag^)
+echo.
+goto end_ok
+
+:man_mscz_products
+echo.
+echo NAME
+echo   scripts\mscz-products.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\mscz-products.cmd [pad] [--force] [--dry-run]
+echo.
+echo DESCRIPTION
+echo   Exporteert sibling-PDF en Coria-.mxl bij publicatie-.mscz
+echo   (niet oefenhoek\input). Zonder pad: content-source.
+echo   Alleen ontbrekende of oudere producten, tenzij --force.
+echo.
+echo   Niet in check/build/serve. Eerst apply_mscz_layout.py, dan
+echo   eventueel editslag in MuseScore, daarna dit script.
+echo.
+echo WHEN
+echo   Als de .mscz klaar is voor publicatie-PDF en Coria.
+echo.
+echo SEE ALSO
+echo   scripts\apply_mscz_layout.py
+echo   scripts\sync_mscz_products.py
+echo   scripts\mscz-layout-contract.md
 echo.
 goto end_ok
 

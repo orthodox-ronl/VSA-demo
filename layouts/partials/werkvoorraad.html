@@ -7,7 +7,7 @@
   {{- errorf "werkvoorraad: %s ontbreekt" $path -}}
 {{- end -}}
 <details class="werkvoorraad">
-  <summary>Werkvoorraad (interne dumps)</summary>
+  <summary>Werkvoorraad (interne inputs)</summary>
   <div class="werkvoorraad-body">
     {{ readFile $path | .Page.RenderString }}
   </div>

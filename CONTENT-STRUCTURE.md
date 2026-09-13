@@ -51,12 +51,12 @@ catalogus en geen tooling-demo.
 | Deelrubrieken | `liturgiemap-hemelum/`, `overig/` (later bijv. `liturgiemap-zwolle/`); `input/` blijft op oefenhoek-niveau |
 | Eén bladermap per zangstuk | `oefenhoek/<deelrubriek>/<id>/index.md`; familie (meerdere varianten): `<id>/_index.md` + kind-bladermappen |
 | Liturgiemap-overzicht | Koor-TOC (`hide_section_list`); titel linkt naar familie-overzicht of naar een stuk met getoonde PDF/VSA |
-| Geen spaties in publicatienamen | Map + `.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
+| Geen spaties in publicatienamen | Map + `.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Ruwe inputs: `oefenhoek/input/` (niet gekopieerd) |
 | Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
-| Input vs publicatie | Ruwe dumps in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
-| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per dump; tabel bij sitebuild). Uitklapbaar onderaan de Oefenhoek-`_index`, na de deelrubrieken. |
+| Input vs publicatie | Ruwe inputs in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
+| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per input; tabel bij sitebuild). Uitklapbaar onderaan de Oefenhoek-`_index`, na de deelrubrieken. |
 | Publicatiestatus | Frontmatter `publicatiestatus` op elke oefenhoek-`_index.md` en `index.md`: `voorzien` (gepland, nog geen uitgave), `concept` (eerste versie), `reviewable` (feedback gevraagd), `productie`. Balk + e-mail/GitHub-issue. Secties: collectie als geheel. |
 
 Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus`.

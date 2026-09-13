@@ -1,10 +1,11 @@
-"""Maak PDF en Coria-MXL in bladermappen gelijk aan hun .mscz.
+"""Maak PDF en Coria-MXL bij een publicatie-.mscz (na de editslag).
 
-Per publicatie-.mscz (niet oefenhoek/input/): bestaande sibling-.pdf /
-sibling-.mxl opnieuw exporteren als ze ontbreken of ouder zijn dan de .mscz.
-Zonder MuseScore: op CI overslaan; lokaal falen als er stale producten zijn.
+Niet in check/build/serve: layout (`apply_mscz_layout.py`) en producten
+blijven gescheiden. Wrapper: `scripts\\mscz-products.cmd`.
 
-Aangeroepen vanuit scripts\\_pipeline.cmd (check / build / serve).
+Per publicatie-.mscz (niet oefenhoek/input/): sibling-.pdf en Coria-.mxl
+schrijven als ze ontbreken of ouder zijn dan de .mscz. Zonder MuseScore:
+lokaal falen; op CI overslaan.
 """
 from __future__ import annotations
 
@@ -35,16 +36,9 @@ def _find_musescore() -> Path | None:
         return None
 
 
-def _sibling_product(mscz: Path, suffix: str) -> Path | None:
-    same = mscz.with_suffix(suffix)
-    if same.is_file():
-        return same
-    found = sorted(p for p in mscz.parent.glob(f"*{suffix}") if p.is_file())
-    if len(found) == 1:
-        return found[0]
-    if found:
-        return None
-    return same
+def _sibling_product(mscz: Path, suffix: str) -> Path:
+    """Zelfde stam als de .mscz (aanmaken mag)."""
+    return mscz.with_suffix(suffix)
 
 
 def _is_stale(product: Path, mscz: Path) -> bool:
@@ -53,14 +47,16 @@ def _is_stale(product: Path, mscz: Path) -> bool:
     return product.stat().st_mtime < mscz.stat().st_mtime
 
 
-def collect_jobs(root: Path) -> list[tuple[Path, Path | None, Path | None]]:
-    jobs: list[tuple[Path, Path | None, Path | None]] = []
+def collect_jobs(root: Path) -> list[tuple[Path, Path, Path]]:
+    jobs: list[tuple[Path, Path, Path]] = []
     for mscz in expand_score_files([root], ".mscz"):
-        pdf = _sibling_product(mscz, ".pdf")
-        mxl = _sibling_product(mscz, ".mxl")
-        if pdf is None and mxl is None:
-            continue
-        jobs.append((mscz, pdf, mxl))
+        jobs.append(
+            (
+                mscz,
+                _sibling_product(mscz, ".pdf"),
+                _sibling_product(mscz, ".mxl"),
+            )
+        )
     return jobs
 
 
@@ -134,7 +130,7 @@ def main() -> int:
             return 0
         print(
             r"Installeer MuseScore 4 of regenereer met "
-            r"python scripts\sync_mscz_products.py",
+            r"scripts\mscz-products.cmd",
             flush=True,
         )
         for mscz, pdf, mxl in todo:

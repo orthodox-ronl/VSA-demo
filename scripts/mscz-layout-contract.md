@@ -19,11 +19,18 @@ niet in de `.mscx`. Roundtrip via MusicXML is verboden (stijl verdwijnt).
 
 ## Doel
 
-SATB-partituur netjes op **A4**, PDF-export en papier. Muziek (noten, duren,
-lyrics, stemmen) blijft onaangeroerd. Playback-MXL voor Coria: dezelfde
-`.mscz` via `scripts/export_mscz_coria_mxl.py` (geen roundtrip).
-`sync_mscz_products.py` (in check/build/serve) houdt sibling-PDF en Coria-`.mxl`
-gelijk aan de hub-`.mscz`.
+SATB-partituur netjes op **A4**, PDF-export en papier. Pitches, slurs en
+echte cadensduren blijven staan. Lettergrepen die nog meerdere klinkers
+op één noot hebben (`melse` in `he-melse`) worden gesplitst: extra noten
+met dezelfde duur (kwart blijft kwart), op alle SATB-stemmen.
+
+Capella/MXL met drie stemmen op de bovenste balk (SAT) en bas apart wordt
+in MuseScore vaak SA + TB plus een **lege derde balk**. Die lege balk
+wordt verwijderd (akkolade-haak `span` mee).
+
+Playback-MXL voor Coria en A4-PDF: niet vanuit dit script. Na de
+editslag in MuseScore: `scripts\mscz-products.cmd` (`sync_mscz_products.py`).
+Niet in `check` / `build` / `serve`.
 
 ## Pagina en stijl (waarden = `STYLE_OVERRIDES` in het script)
 
@@ -109,8 +116,9 @@ over twee akkoorden) wél. Koppeltekens (begin/middle) blijven hyphen.
   Opt-out: `--no-extenders` of meta `vsaNoLyricExtenders` (underlines uit; niet
   terugzetten bij een volgende run).
 - Coria-MXL: `export_mscz_coria_mxl.py` explodeert SATB naar vier parts,
-  zet `<extend/>` (MuseScore-export laat ticks/extend vaak vallen), en
-  stript daarna layout-markup waar Coria `translation failed` op geeft.
+  zet `<extend/>` (MuseScore-export laat ticks/extend vaak vallen),
+  stript layout-markup waar Coria `translation failed` op geeft, en zet
+  `<accidental>` terug voor playback (Coria/NWC negeert `pitch/alter`).
 
 ## Tekstrollen
 
@@ -180,10 +188,17 @@ Niet: Add → Frames → Vertical Frame (dat is het titelvak).
 System Text (Ctrl+Shift+T) als de cue bij het hele systeem hoort, niet bij één
 balk.
 
+## Lettergrepen (inhoudelijk, zelfde regel als Capella-MXL)
+
+`nl_hyphen.py`: een token met meerdere klinkergroepen (`melse` -> `mel-se`)
+krijgt extra akkoorden, zelfde `durationType`. Al gesplitste begin/middle/end
+tokens worden opnieuw bekeken. Maatlengte (`len`) groeit mee. Geen triolen.
+
 ## Wat het script niet doet
 
-- Pitches, duren, lyrics, slur/tie, maatstructuur
-- Inhoudelijke Capella-opkuis (dat is `cleanup_capella_mxl.py`, lagen 1–3)
+- Pitches, slurs/ties, cadenshalven tot kwarten knippen
+- Overige Capella-opkuis (reciteerkwarten zichtbaar, lege maten, titels):
+  `cleanup_capella_mxl.py`, lagen 1–3
 
 ## Itereren
 

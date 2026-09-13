@@ -4,7 +4,7 @@ title = "VSA Demo"
 
 disableKinds = ["taxonomy", "term"]
 
-# Ruwe dumps + register: geen Hugo-pagina's (README/werkvoorraad.md).
+# Ruwe inputs + register: geen Hugo-pagina's (README/werkvoorraad.md).
 ignoreFiles = ['(?i)praktijk[/\\\\]oefenhoek[/\\\\]input']
 
 [params]

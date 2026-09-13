@@ -1,4 +1,4 @@
-"""Vul de tabel in oefenhoek/input/werkvoorraad.md vanuit de dumps op schijf.
+"""Vul de tabel in oefenhoek/input/werkvoorraad.md vanuit de inputs op schijf.
 
 Draait in check/build/serve (generate). Handmatige notities en doel-id in een
 bestaande rij blijven staan; stap/volgende worden opnieuw afgeleid.
@@ -16,7 +16,7 @@ OEFENHOEK = REPO / "content-source" / "praktijk" / "oefenhoek"
 INPUT = OEFENHOEK / "input"
 DOC = INPUT / "werkvoorraad.md"
 HERKOMST = ("capella", "vow", "musescore", "musicxml", "pdf")
-DUMP_EXT = {".mxl", ".xml", ".musicxml", ".mscz", ".cap", ".capx", ".pdf", ".vsa"}
+INPUT_EXT = {".mxl", ".xml", ".musicxml", ".mscz", ".cap", ".capx", ".pdf", ".vsa"}
 SCORE_EXT = {".mscz", ".mxl", ".pdf", ".vsa"}
 BEGIN = "<!-- werkvoorraad-tabel:begin -->"
 END = "<!-- werkvoorraad-tabel:einde -->"
@@ -34,8 +34,8 @@ def _parse_rows(markdown: str) -> dict[str, dict[str, str]]:
         parts = [p.strip() for p in line.strip().strip("|").split("|")]
         if len(parts) < 7:
             continue
-        dump = parts[0].strip().strip("`")
-        rows[dump] = {
+        input = parts[0].strip().strip("`")
+        rows[input] = {
             "doel_id": parts[1].strip().strip("`"),
             "deelrubriek": parts[2].strip(),
             "doelvorm": parts[3].strip().strip("`"),
@@ -63,7 +63,7 @@ def _has_score(folder: Path) -> bool:
 
 
 def _match_doel(
-    dump_name: str,
+    input_name: str,
     maps: list[tuple[str, str, Path]],
     old_id: str,
 ) -> tuple[str, str, Path | None]:
@@ -72,7 +72,7 @@ def _match_doel(
             if folder == old_id:
                 return folder, deel, path
         return old_id, "", None
-    stem = published_stem(dump_name)
+    stem = published_stem(input_name)
     exact = [m for m in maps if m[0] == stem]
     if len(exact) == 1:
         folder, deel, path = exact[0]
@@ -80,25 +80,25 @@ def _match_doel(
     return "", "", None
 
 
-def _doelvorm(dump: Path, old: str) -> str:
+def _doelvorm(input: Path, old: str) -> str:
     if old:
         return f"`{old}`" if not old.startswith("`") else old
-    if dump.suffix.lower() == ".vsa":
+    if input.suffix.lower() == ".vsa":
         return "`.vsa`"
     return "`.mscz`"
 
 
-def _stap(path: Path | None, dump: Path) -> tuple[str, str]:
+def _stap(path: Path | None, input: Path) -> tuple[str, str]:
     if path is None:
         return "ontvangen", "doel-id"
     if _has_score(path):
         return "bladermap", "—"
-    if dump.suffix.lower() == ".mscz":
+    if input.suffix.lower() == ".mscz":
         return "ontvangen", "layout"
     return "ontvangen", "opkuisen"
 
 
-def _dumps() -> list[Path]:
+def _inputs() -> list[Path]:
     out: list[Path] = []
     for herkomst in HERKOMST:
         folder = INPUT / herkomst
@@ -109,7 +109,7 @@ def _dumps() -> list[Path]:
                 continue
             if path.name == ".gitkeep":
                 continue
-            if path.suffix.lower() not in DUMP_EXT:
+            if path.suffix.lower() not in INPUT_EXT:
                 continue
             out.append(path)
     return sorted(out, key=lambda p: p.relative_to(INPUT).as_posix().lower())
@@ -118,17 +118,17 @@ def _dumps() -> list[Path]:
 def _table(old: dict[str, dict[str, str]]) -> str:
     maps = _bladermappen()
     lines = [
-        "| Dump | Doel-id | Deelrubriek | Doelvorm | Stap | Volgende | Notitie |",
+        "| Input | Doel-id | Deelrubriek | Doelvorm | Stap | Volgende | Notitie |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
-    for dump in _dumps():
-        rel = dump.relative_to(INPUT).as_posix()
+    for input in _inputs():
+        rel = input.relative_to(INPUT).as_posix()
         prev = old.get(rel, {})
-        doel_id, deel, path = _match_doel(dump.name, maps, prev.get("doel_id", ""))
+        doel_id, deel, path = _match_doel(input.name, maps, prev.get("doel_id", ""))
         if not deel:
             deel = prev.get("deelrubriek", "")
-        vorm = _doelvorm(dump, prev.get("doelvorm", ""))
-        stap, volgende = _stap(path, dump)
+        vorm = _doelvorm(input, prev.get("doelvorm", ""))
+        stap, volgende = _stap(path, input)
         notitie = prev.get("notitie", "")
         doel_cell = f"`{doel_id}`" if doel_id else ""
         lines.append(

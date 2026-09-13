@@ -3,10 +3,12 @@
 SATB in MuseScore is meestal 1 part / 2 balken / 4 stemmen. Coria kiest een
 partij op score-part, niet op voice: dit script explodeert naar S/A/T/B,
 kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
-(DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern (foutmelding
+(DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern naar NWC (foutmelding
 "translation failed"); layout-only markup (balken, stokken, slur-notations,
-toonvoortekens, default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
-Pitch/alter, duur en lyrics blijven. Coria krijgt uncompressed `.musicxml`
+default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
+Pitch/alter, duur, lyrics en playback-toonvoortekens blijven. Coria negeert
+pitch/alter en speelt via voortekening + <accidental>; zonder herstelling
+wordt een B bij 1 mol een Bes. Coria krijgt uncompressed `.musicxml`
 via fingerprint_coria_mxl.py (ZIP-.mxl faalt op o.a. Kastorski).
 
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
@@ -216,15 +218,29 @@ def satb_voice_map(part: ET.Element) -> list[tuple[str, str]] | None:
 _NOTE_MARKUP = frozenset({"beam", "stem", "notations", "accidental"})
 _LAYOUT_ATTR_PREFIXES = ("default-", "relative-")
 _LAYOUT_ATTRS = frozenset({"width", "print-object", "color"})
-CORIA_FORBIDDEN_TAGS = _NOTE_MARKUP | frozenset({"part-group", "movement-title", "supports", "tie"})
+# <accidental> is playback voor Coria (NWC); wel strippen-en-herzitten.
+CORIA_FORBIDDEN_TAGS = frozenset(
+    {"beam", "stem", "notations", "part-group", "movement-title", "supports", "tie"}
+)
+_STEPS = "CDEFGAB"
+_SHARP_ORDER = "FCGDAEB"
+_FLAT_ORDER = "BEADGCF"
+_ALTER_TO_ACCIDENTAL = {
+    -2: "double-flat",
+    -1: "flat",
+    0: "natural",
+    1: "sharp",
+    2: "double-sharp",
+}
 
 
 def sanitize_coria_importer(root: ET.Element) -> None:
     """Strip visuele MusicXML die Coria's vertaler laat crashen.
 
-    Playback blijft pitch+alter+duration+lyric. Getest tegen Coria:
-    Cherubijnenhymne Kastorski faalt tot deze markup weg is, versie 3.1,
-    geen movement-title. (Feofan werkte toevallig al zonder deze strip.)
+    Playback blijft pitch+alter+duration+lyric; toonvoortekens worden daarna
+    opnieuw gezet. Getest tegen Coria: Cherubijnenhymne Kastorski faalt tot
+    balken/stokken/notations/movement-title weg zijn, versie 3.1.
+    (Feofan werkte toevallig al zonder deze strip.)
     """
     root.set("version", "3.1")
     for el in list(root):
@@ -258,6 +274,80 @@ def sanitize_coria_importer(root: ET.Element) -> None:
         for el in list(plist):
             if local(el.tag) == "part-group":
                 plist.remove(el)
+
+
+def key_alters(fifths: int) -> dict[str, int]:
+    alters = {step: 0 for step in _STEPS}
+    if fifths > 0:
+        for step in _SHARP_ORDER[:fifths]:
+            alters[step] = 1
+    elif fifths < 0:
+        for step in _FLAT_ORDER[:-fifths]:
+            alters[step] = -1
+    return alters
+
+
+def note_sounding_alter(note: ET.Element) -> int | None:
+    pitch = child(note, "pitch")
+    if pitch is None:
+        return None
+    alter_el = child(pitch, "alter")
+    if alter_el is None or not text(alter_el):
+        return 0
+    try:
+        return int(float(text(alter_el)))
+    except ValueError:
+        return None
+
+
+def _insert_accidental(note: ET.Element, name: str) -> None:
+    acc = ET.Element("accidental")
+    acc.text = name
+    type_el = child(note, "type")
+    if type_el is not None:
+        note.insert(list(note).index(type_el) + 1, acc)
+    else:
+        note.append(acc)
+
+
+def apply_playback_accidentals(root: ET.Element) -> int:
+    """Zet <accidental> waar de klinkende toon afwijkt van voortekening/maat.
+
+    Coria vertaalt naar NWC en negeert pitch/alter. Zonder herstellingstekens
+    klinkt een B bij 1 mol als Bes.
+    """
+    n = 0
+    for part in music_parts(root):
+        fifths = 0
+        for measure in children(part, "measure"):
+            attrs = child(measure, "attributes")
+            if attrs is not None:
+                key = child(attrs, "key")
+                if key is not None:
+                    raw = text(child(key, "fifths"))
+                    if raw.lstrip("-").isdigit():
+                        fifths = int(raw)
+            implied_key = key_alters(fifths)
+            state: dict[tuple[str, str], int] = {}
+            for note in children(measure, "note"):
+                sounding = note_sounding_alter(note)
+                pitch = child(note, "pitch")
+                if sounding is None or pitch is None:
+                    continue
+                step = text(child(pitch, "step"))
+                octave = text(child(pitch, "octave"))
+                if step not in implied_key:
+                    continue
+                current = state.get((step, octave), implied_key[step])
+                if sounding == current:
+                    continue
+                name = _ALTER_TO_ACCIDENTAL.get(sounding)
+                if name is None:
+                    continue
+                _insert_accidental(note, name)
+                state[(step, octave)] = sounding
+                n += 1
+    return n
 
 
 def strip_layout(root: ET.Element) -> None:
@@ -812,6 +902,8 @@ def process(mscz: Path, out: Path) -> None:
         if bad:
             print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}")
     sanitize_coria_importer(root)
+    n_acc = apply_playback_accidentals(root)
+    print(f"  playback-accidentals={n_acc}")
     write_mxl(out, root)
     print(f"geschreven: {out}")
 
@@ -820,6 +912,8 @@ def process_existing_mxl(path: Path) -> None:
     require_no_spaces(path)
     root = load_score_xml(path)
     sanitize_coria_importer(root)
+    n_acc = apply_playback_accidentals(root)
+    print(f"  playback-accidentals={n_acc}")
     write_mxl(path, root)
     print(f"  {summarize(root)}")
     print(f"gesaneerd: {path}")

@@ -14,33 +14,40 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
+| `mscz-products` | PDF + Coria-`.mxl` uit publicatie-`.mscz` | `[pad] --force --dry-run` |
 
 `cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
 op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
 lyrics tussen de balken; geen lyric-underline onder Capella-slurs). Geen
 MuseScore-stijl tot op de pixel. Niet in `check`.
 `-o` schrijft naar een naam zonder spaties; in-place op een naam mét spaties
-wordt geweigerd. Ruwe Capella-dumps blijven in `oefenhoek/input/`.
+wordt geweigerd. Ruwe Capella-inputs blijven in `oefenhoek/input/`.
 
 `apply_mscz_layout.py` is de proef voor laag 4: A4-standaard-layout op een
-`.mscz` (idempotent). Accepteert ook opgekuiste `.mxl` (MuseScore-import).
-Contract: `scripts/mscz-layout-contract.md`. Niet in
-`check`. Later verhuizen naar VSA-tooling.
+`.mscz` (idempotent), plus lettergreep-splitsing (`melse` -> twee noten
+`mel` + `se`, zelfde duur, SATB) en het weghalen van een lege extra
+notenbalk (SAT+B-import). Accepteert ook opgekuiste `.mxl`
+(MuseScore-import). Geen PDF of Coria-`.mxl`. Contract:
+`scripts/mscz-layout-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`
+(gedeeld met `cleanup_capella_mxl.py`). Niet in `check`. Later verhuizen
+naar VSA-tooling.
+
+`mscz-products.cmd` (`sync_mscz_products.py`) exporteert sibling-PDF en
+Coria-`.mxl` als ze ontbreken of ouder zijn dan de publicatie-`.mscz`.
+Niet in `check` / `build` / `serve`: eerst layout, dan eventueel editslag
+in MuseScore, daarna dit script. Heeft MuseScore 4 nodig.
 
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na
 dubbele streep, kwart-rust na cesuur, BPM-markers als `sound tempo` op
-alle parts, daarna Coria-veilige markup). Een map mag: recursief, `input\`
+alle parts, daarna Coria-veilige markup, daarna `<accidental>` waar de
+klinkende toon afwijkt van de voortekening). Coria speelt via NWC-voortekening
+plus toonvoorteken, niet via MusicXML `alter`. Een map mag: recursief, `input\`
 overslaan. Uitvoernamen zonder spaties. `--sanitize-mxl` kuist bestaande
 publicatie-`.mxl` in-place (geen MuseScore), en na `vsa musicxml` ook
 `static\vsa\mxl`. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
 met markup waar Coria `translation failed` op geeft.
-
-`sync_mscz_products.py` (in `check` / `build` / `serve`) exporteert PDF en
-Coria-`.mxl` opnieuw als ze ontbreken of ouder zijn dan de publicatie-`.mscz`
-in dezelfde bladermap. Heeft MuseScore 4 nodig. Zonder MuseScore: lokaal
-fout bij stale bestanden, op CI overslaan.
 
 `patch_oefenhoek_trisagion.py` is een inhoudelijke patch op de twee
 trisagion-`.mscz` (herhaling m1-m4, noten 'O Heilige God' uit Slavisch maat 5,
@@ -64,7 +71,7 @@ oefenhoek-`_index.md` / `index.md` (niet `input/`): `voorzien`, `concept`,
 `reviewable` of `productie`.
 `update_werkvoorraad.py` (in `check` / `build` / `serve`) vult de tabel in
 `oefenhoek/input/werkvoorraad.md` en verwijdert `generated/.../oefenhoek/input`
-zodat dumps geen Hugo-pagina's worden.
+zodat inputs geen Hugo-pagina's worden.
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

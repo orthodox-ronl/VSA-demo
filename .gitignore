@@ -12,7 +12,7 @@ static/mxl/
 .mscbackup/
 .archief/
 
-# Oefenhoek: lokale inbox en tussenwerk (dumps in capella/vow/… blijven in git)
+# Oefenhoek: lokale inbox en tussenwerk (inputs in capella/vow/… blijven in git)
 content-source/praktijk/oefenhoek/input/_inbox/
 content-source/praktijk/oefenhoek/input/_werk/
 
@@ -54,3 +54,7 @@ build/
 *.egg-info/
 pip-log.txt
 .ensure-stamp
+
+# Local Coria/MuseScore probes
+_tmp_coria/
+scripts/_tmp_*.py
