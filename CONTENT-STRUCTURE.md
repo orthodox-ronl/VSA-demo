@@ -48,11 +48,12 @@ catalogus en geen tooling-demo.
 | Afspraak | Toelichting |
 | -------- | ----------- |
 | Eigen rubriek, geen `nav_group` | Balk-knop **Oefenhoek** (weight lager dan Demo, dus links daarvan); dropdown = deelrubrieken |
-| Deelrubrieken | `liturgiemap-hemelum/`, `overig/` (later bijv. `liturgiemap-zwolle/`); `input/` blijft op oefenhoek-niveau |
-| Eén bladermap per zangstuk | `oefenhoek/<deelrubriek>/<id>/index.md`; familie (meerdere varianten): `<id>/_index.md` + kind-bladermappen |
-| Liturgiemap-overzicht | Koor-TOC (`hide_section_list`); titel linkt naar familie-overzicht of naar een stuk met getoonde PDF/VSA |
-| Geen spaties in publicatienamen | Map + `.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
-| Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
+| Deelrubrieken | `repertoire/`, `liturgiemap-hemelum/`, `overig/`; `input/` blijft op oefenhoek-niveau |
+| Repertoire | `oefenhoek/repertoire/<zangstuk-id>/<variant-id>/<uitvoeringsvorm-id>/` (altijd drie lagen). Partituur + `index.md`. Verhuisbaar (later andere repo/mount). |
+| Koormap | Samenstelling: TOC/hoofdstukken/slots met `{{< repertoire-score id="zangstuk/variant/uitvoeringsvorm" >}}`. Geen `.mscz` in de mapboom. |
+| Publicatiestam | `{zangstuk}-{variant}-{uitvoeringsvorm}` voor `.mscz` / Coria-`.mxl` / PDF |
+| Geen spaties in publicatienamen | Stam `[a-z0-9_-]+`. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
+| Geen dubbele canonieke VSA | Catalogus-include (`id:…` / `lokaal:…` / `bron:…`) mag op een koormap-slot; experimentele MuseScore-uitgaven in repertoire |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
 | Input vs publicatie | Ruwe dumps in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
@@ -64,7 +65,7 @@ Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus
 Nog niet in deze ronde: oefenmodus-schakelaar, audio-player, automatische sync
 uit VSA-tooling.
 
-Overig (niet in een liturgiemap): o.a. `troparion-nikolaas-van-myra` (catalogus-id; spelling Nikolaas).
+Overig (niet in een liturgiemap): testhoek, geen bibliotheek. Repertoire is de bibliotheek.
 
 ## Antifonen weekdagen (voorbeeld)
 

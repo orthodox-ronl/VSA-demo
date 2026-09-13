@@ -7,4 +7,4 @@ publicatiestatus: concept
 ---
 
 Varianten van het Moeder Godslied in de liturgiemap van Hemelum. Een titel is
-een link als er al een blad (PDF of VSA) klaarstaat.
+een link als er al een uitvoeringsvorm (PDF of VSA) klaarstaat.

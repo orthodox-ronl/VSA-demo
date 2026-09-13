@@ -11,6 +11,7 @@ De "Oefenhoek" is bedoeld voor mensen die de hier aanwezige zangstukken willen o
 
 Sommige zangstukken zijn er nog niet, of zijn nog niet (helemaal) goed - hou daar rekening mee.
 
-Op dit moment wordt er gewerkt om de zangstukken van de Liturgie-map in Hemelum
-stapsgewijs toe te voegen. Daarnaast is er nog een onderdeel 'Overig' waarin materiaal
-staat voor testdoeleinden.
+Op dit moment wordt er gewerkt om de zangstukken van de liturgiemap in Hemelum
+stapsgewijs toe te voegen. Het **repertoire** bevat de uitvoeringsvormen
+(partituur). De liturgiemap is de Hemelum-selectie daaruit. 'Overig' is een
+testhoek, geen bibliotheek.

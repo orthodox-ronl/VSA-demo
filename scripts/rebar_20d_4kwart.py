@@ -23,10 +23,11 @@ SRC = (
     / "content-source"
     / "praktijk"
     / "oefenhoek"
-    / "liturgiemap-hemelum"
-    / "20-moeder-godslied"
-    / "20d-in-waarheid-moeder-godslied"
-    / "20d-in-waarheid-moeder-godslied.mscz"
+    / "repertoire"
+    / "moeder-godslied"
+    / "20d-in-waarheid"
+    / "hemelum"
+    / "moeder-godslied-20d-in-waarheid-hemelum.mscz"
 )
 DEST = SRC.with_name("20d-in-waarheid-moeder-godslied-4kwart.mscz")
 

@@ -7,9 +7,4 @@ publicatiestatus: voorzien
 
 # 10 Evangelielezing
 
-Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.
-
-<!-- :::include svg "10-evangelielezing.vsa" alt="10 Evangelielezing"::: -->
-<!-- :::include coria "10-evangelielezing.mxl" label="Oefenen in Coria"::: -->
-<!-- score-actions pdf="10-evangelielezing.pdf" -->
-<!-- pdf-sheet src="10-evangelielezing.pdf" actions="false" -->
+{{< repertoire-score id="10-evangelielezing/vokn/hemelum" >}}

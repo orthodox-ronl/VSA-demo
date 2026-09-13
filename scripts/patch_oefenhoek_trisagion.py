@@ -19,8 +19,22 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 OEF = REPO / "content-source" / "praktijk" / "oefenhoek"
-NL = OEF / "liturgiemap-hemelum" / "8a-trisagion" / "8a-trisagion.mscz"
-SLAV = OEF / "liturgiemap-hemelum" / "8a-trisagion-slav" / "8a-trisagion-slav.mscz"
+NL = (
+    OEF
+    / "repertoire"
+    / "trisagion"
+    / "8a"
+    / "hemelum"
+    / "trisagion-8a-hemelum.mscz"
+)
+SLAV = (
+    OEF
+    / "repertoire"
+    / "trisagion"
+    / "8a-slav"
+    / "hemelum"
+    / "trisagion-8a-slav-hemelum.mscz"
+)
 
 MEASURE_RE = re.compile(r"<Measure\b[^>]*>.*?</Measure>", re.S)
 STAFF_RE = re.compile(r"(<Staff id=\"(\d+)\">)(.*?)(</Staff>)", re.S)

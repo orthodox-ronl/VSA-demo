@@ -1,4 +1,4 @@
-"""Maak PDF en Coria-MXL in bladermappen gelijk aan hun .mscz.
+"""Maak PDF en Coria-MXL in uitvoeringsvorm-mappen gelijk aan hun .mscz.
 
 Per publicatie-.mscz (niet oefenhoek/input/): bestaande sibling-.pdf /
 sibling-.mxl opnieuw exporteren als ze ontbreken of ouder zijn dan de .mscz.

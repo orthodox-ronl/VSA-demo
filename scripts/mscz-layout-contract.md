@@ -56,10 +56,17 @@ systeemfont. Niet vervangen door Edwin in dit contract zonder bewuste keuze.
 
 ## Titelvak (VBox)
 
-Alleen:
+Alleen (nog in ontwikkeling; titels/kop kunnen nog wijzigen):
 
 1. **title** = `workTitle`
 2. **composer** = `composer` (rechts), als die bekend is
+
+## Voettekst
+
+Elke pagina (`showFooter`, ook p.1). Midden: MuseScore `$C` = meta `copyright`.
+`apply_mscz_layout.py` zet die meta op `bestaande copyright | repertoire-id`
+(of alleen het id, of de bestandsstam buiten de repertoire-boom). Zo is een
+print terug te vinden. Font: Source Sans 3, 9 pt.
 
 Niet in het titelvak:
 

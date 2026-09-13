@@ -3,8 +3,9 @@
 Hier komen bestanden binnen die **nog geen** oefenhoek-uitgave zijn: dumps
 uit Capella, VOW, MuseScore, een PDF-scan, MusicXML uit een andere app, enz.
 Pas na conversie naar het afgesproken formaat (meestal een standaard-`.mscz`,
-soms `.vsa`) horen ze in een bladermap onder `liturgiemap-hemelum/` of
-`overig/`.
+soms `.vsa`) horen ze in `oefenhoek/repertoire/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
+Koormappen (`liturgiemap-hemelum/` e.d.) verwijzen via id, zonder die bestanden
+te kopieren.
 
 Deze map staat wél in git (zodat conversie herhaalbaar is), maar **niet** op
 de publieke site. Daarom geen `_index.md` hier.
@@ -24,16 +25,18 @@ de publieke site. Daarom geen `_index.md` hier.
 
 **Inbox:** eerst hierheen (of `_inbox/`), pas committen naar `capella/` / `vow/` / … als dit dé dump is die je wilt bewaren.
 
-**Namen:** dumps mag je laten zoals ze binnenkwamen. Publicatiebestanden in de bladermap: geen spaties, stam `[a-z0-9_-]+` (`scripts/score_filenames.py`).
+**Namen:** dumps mag je laten zoals ze binnenkwamen. Publicatiebestanden in
+repertoire: geen spaties, stam `zangstuk-variant-uitvoeringsvorm`
+(`[a-z0-9_-]+`, `scripts/score_filenames.py` / `scripts/repertoire.py`).
 
 **Overzicht:** `werkvoorraad.md` in deze map — één rij per dump. De tabel wordt bij een sitebuild (`check` / `build` / `serve`) opnieuw gevuld. Handmatige **notitie** en **doel-id** in een bestaande rij blijven staan. Op de Oefenhoek-pagina staat dezelfde tekst uitklapbaar onderaan.
 
 ## Workflow (kort)
 
 1. Dump in de juiste herkomst-map (of eerst `_inbox/`).
-2. Doel-id kiezen (`[a-z0-9_-]+`); onbekend: in de tabel leeg laten of vragen, niet raden.
+2. Doel-id kiezen (`zangstuk/variant/uitvoeringsvorm`); onbekend: in de tabel leeg laten of vragen, niet raden.
 3. Converteren (Capella-`.mxl` → opkuisen → layout-`.mscz`; VOW-`.mscz` → layout). Tussenwerk in `_werk/`.
-4. Publiceren in `oefenhoek/<deelrubriek>/<doel-id>/` (`index.md` + `.mscz` / Coria-`.mxl` / PDF) als de pipeline groen is.
-5. `publicatiestatus` op die bladermap: `voorzien` (nog geen uitgave), `reviewable` (er staat iets in), `concept` (secties), `productie` alleen bewust.
+4. Publiceren in `oefenhoek/repertoire/<id>/` (`index.md` + `.mscz` / Coria-`.mxl` / PDF). Koormap-slot krijgt `{{< repertoire-score id="..." >}}`.
+5. `publicatiestatus` op die uitvoeringsvorm: `voorzien` (nog geen uitgave), `reviewable` (er staat iets in), `concept` (secties), `productie` alleen bewust.
 
 Uitgebreider: onderaan `werkvoorraad.md`.

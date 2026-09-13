@@ -37,9 +37,13 @@ publicatie-`.mxl` in-place (geen MuseScore), en na `vsa musicxml` ook
 `static\vsa\mxl`. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
 met markup waar Coria `translation failed` op geeft.
 
+`repertoire.py` is de repertoire-root (`oefenhoek/repertoire`, drie lagen
+zangstuk/variant/uitvoeringsvorm, publicatiestam). `migrate_oefenhoek_repertoire.py`
+is de eenmalige omzetting vanuit de oude Hemelum-score-bundles.
+
 `sync_mscz_products.py` (in `check` / `build` / `serve`) exporteert PDF en
 Coria-`.mxl` opnieuw als ze ontbreken of ouder zijn dan de publicatie-`.mscz`
-in dezelfde bladermap. Heeft MuseScore 4 nodig. Zonder MuseScore: lokaal
+in dezelfde uitvoeringsvorm-map. Heeft MuseScore 4 nodig. Zonder MuseScore: lokaal
 fout bij stale bestanden, op CI overslaan.
 
 `patch_oefenhoek_trisagion.py` is een inhoudelijke patch op de twee

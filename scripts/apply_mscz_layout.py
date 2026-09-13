@@ -29,6 +29,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from score_filenames import published_path, require_no_spaces
+from repertoire import id_from_path
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
 _A4_W = "8.26772"
@@ -88,8 +89,14 @@ STYLE_OVERRIDES: dict[str, str] = {
     "composerFontSize": "12",
     "subTitleFontFace": _FONT,
     "subTitleFontSize": "14",
-    "frameFontFace": _FONT,
-    "frameFontSize": "12",
+    "copyrightFontFace": _FONT,
+    "copyrightFontSize": "9",
+    "footerFontFace": _FONT,
+    "footerFontSize": "9",
+    "showFooter": "1",
+    "footerFirstPage": "1",
+    "evenFooterC": "$C",
+    "oddFooterC": "$C",
 }
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
@@ -676,6 +683,16 @@ def musescore_convert(src: Path, dest: Path) -> None:
         raise RuntimeError(f"MuseScore schreef geen {dest}")
 
 
+def _footer_text(path: Path, mscx: str) -> str:
+    ident = id_from_path(path) or path.stem
+    existing = (_meta(mscx, "copyright") or "").strip()
+    if ident and ident in existing:
+        return existing
+    if existing and ident:
+        return f"{existing} | {ident}"
+    return ident or existing
+
+
 def process_mscz(
     path: Path,
     *,
@@ -699,6 +716,10 @@ def process_mscz(
         mscx = _set_meta(mscx, "vsaNoLyricExtenders", "1")
     new_mscx, mscx_notes = apply_mscx(mscx)
     notes.extend(mscx_notes)
+    footer = _footer_text(path, new_mscx)
+    if footer:
+        new_mscx = _set_meta(new_mscx, "copyright", footer)
+        notes.append(f"copyright/footer={footer!r}")
     new_mss = overlay_style(mss, extra_style)
     notes.append("score_style.mss overlays toegepast")
 

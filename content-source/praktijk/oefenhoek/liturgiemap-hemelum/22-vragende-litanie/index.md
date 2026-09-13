@@ -1,15 +1,10 @@
 ---
 title: "22 Vragende Litanie/Ektinia"
-linkTitle: "22 Vragende Litanie"
+linkTitle: "22 Vragende Litanie/Ektinia"
 weight: 22
 publicatiestatus: voorzien
 ---
 
 # 22 Vragende Litanie/Ektinia
 
-Deze oefenpagina is werk-in-uitvoering; het kan zijn dat sommige dingen nog niet werken.
-
-<!-- :::include svg "22-vragende-litanie.vsa" alt="22 Vragende Litanie/Ektinia"::: -->
-<!-- :::include coria "22-vragende-litanie.mxl" label="Oefenen in Coria"::: -->
-<!-- score-actions pdf="22-vragende-litanie.pdf" -->
-<!-- pdf-sheet src="22-vragende-litanie.pdf" actions="false" -->
+{{< repertoire-score id="22-vragende-litanie/vokn/hemelum" >}}
