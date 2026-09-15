@@ -418,23 +418,36 @@ def prepare_note(note: ET.Element) -> ET.Element:
 
 
 def _is_feathered_recite(note: ET.Element) -> bool:
-    """Hub ||O||: breve notehead en/of stem none + half/whole met multi-syllabe lyric."""
+    """Hub ||O|| na MuseScore-export: breve-kop, stokloos, of type long/maxima.
+
+    MuseScore schrijft feathered hub-noten vaak als ``<type>long</type>`` met
+    ``notehead=normal`` en (op de sopraan) multi-lettergreep-lyric; lagere
+    stemmen hebben dezelfde noot zonder lyric.
+    """
     nh = child(note, "notehead")
     if nh is not None and (nh.text or "").strip().lower() == "breve":
         return True
-    stem = child(note, "stem")
     ntype = child(note, "type")
     type_s = (ntype.text or "").strip() if ntype is not None else ""
-    if (
-        stem is not None
-        and (stem.text or "").strip() == "none"
-        and type_s in {"half", "whole", "breve"}
-    ):
-        lyrics = lyric_elements(note)
-        if lyrics:
-            joined = " ".join(text(child(ly, "text")) for ly in lyrics)
-            if " " in joined or "-" in joined:
-                return True
+    if type_s in {"long", "breve", "maxima"}:
+        return True
+    stem = child(note, "stem")
+    stem_none = (
+        stem is not None and (stem.text or "").strip() == "none"
+    )
+    lyrics = lyric_elements(note)
+    joined = (
+        " ".join(text(child(ly, "text")) for ly in lyrics).strip()
+        if lyrics
+        else ""
+    )
+    multi = bool(joined) and (
+        " " in joined or len(_syllables_from_lyric_text(joined)) > 1
+    )
+    if stem_none and type_s in {"half", "whole", "breve", "long"}:
+        return True
+    if multi and type_s in {"half", "whole", "breve", "long", "maxima"}:
+        return True
     return False
 
 
@@ -474,7 +487,7 @@ def _quarter_duration(divisions: int) -> int:
 def _make_quarter_note(
     template: ET.Element,
     *,
-    syl_text: str,
+    syl_text: str | None,
     syllabic: str,
     divisions: int,
 ) -> ET.Element:
@@ -514,9 +527,10 @@ def _make_quarter_note(
     if stem is None:
         stem = ET.SubElement(n, "stem")
     stem.text = "up"
-    ly = ET.SubElement(n, "lyric", number="1")
-    ET.SubElement(ly, "syllabic").text = syllabic
-    ET.SubElement(ly, "text").text = syl_text
+    if syl_text:
+        ly = ET.SubElement(n, "lyric", number="1")
+        ET.SubElement(ly, "syllabic").text = syllabic
+        ET.SubElement(ly, "text").text = syl_text
     return n
 
 
@@ -531,6 +545,7 @@ def expand_recite_notes(root: ET.Element) -> int:
                 div = child(attrs, "divisions")
                 if div is not None and (div.text or "").strip().isdigit():
                     divisions = int(div.text.strip())
+            q = _quarter_duration(divisions)
             new_children: list[ET.Element] = []
             changed = False
             for el in list(measure):
@@ -542,13 +557,20 @@ def expand_recite_notes(root: ET.Element) -> int:
                     continue
                 lyrics = lyric_elements(el)
                 raw = " ".join(text(child(ly, "text")) for ly in lyrics).strip()
-                if not raw:
-                    new_children.append(el)
-                    continue
-                syllables = _syllables_from_lyric_text(raw)
-                if len(syllables) <= 1:
-                    # Toch normaliseren naar kwart voor Coria
-                    syllables = [(raw, "single")]
+                dur_el = child(el, "duration")
+                dur = (
+                    int(dur_el.text.strip())
+                    if dur_el is not None and (dur_el.text or "").strip().isdigit()
+                    else q
+                )
+                n_by_dur = max(1, dur // q)
+                if raw:
+                    syllables = _syllables_from_lyric_text(raw)
+                    if len(syllables) <= 1:
+                        syllables = [(raw, "single")]
+                else:
+                    # Lagere stemmen: zelfde aantal kwarten, zonder lyric
+                    syllables = [(None, "single")] * n_by_dur
                 for syl_text, syllabic in syllables:
                     new_children.append(
                         _make_quarter_note(

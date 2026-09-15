@@ -121,7 +121,7 @@ Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlin
 | ---- | --- |
 | `metaTag copyright` | Korte footer (`$C`) |
 | `metaTag vsaCopyrightFull` | Volledige colofon |
-| VBox "Colofon" | Onderaan de **laatste pagina** (paginabreuk na de muziek; tekst onderaan in het frame) |
+| VBox "Colofon" | Direct na de laatste muziekmaat; op **dezelfde pagina** als er ruimte is, anders laat MuseScore een nieuwe pagina beginnen |
 
 VOW-sibling mag **niet** stilzwijgend op een Capella-publicatie worden geplakt.
 

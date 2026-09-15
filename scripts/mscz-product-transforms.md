@@ -37,7 +37,7 @@ Geen lettergreep-explosie, geen vier aparte Coria-parts.
 
 | Hub | Coria |
 | --- | --- |
-| Feathered reciteernoot + lyrictekst | **Explosie:** één kwart per lettergreep (split op spatie en `-`; anders `nl_hyphen.py`) |
+| Feathered reciteernoot + lyrictekst | **Explosie:** één kwart per lettergreep (split op spatie en `-`; anders `nl_hyphen.py`). MuseScore-export als `type=long` telt ook. |
 | Melisma (slur + ticks) | lyric op eerste noot + `<extend/>` |
 | Dubbele maatstreep | extra maat 4 kwarten rust, lyric `[PAUZE]`; cue `P:`/`D:`/`K:` erboven |
 | Gebogen cesuur | 1 kwart rust erna |

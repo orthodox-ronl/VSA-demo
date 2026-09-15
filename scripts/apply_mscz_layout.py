@@ -311,20 +311,19 @@ def resolve_copyright_source(mscx: str, rights_hint: str = "") -> str:
 
 
 def _build_colophon_vbox(full_text: str) -> str:
-    """Colofon-frame op de laatste pagina; tekst onderaan in een hoog frame."""
+    """Colofon-frame direct na de muziek; MuseScore plaatst het op dezelfde
+    pagina als er ruimte is, anders op de volgende."""
     body = f"{_COLOPHON_TITLE}\n\n{full_text.strip()}"
-    # Geen LayoutBreak in dit VBox: paginabreuk zit op de laatste maat.
-    # Vast hoog frame + align bottom -> colofon onderaan de pagina.
     return "\n".join(
         [
             "      <VBox>",
-            "        <height>40</height>",
-            "        <boxAutoSize>0</boxAutoSize>",
-            "        <topGap>4</topGap>",
+            "        <height>8</height>",
+            "        <boxAutoSize>1</boxAutoSize>",
+            "        <topGap>8</topGap>",
             "        <bottomGap>2</bottomGap>",
             "        <Text>",
             "          <style>frame</style>",
-            "          <align>left,bottom</align>",
+            "          <align>left,top</align>",
             f"          <text>{_xml_text(body)}</text>",
             "          </Text>",
             "        </VBox>",
@@ -348,8 +347,8 @@ def _measure_staff(mscx: str, staff_id: str = "1") -> re.Match[str] | None:
     return None
 
 
-def _ensure_page_break_on_last_measure(mscx: str, staff_id: str = "1") -> str:
-    """Paginabreuk op de laatste muziekmaat, zodat het colofon op een nieuwe pagina start."""
+def _strip_page_break_on_last_measure(mscx: str, staff_id: str = "1") -> str:
+    """Verwijder gedwongen paginabreuk op de laatste maat (oude colofon-layout)."""
     staff = _measure_staff(mscx, staff_id)
     if staff is None:
         return mscx
@@ -358,35 +357,35 @@ def _ensure_page_break_on_last_measure(mscx: str, staff_id: str = "1") -> str:
         return mscx
     last = measures[-1]
     block = last.group(0)
-    if re.search(
-        r"<LayoutBreak>\s*(?:<eid>[^<]*</eid>\s*)?<subtype>page</subtype>",
-        block,
-        re.S,
-    ):
-        return mscx
-    # Verwijder line-break op de allerlaatste maat (pagina wint); eid mag ertussen.
     block2 = re.sub(
-        r"\s*<LayoutBreak>\s*(?:<eid>[^<]*</eid>\s*)?<subtype>line</subtype>\s*</LayoutBreak>",
+        r"\s*<LayoutBreak>\s*(?:<eid>[^<]*</eid>\s*)?<subtype>page</subtype>\s*"
+        r"(?:<eid>[^<]*</eid>\s*)?</LayoutBreak>",
         "",
         block,
         count=1,
     )
-    insert = (
-        "\n        <LayoutBreak>\n"
-        "          <subtype>page</subtype>\n"
-        "          </LayoutBreak>"
-    )
-    block2 = re.sub(r"</Measure>\s*$", insert + "\n      </Measure>", block2, count=1)
+    if block2 == block:
+        return mscx
     abs_start = staff.start() + last.start()
     abs_end = staff.start() + last.end()
     return mscx[:abs_start] + block2 + mscx[abs_end:]
+
+
+def _ensure_page_break_on_last_measure(mscx: str, staff_id: str = "1") -> str:
+    """Verouderd: colofon gaat niet meer naar een aparte pagina.
+
+    Behouden als no-op-helper voor eventuele callers; strip juist de breuk.
+    """
+    return _strip_page_break_on_last_measure(mscx, staff_id)
 
 
 def _insert_colophon_after_staff1(mscx: str, full_text: str) -> str:
     mscx = _strip_colophon_vbox(mscx)
     if not full_text.strip():
         return mscx
-    mscx = _ensure_page_break_on_last_measure(mscx, "1")
+    # Geen paginabreuk: VBox volgt op de laatste maat; past het niet, dan
+    # laat MuseScore zelf een nieuwe pagina beginnen.
+    mscx = _strip_page_break_on_last_measure(mscx, "1")
     vbox = _build_colophon_vbox(full_text)
     staff = _measure_staff(mscx, "1")
     if staff is None:
@@ -427,7 +426,7 @@ def apply_copyright_notices(mscx: str, rights_hint: str = "") -> tuple[str, list
     mscx = _set_meta(mscx, _META_COPYRIGHT_FULL, full)
     mscx = _insert_colophon_after_staff1(mscx, full)
     notes.append(f"copyright footer={short!r}")
-    notes.append("colofon onderaan laatste pagina (paginabreuk + VBox)")
+    notes.append("colofon na laatste maat (zelfde pagina als er ruimte is)")
     return mscx, notes
 
 
