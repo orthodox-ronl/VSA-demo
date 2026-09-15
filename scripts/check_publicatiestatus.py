@@ -1,25 +1,26 @@
-"""Oefenhoek: elk _index.md en index.md (niet input/) heeft publicatiestatus."""
-
+"""Oefenhoek: elk _index.md en index.md (niet input/) heeft
+publicatiestatus en automatische_inhoud."""
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OEFENHOEK = REPO_ROOT / "content-source" / "praktijk" / "oefenhoek"
 VALID = frozenset({"voorzien", "concept", "reviewable", "productie"})
+AUTO_VALID = frozenset({"true", "false"})
 NAMES = frozenset({"_index.md", "index.md"})
 
 
-def _status(text: str) -> str | None:
+def _fm_value(text: str, key: str) -> str | None:
     in_fm = False
+    prefix = f"{key.lower()}:"
     for line in text.splitlines():
         if line.strip() == "---":
             if not in_fm:
                 in_fm = True
                 continue
             break
-        if in_fm and line.lower().startswith("publicatiestatus:"):
+        if in_fm and line.lower().startswith(prefix):
             return line.split(":", 1)[1].strip().strip("\"'")
     return None
 
@@ -37,16 +38,22 @@ def main() -> int:
             continue
         checked += 1
         rel = path.relative_to(REPO_ROOT).as_posix()
-        status = _status(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        status = _fm_value(text, "publicatiestatus")
         if not status:
             errors.append(f"{rel}: publicatiestatus ontbreekt")
         elif status not in VALID:
             errors.append(f"{rel}: onbekende publicatiestatus {status!r}")
+        auto = (_fm_value(text, "automatische_inhoud") or "").lower()
+        if not auto:
+            errors.append(f"{rel}: automatische_inhoud ontbreekt")
+        elif auto not in AUTO_VALID:
+            errors.append(f"{rel}: onbekende automatische_inhoud {auto!r}")
     if errors:
         for line in errors:
             print(f"FAIL: {line}", flush=True)
         return 1
-    print(f"Oefenhoek publicatiestatus: {checked} pagina('s) OK", flush=True)
+    print(f"Oefenhoek frontmatter: {checked} pagina('s) OK", flush=True)
     return 0
 
 

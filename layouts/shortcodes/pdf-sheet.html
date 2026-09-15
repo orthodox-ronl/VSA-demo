@@ -26,8 +26,8 @@
   <div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"></div>
   {{- if $showActions }}
   <p class="pdf-sheet-actions">
-    <a href="{{ $href }}" download>{{ $download }}</a>
-    <a href="{{ $href }}" class="pdf-sheet-print">{{ $print }}</a>
+    <a class="btn" href="{{ $href }}" download>{{ $download }}</a>
+    <a class="btn pdf-sheet-print" href="{{ $href }}">{{ $print }}</a>
   </p>
   {{- end }}
 </div>

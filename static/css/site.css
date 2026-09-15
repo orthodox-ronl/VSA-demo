@@ -404,42 +404,107 @@ svg:not(.site-jump-icon),
 .pdf-sheet-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-  margin: 0.6rem 0 0;
+  gap: 0.6rem 0.75rem;
+  margin: 0.75rem 0 0;
 }
 
-.score-actions {
+.score-actions,
+.mxl-download {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem 0.75rem;
   align-items: stretch;
-  margin: 1rem 0;
+  margin: 1.15rem 0;
 }
 
 .score-actions .btn,
-a.btn.coria-play {
+a.btn.coria-play,
+.pdf-sheet-actions a,
+.mxl-download a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  flex: 1 1 8rem;
-  min-height: 2.75rem;
-  padding: 0.55rem 0.9rem;
-  font-size: 1rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   line-height: 1.25;
-  background: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
-  border: 1px solid var(--border-color);
-  color: #003366;
   box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 51, 102, 0.18);
+}
+
+.score-actions .btn,
+a.btn.coria-play {
+  flex: 1 1 9rem;
+}
+
+.score-actions .btn,
+a.btn.coria-play,
+.pdf-sheet-actions a,
+.mxl-download a {
+  background: #e8f1fa;
+  border: 2px solid #003366;
+  color: #003366;
 }
 
 .score-actions .btn:hover,
 .score-actions .btn:focus,
 a.btn.coria-play:hover,
-a.btn.coria-play:focus {
-  background: #eee;
+a.btn.coria-play:focus,
+.pdf-sheet-actions a:hover,
+.pdf-sheet-actions a:focus,
+.mxl-download a:hover,
+.mxl-download a:focus {
+  background: #d4e6f7;
+  color: #003366;
+  text-decoration: none;
+}
+
+.handleiding-cue {
+  margin: 0 0 1.35rem;
+  padding: 0.85rem 1rem 1rem;
+  background: #f4f7fb;
+  border: 1px solid #c5d4e6;
+  border-left: 5px solid #003366;
+  border-radius: 4px;
+}
+
+.handleiding-cue-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #003366;
+}
+
+.handleiding-cue-body {
+  margin: 0;
+}
+
+.handleiding-cue-body > *:first-child {
+  margin-top: 0;
+}
+
+.handleiding-cue-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.handleiding-cue-body ol,
+.handleiding-cue-body ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.handleiding-cue-body li {
+  margin: 0.2rem 0;
+}
+
+.handleiding-cue-body code {
+  font-size: 0.9em;
 }
 
 .pdf-sheet-print-frame {
@@ -617,6 +682,39 @@ a.btn.coria-play:focus {
 
 .publicatiestatus-feedback {
   margin-top: 0.15rem;
+}
+
+.hub-product-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #b00020;
+  background: #fde8eb;
+  color: #3b0008;
+  font-size: 0.95rem;
+}
+
+.hub-product-banner-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.hub-product-banner ul {
+  margin: 0.35rem 0 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.hub-product-banner-cmd {
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.5rem 0.65rem;
+  background: #fff;
+  border: 1px solid #c9a0a8;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+/* Titel komt uit het template; verberg herhaalde #-titel in de markdown. */
+.oefenhoek-page .oefenhoek-body > h1:first-child {
+  display: none;
 }
 
 .werkvoorraad {

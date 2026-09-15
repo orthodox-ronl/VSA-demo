@@ -14,7 +14,8 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
-| `mscz-products` | PDF + Coria-`.mxl` uit publicatie-`.mscz` | `[pad] --force --dry-run` |
+| `mscz-products` | PDF + Coria-`.mxl` uit hub-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
+| `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
 
 `cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
 op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
@@ -23,21 +24,28 @@ MuseScore-stijl tot op de pixel. Niet in `check`.
 `-o` schrijft naar een naam zonder spaties; in-place op een naam mét spaties
 wordt geweigerd. Ruwe Capella-inputs blijven in `oefenhoek/input/`.
 
-`apply_mscz_layout.py` is de proef voor laag 4: A4-standaard-layout op een
-`.mscz` (idempotent), plus lettergreep-splitsing (`melse` -> twee noten
-`mel` + `se`, zelfde duur, SATB), knippen van langere noten in andere
-partijen zodat elke lettergreep van de lead-stem overal minstens één noot
-heeft, en het weghalen van een lege extra notenbalk (SAT+B-import).
-Accepteert ook opgekuiste `.mxl` (MuseScore-import). Geen PDF of Coria-`.mxl`.
-Contract: `scripts/mscz-layout-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`
-(gedeeld met `cleanup_capella_mxl.py`). Niet in `check`. Later verhuizen
-naar VSA-tooling.
+`capella-mxl-to-mscz.cmd` (`batch_capella_mxl_to_mscz.py`) kuist een map
+Capella-`.mxl` (recursief) op en schrijft standaard-`.mscz` ernaast in de
+doelmap, met dezelfde submappen. Default: `ruwe-invoer\capella-backup-mxl`
+-> `ruwe-invoer\capella-backup-mscz`. Bestandsnamen zonder spaties;
+bestaande verse `.mscz` worden overgeslagen (hervatten). MuseScore 4
+nodig, en niet open tijdens de run. Niet in `check`. Geen PDF/Coria.
+
+`apply_mscz_layout.py` normaliseert de **hub-`.mscz`** (A4-layout, lettergrepen,
+reciteer-collaps `||O||`, tempo, copyright). Accepteert ook opgekuiste `.mxl`.
+Weigert `*.print.mscz` (print-/koormap-vel buiten de hub-straat).
+Copyright: bronnotice of default CC BY-SA 4.0 + eredienst-zin.
+Contract: `scripts/mscz-hub-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`.
+Transforms: `scripts/mscz-product-transforms.md`.
 
 `mscz-products.cmd` (`sync_mscz_products.py`) exporteert sibling-PDF en
-Coria-`.mxl` als ze ontbreken of ouder zijn dan de publicatie-`.mscz`.
-Niet in `check` / `build` / `serve`: eerst layout, dan eventueel editslag
-in MuseScore, daarna dit script. Heeft MuseScore 4 nodig.
+Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
+(`hub-sha256`, `generated-at`). Pipeline roept dit lokaal aan.
+`check_hub_products.py` schrijft `data/hub-product-status.json` (Hugo-banner);
+op `main` falen bij mismatch. Print-velden tellen niet mee in die gate.
 
+Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
+`partituur/7-print-mscz`).
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na
@@ -67,12 +75,22 @@ Generate kopieert extra page-bundle bestanden (`.mxl`) via
 naam). `fingerprint_coria_mxl.py` publiceert uncompressed MusicXML
 als `/mxl/c/<hash>.musicxml` (URL eindigt op `.musicxml`, geen spaties of
 query-string; compressed `.mxl` laat Coria op sommige stukken falen).
-`check_publicatiestatus.py` (in `check`) eist `publicatiestatus` op elke
-oefenhoek-`_index.md` / `index.md` (niet `input/`): `voorzien`, `concept`,
-`reviewable` of `productie`.
+`check_publicatiestatus.py` (in `check`) eist `publicatiestatus` en
+`automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /
+`index.md` (niet `input/`). Status: `voorzien`, `concept`, `reviewable` of
+`productie`.
 `update_werkvoorraad.py` (in `check` / `build` / `serve`) vult de tabel in
 `oefenhoek/input/werkvoorraad.md` en verwijdert `generated/.../oefenhoek/input`
 zodat inputs geen Hugo-pagina's worden.
+`sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes
+en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). De partituur
+komt uit de Hugo-layout (`layouts/partials/bladermap-score.html`) op basis van
+de bestanden in de map. Sectie-pagina's krijgen een linklijst van kinderen
+(`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1 kind volgt
+een doorverwijzing. Catalogus-includes
+(`id:` / `lokaal:` / `bron:`) en `automatische_inhoud: false` blijven. `--svg` (na
+`build-markdown`) zet lokale `.vsa` zonder `.mscz` om naar
+`static/vsa/bladermap/`. `--dry-run` toont wat de strip zou wijzigen.
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

@@ -3,8 +3,7 @@ title: "6 Derde antifoon (weekdagen, Hemelum)"
 linkTitle: "Hemelum"
 weight: 1
 publicatiestatus: reviewable
+automatische_inhoud: true
 ---
 
-# 6 Derde antifoon (weekdagen, Hemelum — *Komt, laat ons jubelen voor de Heer*)
-
-:::include svg "6-derde-antifoon-weekdagen-hemelum.vsa" alt="6 Derde antifoon, weekdagen (Hemelum)":::
+# 6 Derde antifoon (weekdagen, Hemelum)

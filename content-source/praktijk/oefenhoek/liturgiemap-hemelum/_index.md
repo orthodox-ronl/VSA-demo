@@ -5,6 +5,7 @@ weight: 10
 hide_page_list: true
 hide_section_list: true
 publicatiestatus: concept
+automatische_inhoud: false
 ---
 
 Inhoudsopgave van de liturgiemap van Hemelum (Nederlandse gedeelte). 
@@ -26,13 +27,13 @@ van zangstukken die op die plek in de H. Liturgie gezongen zouden kunnen worden.
 |  --  | [Troparen en Kondaken](troparen-en-kondaken/) |
 |  --  | [Kondak Moeder Gods - Toon 6](troparen-en-kondaken/kondak-moeder-gods-toon-6/) |
 |  --  | [Dialoog met de Diaken](dialoog-met-diaken/) |
-|   8  | [Trisagion (Nls)](8a-trisagion/) ([Nls met Ksl](8a-trisagion-slav/)) |
+|   8  | [Trisagion](8-trisagion/) ([Nls](8-trisagion/8a-trisagion/), [Nls met Ksl](8-trisagion/8a-trisagion-slav/)) |
 |   9  | Prokimens |
 |  9b  | Allelujas |
 |  10  | Evangelielezing |
 |  11  | Dringende Litanie/Ektinia |
 |  12  | Ontslapenen Litanie/Ektinia |
-|  13  | Catehumenen Litanie/Ektinia |
+|  13  | Catechumenen Litanie/Ektinia |
 |  14  | Gelovigen Litanie/Ektinia |
 |  15  | [Cherubijnenhymne (Kastorski)](15c-cherubijnenhymne-kastorski/) |
 |  16  | Vragende Litanie/Ektinia |

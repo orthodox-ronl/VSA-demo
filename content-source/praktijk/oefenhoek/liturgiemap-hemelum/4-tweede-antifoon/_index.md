@@ -4,11 +4,7 @@ linkTitle: "4 Tweede Antifoon"
 weight: 4
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
 
-# 4 Tweede Antifoon
-
-Tweede antifonen voor verschillende gelegenheden:
-
-- zondag (*Loof, mijn ziel, de Heer*)
-- weekdagen (*De Heer bemint de poorten van Sion*, Hemelum)
+Tweede antifonen voor verschillende gelegenheden.

@@ -3,7 +3,10 @@ title: "Oefenhoek"
 linkTitle: "Oefenhoek"
 weight: 80
 publicatiestatus: concept
+automatische_inhoud: true
 layout: oefenhoek-overzicht
+cascade:
+  type: oefenhoek
 ---
 
 De "Oefenhoek" is bedoeld voor mensen die de hier aanwezige zangstukken willen oefenen.

@@ -1,0 +1,189 @@
+"""Provenance in hub-afgeleiden: hub-sha256 + generated-at.
+
+MXL: MusicXML identification / miscellaneous-field.
+PDF: Info-dict via pypdf (napoststampen na MuseScore-export).
+"""
+
+from __future__ import annotations
+
+import hashlib
+import re
+import zipfile
+from datetime import datetime, timezone
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+FIELD_HUB_SHA = "vsa-hub-sha256"
+FIELD_GENERATED_AT = "vsa-generated-at"
+FIELD_GENERATOR = "vsa-generator"
+GENERATOR_ID = "mscz-products"
+PDF_KEY_HUB = "/VSAHubSHA256"
+PDF_KEY_GENERATED = "/VSAGeneratedAt"
+PDF_KEY_GENERATOR = "/VSAGenerator"
+
+
+def hub_sha256(mscz: Path) -> str:
+    return hashlib.sha256(mscz.read_bytes()).hexdigest()
+
+
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _local(tag: str) -> str:
+    if "}" in tag:
+        return tag.rsplit("}", 1)[-1]
+    return tag
+
+
+def _child(el: ET.Element, name: str) -> ET.Element | None:
+    for c in el:
+        if _local(c.tag) == name:
+            return c
+    return None
+
+
+def _children(el: ET.Element, name: str) -> list[ET.Element]:
+    return [c for c in el if _local(c.tag) == name]
+
+
+def _ensure_identification(root: ET.Element) -> ET.Element:
+    ident = _child(root, "identification")
+    if ident is None:
+        ident = ET.Element("identification")
+        # Vooraan: na movement-title / work-title als die bestaan.
+        insert_at = 0
+        for i, c in enumerate(list(root)):
+            if _local(c.tag) in {"work", "movement-number", "movement-title"}:
+                insert_at = i + 1
+        root.insert(insert_at, ident)
+    return ident
+
+
+def _set_misc_field(ident: ET.Element, name: str, value: str) -> None:
+    misc = _child(ident, "miscellaneous")
+    if misc is None:
+        misc = ET.SubElement(ident, "miscellaneous")
+    for field in _children(misc, "miscellaneous-field"):
+        if field.get("name") == name:
+            field.text = value
+            return
+    field = ET.SubElement(misc, "miscellaneous-field", name=name)
+    field.text = value
+
+
+def stamp_mxl_tree(
+    root: ET.Element,
+    *,
+    hub_hash: str,
+    generated_at: str,
+    generator: str = GENERATOR_ID,
+) -> None:
+    ident = _ensure_identification(root)
+    enc = _child(ident, "encoding")
+    if enc is None:
+        enc = ET.SubElement(ident, "encoding")
+    date_el = _child(enc, "encoding-date")
+    if date_el is None:
+        date_el = ET.Element("encoding-date")
+        enc.insert(0, date_el)
+    # encoding-date is YYYY-MM-DD
+    date_el.text = generated_at[:10]
+    sw = ET.Element("software")
+    sw.text = f"{generator} hub={hub_hash[:12]}"
+    enc.append(sw)
+    _set_misc_field(ident, FIELD_HUB_SHA, hub_hash)
+    _set_misc_field(ident, FIELD_GENERATED_AT, generated_at)
+    _set_misc_field(ident, FIELD_GENERATOR, generator)
+
+
+def read_mxl_stamp(path: Path) -> dict[str, str]:
+    """Lees stamp uit .mxl of .musicxml/.xml."""
+    if path.suffix.lower() == ".mxl":
+        with zipfile.ZipFile(path) as z:
+            names = [
+                n
+                for n in z.namelist()
+                if n.endswith((".xml", ".musicxml")) and not n.startswith("META")
+            ]
+            if not names:
+                return {}
+            raw = z.read(names[0])
+    else:
+        raw = path.read_bytes()
+    raw = re.sub(rb"<!DOCTYPE[\s\S]*?>", b"", raw, count=1, flags=re.I)
+    root = ET.fromstring(raw)
+    ident = _child(root, "identification")
+    if ident is None:
+        return {}
+    out: dict[str, str] = {}
+    misc = _child(ident, "miscellaneous")
+    if misc is not None:
+        for field in _children(misc, "miscellaneous-field"):
+            name = field.get("name") or ""
+            if name and (field.text or "").strip():
+                out[name] = (field.text or "").strip()
+    return out
+
+
+def stamp_pdf(
+    path: Path,
+    *,
+    hub_hash: str,
+    generated_at: str,
+    generator: str = GENERATOR_ID,
+) -> None:
+    try:
+        from pypdf import PdfReader, PdfWriter
+    except ImportError:
+        import subprocess
+        import sys
+
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "-r", str(Path(__file__).with_name("requirements-hub.txt"))],
+        )
+        from pypdf import PdfReader, PdfWriter
+
+    reader = PdfReader(str(path))
+    writer = PdfWriter()
+    writer.append(reader)
+    writer.add_metadata(
+        {
+            "/VSAHubSHA256": hub_hash,
+            "/VSAGeneratedAt": generated_at,
+            "/VSAGenerator": generator,
+        }
+    )
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("wb") as fh:
+        writer.write(fh)
+    tmp.replace(path)
+
+
+def read_pdf_stamp(path: Path) -> dict[str, str]:
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        return {}
+    try:
+        reader = PdfReader(str(path))
+    except Exception:  # noqa: BLE001
+        return {}
+    meta = reader.metadata
+    if meta is None:
+        return {}
+    raw = {str(k): str(v) for k, v in dict(meta).items() if v is not None}
+    out: dict[str, str] = {}
+    # Keys kunnen met of zonder slash
+    mapping = {
+        "/VSAHubSHA256": FIELD_HUB_SHA,
+        "VSAHubSHA256": FIELD_HUB_SHA,
+        "/VSAGeneratedAt": FIELD_GENERATED_AT,
+        "VSAGeneratedAt": FIELD_GENERATED_AT,
+        "/VSAGenerator": FIELD_GENERATOR,
+        "VSAGenerator": FIELD_GENERATOR,
+    }
+    for key, field in mapping.items():
+        if key in raw and raw[key].strip():
+            out[field] = raw[key].strip()
+    return out

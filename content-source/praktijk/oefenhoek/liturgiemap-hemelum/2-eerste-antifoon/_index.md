@@ -4,11 +4,7 @@ linkTitle: "2 Eerste Antifoon"
 weight: 2
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
 
-# 2 Eerste Antifoon
-
-Eerste antifonen voor verschillende gelegenheden:
-
-- zondag (*Zegen, mijn ziel, de Heer*)
-- weekdagen (*Juich voor God, gehele aarde*)
+Eerste antifonen voor verschillende gelegenheden.

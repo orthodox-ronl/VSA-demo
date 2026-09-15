@@ -1,0 +1,16 @@
+{{- /*
+  Linklijst van kind-pagina's. Bij precies 1 kind: niets (redirect in head).
+*/ -}}
+{{- if .IsSection -}}
+{{- $items := partial "oefenhoek-kind-items.html" . -}}
+{{- if gt (len $items) 1 -}}
+<ul class="page-list oefenhoek-kinderen">
+  {{- range $items -}}
+  <li><a href="{{ .RelPermalink }}">{{ or .Params.linkTitle .Title }}</a></li>
+  {{- end -}}
+</ul>
+{{- else if eq (len $items) 1 -}}
+{{- $one := index $items 0 -}}
+<p class="oefenhoek-doorverwijzing"><a href="{{ $one.RelPermalink }}">{{ or $one.Params.linkTitle $one.Title }}</a></p>
+{{- end -}}
+{{- end -}}

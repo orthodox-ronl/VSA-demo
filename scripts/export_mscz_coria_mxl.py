@@ -40,7 +40,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from score_filenames import published_path, require_no_spaces
+from score_filenames import published_path, require_no_spaces, is_print_mscz
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 PAUSE_LYRIC = "[PAUZE]"
@@ -415,6 +415,157 @@ def prepare_note(note: ET.Element) -> ET.Element:
     if is_pitched(n) and n.get("print-object") == "no":
         del n.attrib["print-object"]
     return n
+
+
+def _is_feathered_recite(note: ET.Element) -> bool:
+    """Hub ||O||: breve notehead en/of stem none + half/whole met multi-syllabe lyric."""
+    nh = child(note, "notehead")
+    if nh is not None and (nh.text or "").strip().lower() == "breve":
+        return True
+    stem = child(note, "stem")
+    ntype = child(note, "type")
+    type_s = (ntype.text or "").strip() if ntype is not None else ""
+    if (
+        stem is not None
+        and (stem.text or "").strip() == "none"
+        and type_s in {"half", "whole", "breve"}
+    ):
+        lyrics = lyric_elements(note)
+        if lyrics:
+            joined = " ".join(text(child(ly, "text")) for ly in lyrics)
+            if " " in joined or "-" in joined:
+                return True
+    return False
+
+
+def _syllables_from_lyric_text(raw: str) -> list[tuple[str, str]]:
+    """Split hub-lyric tot (syllable_text, syllabic) paren."""
+    from nl_hyphen import hyphenate_token
+
+    tokens: list[str] = []
+    for word in raw.split():
+        word = word.strip()
+        if not word:
+            continue
+        if "-" in word:
+            tokens.extend(p for p in word.split("-") if p)
+        else:
+            parts = hyphenate_token(word)
+            tokens.extend(parts if parts else [word])
+    n = len(tokens)
+    out: list[tuple[str, str]] = []
+    for i, tok in enumerate(tokens):
+        if n <= 1:
+            syll = "single"
+        elif i == 0:
+            syll = "begin"
+        elif i == n - 1:
+            syll = "end"
+        else:
+            syll = "middle"
+        out.append((tok, syll))
+    return out
+
+
+def _quarter_duration(divisions: int) -> int:
+    return max(1, divisions)
+
+
+def _make_quarter_note(
+    template: ET.Element,
+    *,
+    syl_text: str,
+    syllabic: str,
+    divisions: int,
+) -> ET.Element:
+    n = copy.deepcopy(template)
+    # Verwijder feathered markeringen
+    for el in list(n):
+        tag = local(el.tag)
+        if tag in {"notehead", "dot", "time-modification", "beam", "notations"}:
+            # notations later opnieuw indien nodig; strip slurs op recite expand
+            if tag == "notations":
+                n.remove(el)
+            elif tag != "notations":
+                n.remove(el)
+        if tag == "stem":
+            el.text = "up"
+        if tag == "type":
+            el.text = "quarter"
+        if tag == "duration":
+            el.text = str(_quarter_duration(divisions))
+        if tag == "lyric":
+            n.remove(el)
+    # duration/type opnieuw verzekeren
+    dur = child(n, "duration")
+    if dur is None:
+        dur = ET.Element("duration")
+        # na pitch
+        pitch = child(n, "pitch")
+        idx = list(n).index(pitch) + 1 if pitch is not None else 0
+        n.insert(idx, dur)
+    dur.text = str(_quarter_duration(divisions))
+    typ = child(n, "type")
+    if typ is None:
+        typ = ET.Element("type")
+        n.append(typ)
+    typ.text = "quarter"
+    stem = child(n, "stem")
+    if stem is None:
+        stem = ET.SubElement(n, "stem")
+    stem.text = "up"
+    ly = ET.SubElement(n, "lyric", number="1")
+    ET.SubElement(ly, "syllabic").text = syllabic
+    ET.SubElement(ly, "text").text = syl_text
+    return n
+
+
+def expand_recite_notes(root: ET.Element) -> int:
+    """Feathered hub-noten -> een kwart per lettergreep (Coria-playback)."""
+    expanded = 0
+    for part in music_parts(root):
+        divisions = 1
+        for measure in children(part, "measure"):
+            attrs = child(measure, "attributes")
+            if attrs is not None:
+                div = child(attrs, "divisions")
+                if div is not None and (div.text or "").strip().isdigit():
+                    divisions = int(div.text.strip())
+            new_children: list[ET.Element] = []
+            changed = False
+            for el in list(measure):
+                if local(el.tag) != "note" or is_rest(el) or is_chord(el):
+                    new_children.append(el)
+                    continue
+                if not _is_feathered_recite(el):
+                    new_children.append(el)
+                    continue
+                lyrics = lyric_elements(el)
+                raw = " ".join(text(child(ly, "text")) for ly in lyrics).strip()
+                if not raw:
+                    new_children.append(el)
+                    continue
+                syllables = _syllables_from_lyric_text(raw)
+                if len(syllables) <= 1:
+                    # Toch normaliseren naar kwart voor Coria
+                    syllables = [(raw, "single")]
+                for syl_text, syllabic in syllables:
+                    new_children.append(
+                        _make_quarter_note(
+                            el,
+                            syl_text=syl_text,
+                            syllabic=syllabic,
+                            divisions=divisions,
+                        )
+                    )
+                expanded += 1
+                changed = True
+            if changed:
+                for c in list(measure):
+                    measure.remove(c)
+                for c in new_children:
+                    measure.append(c)
+    return expanded
 
 
 def tempo_direction(bpm: str) -> ET.Element:
@@ -886,6 +1037,9 @@ def process(mscz: Path, out: Path) -> None:
         musescore_export(mscz, raw_mxl, musescore)
         root = load_score_xml(raw_mxl)
     root = convert_root(root)
+    n_recite = expand_recite_notes(root)
+    if n_recite:
+        print(f"  recite-expand={n_recite}")
     apply_coria_timing(root)
     n_ext = apply_melisma_extenders(root)
     print(f"  melisma-extend={n_ext}")
@@ -931,12 +1085,21 @@ def coria_importer_violations(root: ET.Element) -> list[str]:
 
 
 def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
+    """Zoek bestanden met de gegeven suffix.
+
+    Bij `.mscz` in een map: sla `*.print.mscz` over (print-vel, geen hub).
+    Een expliciet pad naar een print-`.mscz` blijft in de lijst; callers
+    weigeren die met een duidelijke melding.
+    """
     out: list[Path] = []
+    suf = suffix if suffix.startswith(".") else f".{suffix}"
     for path in paths:
         if path.is_dir():
-            found = sorted(p for p in path.rglob(f"*{suffix}") if p.is_file())
+            found = sorted(p for p in path.rglob(f"*{suf}") if p.is_file())
             if path.name != "input" and "input" not in path.parts:
                 found = [p for p in found if "input" not in p.parts]
+            if suf.lower() == ".mscz":
+                found = [p for p in found if not is_print_mscz(p)]
             out.extend(found)
         else:
             out.append(path)
@@ -944,7 +1107,8 @@ def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
 
 
 def expand_mscz(paths: list[Path]) -> list[Path]:
-    return expand_score_files(paths, ".mscz")
+    """Hub-`.mscz` alleen (geen `*.print.mscz`, ook niet als pad expliciet is)."""
+    return [p for p in expand_score_files(paths, ".mscz") if not is_print_mscz(p)]
 
 
 def main() -> int:
@@ -986,10 +1150,18 @@ def main() -> int:
             return 1
         return 0
 
-    files = expand_mscz(args.paths)
+    # Map-scan slaat print al over; expliciete print-paden melden we apart.
+    raw = expand_score_files(args.paths, ".mscz")
+    skipped_print = [p for p in raw if is_print_mscz(p)]
+    for path in skipped_print:
+        print(
+            f"OVERGESLAGEN print-.mscz (geen Coria): {path.name}",
+            flush=True,
+        )
+    files = [p for p in raw if not is_print_mscz(p)]
     if not files:
-        print("Geen .mscz-bestanden gevonden.", flush=True)
-        return 1
+        print("Geen hub-.mscz-bestanden gevonden.", flush=True)
+        return 1 if not skipped_print else 0
     if args.output is not None and len(files) != 1:
         raise SystemExit("-o alleen bij precies een .mscz")
     failed = 0

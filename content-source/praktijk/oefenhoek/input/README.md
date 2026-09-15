@@ -33,6 +33,8 @@ de publieke site. Daarom geen `_index.md` hier.
 1. Input in de juiste herkomst-map (of eerst `_inbox/`).
 2. Doel-id kiezen (`[a-z0-9_-]+`); onbekend: in de tabel leeg laten of vragen, niet raden.
 3. Converteren (Capella-`.mxl` → opkuisen → layout-`.mscz`; VOW-`.mscz` → layout). Tussenwerk in `_werk/`.
+   Copyright: alleen notice uit **deze** input meenemen. Capella zonder notice
+   → geen VOW/CC-tekst verzinnen, ook niet als er een VOW-sibling bestaat.
 4. Publiceren in `oefenhoek/<deelrubriek>/<doel-id>/` (`index.md` + `.mscz` / Coria-`.mxl` / PDF) als de pipeline groen is.
 5. `publicatiestatus` op die bladermap: `voorzien` (nog geen uitgave), `reviewable` (er staat iets in), `concept` (secties), `productie` alleen bewust.
 

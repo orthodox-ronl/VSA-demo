@@ -1,0 +1,26 @@
+{{- /*
+  Bestanden in de bladermap (content-source). Leeg als automatische_inhoud
+  niet true is.
+*/ -}}
+{{- $pdfs := slice -}}
+{{- $mxls := slice -}}
+{{- $vsas := slice -}}
+{{- $hasMscz := false -}}
+{{- $auto := .Params.automatische_inhoud -}}
+{{- if and .File (or (eq $auto true) (eq $auto "true")) -}}
+{{- $dir := strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+{{- $srcDir := printf "content-source/%s" $dir -}}
+{{- if fileExists $srcDir -}}
+{{- range os.ReadDir $srcDir -}}
+  {{- if not .IsDir -}}
+    {{- $name := .Name -}}
+    {{- $ext := strings.ToLower (path.Ext $name) -}}
+    {{- if eq $ext ".pdf" -}}{{- $pdfs = $pdfs | append $name -}}{{- end -}}
+    {{- if eq $ext ".mxl" -}}{{- $mxls = $mxls | append $name -}}{{- end -}}
+    {{- if eq $ext ".vsa" -}}{{- $vsas = $vsas | append $name -}}{{- end -}}
+    {{- if eq $ext ".mscz" -}}{{- $hasMscz = true -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- return (dict "pdfs" $pdfs "mxls" $mxls "vsas" $vsas "hasMscz" $hasMscz) -}}

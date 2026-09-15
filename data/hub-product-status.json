@@ -1,0 +1,107 @@
+{
+  "fix_page": "/praktijk/handleiding/partituur/6-afgeleiden/",
+  "folders": {
+    "praktijk/feesteigen/08-aug": {
+      "mscz": "content-source/praktijk/feesteigen/08-aug/08-15-mgods-ontslapen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\feesteigen\\08-aug\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/15c-cherubijnenhymne-kastorski/15c-cherubijnenhymne-kastorski.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\15c-cherubijnenhymne-kastorski\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/19a-eucharistische-kanon/19a-eucharistische-kanon-feofan.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\19a-eucharistische-kanon\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/2-eerste-antifoon/zondag": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/2-eerste-antifoon/zondag/2-eerste-antifoon-zondag.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\2-eerste-antifoon\\zondag\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/20d-in-waarheid-moeder-godslied.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\20-moeder-godslied\\20d-in-waarheid-moeder-godslied\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/08-15-mgods-ontslapen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\20-moeder-godslied\\moeder-godslied-ontslapen-mgods\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/28-wij-hebben-het-ware-licht": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/28-wij-hebben-het-ware-licht/28-wij-hebben-het-ware-licht.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\28-wij-hebben-het-ware-licht\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/29-de-naam-des-heren-zij-gezegend": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/29-de-naam-des-heren-zij-gezegend/29-de-naam-des-heren-zij-gezegend.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\29-de-naam-des-heren-zij-gezegend\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/4-tweede-antifoon/zondag": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/4-tweede-antifoon/zondag/4-tweede-antifoon-zondag.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\4-tweede-antifoon\\zondag\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/5-eniggeboren-zoon": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/5-eniggeboren-zoon/5-eniggeboren-zoon.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\5-eniggeboren-zoon\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/6-derde-antifoon/zondag": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/6-derde-antifoon/zondag/6-derde-antifoon-zaligsprekingen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\6-derde-antifoon\\zondag\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/moeder-gods": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/moeder-gods/7c-kleine-intocht-moeder-gods.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\7-kleine-intocht\\moeder-gods\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/weekdagen": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/weekdagen/7b-kleine-intocht-weekdagen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\7-kleine-intocht\\weekdagen\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/zondag": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/7-kleine-intocht/zondag/7a-kleine-intocht-zondag.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\7-kleine-intocht\\zondag\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/8-trisagion/8a-trisagion": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/8-trisagion/8a-trisagion/8a-trisagion.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\8-trisagion\\8a-trisagion\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/8-trisagion/8a-trisagion-slav": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/8-trisagion/8a-trisagion-slav/8a-trisagion-slav.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\8-trisagion\\8a-trisagion-slav\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra": {
+      "mscz": "content-source/praktijk/oefenhoek/liturgiemap-hemelum/troparen-en-kondaken/troparion-nikolaas-van-myra/T4-11-nicolaas-van-myra.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\liturgiemap-hemelum\\troparen-en-kondaken\\troparion-nikolaas-van-myra\"",
+      "issues": []
+    }
+  }
+}

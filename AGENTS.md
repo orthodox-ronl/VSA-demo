@@ -98,6 +98,14 @@ Uitleg: [scripts/README.md](scripts/README.md).
   Onbekend doel-id: **vragen**, niet raden.
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:
   `voorzien` | `concept` | `reviewable` | `productie`.
+- Hub-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
+  embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
+  Contract: `scripts/mscz-hub-contract.md`.
+  Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
+  (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
+- `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
+  en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) horen
+  bij `false`. Geen `#`-titel in sectie-`_index.md`.
 - Stub zonder oefenbare inhoud -> `voorzien`. Bladermap mét partituur/include -> `reviewable`
   tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal `concept`.
 - **Niet raden** op `productie`. Onbekend doel-id of onbekende status: **vragen**.

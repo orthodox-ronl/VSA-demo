@@ -4,6 +4,5 @@ linkTitle: "Weekdagen"
 weight: 2
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
-
-# 6 Derde antifoon (weekdagen — *Komt, laat ons jubelen voor de Heer*)

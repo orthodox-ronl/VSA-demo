@@ -3,8 +3,7 @@ title: "4 Tweede antifoon (weekdagen, Hemelum)"
 linkTitle: "Hemelum"
 weight: 1
 publicatiestatus: reviewable
+automatische_inhoud: true
 ---
 
-# 4 Tweede antifoon (weekdagen, Hemelum — *De Heer bemint de poorten van Sion*)
-
-:::include svg "4-tweede-antifoon-weekdagen-hemelum.vsa" alt="4 Tweede antifoon, weekdagen (Hemelum)":::
+# 4 Tweede antifoon (weekdagen, Hemelum)

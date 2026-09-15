@@ -22,6 +22,8 @@ echo OK
 echo.
 
 echo [2/7] Validate content-source
+"%PY%" scripts\sync_oefenhoek_index.py
+if errorlevel 1 exit /b 1
 if defined PIPELINE_STRICT (
   "%PY%" scripts\validate_content.py --summary --fail-on-warnings content-source
 ) else (
@@ -35,6 +37,12 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
+echo [2b/7] Hub-producten (PDF/MXL) bijwerken indien nodig
+"%PY%" scripts\sync_mscz_products.py
+if errorlevel 1 exit /b 1
+echo OK
+echo.
+
 echo [3/7] Generate Markdown + SVG + MusicXML
 if exist generated\content rmdir /s /q generated\content
 if exist static\vsa rmdir /s /q static\vsa
@@ -44,6 +52,8 @@ if exist static\mxl rmdir /s /q static\mxl
   generated\content ^
   static\vsa ^
   --output-mode shortcode
+if errorlevel 1 exit /b 1
+"%PY%" scripts\sync_oefenhoek_index.py --svg
 if errorlevel 1 exit /b 1
 if exist generated\content\praktijk\oefenhoek\input rmdir /s /q generated\content\praktijk\oefenhoek\input
 "%PY%" -m vsa.cli musicxml ^
@@ -67,6 +77,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\fingerprint_coria_mxl.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\check_hub_products.py
 if errorlevel 1 exit /b 1
 echo OK
 echo.

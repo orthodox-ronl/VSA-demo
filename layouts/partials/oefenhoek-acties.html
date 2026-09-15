@@ -1,0 +1,51 @@
+{{- /*
+  Actieknoppen onder titel + indextekst: Koormap, Oefenen, Downloaden, Printen.
+*/ -}}
+{{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" -}}
+{{- $koormap := false -}}
+{{- with site.GetPage "praktijk/oefenhoek" -}}
+  {{- $self := $ -}}
+  {{- range .Sections -}}
+    {{- if $self.IsDescendant . -}}
+      {{- $koormap = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $files := partial "oefenhoek-bladermap-files.html" . -}}
+{{- $dir := "" -}}
+{{- if .File -}}
+  {{- $dir = strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+{{- end -}}
+{{- $href := "" -}}
+{{- if $files.pdfs -}}
+  {{- $pdf := index $files.pdfs 0 -}}
+  {{- with $.Resources.GetMatch $pdf -}}
+    {{- $href = .RelPermalink -}}
+  {{- else -}}
+    {{- $href = urls.JoinPath $.RelPermalink $pdf -}}
+  {{- end -}}
+{{- end -}}
+{{- $hasOefenen := gt (len $files.mxls) 0 -}}
+{{- if or $koormap $hasOefenen $href -}}
+<div class="score-actions oefenhoek-acties"{{ if $href }} data-pdf-src="{{ $href }}"{{ end }}>
+  {{- if $koormap -}}
+  <a class="btn" href="{{ $koormap.RelPermalink }}">Koormap</a>
+  {{- end -}}
+  {{- if $hasOefenen -}}
+    {{- $manyMxl := gt (len $files.mxls) 1 -}}
+    {{- range $files.mxls -}}
+      {{- $mxlSrc := printf "mxl/%s/%s" $dir . -}}
+      {{- $label := "Oefenen" -}}
+      {{- if $manyMxl -}}
+        {{- $label = printf "Oefenen (%s)" (strings.TrimSuffix . ".mxl") -}}
+      {{- end -}}
+      {{ partial "coria-play.html" (dict "src" $mxlSrc "label" $label) }}
+    {{- end -}}
+  {{- end -}}
+  {{- if $href -}}
+  <a class="btn" href="{{ $href }}" download>Downloaden</a>
+  <a class="btn pdf-sheet-print" href="{{ $href }}">Printen</a>
+  {{- end -}}
+</div>
+{{- end -}}
+{{- end -}}

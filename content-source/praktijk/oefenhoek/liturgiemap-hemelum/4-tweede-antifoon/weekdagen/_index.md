@@ -4,6 +4,5 @@ linkTitle: "Weekdagen"
 weight: 2
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
-
-# 4 Tweede antifoon (weekdagen — *De Heer bemint de poorten van Sion*)

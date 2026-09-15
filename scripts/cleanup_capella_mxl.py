@@ -58,6 +58,10 @@ Capella-input in `oefenhoek/input/` mag spaties houden; schrijf opgekuiste
 uitvoer met `-o` naar een naam zonder spaties. In-place op een naam mét
 spaties is geweigerd.
 
+`<rights>` / copyright in de MusicXML blijft staan (niet strippen). Ontbreekt
+die in Capella-export, dan zet `apply_mscz_layout` later default CC BY-SA 4.0
+(deze uitgave) + eredienst-zin — zie hub-contract.
+
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl -o uit.mxl

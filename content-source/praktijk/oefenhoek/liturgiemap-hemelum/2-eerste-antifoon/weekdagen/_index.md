@@ -4,6 +4,5 @@ linkTitle: "Weekdagen"
 weight: 2
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
-
-# 2 Eerste antifoon (weekdagen — *Juich voor God, gehele aarde*)

@@ -3,11 +3,13 @@ title: "dialoog-met-diaken"
 sources:
   - "H. Liturgie - koormap - Groningen"
 publicatiestatus: voorzien
+automatische_inhoud: true
 ---
+
+# dialoog-met-diaken
 
 ## Dialoog met de Diaken
 
-<!-- Dit hoort HTML te zijn - dat is geen fout van een generator of zo -->
 <div style="font-size:120%; line-height:1.4;">
     <div style="display:flex; align-items:flex-start; gap:0.1rem;">
     <div style="min-width:3ch; flex-shrink:0;">D:</div>
@@ -34,7 +36,6 @@ publicatiestatus: voorzien
 </div>
 
 ::: vsa-notatie
-# scale: 110%
 K: [//:] Heer, red Uw vro-men en ver{\\&/hoor_&_} {/ons_} [//:]
 :::
 
@@ -49,7 +50,6 @@ K: [//:] Heer, red Uw vro-men en ver{\\&/hoor_&_} {/ons_} [//:]
 </div>
 
 ::: vsa-notatie
-# scale: 120%
 K: [//:] A-men [//:]
 :::
 

@@ -1,11 +1,11 @@
-"""Maak PDF en Coria-MXL bij een publicatie-.mscz (na de editslag).
+"""Maak PDF en Coria-MXL bij een hub-.mscz (na de editslag).
 
-Niet in check/build/serve: layout (`apply_mscz_layout.py`) en producten
-blijven gescheiden. Wrapper: `scripts\\mscz-products.cmd`.
+Wrapper: `scripts\\mscz-products.cmd`. Wordt ook vanuit de pipeline
+aangeroepen (lokaal, met MuseScore). Op CI zonder MuseScore: overslaan.
 
-Per publicatie-.mscz (niet oefenhoek/input/): sibling-.pdf en Coria-.mxl
-schrijven als ze ontbreken of ouder zijn dan de .mscz. Zonder MuseScore:
-lokaal falen; op CI overslaan.
+Per hub-`.mscz` (niet `*.print.mscz`): sibling-.pdf en Coria-.mxl.
+Freshness voor de gate zit in embedded hub-sha256 (zie hub_product_meta.py);
+lokaal skip gebruikt FS-mtime of ontbrekende/verkeerde stamp.
 """
 from __future__ import annotations
 
@@ -15,10 +15,21 @@ import sys
 from pathlib import Path
 
 from export_mscz_coria_mxl import (
-    expand_score_files,
+    expand_mscz,
     find_musescore,
+    load_score_xml,
     musescore_export,
     process,
+    write_mxl,
+)
+from hub_product_meta import (
+    FIELD_HUB_SHA,
+    hub_sha256,
+    read_mxl_stamp,
+    read_pdf_stamp,
+    stamp_mxl_tree,
+    stamp_pdf,
+    utc_now_iso,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -41,15 +52,29 @@ def _sibling_product(mscz: Path, suffix: str) -> Path:
     return mscz.with_suffix(suffix)
 
 
-def _is_stale(product: Path, mscz: Path) -> bool:
+def _stamp_matches(product: Path, hub_hash: str, *, kind: str) -> bool:
+    if not product.is_file():
+        return False
+    if kind == "pdf":
+        stamp = read_pdf_stamp(product)
+    else:
+        stamp = read_mxl_stamp(product)
+    return stamp.get(FIELD_HUB_SHA, "") == hub_hash
+
+
+def _is_stale(product: Path, mscz: Path, hub_hash: str, *, kind: str) -> bool:
     if not product.is_file():
         return True
-    return product.stat().st_mtime < mscz.stat().st_mtime
+    if _stamp_matches(product, hub_hash, kind=kind):
+        return False
+    # Geen/verkeerde stamp: regenerate. Mtime alleen als hint dat het
+    # sowieso ouder is; mismatch stamp wint altijd.
+    return True
 
 
 def collect_jobs(root: Path) -> list[tuple[Path, Path, Path]]:
     jobs: list[tuple[Path, Path, Path]] = []
-    for mscz in expand_score_files([root], ".mscz"):
+    for mscz in expand_mscz([root]):
         jobs.append(
             (
                 mscz,
@@ -65,8 +90,9 @@ def stale_jobs(
 ) -> list[tuple[Path, Path | None, Path | None]]:
     out: list[tuple[Path, Path | None, Path | None]] = []
     for mscz, pdf, mxl in jobs:
-        need_pdf = pdf is not None and _is_stale(pdf, mscz)
-        need_mxl = mxl is not None and _is_stale(mxl, mscz)
+        hub_hash = hub_sha256(mscz)
+        need_pdf = pdf is not None and _is_stale(pdf, mscz, hub_hash, kind="pdf")
+        need_mxl = mxl is not None and _is_stale(mxl, mscz, hub_hash, kind="mxl")
         if need_pdf or need_mxl:
             out.append(
                 (
@@ -87,14 +113,20 @@ def sync_one(
     dry_run: bool,
 ) -> None:
     rel = mscz.relative_to(REPO_ROOT)
+    hub_hash = hub_sha256(mscz)
+    generated_at = utc_now_iso()
     if pdf is not None:
         print(f"  PDF  {rel} -> {pdf.name}", flush=True)
         if not dry_run:
             musescore_export(mscz, pdf, musescore)
+            stamp_pdf(pdf, hub_hash=hub_hash, generated_at=generated_at)
     if mxl is not None:
         print(f"  MXL  {rel} -> {mxl.name}", flush=True)
         if not dry_run:
             process(mscz, mxl)
+            root = load_score_xml(mxl)
+            stamp_mxl_tree(root, hub_hash=hub_hash, generated_at=generated_at)
+            write_mxl(mxl, root)
 
 
 def main() -> int:

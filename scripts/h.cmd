@@ -30,6 +30,10 @@ if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="mscz-products" goto man_mscz_products
 if /I "%FILTER%"=="sync_mscz_products.py" goto man_mscz_products
+if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
+if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
+if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
+if /I "%FILTER%"=="sync_oefenhoek_index.py" goto man_oefenhoek_index
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
 
@@ -49,6 +53,7 @@ call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
+call :emit_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
@@ -56,7 +61,7 @@ echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
-echo   cleanup_capella_mxl.py, apply_mscz_layout.py, export_mscz_coria_mxl.py,
+echo   sync_oefenhoek_index.py, cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
 echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
 echo.
@@ -75,6 +80,7 @@ call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
+call :try_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
 echo.
@@ -84,7 +90,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, capella-mxl-to-mscz, h
 echo.
 goto end_fail
 
@@ -139,7 +145,7 @@ echo   scripts\check.cmd [--strict] [--external] [--skip-hugo]
 echo.
 echo DESCRIPTION
 echo   Draait lokaal de blocking pipeline die CI ook doet:
-echo   sync zondag -^> validate -^> generate ^(md/svg/mxl^)
+echo   sync zondag -^> oefenhoek-index -^> validate -^> generate ^(md/svg/mxl^)
 echo   -^> Coria-kuis vsa-mxl -^> hugo -^> interne links.
 echo   Wrapper om scripts\_pipeline.cmd ^(zie scripts\README.md testladder^).
 echo   Geen MuseScore-PDF/Coria-MXL: scripts\mscz-products.cmd
@@ -305,20 +311,89 @@ echo SYNOPSIS
 echo   scripts\mscz-products.cmd [pad] [--force] [--dry-run]
 echo.
 echo DESCRIPTION
-echo   Exporteert sibling-PDF en Coria-.mxl bij publicatie-.mscz
-echo   (niet oefenhoek\input). Zonder pad: content-source.
-echo   Alleen ontbrekende of oudere producten, tenzij --force.
+echo   Exporteert sibling-PDF en Coria-.mxl bij hub-.mscz
+echo   (niet oefenhoek\input, niet *.print.mscz). Zonder pad:
+echo   content-source. Ontbrekend/verkeerde hub-hash stamp,
+echo   tenzij --force.
 echo.
-echo   Niet in check/build/serve. Eerst apply_mscz_layout.py, dan
+echo   Pipeline roept dit lokaal aan. Eerst apply_mscz_layout.py,
 echo   eventueel editslag in MuseScore, daarna dit script.
+echo   check_hub_products.py controleert stamps (main: streng).
+echo   Print-velden (*.print.mscz): zie handleiding partituur/7-print-mscz.
 echo.
 echo WHEN
-echo   Als de .mscz klaar is voor publicatie-PDF en Coria.
+echo   Als de hub-.mscz klaar is voor publicatie-PDF en Coria.
 echo.
 echo SEE ALSO
 echo   scripts\apply_mscz_layout.py
 echo   scripts\sync_mscz_products.py
-echo   scripts\mscz-layout-contract.md
+echo   scripts\check_hub_products.py
+echo   scripts\score_filenames.py
+echo   scripts\mscz-hub-contract.md
+echo   scripts\mscz-product-transforms.md
+echo.
+goto end_ok
+
+:man_capella_mxl
+echo.
+echo NAME
+echo   scripts\capella-mxl-to-mscz.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\capella-mxl-to-mscz.cmd [bronmap] [doelmap] [--force] [--dry-run] [--limit N]
+echo.
+echo DESCRIPTION
+echo   Kuist Capella/CapToMusic-.mxl recursief op en zet ze om naar
+echo   standaard-layout .mscz. Submappen blijven behouden.
+echo   Zonder paden:
+echo     C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mxl
+echo     C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mscz
+echo.
+echo   Hervatbaar: bestaande .mscz die niet ouder zijn dan de bron
+echo   worden overgeslagen, tenzij --force. Log: doel\_batch-log.txt
+echo   MuseScore 4 nodig; sluit MuseScore voor je start.
+echo   Niet in check/build/serve. Geen PDF of Coria-.mxl.
+echo.
+echo OPTIONS
+echo   --force       bestaande .mscz overschrijven
+echo   --dry-run     alleen de planning tonen
+echo   --limit N     stop na N conversies
+echo   --batch-size  MuseScore-jobgrootte ^(default 10^)
+echo.
+echo WHEN
+echo   Een hele Capella-MXL-dump naar standaard-.mscz, buiten de oefenhoek.
+echo.
+echo SEE ALSO
+echo   scripts\cleanup_capella_mxl.py
+echo   scripts\apply_mscz_layout.py
+echo   scripts\mscz-hub-contract.md
+echo   scripts\mscz-product-transforms.md
+echo.
+goto end_ok
+
+:man_oefenhoek_index
+echo.
+echo NAME
+echo   scripts\sync_oefenhoek_index.py
+echo.
+echo SYNOPSIS
+echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg]
+echo.
+echo DESCRIPTION
+echo   Zonder flags: haalt auto-includes en score-shortcodes uit
+echo   oefenhoek bladermap-index.md. Frontmatter en eigen tekst blijven.
+echo   Catalogus-includes en automatische_inhoud: false met rust.
+echo   Widgets komen uit de Hugo-layout (bestanden in de bladermap).
+echo.
+echo   --svg schrijft SVG van lokale .vsa (geen .mscz) naar
+echo   static\vsa\bladermap\ (na vsa build-markdown).
+echo.
+echo WHEN
+echo   Automatisch in check/build/serve.
+echo.
+echo SEE ALSO
+echo   scripts\README.md
+echo   CONTENT-STRUCTURE.md
 echo.
 goto end_ok
 

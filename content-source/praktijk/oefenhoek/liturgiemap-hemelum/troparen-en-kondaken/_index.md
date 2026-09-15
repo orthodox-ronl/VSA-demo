@@ -4,6 +4,7 @@ linkTitle: "Troparen en Kondaken"
 weight: 8
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
 
 Troparen en kondaken die in de liturgie in Hemelum kunnen worden gebruikt.

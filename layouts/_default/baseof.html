@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }}</title>
+  {{- if and .IsSection (strings.Contains .RelPermalink "/praktijk/oefenhoek/") }}
+    {{- $items := partial "oefenhoek-kind-items.html" . -}}
+    {{- if eq (len $items) 1 -}}
+      {{- $one := index $items 0 -}}
+  <link rel="canonical" href="{{ $one.Permalink }}">
+  <meta http-equiv="refresh" content="0;url={{ $one.RelPermalink }}">
+  <script>window.location.replace({{ $one.RelPermalink | jsonify | safeJS }});</script>
+    {{- end -}}
+  {{- end }}
   <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "images/favicon-16x16.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon-32x32.png" | relURL }}">
@@ -33,6 +42,11 @@
   <main class="page">
     {{ partial "publicatiestatus.html" . }}
     {{ block "main" . }}{{ end }}
+    {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" }}
+      {{ partial "oefenhoek-acties.html" . }}
+      {{ partial "oefenhoek-kinderen.html" . }}
+      {{ partial "bladermap-score.html" . }}
+    {{- end }}
   </main>
 
   {{ partial "footer.html" . }}

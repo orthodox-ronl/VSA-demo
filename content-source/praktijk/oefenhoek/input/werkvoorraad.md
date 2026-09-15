@@ -55,7 +55,7 @@ converteert.
 | `capella/29 - de naam des heren zij gezegend.mxl` | `29-de-naam-des-heren-zij-gezegend` | liturgiemap-hemelum | `.mscz` | bladermap | — | bladermap stub |
 | `capella/4 - 2e antifoon.mxl` | `4-tweede-antifoon` | liturgiemap-hemelum | `.mscz` | ontvangen | doel-id | bladermap stub |
 | `capella/5a Eniggeboren Zoon.mxl` |  |  | `.mscz` | ontvangen | doel-id |  |
-| `capella/6b - zaligsprekingen.mxl` | `6-derde-antifoon-zaligsprekingen` | liturgiemap-hemelum | `.mscz` | bladermap | — | bladermap stub |
+| `capella/6b - zaligsprekingen.mxl` | `6-derde-antifoon-zaligsprekingen` | liturgiemap-hemelum | `.mscz` | ontvangen | doel-id | bladermap stub |
 | `capella/7 - kleine intocht - zondag.mxl` | `7-kleine-intocht` | liturgiemap-hemelum | `.mscz` | ontvangen | doel-id | zelfde bladermap als 7b |
 | `capella/7b - kleine intocht - weekdagen.mxl` | `7-kleine-intocht` | liturgiemap-hemelum | `.mscz` | ontvangen | doel-id | zelfde bladermap als 7 |
 | `capella/8a - trisagion (+slav).mxl` | `8a-trisagion-slav` | liturgiemap-hemelum | `.mscz` | bladermap | — | gepubliceerd |
@@ -98,9 +98,15 @@ Tussenproducten in `_werk/`, origineel blijft in `capella/`.
 5. `publicatiestatus: reviewable` als er oefenbare inhoud in staat, anders `voorzien`.
 6. `check --strict`.
 
+**Copyright:** alleen wat in *deze* Capella-`.mxl` staat. Geen notice → geen
+footer/colofon. Een VOW-bestand met dezelfde titel (bijv. Cherubijnenlied) is
+een **andere** inputrij; die notice hoort niet automatisch op de Capella-publicatie.
+
 ### VOW of andere ruwe `.mscz`
 
 Zelfde als vanaf stap 2 hierboven (layout is verplicht; een VOW-bestand is nog geen oefenhoek-standaard).
+VOW heeft meestal CC BY-SA in `metaTag copyright`; layout maakt daar een korte
+footer + colofon van.
 
 ### PDF / scan
 

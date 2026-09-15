@@ -1,6 +1,6 @@
 """Pas de A4-standaard-layout toe op een MuseScore 4 .mscz (idempotent).
 
-Contract: scripts/mscz-layout-contract.md
+Contract: scripts/mscz-hub-contract.md (was: mscz-layout-contract.md)
 Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
 
   python scripts/apply_mscz_layout.py pad\\naar\\file.mscz
@@ -9,6 +9,10 @@ Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
 Bestandsnamen: geen spaties (`scripts/score_filenames.py`). `.mxl` als
 invoer wordt via MuseScore naar `.mscz` geconverteerd en daarna gelayout.
 Geen PDF of Coria-`.mxl`: dat is `scripts\\mscz-products.cmd` na de editslag.
+
+Copyright: notice uit de bron, of default CC BY-SA 4.0 (deze uitgave) plus
+eredienst-kopieertoestemming. Standaard: korte footer (`$C`) + colofon.
+Contract: `scripts/mscz-hub-contract.md`.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
 opnieuw opgebouwd. Lettergrepen op een noot die nog meerdere klinkergroepen
@@ -35,7 +39,8 @@ from fractions import Fraction
 from pathlib import Path
 
 from nl_hyphen import hyphenate_token, split_syllabic
-from score_filenames import published_path, require_no_spaces
+from score_filenames import published_path, require_no_spaces, is_print_mscz
+from recite_collapse_mscx import collapse_recite_mscx, sync_measures_no_filler_rests
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
 _A4_W = "8.26772"
@@ -43,7 +48,7 @@ _A4_H = "11.6929"
 _M = "0.590551"
 _PRINTABLE = "7.08662"  # A4_W - 2 * 15 mm
 
-# Moet gelijk lopen met scripts/mscz-layout-contract.md
+# Moet gelijk lopen met scripts/mscz-hub-contract.md
 # Typografie: VSA-defaults (bron/VSA-tooling): Source Sans 3, lyrics 13 pt, word 12 pt.
 _FONT = "Source Sans 3"
 STYLE_OVERRIDES: dict[str, str] = {
@@ -59,7 +64,8 @@ STYLE_OVERRIDES: dict[str, str] = {
     "pageTwosided": "0",
     "enableIndentationOnFirstSystem": "0",
     "firstSystemIndentationValue": "0",
-    "lastSystemFillLimit": "1",
+    # 0 = laatste systeem altijd over de volle breedte (lyric-ruimte; zie hub-contract)
+    "lastSystemFillLimit": "0",
     "enableVerticalSpread": "0",
     "maxPageFillSpread": "0",
     "minSystemDistance": "8",
@@ -72,6 +78,13 @@ STYLE_OVERRIDES: dict[str, str] = {
     "measureNumberSystem": "1",
     "measureNumberInterval": "0",
     "frameSystemDistance": "14",
+    # Lyrics: gecentreerd onder de noot; iets meer min. afstand zodat
+    # ankerlettergreep en recite-tekst niet aan elkaar plakken.
+    "lyricsOddAlign": "center,baseline",
+    "lyricsEvenAlign": "center,baseline",
+    "lyricsMinDistance": "0.6",
+    "minNoteDistance": "0.5",
+    "measureSpacing": "1.2",
     "lyricsPlacement": "1",
     "lyricsOddFontFace": _FONT,
     "lyricsEvenFontFace": _FONT,
@@ -97,7 +110,54 @@ STYLE_OVERRIDES: dict[str, str] = {
     "subTitleFontSize": "14",
     "frameFontFace": _FONT,
     "frameFontSize": "12",
+    # Copyright: $C = metaTag copyright (korte footer). Colofon = VBox achteraan.
+    "showFooter": "1",
+    "footerFirstPage": "1",
+    "footerOddEven": "1",
+    "oddFooterL": "",
+    "oddFooterC": "$C",
+    "oddFooterR": "",
+    "evenFooterL": "",
+    "evenFooterC": "$C",
+    "evenFooterR": "",
+    "footerFontFace": _FONT,
+    "footerFontSize": "8",
+    "footerFontSpatiumDependent": "0",
+    "copyrightFontFace": _FONT,
+    "copyrightFontSize": "8",
+    "copyrightFontSpatiumDependent": "0",
 }
+
+_META_COPYRIGHT_FULL = "vsaCopyrightFull"
+_COLOPHON_TITLE = "Colofon"
+_SEE_COLOPHON = "zie colofon"
+_LITURGY_COPY = (
+    "Voor gebruik in de orthodoxe eredienst is kopiëren toegestaan."
+)
+_VOW_SHORT = f"CC BY-SA 4.0 - orthodoxekerkmuziek.nl - {_SEE_COLOPHON}"
+_VOW_FULL = (
+    "Naamsvermelding - GelijkDelen 4.0 Internationaal (CC BY-SA 4.0)\n"
+    "Bron: orthodoxekerkmuziek.nl\n"
+    "Licentie: https://creativecommons.org/licenses/by-sa/4.0/\n"
+    "Deze uitgave is aangepast (layout/opkuis) t.o.v. de bron; "
+    "ShareAlike blijft van kracht.\n"
+    f"{_LITURGY_COPY}"
+)
+_DEFAULT_SHORT = _VOW_SHORT
+_DEFAULT_FULL = (
+    "Naamsvermelding - GelijkDelen 4.0 Internationaal (CC BY-SA 4.0)\n"
+    "Bron: deze uitgave (orthodoxekerkmuziek.nl / orthodox-ronl)\n"
+    "Licentie: https://creativecommons.org/licenses/by-sa/4.0/\n"
+    f"{_LITURGY_COPY}"
+)
+_DEFAULT_TEMPO_BPM = 100
+_CONTRACT_VERSION = "hub-1"
+_COLOPHON_VBOX_RE = re.compile(
+    r"[ \t]*<VBox>(?:(?!</VBox>).)*?"
+    + re.escape(_COLOPHON_TITLE)
+    + r"(?:(?!</VBox>).)*?</VBox>",
+    re.S,
+)
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 VBOX_RE = re.compile(r"[ \t]*<VBox>.*?</VBox>", re.S)
@@ -157,6 +217,254 @@ def _set_meta(mscx: str, name: str, value: str) -> str:
     if "</Score>" in mscx:
         return mscx.replace("</Score>", insert + "</Score>", 1)
     return mscx + insert
+
+
+def extract_rights_from_mxl(path: Path) -> str:
+    """Haal <rights> of MuseScore-achtige copyright uit een .mxl/.xml."""
+    try:
+        with zipfile.ZipFile(path, "r") as z:
+            names = [
+                n
+                for n in z.namelist()
+                if n.endswith(".xml") and not n.startswith("META")
+            ]
+            if not names:
+                return ""
+            text = z.read(names[0]).decode("utf-8", errors="replace")
+    except zipfile.BadZipFile:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    rights = [
+        re.sub(r"<[^>]+>", "", m).strip()
+        for m in re.findall(r"<rights\b[^>]*>(.*?)</rights>", text, re.S | re.I)
+    ]
+    rights = [r for r in rights if r]
+    if rights:
+        return rights[0]
+    # Sommige exports zetten het al als credit-words type rights
+    for m in re.finditer(
+        r'<credit-type>\s*rights\s*</credit-type>\s*<credit-words[^>]*>(.*?)</credit-words>',
+        text,
+        re.S | re.I,
+    ):
+        plain = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        if plain:
+            return plain
+    return ""
+
+
+def _looks_like_vow_cc(text: str) -> bool:
+    t = text.lower()
+    return "cc by-sa" in t or "gelijkdelen" in t or "orthodoxekerkmuziek" in t
+
+
+def _looks_like_short_footer(text: str) -> bool:
+    return _SEE_COLOPHON in text.lower()
+
+
+def _ensure_liturgy_copy(full: str) -> str:
+    text = (full or "").strip()
+    if _LITURGY_COPY.lower() in text.lower():
+        return text
+    if not text:
+        return _LITURGY_COPY
+    return f"{text}\n{_LITURGY_COPY}"
+
+
+def format_copyright_notices(source_notice: str) -> tuple[str, str]:
+    """(korte footer voor $C, volledige colofontekst).
+
+    Lege bron -> default CC BY-SA 4.0 (deze uitgave). Altijd eredienst-zin
+    in het colofon.
+    """
+    raw = (source_notice or "").strip()
+    if not raw:
+        return _DEFAULT_SHORT, _DEFAULT_FULL
+    if _looks_like_vow_cc(raw):
+        return _VOW_SHORT, _ensure_liturgy_copy(_VOW_FULL)
+    if _looks_like_short_footer(raw):
+        full = re.sub(r"\s*[·•-]\s*zie colofon\s*$", "", raw, flags=re.I).strip()
+        short = raw if raw else full
+        return short, _ensure_liturgy_copy(full or raw)
+    short = raw
+    if len(short) > 70:
+        short = short[:67].rstrip(" ,;.-") + "…"
+    short = f"{short} - {_SEE_COLOPHON}"
+    return short, _ensure_liturgy_copy(raw)
+
+
+def resolve_copyright_source(mscx: str, rights_hint: str = "") -> str:
+    """Bronnotice voor deze representatie: full-meta, anders copyright, anders MXL-hint.
+
+    Geen sibling-VOW of andere map raadplegen. Leeg = default CC BY-SA.
+    """
+    full = _meta(mscx, _META_COPYRIGHT_FULL).strip()
+    if full and not _looks_like_short_footer(full):
+        return full
+    cr = _meta(mscx, "copyright").strip()
+    if cr and not _looks_like_short_footer(cr):
+        return cr
+    if full:
+        return full
+    if cr:
+        return cr
+    return (rights_hint or "").strip()
+
+
+def _build_colophon_vbox(full_text: str) -> str:
+    """Colofon-frame op de laatste pagina; tekst onderaan in een hoog frame."""
+    body = f"{_COLOPHON_TITLE}\n\n{full_text.strip()}"
+    # Geen LayoutBreak in dit VBox: paginabreuk zit op de laatste maat.
+    # Vast hoog frame + align bottom -> colofon onderaan de pagina.
+    return "\n".join(
+        [
+            "      <VBox>",
+            "        <height>40</height>",
+            "        <boxAutoSize>0</boxAutoSize>",
+            "        <topGap>4</topGap>",
+            "        <bottomGap>2</bottomGap>",
+            "        <Text>",
+            "          <style>frame</style>",
+            "          <align>left,bottom</align>",
+            f"          <text>{_xml_text(body)}</text>",
+            "          </Text>",
+            "        </VBox>",
+        ]
+    )
+
+
+def _strip_colophon_vbox(mscx: str) -> str:
+    return _COLOPHON_VBOX_RE.sub("", mscx)
+
+
+def _measure_staff(mscx: str, staff_id: str = "1") -> re.Match[str] | None:
+    """Eerste `<Staff id>`-blok dat maten bevat (niet de Part-definitie)."""
+    pat = re.compile(
+        rf'<Staff id="{re.escape(staff_id)}">.*?</Staff>',
+        re.S,
+    )
+    for m in pat.finditer(mscx):
+        if "<Measure" in m.group(0):
+            return m
+    return None
+
+
+def _ensure_page_break_on_last_measure(mscx: str, staff_id: str = "1") -> str:
+    """Paginabreuk op de laatste muziekmaat, zodat het colofon op een nieuwe pagina start."""
+    staff = _measure_staff(mscx, staff_id)
+    if staff is None:
+        return mscx
+    measures = list(re.finditer(r"<Measure\b[^>]*>.*?</Measure>", staff.group(0), re.S))
+    if not measures:
+        return mscx
+    last = measures[-1]
+    block = last.group(0)
+    if re.search(
+        r"<LayoutBreak>\s*(?:<eid>[^<]*</eid>\s*)?<subtype>page</subtype>",
+        block,
+        re.S,
+    ):
+        return mscx
+    # Verwijder line-break op de allerlaatste maat (pagina wint); eid mag ertussen.
+    block2 = re.sub(
+        r"\s*<LayoutBreak>\s*(?:<eid>[^<]*</eid>\s*)?<subtype>line</subtype>\s*</LayoutBreak>",
+        "",
+        block,
+        count=1,
+    )
+    insert = (
+        "\n        <LayoutBreak>\n"
+        "          <subtype>page</subtype>\n"
+        "          </LayoutBreak>"
+    )
+    block2 = re.sub(r"</Measure>\s*$", insert + "\n      </Measure>", block2, count=1)
+    abs_start = staff.start() + last.start()
+    abs_end = staff.start() + last.end()
+    return mscx[:abs_start] + block2 + mscx[abs_end:]
+
+
+def _insert_colophon_after_staff1(mscx: str, full_text: str) -> str:
+    mscx = _strip_colophon_vbox(mscx)
+    if not full_text.strip():
+        return mscx
+    mscx = _ensure_page_break_on_last_measure(mscx, "1")
+    vbox = _build_colophon_vbox(full_text)
+    staff = _measure_staff(mscx, "1")
+    if staff is None:
+        return mscx
+    # Vóór </Staff> van de maat-balk
+    close = staff.end() - len("</Staff>")
+    return mscx[:close] + vbox + "\n      " + mscx[close:]
+
+
+def _ensure_visible_system_barlines(mscx: str) -> tuple[str, int]:
+    """Maak verborgen BarLine-elementen weer zichtbaar (systeem-einden)."""
+    n = 0
+
+    def fix_bar(m: re.Match[str]) -> str:
+        nonlocal n
+        block = m.group(0)
+        if re.search(r"<visible>\s*0\s*</visible>", block):
+            n += 1
+            return re.sub(
+                r"<visible>\s*0\s*</visible>",
+                "<visible>1</visible>",
+                block,
+                count=1,
+            )
+        return block
+
+    return re.sub(r"<BarLine\b.*?</BarLine>", fix_bar, mscx, flags=re.S), n
+
+
+def apply_copyright_notices(mscx: str, rights_hint: str = "") -> tuple[str, list[str]]:
+    """Footer kort + colofon; bronnotice of default CC BY-SA + eredienst-zin."""
+    notes: list[str] = []
+    source = resolve_copyright_source(mscx, rights_hint)
+    short, full = format_copyright_notices(source)
+    if not source:
+        notes.append("geen copyright in bron: default CC BY-SA 4.0 (deze uitgave)")
+    mscx = _set_meta(mscx, "copyright", short)
+    mscx = _set_meta(mscx, _META_COPYRIGHT_FULL, full)
+    mscx = _insert_colophon_after_staff1(mscx, full)
+    notes.append(f"copyright footer={short!r}")
+    notes.append("colofon onderaan laatste pagina (paginabreuk + VBox)")
+    return mscx, notes
+
+
+def _has_tempo(mscx: str) -> bool:
+    return bool(re.search(r"<Tempo\b", mscx))
+
+
+def ensure_tempo(mscx: str, bpm: int = _DEFAULT_TEMPO_BPM) -> tuple[str, list[str]]:
+    """Verplicht onzichtbaar tempo (BPM) voor Coria; default 100."""
+    notes: list[str] = []
+    if _has_tempo(mscx):
+        notes.append("tempo aanwezig")
+        return mscx, notes
+    # MuseScore: <tempo> = kwartnoten per seconde
+    bps = bpm / 60.0
+    tempo_xml = (
+        f"<Tempo>\n"
+        f"            <tempo>{bps:.6f}</tempo>\n"
+        f"            <followText>1</followText>\n"
+        f"            <visible>0</visible>\n"
+        f"            <text>&lt;sym&gt;metNoteQuarterUp&lt;/sym&gt; = {bpm}</text>\n"
+        f"            </Tempo>\n          "
+    )
+    # Plaats vóór eerste Chord in Staff 1-matenblok
+    staff = _measure_staff(mscx, "1")
+    if staff is None:
+        notes.append("tempo niet gezet: geen Staff 1")
+        return mscx, notes
+    body = staff.group(0)
+    m = re.search(r"<Chord\b", body)
+    if not m:
+        notes.append("tempo niet gezet: geen Chord in Staff 1")
+        return mscx, notes
+    insert_at = staff.start() + m.start()
+    mscx = mscx[:insert_at] + tempo_xml + mscx[insert_at:]
+    notes.append(f"tempo ontbrak: onzichtbaar {bpm} BPM gezet")
+    return mscx, notes
 
 
 def _vbox_fields(vbox: str) -> dict[str, str]:
@@ -469,11 +777,14 @@ def _melisma_ticks_for_blocks(blocks: list[str], division: int) -> tuple[list[st
         )
         if syll in ("begin", "middle"):
             ticks = 0
-        elif not next_lyric:
-            ticks = total
-        elif _chord_slur_starts(b) or not same:
+        elif total <= 0:
+            ticks = 0
+        elif same:
+            # Zelfde toon na de lettergreep: geen underline (Capella-padding;
+            # frase-slurs zijn geen melisma).
             ticks = 0
         else:
+            # Kale noten op andere toonhoogte = echte melisma.
             ticks = total
         new = _set_chord_lyric_ticks(b, ticks, division)
         if new != b:
@@ -643,6 +954,9 @@ def _split_event_at_cuts(block: str, start: Fraction, end: Fraction, cuts: list[
         if dur <= 0:
             continue
         piece = block if i == 0 else _strip_eids(block)
+        # Nooit feathered glyph vermenigvuldigen bij knippen
+        piece = re.sub(r"\s*<headType>\w+</headType>", "", piece)
+        piece = re.sub(r"\s*<noStem>[^<]*</noStem>", "", piece)
         piece = _set_event_duration(piece, dur)
         if i > 0:
             piece = LYRICS_RE.sub("", piece)
@@ -856,8 +1170,16 @@ def _split_undersplit_lyrics(mscx: str) -> tuple[str, int]:
                         if ev.group(1) != "Chord" or _in_tuplet(v0, ev.start()):
                             continue
                         chord = ev.group(0)
+                        # Hub ||O|| niet splitsen — recite-collaps beheert die tekst.
+                        if "<headType>breve</headType>" in chord and (
+                            "<noStem>1</noStem>" in chord or "<noStem>true</noStem>" in chord
+                        ):
+                            continue
                         raw = _chord_lyric_plain(chord)
                         if not raw:
+                            continue
+                        # Multi-woord recite-tekst niet via hyphenate_token uit elkaar trekken
+                        if " " in raw.strip():
                             continue
                         parts = hyphenate_token(raw)
                         if len(parts) <= 1:
@@ -896,7 +1218,7 @@ def _split_undersplit_lyrics(mscx: str) -> tuple[str, int]:
     return out, splits
 
 
-def apply_mscx(mscx: str) -> tuple[str, list[str]]:
+def apply_mscx(mscx: str, rights_hint: str = "") -> tuple[str, list[str]]:
     notes: list[str] = []
     vbox_m = VBOX_RE.search(mscx)
     fields = _vbox_fields(vbox_m.group(0)) if vbox_m else {}
@@ -925,12 +1247,13 @@ def apply_mscx(mscx: str) -> tuple[str, list[str]]:
 
     new_vbox = _build_vbox(title, composer)
     if VBOX_RE.search(mscx):
+        # Alleen het eerste (titel-)VBox; colofon volgt later opnieuw
         mscx = VBOX_RE.sub(new_vbox, mscx, count=1)
     else:
-        staff = re.search(r'<Staff id="1">', mscx)
+        staff = _measure_staff(mscx, "1")
         if staff:
-            ins = staff.end()
-            mscx = mscx[:ins] + "\n" + new_vbox + mscx[ins:]
+            open_end = mscx.find(">", staff.start()) + 1
+            mscx = mscx[:open_end] + "\n" + new_vbox + mscx[open_end:]
     notes.append(f"VBox title={title!r} composer={composer!r}")
 
     mscx = _strip_arial_on_stafftext(mscx)
@@ -939,17 +1262,41 @@ def apply_mscx(mscx: str) -> tuple[str, list[str]]:
         notes.append(f"leidende rust terug voor de noten: {n_restore} maten")
     if n_gap:
         notes.append(f"leidende rusten na dubbele streep/start: gap (geen kolom): {n_gap}")
+
+    # Reciteer eerst; lyric-underlines daarna. Capella-slurs zijn frasen, geen
+    # melisma — default: ticks wissen, niet opnieuw zetten (voorkomt God,/ke,-lijnen).
+    mscx, n_recite = collapse_recite_mscx(mscx)
+    if n_recite:
+        notes.append(f"reciteer-collaps (eerste+||O||+laatste): {n_recite} reeksen")
+
+    mscx, n_trim = sync_measures_no_filler_rests(mscx)
+    if n_trim:
+        notes.append(f"opvulrusten verwijderd: {n_trim}")
+
+    mscx, n_bar = _ensure_visible_system_barlines(mscx)
+    if n_bar:
+        notes.append(f"maatstrepen zichtbaar gemaakt: {n_bar}")
+
+    mscx, n_strip = _strip_lyric_ticks(mscx)
     no_ext = bool(_meta(mscx, "vsaNoLyricExtenders"))
-    if no_ext:
-        mscx, n_strip = _strip_lyric_ticks(mscx)
-        notes.append(f"lyric-underlines (ticks) verwijderd: {n_strip}")
-    else:
+    want_ext = bool(_meta(mscx, "vsaLyricExtenders")) and not no_ext
+    if want_ext:
         mscx, n_mel = _apply_melisma_extenders(mscx)
-        if n_mel:
-            notes.append(f"melisma-extenders (ticks): {n_mel}")
+        notes.append(f"melisma-extenders (ticks): {n_mel}")
+    elif n_strip:
+        notes.append(f"lyric-underlines (ticks) verwijderd: {n_strip}")
 
     if cue:
         mscx = _ensure_first_measure_stafftext(mscx, cue)
+
+    mscx, tnotes = ensure_tempo(mscx)
+    notes.extend(tnotes)
+
+    mscx, cnotes = apply_copyright_notices(mscx, rights_hint=rights_hint)
+    notes.extend(cnotes)
+
+    mscx = _set_meta(mscx, "vsaHubContract", _CONTRACT_VERSION)
+    notes.append(f"hub-contract {_CONTRACT_VERSION}")
 
     return mscx, notes
 
@@ -1016,14 +1363,20 @@ def musescore_convert(src: Path, dest: Path) -> None:
 
 
 def _strip_empty_staves(mscx: str) -> tuple[str, int]:
-    """Verwijder balken zonder noten (Capella SAT+B -> SA/TB + lege 3e balk)."""
+    """Verwijder maat-balken zonder noten (Capella SAT+B -> SA/TB + lege 3e balk).
+
+    Part-definities (`<Staff id>` zonder `<Measure>`) zijn geen lege balken:
+    die mogen nooit de reden zijn om een id te droppen, anders verdwijnt de
+    hele partituur (VOW e.d.).
+    """
     score_pat = re.compile(r'<Staff id="(\d+)">.*?</Staff>', re.S)
     hits = list(score_pat.finditer(mscx))
-    if len(hits) < 2:
+    measure_hits = [m for m in hits if "<Measure" in m.group(0)]
+    if len(measure_hits) < 2:
         return mscx, 0
     drop_ids: set[int] = set()
     keep: list[tuple[int, str]] = []
-    for m in hits:
+    for m in measure_hits:
         sid = int(m.group(1))
         block = m.group(0)
         empty = "<Chord" not in block and "<Note" not in block
@@ -1043,7 +1396,7 @@ def _strip_empty_staves(mscx: str) -> tuple[str, int]:
         sid = int(m.group(1))
         if sid not in drop_ids:
             block = m.group(0)
-            new_id = mapping[sid]
+            new_id = mapping.get(sid, sid)
             if new_id != sid:
                 block = re.sub(
                     rf'<Staff id="{sid}">',
@@ -1093,6 +1446,7 @@ def process_mscz(
     *,
     extra_style: dict[str, str] | None = None,
     no_extenders: bool = False,
+    rights_hint: str = "",
 ) -> list[str]:
     notes: list[str] = []
     with zipfile.ZipFile(path, "r") as zin:
@@ -1112,7 +1466,7 @@ def process_mscz(
     mscx, n_empty = _strip_empty_staves(mscx)
     mscx, n_split = _split_undersplit_lyrics(mscx)
     mscx, n_syll = _ensure_note_per_syllable(mscx)
-    new_mscx, mscx_notes = apply_mscx(mscx)
+    new_mscx, mscx_notes = apply_mscx(mscx, rights_hint=rights_hint)
     if n_syll:
         mscx_notes.insert(0, f"noten per lettergreep geknipt: {n_syll}")
     if n_split:
@@ -1151,19 +1505,35 @@ def main() -> int:
     src = args.mscz
     if not src.is_file():
         raise SystemExit(f"niet gevonden: {src}")
+    if is_print_mscz(src):
+        raise SystemExit(
+            f"print-.mscz hoort niet in apply_mscz_layout: {src.name}\n"
+            r"Hernoem naar gewone .mscz (hub) of bewerk alleen in MuseScore; "
+            r"zie handleiding partituur/7-print-mscz."
+        )
     suffix = src.suffix.lower()
+    rights_hint = ""
     if suffix == ".mxl":
+        rights_hint = extract_rights_from_mxl(src)
         dest = args.output if args.output is not None else src.with_suffix(".mscz")
         if dest.suffix.lower() != ".mscz":
             dest = dest / published_path(src.with_suffix(".mscz")).name
         dest = published_path(dest)
         require_no_spaces(dest)
+        if is_print_mscz(dest):
+            raise SystemExit(
+                f"doel mag geen print-.mscz zijn: {dest.name}"
+            )
         print(f"mxl -> mscz via MuseScore: {dest}")
         musescore_convert(src, dest)
         path = dest
     elif suffix == ".mscz":
         path = published_path(args.output) if args.output is not None else src
         require_no_spaces(path)
+        if is_print_mscz(path):
+            raise SystemExit(
+                f"doel mag geen print-.mscz zijn: {path.name}"
+            )
         if path != src:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(src.read_bytes())
@@ -1171,7 +1541,7 @@ def main() -> int:
         raise SystemExit("verwacht een .mscz of .mxl")
     if " " in src.name and suffix == ".mscz" and args.output is None:
         raise SystemExit(f"bestandsnaam mag geen spaties hebben: {src.name}")
-    notes = process_mscz(path, no_extenders=args.no_extenders)
+    notes = process_mscz(path, no_extenders=args.no_extenders, rights_hint=rights_hint)
     print(f"ok {path}")
     for n in notes:
         print(f"  {n}")

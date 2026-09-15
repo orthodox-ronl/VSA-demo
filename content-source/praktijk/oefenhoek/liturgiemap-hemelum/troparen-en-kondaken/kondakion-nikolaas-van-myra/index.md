@@ -3,6 +3,7 @@ title: "Kondak H. Nikolaas van Myra (toon 3)"
 linkTitle: "Kondak Nikolaas"
 weight: 10
 publicatiestatus: reviewable
+automatische_inhoud: false
 ---
 
 # Kondak H. Nikolaas van Myra (toon 3)
@@ -10,7 +11,7 @@ publicatiestatus: reviewable
 :::include svg id:kondak-nikolaas-van-myra/liturgikon/Liturgikon alt="Kondak H. Nikolaas van Myra (Toon 3)":::
 
 {{< score-actions >}}
-:::include coria id:kondak-nikolaas-van-myra/liturgikon/Liturgikon label="Oefenen in Coria":::
+:::include coria id:kondak-nikolaas-van-myra/liturgikon/Liturgikon label="Oefenen":::
 {{< /score-actions >}}
 
 <!-- pdf-sheet src="kondak-nikolaas-van-myra.pdf" actions="false" -->

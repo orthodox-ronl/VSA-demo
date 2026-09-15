@@ -1,0 +1,189 @@
+# Contract: hub-`.mscz` (canonieke partituur)
+
+Normatieve representatie per bladermap **in de hub-straat**: één MuseScore 4-`.mscz`
+die je mag editen, daarna **normaliseren** met `apply_mscz_layout.py`, en waaruit
+PDF en Coria-`.mxl` worden afgeleid. Proef in VSA-demo; later naar VSA-tooling.
+
+**Drie publicatiesporen** (Oefenhoek):
+
+| Spoor | Bron in de bladermap | Pipeline |
+| ----- | -------------------- | -------- |
+| Hub-partituur | `naam.mscz` (geen `.print.`) | layout → `mscz-products` → PDF + Coria; hub-hash-gate |
+| VSA | `naam.vsa` (+ vaak PDF/MXL uit template) | `vsa validate` / build-markdown / Coria-check |
+| Print-vel | `naam.print.mscz` | **buiten** hub-scripts; PDF handmatig; geen Coria van dit bestand |
+
+Print: handleiding
+`content-source/praktijk/handleiding/partituur/7-print-mscz.md`.
+Helper: `is_print_mscz` in `scripts/score_filenames.py`.
+
+**Reciteertoon / maatstrepen / melisma:** gebaseerd op
+[MCI Musical Notation](https://mci.archpitt.org/music/Notation.html).
+
+Script: `python scripts/apply_mscz_layout.py <bestand.mscz>`
+(of opgekuiste `.mxl` + `-o <bestand.mscz>`). Idempotent.
+Weigert `*.print.mscz`.
+
+Producten: `scripts\mscz-products.cmd` — zie
+[mscz-product-transforms.md](mscz-product-transforms.md).
+Freshness: embedded `hub-sha256` in PDF/MXL; gate via `check_hub_products.py`
+(alleen hub-`.mscz`, niet print).
+
+Contractversie-meta: `vsaHubContract` = `hub-1`.
+
+---
+
+## Rol van elk bestand
+
+| Bestand | Rol |
+| ------- | --- |
+| hub-`.mscz` | Canonieke bron (edit + normaliseer); **niet** `*.print.mscz` |
+| `.print.mscz` | Print-/koormap-vel; scripts laten met rust |
+| `.pdf` | Afgeleide A4-afdruk (hub) of handmatige export (print) |
+| Coria-`.mxl` | Afgeleide oefen-playback (alleen hub / VSA) |
+| `index.md` | Hugo-bladermap; toont banner als hub-afgeleiden niet bij hub horen |
+
+## Bestandsnamen
+
+Publicatie (map, hub-`.mscz`, Coria-`.mxl`, PDF): **geen spaties**; stam
+`[a-z0-9_-]+`. Print-vel: zelfde stamregels, bestandsnaam eindigt op
+`.print.mscz`. Helper: `scripts/score_filenames.py`.
+Ruwe input in `oefenhoek/input/` mag spaties houden.
+
+MuseScore 4.x: stijl in `score_style.mss` in de `.mscz`. **Geen** MusicXML-roundtrip
+voor layout (stijl verdwijnt).
+
+---
+
+## Reciteertoon (één hub-encoding, MCI)
+
+**Stap 1 — rij vinden:** opeenvolgende noten met **zelfde toonhoogte** én
+**zelfde nootduur**, elk met een lettergreep. Andere toon of andere lengte
+breekt de rij (een half na kwarten hoort er niet bij).
+
+**Stap 2 — collaps** alleen als die rij **meer dan drie** lettergrepen heeft
+(patroon **1-n-1**):
+
+| Positie | Glyph | Toon / duur | Tekst |
+| ------- | ----- | ----------- | ----- |
+| Eerste lettergreep | gewone noot | ankertoon; ankerduur uit de rij | die lettergreep |
+| Tussenliggende (≥2) | één stokloze feathered noot `\|\|O\|\|` (`headType` breve) | zelfde toon; **metrische breedte ≈ aantal lettergrepen** (zodat MuseScore de witruimte verdeelt i.p.v. alles links te duwen) | middelste lettergrepen |
+| Laatste lettergreep | gewone noot | zelfde toon en duur als de eerste (uit dezelfde rij) | die lettergreep |
+
+Reeksen van ≤3 lettergrepen blijven gewone noten. Noten buiten de rij
+(andere toon of lengte) blijven onaangeroerd.
+
+**Maatlengte** = som van de noten (geen opvulrust aan het eind).
+`<dots>` staat in MSCX **vóór** `<durationType>` (MuseScore-conventie);
+anders negeert MuseScore de punt en vult de maat met rusten.
+Normalisatie wist niet-leidende rusten en zet `Measure len` opnieuw.
+Coria exploseert de feathered noot later tot één kwart per lettergreep.
+
+**Niet collapsen:** melisma (één lettergreep over meerdere noten + slur);
+cadens/intonatie met bewuste lengte; toonwissels.
+
+Na MuseScore-edit: normalisatie collapt opnieuw toegevoegde kwarten volgens
+bovenstaande regel; de tekst blijft verdeeld over eerste / midden / laatste.
+
+## Maatstrepen (MCI)
+
+| MCI | Hub | Nodig voor |
+| --- | --- | ---------- |
+| Enkele maatstreep | einde frase / adempauze; **zichtbaar** aan het einde van elk systeem | PDF |
+| Dubbele maatstreep | einde gezang of wissel `P:`/`D:`/`K:` | PDF; Coria `[PAUZE]` |
+| Slotstreep | einde langer blok | PDF |
+| Sectiebreuk | nieuw systeem | PDF |
+
+Normalisatie zet verborgen eindmaatstrepen (`BarLine` met `visible=0`) weer
+zichtbaar, zodat elk systeem een duidelijke rechter maatstreep heeft.
+
+## Melisma
+
+Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlines
+(`ticks`); Capella-slurs zijn frasen, geen melisma. Opt-in: meta
+`vsaLyricExtenders=1`. Coria zet `<extend/>` zelf waar nodig bij export.
+
+## Tempo
+
+| Regel | Waarde | Nodig voor |
+| ----- | ------ | ---------- |
+| Verplicht | BPM in de hub (onzichtbare metronoom mag) | Coria-playback |
+| Default bij ontbreken | 100 BPM | Coria |
+
+## Copyright
+
+| Situatie | Gedrag | Nodig voor |
+| -------- | ------ | ---------- |
+| Bron heeft notice | korte footer + colofon afgeleid | PDF elke pagina + einde |
+| Bron heeft geen notice | CC BY-SA 4.0, bron = deze uitgave (`orthodoxekerkmuziek.nl`) | idem |
+| Altijd | zin: kopiëren voor orthodoxe eredienst is toegestaan | colofon |
+
+| Veld | Rol |
+| ---- | --- |
+| `metaTag copyright` | Korte footer (`$C`) |
+| `metaTag vsaCopyrightFull` | Volledige colofon |
+| VBox "Colofon" | Onderaan de **laatste pagina** (paginabreuk na de muziek; tekst onderaan in het frame) |
+
+VOW-sibling mag **niet** stilzwijgend op een Capella-publicatie worden geplakt.
+
+## Pagina en stijl (A4)
+
+| Regel | Waarde | Nodig voor |
+| ----- | ------ | ---------- |
+| Papier | A4 staand | PDF |
+| Marges | 15 mm | PDF |
+| Eerste systeem | geen extra inspring | PDF |
+| Laatste systeem | wél uitrekken over de paginabreedte (`lastSystemFillLimit=0`) zodat recitatief-tekst niet links opeengedrongen blijft | PDF |
+| Verticaal | pagina niet vullen | PDF |
+| Partijnamen | uit | PDF |
+| Maatnummers | eerste maat van elke regel | PDF |
+| Lyrics | onder bovenste balk | PDF |
+| Titel → eerste systeem | `frameSystemDistance=14` | PDF |
+
+## Typografie
+
+| Toepassing | Font | Grootte | Nodig voor |
+| ---------- | ---- | ------- | ---------- |
+| Lyrics | Source Sans 3 | 13 pt | PDF |
+| Staff-/systemtekst | Source Sans 3 | 12 pt | PDF |
+| Composer | Source Sans 3 | 12 pt | PDF |
+| Titel | Source Sans 3 | 18 pt | PDF |
+| Footer | Source Sans 3 | 8 pt | PDF |
+
+## Titelvak (VBox)
+
+Alleen **title** (= `workTitle`) en **composer**. Nodig voor PDF-kop.
+Cues `P:`/`D:`/`K:` horen als Staff Text, niet in het titelvak.
+
+## Leidende rusten
+
+Ritmisch behouden; kolom `gap` + onzichtbaar na start/dubbele streep.
+Nodig voor PDF-uitlijning. Coria wist ze (zie transforms).
+
+**Geen opvulrusten** aan het eind van een maat: na recite-collaps is
+`Measure len` gelijk aan de som van de noten (1-n-1), zodat MuseScore geen
+kwart-rust meer tekent om de maat vol te maken.
+
+## Lettergrepen / SATB-dekking
+
+`nl_hyphen.py` splitst multi-klinker tokens; elke partij minstens één noot per
+lettergreep. Nodig voor consistente hub vóór Coria-expansie.
+
+## Tekstrollen
+
+| Inhoud | Bestemming | Nodig voor |
+| ------ | ---------- | ---------- |
+| Cues `P:`/`D:`/`K:` | Staff Text | PDF; Coria-cue boven `[PAUZE]` |
+| Componist | meta + VBox | PDF |
+
+## Normalisatie na edit
+
+1. Open hub in MuseScore 4, corrigeer, opslaan (geen MusicXML-export).
+2. `python scripts\apply_mscz_layout.py pad\naar\hub.mscz`
+3. Controleer in MuseScore; herhaal zo nodig.
+4. `scripts\mscz-products.cmd <bladermap>` → PDF + MXL met provenance-stamps.
+5. Commit **hub + pdf + mxl** samen.
+
+## Wat dit script niet doet
+
+- Capella-opkuis (lagen 1–3): `cleanup_capella_mxl.py`
+- PDF/Coria-export: `mscz-products` / transforms-doc
