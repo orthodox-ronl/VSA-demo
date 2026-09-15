@@ -7,7 +7,8 @@
 {{- $clean := strings.TrimPrefix "/" $dest -}}
 {{- $firstSegment := index (split (strings.TrimSuffix "/" $clean) "/") 0 -}}
 {{- if in $rootSections $firstSegment -}}
-{{- $dest | relURL -}}
+{{- /* Leading slash voorkomt baseURL-prefix; zelfde patroon als pdf-sheet. */ -}}
+{{- $clean | relURL -}}
 {{- else -}}
 {{- $dest -}}
 {{- end -}}
