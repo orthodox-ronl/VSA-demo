@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publiceren on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/</link><description>Recent content in Publiceren on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/index.xml" rel="self" type="application/rss+xml"/><item><title>De bladermap</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/1-bladermap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/1-bladermap/</guid><description>&lt;h1 id="de-bladermap"&gt;De bladermap&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Map: &lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\DOEL-ID\&lt;/code&gt;
+(of &lt;code&gt;overig\&lt;/code&gt;). Erin: &lt;code&gt;index.md&lt;/code&gt; + &lt;code&gt;.mscz&lt;/code&gt;/&lt;code&gt;.pdf&lt;/code&gt;/&lt;code&gt;.mxl&lt;/code&gt; en/of &lt;code&gt;.vsa&lt;/code&gt;.
+Kopieer een buurman: &lt;code&gt;8a-trisagion&lt;/code&gt; (partituur), of
+&lt;code&gt;2-eerste-antifoon\weekdagen\hemelum&lt;/code&gt; (VSA), of tropaar Nikolaas (beide).
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de bestanden die je al hebt, tot één pagina maken die
+de Oefenhoek kan tonen.&lt;/p&gt;
+&lt;p&gt;Een &lt;strong&gt;bladermap&lt;/strong&gt; is die publicatiemap: één zangstuk, één map, met
+&lt;code&gt;index.md&lt;/code&gt; en de oefenbestanden.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; na partituur-producten of na een werkende &lt;code&gt;.vsa&lt;/code&gt;. Familie
+(meerdere varianten): een &lt;code&gt;_index.md&lt;/code&gt; in de oudermap en kind-bladermappen
+eronder — kopieer die structuur, verzinnen hoeft niet.&lt;/p&gt;</description></item><item><title>Status, check en live</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/2-status-en-check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/2-status-en-check/</guid><description>&lt;h1 id="status-check-en-live"&gt;Status, check en live&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Zet &lt;code&gt;publicatiestatus&lt;/code&gt; op elke Oefenhoek-&lt;code&gt;index.md&lt;/code&gt; / &lt;code&gt;_index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; moet groen zijn.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\serve.cmd --no-build&lt;/code&gt; → http://127.0.0.1:18731/ — klik zelf als koorlid.&lt;/li&gt;
+&lt;li&gt;Live: pas na groen, via git naar &lt;code&gt;main&lt;/code&gt; (of vragen). &lt;code&gt;productie&lt;/code&gt; niet raden.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; zeggen wat koorleden mogen verwachten, de keten laten
+controleren, zelf de pagina nalopen, daarna pas publiceren op internet.&lt;/p&gt;
+&lt;h2 id="publicatiestatus"&gt;Publicatiestatus&lt;/h2&gt;
+&lt;p&gt;Op &lt;strong&gt;elke&lt;/strong&gt; Oefenhoek-pagina, in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item><title>Als het misgaat</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/3-als-het-misgaat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/3-als-het-misgaat/</guid><description>&lt;h1 id="als-het-misgaat"&gt;Als het misgaat&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Spaties in de bladermap-naam? Hernoemen. Layout kwijt? Niet via MusicXML;
+wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de &lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
+de &lt;code&gt;.mxl&lt;/code&gt; in de bladermap, niet een &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet
+gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad &lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de veelvoorkomende blokkades herkennen. Blijft het
+stuk: bewaar de fouttekst en vraag na; probeer niet drie andere scripts
+tegelijk.&lt;/p&gt;</description></item></channel></rss>

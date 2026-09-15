@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Partituur on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/</link><description>Recent content in Partituur on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/index.xml" rel="self" type="application/rss+xml"/><item><title>Ruw materiaal binnenhalen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/1-binnenhalen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/1-binnenhalen/</guid><description>&lt;h1 id="ruw-materiaal-binnenhalen"&gt;Ruw materiaal binnenhalen&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Zet het bestand in &lt;code&gt;content-source\praktijk\oefenhoek\input\&amp;lt;herkomst&amp;gt;\&lt;/code&gt; (of eerst &lt;code&gt;_inbox\&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Laat de originele bestandsnaam staan.&lt;/li&gt;
+&lt;li&gt;Draai &lt;code&gt;scripts\check.cmd&lt;/code&gt; of &lt;code&gt;python scripts\update_werkvoorraad.py&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Vul in &lt;code&gt;input\werkvoorraad.md&lt;/code&gt; het &lt;strong&gt;doel-id&lt;/strong&gt; in als die kolom leeg is — niet raden, vragen.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; het ruwe bestand bewaren op de afgesproken plek en in
+de werkvoorraad zetten, nog zonder te converteren.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; bij elk nieuw Capella-, VOW-, MuseScore-, MusicXML- of
+PDF-bestand. Sla deze pagina over als het bestand al in &lt;code&gt;input\&lt;/code&gt; staat en
+de tabel al een doel-id heeft.&lt;/p&gt;</description></item><item><title>Capella opkuisen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/2-opkuisen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/2-opkuisen/</guid><description>&lt;h1 id="capella-opkuisen"&gt;Capella opkuisen&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python scripts\cleanup_capella_mxl.py &lt;span style="color:#e6db74"&gt;&amp;#34;content-source\praktijk\oefenhoek\input\capella\NAAM.mxl&amp;#34;&lt;/span&gt; -o content-source\praktijk\oefenhoek\input\_werk\DOEL-ID\DOEL-ID.mxl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;VOW-&lt;code&gt;.mscz&lt;/code&gt;: sla deze pagina over. Het Capella-origineel blijft in &lt;code&gt;capella\&lt;/code&gt;; schrijf uitvoer &lt;strong&gt;zonder spaties&lt;/strong&gt; via &lt;code&gt;-o&lt;/code&gt;.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; van een Capella-&lt;code&gt;.mxl&lt;/code&gt; een schone &lt;code&gt;.mxl&lt;/code&gt; maken die
+MuseScore aankan (lettergrepen per noot, recitatief, titel, geen lege
+maten). &lt;strong&gt;Opkuisen&lt;/strong&gt; is die inhoudelijke opschoning. Het is nog geen
+mooie A4-layout.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; de herkomst is Capella of CapToMusic. Heb je al een
+VOW-&lt;code&gt;.mscz&lt;/code&gt;, ga naar &lt;a href="../3-standaard-mscz/"&gt;standaard-.mscz&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>Standaard-.mscz maken</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/3-standaard-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/3-standaard-mscz/</guid><description>&lt;h1 id="standaard---hub-mscz-maken"&gt;Standaard- / hub-&lt;code&gt;.mscz&lt;/code&gt; maken&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Van opgekuiste &lt;code&gt;.mxl&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\DOEL-ID\DOEL-ID.mxl -o content-source\praktijk\oefenhoek\input\_werk\DOEL-ID\DOEL-ID.mscz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Van ruwe VOW-&lt;code&gt;.mscz&lt;/code&gt;: hetzelfde script; invoer is die &lt;code&gt;.mscz&lt;/code&gt;; &lt;code&gt;-o&lt;/code&gt; naar &lt;code&gt;_werk&lt;/code&gt; zonder spaties in de bestandsnaam.&lt;/p&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de hub-standaard toepassen (A4, lettertypes, SATB,
+reciteertoon, tempo, copyright). Norm: &lt;a href="https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-hub-contract.md"&gt;hub-contract&lt;/a&gt;
+.
+Reciteertoon (MCI): bij meer dan drie gelijke lettergrepen op dezelfde toon
+worden de &lt;strong&gt;eerste en laatste&lt;/strong&gt; gewone noten, met daartussen één feathered
+&lt;code&gt;||O||&lt;/code&gt;. MuseScore 4 moet geïnstalleerd zijn; bij een &lt;code&gt;.mxl&lt;/code&gt;-invoer start
+het script MuseScore zelf voor de import.&lt;/p&gt;</description></item><item><title>Reviewen en opnieuw layouten</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/4-reviewen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/4-reviewen/</guid><description>&lt;h1 id="reviewen-en-opnieuw-layouten"&gt;Reviewen en opnieuw layouten&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Open de &lt;code&gt;.mscz&lt;/code&gt; in MuseScore 4. Corrigeer noten, tekst, herhalingen — &lt;strong&gt;opslaan&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Exporteer niet naar MusicXML.&lt;/li&gt;
+&lt;li&gt;Layout opnieuw:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;Open de &lt;code&gt;.mscz&lt;/code&gt; opnieuw in MuseScore. Herhaal stappen 1–3 zo nodig.&lt;/li&gt;
+&lt;li&gt;Pas daarna &lt;a href="../5-pdf-en-coria/"&gt;PDF en Coria&lt;/a&gt;
+.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; controleren of noten, tekst, herhaling en
+priester-/koor-cues kloppen. Daarna de standaard-layout opnieuw toepassen
+zodat A4 niet scheef trekt.&lt;/p&gt;</description></item><item><title>PDF en Coria-.mxl maken</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/5-pdf-en-coria/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/5-pdf-en-coria/</guid><description>&lt;h1 id="pdf-en-coria-mxl-maken"&gt;PDF en Coria-.mxl maken&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;De &lt;code&gt;.mscz&lt;/code&gt; ligt in de &lt;strong&gt;bladermap&lt;/strong&gt; (niet meer alleen in &lt;code&gt;_werk&lt;/code&gt;). Daarna:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd content-source\praktijk\oefenhoek\liturgiemap-hemelum\DOEL-ID
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--force&lt;/code&gt; als PDF of Coria-&lt;code&gt;.mxl&lt;/code&gt; al bestaan maar de &lt;code&gt;.mscz&lt;/code&gt; inhoudelijk nieuwer is.
+&lt;code&gt;mscz-products&lt;/code&gt; zit &lt;strong&gt;niet&lt;/strong&gt; in &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt;.&lt;/p&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; uit de nagekeken &lt;code&gt;.mscz&lt;/code&gt; twee sibling-bestanden maken:
+een A4-PDF en een &lt;code&gt;.mxl&lt;/code&gt; die Coria aankan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; ná review en her-layout. Niet meteen na de eerste layout als
+je nog gaat editen: dan maak je de producten twee keer.&lt;/p&gt;</description></item><item><title>Afgeleiden bijwerken (PDF en Coria)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/6-afgeleiden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/6-afgeleiden/</guid><description>&lt;h1 id="afgeleiden-bijwerken-pdf-en-coria"&gt;Afgeleiden bijwerken (PDF en Coria)&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd content-source\praktijk\oefenhoek\liturgiemap-hemelum\DOEL-ID
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Daarna &lt;strong&gt;drie&lt;/strong&gt; bestanden committen: &lt;code&gt;.mscz&lt;/code&gt;, &lt;code&gt;.pdf&lt;/code&gt;, &lt;code&gt;.mxl&lt;/code&gt;.
+Zie ook &lt;a href="https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-hub-contract.md"&gt;hub-contract&lt;/a&gt;
+
+en &lt;a href="https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-product-transforms.md"&gt;transforms&lt;/a&gt;
+.
+Print-&lt;code&gt;.mscz&lt;/code&gt; (&lt;code&gt;*.print.mscz&lt;/code&gt;) hoort &lt;strong&gt;niet&lt;/strong&gt; in deze keten — zie
+&lt;a href="../7-print-mscz/"&gt;Print-.mscz&lt;/a&gt;
+.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; PDF en Coria-&lt;code&gt;.mxl&lt;/code&gt; opnieuw maken vanuit de hub-&lt;code&gt;.mscz&lt;/code&gt;,
+zodat hun ingebouwde hub-hash weer klopt. Op de preview-site zie je een
+rode banner als dat niet zo is; op &lt;code&gt;main&lt;/code&gt; faalt de build dan.&lt;/p&gt;</description></item><item><title>Print-.mscz (koormap-vel)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</guid><description>&lt;h1 id="print-mscz-koormap-vel"&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; (koormap-vel)&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;apply_mscz_layout.py&lt;/code&gt;, geen
+&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis. PDF maak je zelf in MuseScore 4
+(Bestand → Exporteren → PDF) en commit je naast het print-bestand.
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; een MuseScore-bestand in de bladermap zetten dat de
+pipeline &lt;strong&gt;niet&lt;/strong&gt; mag aanpassen — typisch één A4-vel voor de koormap met
+layout of tekstregels die de hub-normalisatie zou vernielen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; als je bewust &lt;strong&gt;buiten&lt;/strong&gt; de hub-straat werkt. Voor gewoon
+oefenmateriaal (één tekst, Coria, standaardlayout) gebruik je een gewone
+hub-&lt;code&gt;.mscz&lt;/code&gt; via &lt;a href="../3-standaard-mscz/"&gt;standaard-.mscz&lt;/a&gt;
+ en
+&lt;a href="../5-pdf-en-coria/"&gt;PDF en Coria&lt;/a&gt;
+.&lt;/p&gt;</description></item></channel></rss>
