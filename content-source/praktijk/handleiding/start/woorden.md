@@ -24,9 +24,9 @@ commando’s en mappen kloppen.
 | Extensie | In het kort | Wat jij ermee doet |
 | --- | --- | --- |
 | hub-`.mscz` | MuseScore 4-bestand volgens [hub-contract](https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-hub-contract.md) | Openen, nakijken, opslaan; daarna `apply_mscz_layout.py`; bron voor PDF en Coria |
-| print-`.mscz` | Zelfde soort MuseScore-bestand, naam eindigt op `.print.mscz` | Alleen in MuseScore bewerken; PDF handmatig; zie [Print-.mscz](../partituur/7-print-mscz/) |
+| print-`.mscz` | Zelfde soort MuseScore-bestand, naam eindigt op `.print.mscz` | Alleen in MuseScore bewerken; PDF handmatig; zie [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/) |
 | `.mxl` | Samengeperste MusicXML | Naar Coria (afgeleide); of (na opkuisen) als start voor een nieuwe hub. Nooit roundtrip: `.mscz` → `.mxl` → weer `.mscz` gooit de layout weg. |
-| `.pdf` | A4-blad (afgeleide of handmatige print-export) | Downloaden of printen; hub opnieuw via [afgeleiden](../partituur/6-afgeleiden/) |
+| `.pdf` | A4-blad (afgeleide of handmatige print-export) | Downloaden of printen; hub opnieuw via [afgeleiden](/praktijk/handleiding/partituur/6-afgeleiden/) |
 | `.vsa` | VSA-notatie | Schrijven in een editor; de sitebuild maakt er een plaatje (SVG) van |
 | `.cap` / `.capx` | Capella | Als bron bewaren; eerst naar `.mxl` (CapToMusic) als je nog geen `.mxl` hebt |
 
