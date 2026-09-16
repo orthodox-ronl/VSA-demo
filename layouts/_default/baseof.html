@@ -47,7 +47,6 @@
     {{ partial "publicatiestatus.html" . }}
     {{ block "main" . }}{{ end }}
     {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" }}
-      {{ partial "oefenhoek-acties.html" . }}
       {{ partial "oefenhoek-kinderen.html" . }}
       {{ partial "bladermap-score.html" . }}
     {{- end }}

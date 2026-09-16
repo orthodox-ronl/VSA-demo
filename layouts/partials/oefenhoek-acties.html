@@ -1,7 +1,10 @@
 {{- /*
-  Actieknoppen onder titel + indextekst: deelrubriek (Koormap/Bibliotheek),
+  Actieknoppen meteen onder de titel: deelrubriek (Koormap/Bibliotheek),
   Oefenen, Downloaden, Printen. Onder bibliotheek: groene knoppen + label
   Bibliotheek; elders (liturgiemap e.d.): blauw + Koormap.
+
+  Bestanden: lokale bladermap (automatische_inhoud), anders page-bundle
+  Resources, anders het bibliotheek-score-doel.
 */ -}}
 {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" -}}
 {{- $inBibliotheek := strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
@@ -20,6 +23,7 @@
   {{- $dir = strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
 {{- end -}}
 {{- $href := "" -}}
+{{- $coriaSrcs := slice -}}
 {{- if $files.pdfs -}}
   {{- $pdf := index $files.pdfs 0 -}}
   {{- with $.Resources.GetMatch $pdf -}}
@@ -28,7 +32,30 @@
     {{- $href = urls.JoinPath $.RelPermalink $pdf -}}
   {{- end -}}
 {{- end -}}
-{{- $hasOefenen := gt (len $files.mxls) 0 -}}
+{{- if $files.mxls -}}
+  {{- range $files.mxls -}}
+    {{- $coriaSrcs = $coriaSrcs | append (dict "src" (printf "mxl/%s/%s" $dir .) "label" "") -}}
+  {{- end -}}
+{{- end -}}
+{{- /* Page-bundle of bibliotheek-score-doel (automatische_inhoud: false) */ -}}
+{{- if and (not $href) (eq (len $coriaSrcs) 0) -}}
+  {{- $scorePage := . -}}
+  {{- with findRE `bibliotheek-score\s+id="([^"]+)"` .RawContent 1 -}}
+    {{- $m := index . 0 -}}
+    {{- $id := replaceRE `.*id="([^"]+)".*` `$1` $m -}}
+    {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" $id) -}}
+      {{- $scorePage = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $scorePage.Resources.Match "*.pdf" -}}
+    {{- if not $href -}}{{- $href = .RelPermalink -}}{{- end -}}
+  {{- end -}}
+  {{- range $scorePage.Resources.Match "*.mxl" -}}
+    {{- $src := strings.TrimPrefix "/" .RelPermalink -}}
+    {{- $coriaSrcs = $coriaSrcs | append (dict "src" $src "label" "") -}}
+  {{- end -}}
+{{- end -}}
+{{- $hasOefenen := gt (len $coriaSrcs) 0 -}}
 {{- if or $deel $hasOefenen $href -}}
 {{- $wrapClass := "score-actions oefenhoek-acties" -}}
 {{- if $inBibliotheek -}}
@@ -43,14 +70,13 @@
     {{- end -}}
   {{- end -}}
   {{- if $hasOefenen -}}
-    {{- $manyMxl := gt (len $files.mxls) 1 -}}
-    {{- range $files.mxls -}}
-      {{- $mxlSrc := printf "mxl/%s/%s" $dir . -}}
+    {{- $manyMxl := gt (len $coriaSrcs) 1 -}}
+    {{- range $coriaSrcs -}}
       {{- $label := "Oefenen" -}}
       {{- if $manyMxl -}}
-        {{- $label = printf "Oefenen (%s)" (strings.TrimSuffix . ".mxl") -}}
+        {{- $label = printf "Oefenen (%s)" (path.Base .src) -}}
       {{- end -}}
-      {{ partial "coria-play.html" (dict "src" $mxlSrc "label" $label) }}
+      {{ partial "coria-play.html" (dict "src" .src "label" $label) }}
     {{- end -}}
   {{- end -}}
   {{- if $href -}}

@@ -1,12 +1,10 @@
 {{- /*
-  Toon PDF + Coria en/of VSA-SVG van een bibliotheek-uitvoeringsvorm
-  (id = zangstuk/variant/uitvoeringsvorm). Geen filesystem-pad in de
-  aanroepende markdown.
+  Toon PDF-blad en/of VSA-SVG van een bibliotheek-uitvoeringsvorm
+  (id = zangstuk/variant/uitvoeringsvorm). Knoppen staan in
+  oefenhoek-acties (meteen onder de titel), niet hier.
 
-  PDF/MXL komen uit de Hugo page-bundle (generated/content). .vsa wordt
-  door build-markdown niet gekopieerd; die lezen we uit content-source
-  (zelfde aanpak als oefenhoek-bladermap-files) en tonen de SVG onder
-  static/vsa/bladermap/.
+  PDF/MXL: Hugo page-bundle (generated/content). .vsa: content-source +
+  SVG onder static/vsa/bladermap/.
 */ -}}
 {{- $id := .Get "id" -}}
 {{- if not $id -}}
@@ -18,14 +16,10 @@
   {{- errorf "bibliotheek-score: geen bibliotheek-pagina voor %q (GetPage %s)" $id $path -}}
 {{- end -}}
 {{- $pdf := "" -}}
-{{- $mxl := "" -}}
 {{- $vsas := slice -}}
 {{- $hasMscz := false -}}
 {{- range $p.Resources.Match "*.pdf" -}}
   {{- $pdf = .RelPermalink -}}
-{{- end -}}
-{{- range $p.Resources.Match "*.mxl" -}}
-  {{- $mxl = .RelPermalink -}}
 {{- end -}}
 {{- range $p.Resources.Match "*.mscz" -}}
   {{- $hasMscz = true -}}
@@ -37,7 +31,6 @@
 {{- with $p.File -}}
   {{- $dir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
 {{- end -}}
-{{- /* .vsa (+ hub-.mscz) staan in content-source, niet altijd in de bundle */ -}}
 {{- if $dir -}}
   {{- $srcDir := printf "content-source/%s" $dir -}}
   {{- if fileExists $srcDir -}}
@@ -55,15 +48,6 @@
   {{- end -}}
 {{- end -}}
 {{- if $pdf -}}
-<div class="score-actions" data-pdf-src="{{ $pdf }}">
-{{- if $mxl -}}
-{{- $absolute := absURL $mxl -}}
-{{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
-<a class="btn coria-play" href="{{ $coria }}" target="_blank" rel="noopener noreferrer">Oefenen in Coria</a>
-{{- end -}}
-  <a class="btn" href="{{ $pdf }}" download>Downloaden</a>
-  <a class="btn pdf-sheet-print" href="{{ $pdf }}">Printen</a>
-</div>
 <div class="pdf-sheet vsa-container" data-pdf-src="{{ $pdf }}">
   <div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"></div>
 </div>

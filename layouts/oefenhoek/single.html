@@ -1,5 +1,6 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
+{{ partial "oefenhoek-acties.html" . }}
 {{ partial "hub-product-banner.html" . }}
 <div class="oefenhoek-body">{{ .Content }}</div>
 {{ end }}
