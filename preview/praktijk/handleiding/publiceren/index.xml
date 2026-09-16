@@ -4,7 +4,8 @@
  &lt;div class="handleiding-cue-body"&gt;
  &lt;p&gt;Bibliotheek-map:
 &lt;code&gt;content-source\praktijk\oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;\&lt;/code&gt;
-met &lt;code&gt;index.md&lt;/code&gt; + hub/PDF/Coria/VSA (publicatiestam zonder spaties).&lt;/p&gt;
+met &lt;code&gt;index.md&lt;/code&gt; + oefenbestanden (hub/PDF/Coria/VSA of print; publicatiestam
+zonder spaties).&lt;/p&gt;
 &lt;p&gt;Koormap-slot:
 &lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
 shortcode &lt;code&gt;bibliotheek-score&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
@@ -43,9 +44,10 @@ in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de &lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
-de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt;, niet een &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet
-gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad &lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
+wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de hub-&lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
+de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (hub-product of &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;), niet een
+&lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad
+&lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
  &lt;/div&gt;
 &lt;/aside&gt;
 

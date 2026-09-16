@@ -33,9 +33,9 @@ neerkomt op copy-paste, zonder zoeken naar paden.&lt;/p&gt;</description></item>
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; vier soorten plekken uit elkaar houden. Anders verdwijnt
 het origineel, of komt een half af bestand op de publieke site.&lt;/p&gt;
 &lt;p&gt;Een &lt;strong&gt;bibliotheek-uitvoeringsvorm&lt;/strong&gt; is één map in de bibliotheek met
-&lt;code&gt;index.md&lt;/code&gt; en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA).
-Een &lt;strong&gt;koormap-slot&lt;/strong&gt; is een plek in de Hemelum-liturgiemap die naar die
-uitvoeringsvorm verwijst.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormappen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</guid><description>&lt;h1 id="bibliotheek-en-koormappen"&gt;Bibliotheek en koormappen&lt;/h1&gt;
+&lt;code&gt;index.md&lt;/code&gt; en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
+print). Een &lt;strong&gt;koormap-slot&lt;/strong&gt; is een plek in de Hemelum-liturgiemap die naar
+die uitvoeringsvorm verwijst.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormappen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</guid><description>&lt;h1 id="bibliotheek-en-koormappen"&gt;Bibliotheek en koormappen&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -90,11 +90,11 @@ bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;print-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = koormap-vel; bestandsnaam eindigt op &lt;code&gt;.print.mscz&lt;/code&gt;; pipeline blijft ervan af&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bestandsnaam &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt; enz. — zie product-contract&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter: afgeleiden niet auto-bijwerken&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bij botsing &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter op bibliotheek-&lt;code&gt;index.md&lt;/code&gt;: PDF/MXL niet auto-bijwerken&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; / &lt;code&gt;.vsa.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.pdf&lt;/code&gt; = A4-afgeleide om te lezen of te printen&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen)&lt;/li&gt;

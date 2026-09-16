@@ -348,18 +348,20 @@ Zalig de mens, wien de Heer de zonden niet toerekent.&lt;/p&gt;</description></i
  &lt;ol&gt;
 &lt;li&gt;Kopieer een bestaand &lt;code&gt;.vsa&lt;/code&gt; in de bibliotheek (bijvoorbeeld eerste antifoon weekdagen Hemelum).&lt;/li&gt;
 &lt;li&gt;Zet het bestand in de bibliotheek-map; bestandsnaam zonder spaties (publicatiestam).&lt;/li&gt;
+&lt;li&gt;Zet bovenaan YAML met minstens &lt;code&gt;do&lt;/code&gt;, &lt;code&gt;mode&lt;/code&gt; en &lt;code&gt;tempo: 120&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;vsa validate pad\naar\bestand.vsa&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Bibliotheek-&lt;code&gt;index.md&lt;/code&gt; + koormap-slot: shortcode &lt;code&gt;bibliotheek-score&lt;/code&gt; met de bibliotheek-id&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; — de SVG komt vanzelf.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; — SVG én Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;; commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen&lt;/li&gt;
 &lt;/ol&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de gezongen tekst in VSA-notatie zetten en via het
-bibliotheek op de site tonen. Nog geen vierstemmig blad — daarvoor is de
-&lt;a href="../2-template-satb/"&gt;volgende pagina&lt;/a&gt;
-, alleen voor tropaar toon 4.&lt;/p&gt;</description></item><item><title>10 Evangelielezing</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</guid><description>&lt;h1 id="10-evangelielezing"&gt;10 Evangelielezing&lt;/h1&gt;</description></item><item><title>20d In waarheid (Moeder Godslied)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</guid><description>&lt;h1 id="20d-in-waarheid-moeder-godslied"&gt;20d In waarheid (Moeder Godslied)&lt;/h1&gt;
+bibliotheek op de site tonen, inclusief oefenen in Coria. Nog geen
+vierstemmig blad — daarvoor is de &lt;a href="../2-template-satb/"&gt;volgende pagina&lt;/a&gt;
+,
+alleen voor tropaar toon 4.&lt;/p&gt;</description></item><item><title>10 Evangelielezing</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/10-evangelielezing/</guid><description>&lt;h1 id="10-evangelielezing"&gt;10 Evangelielezing&lt;/h1&gt;</description></item><item><title>20d In waarheid (Moeder Godslied)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/20d-in-waarheid-moeder-godslied/</guid><description>&lt;h1 id="20d-in-waarheid-moeder-godslied"&gt;20d In waarheid (Moeder Godslied)&lt;/h1&gt;
 &lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/20-moeder-godslied/20d-in-waarheid/hemelum/20-moeder-godslied-20d-in-waarheid-hemelum.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>Bibliotheek en koormap</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/1-bladermap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/publiceren/1-bladermap/</guid><description>&lt;h1 id="bibliotheek-en-koormap"&gt;Bibliotheek en koormap&lt;/h1&gt;
@@ -368,7 +370,8 @@ bibliotheek op de site tonen. Nog geen vierstemmig blad — daarvoor is de
  &lt;div class="handleiding-cue-body"&gt;
  &lt;p&gt;Bibliotheek-map:
 &lt;code&gt;content-source\praktijk\oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;\&lt;/code&gt;
-met &lt;code&gt;index.md&lt;/code&gt; + hub/PDF/Coria/VSA (publicatiestam zonder spaties).&lt;/p&gt;
+met &lt;code&gt;index.md&lt;/code&gt; + oefenbestanden (hub/PDF/Coria/VSA of print; publicatiestam
+zonder spaties).&lt;/p&gt;
 &lt;p&gt;Koormap-slot:
 &lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
 shortcode &lt;code&gt;bibliotheek-score&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
@@ -524,7 +527,8 @@ in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item
  &lt;p&gt;Werkt nu concreet voor &lt;strong&gt;tropaar toon 4&lt;/strong&gt; (corpus &lt;code&gt;T4-01&lt;/code&gt; … &lt;code&gt;T4-12&lt;/code&gt;). In &lt;code&gt;VSA-tooling&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;cd&lt;/span&gt; /d C:\Git\orthodox-ronl\VSA-tooling
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Kopieer daarna &lt;code&gt;.vsa&lt;/code&gt;, &lt;code&gt;.mscz&lt;/code&gt;, &lt;code&gt;.mxl&lt;/code&gt; en &lt;code&gt;.pdf&lt;/code&gt; naar het Oefenhoek-&lt;strong&gt;bibliotheek&lt;/strong&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Kopieer het resultaat naar de Oefenhoek-bibliotheek als &lt;strong&gt;print-vel&lt;/strong&gt; +
+handmatige artefacten (zie stap 5), niet als automatische hub.&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
@@ -564,9 +568,9 @@ generate (&lt;code&gt;vsa build-markdown&lt;/code&gt; / &lt;code&gt;scripts\chec
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; vier soorten plekken uit elkaar houden. Anders verdwijnt
 het origineel, of komt een half af bestand op de publieke site.&lt;/p&gt;
 &lt;p&gt;Een &lt;strong&gt;bibliotheek-uitvoeringsvorm&lt;/strong&gt; is één map in de bibliotheek met
-&lt;code&gt;index.md&lt;/code&gt; en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA).
-Een &lt;strong&gt;koormap-slot&lt;/strong&gt; is een plek in de Hemelum-liturgiemap die naar die
-uitvoeringsvorm verwijst.&lt;/p&gt;</description></item><item><title>21 En Allen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</guid><description>&lt;h1 id="21-en-allen"&gt;21 En Allen&lt;/h1&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
+&lt;code&gt;index.md&lt;/code&gt; en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
+print). Een &lt;strong&gt;koormap-slot&lt;/strong&gt; is een plek in de Hemelum-liturgiemap die naar
+die uitvoeringsvorm verwijst.&lt;/p&gt;</description></item><item><title>21 En Allen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/21-en-allen/</guid><description>&lt;h1 id="21-en-allen"&gt;21 En Allen&lt;/h1&gt;</description></item><item><title>Woensdag — het Heilig Kruis (Hemelum)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/weekdagen/woensdag-hemelum/</guid><description>&lt;!-- 
 &lt;div class="nav-buttons"&gt;&lt;a class="btn" href="../samenstellingen/antifonen-weekdagen-catalogus/"&gt;
  Antifonen
  &lt;/a&gt;&lt;a class="btn" href="../maandag/"&gt;
@@ -734,9 +738,10 @@ bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de &lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
-de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt;, niet een &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet
-gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad &lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
+wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de hub-&lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
+de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (hub-product of &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;), niet een
+&lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad
+&lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
  &lt;/div&gt;
 &lt;/aside&gt;
 
@@ -822,11 +827,11 @@ Zelfde inhoud als bij &lt;code&gt;vsa svg&lt;/code&gt; of in een inline-blok —
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;print-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = koormap-vel; bestandsnaam eindigt op &lt;code&gt;.print.mscz&lt;/code&gt;; pipeline blijft ervan af&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bestandsnaam &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt; enz. — zie product-contract&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter: afgeleiden niet auto-bijwerken&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bij botsing &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter op bibliotheek-&lt;code&gt;index.md&lt;/code&gt;: PDF/MXL niet auto-bijwerken&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; / &lt;code&gt;.vsa.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.pdf&lt;/code&gt; = A4-afgeleide om te lezen of te printen&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen)&lt;/li&gt;
@@ -890,8 +895,8 @@ Coria. Bezoekers hoeven geen MusicXML te downloaden of zelf te importeren
  &lt;p&gt;Hub-&lt;code&gt;.mscz&lt;/code&gt; staat in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (niet alleen in &lt;code&gt;_werk&lt;/code&gt;). Daarna:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of heel &lt;code&gt;content-source&lt;/code&gt;. &lt;code&gt;--force&lt;/code&gt; als producten ouder zijn dan de hub of
-de bestandsdatum niet klopt. &lt;code&gt;mscz-products&lt;/code&gt; zit &lt;strong&gt;niet&lt;/strong&gt; in &lt;code&gt;check&lt;/code&gt; /
-&lt;code&gt;serve&lt;/code&gt;. Weigert / slaat &lt;code&gt;*.print.mscz&lt;/code&gt; over.&lt;/p&gt;
+de bestandsdatum niet klopt. Lokale &lt;code&gt;check&lt;/code&gt;/&lt;code&gt;build&lt;/code&gt;/&lt;code&gt;serve&lt;/code&gt; vernieuwen
+stale hub-producten ook automatisch. Weigert / slaat &lt;code&gt;*.print.mscz&lt;/code&gt; over.&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
@@ -929,16 +934,15 @@ nog bij de huidige hub horen. Technische transforms staan in
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of producten voor alles: &lt;code&gt;scripts\mscz-products.cmd content-source&lt;/code&gt;.
 &lt;code&gt;--force&lt;/code&gt; op &lt;code&gt;mscz-products&lt;/code&gt; als de hub nieuwer is maar dat niet in de
 bestandsdatum zichtbaar is.&lt;/p&gt;
+&lt;p&gt;Na &lt;code&gt;.vsa&lt;/code&gt;-edit: &lt;code&gt;scripts\vsa-products.cmd&lt;/code&gt; (of alleen &lt;code&gt;check&lt;/code&gt; lokaal) en
+commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen.&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; PDF en Coria-&lt;code&gt;.mxl&lt;/code&gt; opnieuw laten maken nadat de
-&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; is gewijzigd, en controleren of preview en &lt;code&gt;check&lt;/code&gt; geen
-verouderde-afgeleiden-banner of -fout tonen.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Afgeleiden&lt;/strong&gt; = de bestanden die uit de hub komen en niet zelf de bron
-zijn: &lt;code&gt;{stam}.pdf&lt;/code&gt; en &lt;code&gt;{stam}.mxl&lt;/code&gt; (Coria). De hub blijft de plek waar je
-editet.&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; afgeleiden opnieuw laten maken nadat de &lt;strong&gt;bron&lt;/strong&gt; is
+gewijzigd, en controleren of preview en &lt;code&gt;check&lt;/code&gt; geen verouderde-afgeleiden-
+banner of -fout tonen.&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; van een Markdownblad (tekst, VSA, includes,
 paginascheidingen) een A4-PDF maken. De site-build maakt de PDF niet
 automatisch; wel controleert &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt; of de demo-PDF up-to-date is.&lt;/p&gt;
@@ -1011,17 +1015,18 @@ weggelaten — een relatieve site-knop werkt niet vanuit een PDF-bestand.&lt;/li
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;apply_mscz_layout.py&lt;/code&gt;, geen
-&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
-(Bestand → Exporteren → PDF) en commit je naast het print-bestand &lt;strong&gt;in het
-bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt; vaak
-&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (beheerdersbanner; zie product-contract).
+&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit MuseScore-bestand. PDF maak je zelf in
+MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestand
+&lt;strong&gt;in het bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt;
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (gele beheerdersbanner).
  &lt;/div&gt;
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; een MuseScore-bestand in het &lt;strong&gt;bibliotheek&lt;/strong&gt; zetten dat de
 hub-pijplijn &lt;strong&gt;niet&lt;/strong&gt; mag aanpassen — typisch één A4-vel voor de koormap met
-layout of tekstregels die de hub-normalisatie zou vernielen. Het koormap-slot
-verwijst met &lt;code&gt;bibliotheek-score&lt;/code&gt; (alleen PDF-knoppen, geen Coria).&lt;/p&gt;</description></item><item><title>Moeder Godslied (Ontslapen van de Moeder Gods)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</guid><description>&lt;h1 id="moeder-godslied-ontslapen-van-de-moeder-gods"&gt;Moeder Godslied (Ontslapen van de Moeder Gods)&lt;/h1&gt;
+layout of tekstregels die de hub-normalisatie zou vernielen, of een
+template-SATB-blad dat jij handmatig bijhoudt. Het koormap-slot verwijst met
+&lt;code&gt;bibliotheek-score&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Moeder Godslied (Ontslapen van de Moeder Gods)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/20-moeder-godslied/moeder-godslied-ontslapen-mgods/</guid><description>&lt;h1 id="moeder-godslied-ontslapen-van-de-moeder-gods"&gt;Moeder Godslied (Ontslapen van de Moeder Gods)&lt;/h1&gt;
 &lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/20-moeder-godslied/ontslapen-moeder-gods/hemelum/20-moeder-godslied-ontslapen-moeder-gods-hemelum.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>9b Alleluja</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/9b-alleluja/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/9b-alleluja/</guid><description>&lt;h1 id="9b-alleluja"&gt;9b Alleluja&lt;/h1&gt;</description></item><item><title>Id-register Hemelum</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/</guid><description>&lt;h1 id="id-register--liturgiemap-hemelum--bibliotheek"&gt;Id-register — liturgiemap Hemelum → bibliotheek&lt;/h1&gt;
@@ -1127,14 +1132,14 @@ script tegelijk.&lt;/p&gt;
 | &lt;em&gt;(alleen bibliotheek voorlopig)&lt;/em&gt; | &lt;code&gt;19-eucharistische-canon/rostov/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-rostov-hemelum&lt;/code&gt; | — | VOW-input; stub |
 | &lt;code&gt;20-moeder-godslied/20d-in-waarheid-moeder-godslied/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/20d-in-waarheid/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-20d-in-waarheid-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
 | &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; print-track |
-| &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | mxl, pdf, vsa | Geen hub-mscz |
+| &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
 | &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra/liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-liturgikon-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
-| &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
-| &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | — | vsa | Niet in Hemelum-koormap |
+| &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-hemelum-hemelum&lt;/code&gt; | vsa, vsa.mxl | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
+| &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-liturgikon-hemelum&lt;/code&gt; | vsa, vsa.mxl | Niet in Hemelum-koormap |
 | &lt;code&gt;2-eerste-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | stub-achtig in koormap |
-| &lt;code&gt;4-tweede-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | |
+| &lt;code&gt;4-tweede-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon-weekdagen-hemelum-hemelum&lt;/code&gt; | vsa, vsa.mxl | |
 | &lt;code&gt;4-tweede-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
-| &lt;code&gt;6-derde-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;6-derde-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | |
+| &lt;code&gt;6-derde-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;6-derde-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | &lt;code&gt;6-derde-antifoon-weekdagen-hemelum-hemelum&lt;/code&gt; | vsa, vsa.mxl | |
 | &lt;code&gt;6-derde-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;6-derde-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;6-derde-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | Variant-id = koormap-mapnaam |
 | &lt;code&gt;5-eniggeboren-zoon/&lt;/code&gt; | &lt;code&gt;5-eniggeboren-zoon/default/hemelum&lt;/code&gt; | &lt;code&gt;5-eniggeboren-zoon-default-hemelum&lt;/code&gt; | mscz, mxl, pdf | &lt;code&gt;default&lt;/code&gt; = enige variant |
 | &lt;code&gt;7-kleine-intocht/zondag/&lt;/code&gt; | &lt;code&gt;7-kleine-intocht/zondag/hemelum&lt;/code&gt; | &lt;code&gt;7-kleine-intocht-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
@@ -1572,7 +1577,6 @@ want zie, van nu af zullen alle geslachten mij zaligprijzen. &lt;em&gt;Fil. 2;5-
 &lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/zondag/hemelum/6-derde-antifoon-zondag-hemelum.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>7a Kleine intocht (zondag / weekdagen / Moeder Gods)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zo-wk-mg/hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zo-wk-mg/hemelum/</guid><description>&lt;h1 id="7a-kleine-intocht-zondag--weekdagen--moeder-gods"&gt;7a Kleine intocht (zondag / weekdagen / Moeder Gods)&lt;/h1&gt;
-&lt;p&gt;Print-vel (geen Coria-hub). PDF via de knoppen hieronder.&lt;/p&gt;
 &lt;div class="pdf-sheet vsa-container" data-pdf-src="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zo-wk-mg/hemelum/7-kleine-intocht-zo-wk-mg-hemelum.pdf"&gt;
  &lt;div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"&gt;&lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>7a Kleine intocht (zondag)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zondag/hemelum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zondag/hemelum/</guid><description>&lt;h1 id="7a-kleine-intocht-zondag"&gt;7a Kleine intocht (zondag)&lt;/h1&gt;

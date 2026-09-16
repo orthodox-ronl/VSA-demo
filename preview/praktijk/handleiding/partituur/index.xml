@@ -87,8 +87,8 @@ de rest van de Oefenhoek.&lt;/p&gt;</description></item><item><title>PDF en Cori
  &lt;p&gt;Hub-&lt;code&gt;.mscz&lt;/code&gt; staat in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (niet alleen in &lt;code&gt;_werk&lt;/code&gt;). Daarna:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of heel &lt;code&gt;content-source&lt;/code&gt;. &lt;code&gt;--force&lt;/code&gt; als producten ouder zijn dan de hub of
-de bestandsdatum niet klopt. &lt;code&gt;mscz-products&lt;/code&gt; zit &lt;strong&gt;niet&lt;/strong&gt; in &lt;code&gt;check&lt;/code&gt; /
-&lt;code&gt;serve&lt;/code&gt;. Weigert / slaat &lt;code&gt;*.print.mscz&lt;/code&gt; over.&lt;/p&gt;
+de bestandsdatum niet klopt. Lokale &lt;code&gt;check&lt;/code&gt;/&lt;code&gt;build&lt;/code&gt;/&lt;code&gt;serve&lt;/code&gt; vernieuwen
+stale hub-producten ook automatisch. Weigert / slaat &lt;code&gt;*.print.mscz&lt;/code&gt; over.&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
@@ -126,28 +126,28 @@ nog bij de huidige hub horen. Technische transforms staan in
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of producten voor alles: &lt;code&gt;scripts\mscz-products.cmd content-source&lt;/code&gt;.
 &lt;code&gt;--force&lt;/code&gt; op &lt;code&gt;mscz-products&lt;/code&gt; als de hub nieuwer is maar dat niet in de
 bestandsdatum zichtbaar is.&lt;/p&gt;
+&lt;p&gt;Na &lt;code&gt;.vsa&lt;/code&gt;-edit: &lt;code&gt;scripts\vsa-products.cmd&lt;/code&gt; (of alleen &lt;code&gt;check&lt;/code&gt; lokaal) en
+commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen.&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; PDF en Coria-&lt;code&gt;.mxl&lt;/code&gt; opnieuw laten maken nadat de
-&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; is gewijzigd, en controleren of preview en &lt;code&gt;check&lt;/code&gt; geen
-verouderde-afgeleiden-banner of -fout tonen.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Afgeleiden&lt;/strong&gt; = de bestanden die uit de hub komen en niet zelf de bron
-zijn: &lt;code&gt;{stam}.pdf&lt;/code&gt; en &lt;code&gt;{stam}.mxl&lt;/code&gt; (Coria). De hub blijft de plek waar je
-editet.&lt;/p&gt;</description></item><item><title>Print-.mscz (koormap-vel)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</guid><description>&lt;h1 id="print-mscz-koormap-vel"&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; (koormap-vel)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; afgeleiden opnieuw laten maken nadat de &lt;strong&gt;bron&lt;/strong&gt; is
+gewijzigd, en controleren of preview en &lt;code&gt;check&lt;/code&gt; geen verouderde-afgeleiden-
+banner of -fout tonen.&lt;/p&gt;</description></item><item><title>Print-.mscz (koormap-vel)</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/</guid><description>&lt;h1 id="print-mscz-koormap-vel"&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; (koormap-vel)&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;apply_mscz_layout.py&lt;/code&gt;, geen
-&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
-(Bestand → Exporteren → PDF) en commit je naast het print-bestand &lt;strong&gt;in het
-bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt; vaak
-&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (beheerdersbanner; zie product-contract).
+&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit MuseScore-bestand. PDF maak je zelf in
+MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestand
+&lt;strong&gt;in het bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt;
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (gele beheerdersbanner).
  &lt;/div&gt;
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; een MuseScore-bestand in het &lt;strong&gt;bibliotheek&lt;/strong&gt; zetten dat de
 hub-pijplijn &lt;strong&gt;niet&lt;/strong&gt; mag aanpassen — typisch één A4-vel voor de koormap met
-layout of tekstregels die de hub-normalisatie zou vernielen. Het koormap-slot
-verwijst met &lt;code&gt;bibliotheek-score&lt;/code&gt; (alleen PDF-knoppen, geen Coria).&lt;/p&gt;</description></item></channel></rss>
+layout of tekstregels die de hub-normalisatie zou vernielen, of een
+template-SATB-blad dat jij handmatig bijhoudt. Het koormap-slot verwijst met
+&lt;code&gt;bibliotheek-score&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>

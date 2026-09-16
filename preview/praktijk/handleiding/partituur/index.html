@@ -33,11 +33,14 @@ daarna PDF en Coria-<code>.mxl</code> (<a href=5-pdf-en-coria/>PDF en Coria</a>
 ,
 <a href=6-afgeleiden/>afgeleiden</a>
 ).</p><p>Naast dit hub-spoor bestaat een <strong>print-<code>.mscz</code></strong> (<code>*.print.mscz</code>): een
-koormap-vel dat de pipeline niet normaliseert en waarvoor geen Coria
-wordt gemaakt — zie <a href=7-print-mscz/>Print-.mscz</a>
-.</p><p>Technische afspraken voor wie scripts of CI aanhoudt (bestanden in de repo,
-niet op deze site): <code>scripts\mscz-hub-contract.md</code>,
-<code>scripts\mscz-product-transforms.md</code>.</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body>Capella: opkuisen (<code>cleanup_capella_mxl.py</code>) → normaliseren (<code>apply_mscz_layout.py</code>) → MuseScore (inhoud) → opnieuw normaliseren → <code>scripts\mscz-products.cmd</code>
+koormap-vel dat de pipeline niet normaliseert; PDF (en eventuele Coria)
+houd je handmatig bij met <code>artefacten_handmatig: true</code> — zie
+<a href=7-print-mscz/>Print-.mscz</a>
+. Eenstemmige VSA hoort onder <a href=../vsa/>VSA</a>
+,
+niet in deze partituurstraat.</p><p>Technische afspraken voor wie scripts of CI aanhoudt (bestanden in de repo,
+niet op deze site): <code>scripts\oefenhoek-product-contract.md</code>,
+<code>scripts\mscz-hub-contract.md</code>, <code>scripts\mscz-product-transforms.md</code>.</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body>Capella: opkuisen (<code>cleanup_capella_mxl.py</code>) → normaliseren (<code>apply_mscz_layout.py</code>) → MuseScore (inhoud) → opnieuw normaliseren → <code>scripts\mscz-products.cmd</code>
 VOW / ruwe <code>.mscz</code>: Capella-script overslaan; controleer wel stemmen en lettergrepen (opkuisen), daarna normaliseren.
-Print-vel: <code>naam.print.mscz</code> + handmatige PDF — geen layout-script, geen <code>mscz-products</code>.
+Print-vel: <code>naam.print.mscz</code> + handmatige PDF (+ <code>artefacten_handmatig: true</code>) — geen layout-script, geen <code>mscz-products</code>.
 Tussenproducten (hub): <code>input\_werk\&lt;doel-id>\</code>. Origineel blijft in <code>input\capella\</code> of <code>input\vow\</code>.</div></aside><ul class=page-list><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/1-binnenhalen/>Ruw materiaal binnenhalen</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/2-opkuisen/>Opkuisen</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/3-standaard-mscz/>Standaard-.mscz maken</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/4-reviewen/>Reviewen en opnieuw normaliseren</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/5-pdf-en-coria/>PDF en Coria-.mxl maken</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/6-afgeleiden/>Afgeleiden bijwerken</a></li><li><a href=/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/>Print-.mscz (koormap-vel)</a></li></ul></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-16</p></div></footer></body></html>

@@ -24,11 +24,16 @@
 </a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
 <span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=pdf-en-coria-mxl-maken>PDF en Coria-.mxl maken</h1><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><p>Hub-<code>.mscz</code> staat in het <strong>bibliotheek</strong> (niet alleen in <code>_werk</code>). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 </span></span></code></pre></div><p>Of heel <code>content-source</code>. <code>--force</code> als producten ouder zijn dan de hub of
-de bestandsdatum niet klopt. <code>mscz-products</code> zit <strong>niet</strong> in <code>check</code> /
-<code>serve</code>. Weigert / slaat <code>*.print.mscz</code> over.</p></div></aside><p><strong>Wat je nu doet:</strong> uit de nagekeken, genormaliseerde <strong>hub-<code>.mscz</code></strong> twee
+de bestandsdatum niet klopt. Lokale <code>check</code>/<code>build</code>/<code>serve</code> vernieuwen
+stale hub-producten ook automatisch. Weigert / slaat <code>*.print.mscz</code> over.</p></div></aside><p><strong>Wat je nu doet:</strong> uit de nagekeken, genormaliseerde <strong>hub-<code>.mscz</code></strong> twee
 sibling-bestanden maken:</p><div class=table-scroll><table><thead><tr><th>Bestand</th><th>Rol</th></tr></thead><tbody><tr><td><code>{stam}.pdf</code></td><td>A4-afdruk om te lezen of te printen</td></tr><tr><td><code>{stam}.mxl</code></td><td>MusicXML voor <strong>Coria</strong> (online oefenen)</td></tr></tbody></table></div><p>Beide krijgen een ingebedde <code>hub-sha256</code> zodat <code>check</code> kan zien of PDF/MXL
 nog bij de huidige hub horen. Technische transforms staan in
-<code>scripts\mscz-product-transforms.md</code> in <code>VSA-demo</code>.</p><p><strong>Wanneer:</strong> ná <a href=../4-reviewen/>reviewen en opnieuw normaliseren</a>
+<code>scripts\mscz-product-transforms.md</code> in <code>VSA-demo</code>.</p><p>Dit is het <strong>hub</strong>-spoor (representatie-id <code>hub</code>). Eenstemmige VSA gebruikt
+<code>{stam}.vsa.mxl</code> via <a href=../../vsa/1-vsa-schrijven/><code>.vsa schrijven</code></a>
+. Als in
+één map ooit twee Coria-bestanden nodig zijn, gebruik expliciete namen
+<code>{stam}.hub.mxl</code> / <code>{stam}.vsa.mxl</code> — zie
+<code>scripts\oefenhoek-product-contract.md</code>.</p><p><strong>Wanneer:</strong> ná <a href=../4-reviewen/>reviewen en opnieuw normaliseren</a>
 . Niet
 meteen na de eerste normalisatie als je nog gaat editen: dan maak je de
 producten twee keer. Bij een latere hub-wijziging: opnieuw normaliseren,
@@ -50,11 +55,11 @@ uit <code>_werk</code>). Gebruik de <strong>publicatiestam</strong> zonder spati
 <code>8-trisagion-8a-nederlands-hemelum.pdf</code> en
 <code>8-trisagion-8a-nederlands-hemelum.mxl</code> (zelfde stam).</p></li><li><p>Open de PDF even in een PDF-viewer: pagina A4, titel, colofon, tekst
 leesbaar.</p></li><li><p>Coria test je ná <code>scripts\check.cmd --strict</code> op het <strong>koormap-slot</strong>
-(knop <strong>Oefenen in Coria</strong> komt uit de shortcode <code>bibliotheek-score</code> op
-die pagina — niet uit een <code>.mxl</code> onder <code>input\</code>).</p></li></ol><h3 id=vernieuwen-of-forceren>Vernieuwen of forceren</h3><div class=table-scroll><table><thead><tr><th>Situatie</th><th>Actie</th></tr></thead><tbody><tr><td>PDF/MXL ouder dan de hub-<code>.mscz</code></td><td>Gewoon opnieuw <code>mscz-products</code> — het script vernieuwt ze</td></tr><tr><td>Hub inhoudelijk gewijzigd maar bestandsdatum klopt niet</td><td>Zet <code>--force</code> achter het commando</td></tr><tr><td>Preview toont een banner dat afgeleiden niet bij de hub horen</td><td>Zie <a href=../6-afgeleiden/>Afgeleiden</a>
+(knop <strong>Oefenen</strong> komt uit de Oefenhoek-acties op die pagina — niet uit
+een <code>.mxl</code> onder <code>input\</code>).</p></li></ol><h3 id=vernieuwen-of-forceren>Vernieuwen of forceren</h3><div class=table-scroll><table><thead><tr><th>Situatie</th><th>Actie</th></tr></thead><tbody><tr><td>PDF/MXL ouder dan de hub-<code>.mscz</code></td><td>Gewoon opnieuw <code>mscz-products</code> — of <code>check</code> lokaal (pipeline vernieuwt stale)</td></tr><tr><td>Hub inhoudelijk gewijzigd maar bestandsdatum klopt niet</td><td>Zet <code>--force</code> achter het commando</td></tr><tr><td>Preview toont een banner dat hub-afgeleiden niet kloppen</td><td>Zie <a href=../6-afgeleiden/>Afgeleiden</a>
 ; opnieuw producten ná laatste normalisatie</td></tr></tbody></table></div><h2 id=wat-je-niet-doet>Wat je niet doet</h2><ul><li>Geen Coria-<code>.mxl</code> uit Capella of uit “Exporteren als MusicXML” in
 MuseScore gebruiken als publicatiebestand.</li><li>Geen producten maken van een hub die je daarna nog gaat editen zonder
 opnieuw te normaliseren én producten te vernieuwen.</li><li>Geen <code>mscz-products</code> verwachten voor <code>*.print.mscz</code>.</li></ul><h2 id=klaar-als>Klaar als</h2><p>In de bibliotheek liggen <code>.mscz</code>, <code>.pdf</code> en <code>.mxl</code> met dezelfde
 publicatiestam; de PDF ziet er hub-achtig uit; je kunt door naar
 <a href=../../publiceren/1-bladermap/>bibliotheek en koormap</a>
-.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/publiceren/1-bladermap/>Volgende: bibliotheek en koormap</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-16</p></div></footer></body></html>
+.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/partituur/6-afgeleiden/>Volgende: afgeleiden</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-16</p></div></footer></body></html>

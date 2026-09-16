@@ -23,9 +23,10 @@
 <span class=site-jump-label>VSA-tooling</span>
 </a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
 <span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=als-het-misgaat>Als het misgaat</h1><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body>Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel <code>apply_mscz_layout.py</code> op de <code>.mscz</code>. Coria rood bij <code>check</code>? Gebruik
-de <code>.mxl</code> in het <strong>bibliotheek</strong>, niet een <code>.mxl</code> onder <code>input\</code>. MuseScore niet
-gevonden? Versie <strong>4</strong>, pad <code>C:\Program Files\MuseScore 4\bin\MuseScore4.exe</code>.</div></aside><p><strong>Wat je nu doet:</strong> de veelvoorkomende blokkades herkennen. Blijft het
+wel <code>apply_mscz_layout.py</code> op de hub-<code>.mscz</code>. Coria rood bij <code>check</code>? Gebruik
+de <code>.mxl</code> in het <strong>bibliotheek</strong> (hub-product of <code>{stam}.vsa.mxl</code>), niet een
+<code>.mxl</code> onder <code>input\</code>. MuseScore niet gevonden? Versie <strong>4</strong>, pad
+<code>C:\Program Files\MuseScore 4\bin\MuseScore4.exe</code>.</div></aside><p><strong>Wat je nu doet:</strong> de veelvoorkomende blokkades herkennen. Blijft het
 stuk: bewaar de fouttekst en vraag na; probeer niet drie andere scripts
 tegelijk.</p><h2 id=spaties-of-rare-tekens-in-de-naam>Spaties of rare tekens in de naam</h2><p><strong>Symptoom:</strong> een script weigert, Coria doet het niet, of <code>check</code> klaagt.</p><p>Publicatiebestanden in de bibliotheek: geen spaties, geen <code>(</code> of <code>+</code>. Stam
 alleen <code>a-z0-9_-</code>. Ruwe inputs in <code>input\</code> mogen hun oude naam houden. Schrijf
@@ -38,17 +39,22 @@ noteer dat in de notitie. Id-lijst:
 <a href=/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/>Print-.mscz</a>
 . Per ongeluk
 als gewone <code>.mscz</code> gezet? Hernoem terug naar <code>.print.mscz</code> vóór de
-volgende <code>check</code>.</p><h2 id=musescore-start-niet--niet-gevonden>MuseScore start niet / “niet gevonden”</h2><p>Layout en <code>mscz-products</code> hebben MuseScore <strong>4</strong> nodig. Installeer
+volgende <code>check</code>. Zet <code>artefacten_handmatig: true</code> op de bibliotheek-<code>index.md</code>
+als PDF/MXL handmatig blijven.</p><h2 id=musescore-start-niet--niet-gevonden>MuseScore start niet / “niet gevonden”</h2><p>Layout en <code>mscz-products</code> hebben MuseScore <strong>4</strong> nodig. Installeer
 MuseScore 4; gebruik niet MuseScore 3. Open het opdrachtvenster opnieuw
-na installatie.</p><h2 id=de-pagina-is-lelijk-of-de-stijl-is-weg>De pagina is lelijk of de stijl is weg</h2><p>Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
-<code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+na installatie. (Voor alleen <code>.vsa</code> → Coria is MuseScore niet nodig:
+<code>vsa-products</code>.)</p><h2 id=de-pagina-is-lelijk-of-de-stijl-is-weg>De pagina is lelijk of de stijl is weg</h2><p>Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
+hub-<code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 </span></span></code></pre></div><h2 id=coria-failed-to-retrieve-file>Coria: <code>failed to retrieve file</code></h2><p>De Oefenen-knop moet naar <code>/mxl/c/&lt;hash>.musicxml</code> wijzen (fingerprint),
 niet naar het page-bundle-<code>.mxl</code> met een verdubbelde site-prefix. Draai
 <code>check</code>/<code>build</code> opnieuw zodat <code>fingerprint_coria_mxl.py</code> en Hugo meelopen.
-<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> (of de
-VSA-template-render) komen, niet een ruwe Capella-<code>.mxl</code>. Maak de
-producten opnieuw ná de laatste normalisatie. <code>check</code> heeft een aparte
-Coria-controle; de melding wijst het bestand aan.</p><h2 id=bibliotheek-score-faalt-bij-build><code>bibliotheek-score</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
+<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> of <code>vsa-products</code>
+komen (of handmatig bij <code>artefacten_handmatig</code>), niet een ruwe Capella-<code>.mxl</code>.
+Maak hub-producten opnieuw ná de laatste normalisatie, of draai
+<code>scripts\vsa-products.cmd</code> voor een bibliotheek-<code>.vsa</code>. <code>check</code> heeft een
+aparte Coria-controle; de melding wijst het bestand aan.</p><h2 id=rode-banner-hub--of-vsa-afgeleiden-niet-in-orde>Rode banner: hub- of VSA-afgeleiden niet in orde</h2><div class=table-scroll><table><thead><tr><th>Banner</th><th>Oorzaak</th><th>Actie</th></tr></thead><tbody><tr><td>Hub-afgeleiden</td><td>PDF/MXL passen niet bij de hub-<code>.mscz</code></td><td><a href=../../partituur/6-afgeleiden/>Afgeleiden</a>
+— layout + <code>mscz-products</code></td></tr><tr><td>VSA-afgeleiden</td><td><code>{stam}.vsa.mxl</code> ontbreekt of is ouder dan de <code>.vsa</code></td><td><code>scripts\vsa-products.cmd</code>, commit beide</td></tr></tbody></table></div><p>Op <code>main</code> faalt de build bij dezelfde situaties.</p><h2 id=gele-banner-handmatige-artefacten>Gele banner: handmatige artefacten</h2><p>Geen fout: <code>artefacten_handmatig: true</code> staat op die bibliotheekpagina.
+PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.</p><h2 id=bibliotheek-score-faalt-bij-build><code>bibliotheek-score</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
 het id klopt niet (<code>zangstuk/variant/uitvoeringsvorm</code>). Maak eerst de
 bibliotheek-map + <code>index.md</code>, of corrigeer het id in het koormap-slot.</p><h2 id=vsa-validate-klaagt><code>vsa validate</code> klaagt</h2><p>De markering zit in de gezongen regel. Vergelijk met een werkend <code>.vsa</code>
 ernaast. Haal niet “even de rare tekens weg” om groen te worden.</p><h2 id=template-satb-templateinstanceerror>Template SATB: <code>TemplateInstanceError</code></h2><p>De sopraan in de VSA volgt de tropaar-toon-4-formule niet (toon of
