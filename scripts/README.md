@@ -72,9 +72,13 @@ zet meta `vsaNoLyricExtenders`, zodat een volgende layout-run ze niet
 terugzet.
 Generate kopieert extra page-bundle bestanden (`.mxl`) via
 `copy_content_extras.py` (niet `oefenhoek/input/`; fout bij spaties in de
-naam). `fingerprint_coria_mxl.py` publiceert uncompressed MusicXML
-als `/mxl/c/<hash>.musicxml` (URL eindigt op `.musicxml`, geen spaties of
-query-string; compressed `.mxl` laat Coria op sommige stukken falen).
+naam). `fingerprint_coria_mxl.py` leest page-bundle-`.mxl` uit
+`content-source` (niet `oefenhoek/input/`) plus `static/vsa/mxl`, en
+publiceert uncompressed MusicXML als `/mxl/c/<hash>.musicxml` (URL eindigt
+op `.musicxml`, geen spaties of query-string; compressed `.mxl` laat Coria
+op sommige stukken falen). Oefenen-knoppen moeten die fingerprint-sleutel
+gebruiken (`mxl/<content-pad>/<bestand>`), niet een Hugo-`RelPermalink`
+(die verdubbelt de GitHub Pages-baseURL → Coria `failed to retrieve file`).
 `check_publicatiestatus.py` (in `check`) eist `publicatiestatus` en
 `automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /
 `index.md` (niet `input/`). Status: `voorzien`, `concept`, `reviewable` of

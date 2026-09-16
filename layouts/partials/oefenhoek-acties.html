@@ -47,12 +47,20 @@
       {{- $scorePage = . -}}
     {{- end -}}
   {{- end -}}
+  {{- $scoreDir := "" -}}
+  {{- with $scorePage.File -}}
+    {{- $scoreDir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
+  {{- end -}}
   {{- range $scorePage.Resources.Match "*.pdf" -}}
     {{- if not $href -}}{{- $href = .RelPermalink -}}{{- end -}}
   {{- end -}}
+  {{- /* Zelfde sleutel als fingerprint_coria_mxl (mxl/<content-pad>/<naam>),
+       niet RelPermalink: die bevat al de baseURL-path en absURL verdubbelt die
+       (Coria: failed to retrieve file). */ -}}
   {{- range $scorePage.Resources.Match "*.mxl" -}}
-    {{- $src := strings.TrimPrefix "/" .RelPermalink -}}
-    {{- $coriaSrcs = $coriaSrcs | append (dict "src" $src "label" "") -}}
+    {{- if $scoreDir -}}
+      {{- $coriaSrcs = $coriaSrcs | append (dict "src" (printf "mxl/%s/%s" $scoreDir .Name) "label" "") -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- $hasOefenen := gt (len $coriaSrcs) 0 -}}

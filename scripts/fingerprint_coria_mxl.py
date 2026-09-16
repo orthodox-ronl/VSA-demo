@@ -8,6 +8,11 @@ changes when file bytes change, so Coria loads fresh lyrics.
 Coria's importer ("translation failed") is unreliable on compressed
 .mxl ZIP for some scores (Cherubijnenhymne Kastorski). Uncompressed
 MusicXML 3.1 from the same payload loads. We always serve that.
+
+Bronnen:
+- content-source/**/*.mxl (niet oefenhoek/input/) — page-bundle Coria-.mxl
+- static/mxl/** (legacy/extra)
+- static/vsa/mxl/** (vsa musicxml)
 """
 
 from __future__ import annotations
@@ -21,11 +26,13 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = REPO_ROOT / "data" / "coria-fp.json"
 DEST_ROOT = REPO_ROOT / "static" / "mxl" / "c"
+CONTENT_SOURCE = REPO_ROOT / "content-source"
 URL_PREFIX = "mxl/c"
 SUFFIXES = {".mxl", ".musicxml"}
+# (root, url_prefix_for_key) — key wordt prefix/relpath met / -> __
 SOURCE_TREES = (
-    REPO_ROOT / "static" / "mxl",
-    REPO_ROOT / "static" / "vsa" / "mxl",
+    (REPO_ROOT / "static" / "mxl", "mxl"),
+    (REPO_ROOT / "static" / "vsa" / "mxl", "vsa/mxl"),
 )
 
 
@@ -52,10 +59,27 @@ def _payload_for_coria(path: Path) -> bytes:
 
 def _iter_source_files() -> list[tuple[str, Path]]:
     files: list[tuple[str, Path]] = []
-    for root in SOURCE_TREES:
+    seen_keys: set[str] = set()
+
+    def add(key: str, path: Path) -> None:
+        if key in seen_keys:
+            return
+        seen_keys.add(key)
+        files.append((key, path))
+
+    if CONTENT_SOURCE.is_dir():
+        for path in sorted(CONTENT_SOURCE.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in SUFFIXES:
+                continue
+            relative = path.relative_to(CONTENT_SOURCE)
+            if "input" in relative.parts:
+                continue
+            key = f"mxl/{relative.as_posix()}".replace("/", "__")
+            add(key, path)
+
+    for root, prefix in SOURCE_TREES:
         if not root.is_dir():
             continue
-        prefix = "mxl" if root == SOURCE_TREES[0] else "vsa/mxl"
         for path in sorted(root.rglob("*")):
             if not path.is_file() or path.suffix.lower() not in SUFFIXES:
                 continue
@@ -63,7 +87,8 @@ def _iter_source_files() -> list[tuple[str, Path]]:
             if relative.parts and relative.parts[0] == "c":
                 continue
             key = f"{prefix}/{relative.as_posix()}".replace("/", "__")
-            files.append((key, path))
+            add(key, path)
+
     return files
 
 

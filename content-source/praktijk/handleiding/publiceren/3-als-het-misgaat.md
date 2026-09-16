@@ -55,6 +55,13 @@ Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 ```
 
+## Coria: `failed to retrieve file`
+
+De Oefenen-knop moet naar `/mxl/c/<hash>.musicxml` wijzen (fingerprint),
+niet naar het page-bundle-`.mxl` met een verdubbelde site-prefix. Draai
+`check`/`build` opnieuw zodat `fingerprint_coria_mxl.py` en Hugo meelopen.
+`check_hugo_links_and_assets.py` faalt op kapotte Coria-URL's.
+
 ## Coria: `translation failed` of check weigert de `.mxl`
 
 De `.mxl` in de bibliotheek moet uit `mscz-products` (of de
