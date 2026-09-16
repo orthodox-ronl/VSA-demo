@@ -7,9 +7,9 @@ weight: 20
 # Status, check en live
 
 {{< cue >}}
-1. Zet `publicatiestatus` op elke Oefenhoek-`index.md` / `_index.md`.
+1. Zet `publicatiestatus` op bibliotheek-`index.md` **en** koormap-`index.md`.
 2. `scripts\check.cmd --strict` moet groen zijn.
-3. `scripts\serve.cmd --no-build` → http://127.0.0.1:18731/ — klik zelf als koorlid.
+3. `scripts\serve.cmd --no-build` → http://127.0.0.1:18731/ — klik zelf als koorlid (koormap-slot).
 4. Live: pas na groen, via git naar `main` (of vragen). `productie` niet raden.
 {{< /cue >}}
 
@@ -18,7 +18,8 @@ controleren, zelf de pagina nalopen, daarna pas publiceren op internet.
 
 ## Publicatiestatus
 
-Op **elke** Oefenhoek-pagina, in de `---` bovenaan:
+Op **elke** Oefenhoek-pagina die koorleden zien (bibliotheek en koormap),
+in de `---` bovenaan:
 
 | Waarde | Wanneer |
 | --- | --- |
@@ -27,7 +28,7 @@ Op **elke** Oefenhoek-pagina, in de `---` bovenaan:
 | `reviewable` | Er staat iets in; feedback welkom |
 | `productie` | Alleen bewust, nooit gokken |
 
-Bladermap mét partituur of VSA-include: meestal `reviewable`. Lege stub:
+Bibliotheek mét hub, VSA of print-PDF: meestal `reviewable`. Lege stub:
 `voorzien`. Intern *Stap* in de werkvoorraad (`opkuisen`, `layout`, …) is
 iets anders — dat zien koorleden niet.
 
@@ -52,8 +53,8 @@ scripts\serve.cmd --no-build
 ```
 
 Browser: **http://127.0.0.1:18731/** — nooit poort 1313. Open jouw
-Oefenhoek-pagina. Klik **Oefenen in Coria**, **Downloaden**, blader de PDF.
-Alsof je koorlid bent.
+**koormap-slot** in de liturgiemap. Klik **Oefenen in Coria**, **Downloaden**,
+blader de PDF. Alsof je koorlid bent.
 
 Alles opnieuw opbouwen (langer): `scripts\serve.cmd` zonder `--no-build`.
 
@@ -70,7 +71,7 @@ een rode `check --strict`.
 
 ## Klaar als
 
-De publicatiestatus klopt, check is groen, jij hebt de preview als
-koorlid geklikt, en live is een bewuste volgende stap.
+De publicatiestatus klopt op bibliotheek én koormap, check is groen, jij
+hebt de preview als koorlid geklikt, en live is een bewuste volgende stap.
 
 {{< navbuttons "Als het misgaat|/praktijk/handleiding/publiceren/3-als-het-misgaat/" >}}

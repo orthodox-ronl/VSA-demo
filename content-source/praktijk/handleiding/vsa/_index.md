@@ -11,10 +11,12 @@ nav_sort: weight
 Voor een tropaar op **toon 4** kun je dat `.vsa`-bestand daarna combineren
 met een formule-template. Dan komen alt, tenor en bas erbij (SATB).
 
-Een **bladermap** is de publicatiemap van het zangstuk onder de Oefenhoek.
+Oefenbare `.vsa`-bestanden staan in het **bibliotheek**; het **koormap-slot**
+in de liturgiemap toont ze via shortcode `bibliotheek-score` (zelfde id
+als de bibliotheek-map).
 
 {{< cue >}}
-- Antifoon / eenstemmig: `.vsa` in de bladermap + `:::include svg …:::` → [schrijven](1-vsa-schrijven/).
+- Antifoon / eenstemmig: `.vsa` in de bibliotheek → [schrijven](1-vsa-schrijven/).
 - Tropaar toon 4, meerstemmig blad: `.vsa` met `template: tropaar-toon-4` → [template SATB](2-template-satb/).
 - Valideren: `vsa validate pad\naar\bestand.vsa`
 {{< /cue >}}

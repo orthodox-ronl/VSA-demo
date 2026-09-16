@@ -6,9 +6,13 @@ Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
   python scripts/apply_mscz_layout.py pad\\naar\\file.mscz
   python scripts/apply_mscz_layout.py pad\\naar\\file.mxl -o uit.mscz
 
-Bestandsnamen: geen spaties (`scripts/score_filenames.py`). `.mxl` als
-invoer wordt via MuseScore naar `.mscz` geconverteerd en daarna gelayout.
-Geen PDF of Coria-`.mxl`: dat is `scripts\\mscz-products.cmd` na de editslag.
+Publicatie-hub: bij voorkeur onder
+`oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/` met
+publicatiestam `{zangstuk}-{variant}-{uitvoeringsvorm}.mscz`
+(`scripts/bibliotheek.py`). Bestandsnamen: geen spaties
+(`scripts/score_filenames.py`). `.mxl` als invoer wordt via MuseScore naar
+`.mscz` geconverteerd en daarna gelayout. Geen PDF of Coria-`.mxl`: dat is
+`scripts\\mscz-products.cmd` na de editslag.
 
 Copyright: notice uit de bron, of default CC BY-SA 4.0 (deze uitgave) plus
 eredienst-kopieertoestemming. Standaard: korte footer (`$C`) + colofon.
@@ -40,6 +44,7 @@ from pathlib import Path
 
 from nl_hyphen import hyphenate_token, split_syllabic
 from score_filenames import published_path, require_no_spaces, is_print_mscz
+from bibliotheek import id_from_path, stem as bibliotheek_stem
 from recite_collapse_mscx import collapse_recite_mscx, sync_measures_no_filler_rests
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
@@ -1540,7 +1545,18 @@ def main() -> int:
         raise SystemExit("verwacht een .mscz of .mxl")
     if " " in src.name and suffix == ".mscz" and args.output is None:
         raise SystemExit(f"bestandsnaam mag geen spaties hebben: {src.name}")
+    ident = id_from_path(path)
+    if ident:
+        expected = f"{bibliotheek_stem(ident)}.mscz"
+        if path.name != expected:
+            print(
+                f"waarschuwing: bibliotheek-map {ident} verwacht bestandsnaam "
+                f"{expected}, kreeg {path.name}",
+                flush=True,
+            )
     notes = process_mscz(path, no_extenders=args.no_extenders, rights_hint=rights_hint)
+    if ident:
+        notes.append(f"bibliotheek-id={ident}")
     print(f"ok {path}")
     for n in notes:
         print(f"  {n}")

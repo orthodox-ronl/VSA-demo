@@ -53,68 +53,68 @@
   uitvoeringsvorm: "VOKN-7"
 
 - type: item
-  title: "Troparion en Kondakion (toon-1)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-1)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 1)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 1)"
-  file: "010-troparion-kondakion-toon-1"
+  file: "010-tropaar-kondak-toon-1"
 
 - type: item
-  title: "Troparion en Kondakion (toon-2)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-2)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 2)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 2)"
-  file: "011-troparion-kondakion-toon-2"
+  file: "011-tropaar-kondak-toon-2"
 
 - type: item
-  title: "Troparion en Kondakion (toon-3)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-3)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 3)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 3)"
-  file: "012-troparion-kondakion-toon-3"
+  file: "012-tropaar-kondak-toon-3"
 
 - type: item
-  title: "Troparion en Kondakion (toon-4)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-4)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 4)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 4)"
-  file: "013-troparion-kondakion-toon-4"
+  file: "013-tropaar-kondak-toon-4"
 
 - type: item
-  title: "Troparion en Kondakion (toon-5)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-5)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 5)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 5)"
-  file: "014-troparion-kondakion-toon-5"
+  file: "014-tropaar-kondak-toon-5"
 
 - type: item
-  title: "Troparion en Kondakion (toon-6)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-6)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 6)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 6)"
-  file: "015-troparion-kondakion-toon-6"
+  file: "015-tropaar-kondak-toon-6"
 
 - type: item
-  title: "Troparion en Kondakion (toon-7)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-7)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 7)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 7)"
-  file: "016-troparion-kondakion-toon-7"
+  file: "016-tropaar-kondak-toon-7"
 
 - type: item
-  title: "Troparion en Kondakion (toon-8)"
-  zangstuk: "Troparion"
+  title: "Tropaar en Kondak (toon-8)"
+  zangstuk: "Tropaar"
     - variant: "Zondag (Toon 8)"
-  zangstuk: "Kondakion"
+  zangstuk: "Kondak"
     - variant: "Zondag (Toon 8)"
-  file: "017-troparion-kondakion-toon-8"
+  file: "017-tropaar-kondak-toon-8"
 
 - type: item
   title: "Bescherming der Christenen (toon 6, stichier melodie)"
@@ -131,7 +131,7 @@
 - type: item
   title: "(8) Trisagion"
   zangstuk: "Trisagion"
-  file: "020-(8a) trisagion"
+  file: "020-(8a) 8-trisagion"
   uitvoeringsvorm: "VOKN-8a"
 
 - type: group

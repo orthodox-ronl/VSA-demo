@@ -20,7 +20,7 @@ en dat Hij ons redt in Zijn barm{har_}{\tig_}{/heid_}. [//:]
 
 ### Tropaar H. Nikolaas (Toon 4) ***Nls en Ksl***
 
-:::include svg id:troparion-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
+:::include svg id:tropaar-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
 
 ***EER AAN DE VADER ...***
 ***NU EN ALTIJD ...***

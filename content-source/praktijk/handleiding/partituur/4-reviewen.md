@@ -1,67 +1,131 @@
 ---
-title: "Reviewen en opnieuw layouten"
+title: "Reviewen en opnieuw normaliseren"
 linkTitle: "Reviewen"
 weight: 40
 ---
 
-# Reviewen en opnieuw layouten
+# Reviewen en opnieuw normaliseren
 
 {{< cue >}}
-1. Open de `.mscz` in MuseScore 4. Corrigeer noten, tekst, herhalingen — **opslaan**.
-2. Exporteer niet naar MusicXML.
-3. Layout opnieuw:
+1. Open de hub-`.mscz` in MuseScore 4. Corrigeer noten, tekst, herhalingen,
+   stemmen, cues — **opslaan** (Ctrl+S). Exporteer niet naar MusicXML.
+2. Opnieuw normaliseren (layouten):
 ```cmd
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 ```
-4. Open de `.mscz` opnieuw in MuseScore. Herhaal stappen 1–3 zo nodig.
-5. Pas daarna [PDF en Coria](../5-pdf-en-coria/).
+3. Open de `.mscz` opnieuw in MuseScore 4. Herhaal 1–2 zo nodig.
+4. Daarna pas [PDF en Coria](../5-pdf-en-coria/).
 {{< /cue >}}
 
-**Wat je nu doet:** controleren of noten, tekst, herhaling en
-priester-/koor-cues kloppen. Daarna de standaard-layout opnieuw toepassen
-zodat A4 niet scheef trekt.
+**Wat je nu doet:** de hub-`.mscz` inhoudelijk controleren en corrigeren, en
+daarna de hub-standaard **opnieuw** toepassen met
+`apply_mscz_layout.py` (normaliseren / layouten). Zonder die tweede slag
+blijven A4, fonts, reciteertoon-encoding of copyright uit de pas lopen met
+de rest van de Oefenhoek.
 
-**Wanneer:** altijd tussen de eerste layout-`.mscz` en het maken van PDF
-of Coria-`.mxl`. Ook als het koor over een maand een fout meldt: dezelfde
-ronde, niet opnieuw vanaf Capella tenzij de dump zelf fout was.
+**Wanneer:** altijd tussen de eerste genormaliseerde hub-`.mscz` en het maken
+van PDF of Coria-`.mxl`. Ook als het koor later een fout meldt: dezelfde
+ronde. Alleen opnieuw vanaf Capella als de **input** zelf fout was.
+
+## Twee rollen in deze ronde
+
+| Rol | Wie / wat | Voorbeelden |
+| --- | --- | --- |
+| **Inhoud** (opkuisen tijdens review) | Jij in MuseScore 4 | Verkeerde noot, plakkerige lettergreep, SAT op de verkeerde balk, ontbrekende herhaling, cue in het titelvak |
+| **Hub-vorm** (normaliseren / layouten) | `apply_mscz_layout.py` | A4, marges, Source Sans 3, maatnummers, reciteertoon-collaps, zichtbare eindmaatstrepen, tempo-default, copyright-footer/colofon |
+
+Uitgebreide inhoudschecklist: [Opkuisen](../2-opkuisen/).
+Uitgebreide scriptlijst: [Standaard-.mscz](../3-standaard-mscz/).
+
+## Review-checklist (inhoud)
+
+Open de `.mscz` in `_werk\<stam>\` of, als het bestand al in het
+**bibliotheek** staat, die hub-`.mscz`. Loop het stuk door, liefst met de
+liturgische tekst ernaast. Vink af:
+
+### Noten en vorm
+
+- [ ] Juiste toonhoogtes en lengtes (cadensen niet per ongeluk tot recitatief
+      gemaakt of omgekeerd).
+- [ ] Herhalingen en herhalingstekens kloppen met de liturgische praktijk.
+- [ ] Geen maten die alleen rommelrusten zijn waar muziek hoort.
+
+### Stemmen en notenbalken
+
+- [ ] SATB-verdeling klopt (typisch: bovenstemmen op balk 1, bas op balk 2).
+- [ ] Geen gevulde extra balk die niet hoort; een **lege** extra balk ruimt
+      normalisatie vaak op — zie je er na normalisatie toch een, niet
+      “repareren” via MusicXML.
+- [ ] Gezongen tekst staat tussen de balken (niet onder de bas herhaald op
+      alle stemmen).
+
+### Lettergrepen
+
+- [ ] Elke lettergreep hoort bij de juiste noot (geen vastgeplakte
+      multi-klinker op één noot terwijl er meerdere nodig zijn).
+- [ ] Homofoon: waar de sopraan een lettergreep heeft, hebben de andere
+      stemmen daar ook een noot.
+- [ ] Melisma (één lettergreep over meerdere noten + slur) bewust laten;
+      koppelteken `Va-der` is geen melisma.
+
+### Cues, titel, tempo
+
+- [ ] Cues `P:`, `D:`, `K:` als Staff Text in de partituur, niet in het
+      titelvak.
+- [ ] Titel en componist kloppen; geen boekpagina-cijfer als titel.
+- [ ] Er is een tempo (onzichtbare metronoom mag); ontbreekt die, zet
+      normalisatie 100 BPM.
+
+### Wat je tijdens review níet doet
+
+- Geen Bestand → Exporteren → MusicXML → weer openen (stijl weg).
+- Geen PDF/Coria vóór de her-normalisatie na je laatste edit.
+- Geen `apply_mscz_layout.py` op `*.print.mscz`.
 
 ## Stap voor stap
 
-1. Dubbelklik de `.mscz` in `_werk\` (of, als het bestand al in de
-   bladermap staat, die bladermap-`.mscz`). MuseScore 4 opent.
-2. Loop het stuk door, liefst met de liturgische tekst ernaast. Let op:
-   - verkeerde of plakkerige lettergrepen
-   - ontbrekende herhaling
-   - cues `P:`, `D:`, `K:` (die horen in de partituur, niet in het titelvak)
-   - een extra lege notenbalk (het layout-script haalt die meestal weg;
-     zie je er toch een, “repareer” niet via MusicXML)
+1. Dubbelklik de hub-`.mscz`. MuseScore 4 opent.
+2. Werk de checklist hierboven af. Corrigeer in MuseScore.
 3. Bestand → Opslaan (Ctrl+S). Sluiten mag.
-4. Layout opnieuw op **dezelfde** `.mscz` (geen `-o` nodig als de
-   bestandsnaam al goed is):
+4. Normaliseer **dezelfde** `.mscz` opnieuw. Geen `-o` nodig als de
+   bestandsnaam al goed is (zonder spaties):
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\8a-trisagion\8a-trisagion.mscz
+python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
-5. Open de `.mscz` opnieuw in MuseScore. Ziet de pagina er rarer uit dan
-   vóór de layout? Het script zet de stijl bewust terug naar de standaard.
-   Inhoudelijke fouten (verkeerde noot) lost het layout-script niet op —
-   die verbeter je zelf in stap 2.
+   Ligt de hub al in de bibliotheek:
 
-### Wat de layout niet mag overschrijven — en wat wel
+```cmd
+python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
+```
 
-Jij bent verantwoordelijk voor **inhoud** (noten, tekst, herhaling).
-Het script is verantwoordelijk voor **uiterlijk** (A4, marges, fonts,
-maatnummers). Daarom na elke editslag opnieuw layouten: anders loopt de
-pagina vol of wijkt het stuk af van de andere Oefenhoek-stukken.
+5. Open de `.mscz` opnieuw in MuseScore 4.
+   - Ziet de **pagina** er anders uit dan net na je edit? Dat hoort: het
+     script zet de stijl terug naar de hub-standaard.
+   - Zit er nog een **inhoudelijke** fout? Terug naar stap 2 — het script
+     lost een verkeerde noot niet op.
+6. Herhaal tot inhoud én hub-vorm aanvaardbaar zijn.
 
-Nooit: MuseScore → Exporteren → MusicXML → weer openen. Dan begin je
-van voren af aan, zonder stijl.
+## Wat normaliseren wel en niet overschrijft
+
+| Jij (blijft leidend) | Script (zet opnieuw) |
+| --- | --- |
+| Toonhoogte, ritme, herhaling | A4, marges, fonts, maatnummers |
+| Welke stem op welke balk (gevulde balken) | Lege maat-balken weg; style overlays |
+| Welke lettergreep jij aan welke noot hing | Splits/knip volgens contract; reciteertoon-collaps |
+| Bewuste melisma-slurs | Lyric-underlines (ticks) standaard weg |
+| Bron-copyright die al in de hub zat | Footer + colofon-velden opnieuw opgebouwd |
+
+Daarom na **elke** editslag opnieuw normaliseren, ook als je “maar één noot”
+wijzigde.
 
 ## Klaar als
 
-Je hebt de `.mscz` zelf beluisterd of bekeken, opgeslagen, layout opnieuw
-gedraaid, en het resultaat in MuseScore is aanvaardbaar voor het koor om
-te reviewen.
+Je hebt de hub-`.mscz` beluisterd of doorgelopen, opgeslagen, opnieuw
+genormaliseerd, en in MuseScore 4 gecontroleerd dat inhoud én A4-hubvorm
+aanvaardbaar zijn voor het koor om te reviewen.
+
+Volgende stap: [PDF en Coria-.mxl maken](../5-pdf-en-coria/).
 
 {{< navbuttons "Volgende: PDF en Coria|/praktijk/handleiding/partituur/5-pdf-en-coria/" >}}

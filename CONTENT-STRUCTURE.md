@@ -16,6 +16,10 @@ content-source/
     liturgikon/       liturgikon-teksten
     diversen/         losse zangstukken buiten de andere secties
     oefenhoek/        WIP-oefenmateriaal voor koorleden (geen catalogus)
+      bibliotheek/     (conversie) bibliotheek drie lagen; zie Oefenhoek
+      liturgiemap-hemelum/  koormap Hemelum
+      overig/         testmateriaal
+      input/          ruwe dumps
     demo/             tooling-demo's (svg CLI/inline/include, mxl, coria, pdf) + assets/
     handleiding/      beheerder-handleiding oefenhoek (ruwe input tot publicatie)
   lokaal/             parochie-lokaal (manifest + repr per zangstuk)
@@ -31,7 +35,7 @@ content-source/
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
 | Tooling-demo (svg CLI → inline → include; mxl; coria; pdf) | `demo/` (+ `demo/assets/`) | één topic per pagina |
 | Beheerder-handleiding (oefenhoek-straat)   | `handleiding/`             | geen `nav_group`; balk-knop **Handleiding** (weight na Demo) |
-| WIP-oefenmateriaal voor koorleden          | `oefenhoek/`               | geen `nav_group`; bladermap per zangstuk-id |
+| WIP-oefenmateriaal voor koorleden          | `oefenhoek/`               | geen `nav_group`; bibliotheek + koormap-slots |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
 | Header-nav                                 | `nav_group` op sectie-`_index.md` | `diensten` / `materiaal`; sectie zonder groep (Oefenhoek, Demo, Handleiding) wordt dropdown van haar pagina’s |
 | Weekdag-subnav                             | balk onder de header       | ma–za via `weight` 1–6             |
@@ -50,17 +54,20 @@ catalogus en geen tooling-demo.
 | Afspraak | Toelichting |
 | -------- | ----------- |
 | Eigen rubriek, geen `nav_group` | Balk-knop **Oefenhoek** (weight lager dan Demo, dus links daarvan); dropdown = deelrubrieken |
-| Deelrubrieken | `liturgiemap-hemelum/`, `overig/` (later bijv. `liturgiemap-zwolle/`); `input/` blijft op oefenhoek-niveau |
-| Eén bladermap per zangstuk | `oefenhoek/<deelrubriek>/<id>/index.md`; familie (meerdere varianten): `<id>/_index.md` + kind-bladermappen |
-| Liturgiemap-overzicht | Koor-TOC (`hide_section_list`); titel linkt naar familie-overzicht of naar een stuk met getoonde PDF/VSA |
-| Geen spaties in publicatienamen | Map + hub-`.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Print-vel: `*.print.mscz` (buiten hub-productgate). Ruwe inputs: `oefenhoek/input/` (niet gekopieerd) |
-| Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
+| Deelrubrieken | `bibliotheek/` (doel), `liturgiemap-hemelum/`, `overig/`; `input/` blijft op oefenhoek-niveau |
+| Bibliotheek | `oefenhoek/bibliotheek/<zangstuk-id>/<variant-id>/<uitvoeringsvorm-id>/` (altijd drie lagen). Hub-`.mscz` + PDF/Coria/VSA + `index.md`. Mag uitvoeringsvormen bevatten **zonder** koormap-verwijzing. Root toont oefenbare zangstukken (niet alle stubs). Id-register: `bibliotheek/ID-REGISTER.md`. Special pages: `bibliotheek/speciaal/` (voorzien, ongerefereerd, oefenbaar). Migratie: `scripts/migrate_oefenhoek_bibliotheek.py` (niet in check). Print-vel: `{stam}.print.mscz` in bibliotheek, geen Coria-hub. |
+| Koormap | Geordende view (liturgie, later feest/collectie/parochie). Slots verwijzen via `{{< bibliotheek-score id="zangstuk/variant/uitvoeringsvorm" >}}`. Geen hub-`.mscz` in de slotmap. |
+| Publicatiestam | `{zangstuk}-{variant}-{uitvoeringsvorm}` voor `.mscz` / Coria-`.mxl` / PDF (`scripts/bibliotheek.py`) |
+| Migratie uitgevoerd (Hemelum) | Hub-bestanden in `bibliotheek/`; koormap-slots alleen `index.md` + `bibliotheek-score` (catalogus-slots: `:::include`). |
+| Geen spaties in publicatienamen | Stam `[a-z0-9_-]+`. Print-vel: `*.print.mscz` (buiten hub-productgate). Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
+| Geen dubbele canonieke VSA | Catalogus-include (`id:…` / `lokaal:…` / `bron:…`) mag op een koormap-slot; MuseScore-uitgaven in bibliotheek |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
-| Input vs publicatie | Ruwe inputs in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
-| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per input; tabel bij sitebuild). Uitklapbaar onderaan de Oefenhoek-`_index`, na de deelrubrieken. |
+| Input vs publicatie | Ruwe dumps in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
+| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per input; tabel bij sitebuild). Doel-id = bibliotheek-id wanneer bekend. |
 | Publicatiestatus | Frontmatter `publicatiestatus` op elke oefenhoek-`_index.md` en `index.md`: `voorzien` (gepland, nog geen uitgave), `concept` (eerste versie), `reviewable` (feedback gevraagd), `productie`. Balk + e-mail/GitHub-issue. Secties: collectie als geheel. |
-| Bladermap-`index.md` | Alleen frontmatter + eigen tekst. Partituur-widgets (PDF/Coria/VSA) via Hugo-layout uit de bestanden in de map als `automatische_inhoud: true`. Catalogus-includes (`id:`) bij `false`. |
+| Kind-lijst linkbaar | `layouts/partials/oefenhoek-linkbaar.html`: doorlinken als er oefenbestanden zijn, of leaf-status in `concept` \| `reviewable` \| `productie`, of (sectie) een nakomeling linkbaar is, of catalogus-`:::include`. Anders platte tekst + `(voorzien)`. |
+| Bibliotheek- / koormap-`index.md` | Met `automatische_inhoud: true`: widgets via Hugo-layout uit bestanden in de map. Met `bibliotheek-score` of catalogus-include: `automatische_inhoud: false`. |
 | Sectie-`_index.md` | Eigen tekst (geen `#`-titel; die komt uit de layout) + linklijst van kind-pagina's als `automatische_inhoud: true`. Precies 1 kind: doorverwijzen naar dat kind. Knop terug naar de koormap (liturgiemap). Zet `false` als je zelf een TOC houdt. |
 | `automatische_inhoud` | Verplicht op elke oefenhoek-`_index.md` / `index.md`: `true` of `false`. |
 
@@ -69,7 +76,8 @@ Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus
 Nog niet in deze ronde: oefenmodus-schakelaar, audio-player, automatische sync
 uit VSA-tooling.
 
-Overig (niet in een liturgiemap): o.a. `troparion-nikolaas-van-myra` (catalogus-id; spelling Nikolaas).
+Overig: testhoek. Bibliotheek = catalogus van uitvoeringsvormen; koormappen
+zijn views. Handleiding: `praktijk/handleiding/start/bibliotheek-en-koormappen.md`.
 
 ## Antifonen weekdagen (voorbeeld)
 

@@ -1,9 +1,11 @@
 ---
 title: "7b Kleine intocht (weekdagen)"
-linkTitle: "Weekdagen (7b)"
+linkTitle: "7b Kleine intocht (weekdagen)"
 weight: 2
-publicatiestatus: voorzien
-automatische_inhoud: true
+publicatiestatus: reviewable
+automatische_inhoud: false
 ---
 
 # 7b Kleine intocht (weekdagen)
+
+{{< bibliotheek-score id="7-kleine-intocht/weekdagen/hemelum" >}}

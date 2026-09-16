@@ -34,6 +34,10 @@ if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
 if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
 if /I "%FILTER%"=="sync_oefenhoek_index.py" goto man_oefenhoek_index
+if /I "%FILTER%"=="migrate_oefenhoek_bibliotheek" goto man_migrate_bibliotheek
+if /I "%FILTER%"=="migrate_oefenhoek_bibliotheek.py" goto man_migrate_bibliotheek
+if /I "%FILTER%"=="bibliotheek" goto man_migrate_bibliotheek
+if /I "%FILTER%"=="bibliotheek.py" goto man_migrate_bibliotheek
 if /I "%FILTER%"=="h" goto man_help
 if /I "%FILTER%"=="help" goto man_help
 
@@ -61,8 +65,9 @@ echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
-echo   sync_oefenhoek_index.py, cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
-echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py
+echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
+echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
+echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
 echo.
 goto end_ok
@@ -361,7 +366,7 @@ echo   --limit N     stop na N conversies
 echo   --batch-size  MuseScore-jobgrootte ^(default 10^)
 echo.
 echo WHEN
-echo   Een hele Capella-MXL-dump naar standaard-.mscz, buiten de oefenhoek.
+echo   Een hele Capella-MXL-input naar standaard-.mscz, buiten de oefenhoek.
 echo.
 echo SEE ALSO
 echo   scripts\cleanup_capella_mxl.py
@@ -382,18 +387,43 @@ echo.
 echo DESCRIPTION
 echo   Zonder flags: haalt auto-includes en score-shortcodes uit
 echo   oefenhoek bladermap-index.md. Frontmatter en eigen tekst blijven.
-echo   Catalogus-includes en automatische_inhoud: false met rust.
-echo   Widgets komen uit de Hugo-layout (bestanden in de bladermap).
+echo   Catalogus-includes, bibliotheek-score en automatische_inhoud: false
+echo   blijven. Widgets komen uit de Hugo-layout of bibliotheek-score.
 echo.
 echo   --svg schrijft SVG van lokale .vsa (geen .mscz) naar
-echo   static\vsa\bladermap\ (na vsa build-markdown).
+echo   static\vsa\bladermap\ (na vsa build-markdown), ook onder bibliotheek\.
 echo.
 echo WHEN
 echo   Automatisch in check/build/serve.
 echo.
 echo SEE ALSO
 echo   scripts\README.md
+echo   scripts\bibliotheek.py
 echo   CONTENT-STRUCTURE.md
+echo.
+goto end_ok
+
+:man_migrate_bibliotheek
+echo.
+echo NAME
+echo   scripts\migrate_oefenhoek_bibliotheek.py
+echo   scripts\bibliotheek.py
+echo.
+echo SYNOPSIS
+echo   python scripts\migrate_oefenhoek_bibliotheek.py
+echo.
+echo DESCRIPTION
+echo   Eenmalig: verplaatst hub-partituren van liturgiemap-hemelum naar
+echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\ en zet
+echo   koormap-slots op bibliotheek-score. Niet in check/build/serve.
+echo   bibliotheek.py: parse_id / folder / stem / leaf_folders.
+echo.
+echo WHEN
+echo   Bij de bibliotheek-conversie op deze branch (na review van SCORE_MOVES).
+echo.
+echo SEE ALSO
+echo   CONTENT-STRUCTURE.md
+echo   layouts\shortcodes\bibliotheek-score.html
 echo.
 goto end_ok
 

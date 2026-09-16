@@ -3,7 +3,9 @@
 Wrapper: `scripts\\mscz-products.cmd`. Wordt ook vanuit de pipeline
 aangeroepen (lokaal, met MuseScore). Op CI zonder MuseScore: overslaan.
 
-Per hub-`.mscz` (niet `*.print.mscz`): sibling-.pdf en Coria-.mxl.
+Per hub-`.mscz` onder content-source (niet `oefenhoek/input/`, niet
+`*.print.mscz`): sibling-.pdf en Coria-.mxl. Na bibliotheek-migratie liggen
+hubs onder `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
 Freshness voor de gate zit in embedded hub-sha256 (zie hub_product_meta.py);
 lokaal skip gebruikt FS-mtime of ontbrekende/verkeerde stamp.
 """

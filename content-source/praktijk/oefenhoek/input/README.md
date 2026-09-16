@@ -1,10 +1,10 @@
 # Input voor de oefenhoek
 
-Hier komen bestanden binnen die **nog geen** oefenhoek-uitgave zijn: inputs
+Hier komen **inputs** binnen die **nog geen** oefenhoek-uitgave zijn: bestanden
 uit Capella, VOW, MuseScore, een PDF-scan, MusicXML uit een andere app, enz.
-Pas na conversie naar het afgesproken formaat (meestal een standaard-`.mscz`,
-soms `.vsa`) horen ze in een bladermap onder `liturgiemap-hemelum/` of
-`overig/`.
+Pas na conversie horen hub-bestanden in het **bibliotheek**
+(`oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`); het
+**koormap-slot** in `liturgiemap-hemelum/` verwijst daarheen.
 
 Deze map staat wél in git (zodat conversie herhaalbaar is), maar **niet** op
 de publieke site. Daarom geen `_index.md` hier.
@@ -15,7 +15,7 @@ de publieke site. Daarom geen `_index.md` hier.
 | ------------ | -------------- |
 | `capella/`   | Capella / CapToMusic: `.cap`, `.capx`, of een input-`.mxl` (originele naam, spaties mag) |
 | `vow/`       | ruwe VOW-`.mscz` |
-| `musescore/` | andere ruwe `.mscz` (nog niet de oefenhoek-layout) |
+| `musescore/` | andere ruwe `.mscz` (nog niet de Oefenhoek-layout) |
 | `musicxml/`  | `.xml` / `.musicxml` / `.mxl` uit andere programma's |
 | `pdf/`       | scans of print-PDF die je als bron bewaart |
 | `_inbox/`    | lokaal, niet in git: “gisteren in de mail, nog niet gekozen” |
@@ -24,18 +24,19 @@ de publieke site. Daarom geen `_index.md` hier.
 
 **Inbox:** eerst hierheen (of `_inbox/`), pas committen naar `capella/` / `vow/` / … als dit dé input is die je wilt bewaren.
 
-**Namen:** inputs mag je laten zoals ze binnenkwamen. Publicatiebestanden in de bladermap: geen spaties, stam `[a-z0-9_-]+` (`scripts/score_filenames.py`).
+**Namen:** inputs mag je laten zoals ze binnenkwamen. Publicatie in de bibliotheek: geen spaties, stam = publicatiestam uit de bibliotheek-id (`scripts/bibliotheek.py`, `scripts/score_filenames.py`).
 
-**Overzicht:** `werkvoorraad.md` in deze map — één rij per input. De tabel wordt bij een sitebuild (`check` / `build` / `serve`) opnieuw gevuld. Handmatige **notitie** en **doel-id** in een bestaande rij blijven staan. Op de Oefenhoek-pagina staat dezelfde tekst uitklapbaar onderaan.
+**Overzicht:** `werkvoorraad.md` in deze map — één rij per input. Kolommen **Doel-id** (bibliotheek-id) en **Koormap** (liturgie-slot). De tabel wordt bij `check` / `build` / `serve` opnieuw gevuld. Handmatige **notitie** en **doel-id** in een bestaande rij blijven staan. Op de Oefenhoek-pagina staat dezelfde tekst uitklapbaar onderaan.
+
+**Id-lijst:** [bibliotheek/ID-REGISTER.md](../bibliotheek/ID-REGISTER.md).
 
 ## Workflow (kort)
 
 1. Input in de juiste herkomst-map (of eerst `_inbox/`).
-2. Doel-id kiezen (`[a-z0-9_-]+`); onbekend: in de tabel leeg laten of vragen, niet raden.
-3. Converteren (Capella-`.mxl` → opkuisen → layout-`.mscz`; VOW-`.mscz` → layout). Tussenwerk in `_werk/`.
-   Copyright: alleen notice uit **deze** input meenemen. Capella zonder notice
-   → geen VOW/CC-tekst verzinnen, ook niet als er een VOW-sibling bestaat.
-4. Publiceren in `oefenhoek/<deelrubriek>/<doel-id>/` (`index.md` + `.mscz` / Coria-`.mxl` / PDF) als de pipeline groen is.
-5. `publicatiestatus` op die bladermap: `voorzien` (nog geen uitgave), `reviewable` (er staat iets in), `concept` (secties), `productie` alleen bewust.
+2. Bibliotheek-id kiezen (`zangstuk/variant/uitvoeringsvorm`); onbekend: in de tabel leeg laten of vragen, niet raden.
+3. Converteren (Capella-`.mxl` → opkuisen → normaliseren; VOW-`.mscz` → stemmen/lettergrepen checken, daarna normaliseren). Tussenwerk in `_werk/`.
+   Copyright: alleen notice uit **deze** input meenemen.
+4. Bestanden in `oefenhoek/bibliotheek/…/` + koormap-slot met `bibliotheek-score` (of catalogus-only slot) als `check --strict` groen is.
+5. `publicatiestatus` op bibliotheek-`index.md` en koormap-`index.md`: `voorzien`, `reviewable`, `concept`, `productie` alleen bewust.
 
-Uitgebreider: onderaan `werkvoorraad.md`.
+Uitgebreider: onderaan `werkvoorraad.md` en [Handleiding voor beheerders](/praktijk/handleiding/).

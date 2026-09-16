@@ -1,9 +1,11 @@
 ---
 title: "7a Kleine intocht (zondag)"
-linkTitle: "Zondag (7a)"
+linkTitle: "7a Kleine intocht (zondag)"
 weight: 1
-publicatiestatus: voorzien
-automatische_inhoud: true
+publicatiestatus: reviewable
+automatische_inhoud: false
 ---
 
 # 7a Kleine intocht (zondag)
+
+{{< bibliotheek-score id="7-kleine-intocht/zondag/hemelum" >}}

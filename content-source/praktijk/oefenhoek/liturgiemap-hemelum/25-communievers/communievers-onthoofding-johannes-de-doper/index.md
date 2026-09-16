@@ -3,9 +3,9 @@ title: "Communievers (Onthoofding Johannes de Doper)"
 linkTitle: "Communievers (Onthoofding Johannes de Doper)"
 weight: 20
 publicatiestatus: reviewable
-automatische_inhoud: true
+automatische_inhoud: false
 ---
 
 # Communievers (Onthoofding Johannes de Doper)
 
-Dit is NIET een van de belangrijke stukken voor beginnende koorleden om te oefenen!
+{{< bibliotheek-score id="25-communievers/onthoofding-johannes-de-doper/hemelum" >}}

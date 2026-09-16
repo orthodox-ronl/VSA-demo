@@ -30,7 +30,7 @@ Normatieve org-specs staan in **bron** — link, niet dupliceren.
 
 `zangstuk-id` → `variant-id` → `uitvoeringsvorm-id` → `representatie-id`
 
-Vermijd: `uv-id`, afkorting `uv`, **uitvoeringsalternatief**, impliciet `variant-id: standaard`.
+Vermijd: `uv-id`, afkorting `uv`, **uitvoeringsalternatief**, impliciet weggelaten variant-id (gebruik expliciet `default` of een inhoudelijke id).
 
 ---
 
@@ -94,8 +94,16 @@ Uitleg: [scripts/README.md](scripts/README.md).
 - Inputs: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
 - `_inbox/` en `_werk/` niet committen. Geen `_index.md` onder `input/`.
 - Register: `input/werkvoorraad.md` (een rij per input). De tabel wordt bij
-  sitebuild bijgewerkt; doel-id en notitie in bestaande rijen blijven staan.
-  Onbekend doel-id: **vragen**, niet raden.
+  sitebuild bijgewerkt; doel-id, koormap en notitie in bestaande rijen blijven
+  staan. Onbekend doel-id: **vragen**, niet raden. Doel-id wordt
+  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/` (conversie
+  via `scripts/migrate_oefenhoek_bibliotheek.py`, nog niet in check).
+- Bibliotheek vs koormap: bibliotheek = catalogus; koormap = geordende
+  verwijzingen. Uitvoeringsvorm mag in bibliotheek zonder koormap-ref.
+  Root toont oefenbare items; stubs/ids via `bibliotheek/speciaal/` en
+  Id-register. Docs: handleiding `start/bibliotheek-en-koormappen`.
+- Taal op uitvoeringsvorm: NL ongemerkt; `-ksl` (Cyrillisch), `-ksl-trlat`
+  (getranslitereerd), `-nl-ksl` (mengvorm).
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:
   `voorzien` | `concept` | `reviewable` | `productie`.
 - Hub-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
@@ -104,10 +112,12 @@ Uitleg: [scripts/README.md](scripts/README.md).
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
 - `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
-  en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) horen
-  bij `false`. Geen `#`-titel in sectie-`_index.md`.
-- Stub zonder oefenbare inhoud -> `voorzien`. Bladermap mét partituur/include -> `reviewable`
-  tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal `concept`.
+  en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
+  `bibliotheek-score`-shortcodes horen bij `false`. Geen `#`-titel in
+  sectie-`_index.md`.
+- Stub zonder oefenbare inhoud -> `voorzien`. Uitvoeringsvorm mét partituur ->
+  `reviewable` tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal
+  `concept`.
 - **Niet raden** op `productie`. Onbekend doel-id of onbekende status: **vragen**.
 
 ### Scripts onderhouden

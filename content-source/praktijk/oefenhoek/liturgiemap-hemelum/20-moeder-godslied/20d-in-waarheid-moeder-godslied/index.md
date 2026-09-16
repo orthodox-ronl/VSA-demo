@@ -1,11 +1,11 @@
 ---
 title: "20d In waarheid (Moeder Godslied)"
-linkTitle: "20d In waarheid"
+linkTitle: "20d In waarheid (Moeder Godslied)"
 weight: 10
 publicatiestatus: reviewable
-automatische_inhoud: true
+automatische_inhoud: false
 ---
 
 # 20d In waarheid (Moeder Godslied)
 
-Proef met 4/4 (opmaat 1 tel op *In*, daarna om de 4 kwarten; geen zichtbare maatsoort): `20d-in-waarheid-moeder-godslied-4kwart.mscz` (origineel ongewijzigd).
+{{< bibliotheek-score id="20-moeder-godslied/20d-in-waarheid/hemelum" >}}

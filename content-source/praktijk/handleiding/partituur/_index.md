@@ -6,26 +6,35 @@ nav_sort: weight
 ---
 
 Hier zet je een ruwe Capella- of VOW-partituur om naar een **hub-`.mscz`**
-(MuseScore-bestand volgens het
-[hub-contract](https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-hub-contract.md)),
+(MuseScore-bestand volgens de hub-norm in
+`scripts\mscz-hub-contract.md` in de repository-map `VSA-demo`),
 daarna naar een PDF en een bestand voor Coria. Volg de stappen in volgorde.
+De subpagina’s hieronder zijn de volledige instructie; deze pagina is alleen
+het overzicht.
 
-**Opkuisen** = Capella-`.mxl` inhoudelijk opschonen met een script. Dat
-doe je vóór de layout. Na elke wijziging in MuseScore: de layout
-**opnieuw** toepassen (normaliseren), en pas daarna PDF en Coria-`.mxl`
-maken ([afgeleiden](6-afgeleiden/)).
+Drie begrippen — meng ze niet door elkaar:
+
+| Term | In het kort (typisch) | Volledige pagina |
+| --- | --- | --- |
+| **Opkuisen** | Inhoud opschonen: stemmen/balken (bijv. SAT op balk 1, B op balk 2), lettergreep↔noot synchroon. Capella: script; `.mscz`: MuseScore. | [Opkuisen](2-opkuisen/) |
+| **Normaliseren** | Hub-standaard met `apply_mscz_layout.py` (A4, fonts, reciteertoon, copyright, …). Contractterm. | [Standaard-.mscz](3-standaard-mscz/) |
+| **Layouten** | Zelfde scriptstap in gewone taal. Na elke MuseScore-edit **opnieuw**, vóór PDF/Coria. | [Standaard-.mscz](3-standaard-mscz/), [reviewen](4-reviewen/) |
+
+Na elke wijziging in MuseScore: opslaan → **normaliseren / layouten** → pas
+daarna PDF en Coria-`.mxl` ([PDF en Coria](5-pdf-en-coria/),
+[afgeleiden](6-afgeleiden/)).
 
 Naast dit hub-spoor bestaat een **print-`.mscz`** (`*.print.mscz`): een
 koormap-vel dat de pipeline niet normaliseert en waarvoor geen Coria
 wordt gemaakt — zie [Print-.mscz](7-print-mscz/).
 
-Technische afspraken:
-[hub-contract](https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-hub-contract.md),
-[product-transforms](https://github.com/orthodox-ronl/VSA-demo/blob/main/scripts/mscz-product-transforms.md).
+Technische afspraken voor wie scripts of CI aanhoudt (bestanden in de repo,
+niet op deze site): `scripts\mscz-hub-contract.md`,
+`scripts\mscz-product-transforms.md`.
 
 {{< cue >}}
-Capella: `cleanup_capella_mxl.py` → `apply_mscz_layout.py` → MuseScore → `apply_mscz_layout.py` nogmaals → `scripts\mscz-products.cmd`
-VOW: begin bij `apply_mscz_layout.py` (opkuisen overslaan).
+Capella: opkuisen (`cleanup_capella_mxl.py`) → normaliseren (`apply_mscz_layout.py`) → MuseScore (inhoud) → opnieuw normaliseren → `scripts\mscz-products.cmd`
+VOW / ruwe `.mscz`: Capella-script overslaan; controleer wel stemmen en lettergrepen (opkuisen), daarna normaliseren.
 Print-vel: `naam.print.mscz` + handmatige PDF — geen layout-script, geen `mscz-products`.
 Tussenproducten (hub): `input\_werk\<doel-id>\`. Origineel blijft in `input\capella\` of `input\vow\`.
 {{< /cue >}}

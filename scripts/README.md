@@ -58,8 +58,8 @@ publicatie-`.mxl` in-place (geen MuseScore), en na `vsa musicxml` ook
 `static\vsa\mxl`. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
 met markup waar Coria `translation failed` op geeft.
 
-`patch_oefenhoek_trisagion.py` is een inhoudelijke patch op de twee
-trisagion-`.mscz` (herhaling m1-m4, noten 'O Heilige God' uit Slavisch maat 5,
+`patch_oefenhoek_8-trisagion.py` is een inhoudelijke patch op de twee
+8-trisagion-`.mscz` (herhaling m1-m4, noten 'O Heilige God' uit Slavisch maat 5,
 transliteratie als 2e couplet). Daarna `apply_mscz_layout.py`. Niet in `check`.
 
 `rebar_20d_4kwart.py` maakt een *apart* `.mscz` van 20d-in-waarheid
@@ -81,16 +81,22 @@ query-string; compressed `.mxl` laat Coria op sommige stukken falen).
 `productie`.
 `update_werkvoorraad.py` (in `check` / `build` / `serve`) vult de tabel in
 `oefenhoek/input/werkvoorraad.md` en verwijdert `generated/.../oefenhoek/input`
-zodat inputs geen Hugo-pagina's worden.
+zodat inputs geen Hugo-pagina's worden. Doel-id: bibliotheek-id
+(`zangstuk/variant/uitvoeringsvorm`) wanneer bekend; oude bladermap-namen
+worden genormaliseerd.
+`bibliotheek.py` — pad/id-hulp voor `oefenhoek/bibliotheek/` (drie lagen).
+`migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek (niet
+in check; zie CONTENT-STRUCTURE.md).
 `sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes
-en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). De partituur
-komt uit de Hugo-layout (`layouts/partials/bladermap-score.html`) op basis van
-de bestanden in de map. Sectie-pagina's krijgen een linklijst van kinderen
-(`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1 kind volgt
-een doorverwijzing. Catalogus-includes
-(`id:` / `lokaal:` / `bron:`) en `automatische_inhoud: false` blijven. `--svg` (na
-`build-markdown`) zet lokale `.vsa` zonder `.mscz` om naar
-`static/vsa/bladermap/`. `--dry-run` toont wat de strip zou wijzigen.
+en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). Pagina's met
+`bibliotheek-score` of `automatische_inhoud: false` blijven onaangeroerd. De
+partituur komt uit de Hugo-layout (`layouts/partials/bladermap-score.html`) of
+uit `{{< bibliotheek-score >}}`. Sectie-pagina's krijgen een linklijst van
+kinderen (`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1
+kind volgt een doorverwijzing. Catalogus-includes
+(`id:` / `lokaal:` / `bron:`) blijven. `--svg` (na `build-markdown`) zet
+lokale `.vsa` zonder `.mscz` om naar `static/vsa/bladermap/` (ook onder
+`bibliotheek/`). `--dry-run` toont wat de strip zou wijzigen.
 
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 

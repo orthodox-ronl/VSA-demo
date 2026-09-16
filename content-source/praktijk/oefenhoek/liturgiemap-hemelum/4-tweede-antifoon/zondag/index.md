@@ -1,9 +1,11 @@
 ---
 title: "4 Tweede antifoon (zondag)"
-linkTitle: "Zondag"
+linkTitle: "4 Tweede antifoon (zondag)"
 weight: 1
-publicatiestatus: voorzien
-automatische_inhoud: true
+publicatiestatus: reviewable
+automatische_inhoud: false
 ---
 
 # 4 Tweede antifoon (zondag)
+
+{{< bibliotheek-score id="4-tweede-antifoon/zondag/hemelum" >}}

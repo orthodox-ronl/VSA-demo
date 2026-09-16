@@ -1,4 +1,19 @@
 (function () {
+  function syncChromeHeight() {
+    var chrome = document.querySelector(".site-chrome");
+    var height = chrome ? chrome.offsetHeight : 0;
+    document.documentElement.style.setProperty(
+      "--site-chrome-height",
+      height + "px"
+    );
+  }
+
+  syncChromeHeight();
+  window.addEventListener("resize", syncChromeHeight);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncChromeHeight).catch(function () {});
+  }
+
   var groups = document.querySelectorAll(".site-nav-group");
   if (!groups.length) return;
 
@@ -8,6 +23,8 @@
       groups.forEach(function (other) {
         if (other !== group) other.open = false;
       });
+      // Open dropdown kan de chrome hoger maken.
+      syncChromeHeight();
     });
   });
 
@@ -15,5 +32,6 @@
     groups.forEach(function (group) {
       if (group.open && !group.contains(event.target)) group.open = false;
     });
+    syncChromeHeight();
   });
 })();

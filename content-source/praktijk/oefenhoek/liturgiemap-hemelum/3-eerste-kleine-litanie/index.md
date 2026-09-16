@@ -1,9 +1,11 @@
 ---
 title: "3 Eerste Kleine Litanie / Ektinia"
-linkTitle: "1e Kleine Litanie"
+linkTitle: "3 Eerste Kleine Litanie / Ektinia"
 weight: 3
 publicatiestatus: voorzien
-automatische_inhoud: true
+automatische_inhoud: false
 ---
 
 # 3 Eerste Kleine Litanie / Ektinia
+
+{{< bibliotheek-score id="3-eerste-kleine-litanie/default/hemelum" >}}

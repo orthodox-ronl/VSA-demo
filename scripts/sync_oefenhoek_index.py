@@ -2,9 +2,11 @@
 
 - Zonder flags: haalt auto-includes/score-shortcodes uit bladermap-index.md
   (frontmatter + eigen tekst blijven). Catalogus-includes (id:/lokaal:/bron:)
-  blijven. Draait in check/build/serve, voor vsa validate.
+  en {{< bibliotheek-score >}} blijven. Draait in check/build/serve, voor
+  vsa validate.
 - --svg: schrijft SVG van lokale .vsa (geen sibling-.mscz) naar
   static/vsa/bladermap/, na vsa build-markdown (die static/vsa leegmaakt).
+  Ook onder oefenhoek/bibliotheek/.
 
   python scripts/sync_oefenhoek_index.py
   python scripts/sync_oefenhoek_index.py --dry-run
@@ -29,6 +31,7 @@ LOCAL_INCLUDE_RE = re.compile(
 SCORE_OPEN_RE = re.compile(r"^\s*\{\{<\s*score-actions\b", re.I)
 SCORE_CLOSE_RE = re.compile(r"^\s*\{\{<\s*/score-actions\s*>\}\}\s*$", re.I)
 PDF_SHEET_RE = re.compile(r"^\s*\{\{<\s*pdf-sheet\b.*>\}\}\s*$", re.I)
+RE_BIBLIOTHEEK_SCORE = re.compile(r"\{\{<\s*bibliotheek-score\b", re.I)
 STUB_COMMENT_RE = re.compile(
     r"^\s*<!--\s*(?::::include|score-actions|pdf-sheet)\b.*?-->\s*$",
     re.I,
@@ -98,6 +101,10 @@ def strip_indexes(*, dry_run: bool) -> int:
             skipped += 1
             continue
         if CATALOG_INCLUDE_RE.search(body):
+            skipped += 1
+            continue
+        # Koormap/bibliotheek-pagina's met shortcode: inhoud blijft staan.
+        if RE_BIBLIOTHEEK_SCORE.search(body):
             skipped += 1
             continue
         new_body = _strip_widgets(body)

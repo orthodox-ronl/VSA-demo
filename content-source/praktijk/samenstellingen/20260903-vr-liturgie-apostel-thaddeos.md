@@ -14,7 +14,7 @@ Gij zijt opgegaan tot het {/le_}{/ven_}, {\\o} Moe{/der} {/des} {/le_}{vens_}, *
 
 ### Tropaar H. Nikolaas (Toon 4) ***Nls en Ksl***
 
-:::include svg id:troparion-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
+:::include svg id:tropaar-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
 
 ***EER AAN DE VADER ...***
 

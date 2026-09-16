@@ -7,9 +7,9 @@ weight: 30
 # Als het misgaat
 
 {{< cue >}}
-Spaties in de bladermap-naam? Hernoemen. Layout kwijt? Niet via MusicXML;
+Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
 wel `apply_mscz_layout.py` op de `.mscz`. Coria rood bij `check`? Gebruik
-de `.mxl` in de bladermap, niet een `.mxl` onder `input\`. MuseScore niet
+de `.mxl` in het **bibliotheek**, niet een `.mxl` onder `input\`. MuseScore niet
 gevonden? Versie **4**, pad `C:\Program Files\MuseScore 4\bin\MuseScore4.exe`.
 {{< /cue >}}
 
@@ -21,15 +21,16 @@ tegelijk.
 
 **Symptoom:** een script weigert, Coria doet het niet, of `check` klaagt.
 
-Publicatiebestanden: geen spaties, geen `(` of `+`. Stam alleen
-`a-z0-9_-`. Ruwe dumps in `input\` mogen hun oude naam houden. Schrijf
+Publicatiebestanden in de bibliotheek: geen spaties, geen `(` of `+`. Stam
+alleen `a-z0-9_-`. Ruwe inputs in `input\` mogen hun oude naam houden. Schrijf
 uitvoer altijd met `-o` naar een schone naam.
 
 ## Doel-id leeg of twijfel
 
-Niet verzinnen. Zet in de werkvoorraad-rij een notitie “welke bladermap?”
-en vraag het na. Twee dumps naar dezelfde bladermap mag (Capella én VOW);
-noteer dat in de notitie.
+Niet verzinnen. Zet in de werkvoorraad-rij een notitie “welk bibliotheek-id?”
+en vraag het na. Twee inputs naar dezelfde uitvoeringsvorm mag (Capella én VOW);
+noteer dat in de notitie. Id-lijst:
+[Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
 ## Layout of `mscz-products` “herstelt” je speciale partituur
 
@@ -48,7 +49,7 @@ na installatie.
 ## De pagina is lelijk of de stijl is weg
 
 Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus layout). Daarna:
+`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
 
 ```cmd
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
@@ -56,10 +57,16 @@ python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 
 ## Coria: `translation failed` of check weigert de `.mxl`
 
-De `.mxl` in de bladermap moet uit `mscz-products` (of de
+De `.mxl` in de bibliotheek moet uit `mscz-products` (of de
 VSA-template-render) komen, niet een ruwe Capella-`.mxl`. Maak de
-producten opnieuw ná de laatste layout. `check` heeft een aparte
+producten opnieuw ná de laatste normalisatie. `check` heeft een aparte
 Coria-controle; de melding wijst het bestand aan.
+
+## `bibliotheek-score` faalt bij build
+
+De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
+het id klopt niet (`zangstuk/variant/uitvoeringsvorm`). Maak eerst de
+bibliotheek-map + `index.md`, of corrigeer het id in het koormap-slot.
 
 ## `vsa validate` klaagt
 
@@ -75,8 +82,8 @@ eerste bron van waarheid bij.
 
 ## `publicatiestatus` ontbreekt
 
-Elke Oefenhoek-`index.md` en `_index.md` moet de regel `publicatiestatus`
-in de `---` hebben. Handleiding-pagina’s niet.
+Elke Oefenhoek-`index.md` en `_index.md` (bibliotheek en koormap) moet de
+regel `publicatiestatus` in de `---` hebben. Handleiding-pagina’s niet.
 
 ## Preview op de verkeerde poort
 
@@ -91,7 +98,7 @@ foutenmuur tegelijk aan.
 ## Waar vraag je het
 
 Gebruik dezelfde kanalen als op de Oefenhoek-pagina’s (e-mail / GitHub).
-Stuur mee: welk doel-id, welk commando, de foutregel, en of het om
+Stuur mee: welk bibliotheek-id, welk commando, de foutregel, en of het om
 Capella, VOW of VSA gaat.
 
 {{< navbuttons "Terug naar overzicht|/praktijk/handleiding/" >}}

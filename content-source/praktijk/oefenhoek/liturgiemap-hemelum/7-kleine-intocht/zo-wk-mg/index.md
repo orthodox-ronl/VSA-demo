@@ -1,24 +1,13 @@
 ---
 title: "7a Kleine intocht (zondag / weekdagen / Moeder Gods)"
-linkTitle: "Zo + wk + MG (print)"
+linkTitle: "7a Kleine intocht (zondag / weekdagen / Moeder Gods)"
 weight: 4
 publicatiestatus: concept
-automatische_inhoud: true
+automatische_inhoud: false
 ---
 
-# Kleine intocht — één printvel (zondag / weekdagen / Moeder Gods)
+# 7a Kleine intocht (zondag / weekdagen / Moeder Gods)
 
-Dit is een **print-`.mscz`**: bedoeld als één A4-vel in de koormap, met
-drie lyric-regels op de wisselpassage (zondag, weekdagen, feesten van de
-Moeder Gods). De Oefenhoek-pijplijn past dit bestand niet aan en maakt
-er geen Coria-`.mxl` van.
+Print-vel voor de koormap (zondag / weekdagen / Moeder Gods). Canonieke hubs: [Zondag](../zondag/), [Weekdagen](../weekdagen/), [Moeder Gods](../moeder-gods/).
 
-Oefenen en de canonieke hubs staan apart:
-
-- [Zondag (7a)](../zondag/)
-- [Weekdagen (7b)](../weekdagen/)
-- [Moeder Gods (7c)](../moeder-gods/)
-
-Bestand in deze map: `7a-kleine-intocht-zo-wk-mg.print.mscz`. PDF
-exporterueel handmatig uit MuseScore ernaast zetten. Zie
-[Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/).
+{{< bibliotheek-score id="7-kleine-intocht/zo-wk-mg/hemelum" >}}

@@ -10,7 +10,7 @@ weight: 10
 1. Zet het bestand in `content-source\praktijk\oefenhoek\input\<herkomst>\` (of eerst `_inbox\`).
 2. Laat de originele bestandsnaam staan.
 3. Draai `scripts\check.cmd` of `python scripts\update_werkvoorraad.py`.
-4. Vul in `input\werkvoorraad.md` het **doel-id** in als die kolom leeg is — niet raden, vragen.
+4. Vul in `input\werkvoorraad.md` het **doel-id** (bibliotheek-id) in als die kolom leeg is — niet raden, vragen.
 {{< /cue >}}
 
 **Wat je nu doet:** het ruwe bestand bewaren op de afgesproken plek en in
@@ -20,8 +20,9 @@ de werkvoorraad zetten, nog zonder te converteren.
 PDF-bestand. Sla deze pagina over als het bestand al in `input\` staat en
 de tabel al een doel-id heeft.
 
-Het **doel-id** is de toekomstige mapnaam van de bladermap (alleen
-`a-z`, `0-9`, `-`, `_`).
+Het **doel-id** is het **bibliotheek-id** in drie lagen:
+`zangstuk/variant/uitvoeringsvorm` (elk segment alleen `a-z`, `0-9`,
+`-`, `_`). Lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
 ## Stap voor stap
 
@@ -42,10 +43,13 @@ de keten.
 5. Open `content-source\praktijk\oefenhoek\input\werkvoorraad.md`. Zoek
    de nieuwe rij.
 6. Kolom **Doel-id**:
-   - Ken je de bladermap al (bijvoorbeeld `8a-trisagion`)? Vul dat id in.
+   - Ken je de bibliotheek-id al (bijvoorbeeld
+     `8-trisagion/8a-nederlands/hemelum`)? Vul dat in.
    - Weet je het niet? Laat de cel leeg en vraag het na. **Niet verzinnen.**
-7. Kolom **Notitie** mag alles zijn dat je over een maand nog wilt weten
-   (bijvoorbeeld “zelfde bladermap als 7b”, “tweede bron, niet publiceren”).
+7. Kolom **Koormap** vult het script vaak al (liturgie-slot). Klopt het
+   niet? Pas aan of noteer in **Notitie**.
+8. Kolom **Notitie** mag alles zijn dat je over een maand nog wilt weten
+   (bijvoorbeeld “zelfde koormap-slot als 7b”, “tweede bron, niet publiceren”).
 
 De kolommen *Stap* en *Volgende* vult het script. Zet die niet met de hand
 recht.

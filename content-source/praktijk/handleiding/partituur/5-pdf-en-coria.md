@@ -7,65 +7,99 @@ weight: 50
 # PDF en Coria-.mxl maken
 
 {{< cue >}}
-De `.mscz` ligt in de **bladermap** (niet meer alleen in `_werk`). Daarna:
+Hub-`.mscz` staat in het **bibliotheek** (niet alleen in `_werk`). Daarna:
 ```cmd
-scripts\mscz-products.cmd content-source\praktijk\oefenhoek\liturgiemap-hemelum\DOEL-ID
+scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 ```
-`--force` als PDF of Coria-`.mxl` al bestaan maar de `.mscz` inhoudelijk nieuwer is.
-`mscz-products` zit **niet** in `check` / `serve`.
+Of heel `content-source`. `--force` als producten ouder zijn dan de hub of
+de bestandsdatum niet klopt. `mscz-products` zit **niet** in `check` /
+`serve`. Weigert / slaat `*.print.mscz` over.
 {{< /cue >}}
 
-**Wat je nu doet:** uit de nagekeken `.mscz` twee sibling-bestanden maken:
-een A4-PDF en een `.mxl` die Coria aankan.
+**Wat je nu doet:** uit de nagekeken, genormaliseerde **hub-`.mscz`** twee
+sibling-bestanden maken:
 
-**Wanneer:** ná review en her-layout. Niet meteen na de eerste layout als
-je nog gaat editen: dan maak je de producten twee keer.
+| Bestand | Rol |
+| --- | --- |
+| `{stam}.pdf` | A4-afdruk om te lezen of te printen |
+| `{stam}.mxl` | MusicXML voor **Coria** (online oefenen) |
 
-Zie ook [Afgeleiden bijwerken](../6-afgeleiden/) (banner op preview,
-productie-gate, hub-hash).
+Beide krijgen een ingebedde `hub-sha256` zodat `check` kan zien of PDF/MXL
+nog bij de huidige hub horen. Technische transforms staan in
+`scripts\mscz-product-transforms.md` in `VSA-demo`.
+
+**Wanneer:** ná [reviewen en opnieuw normaliseren](../4-reviewen/). Niet
+meteen na de eerste normalisatie als je nog gaat editen: dan maak je de
+producten twee keer. Bij een latere hub-wijziging: opnieuw normaliseren,
+daarna opnieuw deze stap (of [Afgeleiden](../6-afgeleiden/)).
+
+## Voorwaarden
+
+1. De hub-`.mscz` ligt in het **bibliotheek**, niet alleen in
+   `input\_werk\`. Padvoorbeeld:
+   `content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz`.
+2. Die `.mscz` is na de laatste inhoudelijke edit opnieuw genormaliseerd
+   (`apply_mscz_layout.py`).
+3. **MuseScore 4** is geïnstalleerd (het product-script roept MuseScore aan).
+4. Dit is een **hub**-bestand, geen `*.print.mscz` — printvel: PDF handmatig
+   ([Print-.mscz](../7-print-mscz/)).
 
 ## Stap voor stap
 
-1. Zet de `.mscz` in de bladermap als het bestand daar nog niet staat
-   (kopiëren uit `_werk`). Gebruik namen zonder spaties, met dezelfde
-   stam als de latere PDF:
+1. Zet de `.mscz` in de bibliotheek-map als die daar nog niet staat (kopiëren
+   uit `_werk`). Gebruik de **publicatiestam** zonder spaties:
 
 ```text
-content-source\praktijk\oefenhoek\liturgiemap-hemelum\8a-trisagion\
-  8a-trisagion.mscz
+content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\
+  8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
-   `index.md` mag nog ontbreken; die volgt bij
-   [publiceren](../../publiceren/1-bladermap/). Zonder `index.md` is er
-   nog geen Hugo-pagina, maar `mscz-products` kijkt naar de `.mscz`.
+   Bibliotheek-`index.md` mag nog ontbreken; `mscz-products` kijkt naar de
+   `.mscz`. Koormap-slot en `publicatiestatus` volgen bij
+   [publiceren](../../publiceren/1-bladermap/).
 
-2. Maak de producten:
+2. Open het opdrachtvenster in `VSA-demo` en maak de producten:
 
 ```cmd
-scripts\mscz-products.cmd content-source\praktijk\oefenhoek\liturgiemap-hemelum\8a-trisagion
+scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 ```
 
-   Zonder pad: alle publicatie-`.mscz` onder `content-source` (handig,
-   kan langer duren). MuseScore 4 is nodig.
+   Of alles onder content-source:
 
-3. In die bladermap horen nu naast de `.mscz` ook `8a-trisagion.pdf` en
-   `8a-trisagion.mxl`.
+```cmd
+scripts\mscz-products.cmd content-source
+```
 
-4. Open de PDF even (niet alleen in MuseScore). Coria test je ná `check`
-   op de preview-pagina met de knop **Oefenen in Coria**.
+3. In die bibliotheek-map horen naast de `.mscz` ook
+   `8-trisagion-8a-nederlands-hemelum.pdf` en
+   `8-trisagion-8a-nederlands-hemelum.mxl` (zelfde stam).
 
-Zijn bestaande PDF of Coria-`.mxl` ouder dan de `.mscz`? Het script
-vernieuwt ze. Is de `.mscz` inhoudelijk gewijzigd maar klopt de
-bestandsdatum niet? Zet `--force` achter het commando.
+4. Open de PDF even in een PDF-viewer: pagina A4, titel, colofon, tekst
+   leesbaar.
+5. Coria test je ná `scripts\check.cmd --strict` op het **koormap-slot**
+   (knop **Oefenen in Coria** komt uit de shortcode `bibliotheek-score` op
+   die pagina — niet uit een `.mxl` onder `input\`).
 
-Dit commando zit bewust **niet** in `check` of `serve`: eerst nadenken,
-dan exporteren.
+### Vernieuwen of forceren
+
+| Situatie | Actie |
+| --- | --- |
+| PDF/MXL ouder dan de hub-`.mscz` | Gewoon opnieuw `mscz-products` — het script vernieuwt ze |
+| Hub inhoudelijk gewijzigd maar bestandsdatum klopt niet | Zet `--force` achter het commando |
+| Preview toont een banner dat afgeleiden niet bij de hub horen | Zie [Afgeleiden](../6-afgeleiden/); opnieuw producten ná laatste normalisatie |
+
+## Wat je niet doet
+
+- Geen Coria-`.mxl` uit Capella of uit “Exporteren als MusicXML” in
+  MuseScore gebruiken als publicatiebestand.
+- Geen producten maken van een hub die je daarna nog gaat editen zonder
+  opnieuw te normaliseren én producten te vernieuwen.
+- Geen `mscz-products` verwachten voor `*.print.mscz`.
 
 ## Klaar als
 
-In de bladermap liggen `.mscz`, `.pdf` en `.mxl` met dezelfde stam, zonder
-spaties. Bestanden die op `.print.mscz` eindigen horen niet in deze
-stap — zie [Print-.mscz](../7-print-mscz/). Daarna:
-[bladermap afronden](../../publiceren/1-bladermap/).
+In de bibliotheek liggen `.mscz`, `.pdf` en `.mxl` met dezelfde
+publicatiestam; de PDF ziet er hub-achtig uit; je kunt door naar
+[bibliotheek en koormap](../../publiceren/1-bladermap/).
 
-{{< navbuttons "Volgende: bladermap|/praktijk/handleiding/publiceren/1-bladermap/" >}}
+{{< navbuttons "Volgende: bibliotheek en koormap|/praktijk/handleiding/publiceren/1-bladermap/" >}}

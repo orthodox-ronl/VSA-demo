@@ -3,9 +3,9 @@ title: "Moeder Godslied (Ontslapen van de Moeder Gods)"
 linkTitle: "Moeder Godslied (Ontslapen van de Moeder Gods)"
 weight: 80
 publicatiestatus: reviewable
-automatische_inhoud: true
+automatische_inhoud: false
 ---
 
 # Moeder Godslied (Ontslapen van de Moeder Gods)
 
-Dit is het Moeder Godslied dat gezongen wordt in de H. Liturgie op het feest van het Ontslapen van de Moeder Gods (15 augustus).
+{{< bibliotheek-score id="20-moeder-godslied/ontslapen-moeder-gods/hemelum" >}}

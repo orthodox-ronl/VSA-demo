@@ -7,26 +7,32 @@ weight: 20
 # Waar ligt wat
 
 {{< cue >}}
-- Dump: `oefenhoek\input\<herkomst>\` (originele bestandsnaam mag spaties hebben)
-- Tussenwerk: `oefenhoek\input\_werk\<doel-id>\` (alleen op jouw pc, niet in git)
-- Wat koorleden zien: `oefenhoek\<deelrubriek>\<doel-id>\` — **geen spaties** in bestandsnamen
-- Register: `oefenhoek\input\werkvoorraad.md`
+- Input: `oefenhoek\input\<herkomst>\` (originele bestandsnaam mag spaties hebben)
+- Tussenwerk: `oefenhoek\input\_werk\<stam>\` (publicatiestam; alleen op jouw pc, niet in git)
+- Bibliotheek: `oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\` — **geen spaties** in bestandsnamen
+- Koormap-slot: `oefenhoek\liturgiemap-hemelum\…\` — alleen `index.md` + verwijzing (geen hub-bestanden)
+- Register: `oefenhoek\input\werkvoorraad.md` en [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)
 {{< /cue >}}
 
-**Wat je nu doet:** drie soorten plekken uit elkaar houden. Anders verdwijnt
+**Wat je nu doet:** vier soorten plekken uit elkaar houden. Anders verdwijnt
 het origineel, of komt een half af bestand op de publieke site.
 
-Een **bladermap** is de publicatiemap van één zangstuk onder de Oefenhoek
-(bijvoorbeeld `…\8a-trisagion\`). Daarin horen alleen bestanden die
-koorleden mogen zien.
+Een **bibliotheek-uitvoeringsvorm** is één map in de bibliotheek met
+`index.md` en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA).
+Een **koormap-slot** is een plek in de Hemelum-liturgiemap die naar die
+uitvoeringsvorm verwijst.
 
-## Drie plekken
+## Vier plekken
 
 | Plek | Map (vanaf `content-source\praktijk\`) | Op de publieke site? |
 | --- | --- | --- |
 | Ruw, ongewijzigd | `oefenhoek\input\capella\` (of `vow\`, `musescore\`, `musicxml\`, `pdf\`) | Nee |
 | Halverwege (tussenwerk) | `oefenhoek\input\_werk\` | Nee (en niet in git) |
-| Klaar voor koorleden (bladermap) | `oefenhoek\liturgiemap-hemelum\<doel-id>\` of `oefenhoek\overig\<doel-id>\` | Ja |
+| Bibliotheek | `oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\` | Ja (rubriek Bibliotheek) |
+| Koormap-slot | `oefenhoek\liturgiemap-hemelum\…` (pad in de liturgie) | Ja (liturgiemap + shortcode) |
+
+Testmateriaal buiten de liturgiemap: `oefenhoek\overig\` (zelfde idee:
+bestanden in bibliotheek, slot in `overig` als dat nodig is).
 
 De map `input\_inbox\` is een lokale brievenbus voor bestanden die je nog
 niet zeker wilt bewaren. Pas als een bestand dé bron is die je wilt
@@ -43,29 +49,30 @@ herkomst-map.
 | `musicxml\` | `.xml` / `.musicxml` / `.mxl` uit een ander programma |
 | `pdf\` | Scans of print-PDF die je als bron bewaart |
 
-Laat de **originele bestandsnaam** van de dump staan, ook met spaties.
-Hernoemen gebeurt pas bij publicatie.
+Laat de **originele bestandsnaam** van de input staan, ook met spaties.
+Hernoemen gebeurt pas bij publicatie in de bibliotheek.
 
 ## Publicatienamen
 
-In een bladermap (en in `_werk`): geen spaties; alleen kleine letters,
-cijfers, `-` en `_`. Voorbeeld: `8a - trisagion.mxl` wordt
-`8a-trisagion.mscz`. Het script `scripts\score_filenames.py` doet die
-omzetting als je bij opkuisen en layout `-o` gebruikt.
+In de bibliotheek (en in `_werk`): geen spaties; alleen kleine letters,
+cijfers, `-` en `_`. Hub-bestanden hebben de **publicatiestam** uit het
+bibliotheek-id (functie `stem()` in `scripts\bibliotheek.py`). Voorbeeld:
+id `8-trisagion/8a-nederlands/hemelum` → `8-trisagion-8a-nederlands-hemelum.mscz`.
+Het script `scripts\score_filenames.py` helpt bij opkuisen en layout.
 
-## Deelrubrieken
+## Koormap vs bibliotheek-id
 
-| Deelrubriek | Wanneer |
+| Veld | Betekenis |
 | --- | --- |
-| `liturgiemap-hemelum` | Het stuk hoort in de Hemelum-liturgiemap |
-| `overig` | Testmateriaal, of iets dat nergens in die liturgiemap past |
+| **Bibliotheek-id** | Drie lagen: `zangstuk/variant/uitvoeringsvorm` — staat in werkvoorraad en in `bibliotheek-score` |
+| **Koormap** | Kolom in werkvoorraad: welk liturgie-slot (bijv. `8-trisagion/8a-trisagion`) |
 
-Weet je de deelrubriek niet? Laat het veld in de werkvoorraad leeg en vraag
-het na. Raad niet.
+Weet je de bibliotheek-id niet? Laat **Doel-id** leeg en vraag na. Raad
+niet. Lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
 ## Klaar als
 
-Voor een willekeurig bestand kun je zeggen: dump, tussenwerk, of bladermap.
-Je zet nooit een ruwe dump rechtstreeks in een bladermap.
+Voor een willekeurig bestand kun je zeggen: input, tussenwerk, bibliotheek,
+of koormap-slot. Je zet nooit een ruwe input rechtstreeks in de bibliotheek.
 
-{{< navbuttons "Volgende: woorden|/praktijk/handleiding/start/woorden/" >}}
+{{< navbuttons "Volgende: bibliotheek en koormappen|/praktijk/handleiding/start/bibliotheek-en-koormappen/" >}}

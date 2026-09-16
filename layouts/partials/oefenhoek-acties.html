@@ -1,13 +1,16 @@
 {{- /*
-  Actieknoppen onder titel + indextekst: Koormap, Oefenen, Downloaden, Printen.
+  Actieknoppen onder titel + indextekst: deelrubriek (Koormap/Bibliotheek),
+  Oefenen, Downloaden, Printen. Onder bibliotheek: groene knoppen + label
+  Bibliotheek; elders (liturgiemap e.d.): blauw + Koormap.
 */ -}}
 {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" -}}
-{{- $koormap := false -}}
+{{- $inBibliotheek := strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
+{{- $deel := false -}}
 {{- with site.GetPage "praktijk/oefenhoek" -}}
   {{- $self := $ -}}
   {{- range .Sections -}}
     {{- if $self.IsDescendant . -}}
-      {{- $koormap = . -}}
+      {{- $deel = . -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -26,10 +29,18 @@
   {{- end -}}
 {{- end -}}
 {{- $hasOefenen := gt (len $files.mxls) 0 -}}
-{{- if or $koormap $hasOefenen $href -}}
-<div class="score-actions oefenhoek-acties"{{ if $href }} data-pdf-src="{{ $href }}"{{ end }}>
-  {{- if $koormap -}}
-  <a class="btn" href="{{ $koormap.RelPermalink }}">Koormap</a>
+{{- if or $deel $hasOefenen $href -}}
+{{- $wrapClass := "score-actions oefenhoek-acties" -}}
+{{- if $inBibliotheek -}}
+  {{- $wrapClass = printf "%s oefenhoek-acties--bibliotheek" $wrapClass -}}
+{{- end -}}
+<div class="{{ $wrapClass }}"{{ if $href }} data-pdf-src="{{ $href }}"{{ end }}>
+  {{- if $deel -}}
+    {{- if $inBibliotheek -}}
+  <a class="btn" href="{{ $deel.RelPermalink }}">Bibliotheek</a>
+    {{- else -}}
+  <a class="btn" href="{{ $deel.RelPermalink }}">Koormap</a>
+    {{- end -}}
   {{- end -}}
   {{- if $hasOefenen -}}
     {{- $manyMxl := gt (len $files.mxls) 1 -}}

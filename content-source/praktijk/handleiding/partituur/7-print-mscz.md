@@ -9,57 +9,51 @@ weight: 70
 {{< cue >}}
 Bestandsnaam eindigt op **`.print.mscz`**. Geen `apply_mscz_layout.py`, geen
 `mscz-products`, geen Coria-eis. PDF maak je zelf in MuseScore 4
-(Bestand → Exporteren → PDF) en commit je naast het print-bestand.
+(Bestand → Exporteren → PDF) en commit je naast het print-bestand **in het
+bibliotheek**.
 {{< /cue >}}
 
-**Wat je nu doet:** een MuseScore-bestand in de bladermap zetten dat de
-pipeline **niet** mag aanpassen — typisch één A4-vel voor de koormap met
-layout of tekstregels die de hub-normalisatie zou vernielen.
+**Wat je nu doet:** een MuseScore-bestand in het **bibliotheek** zetten dat de
+hub-pijplijn **niet** mag aanpassen — typisch één A4-vel voor de koormap met
+layout of tekstregels die de hub-normalisatie zou vernielen. Het koormap-slot
+verwijst met `bibliotheek-score` (alleen PDF-knoppen, geen Coria).
 
 **Wanneer:** als je bewust **buiten** de hub-straat werkt. Voor gewoon
 oefenmateriaal (één tekst, Coria, standaardlayout) gebruik je een gewone
 hub-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
 [PDF en Coria](../5-pdf-en-coria/).
 
-Dit is het **derde** publicatiespoor naast partituur-hub en VSA; zie
-[Handleiding](../../) (drie paden).
+Voorbeeld: [bibliotheek `7-kleine-intocht/zo-wk-mg/hemelum`](/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zo-wk-mg/hemelum/)
+naast de hubs zondag / weekdagen / moeder-gods.
 
 ## Wat het is
 
-| In Verkenner | Rol |
+| In Verkenner (bibliotheek) | Rol |
 | --- | --- |
-| `naam.print.mscz` | MuseScore-bron voor een printvel; scripts laten dit met rust |
-| `naam.pdf` (optioneel) | Handmatige A4-export; mag dezelfde stam hebben **zonder** `.print` |
-| Geen Coria-`.mxl` | Geen knop **Oefenen in Coria** van dit bestand |
+| `{stam}.print.mscz` | MuseScore-bron voor een printvel; scripts laten dit met rust |
+| `{stam}.pdf` | Handmatige A4-export |
+| Geen Coria-`.mxl` | Geen knop **Oefenen in Coria** voor dit vel |
 
-Voorbeeld: één vel kleine intocht met drie lyric-regels (zondag /
-weekdagen / Moeder Gods) naast de aparte hub-bladermappen 7a / 7b / 7c
-waar wél geoefend wordt.
+Bibliotheek-id voorbeeld: `7-kleine-intocht/zo-wk-mg/hemelum`.
 
 ## Wat je niet doet
 
-- Geen `python scripts\apply_mscz_layout.py` op dit bestand (het script
-  weigert `.print.mscz`).
-- Geen `scripts\mscz-products.cmd` verwachten voor dit bestand (wordt
-  overgeslagen).
-- Geen hernoemen naar gewone `.mscz` “even snel” — dan denkt `check` dat
-  het een hub is en eist PDF + Coria met hub-hash.
+- Geen `apply_mscz_layout.py` op `.print.mscz`.
+- Geen `mscz-products.cmd` voor dit bestand.
+- Geen hernoemen naar gewone `.mscz` “even snel” — dan eist `check` hub-producten.
 
 ## Stap voor stap
 
-1. Bewerk in MuseScore 4; sla op als
-   `…\bladermap\jouw-stuk.print.mscz` (geen spaties in de naam).
-2. Exporteer PDF handmatig naar bijvoorbeeld `jouw-stuk.pdf` in dezelfde
-   map.
-3. Zet in `index.md` uitleg voor koorleden (welk vel, wanneer welke
-   tekstregel). Oefenen blijft via de hub-varianten als die bestaan.
-4. Commit print-`.mscz` en PDF samen. Draai `scripts\check.cmd --strict`
-   — de hub-productgate negeert dit bestand.
+1. Bewerk in MuseScore 4; sla op in de bibliotheek als
+   `{stam}.print.mscz` (geen spaties; stam uit bibliotheek-id).
+2. Exporteer PDF handmatig naar `{stam}.pdf` in dezelfde bibliotheek-map.
+3. Bibliotheek-`index.md` + koormap-slot `7-kleine-intocht/zo-wk-mg` met
+   `bibliotheek-score` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
+4. `scripts\check.cmd --strict` — hub-productgate negeert `.print.mscz`.
 
 ## Klaar als
 
-De bladermap bevat `*.print.mscz` (en eventueel PDF), `check` klaagt niet
-over ontbrekende Coria voor dit vel, en je hebt géén layout-script op
-het print-bestand gezet.
+Bibliotheek bevat `*.print.mscz` en PDF; koormap-slot verwijst ernaar; check
+klaagt niet over ontbrekende Coria voor dit vel.
 
 {{< navbuttons "Terug: afgeleiden|/praktijk/handleiding/partituur/6-afgeleiden/" "Handleiding|/praktijk/handleiding/" >}}

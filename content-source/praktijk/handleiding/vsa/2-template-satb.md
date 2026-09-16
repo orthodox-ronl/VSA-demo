@@ -12,7 +12,7 @@ Werkt nu concreet voor **tropaar toon 4** (corpus `T4-01` … `T4-12`). In `VSA-
 cd /d C:\Git\orthodox-ronl\VSA-tooling
 python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
 ```
-Kopieer daarna `.vsa`, `.mscz`, `.mxl` en `.pdf` naar de Oefenhoek-bladermap.
+Kopieer daarna `.vsa`, `.mscz`, `.mxl` en `.pdf` naar het Oefenhoek-**bibliotheek**.
 {{< /cue >}}
 
 **Wat je nu doet:** de eenstemmige tropaar-`.vsa` (sopraan plus tekst)
@@ -68,10 +68,11 @@ python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
 
    naast de `.vsa`: `.mscz`, `.mxl`, en met `--pdf` ook `.pdf`.
 
-5. Kopieer die vier bestanden naar de Oefenhoek-bladermap. Laat de
-   bestandsnamen **staan** (geen spaties). Daarna
-   [index.md](../../publiceren/1-bladermap/) zoals bij Nikolaas: SVG uit
-   de `.vsa`, knoppen PDF en Coria.
+5. Kopieer die vier bestanden naar de bibliotheek (bijv.
+   `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\`).
+   Bestandsnamen **zonder spaties**. Daarna bibliotheek-`index.md` en
+   koormap-slot zoals bij Nikolaas — alles via
+   [Bibliotheek en koormap](../../publiceren/1-bladermap/).
 
 6. Fout `TemplateInstanceError`: de VSA-sopraan landt niet op de formule
    (verkeerde toon of een verplicht slot overgeslagen). De melding zegt
@@ -83,8 +84,8 @@ niet even tussendoor. Dat is een andere taak, in VSA-tooling.
 
 ## Klaar als
 
-In de bladermap liggen dezelfde stam `.vsa` / `.mscz` / `.mxl` / `.pdf`,
-MuseScore toont SATB, en de preview heeft plaatje plus **Oefenen in Coria**
-plus **Downloaden**.
+In de bibliotheek liggen dezelfde stam `.vsa` / `.mscz` / `.mxl` / `.pdf`,
+MuseScore toont SATB, en de preview (koormap-slot) heeft plaatje plus
+**Oefenen in Coria** plus **Downloaden**.
 
-{{< navbuttons "Volgende: bladermap|/praktijk/handleiding/publiceren/1-bladermap/" >}}
+{{< navbuttons "Volgende: bibliotheek en koormap|/praktijk/handleiding/publiceren/1-bladermap/" >}}

@@ -16,7 +16,7 @@ layout: "feesteigen-pagina"
 ###TROPARION t.4
 
 ::: vsa notatie
-<!-- Troparion zaterdag voor kruisverheffing, toon 4 - Liturgikon, p.278 ->
+<!-- Tropaar zaterdag voor kruisverheffing, toon 4 - Liturgikon, p.278 ->
    [//:] Het levenschenkend Kruis Uwer {-&/goed_&_}{\heid_}, *
    {/dat} Gij ons, onwaardigen, hebt ge{schon_}{/ken}, {\o} {\Heer_}, *
    brengen wij tot U met de {-&/be_&_}{\de_}: *
