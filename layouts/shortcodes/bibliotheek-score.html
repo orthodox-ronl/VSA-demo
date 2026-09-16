@@ -2,6 +2,11 @@
   Toon PDF + Coria en/of VSA-SVG van een bibliotheek-uitvoeringsvorm
   (id = zangstuk/variant/uitvoeringsvorm). Geen filesystem-pad in de
   aanroepende markdown.
+
+  PDF/MXL komen uit de Hugo page-bundle (generated/content). .vsa wordt
+  door build-markdown niet gekopieerd; die lezen we uit content-source
+  (zelfde aanpak als oefenhoek-bladermap-files) en tonen de SVG onder
+  static/vsa/bladermap/.
 */ -}}
 {{- $id := .Get "id" -}}
 {{- if not $id -}}
@@ -15,11 +20,15 @@
 {{- $pdf := "" -}}
 {{- $mxl := "" -}}
 {{- $vsas := slice -}}
+{{- $hasMscz := false -}}
 {{- range $p.Resources.Match "*.pdf" -}}
   {{- $pdf = .RelPermalink -}}
 {{- end -}}
 {{- range $p.Resources.Match "*.mxl" -}}
   {{- $mxl = .RelPermalink -}}
+{{- end -}}
+{{- range $p.Resources.Match "*.mscz" -}}
+  {{- $hasMscz = true -}}
 {{- end -}}
 {{- range $p.Resources.Match "*.vsa" -}}
   {{- $vsas = $vsas | append .Name -}}
@@ -28,9 +37,22 @@
 {{- with $p.File -}}
   {{- $dir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
 {{- end -}}
-{{- $hasMscz := false -}}
-{{- range $p.Resources.Match "*.mscz" -}}
-  {{- $hasMscz = true -}}
+{{- /* .vsa (+ hub-.mscz) staan in content-source, niet altijd in de bundle */ -}}
+{{- if $dir -}}
+  {{- $srcDir := printf "content-source/%s" $dir -}}
+  {{- if fileExists $srcDir -}}
+    {{- range os.ReadDir $srcDir -}}
+      {{- if not .IsDir -}}
+        {{- $ext := strings.ToLower (path.Ext .Name) -}}
+        {{- if and (eq $ext ".vsa") (not (in $vsas .Name)) -}}
+          {{- $vsas = $vsas | append .Name -}}
+        {{- end -}}
+        {{- if and (eq $ext ".mscz") (not (strings.HasSuffix (lower .Name) ".print.mscz")) -}}
+          {{- $hasMscz = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- if $pdf -}}
 <div class="score-actions" data-pdf-src="{{ $pdf }}">
@@ -54,6 +76,8 @@
     {{- if fileExists $svgFile -}}
       {{- $src := printf "vsa/bladermap/%s" $rel -}}
 <div class="vsa-container"><img class="vsa-notation" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"></div>
+    {{- else -}}
+      {{- warnf "bibliotheek-score: SVG ontbreekt voor %s (verwacht %s)" $id $svgFile -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
