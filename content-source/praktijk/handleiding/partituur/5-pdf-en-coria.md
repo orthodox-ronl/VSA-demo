@@ -12,8 +12,8 @@ Hub-`.mscz` staat in het **bibliotheek** (niet alleen in `_werk`). Daarna:
 scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 ```
 Of heel `content-source`. `--force` als producten ouder zijn dan de hub of
-de bestandsdatum niet klopt. `mscz-products` zit **niet** in `check` /
-`serve`. Weigert / slaat `*.print.mscz` over.
+de bestandsdatum niet klopt. Lokale `check`/`build`/`serve` vernieuwen
+stale hub-producten ook automatisch. Weigert / slaat `*.print.mscz` over.
 {{< /cue >}}
 
 **Wat je nu doet:** uit de nagekeken, genormaliseerde **hub-`.mscz`** twee
@@ -27,6 +27,12 @@ sibling-bestanden maken:
 Beide krijgen een ingebedde `hub-sha256` zodat `check` kan zien of PDF/MXL
 nog bij de huidige hub horen. Technische transforms staan in
 `scripts\mscz-product-transforms.md` in `VSA-demo`.
+
+Dit is het **hub**-spoor (representatie-id `hub`). Eenstemmige VSA gebruikt
+`{stam}.vsa.mxl` via [`.vsa schrijven`](../../vsa/1-vsa-schrijven/). Als in
+één map ooit twee Coria-bestanden nodig zijn, gebruik expliciete namen
+`{stam}.hub.mxl` / `{stam}.vsa.mxl` — zie
+`scripts\oefenhoek-product-contract.md`.
 
 **Wanneer:** ná [reviewen en opnieuw normaliseren](../4-reviewen/). Niet
 meteen na de eerste normalisatie als je nog gaat editen: dan maak je de
@@ -77,16 +83,16 @@ scripts\mscz-products.cmd content-source
 4. Open de PDF even in een PDF-viewer: pagina A4, titel, colofon, tekst
    leesbaar.
 5. Coria test je ná `scripts\check.cmd --strict` op het **koormap-slot**
-   (knop **Oefenen in Coria** komt uit de shortcode `bibliotheek-score` op
-   die pagina — niet uit een `.mxl` onder `input\`).
+   (knop **Oefenen** komt uit de Oefenhoek-acties op die pagina — niet uit
+   een `.mxl` onder `input\`).
 
 ### Vernieuwen of forceren
 
 | Situatie | Actie |
 | --- | --- |
-| PDF/MXL ouder dan de hub-`.mscz` | Gewoon opnieuw `mscz-products` — het script vernieuwt ze |
+| PDF/MXL ouder dan de hub-`.mscz` | Gewoon opnieuw `mscz-products` — of `check` lokaal (pipeline vernieuwt stale) |
 | Hub inhoudelijk gewijzigd maar bestandsdatum klopt niet | Zet `--force` achter het commando |
-| Preview toont een banner dat afgeleiden niet bij de hub horen | Zie [Afgeleiden](../6-afgeleiden/); opnieuw producten ná laatste normalisatie |
+| Preview toont een banner dat hub-afgeleiden niet kloppen | Zie [Afgeleiden](../6-afgeleiden/); opnieuw producten ná laatste normalisatie |
 
 ## Wat je niet doet
 
@@ -102,4 +108,4 @@ In de bibliotheek liggen `.mscz`, `.pdf` en `.mxl` met dezelfde
 publicatiestam; de PDF ziet er hub-achtig uit; je kunt door naar
 [bibliotheek en koormap](../../publiceren/1-bladermap/).
 
-{{< navbuttons "Volgende: bibliotheek en koormap|/praktijk/handleiding/publiceren/1-bladermap/" >}}
+{{< navbuttons "Volgende: afgeleiden|/praktijk/handleiding/partituur/6-afgeleiden/" >}}

@@ -119,6 +119,8 @@ jobs:
           python scripts/copy_content_extras.py
           python scripts/fingerprint_coria_mxl.py
           python scripts/write_build_stamp.py
+          python scripts/check_hub_products.py
+          python scripts/check_vsa_products.py
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3

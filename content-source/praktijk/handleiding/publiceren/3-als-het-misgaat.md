@@ -8,9 +8,10 @@ weight: 30
 
 {{< cue >}}
 Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel `apply_mscz_layout.py` op de `.mscz`. Coria rood bij `check`? Gebruik
-de `.mxl` in het **bibliotheek**, niet een `.mxl` onder `input\`. MuseScore niet
-gevonden? Versie **4**, pad `C:\Program Files\MuseScore 4\bin\MuseScore4.exe`.
+wel `apply_mscz_layout.py` op de hub-`.mscz`. Coria rood bij `check`? Gebruik
+de `.mxl` in het **bibliotheek** (hub-product of `{stam}.vsa.mxl`), niet een
+`.mxl` onder `input\`. MuseScore niet gevonden? Versie **4**, pad
+`C:\Program Files\MuseScore 4\bin\MuseScore4.exe`.
 {{< /cue >}}
 
 **Wat je nu doet:** de veelvoorkomende blokkades herkennen. Blijft het
@@ -38,18 +39,20 @@ Eindigt de bestandsnaam op `.print.mscz`? Dan hoort die **niet** door
 `apply_mscz_layout` of `mscz-products`. Zie
 [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/). Per ongeluk
 als gewone `.mscz` gezet? Hernoem terug naar `.print.mscz` vóór de
-volgende `check`.
+volgende `check`. Zet `artefacten_handmatig: true` op de bibliotheek-`index.md`
+als PDF/MXL handmatig blijven.
 
 ## MuseScore start niet / “niet gevonden”
 
 Layout en `mscz-products` hebben MuseScore **4** nodig. Installeer
 MuseScore 4; gebruik niet MuseScore 3. Open het opdrachtvenster opnieuw
-na installatie.
+na installatie. (Voor alleen `.vsa` → Coria is MuseScore niet nodig:
+`vsa-products`.)
 
 ## De pagina is lelijk of de stijl is weg
 
 Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
+hub-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
 
 ```cmd
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
@@ -64,10 +67,25 @@ niet naar het page-bundle-`.mxl` met een verdubbelde site-prefix. Draai
 
 ## Coria: `translation failed` of check weigert de `.mxl`
 
-De `.mxl` in de bibliotheek moet uit `mscz-products` (of de
-VSA-template-render) komen, niet een ruwe Capella-`.mxl`. Maak de
-producten opnieuw ná de laatste normalisatie. `check` heeft een aparte
-Coria-controle; de melding wijst het bestand aan.
+De `.mxl` in de bibliotheek moet uit `mscz-products` of `vsa-products`
+komen (of handmatig bij `artefacten_handmatig`), niet een ruwe Capella-`.mxl`.
+Maak hub-producten opnieuw ná de laatste normalisatie, of draai
+`scripts\vsa-products.cmd` voor een bibliotheek-`.vsa`. `check` heeft een
+aparte Coria-controle; de melding wijst het bestand aan.
+
+## Rode banner: hub- of VSA-afgeleiden niet in orde
+
+| Banner | Oorzaak | Actie |
+| --- | --- | --- |
+| Hub-afgeleiden | PDF/MXL passen niet bij de hub-`.mscz` | [Afgeleiden](../../partituur/6-afgeleiden/) — layout + `mscz-products` |
+| VSA-afgeleiden | `{stam}.vsa.mxl` ontbreekt of is ouder dan de `.vsa` | `scripts\vsa-products.cmd`, commit beide |
+
+Op `main` faalt de build bij dezelfde situaties.
+
+## Gele banner: handmatige artefacten
+
+Geen fout: `artefacten_handmatig: true` staat op die bibliotheekpagina.
+PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.
 
 ## `bibliotheek-score` faalt bij build
 

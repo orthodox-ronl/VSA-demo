@@ -10,7 +10,7 @@ zie [oefenhoek-product-contract.md](oefenhoek-product-contract.md).
 | Spoor (representatie-id) | Bron in de bladermap | Pipeline |
 | ----- | -------------------- | -------- |
 | Hub-partituur (`hub`) | `naam.mscz` (geen `.print.`) | layout → `mscz-products` → PDF + Coria; hub-hash-gate |
-| VSA (`vsa`) | `naam.vsa` | `vsa validate` / build-markdown; Coria-`.mxl` (productgate: deel B) |
+| VSA (`vsa`) | `naam.vsa` | `vsa-products` → `{stam}.vsa.mxl`; `check_vsa_products` |
 | Print-vel (`print`) | `naam.print.mscz` | **buiten** hub-scripts; PDF handmatig; geen Coria van dit bestand |
 
 Print: handleiding

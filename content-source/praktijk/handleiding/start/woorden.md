@@ -9,11 +9,11 @@ weight: 30
 {{< cue >}}
 - **hub-`.mscz`** = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)
 - **print-`.mscz`** = koormap-vel; bestandsnaam eindigt op `.print.mscz`; pipeline blijft ervan af
-- **representatie-id** = welk spoor een afgeleide hoort (`hub` / `vsa` / `print`); bestandsnaam `{stam}.{id}.mxl` enz. — zie product-contract
-- **artefacten_handmatig** = frontmatter: afgeleiden niet auto-bijwerken
-- `.mxl` = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)
+- **representatie-id** = welk spoor een afgeleide hoort (`hub` / `vsa` / `print`); bij botsing `{stam}.{id}.mxl`
+- **artefacten_handmatig** = frontmatter op bibliotheek-`index.md`: PDF/MXL niet auto-bijwerken
+- `.mxl` / `.vsa.mxl` = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)
 - `.pdf` = A4-afgeleide om te lezen of te printen
-- `.vsa` = tekst plus melodie in VSA-notatie
+- `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = hub-standaard met `apply_mscz_layout.py` (zelfde scriptstap; “layouten” is de gewone naam)
 - **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen)
@@ -29,9 +29,9 @@ commando’s en mappen kloppen.
 | --- | --- | --- |
 | hub-`.mscz` | MuseScore 4-bestand volgens de hub-norm (`scripts\mscz-hub-contract.md` in `VSA-demo`) | Openen, nakijken, opslaan; daarna `apply_mscz_layout.py`; bron voor PDF en Coria |
 | print-`.mscz` | Zelfde soort MuseScore-bestand, naam eindigt op `.print.mscz` | Alleen in MuseScore bewerken; PDF handmatig; in bibliotheek, niet hub-pijplijn — zie [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/) |
-| `.mxl` | Samengeperste MusicXML | Naar Coria (afgeleide); of (na opkuisen) als start voor een nieuwe hub. Nooit roundtrip: `.mscz` → `.mxl` → weer `.mscz` gooit de layout weg. |
+| `.mxl` | Samengeperste MusicXML (hub: `{stam}.mxl`; VSA: `{stam}.vsa.mxl`) | Naar Coria (afgeleide); of (na opkuisen) als start voor een nieuwe hub. Nooit roundtrip: `.mscz` → `.mxl` → weer `.mscz` gooit de layout weg. |
 | `.pdf` | A4-blad (afgeleide of handmatige print-export) | Downloaden of printen; hub opnieuw via [afgeleiden](/praktijk/handleiding/partituur/6-afgeleiden/) |
-| `.vsa` | VSA-notatie | Schrijven in een editor; de sitebuild maakt er een plaatje (SVG) van |
+| `.vsa` | VSA-notatie | Schrijven in een editor; sitebuild maakt SVG; `check`/`vsa-products` maakt Coria-`.vsa.mxl` — zie [.vsa schrijven](/praktijk/handleiding/vsa/1-vsa-schrijven/) |
 | `.cap` / `.capx` | Capella | Als bron bewaren; eerst naar `.mxl` (CapToMusic) als je nog geen `.mxl` hebt |
 
 **Opkuisen** = inhoudelijke opschoning: stemmen en notenbalken goed zetten,
@@ -45,7 +45,7 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 [Reviewen](/praktijk/handleiding/partituur/4-reviewen/).
 
 **Contracten** (technische afspraken in de repo, niet als sitepagina):
-`scripts\oefenhoek-product-contract.md` (afgeleiden per representatie),
+`scripts\oefenhoek-product-contract.md` (afgeleiden per representatie-id),
 `scripts\mscz-hub-contract.md`, `scripts\mscz-product-transforms.md`.
 
 ## Plaatsen en status
@@ -61,8 +61,9 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 | **Werkvoorraad** | Tabel in `input\werkvoorraad.md`: per *input* hoe ver de conversie is |
 | **Stap** (werkvoorraad) | Intern: `ontvangen`, `opkuisen`, `layout`, `gepubliceerd`, … — niet zichtbaar voor koorleden |
 | **Publicatiestatus** | Op `index.md` in bibliotheek én koormap: `voorzien`, `reviewable`, `concept`, `productie` (niet raden) |
+| **artefacten_handmatig** | Frontmatter: afgeleiden in die bibliotheekmap niet auto; gele banner voor beheerders |
 | **SATB** | Sopraan, alt, tenor, bas — de vier stemmen op één partituur |
-| **Coria** | Online oefenen; heeft een schone `.mxl` nodig |
+| **Coria** | Online oefenen; knop **Oefenen** op de Oefenhoek; heeft een schone `.mxl` nodig |
 | **Uitvoeringsvorm** | Een concrete manier om een zangstuk uit te voeren (schrijf het woord uit; gebruik niet de afkorting “uv”) |
 
 Org-brede termen: [glossary in bron](https://github.com/orthodox-ronl/bron/blob/main/docs/specs/terminologie.md).
@@ -75,6 +76,8 @@ Model: [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-ko
 Je kunt een mail “hier is de Capella” vertalen naar: input in
 `input\capella\`, later een hub-`.mscz` in de bibliotheek, plus `.pdf` en
 Coria-`.mxl` — koormap-slot met `bibliotheek-score`. Voor een printvel:
-`*.print.mscz` + handmatige PDF in de bibliotheek, slot in de koormap.
+`*.print.mscz` + handmatige PDF (+ `artefacten_handmatig: true`) in de
+bibliotheek, slot in de koormap. Voor een eenstemmige VSA: `.vsa` +
+`.vsa.mxl` via `check` / `vsa-products`.
 
 {{< navbuttons "Volgende: binnenhalen|/praktijk/handleiding/partituur/1-binnenhalen/" >}}

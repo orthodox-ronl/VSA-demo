@@ -20,7 +20,7 @@ Hub-transforms: [mscz-product-transforms.md](mscz-product-transforms.md).
 | representatie-id | Canonieke bron in de bladermap | Pipeline (normaal) |
 | ---------------- | ------------------------------ | ------------------ |
 | `hub` | `{stam}.mscz` (niet `.print.`) | `apply_mscz_layout` → `mscz-products` → PDF + Coria-`.mxl` + hub-hash-gate |
-| `vsa` | `{stam}.vsa` | (deel B) `vsa musicxml` + sanitize → Coria-`.mxl`; later optioneel PDF |
+| `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (`vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
 | `print` | `{stam}.print.mscz` | Geen layout/products/Coria uit dit bestand; PDF handmatig |
 
 Ids: `[a-z0-9_-]+`. Geen ad-hoc synoniemen (“route”, “uv”) in bestandsnamen.
@@ -81,7 +81,7 @@ Betekenis: PDF, Coria-`.mxl` en andere afgeleiden in deze map worden **niet**
 door de product-pipeline bijgewerkt of afgedwongen. Beheerder houdt ze zelf
 bij (typisch samen met print-`.mscz` of een eenmalige template-export).
 
-- Hub-productgate en (later) VSA-productgate **slaan** zulke mappen over.
+- Hub-productgate en VSA-productgate **slaan** zulke mappen over.
 - De bibliotheekpagina toont een **beheerdersmelding** (layout).
 - Default als het veld ontbreekt: `false` (automatische keten geldt).
 
@@ -99,7 +99,20 @@ korte legacy-label.
 
 ---
 
-## Tempo (hub én VSA)
+## VSA → Coria-`.mxl` (productgate)
+
+| | |
+| --- | --- |
+| Commando | `scripts\vsa-products.cmd` (`sync_vsa_products.py`) |
+| Product | `{stam}.vsa.mxl` |
+| Stamp | `vsa-source-sha256`, `vsa-source-kind=vsa`, `vsa-generator=vsa-musicxml` |
+| Lokaal | pipeline stap 2c vernieuwt stale producten |
+| Preview | rode banner via `data/vsa-product-status.json` |
+| Productie (`main`) | `check_vsa_products.py` faalt bij missing/stale/unstamped |
+
+Commit `.vsa` + `.vsa.mxl` samen. Geen MuseScore nodig.
+
+---
 
 | Situatie | BPM |
 | -------- | --- |

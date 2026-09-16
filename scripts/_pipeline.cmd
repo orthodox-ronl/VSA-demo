@@ -43,6 +43,12 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
+echo [2c/7] VSA-producten (Coria-.vsa.mxl) bijwerken indien nodig
+"%PY%" scripts\sync_vsa_products.py
+if errorlevel 1 exit /b 1
+echo OK
+echo.
+
 echo [3/7] Generate Markdown + SVG + MusicXML
 if exist generated\content rmdir /s /q generated\content
 if exist static\vsa rmdir /s /q static\vsa
@@ -79,6 +85,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_hub_products.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\check_vsa_products.py
 if errorlevel 1 exit /b 1
 echo OK
 echo.

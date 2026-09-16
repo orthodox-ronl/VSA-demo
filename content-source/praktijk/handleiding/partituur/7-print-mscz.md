@@ -8,24 +8,30 @@ weight: 70
 
 {{< cue >}}
 Bestandsnaam eindigt op **`.print.mscz`**. Geen `apply_mscz_layout.py`, geen
-`mscz-products`, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
-(Bestand → Exporteren → PDF) en commit je naast het print-bestand **in het
-bibliotheek**. Zet op de bibliotheek-`index.md` vaak
-`artefacten_handmatig: true` (beheerdersbanner; zie product-contract).
+`mscz-products`, geen Coria-eis uit dit MuseScore-bestand. PDF maak je zelf in
+MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestand
+**in het bibliotheek**. Zet op de bibliotheek-`index.md`
+`artefacten_handmatig: true` (gele beheerdersbanner).
 {{< /cue >}}
 
 **Wat je nu doet:** een MuseScore-bestand in het **bibliotheek** zetten dat de
 hub-pijplijn **niet** mag aanpassen — typisch één A4-vel voor de koormap met
-layout of tekstregels die de hub-normalisatie zou vernielen. Het koormap-slot
-verwijst met `bibliotheek-score` (alleen PDF-knoppen, geen Coria).
+layout of tekstregels die de hub-normalisatie zou vernielen, of een
+template-SATB-blad dat jij handmatig bijhoudt. Het koormap-slot verwijst met
+`bibliotheek-score`.
 
 **Wanneer:** als je bewust **buiten** de hub-straat werkt. Voor gewoon
-oefenmateriaal (één tekst, Coria, standaardlayout) gebruik je een gewone
-hub-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
-[PDF en Coria](../5-pdf-en-coria/).
+oefenmateriaal (één tekst, automatische Coria, standaardlayout) gebruik je een
+gewone hub-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
+[PDF en Coria](../5-pdf-en-coria/), of een eenstemmige `.vsa` via
+[.vsa schrijven](../../vsa/1-vsa-schrijven/).
 
-Voorbeeld: [bibliotheek `7-kleine-intocht/zo-wk-mg/hemelum`](/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zo-wk-mg/hemelum/)
-naast de hubs zondag / weekdagen / moeder-gods.
+Voorbeelden in de bibliotheek:
+
+- `7-kleine-intocht/zo-wk-mg/hemelum` — gecombineerd printvel;
+- `tropaar-nikolaas-van-myra/liturgikon/hemelum` — template-SATB + handmatige
+  PDF/MXL + `.vsa`;
+- `20-moeder-godslied/ontslapen-moeder-gods/hemelum` — idem print + handmatig.
 
 ## Wat het is
 
@@ -33,28 +39,46 @@ naast de hubs zondag / weekdagen / moeder-gods.
 | --- | --- |
 | `{stam}.print.mscz` | MuseScore-bron voor een printvel; scripts laten dit met rust |
 | `{stam}.pdf` | Handmatige A4-export |
-| Geen Coria-`.mxl` | Geen knop **Oefenen in Coria** voor dit vel |
+| Optioneel: Coria-`.mxl` | Alleen als jij die zelf neerzet en bijhoudt (geen `mscz-products`) |
+| Optioneel: `.vsa` | Notatie naast het printvel; `vsa-products` slaat de map over bij `artefacten_handmatig: true` |
 
 Bibliotheek-id voorbeeld: `7-kleine-intocht/zo-wk-mg/hemelum`.
+
+Frontmatter op bibliotheek-`index.md`:
+
+```yaml
+artefacten_handmatig: true
+```
+
+Die regel betekent: PDF, Coria-`.mxl` en andere afgeleiden in **deze** map
+worden niet automatisch bijgewerkt. De bibliotheekpagina toont een gele
+beheerdersmelding. Afspraak over bestandsnamen per spoor:
+`scripts\oefenhoek-product-contract.md`.
 
 ## Wat je niet doet
 
 - Geen `apply_mscz_layout.py` op `.print.mscz`.
 - Geen `mscz-products.cmd` voor dit bestand.
 - Geen hernoemen naar gewone `.mscz` “even snel” — dan eist `check` hub-producten.
+- Geen verwachting dat `vsa-products` de Coria-`.mxl` vernieuwt zolang
+  `artefacten_handmatig: true` staat.
 
 ## Stap voor stap
 
 1. Bewerk in MuseScore 4; sla op in de bibliotheek als
    `{stam}.print.mscz` (geen spaties; stam uit bibliotheek-id).
 2. Exporteer PDF handmatig naar `{stam}.pdf` in dezelfde bibliotheek-map.
-3. Bibliotheek-`index.md` + koormap-slot `7-kleine-intocht/zo-wk-mg` met
-   `bibliotheek-score` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
-4. `scripts\check.cmd --strict` — hub-productgate negeert `.print.mscz`.
+   Eventuele Coria-`.mxl` eveneens handmatig (of uit de template-render)
+   ernaast zetten en bij elke bronwijziging meenemen.
+3. Bibliotheek-`index.md` met `artefacten_handmatig: true` + koormap-slot
+   met `bibliotheek-score` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
+4. `scripts\check.cmd --strict` — hub- en VSA-productgate slaan deze map over.
 
 ## Klaar als
 
-Bibliotheek bevat `*.print.mscz` en PDF; koormap-slot verwijst ernaar; check
-klaagt niet over ontbrekende Coria voor dit vel.
+Bibliotheek bevat `*.print.mscz` en PDF (plus eventueel handmatige `.mxl` /
+`.vsa`); `artefacten_handmatig: true` staat op de `index.md`; koormap-slot
+verwijst ernaar; check klaagt niet over ontbrekende automatische Coria voor
+dit printvel.
 
 {{< navbuttons "Terug: afgeleiden|/praktijk/handleiding/partituur/6-afgeleiden/" "Handleiding|/praktijk/handleiding/" >}}

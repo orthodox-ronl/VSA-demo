@@ -30,6 +30,8 @@ if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="mscz-products" goto man_mscz_products
 if /I "%FILTER%"=="sync_mscz_products.py" goto man_mscz_products
+if /I "%FILTER%"=="vsa-products" goto man_vsa_products
+if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
 if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
@@ -57,6 +59,7 @@ call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
+call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :emit_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
@@ -85,6 +88,7 @@ call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
+call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :try_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
@@ -95,7 +99,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, capella-mxl-to-mscz, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, h
 echo.
 goto end_fail
 
@@ -337,6 +341,30 @@ echo   scripts\score_filenames.py
 echo   scripts\oefenhoek-product-contract.md
 echo   scripts\mscz-hub-contract.md
 echo   scripts\mscz-product-transforms.md
+echo.
+goto end_ok
+
+:man_vsa_products
+echo.
+echo NAME
+echo   scripts\vsa-products.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\vsa-products.cmd [pad] [--force] [--dry-run]
+echo.
+echo DESCRIPTION
+echo   Maakt sibling Coria-.vsa.mxl bij bibliotheek-.vsa
+echo   (vsa musicxml playback + sanitize + source-sha stamp).
+echo   Slaat artefacten_handmatig over. Zonder pad: oefenhoek\bibliotheek.
+echo   Pipeline roept dit lokaal aan. check_vsa_products.py op main streng.
+echo.
+echo WHEN
+echo   Na .vsa-wijziging, of als Oefenen-knop / check een stale .vsa.mxl meldt.
+echo.
+echo SEE ALSO
+echo   scripts\sync_vsa_products.py
+echo   scripts\check_vsa_products.py
+echo   scripts\oefenhoek-product-contract.md
 echo.
 goto end_ok
 

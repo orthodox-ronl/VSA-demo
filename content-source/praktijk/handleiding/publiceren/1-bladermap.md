@@ -9,7 +9,8 @@ weight: 10
 {{< cue >}}
 Bibliotheek-map:
 `content-source\praktijk\oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\`
-met `index.md` + hub/PDF/Coria/VSA (publicatiestam zonder spaties).
+met `index.md` + oefenbestanden (hub/PDF/Coria/VSA of print; publicatiestam
+zonder spaties).
 
 Koormap-slot:
 `content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md` met
@@ -34,21 +35,26 @@ een bestaande structuur (antifoon, kleine intocht).
    niet verzinnen.
 2. Maak de map
    `bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\`.
-3. Kopieer hub-`.mscz`, `.pdf`, `.mxl` en/of `.vsa` naar die map. Bestandsnamen =
-   publicatiestam + extensie (bijv. `8-trisagion-8a-nederlands-hemelum.mscz`).
+3. Kopieer de oefenbestanden naar die map. Bestandsnamen = publicatiestam +
+   extensie (bijv. `8-trisagion-8a-nederlands-hemelum.mscz`). Bij VSA-Coria
+   hoort `{stam}.vsa.mxl` naast de `.vsa`. Als één map **twee** Coria- of
+   PDF-bestanden van verschillende sporen nodig heeft: gebruik
+   `{stam}.hub.mxl` / `{stam}.vsa.mxl` (zie
+   `scripts\oefenhoek-product-contract.md`).
 4. Maak `index.md` in de bibliotheek door een **bestaand** voorbeeld te
    kopiëren:
 
 | Wat je hebt | Kopieer bibliotheek-`index.md` van |
 | --- | --- |
 | Hub + PDF + Coria | `bibliotheek\8-trisagion\8a-nederlands\hemelum\` |
-| Alleen VSA | `bibliotheek\2-eerste-antifoon\weekdagen-hemelum\hemelum\` |
-| Hub + VSA + PDF + Coria | `bibliotheek\8-trisagion\8a-nederlands\hemelum\` |
-| Print + handmatige PDF/MXL + VSA | `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\` (`*.print.mscz`, `artefacten_handmatig: true`) |
-| Print-vel | `bibliotheek\7-kleine-intocht\zo-wk-mg\hemelum\` |
+| Alleen VSA (+ auto Coria-`.vsa.mxl`) | `bibliotheek\2-eerste-antifoon\weekdagen-hemelum\hemelum\` |
+| Print + handmatige PDF/MXL (+ optioneel `.vsa`) | `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\` (`*.print.mscz`, `artefacten_handmatig: true`) |
+| Print-vel (alleen PDF) | `bibliotheek\7-kleine-intocht\zo-wk-mg\hemelum\` |
 
 In de bibliotheek-`index.md` horen `publicatiestatus`, `automatische_inhoud:
 false`, en meestal de shortcode `bibliotheek-score` (zelfde id als de map).
+Bij print of template-export die jij zelf bijhoudt: ook
+`artefacten_handmatig: true`.
 
 ## Stap voor stap (koormap-slot)
 
@@ -82,8 +88,8 @@ Niet in `check`. Daarna legacy-dubbelen opruimen (zie ID-REGISTER).
 
 ## Klaar als
 
-Na `check --strict` toont de preview het koormap-slot met PDF/Coria/VSA via
-`bibliotheek-score`. De bibliotheek heeft de bestanden; de koormap-slotmap
-heeft geen hub meer.
+Na `check --strict` toont de preview het koormap-slot met PDF/**Oefenen**/VSA
+via `bibliotheek-score`. De bibliotheek heeft de bestanden; de
+koormap-slotmap heeft geen hub meer.
 
 {{< navbuttons "Volgende: status en check|/praktijk/handleiding/publiceren/2-status-en-check/" >}}

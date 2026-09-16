@@ -1,4 +1,7 @@
-"""Provenance in hub-afgeleiden: hub-sha256 + generated-at.
+"""Provenance in afgeleiden: source-sha256 + generated-at.
+
+Hub blijft `vsa-hub-sha256` zetten (alias van de bron-hash van de hub-.mscz).
+VSA-producten zetten `vsa-source-sha256` + `vsa-source-kind=vsa`.
 
 MXL: MusicXML identification / miscellaneous-field.
 PDF: Info-dict via pypdf (napoststampen na MuseScore-export).
@@ -14,9 +17,14 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 FIELD_HUB_SHA = "vsa-hub-sha256"
+FIELD_SOURCE_SHA = "vsa-source-sha256"
+FIELD_SOURCE_KIND = "vsa-source-kind"
 FIELD_GENERATED_AT = "vsa-generated-at"
 FIELD_GENERATOR = "vsa-generator"
 GENERATOR_ID = "mscz-products"
+GENERATOR_VSA = "vsa-musicxml"
+SOURCE_KIND_HUB = "hub"
+SOURCE_KIND_VSA = "vsa"
 PDF_KEY_HUB = "/VSAHubSHA256"
 PDF_KEY_GENERATED = "/VSAGeneratedAt"
 PDF_KEY_GENERATOR = "/VSAGenerator"
@@ -24,6 +32,10 @@ PDF_KEY_GENERATOR = "/VSAGenerator"
 
 def hub_sha256(mscz: Path) -> str:
     return hashlib.sha256(mscz.read_bytes()).hexdigest()
+
+
+def source_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def utc_now_iso() -> str:
@@ -51,7 +63,6 @@ def _ensure_identification(root: ET.Element) -> ET.Element:
     ident = _child(root, "identification")
     if ident is None:
         ident = ET.Element("identification")
-        # Vooraan: na movement-title / work-title als die bestaan.
         insert_at = 0
         for i, c in enumerate(list(root)):
             if _local(c.tag) in {"work", "movement-number", "movement-title"}:
@@ -72,12 +83,14 @@ def _set_misc_field(ident: ET.Element, name: str, value: str) -> None:
     field.text = value
 
 
-def stamp_mxl_tree(
+def stamp_mxl_source(
     root: ET.Element,
     *,
-    hub_hash: str,
+    source_hash: str,
+    source_kind: str,
     generated_at: str,
-    generator: str = GENERATOR_ID,
+    generator: str,
+    also_hub_sha: bool = False,
 ) -> None:
     ident = _ensure_identification(root)
     enc = _child(ident, "encoding")
@@ -87,14 +100,34 @@ def stamp_mxl_tree(
     if date_el is None:
         date_el = ET.Element("encoding-date")
         enc.insert(0, date_el)
-    # encoding-date is YYYY-MM-DD
     date_el.text = generated_at[:10]
     sw = ET.Element("software")
-    sw.text = f"{generator} hub={hub_hash[:12]}"
+    sw.text = f"{generator} {source_kind}={source_hash[:12]}"
     enc.append(sw)
-    _set_misc_field(ident, FIELD_HUB_SHA, hub_hash)
+    _set_misc_field(ident, FIELD_SOURCE_SHA, source_hash)
+    _set_misc_field(ident, FIELD_SOURCE_KIND, source_kind)
     _set_misc_field(ident, FIELD_GENERATED_AT, generated_at)
     _set_misc_field(ident, FIELD_GENERATOR, generator)
+    if also_hub_sha:
+        _set_misc_field(ident, FIELD_HUB_SHA, source_hash)
+
+
+def stamp_mxl_tree(
+    root: ET.Element,
+    *,
+    hub_hash: str,
+    generated_at: str,
+    generator: str = GENERATOR_ID,
+) -> None:
+    """Hub-product stamp (blijft `vsa-hub-sha256` voor bestaande gates)."""
+    stamp_mxl_source(
+        root,
+        source_hash=hub_hash,
+        source_kind=SOURCE_KIND_HUB,
+        generated_at=generated_at,
+        generator=generator,
+        also_hub_sha=True,
+    )
 
 
 def read_mxl_stamp(path: Path) -> dict[str, str]:
@@ -140,7 +173,14 @@ def stamp_pdf(
         import sys
 
         subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", "-r", str(Path(__file__).with_name("requirements-hub.txt"))],
+            [
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                "-r",
+                str(Path(__file__).with_name("requirements-hub.txt")),
+            ],
         )
         from pypdf import PdfReader, PdfWriter
 
@@ -174,7 +214,6 @@ def read_pdf_stamp(path: Path) -> dict[str, str]:
         return {}
     raw = {str(k): str(v) for k, v in dict(meta).items() if v is not None}
     out: dict[str, str] = {}
-    # Keys kunnen met of zonder slash
     mapping = {
         "/VSAHubSHA256": FIELD_HUB_SHA,
         "VSAHubSHA256": FIELD_HUB_SHA,

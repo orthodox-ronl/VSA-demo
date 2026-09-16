@@ -114,6 +114,8 @@ Uitleg: [scripts/README.md](scripts/README.md).
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
   Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij
   (banner op bibliotheekpagina; pipeline slaat auto-producten over).
+  VSA-Coria: `{stam}.vsa.mxl` via `vsa-products` / `check_vsa_products.py`
+  (`scripts/oefenhoek-product-contract.md`).
 - `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
   en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
   `bibliotheek-score`-shortcodes horen bij `false`. Geen `#`-titel in

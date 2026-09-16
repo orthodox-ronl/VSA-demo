@@ -6,17 +6,21 @@ nav_sort: weight
 ---
 
 **VSA** is de notatie voor tekst-plus-melodie in een gewoon tekstbestand
-(extensie `.vsa`). De sitebuild maakt daarvan een plaatje (SVG).
+(extensie `.vsa`). De sitebuild maakt daarvan een plaatje (SVG). Bij een
+bibliotheek-`.vsa` maakt de lokale `check` ook een Coria-bestand
+`{stam}.vsa.mxl`, zodat koorleden de knop **Oefenen** krijgen.
 
 Voor een tropaar op **toon 4** kun je dat `.vsa`-bestand daarna combineren
-met een formule-template. Dan komen alt, tenor en bas erbij (SATB).
+met een formule-template. Dan komen alt, tenor en bas erbij (SATB). Dat
+blad zet je vaak als print-vel neer (handmatige artefacten), niet als
+automatische hub — zie [template SATB](2-template-satb/).
 
 Oefenbare `.vsa`-bestanden staan in het **bibliotheek**; het **koormap-slot**
 in de liturgiemap toont ze via shortcode `bibliotheek-score` (zelfde id
 als de bibliotheek-map).
 
 {{< cue >}}
-- Antifoon / eenstemmig: `.vsa` in de bibliotheek → [schrijven](1-vsa-schrijven/).
+- Antifoon / eenstemmig: `.vsa` in de bibliotheek → [schrijven](1-vsa-schrijven/) (SVG + Coria-`.vsa.mxl`).
 - Tropaar toon 4, meerstemmig blad: `.vsa` met `template: tropaar-toon-4` → [template SATB](2-template-satb/).
 - Valideren: `vsa validate pad\naar\bestand.vsa`
 {{< /cue >}}

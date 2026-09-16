@@ -18,9 +18,9 @@ weight: 20
 het origineel, of komt een half af bestand op de publieke site.
 
 Een **bibliotheek-uitvoeringsvorm** is één map in de bibliotheek met
-`index.md` en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA).
-Een **koormap-slot** is een plek in de Hemelum-liturgiemap die naar die
-uitvoeringsvorm verwijst.
+`index.md` en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
+print). Een **koormap-slot** is een plek in de Hemelum-liturgiemap die naar
+die uitvoeringsvorm verwijst.
 
 ## Vier plekken
 
@@ -58,6 +58,8 @@ In de bibliotheek (en in `_werk`): geen spaties; alleen kleine letters,
 cijfers, `-` en `_`. Hub-bestanden hebben de **publicatiestam** uit het
 bibliotheek-id (functie `stem()` in `scripts\bibliotheek.py`). Voorbeeld:
 id `8-trisagion/8a-nederlands/hemelum` → `8-trisagion-8a-nederlands-hemelum.mscz`.
+VSA-Coria: zelfde stam + `.vsa.mxl`. Bij meerdere Coria-bestanden in één map:
+`{stam}.hub.mxl` / `{stam}.vsa.mxl` (`scripts\oefenhoek-product-contract.md`).
 Het script `scripts\score_filenames.py` helpt bij opkuisen en layout.
 
 ## Koormap vs bibliotheek-id

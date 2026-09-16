@@ -1,0 +1,35 @@
+{
+  "fix_page": "/praktijk/handleiding/vsa/1-vsa-schrijven/",
+  "folders": {
+    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-hemelum/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-hemelum/hemelum/2-eerste-antifoon-weekdagen-hemelum-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-liturgikon/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-liturgikon/hemelum/2-eerste-antifoon-weekdagen-liturgikon-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/25-communievers/onthoofding-johannes-de-doper/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/25-communievers/onthoofding-johannes-de-doper/hemelum/25-communievers-onthoofding-johannes-de-doper-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen-hemelum/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen-hemelum/hemelum/4-tweede-antifoon-weekdagen-hemelum-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen-hemelum/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen-hemelum/hemelum/6-derde-antifoon-weekdagen-hemelum-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    }
+  }
+}

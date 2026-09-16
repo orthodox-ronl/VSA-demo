@@ -25,18 +25,18 @@ dingen nodig:
    regels plakt die deze handleiding geeft.
 
 **Bibliotheek** is de catalogus met oefenbare bestanden (hub-`.mscz`,
-PDF, Coria-`.mxl`, `.vsa`). **Koormap** is een geordende route op de
-site (nu vooral de Hemelum-liturgiemap): navigatie per slot, met een
-verwijzing naar de bibliotheek via `bibliotheek-score`. Partituren horen
-in de bibliotheek, niet in de koormap-slotmap. Model:
+PDF, Coria-`.mxl`, `.vsa`, of print-`.mscz`). **Koormap** is een geordende
+route op de site (nu vooral de Hemelum-liturgiemap): navigatie per slot,
+met een verwijzing naar de bibliotheek via `bibliotheek-score`. Partituren
+horen in de bibliotheek, niet in de koormap-slotmap. Model:
 [Bibliotheek en koormappen](start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
 1. Nieuw ruw bestand → [Start](start/), daarna [binnenhalen](partituur/1-binnenhalen/).
 2. Capella-`.mxl` → opkuisen → normaliseren (standaard-`.mscz`) → review in MuseScore → opnieuw normaliseren → `scripts\mscz-products.cmd`.
 3. VOW-`.mscz` → Capella-script overslaan; wel stemmen/lettergrepen checken ([opkuisen](partituur/2-opkuisen/)), daarna [standaard-.mscz](partituur/3-standaard-mscz/).
-4. Tropaar-tekst → [.vsa schrijven](vsa/1-vsa-schrijven/), daarna eventueel [template SATB](vsa/2-template-satb/).
-5. Print-vel → [Print-.mscz](partituur/7-print-mscz/) in de bibliotheek (`*.print.mscz` + handmatige PDF).
+4. Eenstemmige tekst → [.vsa schrijven](vsa/1-vsa-schrijven/) (SVG + Coria-`.vsa.mxl` via `check`); tropaar toon 4 optioneel [template SATB](vsa/2-template-satb/).
+5. Print-vel → [Print-.mscz](partituur/7-print-mscz/) in de bibliotheek (`*.print.mscz` + handmatige PDF; vaak `artefacten_handmatig: true`).
 6. Klaar voor koorleden → [bibliotheek en koormap](publiceren/1-bladermap/) + `publicatiestatus: reviewable` + `scripts\check.cmd --strict`.
 {{< /cue >}}
 
@@ -47,8 +47,8 @@ in de bibliotheek, niet in de koormap-slotmap. Model:
 | Je bent nieuw als beheerder, of je hebt lang geen conversiewerk gedaan | [Start](start/) — programma’s, mappen, woorden |
 | Je hebt een Capella- of CapToMusic-bestand (`.mxl`, `.cap`, `.capx`) | [Partituur](partituur/) — vanaf opkuisen |
 | Je hebt een VOW-bestand of een andere ruwe `.mscz` | [Opkuisen](partituur/2-opkuisen/) (stemmen/lettergrepen), daarna [standaard-.mscz](partituur/3-standaard-mscz/) |
-| Je hebt alleen tekst op een bekende tropaar-melodie | [VSA](vsa/) |
-| Je wilt één printvel (bijv. meerdere tekstregels) zonder Coria-pijplijn | [Print-.mscz](partituur/7-print-mscz/) |
+| Je hebt alleen tekst op een bekende melodie (antifoon, communievers, …) | [VSA](vsa/) — eenstemmig + Coria |
+| Je wilt één printvel (bijv. meerdere tekstregels) of handmatig bijgehouden PDF/MXL | [Print-.mscz](partituur/7-print-mscz/) |
 | De publicatiebestanden liggen al klaar en moeten op de Oefenhoek | [Publiceren](publiceren/) |
 
 ## De route (van ruw tot Oefenhoek)
@@ -64,9 +64,10 @@ werkvoorraad  (bibliotheek-id kiezen; niet raden — zie ID-REGISTER)
     |
     +-- partituur (hub):  opkuisen -> normaliseren -> review -> PDF + Coria-.mxl
     |
-    +-- VSA:              .vsa schrijven -> (optioneel) template SATB -> PDF + Coria-.mxl
+    +-- VSA:              .vsa schrijven -> SVG + Coria-.vsa.mxl (check/vsa-products)
+    |                     (optioneel tropaar toon 4: template SATB)
     |
-    +-- print-vel:        naam.print.mscz in MuseScore -> handmatige PDF (geen Coria)
+    +-- print-vel:        naam.print.mscz -> handmatige PDF (+ eventueel handmatige .mxl)
     |
     v
 bibliotheek  (index.md + bestanden, publicatiestam zonder spaties)
@@ -90,7 +91,7 @@ Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
 1. [Start](start/) — programma’s, mappen, woorden
 2. [Partituur](partituur/) — van Capella/VOW naar hub-`.mscz`, PDF en Coria; plus [print-`.mscz`](partituur/7-print-mscz/)
-3. [VSA](vsa/) — notatie schrijven en (voor tropaar toon 4) meerstemmig maken
+3. [VSA](vsa/) — notatie schrijven, Coria-`.vsa.mxl`, en (voor tropaar toon 4) template SATB
 4. [Publiceren](publiceren/) — bibliotheek, koormap, status, controle, als het misgaat
 
 {{< navbuttons "Start|/praktijk/handleiding/start/" >}}

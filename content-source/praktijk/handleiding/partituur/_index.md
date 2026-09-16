@@ -25,16 +25,18 @@ daarna PDF en Coria-`.mxl` ([PDF en Coria](5-pdf-en-coria/),
 [afgeleiden](6-afgeleiden/)).
 
 Naast dit hub-spoor bestaat een **print-`.mscz`** (`*.print.mscz`): een
-koormap-vel dat de pipeline niet normaliseert en waarvoor geen Coria
-wordt gemaakt — zie [Print-.mscz](7-print-mscz/).
+koormap-vel dat de pipeline niet normaliseert; PDF (en eventuele Coria)
+houd je handmatig bij met `artefacten_handmatig: true` — zie
+[Print-.mscz](7-print-mscz/). Eenstemmige VSA hoort onder [VSA](../vsa/),
+niet in deze partituurstraat.
 
 Technische afspraken voor wie scripts of CI aanhoudt (bestanden in de repo,
-niet op deze site): `scripts\mscz-hub-contract.md`,
-`scripts\mscz-product-transforms.md`.
+niet op deze site): `scripts\oefenhoek-product-contract.md`,
+`scripts\mscz-hub-contract.md`, `scripts\mscz-product-transforms.md`.
 
 {{< cue >}}
 Capella: opkuisen (`cleanup_capella_mxl.py`) → normaliseren (`apply_mscz_layout.py`) → MuseScore (inhoud) → opnieuw normaliseren → `scripts\mscz-products.cmd`
 VOW / ruwe `.mscz`: Capella-script overslaan; controleer wel stemmen en lettergrepen (opkuisen), daarna normaliseren.
-Print-vel: `naam.print.mscz` + handmatige PDF — geen layout-script, geen `mscz-products`.
+Print-vel: `naam.print.mscz` + handmatige PDF (+ `artefacten_handmatig: true`) — geen layout-script, geen `mscz-products`.
 Tussenproducten (hub): `input\_werk\<doel-id>\`. Origineel blijft in `input\capella\` of `input\vow\`.
 {{< /cue >}}

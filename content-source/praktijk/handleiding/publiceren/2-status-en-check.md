@@ -32,6 +32,10 @@ Bibliotheek mét hub, VSA of print-PDF: meestal `reviewable`. Lege stub:
 `voorzien`. Intern *Stap* in de werkvoorraad (`opkuisen`, `layout`, …) is
 iets anders — dat zien koorleden niet.
 
+Optioneel op bibliotheek-`index.md`: `artefacten_handmatig: true` als PDF
+en Coria-`.mxl` in die map niet via de product-pipeline mogen lopen (print /
+template). Zie [Print-.mscz](../../partituur/7-print-mscz/).
+
 ## Check
 
 In de map `VSA-demo`:
@@ -40,9 +44,14 @@ In de map `VSA-demo`:
 scripts\check.cmd --strict
 ```
 
-Dat controleert onder meer VSA, Coria-`.mxl`, of `publicatiestatus` erop
-staat, en of links op de site kloppen. Rood = niet naar live; eerst
+Dat controleert onder meer VSA-notatie, Coria-`.mxl` (hub én `.vsa.mxl`),
+of `publicatiestatus` erop staat, of hub-/VSA-afgeleiden bij hun bron
+horen, en of links op de site kloppen. Rood = niet naar live; eerst
 [als het misgaat](../3-als-het-misgaat/).
+
+Lokaal vernieuwt `check` ook stale hub-PDF/MXL (MuseScore) en stale
+`.vsa.mxl`. Commit gewijzigde producten mee. Op branch `main` faalt de
+build als die producten ontbreken of verouderd zijn.
 
 ## Preview
 
@@ -53,8 +62,10 @@ scripts\serve.cmd --no-build
 ```
 
 Browser: **http://127.0.0.1:18731/** — nooit poort 1313. Open jouw
-**koormap-slot** in de liturgiemap. Klik **Oefenen in Coria**, **Downloaden**,
-blader de PDF. Alsof je koorlid bent.
+**koormap-slot** in de liturgiemap. Klik **Oefenen**, **Downloaden**,
+blader de PDF. Alsof je koorlid bent. Rode banner over hub- of VSA-afgeleiden?
+Terug naar [Afgeleiden](../../partituur/6-afgeleiden/). Gele banner
+“Handmatige artefacten”? Verwacht — jij houdt PDF/MXL zelf bij.
 
 Alles opnieuw opbouwen (langer): `scripts\serve.cmd` zonder `--no-build`.
 

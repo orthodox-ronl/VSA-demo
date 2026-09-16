@@ -15,6 +15,7 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
 | `mscz-products` | PDF + Coria-`.mxl` uit hub-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
+| `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
 | `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
 
 `cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
@@ -43,6 +44,12 @@ Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
 (`hub-sha256`, `generated-at`). Pipeline roept dit lokaal aan.
 `check_hub_products.py` schrijft `data/hub-product-status.json` (Hugo-banner);
 op `main` falen bij mismatch. Print-velden tellen niet mee in die gate.
+
+`vsa-products.cmd` (`sync_vsa_products.py`) maakt `{stam}.vsa.mxl` uit
+bibliotheek-`.vsa` (playback + Coria-sanitize + `vsa-source-sha256`). Slaat
+`artefacten_handmatig` over. Pipeline lokaal; `check_vsa_products.py` →
+`data/vsa-product-status.json` (banner; `main` streng). Zie
+`oefenhoek-product-contract.md`.
 
 Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
 `partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
