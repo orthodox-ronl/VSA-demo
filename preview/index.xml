@@ -822,6 +822,8 @@ Zelfde inhoud als bij &lt;code&gt;vsa svg&lt;/code&gt; of in een inline-blok —
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;print-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = koormap-vel; bestandsnaam eindigt op &lt;code&gt;.print.mscz&lt;/code&gt;; pipeline blijft ervan af&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bestandsnaam &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt; enz. — zie product-contract&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter: afgeleiden niet auto-bijwerken&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.pdf&lt;/code&gt; = A4-afgeleide om te lezen of te printen&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie&lt;/li&gt;
@@ -1009,9 +1011,10 @@ weggelaten — een relatieve site-knop werkt niet vanuit een PDF-bestand.&lt;/li
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;apply_mscz_layout.py&lt;/code&gt;, geen
-&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis. PDF maak je zelf in MuseScore 4
+&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
 (Bestand → Exporteren → PDF) en commit je naast het print-bestand &lt;strong&gt;in het
-bibliotheek&lt;/strong&gt;.
+bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt; vaak
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (beheerdersbanner; zie product-contract).
  &lt;/div&gt;
 &lt;/aside&gt;
 
@@ -1123,9 +1126,9 @@ script tegelijk.&lt;/p&gt;
 | &lt;code&gt;19a-eucharistische-kanon/&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon/19a-feofan/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-19a-feofan-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
 | &lt;em&gt;(alleen bibliotheek voorlopig)&lt;/em&gt; | &lt;code&gt;19-eucharistische-canon/rostov/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-rostov-hemelum&lt;/code&gt; | — | VOW-input; stub |
 | &lt;code&gt;20-moeder-godslied/20d-in-waarheid-moeder-godslied/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/20d-in-waarheid/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-20d-in-waarheid-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
-| &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | mscz, mxl, pdf, vsa | |
+| &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; print-track |
 | &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | mxl, pdf, vsa | Geen hub-mscz |
-| &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra/liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-liturgikon-hemelum&lt;/code&gt; | mscz, mxl, pdf, vsa | Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
+| &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra/liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-liturgikon-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
 | &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
 | &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | — | vsa | Niet in Hemelum-koormap |
 | &lt;code&gt;2-eerste-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | stub-achtig in koormap |

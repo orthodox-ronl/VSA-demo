@@ -140,9 +140,10 @@ editet.&lt;/p&gt;</description></item><item><title>Print-.mscz (koormap-vel)</ti
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;apply_mscz_layout.py&lt;/code&gt;, geen
-&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis. PDF maak je zelf in MuseScore 4
+&lt;code&gt;mscz-products&lt;/code&gt;, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
 (Bestand → Exporteren → PDF) en commit je naast het print-bestand &lt;strong&gt;in het
-bibliotheek&lt;/strong&gt;.
+bibliotheek&lt;/strong&gt;. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt; vaak
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; (beheerdersbanner; zie product-contract).
  &lt;/div&gt;
 &lt;/aside&gt;
 

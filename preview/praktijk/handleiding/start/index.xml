@@ -90,6 +90,8 @@ bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;print-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; = koormap-vel; bestandsnaam eindigt op &lt;code&gt;.print.mscz&lt;/code&gt;; pipeline blijft ervan af&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;representatie-id&lt;/strong&gt; = welk spoor een afgeleide hoort (&lt;code&gt;hub&lt;/code&gt; / &lt;code&gt;vsa&lt;/code&gt; / &lt;code&gt;print&lt;/code&gt;); bestandsnaam &lt;code&gt;{stam}.{id}.mxl&lt;/code&gt; enz. — zie product-contract&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter: afgeleiden niet auto-bijwerken&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.pdf&lt;/code&gt; = A4-afgeleide om te lezen of te printen&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie&lt;/li&gt;

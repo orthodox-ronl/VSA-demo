@@ -501,6 +501,7 @@ svg:not(.site-jump-icon),
 }
 
 .score-actions .btn,
+.score-actions .score-action-menu-trigger,
 a.btn.coria-play,
 .pdf-sheet-actions a,
 .mxl-download a {
@@ -517,14 +518,19 @@ a.btn.coria-play,
   text-decoration: none;
   box-sizing: border-box;
   box-shadow: 0 1px 3px rgba(0, 51, 102, 0.18);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .score-actions .btn,
+.score-actions .score-action-menu,
+.score-actions .score-action-menu-trigger,
 a.btn.coria-play {
   flex: 1 1 9rem;
 }
 
 .score-actions .btn,
+.score-actions .score-action-menu-trigger,
 a.btn.coria-play,
 .pdf-sheet-actions a,
 .mxl-download a {
@@ -535,6 +541,8 @@ a.btn.coria-play,
 
 .score-actions .btn:hover,
 .score-actions .btn:focus,
+.score-actions .score-action-menu-trigger:hover,
+.score-actions .score-action-menu-trigger:focus,
 a.btn.coria-play:hover,
 a.btn.coria-play:focus,
 .pdf-sheet-actions a:hover,
@@ -548,8 +556,10 @@ a.btn.coria-play:focus,
 
 /* Bibliotheek-context: groene actieknoppen */
 .oefenhoek-acties--bibliotheek .btn,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger,
 .oefenhoek-acties--bibliotheek a.btn.coria-play,
 .bibliotheek-page .score-actions .btn,
+.bibliotheek-page .score-actions .score-action-menu-trigger,
 .bibliotheek-page a.btn.coria-play {
   background: #e8f5ec;
   border-color: #1b5e20;
@@ -559,14 +569,82 @@ a.btn.coria-play:focus,
 
 .oefenhoek-acties--bibliotheek .btn:hover,
 .oefenhoek-acties--bibliotheek .btn:focus,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger:hover,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger:focus,
 .oefenhoek-acties--bibliotheek a.btn.coria-play:hover,
 .oefenhoek-acties--bibliotheek a.btn.coria-play:focus,
 .bibliotheek-page .score-actions .btn:hover,
 .bibliotheek-page .score-actions .btn:focus,
+.bibliotheek-page .score-actions .score-action-menu-trigger:hover,
+.bibliotheek-page .score-actions .score-action-menu-trigger:focus,
 .bibliotheek-page a.btn.coria-play:hover,
 .bibliotheek-page a.btn.coria-play:focus {
   background: #d4edd9;
   color: #1b5e20;
+}
+
+.score-action-menu {
+  position: relative;
+  display: flex;
+  flex: 1 1 9rem;
+}
+
+.score-action-menu-trigger {
+  width: 100%;
+}
+
+.score-action-menu-panel {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 20;
+  margin: 0.2rem 0 0;
+  padding: 0.35rem 0;
+  list-style: none;
+  background: #fff;
+  border: 2px solid #003366;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.18);
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel,
+.bibliotheek-page .score-action-menu-panel {
+  border-color: #1b5e20;
+  box-shadow: 0 4px 14px rgba(27, 94, 32, 0.16);
+}
+
+.score-action-menu:hover .score-action-menu-panel,
+.score-action-menu:focus-within .score-action-menu-panel {
+  display: block;
+}
+
+.score-action-menu-panel a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  color: #003366;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a,
+.bibliotheek-page .score-action-menu-panel a {
+  color: #1b5e20;
+}
+
+.score-action-menu-panel a:hover,
+.score-action-menu-panel a:focus {
+  background: #e8f1fa;
+  text-decoration: none;
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a:hover,
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a:focus,
+.bibliotheek-page .score-action-menu-panel a:hover,
+.bibliotheek-page .score-action-menu-panel a:focus {
+  background: #e8f5ec;
 }
 
 .handleiding-cue {
@@ -817,6 +895,24 @@ a.btn.coria-play:focus,
   border: 1px solid #c9a0a8;
   overflow-x: auto;
   font-size: 0.85rem;
+}
+
+.artefacten-handmatig-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #6d4c00;
+  background: #fff6e0;
+  color: #3d2a00;
+  font-size: 0.95rem;
+}
+
+.artefacten-handmatig-banner-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.artefacten-handmatig-banner p {
+  margin: 0.35rem 0 0;
 }
 
 /* Titel komt uit het template; verberg herhaalde #-titel in de markdown. */
