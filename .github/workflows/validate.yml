@@ -63,6 +63,7 @@ jobs:
             generated/content \
             static/vsa \
             --output-mode shortcode
+          python scripts/sync_oefenhoek_index.py --svg
 
       - name: Generate MusicXML
         run: vsa musicxml content-source static/vsa/mxl
