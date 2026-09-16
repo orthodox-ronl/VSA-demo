@@ -42,7 +42,10 @@ volgende <code>check</code>.</p><h2 id=musescore-start-niet--niet-gevonden>MuseS
 MuseScore 4; gebruik niet MuseScore 3. Open het opdrachtvenster opnieuw
 na installatie.</p><h2 id=de-pagina-is-lelijk-of-de-stijl-is-weg>De pagina is lelijk of de stijl is weg</h2><p>Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
 <code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
-</span></span></code></pre></div><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> (of de
+</span></span></code></pre></div><h2 id=coria-failed-to-retrieve-file>Coria: <code>failed to retrieve file</code></h2><p>De Oefenen-knop moet naar <code>/mxl/c/&lt;hash>.musicxml</code> wijzen (fingerprint),
+niet naar het page-bundle-<code>.mxl</code> met een verdubbelde site-prefix. Draai
+<code>check</code>/<code>build</code> opnieuw zodat <code>fingerprint_coria_mxl.py</code> en Hugo meelopen.
+<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> (of de
 VSA-template-render) komen, niet een ruwe Capella-<code>.mxl</code>. Maak de
 producten opnieuw ná de laatste normalisatie. <code>check</code> heeft een aparte
 Coria-controle; de melding wijst het bestand aan.</p><h2 id=bibliotheek-score-faalt-bij-build><code>bibliotheek-score</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
