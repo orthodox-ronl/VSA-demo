@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bibliotheek on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/</link><description>Recent content in Bibliotheek on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/index.xml" rel="self" type="application/rss+xml"/><item><title>Id-register Hemelum</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/</guid><description>&lt;h1 id="id-register--liturgiemap-hemelum--bibliotheek"&gt;Id-register — liturgiemap Hemelum → bibliotheek&lt;/h1&gt;
+&lt;p&gt;Dit register is de &lt;strong&gt;bron van waarheid&lt;/strong&gt; voor bibliotheek-id&amp;rsquo;s tijdens de
+conversie op &lt;code&gt;feat/oefenhoek-mxl-opkuis&lt;/code&gt;. Een bibliotheek-id heeft altijd drie
+lagen: &lt;code&gt;zangstuk-id&lt;/code&gt; / &lt;code&gt;variant-id&lt;/code&gt; / &lt;code&gt;uitvoeringsvorm-id&lt;/code&gt; (elk segment
+&lt;code&gt;[a-z0-9_-]+&lt;/code&gt;). De &lt;strong&gt;publicatiestam&lt;/strong&gt; voor hub-bestanden is
+&lt;code&gt;{zangstuk}-{variant}-{uitvoeringsvorm}&lt;/code&gt; (functie &lt;code&gt;stem()&lt;/code&gt; in
+&lt;code&gt;scripts/bibliotheek.py&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Het migratiescript &lt;code&gt;scripts/migrate_oefenhoek_bibliotheek.py&lt;/code&gt; volgt de tabellen
+&lt;strong&gt;SCORE&lt;/strong&gt;, &lt;strong&gt;PRINT&lt;/strong&gt; en &lt;strong&gt;STUB&lt;/strong&gt; hieronder. Wijzig id&amp;rsquo;s eerst hier en in dat
+script tegelijk.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Status legenda&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Status&lt;/th&gt;
+ &lt;th&gt;Betekenis&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;score&lt;/td&gt;
+ &lt;td&gt;Hub of VSA-bundle verhuist via &lt;code&gt;SCORE_MOVES&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;print&lt;/td&gt;
+ &lt;td&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; + PDF via &lt;code&gt;PRINT_MOVES&lt;/code&gt; (geen Coria-hub)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;stub&lt;/td&gt;
+ &lt;td&gt;Geen partituur; bibliotheek-stub + &lt;code&gt;bibliotheek-score&lt;/code&gt; op koormap&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;catalogus&lt;/td&gt;
+ &lt;td&gt;Koormap blijft catalogus-include; &lt;strong&gt;geen&lt;/strong&gt; bibliotheek-leaf in fase 2&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;legacy&lt;/td&gt;
+ &lt;td&gt;Dubbele/oude map; opruimen na migratie&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;open&lt;/td&gt;
+ &lt;td&gt;Id of migratiepad nog afspreken&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="score--hub-vsa-of-gemengd"&gt;SCORE — hub, VSA of gemengd&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Koormap-pad (t.o.v. &lt;code&gt;liturgiemap-hemelum/&lt;/code&gt;)&lt;/th&gt;
+ &lt;th&gt;Bibliotheek-id&lt;/th&gt;
+ &lt;th&gt;Publicatiestam (hub)&lt;/th&gt;
+ &lt;th&gt;Bestanden nu&lt;/th&gt;
+ &lt;th&gt;Opmerking&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15c-kastorski/&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15c-kastorski/hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne-15c-kastorski-hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;mscz, mxl, pdf&lt;/td&gt;
+ &lt;td&gt;reviewable; NL (ongemerkt)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;em&gt;(alleen bibliotheek voorlopig)&lt;/em&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15c-kastorski/hemelum-ksl-trlat&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne-15c-kastorski-hemelum-ksl-trlat&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;Kerkslavisch getranslitereerd; stub&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15b-fatejev/&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15b-fatejev/hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;voorzien&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15d-kastorski/&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15d-kastorski/hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;voorzien (andere Kastorski dan 15c)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15e-bortnjanski/&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne/15e-bortnjanski/hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;15-cherubijnenhymne-15e-bortnjanski-hemelum&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;—&lt;/td&gt;
+ &lt;td&gt;voorzien; Capella-input aanwezig&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Cherubijnen-varianten (Hemelum):&lt;/strong&gt; 15b Fatejev, 15c Kastorski, 15d Kastorski,
+15e Bortnjanski. Niet: 15a Staro-Simonovskaja, 15f Lvovsky.
+| &lt;code&gt;8-trisagion/8a-trisagion/&lt;/code&gt; | &lt;code&gt;8-trisagion/8a-nederlands/hemelum&lt;/code&gt; | &lt;code&gt;8-trisagion-8a-nederlands-hemelum&lt;/code&gt; | mscz, mxl, pdf | Canoniek; niet de legacy-map &lt;code&gt;8a-trisagion/&lt;/code&gt; |
+| &lt;code&gt;8-trisagion/8a-trisagion-slav/&lt;/code&gt; | &lt;code&gt;8-trisagion/8a-slav/hemelum&lt;/code&gt; | &lt;code&gt;8-trisagion-8a-slav-hemelum&lt;/code&gt; | mscz, mxl, pdf | Idem legacy &lt;code&gt;8a-trisagion-slav/&lt;/code&gt; |
+| &lt;code&gt;19a-eucharistische-kanon/&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon/19a-feofan/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-19a-feofan-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;em&gt;(alleen bibliotheek voorlopig)&lt;/em&gt; | &lt;code&gt;19-eucharistische-canon/rostov/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-rostov-hemelum&lt;/code&gt; | — | VOW-input; stub |
+| &lt;code&gt;20-moeder-godslied/20d-in-waarheid-moeder-godslied/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/20d-in-waarheid/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-20d-in-waarheid-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | mscz, mxl, pdf, vsa | |
+| &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | mxl, pdf, vsa | Geen hub-mscz |
+| &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra/liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-liturgikon-hemelum&lt;/code&gt; | mscz, mxl, pdf, vsa | Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
+| &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
+| &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | — | vsa | Niet in Hemelum-koormap |
+| &lt;code&gt;2-eerste-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | stub-achtig in koormap |
+| &lt;code&gt;4-tweede-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | |
+| &lt;code&gt;4-tweede-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;4-tweede-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;6-derde-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;6-derde-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | — | vsa | |
+| &lt;code&gt;6-derde-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;6-derde-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;6-derde-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | Variant-id = koormap-mapnaam |
+| &lt;code&gt;5-eniggeboren-zoon/&lt;/code&gt; | &lt;code&gt;5-eniggeboren-zoon/default/hemelum&lt;/code&gt; | &lt;code&gt;5-eniggeboren-zoon-default-hemelum&lt;/code&gt; | mscz, mxl, pdf | &lt;code&gt;default&lt;/code&gt; = enige variant |
+| &lt;code&gt;7-kleine-intocht/zondag/&lt;/code&gt; | &lt;code&gt;7-kleine-intocht/zondag/hemelum&lt;/code&gt; | &lt;code&gt;7-kleine-intocht-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;7-kleine-intocht/weekdagen/&lt;/code&gt; | &lt;code&gt;7-kleine-intocht/weekdagen/hemelum&lt;/code&gt; | &lt;code&gt;7-kleine-intocht-weekdagen-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;7-kleine-intocht/moeder-gods/&lt;/code&gt; | &lt;code&gt;7-kleine-intocht/moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;7-kleine-intocht-moeder-gods-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;28-wij-hebben-het-ware-licht/&lt;/code&gt; | &lt;code&gt;28-wij-hebben-het-ware-licht/default/hemelum&lt;/code&gt; | &lt;code&gt;28-wij-hebben-het-ware-licht-default-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
+| &lt;code&gt;29-de-naam-des-heren-zij-gezegend/&lt;/code&gt; | &lt;code&gt;29-de-naam-des-heren-zij-gezegend/default/hemelum&lt;/code&gt; | &lt;code&gt;29-de-naam-des-heren-zij-gezegend-default-hemelum&lt;/code&gt; | mscz, mxl, pdf | |&lt;/p&gt;</description></item></channel></rss>
