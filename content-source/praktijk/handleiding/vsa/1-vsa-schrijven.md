@@ -33,7 +33,16 @@ Capella-partituur. Voorbeeld:
 3. Kopieer dat bestand naar jouw bibliotheek-map, hernoem naar de
    publicatiestam (geen spaties), plak jouw tekst in dezelfde notatie. Een
    `.vsa` is **geen** Markdown-pagina: zet geen `#`-koppen in de notatie
-   zelf. Optioneel wel YAML bovenaan tussen `---` (titel, `do`, `mode`, …).
+   zelf. Zet wél YAML bovenaan tussen `---` met minstens `do`, `mode` en
+   `tempo` (default tempo in de toolchain is **120** BPM):
+
+```yaml
+---
+do: F4
+mode: major
+tempo: 120
+---
+```
 4. In het Windows-opdrachtvenster:
 
 ```cmd

@@ -334,6 +334,7 @@ echo   scripts\apply_mscz_layout.py
 echo   scripts\sync_mscz_products.py
 echo   scripts\check_hub_products.py
 echo   scripts\score_filenames.py
+echo   scripts\oefenhoek-product-contract.md
 echo   scripts\mscz-hub-contract.md
 echo   scripts\mscz-product-transforms.md
 echo.

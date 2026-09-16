@@ -31,12 +31,6 @@
       "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\20-moeder-godslied\\20d-in-waarheid\\hemelum\"",
       "issues": []
     },
-    "praktijk/oefenhoek/bibliotheek/20-moeder-godslied/ontslapen-moeder-gods/hemelum": {
-      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/20-moeder-godslied/ontslapen-moeder-gods/hemelum/20-moeder-godslied-ontslapen-moeder-gods-hemelum.mscz",
-      "ok": true,
-      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\20-moeder-godslied\\ontslapen-moeder-gods\\hemelum\"",
-      "issues": []
-    },
     "praktijk/oefenhoek/bibliotheek/28-wij-hebben-het-ware-licht/default/hemelum": {
       "mscz": "content-source/praktijk/oefenhoek/bibliotheek/28-wij-hebben-het-ware-licht/default/hemelum/28-wij-hebben-het-ware-licht-default-hemelum.mscz",
       "ok": true,
@@ -95,12 +89,6 @@
       "mscz": "content-source/praktijk/oefenhoek/bibliotheek/8-trisagion/8a-slav/hemelum/8-trisagion-8a-slav-hemelum.mscz",
       "ok": true,
       "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\8-trisagion\\8a-slav\\hemelum\"",
-      "issues": []
-    },
-    "praktijk/oefenhoek/bibliotheek/tropaar-nikolaas-van-myra/liturgikon/hemelum": {
-      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/tropaar-nikolaas-van-myra/liturgikon/hemelum/tropaar-nikolaas-van-myra-liturgikon-hemelum.mscz",
-      "ok": true,
-      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\tropaar-nikolaas-van-myra\\liturgikon\\hemelum\"",
       "issues": []
     }
   }

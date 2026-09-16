@@ -45,7 +45,9 @@ Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
 op `main` falen bij mismatch. Print-velden tellen niet mee in die gate.
 
 Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
-`partituur/7-print-mscz`).
+`partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
+artefacten: `oefenhoek-product-contract.md` (`{stam}.hub.mxl` /
+`{stam}.vsa.mxl` / …; frontmatter `artefacten_handmatig`).
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na

@@ -22,7 +22,9 @@
   {{- $pdf = .RelPermalink -}}
 {{- end -}}
 {{- range $p.Resources.Match "*.mscz" -}}
-  {{- $hasMscz = true -}}
+  {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
+    {{- $hasMscz = true -}}
+  {{- end -}}
 {{- end -}}
 {{- range $p.Resources.Match "*.vsa" -}}
   {{- $vsas = $vsas | append .Name -}}

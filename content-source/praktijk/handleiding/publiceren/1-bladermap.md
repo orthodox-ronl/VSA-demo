@@ -43,7 +43,8 @@ een bestaande structuur (antifoon, kleine intocht).
 | --- | --- |
 | Hub + PDF + Coria | `bibliotheek\8-trisagion\8a-nederlands\hemelum\` |
 | Alleen VSA | `bibliotheek\2-eerste-antifoon\weekdagen-hemelum\hemelum\` |
-| Hub + VSA + PDF + Coria | `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\` |
+| Hub + VSA + PDF + Coria | `bibliotheek\8-trisagion\8a-nederlands\hemelum\` |
+| Print + handmatige PDF/MXL + VSA | `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\` (`*.print.mscz`, `artefacten_handmatig: true`) |
 | Print-vel | `bibliotheek\7-kleine-intocht\zo-wk-mg\hemelum\` |
 
 In de bibliotheek-`index.md` horen `publicatiestatus`, `automatische_inhoud:

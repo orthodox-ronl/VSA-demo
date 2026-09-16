@@ -50,9 +50,9 @@ script tegelijk.
 | `19a-eucharistische-kanon/` | `19-eucharistische-canon/19a-feofan/hemelum` | `19-eucharistische-canon-19a-feofan-hemelum` | mscz, mxl, pdf | |
 | *(alleen bibliotheek voorlopig)* | `19-eucharistische-canon/rostov/hemelum` | `19-eucharistische-canon-rostov-hemelum` | — | VOW-input; stub |
 | `20-moeder-godslied/20d-in-waarheid-moeder-godslied/` | `20-moeder-godslied/20d-in-waarheid/hemelum` | `20-moeder-godslied-20d-in-waarheid-hemelum` | mscz, mxl, pdf | |
-| `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | mscz, mxl, pdf, vsa | |
+| `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; print-track |
 | `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | mxl, pdf, vsa | Geen hub-mscz |
-| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar-nikolaas-van-myra/liturgikon/hemelum` | `tropaar-nikolaas-van-myra-liturgikon-hemelum` | mscz, mxl, pdf, vsa | Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar-nikolaas-van-myra/liturgikon/hemelum` | `tropaar-nikolaas-van-myra-liturgikon-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
 | `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen-hemelum/hemelum` | — | vsa | Koormap = Hemelum; geen `liturgikon/`-slot meer |
 | *(alleen bibliotheek)* | `2-eerste-antifoon/weekdagen-liturgikon/hemelum` | — | vsa | Niet in Hemelum-koormap |
 | `2-eerste-antifoon/zondag/` | `2-eerste-antifoon/zondag/hemelum` | `2-eerste-antifoon-zondag-hemelum` | mscz, mxl, pdf | stub-achtig in koormap |
@@ -73,7 +73,9 @@ script tegelijk.
 
 | Koormap-pad | Bibliotheek-id | Bestanden nu | Opmerking |
 | --- | --- | --- | --- |
-| `7-kleine-intocht/zo-wk-mg/` | `7-kleine-intocht/zo-wk-mg/hemelum` | `7a-kleine-intocht-zo-wk-mg.print.mscz`, pdf | Na migratie: `{stam}.print.mscz` en `{stam}.pdf` in bibliotheek; geen Coria |
+| `7-kleine-intocht/zo-wk-mg/` | `7-kleine-intocht/zo-wk-mg/hemelum` | `*.print.mscz`, pdf | Print-vel; bij voorkeur `artefacten_handmatig: true` |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar-nikolaas-van-myra/liturgikon/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
+| `20-moeder-godslied/…` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
 
 ---
 

@@ -74,7 +74,7 @@ liturgische tekst ernaast. Vink af:
       titelvak.
 - [ ] Titel en componist kloppen; geen boekpagina-cijfer als titel.
 - [ ] Er is een tempo (onzichtbare metronoom mag); ontbreekt die, zet
-      normalisatie 100 BPM.
+      normalisatie 120 BPM.
 
 ### Wat je tijdens review níet doet
 

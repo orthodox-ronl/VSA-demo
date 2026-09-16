@@ -5,6 +5,9 @@ Map- en stamnamen: [a-z0-9_-]+ (` - ` en spaties -> '-'; overige leestekens -> '
 
 Print-`.mscz` (naam eindigt op `.print.mscz`): koormap-/PDF-vel buiten de
 hub-pijplijn. Geen apply_mscz_layout, geen mscz-products, geen hub-product-gate.
+
+Afgeleiden per representatie-id: zie scripts/oefenhoek-product-contract.md
+(`{stam}.{representatie-id}.{ext}`).
 """
 from __future__ import annotations
 
@@ -13,6 +16,8 @@ from pathlib import Path
 
 _UNSAFE = re.compile(r"[^a-zA-Z0-9_-]+")
 PRINT_MSCZ_SUFFIX = ".print.mscz"
+# Canonieke representatie-ids (contract). Uitbreiden alleen via contract-PR.
+KNOWN_REPRESENTATIE_IDS = frozenset({"hub", "vsa", "print"})
 
 
 def require_no_spaces(path: Path) -> None:
@@ -38,3 +43,29 @@ def published_stem(name: str) -> str:
 def published_path(path: Path) -> Path:
     """Zelfde map, gepubliceerde stam, zelfde suffix."""
     return path.with_name(published_stem(path.name) + path.suffix)
+
+
+def representatie_id_from_name(name: str) -> str | None:
+    """Haal representatie-id uit `{stam}.{repr}.ext` of `{stam}.print.mscz`.
+
+    Geeft None bij legacy korte naam (`{stam}.mxl` zonder representatie-segment).
+    """
+    lower = Path(name).name.lower()
+    if lower.endswith(PRINT_MSCZ_SUFFIX):
+        return "print"
+    stem = Path(name).stem  # strips final suffix only (.mxl / .pdf / .mscz)
+    if "." not in stem:
+        return None
+    maybe = stem.rsplit(".", 1)[-1].lower()
+    if maybe in KNOWN_REPRESENTATIE_IDS:
+        return maybe
+    return None
+
+
+def product_filename(stam: str, representatie_id: str, ext: str) -> str:
+    """Bouw `{stam}.{representatie-id}.{ext}` (ext met of zonder punt)."""
+    rid = representatie_id.strip().lower()
+    if rid not in KNOWN_REPRESENTATIE_IDS:
+        raise SystemExit(f"onbekende representatie-id: {representatie_id!r}")
+    suffix = ext if ext.startswith(".") else f".{ext}"
+    return f"{stam}.{rid}{suffix}"

@@ -1,0 +1,21 @@
+{{/*
+  Label voor een productbestand: representatie-id uit de naam, anders "standaard".
+  Context: dict "name" (bestandsnaam). Returns string.
+*/}}
+{{- $name := .name | default "" -}}
+{{- $base := path.Base $name -}}
+{{- $lower := lower $base -}}
+{{- $label := "standaard" -}}
+{{- if strings.HasSuffix $lower ".print.mscz" -}}
+  {{- $label = "print" -}}
+{{- else -}}
+  {{- $stem := strings.TrimSuffix (path.Ext $base) $base -}}
+  {{- if strings.HasSuffix (lower $stem) ".hub" -}}
+    {{- $label = "hub" -}}
+  {{- else if strings.HasSuffix (lower $stem) ".vsa" -}}
+    {{- $label = "vsa" -}}
+  {{- else if strings.HasSuffix (lower $stem) ".print" -}}
+    {{- $label = "print" -}}
+  {{- end -}}
+{{- end -}}
+{{- return $label -}}

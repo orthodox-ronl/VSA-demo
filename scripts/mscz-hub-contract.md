@@ -4,17 +4,19 @@ Normatieve representatie per bladermap **in de hub-straat**: één MuseScore 4-`
 die je mag editen, daarna **normaliseren** met `apply_mscz_layout.py`, en waaruit
 PDF en Coria-`.mxl` worden afgeleid. Proef in VSA-demo; later naar VSA-tooling.
 
-**Drie publicatiesporen** (Oefenhoek):
+**Drie publicatiesporen** (Oefenhoek) — afgeleiden per **representatie-id**:
+zie [oefenhoek-product-contract.md](oefenhoek-product-contract.md).
 
-| Spoor | Bron in de bladermap | Pipeline |
+| Spoor (representatie-id) | Bron in de bladermap | Pipeline |
 | ----- | -------------------- | -------- |
-| Hub-partituur | `naam.mscz` (geen `.print.`) | layout → `mscz-products` → PDF + Coria; hub-hash-gate |
-| VSA | `naam.vsa` (+ vaak PDF/MXL uit template) | `vsa validate` / build-markdown / Coria-check |
-| Print-vel | `naam.print.mscz` | **buiten** hub-scripts; PDF handmatig; geen Coria van dit bestand |
+| Hub-partituur (`hub`) | `naam.mscz` (geen `.print.`) | layout → `mscz-products` → PDF + Coria; hub-hash-gate |
+| VSA (`vsa`) | `naam.vsa` | `vsa validate` / build-markdown; Coria-`.mxl` (productgate: deel B) |
+| Print-vel (`print`) | `naam.print.mscz` | **buiten** hub-scripts; PDF handmatig; geen Coria van dit bestand |
 
 Print: handleiding
 `content-source/praktijk/handleiding/partituur/7-print-mscz.md`.
 Helper: `is_print_mscz` in `scripts/score_filenames.py`.
+Handmatige artefacten: frontmatter `artefacten_handmatig: true` (product-contract).
 
 **Reciteertoon / maatstrepen / melisma:** gebaseerd op
 [MCI Musical Notation](https://mci.archpitt.org/music/Notation.html).
@@ -38,9 +40,9 @@ Contractversie-meta: `vsaHubContract` = `hub-1`.
 | ------- | --- |
 | hub-`.mscz` | Canonieke bron (edit + normaliseer); **niet** `*.print.mscz` |
 | `.print.mscz` | Print-/koormap-vel; scripts laten met rust |
-| `.pdf` | Afgeleide A4-afdruk (hub) of handmatige export (print) |
-| Coria-`.mxl` | Afgeleide oefen-playback (alleen hub / VSA) |
-| `index.md` | Hugo-bladermap; toont banner als hub-afgeleiden niet bij hub horen |
+| `.pdf` | Afgeleide A4-afdruk (`hub` / `print` / later `vsa`); zie product-contract |
+| Coria-`.mxl` | Afgeleide oefen-playback (`hub` / `vsa`); zie product-contract |
+| `index.md` | Hugo-bladermap; banner bij stale hub-afgeleiden; `artefacten_handmatig` |
 
 ## Bestandsnamen
 
@@ -107,7 +109,7 @@ Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlin
 | Regel | Waarde | Nodig voor |
 | ----- | ------ | ---------- |
 | Verplicht | BPM in de hub (onzichtbare metronoom mag) | Coria-playback |
-| Default bij ontbreken | 100 BPM | Coria |
+| Default bij ontbreken | 120 BPM | Coria |
 
 ## Copyright
 

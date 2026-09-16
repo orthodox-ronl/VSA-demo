@@ -108,9 +108,12 @@ Uitleg: [scripts/README.md](scripts/README.md).
   `voorzien` | `concept` | `reviewable` | `productie`.
 - Hub-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
   embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
-  Contract: `scripts/mscz-hub-contract.md`.
+  Contract: `scripts/mscz-hub-contract.md`. Afgeleiden per representatie-id
+  (`hub` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
+  Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij
+  (banner op bibliotheekpagina; pipeline slaat auto-producten over).
 - `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
   en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
   `bibliotheek-score`-shortcodes horen bij `false`. Geen `#`-titel in

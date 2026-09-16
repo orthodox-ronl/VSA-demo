@@ -57,9 +57,9 @@ catalogus en geen tooling-demo.
 | Deelrubrieken | `bibliotheek/` (doel), `liturgiemap-hemelum/`, `overig/`; `input/` blijft op oefenhoek-niveau |
 | Bibliotheek | `oefenhoek/bibliotheek/<zangstuk-id>/<variant-id>/<uitvoeringsvorm-id>/` (altijd drie lagen). Hub-`.mscz` + PDF/Coria/VSA + `index.md`. Mag uitvoeringsvormen bevatten **zonder** koormap-verwijzing. Root toont oefenbare zangstukken (niet alle stubs). Id-register: `bibliotheek/ID-REGISTER.md`. Special pages: `bibliotheek/speciaal/` (voorzien, ongerefereerd, oefenbaar). Migratie: `scripts/migrate_oefenhoek_bibliotheek.py` (niet in check). Print-vel: `{stam}.print.mscz` in bibliotheek, geen Coria-hub. |
 | Koormap | Geordende view (liturgie, later feest/collectie/parochie). Slots verwijzen via `{{< bibliotheek-score id="zangstuk/variant/uitvoeringsvorm" >}}`. Geen hub-`.mscz` in de slotmap. |
-| Publicatiestam | `{zangstuk}-{variant}-{uitvoeringsvorm}` voor `.mscz` / Coria-`.mxl` / PDF (`scripts/bibliotheek.py`) |
+| Publicatiestam | `{zangstuk}-{variant}-{uitvoeringsvorm}` voor bronbestanden; afgeleiden bij voorkeur `{stam}.{representatie-id}.{ext}` (`scripts/oefenhoek-product-contract.md`) |
 | Migratie uitgevoerd (Hemelum) | Hub-bestanden in `bibliotheek/`; koormap-slots alleen `index.md` + `bibliotheek-score` (catalogus-slots: `:::include`). |
-| Geen spaties in publicatienamen | Stam `[a-z0-9_-]+`. Print-vel: `*.print.mscz` (buiten hub-productgate). Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
+| Geen spaties in publicatienamen | Stam `[a-z0-9_-]+`. Print-vel: `*.print.mscz` (buiten hub-productgate). Afgeleiden per representatie-id: zie product-contract. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
 | Geen dubbele canonieke VSA | Catalogus-include (`id:…` / `lokaal:…` / `bron:…`) mag op een koormap-slot; MuseScore-uitgaven in bibliotheek |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
@@ -70,6 +70,7 @@ catalogus en geen tooling-demo.
 | Bibliotheek- / koormap-`index.md` | Met `automatische_inhoud: true`: widgets via Hugo-layout uit bestanden in de map. Met `bibliotheek-score` of catalogus-include: `automatische_inhoud: false`. |
 | Sectie-`_index.md` | Eigen tekst (geen `#`-titel; die komt uit de layout) + linklijst van kind-pagina's als `automatische_inhoud: true`. Precies 1 kind: doorverwijzen naar dat kind. Knop terug naar de koormap (liturgiemap). Zet `false` als je zelf een TOC houdt. |
 | `automatische_inhoud` | Verplicht op elke oefenhoek-`_index.md` / `index.md`: `true` of `false`. |
+| `artefacten_handmatig` | Optioneel op bibliotheek-`index.md`: `true` = PDF/MXL e.d. niet via product-pipeline; beheerdersbanner op de pagina. Zie `scripts/oefenhoek-product-contract.md`. |
 
 Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus`.
 

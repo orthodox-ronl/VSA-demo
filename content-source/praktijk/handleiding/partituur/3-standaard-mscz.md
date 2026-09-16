@@ -114,7 +114,7 @@ feathered noot later tot één kwart per lettergreep.
 | Opvulrusten aan het eind van een maat | Weg; maatlengte = som van de noten |
 | Leidende rusten | Ritmisch behouden; na start/dubbele streep met gap |
 | Lyric-underlines (melisma-ticks) | Standaard weg (Capella-slurs zijn frasen); opt-in via meta `vsaLyricExtenders` |
-| Tempo | Verplicht voor Coria; default **100 BPM** als er geen metronoom in de hub staat |
+| Tempo | Verplicht voor Coria; default **120 BPM** als er geen metronoom in de hub staat |
 | Copyright | Notice uit de bron → korte footer + colofon; ontbreekt notice → CC BY-SA 4.0 (deze uitgave) + eredienst-kopieertoestemming |
 | Contractmeta | `vsaHubContract` = `hub-1` |
 

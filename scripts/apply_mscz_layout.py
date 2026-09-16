@@ -155,7 +155,7 @@ _DEFAULT_FULL = (
     "Licentie: https://creativecommons.org/licenses/by-sa/4.0/\n"
     f"{_LITURGY_COPY}"
 )
-_DEFAULT_TEMPO_BPM = 100
+_DEFAULT_TEMPO_BPM = 120
 _CONTRACT_VERSION = "hub-1"
 _COLOPHON_VBOX_RE = re.compile(
     r"[ \t]*<VBox>(?:(?!</VBox>).)*?"
@@ -440,7 +440,7 @@ def _has_tempo(mscx: str) -> bool:
 
 
 def ensure_tempo(mscx: str, bpm: int = _DEFAULT_TEMPO_BPM) -> tuple[str, list[str]]:
-    """Verplicht onzichtbaar tempo (BPM) voor Coria; default 100."""
+    """Verplicht onzichtbaar tempo (BPM) voor Coria; default 120."""
     notes: list[str] = []
     if _has_tempo(mscx):
         notes.append("tempo aanwezig")

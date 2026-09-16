@@ -8,9 +8,10 @@ weight: 70
 
 {{< cue >}}
 Bestandsnaam eindigt op **`.print.mscz`**. Geen `apply_mscz_layout.py`, geen
-`mscz-products`, geen Coria-eis. PDF maak je zelf in MuseScore 4
+`mscz-products`, geen Coria-eis uit dit bestand. PDF maak je zelf in MuseScore 4
 (Bestand → Exporteren → PDF) en commit je naast het print-bestand **in het
-bibliotheek**.
+bibliotheek**. Zet op de bibliotheek-`index.md` vaak
+`artefacten_handmatig: true` (beheerdersbanner; zie product-contract).
 {{< /cue >}}
 
 **Wat je nu doet:** een MuseScore-bestand in het **bibliotheek** zetten dat de

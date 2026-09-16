@@ -9,6 +9,8 @@ weight: 30
 {{< cue >}}
 - **hub-`.mscz`** = canonieke MuseScore-partituur (hier bewerk je; daarna normaliseren)
 - **print-`.mscz`** = koormap-vel; bestandsnaam eindigt op `.print.mscz`; pipeline blijft ervan af
+- **representatie-id** = welk spoor een afgeleide hoort (`hub` / `vsa` / `print`); bestandsnaam `{stam}.{id}.mxl` enz. — zie product-contract
+- **artefacten_handmatig** = frontmatter: afgeleiden niet auto-bijwerken
 - `.mxl` = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)
 - `.pdf` = A4-afgeleide om te lezen of te printen
 - `.vsa` = tekst plus melodie in VSA-notatie
@@ -43,6 +45,7 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 [Reviewen](/praktijk/handleiding/partituur/4-reviewen/).
 
 **Contracten** (technische afspraken in de repo, niet als sitepagina):
+`scripts\oefenhoek-product-contract.md` (afgeleiden per representatie),
 `scripts\mscz-hub-contract.md`, `scripts\mscz-product-transforms.md`.
 
 ## Plaatsen en status
