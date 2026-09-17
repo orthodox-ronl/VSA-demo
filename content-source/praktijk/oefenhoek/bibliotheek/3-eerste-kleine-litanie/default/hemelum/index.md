@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 3 Eerste Kleine Litanie / Ektinia
 
-{{< bibliotheek-score id="3-eerste-kleine-litanie/default/hemelum" >}}
+{{< bieb id="3-eerste-kleine-litanie/default/hemelum" >}}

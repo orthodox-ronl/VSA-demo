@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 6 Derde antifoon (zondag)
 
-{{< bibliotheek-score id="6-derde-antifoon/zondag/hemelum" >}}
+{{< bieb id="6-derde-antifoon/zondag/hemelum" >}}

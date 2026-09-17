@@ -110,6 +110,7 @@ Uitleg: [scripts/README.md](scripts/README.md).
   embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
   Contract: `scripts/mscz-hub-contract.md`. Afgeleiden per representatie-id
   (`hub` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
+  Pagina-UI (sticky header, shortcode `bieb`): `scripts/oefenhoek-ui-contract.md`.
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
   Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij
@@ -118,8 +119,9 @@ Uitleg: [scripts/README.md](scripts/README.md).
   (`scripts/oefenhoek-product-contract.md`).
 - `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
   en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
-  `bibliotheek-score`-shortcodes horen bij `false`. Geen `#`-titel in
-  sectie-`_index.md`.
+  `bieb`-shortcodes horen bij `false`. Geen `#`-titel in
+  sectie-`_index.md`. Actieknoppen (Oefenen/Downloaden/Printen) alleen via
+  `bieb`, vóór de plaatjes — niet onder de paginatitel.
 - Stub zonder oefenbare inhoud -> `voorzien`. Uitvoeringsvorm mét partituur ->
   `reviewable` tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal
   `concept`.

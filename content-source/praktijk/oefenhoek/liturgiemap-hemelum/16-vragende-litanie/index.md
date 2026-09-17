@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 16 Vragende Litanie/Ektinia
 
-{{< bibliotheek-score id="16-vragende-litanie/default/hemelum" >}}
+{{< bieb id="16-vragende-litanie/default/hemelum" >}}

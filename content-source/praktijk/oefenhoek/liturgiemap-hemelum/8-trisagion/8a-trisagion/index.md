@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 8a Trisagion (Nederlands)
 
-{{< bibliotheek-score id="8-trisagion/8a-nederlands/hemelum" >}}
+{{< bieb id="8-trisagion/8a-nederlands/hemelum" >}}

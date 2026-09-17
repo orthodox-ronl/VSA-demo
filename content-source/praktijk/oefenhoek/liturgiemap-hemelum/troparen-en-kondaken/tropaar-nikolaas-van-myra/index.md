@@ -1,11 +1,11 @@
 ---
-title: "Tropaar H. Nikolaas van Myra (toon 4)"
-linkTitle: "Tropaar H. Nikolaas van Myra (toon 4)"
-weight: 10
+title: "Tropaar Nikolaas van Myra"
+linkTitle: "Tropaar Nikolaas van Myra"
+weight: 20
 publicatiestatus: reviewable
 automatische_inhoud: false
 ---
 
-# Tropaar H. Nikolaas van Myra (toon 4)
+# Tropaar Nikolaas van Myra
 
-{{< bibliotheek-score id="tropaar-nikolaas-van-myra/liturgikon/hemelum" >}}
+{{< bieb id="tropaar/nikolaas-van-myra-toon-4/hemelum" >}}

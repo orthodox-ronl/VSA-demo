@@ -6,13 +6,16 @@ weight: 40
 
 # Publiceren
 
-Koorleden zien een **koormap-slot** in de liturgiemap (of test in `overig/`).
-De oefenbestanden staan in de **bibliotheek**; het slot verwijst met
-`bibliotheek-score`. Een uitvoeringsvorm mag in de bibliotheek staan zonder
-koormap — zie [Bibliotheek en koormappen](../start/bibliotheek-en-koormappen/).
+Koorleden zien een **slot-pagina** of **koormap-sectie** in de liturgiemap
+(of test in `overig/`). De oefenbestanden staan in de **bibliotheek**; de
+slot-pagina verwijst met `bieb`. Een uitvoeringsvorm mag in
+de bibliotheek staan zonder koormap — zie
+[Bibliotheek en koormappen](../start/bibliotheek-en-koormappen/) (secties,
+compositiebladen, boom versus één blad).
 
 - Bibliotheek: `index.md` + hub/PDF/Coria/VSA of print (publicatiestam zonder spaties; eventueel `artefacten_handmatig: true`)
-- Koormap: `index.md` + shortcode `bibliotheek-score` met parameter `id` (drie lagen)
+- Slot-pagina: `index.md` + shortcode `bieb` met parameter `id` (drie lagen); optioneel meerdere shortcodes
+- Koormap-sectie: `_index.md` met kindlijst of eigen TOC
 - Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)
 - Special: [voorzien / ongerefereerd / oefenbaar](/praktijk/oefenhoek/bibliotheek/speciaal/)
 

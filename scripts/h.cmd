@@ -416,12 +416,12 @@ echo.
 echo DESCRIPTION
 echo   Zonder flags: haalt auto-includes en score-shortcodes uit
 echo   oefenhoek bladermap-index.md. Frontmatter en eigen tekst blijven.
-echo   Catalogus-includes, bibliotheek-score en automatische_inhoud: false
-echo   blijven. Widgets komen uit de Hugo-layout of bibliotheek-score.
+echo   Catalogus-includes, bieb en automatische_inhoud: false
+echo   blijven. Widgets komen uit de Hugo-layout of bieb.
 echo.
-echo   --svg schrijft SVG van lokale .vsa (geen .mscz) naar
-echo   static\vsa\bladermap\ (na vsa build-markdown), ook onder bibliotheek\.
-echo.
+echo   --svg schrijft SVG van lokale .vsa (geen hub-.mscz; print-.mscz
+echo   mag) naar static\vsa\bladermap\ (na vsa build-markdown), ook onder
+echo   bibliotheek\.echo.
 echo WHEN
 echo   Automatisch in check/build/serve.
 echo.
@@ -444,7 +444,7 @@ echo.
 echo DESCRIPTION
 echo   Eenmalig: verplaatst hub-partituren van liturgiemap-hemelum naar
 echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\ en zet
-echo   koormap-slots op bibliotheek-score. Niet in check/build/serve.
+echo   koormap-slots op bieb. Niet in check/build/serve.
 echo   bibliotheek.py: parse_id / folder / stem / leaf_folders.
 echo.
 echo WHEN
@@ -452,7 +452,8 @@ echo   Bij de bibliotheek-conversie op deze branch (na review van SCORE_MOVES).
 echo.
 echo SEE ALSO
 echo   CONTENT-STRUCTURE.md
-echo   layouts\shortcodes\bibliotheek-score.html
+echo   layouts\shortcodes\bieb.html
+echo   scripts\oefenhoek-ui-contract.md
 echo.
 goto end_ok
 

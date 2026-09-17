@@ -61,6 +61,17 @@ voor wie converteert.
 | `capella/7b - kleine intocht - weekdagen.mxl` | `7-kleine-intocht/weekdagen/hemelum` | `7-kleine-intocht` | `.mscz` | gepubliceerd | — | zelfde koormap-sectie als 7 |
 | `capella/8a - trisagion (+slav).mxl` | `8-trisagion/8a-slav/hemelum` |  | `.mscz` | gepubliceerd | — |  |
 | `capella/8a - trisagion.mxl` | `8-trisagion/8a-nederlands/hemelum` |  | `.mscz` | gepubliceerd | — |  |
+| `musescore/alleluja-toon-1.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musescore/allelujas 1-8 - ruw.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/021-prokimen-alleluja-toon-1.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/022-prokimen-alleluja-toon-2.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/023-prokimen-alleluja-toon-3.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/024-prokimen-alleluja-toon-4.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/025-prokimen-alleluja-toon-5.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/026-prokimen-alleluja-toon-6.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/027-prokimen-alleluja-toon-7.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/028-prokimen-alleluja-toon-8.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/tonen (vers, stichier, tropaar).musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `vow/Cherubijnenlied-Kastorskij.mscz` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne/15c-kastorski` | `.mscz` | gepubliceerd | — | tweede bron (VOW); Capella is canonieke hub |
 | `vow/dankzegging_toon_2_Kyiv.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
 | `vow/eind-liturgie.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
@@ -95,7 +106,7 @@ Tussenproducten in `_werk/`, origineel blijft in `capella/`.
 1. `cleanup_capella_mxl.py` → opgekuiste `.mxl` zonder spaties in de naam.
 2. MuseScore-import + `apply_mscz_layout.py` → standaard-`.mscz`.
 3. `export_mscz_coria_mxl.py` → playback-`.mxl`; PDF uit dezelfde `.mscz`.
-4. Bestanden in `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/` plus bibliotheek-`index.md`; koormap-slot met `bibliotheek-score`.
+4. Bestanden in `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/` plus bibliotheek-`index.md`; koormap-slot met `bieb`.
 5. `publicatiestatus: reviewable` op bibliotheek én koormap als er oefenbare inhoud in staat, anders `voorzien`.
 6. `check --strict`.
 

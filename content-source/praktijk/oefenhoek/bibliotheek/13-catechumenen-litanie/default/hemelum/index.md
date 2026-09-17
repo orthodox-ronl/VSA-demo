@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 13 Catechumenen Litanie/Ektinia
 
-{{< bibliotheek-score id="13-catechumenen-litanie/default/hemelum" >}}
+{{< bieb id="13-catechumenen-litanie/default/hemelum" >}}

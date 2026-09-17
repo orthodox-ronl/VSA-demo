@@ -8,10 +8,4 @@ automatische_inhoud: false
 
 # Kondak H. Moeder Gods (toon 6)
 
-:::include svg id:kondak-moeder-gods-toon-6/hemelum/Hemelum alt="Kondak H. Moeder Gods (Hemelum, Toon 6)":::
-
-{{< score-actions >}}
-:::include coria id:kondak-moeder-gods-toon-6/hemelum/Hemelum label="Oefenen":::
-{{< /score-actions >}}
-
-<!-- pdf-sheet src="kondak-moeder-gods-toon-6.pdf" actions="false" -->
+{{< bieb id="kondak/moeder-gods-toon-6/hemelum" >}}

@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # Eucharistische kanon (Rostov)
 
-{{< bibliotheek-score id="19-eucharistische-canon/rostov/hemelum" >}}
+{{< bieb id="19-eucharistische-canon/rostov/hemelum" >}}

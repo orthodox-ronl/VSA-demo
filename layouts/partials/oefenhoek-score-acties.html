@@ -1,0 +1,77 @@
+{{- /*
+  Oefenen / Downloaden / Printen voor één score-pagina (bibliotheek-uitvoeringsvorm).
+  Context: dict "score" (Page met PDF/MXL), optioneel "viewer" (pagina waar de
+  shortcode staat — bepaalt knopkleur bibliotheek vs koormap).
+
+  Geen Bibliotheek/Koormap-knop: navigatie zit in oefenhoek-header.
+*/ -}}
+{{- $score := .score -}}
+{{- $viewer := or .viewer $score -}}
+{{- if $score -}}
+{{- $inBibliotheek := strings.Contains $viewer.RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
+{{- $pdfItems := slice -}}
+{{- $coriaItems := slice -}}
+{{- $scoreDir := "" -}}
+{{- with $score.File -}}
+  {{- $scoreDir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
+{{- end -}}
+{{- range $score.Resources.Match "*.pdf" -}}
+  {{- $label := partial "product-representatie-label.html" (dict "name" .Name) -}}
+  {{- $pdfItems = $pdfItems | append (dict "href" .RelPermalink "label" $label "name" .Name) -}}
+{{- end -}}
+{{- range $score.Resources.Match "*.mxl" -}}
+  {{- if $scoreDir -}}
+    {{- $src := printf "mxl/%s/%s" $scoreDir .Name -}}
+    {{- $label := partial "product-representatie-label.html" (dict "name" .Name) -}}
+    {{- $coriaItems = $coriaItems | append (dict "src" $src "label" $label) -}}
+  {{- end -}}
+{{- end -}}
+{{- $fps := dict -}}
+{{- if fileExists "data/coria-fp.json" -}}
+  {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
+{{- end -}}
+{{- $oefenMenu := slice -}}
+{{- range $coriaItems -}}
+  {{- $src := replaceRE "^/" "" .src -}}
+  {{- $fpKey := replace $src "/" "__" -}}
+  {{- $mapped := "" -}}
+  {{- with index $fps $fpKey -}}
+    {{- $mapped = strings.TrimSpace . -}}
+  {{- end -}}
+  {{- if $mapped -}}
+    {{- if or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix $mapped ".musicxml") (strings.HasSuffix $mapped ".xml") -}}
+      {{- $src = $mapped -}}
+    {{- end -}}
+  {{- else if or (strings.HasSuffix $src ".mxl") (strings.HasSuffix $src ".musicxml") (strings.HasSuffix $src ".xml") -}}
+    {{- if not (strings.HasPrefix $src "mxl/c/") -}}
+      {{- errorf "oefenhoek-score-acties: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $absolute := absURL $src -}}
+  {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
+  {{- $oefenMenu = $oefenMenu | append (dict "href" $coria "label" .label "class" "coria-play" "target" "_blank" "rel" "noopener noreferrer") -}}
+{{- end -}}
+{{- $downloadMenu := slice -}}
+{{- $printMenu := slice -}}
+{{- range $pdfItems -}}
+  {{- $downloadMenu = $downloadMenu | append (dict "href" .href "label" .label "download" true) -}}
+  {{- $printMenu = $printMenu | append (dict "href" .href "label" .label "class" "pdf-sheet-print") -}}
+{{- end -}}
+{{- $primaryPdf := "" -}}
+{{- if gt (len $pdfItems) 0 -}}
+  {{- $primaryPdf = (index $pdfItems 0).href -}}
+{{- end -}}
+{{- $hasOefenen := gt (len $oefenMenu) 0 -}}
+{{- $hasPdf := gt (len $downloadMenu) 0 -}}
+{{- if or $hasOefenen $hasPdf -}}
+{{- $wrapClass := "score-actions oefenhoek-acties" -}}
+{{- if $inBibliotheek -}}
+  {{- $wrapClass = printf "%s oefenhoek-acties--bibliotheek" $wrapClass -}}
+{{- end -}}
+<div class="{{ $wrapClass }}"{{ with $primaryPdf }} data-pdf-src="{{ . }}"{{ end }}>
+  {{ partial "score-action-menu.html" (dict "title" "Oefenen" "items" $oefenMenu "btnClass" "btn") }}
+  {{ partial "score-action-menu.html" (dict "title" "Downloaden" "items" $downloadMenu "btnClass" "btn") }}
+  {{ partial "score-action-menu.html" (dict "title" "Printen" "items" $printMenu "btnClass" "btn") }}
+</div>
+{{- end -}}
+{{- end -}}

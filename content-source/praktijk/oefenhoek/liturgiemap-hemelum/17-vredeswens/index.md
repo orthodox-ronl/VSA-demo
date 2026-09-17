@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 17 Vredeswens
 
-{{< bibliotheek-score id="17-vredeswens/default/hemelum" >}}
+{{< bieb id="17-vredeswens/default/hemelum" >}}

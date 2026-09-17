@@ -55,6 +55,8 @@ Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
 `partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
 artefacten: `oefenhoek-product-contract.md` (`{stam}.hub.mxl` /
 `{stam}.vsa.mxl` / …; frontmatter `artefacten_handmatig`).
+Pagina-UI (sticky header, shortcode `bieb`, actieknoppen):
+`oefenhoek-ui-contract.md`.
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na
@@ -102,15 +104,15 @@ worden genormaliseerd.
 in check; zie CONTENT-STRUCTURE.md).
 `sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes
 en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). Pagina's met
-`bibliotheek-score` of `automatische_inhoud: false` blijven onaangeroerd. De
+`bieb` of `automatische_inhoud: false` blijven onaangeroerd. De
 partituur komt uit de Hugo-layout (`layouts/partials/bladermap-score.html`) of
-uit `{{< bibliotheek-score >}}`. Sectie-pagina's krijgen een linklijst van
+uit `{{< bieb >}}`. Sectie-pagina's krijgen een linklijst van
 kinderen (`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1
 kind volgt een doorverwijzing. Catalogus-includes
 (`id:` / `lokaal:` / `bron:`) blijven. `--svg` (na `build-markdown`) zet
-lokale `.vsa` zonder `.mscz` om naar `static/vsa/bladermap/` (ook onder
-`bibliotheek/`). `--dry-run` toont wat de strip zou wijzigen.
-
+lokale `.vsa` zonder hub-`.mscz` om naar `static/vsa/bladermap/` (ook onder
+`bibliotheek/`; `*.print.mscz` blokkeert SVG niet). `--dry-run` toont wat de
+strip zou wijzigen.
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 
 Oude namen `serve-hugo` / `build-hugo` / `bootstrap` zijn aliases (`use: ...`).

@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 21 En Allen
 
-{{< bibliotheek-score id="21-en-allen/default/hemelum" >}}
+{{< bieb id="21-en-allen/default/hemelum" >}}

@@ -87,11 +87,23 @@ Op `main` faalt de build bij dezelfde situaties.
 Geen fout: `artefacten_handmatig: true` staat op die bibliotheekpagina.
 PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.
 
-## `bibliotheek-score` faalt bij build
+## `bieb` faalt bij build
 
 De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
 het id klopt niet (`zangstuk/variant/uitvoeringsvorm`). Maak eerst de
 bibliotheek-map + `index.md`, of corrigeer het id in het koormap-slot.
+
+## Hugo-waarschuwing: SVG ontbreekt
+
+Shortcode `bieb` toont het VSA-plaatje uit
+`static\vsa\bladermap\…`. Ontbreekt die SVG:
+
+```cmd
+python scripts\sync_oefenhoek_index.py --svg
+```
+
+of `scripts\check.cmd --strict`. `serve --no-build` slaat die stap over.
+Uitleg: [.vsa schrijven](../../vsa/1-vsa-schrijven/).
 
 ## `vsa validate` klaagt
 

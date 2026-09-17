@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 22 Vragende Litanie/Ektinia
 
-{{< bibliotheek-score id="22-vragende-litanie/default/hemelum" >}}
+{{< bieb id="22-vragende-litanie/default/hemelum" >}}

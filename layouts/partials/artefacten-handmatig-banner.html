@@ -1,10 +1,10 @@
 {{/*
   Beheerdersmelding als artefacten_handmatig: true op deze bibliotheekpagina
-  (of op het bibliotheek-score-doel vanaf een koormap-slot).
+  (of op het bieb-doel vanaf een koormap-slot).
 */}}
 {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" -}}
 {{- $page := . -}}
-{{- with findRE `bibliotheek-score\s+id="([^"]+)"` .RawContent 1 -}}
+{{- with findRE `\bbieb\s+id="([^"]+)"` .RawContent 1 -}}
   {{- $m := index . 0 -}}
   {{- $id := replaceRE `.*id="([^"]+)".*` `$1` $m -}}
   {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" $id) -}}

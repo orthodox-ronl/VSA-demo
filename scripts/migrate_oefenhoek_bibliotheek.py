@@ -42,7 +42,7 @@ SCORE_MOVES: list[tuple[str, str]] = [
     ),
     (
         "troparen-en-kondaken/tropaar-nikolaas-van-myra",
-        "tropaar-nikolaas-van-myra/liturgikon/hemelum",
+        "tropaar/nikolaas-van-myra-toon-4/hemelum",
     ),
     (
         "2-eerste-antifoon/weekdagen/hemelum",
@@ -89,8 +89,8 @@ PRINT_MOVES: list[tuple[str, str]] = [
 STUB_SLOTS: list[tuple[str, str]] = [
     ("1-vredeslitanie", "1-vredeslitanie/default/hemelum"),
     ("3-eerste-kleine-litanie", "3-eerste-kleine-litanie/default/hemelum"),
-    ("9-prokimens", "9-prokimens/default/hemelum"),
-    ("9b-alleluja", "9b-alleluja/default/hemelum"),
+    ("9a-prokimen/weekdagen", "9-prokimen/9a-maandag/groningen"),  # compositieblad; leaf-voorbeeld
+    ("9b-alleluia", "9-alleluia/9a-toon-1/groningen"),
     ("10-evangelielezing", "10-evangelielezing/default/hemelum"),
     ("11-dringende-litanie", "11-dringende-litanie/default/hemelum"),
     ("12-ontslapenen-litanie", "12-ontslapenen-litanie/default/hemelum"),
@@ -160,7 +160,7 @@ def _bibliotheek_index(ident: str, title: str, status: str) -> str:
         f"---\ntitle: \"{title}\"\nlinkTitle: \"{title}\"\n"
         f"publicatiestatus: {status}\nautomatische_inhoud: false\n---\n\n"
         f"# {title}\n\n"
-        f"{{{{< bibliotheek-score id=\"{ident}\" >}}}}\n"
+        f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )
 
 
@@ -171,7 +171,7 @@ def _map_slot(title: str, link: str, weight: str, status: str, ident: str) -> st
         f"---\ntitle: \"{title}\"\n{lt}{w}"
         f"publicatiestatus: {status}\nautomatische_inhoud: false\n---\n\n"
         f"# {title}\n\n"
-        f"{{{{< bibliotheek-score id=\"{ident}\" >}}}}\n"
+        f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )
 
 
@@ -258,7 +258,7 @@ def migrate_print(rel: str, ident: str) -> None:
     body = (
         f"# {title}\n\n"
         "Print-vel (geen Coria-hub). PDF via de knoppen hieronder.\n\n"
-        f"{{{{< bibliotheek-score id=\"{ident}\" >}}}}\n"
+        f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )
     _write(
         dest / "index.md",
@@ -273,7 +273,7 @@ def migrate_print(rel: str, ident: str) -> None:
         "Print-vel voor de koormap (zondag / weekdagen / Moeder Gods). "
         "Canonieke hubs: [Zondag](../zondag/), [Weekdagen](../weekdagen/), "
         "[Moeder Gods](../moeder-gods/).\n\n"
-        f"{{{{< bibliotheek-score id=\"{ident}\" >}}}}\n"
+        f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )
     w = f"weight: {weight}\n" if weight else ""
     _write(

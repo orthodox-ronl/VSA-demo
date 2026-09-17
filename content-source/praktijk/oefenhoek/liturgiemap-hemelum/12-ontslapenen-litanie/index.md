@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 12 Ontslapenen Litanie/Ektinia
 
-{{< bibliotheek-score id="12-ontslapenen-litanie/default/hemelum" >}}
+{{< bieb id="12-ontslapenen-litanie/default/hemelum" >}}

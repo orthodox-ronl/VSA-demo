@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 7a Kleine intocht (zondag)
 
-{{< bibliotheek-score id="7-kleine-intocht/zondag/hemelum" >}}
+{{< bieb id="7-kleine-intocht/zondag/hemelum" >}}

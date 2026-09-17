@@ -46,7 +46,7 @@ _SLOT_TO_ID = {
     "25-communievers-onthoofding-johannes-de-doper": (
         "25-communievers/onthoofding-johannes-de-doper/hemelum"
     ),
-    "tropaar-nikolaas-van-myra": "tropaar-nikolaas-van-myra/liturgikon/hemelum",
+    "tropaar-nikolaas-van-myra": "tropaar/nikolaas-van-myra-toon-4/hemelum",
     "2-eerste-antifoon": "2-eerste-antifoon/zondag/hemelum",
     "4-tweede-antifoon": "4-tweede-antifoon/zondag/hemelum",
     "5-eniggeboren-zoon": "5-eniggeboren-zoon/default/hemelum",

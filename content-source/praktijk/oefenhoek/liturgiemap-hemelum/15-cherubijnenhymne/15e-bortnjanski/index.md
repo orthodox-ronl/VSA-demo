@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 15e Cherubijnenhymne (Bortnjanski)
 
-{{< bibliotheek-score id="15-cherubijnenhymne/15e-bortnjanski/hemelum" >}}
+{{< bieb id="15-cherubijnenhymne/15e-bortnjanski/hemelum" >}}

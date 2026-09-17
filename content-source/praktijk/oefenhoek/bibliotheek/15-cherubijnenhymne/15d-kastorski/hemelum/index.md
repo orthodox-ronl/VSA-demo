@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 15d Cherubijnenhymne (Kastorski)
 
-{{< bibliotheek-score id="15-cherubijnenhymne/15d-kastorski/hemelum" >}}
+{{< bieb id="15-cherubijnenhymne/15d-kastorski/hemelum" >}}

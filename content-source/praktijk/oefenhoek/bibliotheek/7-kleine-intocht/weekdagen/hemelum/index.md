@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 7b Kleine intocht (weekdagen)
 
-{{< bibliotheek-score id="7-kleine-intocht/weekdagen/hemelum" >}}
+{{< bieb id="7-kleine-intocht/weekdagen/hemelum" >}}

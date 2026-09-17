@@ -35,7 +35,7 @@
   {{- if eq $kind "ongerefereerd" -}}
     {{- range site.Pages -}}
       {{- if not (strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/") -}}
-        {{- range findRE `bibliotheek-score\s+id="([^"]+)"` .RawContent -}}
+        {{- range findRE `\bbieb\s+id="([^"]+)"` .RawContent -}}
           {{- $id := replaceRE `.*id="([^"]+)".*` `$1` . -}}
           {{- $refs = merge $refs (dict $id true) -}}
         {{- end -}}

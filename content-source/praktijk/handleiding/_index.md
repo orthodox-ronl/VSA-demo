@@ -26,9 +26,10 @@ dingen nodig:
 
 **Bibliotheek** is de catalogus met oefenbare bestanden (hub-`.mscz`,
 PDF, Coria-`.mxl`, `.vsa`, of print-`.mscz`). **Koormap** is een geordende
-route op de site (nu vooral de Hemelum-liturgiemap): navigatie per slot,
-met een verwijzing naar de bibliotheek via `bibliotheek-score`. Partituren
-horen in de bibliotheek, niet in de koormap-slotmap. Model:
+route op de site (nu vooral de Hemelum-liturgiemap): inhoudsopgave van
+liturgische plekken (secties), met slot-pagina’s die via `bieb`
+naar de bibliotheek verwijzen. Partituren horen in de bibliotheek, niet in
+de koormap-map. Model (boom versus compositieblad):
 [Bibliotheek en koormappen](start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
@@ -73,7 +74,7 @@ werkvoorraad  (bibliotheek-id kiezen; niet raden — zie ID-REGISTER)
 bibliotheek  (index.md + bestanden, publicatiestam zonder spaties)
     |
     v
-koormap-slot  (index.md met bibliotheek-score, of catalogus-include)
+koormap  (sectie-_index of slot-index.md met bieb; geen catalogus/lokaal-include)
     |
     v
 check --strict  ->  lokale preview  ->  Oefenhoek op de site

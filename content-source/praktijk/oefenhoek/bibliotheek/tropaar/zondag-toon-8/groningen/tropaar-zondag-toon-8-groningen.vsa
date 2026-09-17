@@ -1,0 +1,23 @@
+---
+identificatie:
+  title: Tropaar van de zondag, toon 8
+  tone: 8
+  composer: Traditioneel
+  bron: koormap Groningen
+  language: nl
+muziek:
+  do: F4
+  mode: major
+  tempo: 132
+---
+
+[:] Uit {/de} {/ho}{/ge} zijt {\Gij} neergedaald, o Barm{\har_}ti{\ge_}. 
+Drie {/da}{/gen} {/zijt} Gij {\in} het graf ge{\ble_}{\ven_} 
+om {/ons} {/van} {/het} lij{\den} \te ver{\los_}{\sen_}. 
+Gij {/zijt} {/ons} {/le}ven {\en} onze verrijzenis, Heer, {\e_}re zij {\U_}. [:]
+
+<!-- Bibliotheek-id: tropaar/zondag-toon-8/groningen -->
+<!-- Publicatiestam: tropaar-zondag-toon-8-groningen -->
+<!-- Bronbestand: content-source/praktijk/zondagen/tropaar-zondag-toon-8.vsa -->
+<!-- Bron: koormap Groningen -->
+<!-- Genre: tropaar zondag toon 8 -->

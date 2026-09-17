@@ -10,7 +10,7 @@ weight: 20
 - Input: `oefenhoek\input\<herkomst>\` (originele bestandsnaam mag spaties hebben)
 - Tussenwerk: `oefenhoek\input\_werk\<stam>\` (publicatiestam; alleen op jouw pc, niet in git)
 - Bibliotheek: `oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\` — **geen spaties** in bestandsnamen
-- Koormap-slot: `oefenhoek\liturgiemap-hemelum\…\` — alleen `index.md` + verwijzing (geen hub-bestanden)
+- Koormap: `oefenhoek\liturgiemap-hemelum\` — sectie-`_index.md` of slot-`index.md` + verwijzing (geen hub-bestanden)
 - Register: `oefenhoek\input\werkvoorraad.md` en [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)
 {{< /cue >}}
 
@@ -19,8 +19,11 @@ het origineel, of komt een half af bestand op de publieke site.
 
 Een **bibliotheek-uitvoeringsvorm** is één map in de bibliotheek met
 `index.md` en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
-print). Een **koormap-slot** is een plek in de Hemelum-liturgiemap die naar
-die uitvoeringsvorm verwijst.
+print). In de Hemelum-**koormap** verwijst een **slot-pagina**
+(`index.md`) met `bieb` naar die uitvoeringsvorm. Een
+**koormap-sectie** (`_index.md`) groepeert kindpagina’s op één liturgische
+plek (bijvoorbeeld antifoon weekdagen / zondag). Zie
+[Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
 
 ## Vier plekken
 
@@ -29,7 +32,7 @@ die uitvoeringsvorm verwijst.
 | Ruw, ongewijzigd | `oefenhoek\input\capella\` (of `vow\`, `musescore\`, `musicxml\`, `pdf\`) | Nee |
 | Halverwege (tussenwerk) | `oefenhoek\input\_werk\` | Nee (en niet in git) |
 | Bibliotheek | `oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\` | Ja (rubriek Bibliotheek) |
-| Koormap-slot | `oefenhoek\liturgiemap-hemelum\…` (pad in de liturgie) | Ja (liturgiemap + shortcode) |
+| Koormap (sectie of slot-pagina) | `oefenhoek\liturgiemap-hemelum\…` (pad in de liturgie) | Ja (liturgiemap + shortcode) |
 
 Testmateriaal buiten de liturgiemap: `oefenhoek\overig\` (zelfde idee:
 bestanden in bibliotheek, slot in `overig` als dat nodig is).
@@ -66,8 +69,8 @@ Het script `scripts\score_filenames.py` helpt bij opkuisen en layout.
 
 | Veld | Betekenis |
 | --- | --- |
-| **Bibliotheek-id** | Drie lagen: `zangstuk/variant/uitvoeringsvorm` — staat in werkvoorraad en in `bibliotheek-score` |
-| **Koormap** | Kolom in werkvoorraad: welk liturgie-slot (bijv. `8-trisagion/8a-trisagion`) |
+| **Bibliotheek-id** | Drie lagen: `zangstuk/variant/uitvoeringsvorm` — staat in werkvoorraad en in `bieb` |
+| **Koormap** | Kolom in werkvoorraad: welk liturgie-pad (bijv. `8-trisagion/8a-trisagion` of `9a-prokimen/weekdagen`) |
 
 Weet je de bibliotheek-id niet? Laat **Doel-id** leeg en vraag na. Raad
 niet. Lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
@@ -75,6 +78,7 @@ niet. Lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 ## Klaar als
 
 Voor een willekeurig bestand kun je zeggen: input, tussenwerk, bibliotheek,
-of koormap-slot. Je zet nooit een ruwe input rechtstreeks in de bibliotheek.
+of koormap (sectie / slot-pagina). Je zet nooit een ruwe input rechtstreeks
+in de bibliotheek.
 
 {{< navbuttons "Volgende: bibliotheek en koormappen|/praktijk/handleiding/start/bibliotheek-en-koormappen/" >}}

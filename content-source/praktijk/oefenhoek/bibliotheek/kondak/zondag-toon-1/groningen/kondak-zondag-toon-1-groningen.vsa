@@ -1,0 +1,27 @@
+---
+identificatie:
+  title: Kondak van de zondag, toon 1
+  tone: 1
+  composer: Traditioneel
+  bron: koormap Groningen
+  language: nl
+muziek:
+  do: F4
+  mode: major
+  tempo: 132
+---
+
+[:] Ver{/re_}{/zen_} {\\zijt} Gij uit het {/graf} {/in} {/heer_}lijk{heid_},
+{\Gij} hebt de wereld met U mede {\op_}ge{\wekt_},
+{/&/al_&_}{\\les} wat sterfelijk is prijst {/U} {/als} {/God_}
+{\want} de dood is ver{\nie_}{\tigd_},
+o Ge{/bie_}{/der_}, {\\A}dam jubelt en Eva {/is} {/ver}{/heugd_}
+{\want} heden zijn zij van de {\boe_}ien be{\vrijd_},
+zij {/roe_}{/pen_}: {\\Gij} zijt {/het}, {/o} {/Chris_}tus,
+// {\die} aan allen de {/op_}standing {\schenkt}. [//:]
+
+<!-- Bibliotheek-id: kondak/zondag-toon-1/groningen -->
+<!-- Publicatiestam: kondak-zondag-toon-1-groningen -->
+<!-- Bronbestand: content-source/praktijk/zondagen/kondak-zondag-toon-1.vsa -->
+<!-- Bron: koormap Groningen -->
+<!-- Genre: kondak zondag toon 1 -->

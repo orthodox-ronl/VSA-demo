@@ -17,8 +17,10 @@ html {
      “van de pagina af” schuift bij brede tabellen. */
   scrollbar-gutter: stable;
   overflow-x: hidden;
-  /* Ankers / scrollIntoView houden rekening met sticky header. */
-  scroll-padding-top: calc(var(--site-chrome-height, 0px) + 0.5rem);
+  /* Ankers / scrollIntoView houden rekening met sticky site-nav + Oefenhoek-header. */
+  scroll-padding-top: calc(
+    var(--site-chrome-height, 0px) + var(--oefenhoek-header-height, 0px) + 0.5rem
+  );
 }
 
 body {
@@ -41,6 +43,62 @@ body {
   width: 100%;
   background: var(--nav-bg);
   box-shadow: 0 1px 0 var(--border-color);
+}
+
+/* Oefenhoek: breadcrumb + status plakt onder de site-nav. */
+.oefenhoek-header {
+  position: sticky;
+  top: var(--site-chrome-height, 0px);
+  z-index: 90;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.oefenhoek-header-inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding:
+    0.55rem
+    max(var(--page-padding), env(safe-area-inset-right))
+    0.65rem
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.oefenhoek-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.35rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.oefenhoek-breadcrumb-link {
+  color: #003366;
+  text-decoration: none;
+}
+
+.oefenhoek-breadcrumb-link:hover,
+.oefenhoek-breadcrumb-link:focus {
+  text-decoration: underline;
+}
+
+.oefenhoek-breadcrumb-sep {
+  color: #666666;
+  user-select: none;
+}
+
+.oefenhoek-breadcrumb-current {
+  color: #111111;
+  font-weight: 600;
+}
+
+.oefenhoek-header .publicatiestatus {
+  margin: 0;
 }
 
 .page {
@@ -806,6 +864,7 @@ a.btn.coria-play:focus,
   .nav-buttons,
   .score-actions,
   .publicatiestatus,
+  .oefenhoek-header,
   .werkvoorraad,
   footer {
     display: none;

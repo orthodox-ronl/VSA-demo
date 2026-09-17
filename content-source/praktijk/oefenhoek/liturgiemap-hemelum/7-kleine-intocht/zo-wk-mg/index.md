@@ -10,4 +10,4 @@ automatische_inhoud: false
 
 Print-vel voor de koormap (zondag / weekdagen / Moeder Gods). Canonieke hubs: [Zondag](../zondag/), [Weekdagen](../weekdagen/), [Moeder Gods](../moeder-gods/).
 
-{{< bibliotheek-score id="7-kleine-intocht/zo-wk-mg/hemelum" >}}
+{{< bieb id="7-kleine-intocht/zo-wk-mg/hemelum" >}}

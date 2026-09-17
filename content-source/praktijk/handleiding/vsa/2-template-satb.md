@@ -78,7 +78,9 @@ python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
    - houd PDF en Coria-`.mxl` handmatig bij naast die print;
    - zet op bibliotheek-`index.md` `artefacten_handmatig: true`
      (gele beheerdersbanner; `vsa-products` en hub-productgate laten de map met rust);
-   - de eenstemmige `.vsa` mag ernaast blijven staan voor de notatie.
+   - de eenstemmige `.vsa` mag ernaast blijven staan voor de notatie
+     (SVG via `python scripts\sync_oefenhoek_index.py --svg` / volle
+     `check`; zie [.vsa schrijven](../1-vsa-schrijven/)).
 
    Daarna koormap-slot via
    [Bibliotheek en koormap](../../publiceren/1-bladermap/). Print-details:

@@ -36,7 +36,9 @@ de publieke site. Daarom geen `_index.md` hier.
 2. Bibliotheek-id kiezen (`zangstuk/variant/uitvoeringsvorm`); onbekend: in de tabel leeg laten of vragen, niet raden.
 3. Converteren (Capella-`.mxl` → opkuisen → normaliseren; VOW-`.mscz` → stemmen/lettergrepen checken, daarna normaliseren). Tussenwerk in `_werk/`.
    Copyright: alleen notice uit **deze** input meenemen.
-4. Bestanden in `oefenhoek/bibliotheek/…/` + koormap-slot met `bibliotheek-score` (of catalogus-only slot) als `check --strict` groen is.
+4. Bestanden in `oefenhoek/bibliotheek/…/` + koormap-slot met `bieb` als
+   `check --strict` groen is. Geen `:::include` naar catalogus of
+   `content-source/lokaal/` vanuit de oefenhoek.
 5. `publicatiestatus` op bibliotheek-`index.md` en koormap-`index.md`: `voorzien`, `reviewable`, `concept`, `productie` alleen bewust.
 
 Uitgebreider: onderaan `werkvoorraad.md` en [Handleiding voor beheerders](/praktijk/handleiding/).

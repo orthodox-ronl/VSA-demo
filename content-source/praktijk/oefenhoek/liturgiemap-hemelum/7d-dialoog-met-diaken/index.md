@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 7d-dialoog-met-diaken
 
-{{< bibliotheek-score id="7d-dialoog-met-diaken/default/hemelum" >}}
+{{< bieb id="7d-dialoog-met-diaken/default/hemelum" >}}

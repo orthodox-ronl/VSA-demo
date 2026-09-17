@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 11 Dringende Litanie/Ektinia
 
-{{< bibliotheek-score id="11-dringende-litanie/default/hemelum" >}}
+{{< bieb id="11-dringende-litanie/default/hemelum" >}}

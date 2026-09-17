@@ -18,7 +18,7 @@ MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestan
 hub-pijplijn **niet** mag aanpassen — typisch één A4-vel voor de koormap met
 layout of tekstregels die de hub-normalisatie zou vernielen, of een
 template-SATB-blad dat jij handmatig bijhoudt. Het koormap-slot verwijst met
-`bibliotheek-score`.
+`bieb`.
 
 **Wanneer:** als je bewust **buiten** de hub-straat werkt. Voor gewoon
 oefenmateriaal (één tekst, automatische Coria, standaardlayout) gebruik je een
@@ -29,7 +29,7 @@ gewone hub-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
 Voorbeelden in de bibliotheek:
 
 - `7-kleine-intocht/zo-wk-mg/hemelum` — gecombineerd printvel;
-- `tropaar-nikolaas-van-myra/liturgikon/hemelum` — template-SATB + handmatige
+- `tropaar/nikolaas-van-myra-toon-4/hemelum` — template-SATB + handmatige
   PDF/MXL + `.vsa`;
 - `20-moeder-godslied/ontslapen-moeder-gods/hemelum` — idem print + handmatig.
 
@@ -71,7 +71,7 @@ beheerdersmelding. Afspraak over bestandsnamen per spoor:
    Eventuele Coria-`.mxl` eveneens handmatig (of uit de template-render)
    ernaast zetten en bij elke bronwijziging meenemen.
 3. Bibliotheek-`index.md` met `artefacten_handmatig: true` + koormap-slot
-   met `bibliotheek-score` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
+   met `bieb` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
 4. `scripts\check.cmd --strict` — hub- en VSA-productgate slaan deze map over.
 
 ## Klaar als

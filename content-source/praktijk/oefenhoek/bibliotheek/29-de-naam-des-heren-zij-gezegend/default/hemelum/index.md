@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 29 De Naam des Heren zij gezegend
 
-{{< bibliotheek-score id="29-de-naam-des-heren-zij-gezegend/default/hemelum" >}}
+{{< bieb id="29-de-naam-des-heren-zij-gezegend/default/hemelum" >}}

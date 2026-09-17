@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 8a Trisagion (met Slavisch)
 
-{{< bibliotheek-score id="8-trisagion/8a-slav/hemelum" >}}
+{{< bieb id="8-trisagion/8a-slav/hemelum" >}}

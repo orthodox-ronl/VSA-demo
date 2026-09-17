@@ -8,4 +8,4 @@ artefacten_handmatig: true
 
 # Moeder Godslied (Ontslapen van de Moeder Gods)
 
-{{< bibliotheek-score id="20-moeder-godslied/ontslapen-moeder-gods/hemelum" >}}
+{{< bieb id="20-moeder-godslied/ontslapen-moeder-gods/hemelum" >}}

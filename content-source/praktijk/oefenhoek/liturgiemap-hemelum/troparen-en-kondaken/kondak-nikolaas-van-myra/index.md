@@ -8,10 +8,4 @@ automatische_inhoud: false
 
 # Kondak H. Nikolaas van Myra (toon 3)
 
-:::include svg id:kondak-nikolaas-van-myra/liturgikon/Liturgikon alt="Kondak H. Nikolaas van Myra (Toon 3)":::
-
-{{< score-actions >}}
-:::include coria id:kondak-nikolaas-van-myra/liturgikon/Liturgikon label="Oefenen":::
-{{< /score-actions >}}
-
-<!-- pdf-sheet src="kondak-nikolaas-van-myra.pdf" actions="false" -->
+{{< bieb id="kondak/nikolaas-van-myra-toon-3/hemelum" >}}

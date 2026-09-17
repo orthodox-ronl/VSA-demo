@@ -2,10 +2,11 @@
 
 - Zonder flags: haalt auto-includes/score-shortcodes uit bladermap-index.md
   (frontmatter + eigen tekst blijven). Catalogus-includes (id:/lokaal:/bron:)
-  en {{< bibliotheek-score >}} blijven. Draait in check/build/serve, voor
+  en {{< bieb >}} blijven. Draait in check/build/serve, voor
   vsa validate.
-- --svg: schrijft SVG van lokale .vsa (geen sibling-.mscz) naar
-  static/vsa/bladermap/, na vsa build-markdown (die static/vsa leegmaakt).
+- --svg: schrijft SVG van lokale .vsa (geen sibling hub-.mscz;
+  *.print.mscz blokkeert niet) naar static/vsa/bladermap/, na
+  vsa build-markdown (die static/vsa leegmaakt).
   Ook onder oefenhoek/bibliotheek/.
 
   python scripts/sync_oefenhoek_index.py
@@ -31,7 +32,7 @@ LOCAL_INCLUDE_RE = re.compile(
 SCORE_OPEN_RE = re.compile(r"^\s*\{\{<\s*score-actions\b", re.I)
 SCORE_CLOSE_RE = re.compile(r"^\s*\{\{<\s*/score-actions\s*>\}\}\s*$", re.I)
 PDF_SHEET_RE = re.compile(r"^\s*\{\{<\s*pdf-sheet\b.*>\}\}\s*$", re.I)
-RE_BIBLIOTHEEK_SCORE = re.compile(r"\{\{<\s*bibliotheek-score\b", re.I)
+RE_BIBLIOTHEEK_SCORE = re.compile(r"\{\{<\s*bieb\b", re.I)
 STUB_COMMENT_RE = re.compile(
     r"^\s*<!--\s*(?::::include|score-actions|pdf-sheet)\b.*?-->\s*$",
     re.I,
@@ -157,7 +158,11 @@ def render_svgs() -> int:
             continue
         if not (folder / "index.md").is_file():
             continue
-        msczs = list(folder.glob("*.mscz"))
+        msczs = [
+            p
+            for p in folder.glob("*.mscz")
+            if not p.name.lower().endswith(".print.mscz")
+        ]
         if msczs:
             continue
         for vsa in sorted(folder.glob("*.vsa")):

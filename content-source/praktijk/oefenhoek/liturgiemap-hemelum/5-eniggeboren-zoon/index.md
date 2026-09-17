@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 5 Eniggeboren Zoon
 
-{{< bibliotheek-score id="5-eniggeboren-zoon/default/hemelum" >}}
+{{< bieb id="5-eniggeboren-zoon/default/hemelum" >}}

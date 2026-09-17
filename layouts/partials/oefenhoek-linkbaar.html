@@ -9,7 +9,7 @@
   Secties: eigen status telt niet; linkbaar als minstens één nakomeling
   linkbaar is.
 
-  Extra leaf-signalen: oefenbestanden; bibliotheek-score-doel (andere pagina);
+  Extra leaf-signalen: oefenbestanden; bieb-doel (andere pagina);
   :::include (catalogus).
 */ -}}
 {{- $p := . -}}
@@ -38,7 +38,7 @@
     {{- end -}}
   {{- end -}}
   {{- if not $ok -}}
-    {{- with findRE `bibliotheek-score\s+id="([^"]+)"` $p.RawContent 1 -}}
+    {{- with findRE `\bbieb\s+id="([^"]+)"` $p.RawContent 1 -}}
       {{- $m := index . 0 -}}
       {{- $id := replaceRE `.*id="([^"]+)".*` `$1` $m -}}
       {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" $id) -}}

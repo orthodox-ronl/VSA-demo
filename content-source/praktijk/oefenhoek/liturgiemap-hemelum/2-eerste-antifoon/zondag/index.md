@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 2 Eerste antifoon (zondag)
 
-{{< bibliotheek-score id="2-eerste-antifoon/zondag/hemelum" >}}
+{{< bieb id="2-eerste-antifoon/zondag/hemelum" >}}

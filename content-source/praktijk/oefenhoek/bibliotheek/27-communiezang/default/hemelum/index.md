@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 27 Communiezang
 
-{{< bibliotheek-score id="27-communiezang/default/hemelum" >}}
+{{< bieb id="27-communiezang/default/hemelum" >}}

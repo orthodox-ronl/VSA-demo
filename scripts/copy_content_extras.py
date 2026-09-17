@@ -4,7 +4,7 @@ Slaat oefenhoek/input over (ruwe Capella/VOW). Weigert .mxl met spaties in
 de naam (Coria/GitHub).
 
 Publiceert dezelfde .mxl ook onder static/mxl/<rel> zodat fingerprint_coria_mxl
-en oefenhoek-acties (sleutel mxl/<pad>) ze vinden.
+en oefenhoek-score-acties (sleutel mxl/<pad>) ze vinden.
 """
 
 from __future__ import annotations

@@ -26,7 +26,7 @@ script tegelijk.
 | --- | --- |
 | score | Hub of VSA-bundle verhuist via `SCORE_MOVES` |
 | print | Print-`.mscz` + PDF via `PRINT_MOVES` (geen Coria-hub) |
-| stub | Geen partituur; bibliotheek-stub + `bibliotheek-score` op koormap |
+| stub | Geen partituur; bibliotheek-stub + `bieb` op koormap |
 | catalogus | Koormap blijft catalogus-include; **geen** bibliotheek-leaf in fase 2 |
 | legacy | Dubbele/oude map; opruimen na migratie |
 | open | Id of migratiepad nog afspreken |
@@ -52,7 +52,7 @@ script tegelijk.
 | `20-moeder-godslied/20d-in-waarheid-moeder-godslied/` | `20-moeder-godslied/20d-in-waarheid/hemelum` | `20-moeder-godslied-20d-in-waarheid-hemelum` | mscz, mxl, pdf | |
 | `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; print-track |
 | `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
-| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar-nikolaas-van-myra/liturgikon/hemelum` | `tropaar-nikolaas-van-myra-liturgikon-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | `tropaar-nikolaas-van-myra-toon-4-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; onder zangstuk `tropaar/` |
 | `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen-hemelum/hemelum` | `2-eerste-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | Koormap = Hemelum; geen `liturgikon/`-slot meer |
 | *(alleen bibliotheek)* | `2-eerste-antifoon/weekdagen-liturgikon/hemelum` | `2-eerste-antifoon-weekdagen-liturgikon-hemelum` | vsa, vsa.mxl | Niet in Hemelum-koormap |
 | `2-eerste-antifoon/zondag/` | `2-eerste-antifoon/zondag/hemelum` | `2-eerste-antifoon-zondag-hemelum` | mscz, mxl, pdf | stub-achtig in koormap |
@@ -74,7 +74,7 @@ script tegelijk.
 | Koormap-pad | Bibliotheek-id | Bestanden nu | Opmerking |
 | --- | --- | --- | --- |
 | `7-kleine-intocht/zo-wk-mg/` | `7-kleine-intocht/zo-wk-mg/hemelum` | `*.print.mscz`, pdf | Print-vel; bij voorkeur `artefacten_handmatig: true` |
-| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar-nikolaas-van-myra/liturgikon/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
 | `20-moeder-godslied/…` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
 
 ---
@@ -85,8 +85,6 @@ script tegelijk.
 | --- | --- | --- |
 | `1-vredeslitanie/` | `1-vredeslitanie/default/hemelum` | voorzien |
 | `3-eerste-kleine-litanie/` | `3-eerste-kleine-litanie/default/hemelum` | |
-| `9-prokimens/` | `9-prokimens/default/hemelum` | |
-| `9b-alleluja/` | `9b-alleluja/default/hemelum` | |
 | `10-evangelielezing/` | `10-evangelielezing/default/hemelum` | |
 | `11-dringende-litanie/` | `11-dringende-litanie/default/hemelum` | |
 | `12-ontslapenen-litanie/` | `12-ontslapenen-litanie/default/hemelum` | |
@@ -102,6 +100,36 @@ script tegelijk.
 | `26-gezegend-hij-die-komt/` | `26-gezegend-hij-die-komt/default/hemelum` | |
 | `27-communiezang/` | `27-communiezang/default/hemelum` | |
 | `7d-dialoog-met-diaken/` | `7d-dialoog-met-diaken/default/hemelum` | |
+
+### Prokimen / alleluia (Kiev + znameni-reservering)
+
+**Koormap-slots:** `9a-prokimen/` (prokimens eerder in de liturgie) en
+`9b-alleluia/`. In de **bibliotheek** is `9a-` / `9b-` op de *variant*-laag
+de melodieklasse (Kiev / znameni), niet het liturgienummer.
+
+| Koormap-pad | Bibliotheek-id (voorbeeld) | Status |
+| --- | --- | --- |
+| `9a-prokimen/weekdagen/` | `9-prokimen/9a-maandag/groningen` … `9a-zaterdag` | score (VSA); compositieblad |
+| `9a-prokimen/zondag-toon-N/` | `9-prokimen/9a-zondag-toon-N/groningen` + `9-alleluia/9a-toon-N/groningen` | voorzien (nog geen `.vsa`) |
+| `9b-alleluia/` | `9-alleluia/9a-toon-1/groningen` … `9a-toon-8` | voorzien; compositieblad |
+
+**Znameni (alleen register):** `9-prokimen/9b-{naam}/{uv}`,
+`9-alleluia/9b-toon-{1..8}/{uv}` — nog geen leafs.
+
+### Tropaar / kondak
+
+Zangstuk-ids `tropaar/` en `kondak/`. Variant bv. `zondag-toon-3`,
+`maandag-toon-4`, `nikolaas-van-myra-toon-4`. Alias-varianten:
+frontmatter `alias_van` + `bieb` (geen tweede `.vsa`).
+
+| Voorbeeld | Id |
+| --- | --- |
+| Zondag tropaar toon 1 | `tropaar/zondag-toon-1/groningen` |
+| Weekdag + alias | `tropaar/maandag-toon-4/hemelum` ← `tropaar/heilige-engelen-toon-4/hemelum` |
+| Nikolaas tropaar | `tropaar/nikolaas-van-myra-toon-4/hemelum` |
+| Nikolaas kondak | `kondak/nikolaas-van-myra-toon-3/hemelum` |
+| Moeder Gods kondak | `kondak/moeder-gods-toon-6/hemelum` |
+| Losse Hemelum-troparen | `tropaar/heilige-martelaren-toon-4/hemelum`, `…/icoon-moeder-gods-vladimir-toon-4/…`, `…/mantel-moeder-gods-toon-4/…` |
 
 `default` als variant-id betekent: één uitvoeringsvorm in Hemelum, geen
 geneste varianten in de koormap.
@@ -129,17 +157,22 @@ nog in de *variant*-laag; niet hernoemen tot een aparte migratie.
 
 ---
 
-## CATALOGUS_KOORMAP — niet via migrate_stub
+## CATALOGUS_KOORMAP — niet meer in oefenhoek
 
-Deze koormap-slots gebruiken **catalogus-includes** (`id:…`). Het
-migratiescript mag hun `index.md` **niet** vervangen door alleen
-`bibliotheek-score`. Later: optioneel bibliotheek-leaf als bron catalogus
-MuseScore krijgt; tot die tijd koormap handmatig laten.
+Oefenhoek-pagina’s gebruiken **geen** `:::include` naar catalogus/`lokaal/`.
+Kondaken en troparen staan als bibliotheek-leafs onder `kondak/`, `tropaar/`
+of `diversen/`, met `bieb` op de koormap.
 
-| Koormap-pad | Catalogus-id (nu) | Voorstel bibliotheek-id (indien ooit hub) | Status |
-| --- | --- | --- | --- |
-| `troparen-en-kondaken/kondak-moeder-gods-toon-6/` | `kondak-moeder-gods-toon-6/hemelum/Hemelum` | `kondak-moeder-gods-toon-6/hemelum/hemelum` | catalogus |
-| `troparen-en-kondaken/kondak-nikolaas-van-myra/` | `kondak-nikolaas-van-myra/liturgikon/Liturgikon` | `kondak-nikolaas-van-myra/liturgikon/hemelum` | catalogus |
+| Was (catalogus) | Nu (bibliotheek) |
+| --- | --- |
+| `kondak-nikolaas-van-myra/liturgikon/Liturgikon` | `kondak/nikolaas-van-myra-toon-3/hemelum` |
+| `kondak-moeder-gods-toon-6/hemelum/Hemelum` | `kondak/moeder-gods-toon-6/hemelum` |
+
+### Diversen
+
+| Koormap-pad | Bibliotheek-id |
+| --- | --- |
+| `troparen-en-kondaken/uw-heilig-kruis/` | `diversen/uw-heilig-kruis/hemelum` |
 
 ---
 
@@ -154,11 +187,11 @@ MuseScore krijgt; tot die tijd koormap handmatig laten.
 
 ## OPEN — reviewpunten
 
-### 1. Tropaar Nikolaas — uitgesteld (koormap)
+### 1. Tropaar Nikolaas — besloten
 
-Liturgikon-uitgave blijft in het **bibliotheek**:
-`tropaar-nikolaas-van-myra/liturgikon/hemelum`. Koormap-slot(s) en eventuele
-tweede tekst (Hemelum) later; bibliotheek niet weghalen.
+Bibliotheek-id: `tropaar/nikolaas-van-myra-toon-4/hemelum` (zangstuk
+`tropaar/`, niet een apart zangstuk-id). Oude map
+`tropaar-nikolaas-van-myra/…` verwijderd.
 
 ### 2. Variant-id `default` — besloten
 
@@ -169,9 +202,9 @@ Voor slots zonder geneste varianten: middelste laag = `default`
 
 Bibliotheek-id: `6-derde-antifoon/zondag/hemelum` (niet `zaligsprekingen-zondag`).
 
-### 4. Familie-`_index.md` zonder `bibliotheek-score` — besloten
+### 4. Familie-`_index.md` zonder `bieb` — besloten
 
-Alleen leaves krijgen `bibliotheek-score`; familie-pagina’s blijven TOC
+Alleen leaves krijgen `bieb`; familie-pagina’s blijven TOC
 (`automatische_inhoud: true`).
 
 ### 5. Capella `5a Eniggeboren Zoon.mxl` — afgerond
@@ -214,7 +247,7 @@ Lokaal aanwezig (nog untracked tot commit):
 - `20-moeder-godslied/20d-in-waarheid/hemelum`
 - `20-moeder-godslied/ontslapen-moeder-gods/hemelum`
 
-Koormap-slots verwijzen via `bibliotheek-score`; hub-bestanden staan niet meer
+Koormap-slots verwijzen via `bieb`; hub-bestanden staan niet meer
 in de liturgiemap (dat is de migratie, geen verdwijning).
 
 ---
@@ -227,7 +260,7 @@ in de liturgiemap (dat is de migratie, geen verdwijning).
 - [x] `check --strict` groen (2026-09-16)
 - [x] Variant-id `default` (was `standaard`)
 - [x] Derde antifoon zondag: bibliotheek-variant `zondag`
-- [x] Familie-`_index` zonder `bibliotheek-score`
+- [x] Familie-`_index` zonder `bieb`
 - [x] Werkvoorraad: gepubliceerde rijen op bibliotheek-id; open inputs nog zonder doel-id
 - [x] Uitvoeringsvorm mét partituur → `reviewable` (koormap + bibliotheek)
 - [x] Term “input” (niet “dump”) in werkvoorraad/handleiding

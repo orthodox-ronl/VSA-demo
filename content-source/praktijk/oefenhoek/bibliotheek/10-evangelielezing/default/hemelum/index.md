@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 10 Evangelielezing
 
-{{< bibliotheek-score id="10-evangelielezing/default/hemelum" >}}
+{{< bieb id="10-evangelielezing/default/hemelum" >}}

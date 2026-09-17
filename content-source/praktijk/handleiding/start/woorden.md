@@ -17,7 +17,8 @@ weight: 30
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = hub-standaard met `apply_mscz_layout.py` (zelfde scriptstap; “layouten” is de gewone naam)
 - **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen)
-- **publicatiestatus** = wat koorleden op de pagina zien; intern *Stap* in de werkvoorraad is iets anders
+- **`bieb`** = shortcode die knoppen + partituur van een bibliotheek-id toont
+- **publicatiestatus** = wat koorleden op de pagina zien (sticky header); intern *Stap* in de werkvoorraad is iets anders
 {{< /cue >}}
 
 **Wat je nu doet:** dezelfde namen gebruiken als de rest van de keten, zodat
@@ -56,14 +57,20 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 | **Bibliotheek-id** | Drie segmenten `[a-z0-9_-]+`, bijv. `8-trisagion/8a-nederlands/hemelum` |
 | **Variant-id `default`** | Middelste laag als er maar één variant is (bijv. `5-eniggeboren-zoon/default/hemelum`) |
 | **Taal-suffix** | Op uitvoeringsvorm-id: geen = NL; `-ksl` = Kerkslavisch Cyrillisch; `-ksl-trlat` = getranslitereerd; `-nl-ksl` = mengvorm |
-| **Koormap-slot** | Pagina in `liturgiemap-hemelum\…` (of later een andere map) met shortcode `bibliotheek-score` (of catalogus-include) |
+| **Koormap** | Geordende view (navigatieboom) voor een gelegenheid; geen hub-bestanden in de slotmappen |
+| **Koormap-sectie** | Map met `_index.md` in de koormap: liturgische plek / hoofdstuk (kindlijst of eigen TOC) |
+| **Slot-pagina** | Map met `index.md` in de koormap: markdown plus `bieb` (geen catalogus-include in de oefenhoek) |
+| **Compositieblad** | Slot-pagina met proza en **meerdere** `bieb`-shortcodes (bijv. prokimens van de week) |
+| **Alias-variant** | Variant-leaf zonder eigen bestanden; `alias_van` + `bieb` naar de canonieke uitvoeringsvorm |
+| **Diversen** | Bibliotheek-zangstuk-id voor korte/losse gezangen (bv. `diversen/uw-heilig-kruis/hemelum`) |
+| **Tropaar** / **kondak** | Nederlandse termen voor die gezangen (niet “troparion” / “kondakion”) |
 | **Special page** | Automatisch overzicht onder `bibliotheek\speciaal\` (voorzien, ongerefereerd, oefenbaar) |
 | **Werkvoorraad** | Tabel in `input\werkvoorraad.md`: per *input* hoe ver de conversie is |
 | **Stap** (werkvoorraad) | Intern: `ontvangen`, `opkuisen`, `layout`, `gepubliceerd`, … — niet zichtbaar voor koorleden |
-| **Publicatiestatus** | Op `index.md` in bibliotheek én koormap: `voorzien`, `reviewable`, `concept`, `productie` (niet raden) |
+| **Publicatiestatus** | Op `index.md` in bibliotheek én koormap: `voorzien`, `reviewable`, `concept`, `productie` (sticky header; niet raden) |
 | **artefacten_handmatig** | Frontmatter: afgeleiden in die bibliotheekmap niet auto; gele banner voor beheerders |
 | **SATB** | Sopraan, alt, tenor, bas — de vier stemmen op één partituur |
-| **Coria** | Online oefenen; knop **Oefenen** op de Oefenhoek; heeft een schone `.mxl` nodig |
+| **Coria** | Online oefenen; knop **Oefenen** bij shortcode `bieb`; heeft een schone `.mxl` nodig |
 | **Uitvoeringsvorm** | Een concrete manier om een zangstuk uit te voeren (schrijf het woord uit; gebruik niet de afkorting “uv”) |
 
 Org-brede termen: [glossary in bron](https://github.com/orthodox-ronl/bron/blob/main/docs/specs/terminologie.md).
@@ -75,9 +82,10 @@ Model: [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-ko
 
 Je kunt een mail “hier is de Capella” vertalen naar: input in
 `input\capella\`, later een hub-`.mscz` in de bibliotheek, plus `.pdf` en
-Coria-`.mxl` — koormap-slot met `bibliotheek-score`. Voor een printvel:
+Coria-`.mxl` — slot-pagina met `bieb`. Voor een printvel:
 `*.print.mscz` + handmatige PDF (+ `artefacten_handmatig: true`) in de
-bibliotheek, slot in de koormap. Voor een eenstemmige VSA: `.vsa` +
-`.vsa.mxl` via `check` / `vsa-products`.
+bibliotheek, slot-pagina in de koormap. Voor een eenstemmige VSA: `.vsa` +
+`.vsa.mxl` via `check` / `vsa-products`. Model van secties en
+compositiebladen: [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
 
 {{< navbuttons "Volgende: binnenhalen|/praktijk/handleiding/partituur/1-binnenhalen/" >}}

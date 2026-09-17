@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 18 Geloofsbelijdenis
 
-{{< bibliotheek-score id="18-geloofsbelijdenis/default/hemelum" >}}
+{{< bieb id="18-geloofsbelijdenis/default/hemelum" >}}

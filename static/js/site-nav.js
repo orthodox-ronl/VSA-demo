@@ -1,10 +1,16 @@
 (function () {
   function syncChromeHeight() {
     var chrome = document.querySelector(".site-chrome");
-    var height = chrome ? chrome.offsetHeight : 0;
+    var oefHeader = document.querySelector(".oefenhoek-header");
+    var chromeHeight = chrome ? chrome.offsetHeight : 0;
+    var oefHeight = oefHeader ? oefHeader.offsetHeight : 0;
     document.documentElement.style.setProperty(
       "--site-chrome-height",
-      height + "px"
+      chromeHeight + "px"
+    );
+    document.documentElement.style.setProperty(
+      "--oefenhoek-header-height",
+      oefHeight + "px"
     );
   }
 
@@ -15,7 +21,9 @@
   }
 
   var groups = document.querySelectorAll(".site-nav-group");
-  if (!groups.length) return;
+  if (!groups.length) {
+    return;
+  }
 
   groups.forEach(function (group) {
     group.addEventListener("toggle", function () {

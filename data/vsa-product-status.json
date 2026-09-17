@@ -30,6 +30,246 @@
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-dinsdag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-dinsdag/groningen/9-prokimen-9a-dinsdag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-donderdag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-donderdag/groningen/9-prokimen-9a-donderdag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-maandag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-maandag/groningen/9-prokimen-9a-maandag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-vrijdag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-vrijdag/groningen/9-prokimen-9a-vrijdag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-woensdag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-woensdag/groningen/9-prokimen-9a-woensdag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/9-prokimen/9a-zaterdag/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/9-prokimen/9a-zaterdag/groningen/9-prokimen-9a-zaterdag-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/diversen/uw-heilig-kruis/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/diversen/uw-heilig-kruis/hemelum/diversen-uw-heilig-kruis-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/dinsdag-toon-3/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/dinsdag-toon-3/hemelum/kondak-dinsdag-toon-3-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/donderdag-toon-2/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/donderdag-toon-2/hemelum/kondak-donderdag-toon-2-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/heilig-kruis-toon-1/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/heilig-kruis-toon-1/hemelum/kondak-heilig-kruis-toon-1-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/maandag-toon-2/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/maandag-toon-2/hemelum/kondak-maandag-toon-2-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/moeder-gods-toon-6/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/moeder-gods-toon-6/hemelum/kondak-moeder-gods-toon-6-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/nikolaas-van-myra-toon-3/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/nikolaas-van-myra-toon-3/hemelum/kondak-nikolaas-van-myra-toon-3-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zaterdag-gestorvenen-toon-8/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zaterdag-gestorvenen-toon-8/hemelum/kondak-zaterdag-gestorvenen-toon-8-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zaterdag-heiligen-toon-8/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zaterdag-heiligen-toon-8/hemelum/kondak-zaterdag-heiligen-toon-8-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-1/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-1/groningen/kondak-zondag-toon-1-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-2/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-2/groningen/kondak-zondag-toon-2-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-3/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-3/groningen/kondak-zondag-toon-3-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-4/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-4/groningen/kondak-zondag-toon-4-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-5/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-5/groningen/kondak-zondag-toon-5-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-6/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-6/groningen/kondak-zondag-toon-6-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-7/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-7/groningen/kondak-zondag-toon-7-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-8/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-8/groningen/kondak-zondag-toon-8-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/dinsdag-toon-2/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/dinsdag-toon-2/hemelum/tropaar-dinsdag-toon-2-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/donderdag-toon-3/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/donderdag-toon-3/hemelum/tropaar-donderdag-toon-3-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/heilig-kruis-toon-1/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/heilig-kruis-toon-1/hemelum/tropaar-heilig-kruis-toon-1-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/heilige-martelaren-toon-4/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/heilige-martelaren-toon-4/hemelum/tropaar-heilige-martelaren-toon-4-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/icoon-moeder-gods-vladimir-toon-4/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/icoon-moeder-gods-vladimir-toon-4/hemelum/tropaar-icoon-moeder-gods-vladimir-toon-4-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/maandag-toon-4/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/maandag-toon-4/hemelum/tropaar-maandag-toon-4-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/mantel-moeder-gods-toon-4/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/mantel-moeder-gods-toon-4/hemelum/tropaar-mantel-moeder-gods-toon-4-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zaterdag-gestorvenen-toon-2/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zaterdag-gestorvenen-toon-2/hemelum/tropaar-zaterdag-gestorvenen-toon-2-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zaterdag-heiligen-toon-2/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zaterdag-heiligen-toon-2/hemelum/tropaar-zaterdag-heiligen-toon-2-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-1/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-1/groningen/tropaar-zondag-toon-1-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-2/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-2/groningen/tropaar-zondag-toon-2-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-3/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-3/groningen/tropaar-zondag-toon-3-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-4/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-4/groningen/tropaar-zondag-toon-4-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-5/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-5/groningen/tropaar-zondag-toon-5-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-6/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-6/groningen/tropaar-zondag-toon-6-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-7/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-7/groningen/tropaar-zondag-toon-7-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-8/groningen": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/tropaar/zondag-toon-8/groningen/tropaar-zondag-toon-8-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
     }
   }
 }

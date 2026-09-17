@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 28 Wij hebben het Ware Licht
 
-{{< bibliotheek-score id="28-wij-hebben-het-ware-licht/default/hemelum" >}}
+{{< bieb id="28-wij-hebben-het-ware-licht/default/hemelum" >}}

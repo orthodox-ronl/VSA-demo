@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 24 Een is Heilig
 
-{{< bibliotheek-score id="24-een-is-heilig/default/hemelum" >}}
+{{< bieb id="24-een-is-heilig/default/hemelum" >}}

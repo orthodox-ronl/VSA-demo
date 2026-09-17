@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Communievers (Onthoofding Johannes de Doper)
 
-{{< bibliotheek-score id="25-communievers/onthoofding-johannes-de-doper/hemelum" >}}
+{{< bieb id="25-communievers/onthoofding-johannes-de-doper/hemelum" >}}

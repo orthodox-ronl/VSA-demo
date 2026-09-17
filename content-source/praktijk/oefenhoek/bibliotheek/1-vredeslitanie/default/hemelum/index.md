@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 1 Vredeslitanie
 
-{{< bibliotheek-score id="1-vredeslitanie/default/hemelum" >}}
+{{< bieb id="1-vredeslitanie/default/hemelum" >}}
