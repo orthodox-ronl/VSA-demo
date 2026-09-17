@@ -22,7 +22,7 @@ neerkomt op copy-paste, zonder zoeken naar paden.&lt;/p&gt;</description></item>
 &lt;li&gt;Input: &lt;code&gt;oefenhoek\input\&amp;lt;herkomst&amp;gt;\&lt;/code&gt; (originele bestandsnaam mag spaties hebben)&lt;/li&gt;
 &lt;li&gt;Tussenwerk: &lt;code&gt;oefenhoek\input\_werk\&amp;lt;stam&amp;gt;\&lt;/code&gt; (publicatiestam; alleen op jouw pc, niet in git)&lt;/li&gt;
 &lt;li&gt;Bibliotheek: &lt;code&gt;oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;\&lt;/code&gt; — &lt;strong&gt;geen spaties&lt;/strong&gt; in bestandsnamen&lt;/li&gt;
-&lt;li&gt;Koormap-slot: &lt;code&gt;oefenhoek\liturgiemap-hemelum\…\&lt;/code&gt; — alleen &lt;code&gt;index.md&lt;/code&gt; + verwijzing (geen hub-bestanden)&lt;/li&gt;
+&lt;li&gt;Koormap: &lt;code&gt;oefenhoek\liturgiemap-hemelum\&lt;/code&gt; — sectie-&lt;code&gt;_index.md&lt;/code&gt; of slot-&lt;code&gt;index.md&lt;/code&gt; + verwijzing (geen hub-bestanden)&lt;/li&gt;
 &lt;li&gt;Register: &lt;code&gt;oefenhoek\input\werkvoorraad.md&lt;/code&gt; en &lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/"&gt;Id-register&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -31,59 +31,23 @@ neerkomt op copy-paste, zonder zoeken naar paden.&lt;/p&gt;</description></item>
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; vier soorten plekken uit elkaar houden. Anders verdwijnt
-het origineel, of komt een half af bestand op de publieke site.&lt;/p&gt;
-&lt;p&gt;Een &lt;strong&gt;bibliotheek-uitvoeringsvorm&lt;/strong&gt; is één map in de bibliotheek met
-&lt;code&gt;index.md&lt;/code&gt; en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
-print). Een &lt;strong&gt;koormap-slot&lt;/strong&gt; is een plek in de Hemelum-liturgiemap die naar
-die uitvoeringsvorm verwijst.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormappen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</guid><description>&lt;h1 id="bibliotheek-en-koormappen"&gt;Bibliotheek en koormappen&lt;/h1&gt;
+het origineel, of komt een half af bestand op de publieke site.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormappen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/bibliotheek-en-koormappen/</guid><description>&lt;h1 id="bibliotheek-en-koormappen"&gt;Bibliotheek en koormappen&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Bibliotheek&lt;/strong&gt; = alles wat jullie &lt;em&gt;hebben&lt;/em&gt; (uitvoeringsvorm + id + partituur)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Koormap&lt;/strong&gt; = geordende &lt;em&gt;verwijzingen&lt;/em&gt; voor één gelegenheid of thema&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Koormap&lt;/strong&gt; = geordende &lt;em&gt;view&lt;/em&gt; voor één gelegenheid of thema (navigatie + leesbladen)&lt;/li&gt;
 &lt;li&gt;Een uitvoeringsvorm mag in de bibliotheek staan &lt;strong&gt;zonder&lt;/strong&gt; koormap&lt;/li&gt;
+&lt;li&gt;In een koormap is een liturgische plek vaak een &lt;strong&gt;hoofdstuk&lt;/strong&gt; (sectie) met
+kindpagina’s of een &lt;strong&gt;compositieblad&lt;/strong&gt; (markdown + shortcodes)&lt;/li&gt;
 &lt;/ul&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; het model kennen waarmee de Oefenhoek werkt, zodat
-publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;
-&lt;h2 id="drie-invalshoeken"&gt;Drie invalshoeken&lt;/h2&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;Wie&lt;/th&gt;
- &lt;th&gt;Vraag&lt;/th&gt;
- &lt;th&gt;Ingang&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;Beheerder&lt;/td&gt;
- &lt;td&gt;Wat hebben we? Welk id gebruik ik?&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/"&gt;Bibliotheek&lt;/a&gt;
-, &lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/"&gt;Id-register&lt;/a&gt;
-, special pages&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Koor (in situ)&lt;/td&gt;
- &lt;td&gt;Wat zingen we in welke volgorde?&lt;/td&gt;
- &lt;td&gt;Koormap, nu vooral &lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/"&gt;liturgiemap Hemelum&lt;/a&gt;
-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Individueel koorlid&lt;/td&gt;
- &lt;td&gt;Wat moet / wil ik oefenen?&lt;/td&gt;
- &lt;td&gt;Koormap &lt;em&gt;of&lt;/em&gt; bibliotheek (ook stukken die nog in geen map zitten)&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="kernregel"&gt;Kernregel&lt;/h2&gt;
-&lt;p&gt;De bibliotheek is de &lt;strong&gt;bron van waarheid&lt;/strong&gt;. Koormappen zijn &lt;strong&gt;views&lt;/strong&gt;: ze
-bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
-&lt;code&gt;bibliotheek-score&lt;/code&gt; naar &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Woorden en bestanden</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/woorden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/woorden/</guid><description>&lt;h1 id="woorden-en-bestanden"&gt;Woorden en bestanden&lt;/h1&gt;
+publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;</description></item><item><title>Woorden en bestanden</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/woorden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/start/woorden/</guid><description>&lt;h1 id="woorden-en-bestanden"&gt;Woorden en bestanden&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -98,7 +62,8 @@ bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;publicatiestatus&lt;/strong&gt; = wat koorleden op de pagina zien; intern &lt;em&gt;Stap&lt;/em&gt; in de werkvoorraad is iets anders&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;bieb&lt;/code&gt;&lt;/strong&gt; = shortcode die knoppen + partituur van een bibliotheek-id toont&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;publicatiestatus&lt;/strong&gt; = wat koorleden op de pagina zien (sticky header); intern &lt;em&gt;Stap&lt;/em&gt; in de werkvoorraad is iets anders&lt;/li&gt;
 &lt;/ul&gt;
 
  &lt;/div&gt;

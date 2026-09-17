@@ -27,7 +27,7 @@ script tegelijk.&lt;/p&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;stub&lt;/td&gt;
- &lt;td&gt;Geen partituur; bibliotheek-stub + &lt;code&gt;bibliotheek-score&lt;/code&gt; op koormap&lt;/td&gt;
+ &lt;td&gt;Geen partituur; bibliotheek-stub + &lt;code&gt;bieb&lt;/code&gt; op koormap&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;catalogus&lt;/td&gt;
@@ -102,7 +102,7 @@ script tegelijk.&lt;/p&gt;
 | &lt;code&gt;20-moeder-godslied/20d-in-waarheid-moeder-godslied/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/20d-in-waarheid/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-20d-in-waarheid-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
 | &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; print-track |
 | &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
-| &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra/liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-liturgikon-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; Liturgikon-tekst (toon 4). Hemelum-tekst: zie OPEN |
+| &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar/nikolaas-van-myra-toon-4/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-toon-4-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; onder zangstuk &lt;code&gt;tropaar/&lt;/code&gt; |
 | &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-hemelum/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-hemelum-hemelum&lt;/code&gt; | vsa, vsa.mxl | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
 | &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-liturgikon-hemelum&lt;/code&gt; | vsa, vsa.mxl | Niet in Hemelum-koormap |
 | &lt;code&gt;2-eerste-antifoon/zondag/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/zondag/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-zondag-hemelum&lt;/code&gt; | mscz, mxl, pdf | stub-achtig in koormap |

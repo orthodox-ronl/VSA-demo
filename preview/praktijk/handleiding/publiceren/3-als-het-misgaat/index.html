@@ -54,9 +54,13 @@ Maak hub-producten opnieuw ná de laatste normalisatie, of draai
 <code>scripts\vsa-products.cmd</code> voor een bibliotheek-<code>.vsa</code>. <code>check</code> heeft een
 aparte Coria-controle; de melding wijst het bestand aan.</p><h2 id=rode-banner-hub--of-vsa-afgeleiden-niet-in-orde>Rode banner: hub- of VSA-afgeleiden niet in orde</h2><div class=table-scroll><table><thead><tr><th>Banner</th><th>Oorzaak</th><th>Actie</th></tr></thead><tbody><tr><td>Hub-afgeleiden</td><td>PDF/MXL passen niet bij de hub-<code>.mscz</code></td><td><a href=../../partituur/6-afgeleiden/>Afgeleiden</a>
 — layout + <code>mscz-products</code></td></tr><tr><td>VSA-afgeleiden</td><td><code>{stam}.vsa.mxl</code> ontbreekt of is ouder dan de <code>.vsa</code></td><td><code>scripts\vsa-products.cmd</code>, commit beide</td></tr></tbody></table></div><p>Op <code>main</code> faalt de build bij dezelfde situaties.</p><h2 id=gele-banner-handmatige-artefacten>Gele banner: handmatige artefacten</h2><p>Geen fout: <code>artefacten_handmatig: true</code> staat op die bibliotheekpagina.
-PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.</p><h2 id=bibliotheek-score-faalt-bij-build><code>bibliotheek-score</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
+PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.</p><h2 id=bieb-faalt-bij-build><code>bieb</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
 het id klopt niet (<code>zangstuk/variant/uitvoeringsvorm</code>). Maak eerst de
-bibliotheek-map + <code>index.md</code>, of corrigeer het id in het koormap-slot.</p><h2 id=vsa-validate-klaagt><code>vsa validate</code> klaagt</h2><p>De markering zit in de gezongen regel. Vergelijk met een werkend <code>.vsa</code>
+bibliotheek-map + <code>index.md</code>, of corrigeer het id in het koormap-slot.</p><h2 id=hugo-waarschuwing-svg-ontbreekt>Hugo-waarschuwing: SVG ontbreekt</h2><p>Shortcode <code>bieb</code> toont het VSA-plaatje uit
+<code>static\vsa\bladermap\…</code>. Ontbreekt die SVG:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\sync_oefenhoek_index.py --svg
+</span></span></code></pre></div><p>of <code>scripts\check.cmd --strict</code>. <code>serve --no-build</code> slaat die stap over.
+Uitleg: <a href=../../vsa/1-vsa-schrijven/>.vsa schrijven</a>
+.</p><h2 id=vsa-validate-klaagt><code>vsa validate</code> klaagt</h2><p>De markering zit in de gezongen regel. Vergelijk met een werkend <code>.vsa</code>
 ernaast. Haal niet “even de rare tekens weg” om groen te worden.</p><h2 id=template-satb-templateinstanceerror>Template SATB: <code>TemplateInstanceError</code></h2><p>De sopraan in de VSA volgt de tropaar-toon-4-formule niet (toon of
 verplicht slot). Lees de hint in het venster; pas de VSA aan, of (met
 iemand die de formule beheert) de template. Werk de <code>.mscz</code> niet als
@@ -65,4 +69,4 @@ regel <code>publicatiestatus</code> in de <code>---</code> hebben. Handleiding-p
 oorzaak. Los dat ene bestand op, draai check opnieuw. Pak niet de hele
 foutenmuur tegelijk aan.</p><h2 id=waar-vraag-je-het>Waar vraag je het</h2><p>Gebruik dezelfde kanalen als op de Oefenhoek-pagina’s (e-mail / GitHub).
 Stuur mee: welk bibliotheek-id, welk commando, de foutregel, en of het om
-Capella, VOW of VSA gaat.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/>Terug naar overzicht</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-16</p></div></footer></body></html>
+Capella, VOW of VSA gaat.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/>Terug naar overzicht</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-17</p></div></footer></body></html>

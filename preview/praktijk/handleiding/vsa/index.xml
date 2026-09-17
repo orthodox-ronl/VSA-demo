@@ -7,8 +7,8 @@
 &lt;li&gt;Zet het bestand in de bibliotheek-map; bestandsnaam zonder spaties (publicatiestam).&lt;/li&gt;
 &lt;li&gt;Zet bovenaan YAML met minstens &lt;code&gt;do&lt;/code&gt;, &lt;code&gt;mode&lt;/code&gt; en &lt;code&gt;tempo: 120&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;vsa validate pad\naar\bestand.vsa&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Bibliotheek-&lt;code&gt;index.md&lt;/code&gt; + koormap-slot: shortcode &lt;code&gt;bibliotheek-score&lt;/code&gt; met de bibliotheek-id&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; — SVG én Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;; commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen&lt;/li&gt;
+&lt;li&gt;Bibliotheek-&lt;code&gt;index.md&lt;/code&gt; + slot-pagina (of compositieblad): shortcode &lt;code&gt;bieb&lt;/code&gt; met de bibliotheek-id&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; — maakt SVG (plaatje) én Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;; commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen&lt;/li&gt;
 &lt;/ol&gt;
 
  &lt;/div&gt;
