@@ -99,7 +99,9 @@ gebruiken (`mxl/<content-pad>/<bestand>`), niet een Hugo-`RelPermalink`
 zodat inputs geen Hugo-pagina's worden. Doel-id: bibliotheek-id
 (`zangstuk/variant/uitvoeringsvorm`) wanneer bekend; oude bladermap-namen
 worden genormaliseerd.
-`bibliotheek.py` — pad/id-hulp voor `oefenhoek/bibliotheek/` (drie lagen).
+`bibliotheek.py` — pad/id-hulp voor `oefenhoek/bibliotheek/` (drie lagen) en
+check van alias-varianten (`alias_van` op de variant-`_index`; geen
+uitvoeringsvorm-bestanden). Draait in `check` / `build` / `serve`.
 `migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek (niet
 in check; zie CONTENT-STRUCTURE.md).
 `sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes

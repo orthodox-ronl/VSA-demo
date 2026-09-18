@@ -34,6 +34,8 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_publicatiestatus.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\bibliotheek.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 

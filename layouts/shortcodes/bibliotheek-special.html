@@ -37,6 +37,7 @@
       {{- if not (strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/") -}}
         {{- range findRE `\bbieb\s+id="([^"]+)"` .RawContent -}}
           {{- $id := replaceRE `.*id="([^"]+)".*` `$1` . -}}
+          {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
           {{- $refs = merge $refs (dict $id true) -}}
         {{- end -}}
       {{- end -}}

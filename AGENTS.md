@@ -102,6 +102,8 @@ Uitleg: [scripts/README.md](scripts/README.md).
   verwijzingen. Uitvoeringsvorm mag in bibliotheek zonder koormap-ref.
   Root toont oefenbare items; stubs/ids via `bibliotheek/speciaal/` en
   Id-register. Docs: handleiding `start/bibliotheek-en-koormappen`.
+  Alias-variant: alleen `_index.md` met `alias_van: zangstuk/canonieke-variant`
+  (geen uitvoeringsvorm-map; `python scripts/bibliotheek.py` in check).
 - Taal op uitvoeringsvorm: NL ongemerkt; `-ksl` (Cyrillisch), `-ksl-trlat`
   (getranslitereerd), `-nl-ksl` (mengvorm).
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:

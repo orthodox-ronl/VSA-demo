@@ -13,6 +13,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from bibliotheek import under_alias_variant
 from export_mscz_coria_mxl import load_score_xml, process_existing_mxl, write_mxl
 from hub_product_meta import (
     FIELD_SOURCE_KIND,
@@ -70,6 +71,8 @@ def collect_vsa(root: Path) -> list[Path]:
         if "input" in path.parts:
             continue
         if folder_is_handmatig(path.parent):
+            continue
+        if under_alias_variant(path):
             continue
         require_no_spaces(path)
         out.append(path)

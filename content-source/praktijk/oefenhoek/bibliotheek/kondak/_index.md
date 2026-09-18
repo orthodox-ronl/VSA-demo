@@ -6,5 +6,6 @@ publicatiestatus: concept
 automatische_inhoud: true
 ---
 
-Alle kondak-varianten. Alias-varianten verwijzen met `alias_van` / `bieb`
-naar de canonieke uitvoeringsvorm (geen dubbele `.vsa`).
+Alle kondak-varianten. Een alias-variant heeft op haar `_index.md` het veld
+`alias_van` naar de canonieke variant (geen eigen `.vsa` en geen
+uitvoeringsvorm-map).

@@ -91,17 +91,30 @@ kindpagina’s te maken alleen om knoppen te scheiden.
 
 ### Alias-varianten
 
-Soms is dezelfde uitvoeringsvorm onder meerdere namen bekend (bijvoorbeeld
-tropaar `maandag-toon-4` = `heilige-engelen-toon-4`). Dan:
+Soms heeft **dezelfde variant** meerdere namen. Voorbeeld: de tropaar-variant
+`maandag-toon-4` is dezelfde variant als `heilige-engelen-toon-4` (de tropaar
+van de Heilige Engelen, gezongen op maandag). Dat is een alias op
+**variant-niveau**, niet een tweede uitvoeringsvorm.
 
-- bestanden (`.vsa`, PDF, …) staan **alleen** bij de canonieke id;
-- de alias-leaf heeft frontmatter `alias_van: tropaar/maandag-toon-4/hemelum`
-  en een `bieb` naar die canonieke id;
-- in de bibliotheek-index van het zangstuk (`tropaar/`, `kondak/`, …) staan
-  **beide** varianten apart genoemd.
+Dan:
 
-Dat patroon mag voor elk zangstuk met meerdere namen voor dezelfde
-uitvoeringsvorm.
+- partituren (`.vsa`, PDF, …) staan **alleen** bij de canonieke variant, hier
+  de uitvoeringsvorm `tropaar/maandag-toon-4/hemelum`;
+- de alias-variant heeft alleen een `_index.md` met frontmatter
+  `alias_van: tropaar/maandag-toon-4` — geen map `hemelum/`, geen `index.md`,
+  geen partituur;
+- de bibliotheek-index van het zangstuk (`tropaar/`, `kondak/`, …) noemt
+  **beide** varianten; achter de alias-naam staat dat het een alias is.
+
+Shortcode `bieb` krijgt een uitvoeringsvorm-id (drie lagen). Wie de
+alias-variant in dat id zet, bijvoorbeeld
+`tropaar/heilige-engelen-toon-4/hemelum`, wordt herschreven naar de canonieke
+uitvoeringsvorm. Product-tools (`vsa-products`, hub-producten) slaan
+alias-varianten over: daar is niets te genereren.
+
+`check` weigert een alias-variant die toch een uitvoeringsvorm-map of
+partituur bevat. Dat patroon mag voor elk zangstuk waarvan een variant
+onder meerdere namen bekend is.
 
 ## Soorten koormap (classificatie)
 

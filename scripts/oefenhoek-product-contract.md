@@ -90,6 +90,16 @@ handmatige PDF/MXL naast `.vsa`).
 
 ---
 
+## Alias-varianten
+
+Een **alias-variant** heeft geen uitvoeringsvorm-map en geen partituur.
+Frontmatter `alias_van` staat op `bibliotheek/<zangstuk>/<variant>/_index.md`
+en wijst naar `zangstuk/canonieke-variant`. Product-tools (`vsa-products`,
+hub-producten) slaan die mappen over. `python scripts/bibliotheek.py` (in
+`check`) weigert extra bestanden onder een alias-variant.
+
+---
+
 ## UI: meerdere producten
 
 Meerdere Coria-`.mxl` → meerdere oefenopties (hover-keuzemenu op **Oefenen**).

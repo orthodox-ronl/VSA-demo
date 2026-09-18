@@ -327,6 +327,30 @@ body {
   color: #777;
 }
 
+.oefenhoek-alias-tag {
+  font-size: 0.9em;
+  color: #555;
+  margin-left: 0.35rem;
+}
+
+.oefenhoek-alias-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #2f5d8a;
+  background: #eef5fb;
+  color: #12324d;
+  font-size: 0.95rem;
+}
+
+.oefenhoek-alias-banner-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.oefenhoek-alias-banner p {
+  margin: 0.35rem 0 0;
+}
+
 code.bibliotheek-id {
   margin-left: 0.5rem;
   font-size: 0.85em;

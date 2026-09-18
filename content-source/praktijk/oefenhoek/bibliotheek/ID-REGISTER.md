@@ -119,13 +119,14 @@ de melodieklasse (Kiev / znameni), niet het liturgienummer.
 ### Tropaar / kondak
 
 Zangstuk-ids `tropaar/` en `kondak/`. Variant bv. `zondag-toon-3`,
-`maandag-toon-4`, `nikolaas-van-myra-toon-4`. Alias-varianten:
-frontmatter `alias_van` + `bieb` (geen tweede `.vsa`).
+`maandag-toon-4`, `nikolaas-van-myra-toon-4`. Alias-varianten: veld
+`alias_van` op de variant-`_index.md` (geen tweede `.vsa`, geen
+uitvoeringsvorm-map).
 
 | Voorbeeld | Id |
 | --- | --- |
 | Zondag tropaar toon 1 | `tropaar/zondag-toon-1/groningen` |
-| Weekdag + alias | `tropaar/maandag-toon-4/hemelum` ← `tropaar/heilige-engelen-toon-4/hemelum` |
+| Weekdag + alias | canonieke variant `tropaar/maandag-toon-4` ← alias `tropaar/heilige-engelen-toon-4` |
 | Nikolaas tropaar | `tropaar/nikolaas-van-myra-toon-4/hemelum` |
 | Nikolaas kondak | `kondak/nikolaas-van-myra-toon-3/hemelum` |
 | Moeder Gods kondak | `kondak/moeder-gods-toon-6/hemelum` |
