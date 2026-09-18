@@ -35,7 +35,7 @@ Beschut mij tegen de samenzwering der booswichten;<br>
 ::: vsa-notatie
 <!-- Liturgikon, p247 (op ELMs na hetzelfde als p271) -->
 [//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
-en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
+en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{/der_}. [/:]
 :::
 Machtigen heeft Hij neergehaald van de troon,  
 maar geringen heeft Hij verheven.  

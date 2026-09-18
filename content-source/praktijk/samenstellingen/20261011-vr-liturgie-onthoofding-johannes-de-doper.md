@@ -66,8 +66,8 @@ want {zo_} heeft Johannes de komst van de {\\Ver}{/los_}ser {\voor}{\zegd_} *
 ::: vsa-notatie
 <!-- Wij verheerlijken U, ongerepte Moeder van Christus onze God - praktijk Hemelum -->
 [:] Wij {/ver}{/heer_}{\lij_}{+\ken_}, *
-{b/wij} {/ver}{/&\heer}{\lij}{+\ken} {b/u__} *
-Voorloper van de Verlosser Jo{+\han_}{b/nes_} *
-{\en} {/ge}{/den_}{ken_} {-&\\eer}{/&/bied}{/&\&\&+\waar}{b/dig_}, *
+{/wij} {/ver}{/&\heer}{\lij}{+\ken} {/u__} *
+Voorloper van de Verlosser Jo{+\han_}{/nes_} *
+{\en} {/ge}{/den_}{ken_} {-&\\eer}{/&/bied}{/&\&\&+\waar}{/dig_}, *
 {//&/Uw-&_} {Ont_}{\&\hoof_&-}{\ding__}. [/:]
 :::

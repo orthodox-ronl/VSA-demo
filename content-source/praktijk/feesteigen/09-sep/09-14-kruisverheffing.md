@@ -31,7 +31,7 @@ layout: "feesteigen-pagina"
 ::: vsa notatie
 <!-- Prokimen zondag voor kruisverheffing, toon 6 - Liturgikon, p.278 ->
 [/:] Heer, red {/Uw} {/&\volk_&_}, *
-{\&/en} {/ze_}{\gen} Uw {\&+\erf_&_}{b/deel_}. [/:]
+{\&/en} {/ze_}{\gen} Uw {\&+\erf_&_}{/deel_}. [/:]
 :::
 
 Tot U, Heer, heb ik geroepen; mijn God, blijf niet zwijgen tegenover mij.

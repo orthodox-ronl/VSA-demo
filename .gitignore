@@ -11,6 +11,7 @@ static/mxl/
 # MuseScore backup files
 .mscbackup/
 .archief/
+*.autosave
 
 # Oefenhoek: lokale inbox en tussenwerk (inputs in capella/vow/… blijven in git)
 content-source/praktijk/oefenhoek/input/_inbox/

@@ -56,7 +56,7 @@ nu en altijd en in de eeuwen der eeuwen. {\A_}{men_}. [//:]
 ::: vsa-notatie
 <!-- PROKIMEN (Liturgikon, p247) -->
 [//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
-en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
+en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{/der_}. [/:]
 :::
 
 Machtigen heeft Hij neergehaald van de troon, maar geringen heeft Hij verheven. 
@@ -74,16 +74,16 @@ Vrucht van uw lichaam zal Ik plaatsen op uw troon. *Luk. 10;38-42, 11;27-28*
 <!-- DEZE NOTATIE IS WEL VOLGENS LITURGIKON MAAR LEVERT PROBLEMEN MET DE TOOLS:
 1. Niet alle lettergrepen krijgen bij conversie naar .mxl een kwartnoot.
 -->
-[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
+[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {/&/aan.&.}{/&\schou}{\wend_}, *
 za{/&/gen.&.} {/met} {\&\ver.&.}{/won}{\de}{\ring_}, *
 hoe {b\de} {\Jonk_}vrouw {/op.}{/ge.}{/no}{\&+\men.&.} {/werd_}, *
-{/van} {/de} {/aar_}{de.} {\naar} {\de} {\&+\He_&_}{b/mel_}. * [/:]
-{\&/In} {/U} worden de grenzen der natuur {\o}{+\ver}{b/&/won}{/nen_}, *
+{/van} {/de} {/aar_}{de.} {\naar} {\de} {\&+\He_&_}{/mel_}. * [/:]
+{\&/In} {/U} worden de grenzen der natuur {\o}{+\ver}{/&/won}{/nen_}, *
 {/zui}{\ve}{/&/re} {\&\Maagd_&_}: *
 {\maag}delijk {\is} {//uw} {\&\ba}{\ren_}, *
-en {/uw} {/ster}{\ven} {+\&b/brengt} {/het} {/le_}{ven_}; *
+en {/uw} {/ster}{\ven} {+\&/brengt} {/het} {/le_}{ven_}; *
 {\na} {/het} {/ba}ren zijt {\gij} {/maagd} {/ge}{\ble_}{\ven_}, *
-{\en} levend {\zijt} {+\gij} {b/na} {/uw} {/dood_}. *
+{\en} levend {\zijt} {+\gij} {/na} {/uw} {/dood_}. *
 {\Moe}der Gods, red {\al}{/tijd} {/uw} {\&\erf_&_}{\deel_}. [:]
 Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 {\&/die} {/al}{\leen_} {\&/Gods} {\Moe_}{der_} {\zijt_}. [:]
