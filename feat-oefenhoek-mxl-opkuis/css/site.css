@@ -1,0 +1,997 @@
+:root {
+  --page-max-width: 1120px;
+  --page-padding: 1rem;
+  --border-color: #d0d0d0;
+  --code-bg: #f4f4f4;
+  --nav-bg: #f8f8f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  width: 100%;
+  /* Houd de verticale scrollbar-gutter vast, zodat die niet
+     “van de pagina af” schuift bij brede tabellen. */
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  /* Ankers / scrollIntoView houden rekening met sticky site-nav + Oefenhoek-header. */
+  scroll-padding-top: calc(
+    var(--site-chrome-height, 0px) + var(--oefenhoek-header-height, 0px) + 0.5rem
+  );
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.55;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  color: #111111;
+  background: #ffffff;
+}
+
+/* Header + eventuele subnav blijven zichtbaar tijdens scrollen. */
+.site-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--nav-bg);
+  box-shadow: 0 1px 0 var(--border-color);
+}
+
+/* Oefenhoek: breadcrumb + status plakt onder de site-nav. */
+.oefenhoek-header {
+  position: sticky;
+  top: var(--site-chrome-height, 0px);
+  z-index: 90;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.oefenhoek-header-inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding:
+    0.55rem
+    max(var(--page-padding), env(safe-area-inset-right))
+    0.65rem
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.oefenhoek-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.35rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.oefenhoek-breadcrumb-link {
+  color: #003366;
+  text-decoration: none;
+}
+
+.oefenhoek-breadcrumb-link:hover,
+.oefenhoek-breadcrumb-link:focus {
+  text-decoration: underline;
+}
+
+.oefenhoek-breadcrumb-sep {
+  color: #666666;
+  user-select: none;
+}
+
+.oefenhoek-breadcrumb-current {
+  color: #111111;
+  font-weight: 600;
+}
+
+.oefenhoek-header .publicatiestatus {
+  margin: 0;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding:
+    1.25rem
+    max(var(--page-padding), env(safe-area-inset-right))
+    3rem
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.site-header {
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--nav-bg);
+}
+
+.site-chrome .site-header {
+  border-bottom: none;
+}
+
+.site-chrome .site-subnav {
+  border-top: 1px solid var(--border-color);
+}
+
+.site-header-inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding:
+    0.75rem
+    max(var(--page-padding), env(safe-area-inset-right))
+    0.75rem
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.site-header-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  min-width: 0;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.site-logo img {
+  display: block;
+  height: 1.6rem;
+  width: auto;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+.site-nav a {
+  color: #003366;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #eee;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
+.site-nav-group {
+  position: relative;
+}
+
+.site-nav-group summary {
+  color: #003366;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  list-style: none;
+}
+
+.site-nav-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav-group summary::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.35em;
+  vertical-align: middle;
+  border: 0.28em solid transparent;
+  border-top-color: currentColor;
+}
+
+.site-nav-group[open] summary,
+.site-nav-group summary:hover,
+.site-nav-group summary:focus {
+  background: #eee;
+}
+
+.site-nav-group.is-current summary {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
+.site-nav-menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 16rem;
+  padding: 0.35rem;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.site-subnav {
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  background: #fff;
+}
+
+.site-subnav-inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding:
+    0.45rem
+    max(var(--page-padding), env(safe-area-inset-right))
+    0.45rem
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.site-subnav a {
+  color: #003366;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.site-subnav a:hover,
+.site-subnav a:focus {
+  background: #eee;
+  text-decoration: none;
+}
+
+.site-subnav a[aria-current="page"] {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
+.page-list {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.page-list li {
+  margin: 0.2rem 0;
+}
+
+.oefenhoek-voorzien {
+  color: #555;
+}
+
+.oefenhoek-voorzien-tag {
+  font-size: 0.9em;
+  color: #777;
+}
+
+code.bibliotheek-id {
+  margin-left: 0.5rem;
+  font-size: 0.85em;
+  color: #555;
+}
+
+.bibliotheek-overzicht,
+.bibliotheek-special {
+  margin-top: 0.75rem;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: stretch;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.nav-buttons .btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  background: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  color: #003366;
+}
+
+.nav-buttons .btn:hover,
+.nav-buttons .btn:focus {
+  background: #eee;
+}
+
+.site-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.site-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #003366;
+  text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.site-jump:hover,
+.site-jump:focus {
+  text-decoration: underline;
+}
+
+.site-jump-icon {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  max-width: 1.1rem;
+  flex-shrink: 0;
+}
+
+.site-jump-label {
+  font-size: 0.8rem;
+}
+
+.site-footer {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 2rem auto 0;
+  padding:
+    0
+    max(var(--page-padding), env(safe-area-inset-right))
+    2rem
+    max(var(--page-padding), env(safe-area-inset-left));
+  border-top: 1px solid var(--border-color);
+}
+
+.site-meta {
+  margin-top: 1rem;
+}
+
+.build-time-stamp,
+.page-git-date {
+  color: #666666;
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+}
+
+.build-time-stamp:first-child,
+.page-git-date:first-child {
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
+
+code {
+  font-family: Consolas, monospace;
+  font-size: 0.95em;
+}
+
+/* Tabellen: wrappen in .table-scroll (render-table.html).
+   Sticky thead hoort BIJ DE TABEL, niet bij de viewport: anders blijft
+   de header van een vorige tabel aan de onderkant plakken en schuift
+   die over de volgende sectie (eerste rij “onder” de header).
+   Lange tabellen scrollen in de wrapper; korte passen zonder balk. */
+.table-scroll {
+  max-width: 100%;
+  max-height: min(70vh, 36rem);
+  margin: 1rem 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+.table-scroll table,
+.page table {
+  display: table;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.page > table {
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: inset 0 -1px 0 var(--border-color);
+}
+
+.werkvoorraad-body {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-gutter: stable;
+  margin-top: 0.75rem;
+}
+
+img,
+svg:not(.site-jump-icon),
+.vsa-notation {
+  max-width: 100%;
+  height: auto;
+}
+
+.vsa-container {
+  margin: 1.25rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.vsa-notation {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  background: #ffffff;
+}
+
+.oefenhoek-page .vsa-container {
+  overflow-x: hidden;
+}
+
+.oefenhoek-page .vsa-notation {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pdf-sheet-pages {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.pdf-sheet-pages canvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+.pdf-sheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  margin: 0.75rem 0 0;
+}
+
+.score-actions,
+.mxl-download {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  align-items: stretch;
+  margin: 1.15rem 0;
+}
+
+.score-actions .btn,
+.score-actions .score-action-menu-trigger,
+a.btn.coria-play,
+.pdf-sheet-actions a,
+.mxl-download a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  border-radius: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 51, 102, 0.18);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.score-actions .btn,
+.score-actions .score-action-menu,
+.score-actions .score-action-menu-trigger,
+a.btn.coria-play {
+  flex: 1 1 9rem;
+}
+
+.score-actions .btn,
+.score-actions .score-action-menu-trigger,
+a.btn.coria-play,
+.pdf-sheet-actions a,
+.mxl-download a {
+  background: #e8f1fa;
+  border: 2px solid #003366;
+  color: #003366;
+}
+
+.score-actions .btn:hover,
+.score-actions .btn:focus,
+.score-actions .score-action-menu-trigger:hover,
+.score-actions .score-action-menu-trigger:focus,
+a.btn.coria-play:hover,
+a.btn.coria-play:focus,
+.pdf-sheet-actions a:hover,
+.pdf-sheet-actions a:focus,
+.mxl-download a:hover,
+.mxl-download a:focus {
+  background: #d4e6f7;
+  color: #003366;
+  text-decoration: none;
+}
+
+/* Bibliotheek-context: groene actieknoppen */
+.oefenhoek-acties--bibliotheek .btn,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger,
+.oefenhoek-acties--bibliotheek a.btn.coria-play,
+.bibliotheek-page .score-actions .btn,
+.bibliotheek-page .score-actions .score-action-menu-trigger,
+.bibliotheek-page a.btn.coria-play {
+  background: #e8f5ec;
+  border-color: #1b5e20;
+  color: #1b5e20;
+  box-shadow: 0 1px 3px rgba(27, 94, 32, 0.18);
+}
+
+.oefenhoek-acties--bibliotheek .btn:hover,
+.oefenhoek-acties--bibliotheek .btn:focus,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger:hover,
+.oefenhoek-acties--bibliotheek .score-action-menu-trigger:focus,
+.oefenhoek-acties--bibliotheek a.btn.coria-play:hover,
+.oefenhoek-acties--bibliotheek a.btn.coria-play:focus,
+.bibliotheek-page .score-actions .btn:hover,
+.bibliotheek-page .score-actions .btn:focus,
+.bibliotheek-page .score-actions .score-action-menu-trigger:hover,
+.bibliotheek-page .score-actions .score-action-menu-trigger:focus,
+.bibliotheek-page a.btn.coria-play:hover,
+.bibliotheek-page a.btn.coria-play:focus {
+  background: #d4edd9;
+  color: #1b5e20;
+}
+
+.score-action-menu {
+  position: relative;
+  display: flex;
+  flex: 1 1 9rem;
+}
+
+.score-action-menu-trigger {
+  width: 100%;
+}
+
+.score-action-menu-panel {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 20;
+  margin: 0.2rem 0 0;
+  padding: 0.35rem 0;
+  list-style: none;
+  background: #fff;
+  border: 2px solid #003366;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.18);
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel,
+.bibliotheek-page .score-action-menu-panel {
+  border-color: #1b5e20;
+  box-shadow: 0 4px 14px rgba(27, 94, 32, 0.16);
+}
+
+.score-action-menu:hover .score-action-menu-panel,
+.score-action-menu:focus-within .score-action-menu-panel {
+  display: block;
+}
+
+.score-action-menu-panel a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  color: #003366;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a,
+.bibliotheek-page .score-action-menu-panel a {
+  color: #1b5e20;
+}
+
+.score-action-menu-panel a:hover,
+.score-action-menu-panel a:focus {
+  background: #e8f1fa;
+  text-decoration: none;
+}
+
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a:hover,
+.oefenhoek-acties--bibliotheek .score-action-menu-panel a:focus,
+.bibliotheek-page .score-action-menu-panel a:hover,
+.bibliotheek-page .score-action-menu-panel a:focus {
+  background: #e8f5ec;
+}
+
+.handleiding-cue {
+  margin: 0 0 1.35rem;
+  padding: 0.85rem 1rem 1rem;
+  background: #f4f7fb;
+  border: 1px solid #c5d4e6;
+  border-left: 5px solid #003366;
+  border-radius: 4px;
+}
+
+.handleiding-cue-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #003366;
+}
+
+.handleiding-cue-body {
+  margin: 0;
+}
+
+.handleiding-cue-body > *:first-child {
+  margin-top: 0;
+}
+
+.handleiding-cue-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.handleiding-cue-body ol,
+.handleiding-cue-body ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.handleiding-cue-body li {
+  margin: 0.2rem 0;
+}
+
+.handleiding-cue-body code {
+  font-size: 0.9em;
+}
+
+.pdf-sheet-print-frame {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --page-max-width: 1280px;
+  }
+
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --page-max-width: none;
+    --page-padding: 0.9rem;
+  }
+
+  html {
+    font-size: 17px;
+  }
+
+  .site-nav {
+    gap: 0.45rem 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 0.75rem;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  .page {
+    max-width: none;
+    margin: 0;
+    padding-top: 1rem;
+  }
+
+  .site-nav {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header-start {
+    width: 100%;
+  }
+
+  .site-jumps {
+    width: 100%;
+  }
+
+  .site-nav a,
+  .site-nav-group summary {
+    font-size: 0.75rem;
+    padding: 0.12rem 0.35rem;
+  }
+
+  .nav-buttons {
+    gap: 0.2rem;
+    margin: 0.3rem 0 0.5rem;
+  }
+
+  .nav-buttons .btn {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.35rem;
+    line-height: 1.15;
+  }
+
+  .nav-buttons .btn br {
+    display: none;
+  }
+
+  pre {
+    padding: 0.75rem;
+  }
+
+  th, td {
+    padding: 0.35rem 0.45rem;
+  }
+}
+
+/* Print / A4 */
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  .pagebreak {
+    page-break-before: always;
+  }
+
+  .site-header,
+  .site-chrome,
+  .site-nav,
+  .site-subnav,
+  .site-jumps,
+  .nav-buttons,
+  .score-actions,
+  .publicatiestatus,
+  .oefenhoek-header,
+  .werkvoorraad,
+  footer {
+    display: none;
+  }
+
+  .web-only { display: none; }
+
+  .keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Lege alinea's uit markdown mogen geen extra ruimte in de afdruk geven. */
+  .keep-together > p:empty,
+  .print-only > p:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .keep-together .vsa-notation {
+    width: var(--vsa-scale, auto);
+  }
+}
+
+.publicatiestatus {
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  background: var(--nav-bg);
+  font-size: 0.9rem;
+}
+
+.publicatiestatus-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.35rem;
+}
+
+.publicatiestatus-label {
+  font-weight: 600;
+}
+
+.publicatiestatus-help {
+  display: inline-block;
+}
+
+.publicatiestatus-help summary {
+  cursor: pointer;
+  color: #333;
+}
+
+.publicatiestatus-help p,
+.publicatiestatus-feedback {
+  margin: 0.35rem 0 0;
+}
+
+.publicatiestatus-feedback {
+  margin-top: 0.15rem;
+}
+
+.hub-product-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #b00020;
+  background: #fde8eb;
+  color: #3b0008;
+  font-size: 0.95rem;
+}
+
+.hub-product-banner-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.hub-product-banner ul {
+  margin: 0.35rem 0 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.hub-product-banner-cmd {
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.5rem 0.65rem;
+  background: #fff;
+  border: 1px solid #c9a0a8;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+.artefacten-handmatig-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #6d4c00;
+  background: #fff6e0;
+  color: #3d2a00;
+  font-size: 0.95rem;
+}
+
+.artefacten-handmatig-banner-title {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.artefacten-handmatig-banner p {
+  margin: 0.35rem 0 0;
+}
+
+/* Titel komt uit het template; verberg herhaalde #-titel in de markdown. */
+.oefenhoek-page .oefenhoek-body > h1:first-child {
+  display: none;
+}
+
+.werkvoorraad {
+  margin: 2rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.werkvoorraad summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.print-only { display: none; }
+
+@media print {
+  .print-only { display: block; }
+}
