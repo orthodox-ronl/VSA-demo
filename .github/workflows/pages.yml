@@ -1,8 +1,10 @@
 # Deploy VSA-demo to GitHub Pages.
-# - push main  → productie (gh-pages root)
-# - andere branch → preview (gh-pages:/preview/)
-# URL prod:    https://orthodox-ronl.github.io/VSA-demo/
-# URL preview: https://orthodox-ronl.github.io/VSA-demo/preview/
+# - push main         → productie (gh-pages root)
+# - push development  → gedeelde preview (gh-pages:/preview/)
+# - andere branch     → branch-preview (gh-pages:/{slug}/)
+# URL prod:       https://orthodox-ronl.github.io/VSA-demo/
+# URL development: https://orthodox-ronl.github.io/VSA-demo/preview/
+# URL branch:     https://orthodox-ronl.github.io/VSA-demo/{slug}/
 # Pages setting: Deploy from a branch → gh-pages → /.
 #
 # Checks (blocking): sync, validate (--fail-on-warnings), build-markdown,
@@ -14,6 +16,8 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
+    branches-ignore:
+      - gh-pages
   workflow_dispatch:
 
 permissions:
@@ -29,6 +33,7 @@ jobs:
       url_prefix: ${{ steps.target.outputs.url_prefix }}
       pages_url: ${{ steps.target.outputs.pages_url }}
       label: ${{ steps.target.outputs.label }}
+      keep_files: ${{ steps.target.outputs.keep_files }}
 
     steps:
       - name: Checkout repository
@@ -52,20 +57,45 @@ jobs:
         id: target
         shell: bash
         run: |
+          set -euo pipefail
           branch="${GITHUB_REF#refs/heads/}"
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+          # Site-root en speciale paden: niet als branch-preview-map gebruiken.
+          reserved='^(preview|main|gh-pages|development|coria|css|demo|images|js|mxl|praktijk|vsa)$'
+
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
             echo "base_url=https://orthodox-ronl.github.io/VSA-demo/" >> "$GITHUB_OUTPUT"
             echo "destination_dir=" >> "$GITHUB_OUTPUT"
             echo "url_prefix=/VSA-demo/" >> "$GITHUB_OUTPUT"
             echo "pages_url=https://orthodox-ronl.github.io/VSA-demo/" >> "$GITHUB_OUTPUT"
             echo "label=production" >> "$GITHUB_OUTPUT"
-          else
+            echo "keep_files=false" >> "$GITHUB_OUTPUT"
+          elif [[ "${GITHUB_REF}" == "refs/heads/development" ]]; then
             echo "base_url=https://orthodox-ronl.github.io/VSA-demo/preview/" >> "$GITHUB_OUTPUT"
             echo "destination_dir=preview" >> "$GITHUB_OUTPUT"
             echo "url_prefix=/VSA-demo/preview/" >> "$GITHUB_OUTPUT"
             echo "pages_url=https://orthodox-ronl.github.io/VSA-demo/preview/" >> "$GITHUB_OUTPUT"
-            echo "label=preview" >> "$GITHUB_OUTPUT"
+            echo "label=development-preview" >> "$GITHUB_OUTPUT"
+            # true: behoud sibling branch-previews op gh-pages.
+            echo "keep_files=true" >> "$GITHUB_OUTPUT"
+          else
+            # feat/foo → feat-foo; alleen [a-z0-9_-] in de URL-map.
+            slug="$(printf '%s' "$branch" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9_-]+/-/g; s/-+/-/g; s/^-+//; s/-+$//')"
+            if [[ -z "$slug" ]]; then
+              echo "::error::Branchnaam '$branch' levert geen bruikbare URL-slug op."
+              exit 1
+            fi
+            if [[ "$slug" =~ $reserved ]]; then
+              slug="b-${slug}"
+              echo "Reserved slug; using $slug"
+            fi
+            echo "base_url=https://orthodox-ronl.github.io/VSA-demo/${slug}/" >> "$GITHUB_OUTPUT"
+            echo "destination_dir=${slug}" >> "$GITHUB_OUTPUT"
+            echo "url_prefix=/VSA-demo/${slug}/" >> "$GITHUB_OUTPUT"
+            echo "pages_url=https://orthodox-ronl.github.io/VSA-demo/${slug}/" >> "$GITHUB_OUTPUT"
+            echo "label=branch-preview" >> "$GITHUB_OUTPUT"
+            echo "keep_files=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Show deploy target
@@ -74,6 +104,7 @@ jobs:
           echo "base_url: ${{ steps.target.outputs.base_url }}"
           echo "destination_dir: '${{ steps.target.outputs.destination_dir }}'"
           echo "url_prefix: ${{ steps.target.outputs.url_prefix }}"
+          echo "keep_files: ${{ steps.target.outputs.keep_files }}"
 
       - name: Setup Python
         uses: actions/setup-python@v6
@@ -163,6 +194,6 @@ jobs:
       destination_dir: ${{ needs.build.outputs.destination_dir }}
       url_prefix: ${{ needs.build.outputs.url_prefix }}
       pages_url: ${{ needs.build.outputs.pages_url }}
-      keep_files: true
+      keep_files: ${{ needs.build.outputs.keep_files == 'true' }}
     permissions:
       contents: write
