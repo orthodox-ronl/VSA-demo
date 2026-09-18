@@ -98,11 +98,14 @@ Lokaal equivalent: `check --strict` (zie [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## GitHub Pages
 
-| Branch | Doel       | URL                                                      |
-| ------ | ---------- | -------------------------------------------------------- |
-| `main` | Productie  | https://orthodox-ronl.github.io/VSA-demo/           |
-| andere | Preview    | https://orthodox-ronl.github.io/VSA-demo/preview/   |
+| Branch         | Doel             | URL                                                         |
+| -------------- | ---------------- | ----------------------------------------------------------- |
+| `main`         | Productie        | https://orthodox-ronl.github.io/VSA-demo/                   |
+| `development`  | Gedeelde preview | https://orthodox-ronl.github.io/VSA-demo/preview/           |
+| andere         | Branch-preview   | https://orthodox-ronl.github.io/VSA-demo/{slug}/            |
 
-Elke push triggert de workflow. Productie en preview delen branch `gh-pages` (map `preview/` blijft naast de root staan).
+`{slug}` = branchnaam genormaliseerd voor URL (`feat/foo` → `feat-foo`). Elke push
+(behalve `gh-pages`) triggert de workflow. Productie, `preview/` en branch-mappen
+delen branch `gh-pages`.
 
 **Eenmalig in GitHub:** Settings → Pages → Source: **Deploy from a branch** → Branch: `gh-pages` → Folder: `/`.
