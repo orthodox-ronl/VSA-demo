@@ -1,0 +1,299 @@
+<svg class="vsa-svg" xmlns="http://www.w3.org/2000/svg" width="669" height="152" viewBox="0 0 669 152">
+<rect width="100%" height="100%" fill="white"/>
+<g class="vsa-score">
+<g class="vsa-line" data-vsa-line="1">
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="1">
+<line class="vsa-pitch-marker-dash" x1="13.50" y1="31.00" x2="22.50" y2="31.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="3">
+<text class="vsa-text vsa-free-text" x="42.40" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Ве</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="4">
+<text class="vsa-text vsa-sung-text" x="68.43" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ли</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="76.92" y1="18.43" x2="87.72" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="5">
+<text class="vsa-text vsa-sung-text" x="100.21" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ча</text>
+<line class="vsa-filler-line" x1="127.27" y1="30.00" x2="136.27" y2="30.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="105.42" y1="18.16" x2="115.03" y2="13.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="125.45" y1="13.84" x2="135.06" y2="18.16" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="104.72" y1="41.00" x2="115.73" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="124.75" y1="41.00" x2="135.76" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="6">
+<text class="vsa-text vsa-sung-text" x="160.27" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ем</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="160.58" y="20.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">+</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="161.58" y1="13.57" x2="172.38" y2="18.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="7">
+<text class="vsa-text vsa-free-text" x="189.68" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">,</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="9">
+<text class="vsa-text vsa-sung-text" x="222.44" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Ве</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="222.06" y="20.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">♭</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="223.06" y1="18.43" x2="233.86" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="10">
+<text class="vsa-text vsa-sung-text" x="254.47" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ли</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="262.96" y1="18.43" x2="273.76" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="11">
+<text class="vsa-text vsa-sung-text" x="286.25" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ча</text>
+<line class="vsa-filler-line" x1="313.31" y1="30.00" x2="323.19" y2="30.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="289.89" y1="17.51" x2="296.61" y2="14.49" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="303.89" y1="14.49" x2="310.61" y2="17.51" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="317.89" y1="14.49" x2="324.61" y2="17.51" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="12">
+<text class="vsa-text vsa-sung-text" x="348.25" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ем</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="348.56" y="20.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">+</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="349.56" y1="13.57" x2="360.35" y2="18.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="14">
+<text class="vsa-text vsa-sung-text" x="404.06" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">тя</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="402.50" y="20.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">♭</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="403.50" y1="18.43" x2="414.30" y2="13.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="410.30" y1="41.00" x2="423.50" y2="41.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="16">
+<text class="vsa-text vsa-free-text" x="440.15" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">*</text>
+</g>
+</g>
+<g class="vsa-line" data-vsa-line="2">
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="1">
+<text class="vsa-text vsa-free-text" x="8.00" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Свчтителе</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="3">
+<text class="vsa-text vsa-free-text" x="129.68" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">отче</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="5">
+<text class="vsa-text vsa-free-text" x="188.10" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Гри</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="6">
+<text class="vsa-text vsa-sung-text" x="242.01" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">го</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="239.99" y="54.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">+</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="240.99" y1="47.57" x2="251.79" y2="52.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="247.79" y1="75.00" x2="260.99" y2="75.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="7">
+<text class="vsa-text vsa-sung-text" x="270.76" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ри</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="278.01" y1="75.00" x2="291.21" y2="75.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="8">
+<text class="vsa-text vsa-sung-text" x="318.46" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">е</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="311.22" y="54.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">♭</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="312.22" y1="52.43" x2="323.01" y2="47.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="321.68" y1="75.00" x2="329.55" y2="75.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="10">
+<text class="vsa-text vsa-free-text" x="343.17" y="70.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">*</text>
+</g>
+</g>
+<g class="vsa-line" data-vsa-line="3">
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="1">
+<text class="vsa-text vsa-sung-text" x="8.00" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">и</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="11.90" y1="82.38" x2="19.10" y2="85.62" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="3">
+<text class="vsa-text vsa-sung-text" x="33.40" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">чтим</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="54.78" y1="86.43" x2="65.58" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="5">
+<text class="vsa-text vsa-sung-text" x="97.36" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">свя</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="110.37" y1="86.43" x2="121.17" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="6">
+<text class="vsa-text vsa-sung-text" x="138.17" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ту</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="145.52" y1="86.43" x2="156.32" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="7">
+<text class="vsa-text vsa-free-text" x="163.67" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ю</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="9">
+<text class="vsa-text vsa-free-text" x="190.91" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">мощейь</text>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="11">
+<text class="vsa-text vsa-free-text" x="284.58" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">твою</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="13">
+<text class="vsa-text vsa-sung-text" x="347.50" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ты</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="356.82" y1="81.57" x2="367.62" y2="86.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="356.82" y1="77.89" x2="367.62" y2="82.75" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="15">
+<text class="vsa-text vsa-sung-text" x="387.35" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">бо</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="395.23" y1="86.43" x2="406.03" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="17">
+<text class="vsa-text vsa-sung-text" x="424.31" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">мо</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="18">
+<text class="vsa-text vsa-sung-text" x="457.64" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ли</text>
+<line class="vsa-filler-line" x1="486.42" y1="98.00" x2="495.42" y2="98.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="463.07" y1="86.26" x2="473.10" y2="81.74" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="483.96" y1="81.74" x2="493.99" y2="86.26" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="19">
+<text class="vsa-text vsa-sung-text" x="503.42" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ши</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="514.67" y1="81.57" x2="525.47" y2="86.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="21">
+<text class="vsa-text vsa-sung-text" x="563.12" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">за</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="561.16" y="88.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">+</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="562.16" y1="81.57" x2="572.96" y2="86.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="23">
+<text class="vsa-text vsa-sung-text" x="614.41" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">нас</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<text class="vsa-glyph-text" x="619.17" y="88.00" xml:space="preserve" text-anchor="end" font-family="Consolas" font-size="19.20">♭</text>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="620.17" y1="86.43" x2="630.97" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="25">
+<text class="vsa-text vsa-free-text" x="663.14" y="104.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">*</text>
+</g>
+</g>
+<g class="vsa-line" data-vsa-line="4">
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="1">
+<text class="vsa-text vsa-sung-text" x="8.00" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Хрис</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="28.80" y1="120.43" x2="39.60" y2="115.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="28.80" y1="116.75" x2="39.60" y2="111.89" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="2">
+<text class="vsa-text vsa-sung-text" x="64.41" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">та</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="71.96" y1="120.43" x2="82.77" y2="115.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+</g>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="4">
+<text class="vsa-text vsa-free-text" x="100.72" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Бога</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="6">
+<text class="vsa-text vsa-sung-text" x="159.84" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">на</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="168.10" y1="115.57" x2="178.91" y2="120.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="166.91" y1="143.00" x2="180.10" y2="143.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="7">
+<text class="vsa-text vsa-sung-text" x="191.17" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ше</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="202.08" y1="115.57" x2="212.88" y2="120.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="200.88" y1="143.00" x2="214.08" y2="143.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="8">
+<text class="vsa-text vsa-sung-text" x="227.78" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">го</text>
+<g class="vsa-glyph-group vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="234.76" y1="115.57" x2="245.56" y2="120.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="233.56" y1="143.00" x2="246.76" y2="143.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="233.56" y1="146.20" x2="246.76" y2="146.20" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+</g>
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="10">
+<g class="vsa-pitch-marker-upper-glyph vsa-upper-glyphs">
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="268.13" y1="128.16" x2="277.73" y2="123.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+</g>
+<line class="vsa-pitch-marker-dash" x1="268.43" y1="133.00" x2="277.43" y2="133.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+</g>
+</g>
+</g>
+</svg>
