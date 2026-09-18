@@ -55,11 +55,20 @@ tonen —zelfde mechaniek, andere leeservaring:</p><div class=table-scroll><tabl
 </span></span></span><span style=display:flex><span>{{&lt; bieb id=&#34;9-prokimen/9a-dinsdag/groningen&#34; &gt;}}
 </span></span></code></pre></div><p><strong>Let op:</strong> elke <code>bieb</code> op dezelfde pagina heeft een <strong>eigen</strong> knoppenrij
 direct boven de partituur van die uitvoeringsvorm. Je hoeft geen aparte
-kindpagina’s te maken alleen om knoppen te scheiden.</p><h3 id=alias-varianten>Alias-varianten</h3><p>Soms is dezelfde uitvoeringsvorm onder meerdere namen bekend (bijvoorbeeld
-tropaar <code>maandag-toon-4</code> = <code>heilige-engelen-toon-4</code>). Dan:</p><ul><li>bestanden (<code>.vsa</code>, PDF, …) staan <strong>alleen</strong> bij de canonieke id;</li><li>de alias-leaf heeft frontmatter <code>alias_van: tropaar/maandag-toon-4/hemelum</code>
-en een <code>bieb</code> naar die canonieke id;</li><li>in de bibliotheek-index van het zangstuk (<code>tropaar/</code>, <code>kondak/</code>, …) staan
-<strong>beide</strong> varianten apart genoemd.</li></ul><p>Dat patroon mag voor elk zangstuk met meerdere namen voor dezelfde
-uitvoeringsvorm.</p><h2 id=soorten-koormap-classificatie>Soorten koormap (classificatie)</h2><p>Zelfde mechaniek, andere bedoeling — geen nieuwe id-laag:</p><div class=table-scroll><table><thead><tr><th>Type</th><th>Ordening</th><th>Voorbeeld</th></tr></thead><tbody><tr><td>Liturgisch</td><td>Volgorde in de dienst</td><td>Liturgiemap Hemelum</td></tr><tr><td>Feest / kalender</td><td>Orde van die dag of cyclus</td><td>Pasen, 15 augustus</td></tr><tr><td>Collectie</td><td>Thematisch</td><td>Alle cherubijnen, troparen toon 1–8</td></tr><tr><td>Parochiekeuze</td><td>Wat <em>dit</em> koor deze periode zingt</td><td>“Hemelum najaar”, “Zwolle-cherubijn”</td></tr></tbody></table></div><p>Optioneel later: frontmatter <code>type:</code> op de koormap-<code>_index</code> (<code>liturgie</code>,
+kindpagina’s te maken alleen om knoppen te scheiden.</p><h3 id=alias-varianten>Alias-varianten</h3><p>Soms heeft <strong>dezelfde variant</strong> meerdere namen. Voorbeeld: de tropaar-variant
+<code>maandag-toon-4</code> is dezelfde variant als <code>heilige-engelen-toon-4</code> (de tropaar
+van de Heilige Engelen, gezongen op maandag). Dat is een alias op
+<strong>variant-niveau</strong>, niet een tweede uitvoeringsvorm.</p><p>Dan:</p><ul><li>partituren (<code>.vsa</code>, PDF, …) staan <strong>alleen</strong> bij de canonieke variant, hier
+de uitvoeringsvorm <code>tropaar/maandag-toon-4/hemelum</code>;</li><li>de alias-variant heeft alleen een <code>_index.md</code> met frontmatter
+<code>alias_van: tropaar/maandag-toon-4</code> — geen map <code>hemelum/</code>, geen <code>index.md</code>,
+geen partituur;</li><li>de bibliotheek-index van het zangstuk (<code>tropaar/</code>, <code>kondak/</code>, …) noemt
+<strong>beide</strong> varianten; achter de alias-naam staat dat het een alias is.</li></ul><p>Shortcode <code>bieb</code> krijgt een uitvoeringsvorm-id (drie lagen). Wie de
+alias-variant in dat id zet, bijvoorbeeld
+<code>tropaar/heilige-engelen-toon-4/hemelum</code>, wordt herschreven naar de canonieke
+uitvoeringsvorm. Product-tools (<code>vsa-products</code>, hub-producten) slaan
+alias-varianten over: daar is niets te genereren.</p><p><code>check</code> weigert een alias-variant die toch een uitvoeringsvorm-map of
+partituur bevat. Dat patroon mag voor elk zangstuk waarvan een variant
+onder meerdere namen bekend is.</p><h2 id=soorten-koormap-classificatie>Soorten koormap (classificatie)</h2><p>Zelfde mechaniek, andere bedoeling — geen nieuwe id-laag:</p><div class=table-scroll><table><thead><tr><th>Type</th><th>Ordening</th><th>Voorbeeld</th></tr></thead><tbody><tr><td>Liturgisch</td><td>Volgorde in de dienst</td><td>Liturgiemap Hemelum</td></tr><tr><td>Feest / kalender</td><td>Orde van die dag of cyclus</td><td>Pasen, 15 augustus</td></tr><tr><td>Collectie</td><td>Thematisch</td><td>Alle cherubijnen, troparen toon 1–8</td></tr><tr><td>Parochiekeuze</td><td>Wat <em>dit</em> koor deze periode zingt</td><td>“Hemelum najaar”, “Zwolle-cherubijn”</td></tr></tbody></table></div><p>Optioneel later: frontmatter <code>type:</code> op de koormap-<code>_index</code> (<code>liturgie</code>,
 <code>feest</code>, <code>collectie</code>, <code>parochie</code>).</p><h2 id=wat-de-bibliotheek-root-toont>Wat de bibliotheek-root toont</h2><p>De root van de bibliotheek is <strong>geen</strong> sitemap van alle stubs. Koorleden zien
 daar vooral <strong>oefenbare</strong> zangstukken (nette titel, liturgienummer-volgorde).
 Voorzien-items en technische registers staan onder
