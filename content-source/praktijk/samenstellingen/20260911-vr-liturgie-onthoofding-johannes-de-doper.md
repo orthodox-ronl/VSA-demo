@@ -1,6 +1,6 @@
 ---
-title: "20261011 - Feest van de Onthoofding van de H. Johannes de Doper (Hemelum)"
-source: "Koorinstructie di 8 september 2026 (Hemelum)"
+title: "20260911 - Feest van de Onthoofding van de H. Johannes de Doper (Hemelum)"
+source: "Koorinstructie vr 11 september 2026 (Hemelum)"
 ---
 
 <!-- Dagelijkse Antifonen -->
