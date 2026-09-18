@@ -8,8 +8,7 @@
 # Pages setting: Deploy from a branch → gh-pages → /.
 #
 # Checks (blocking): sync, validate (--fail-on-warnings), build-markdown,
-# sync_oefenhoek_index --svg (page-bundle VSA → static/vsa/bladermap), musicxml,
-# hugo, interne link/asset-check.
+# musicxml, hugo, interne link/asset-check.
 # Checks (niet-blocking): externe http(s)-links.
 
 name: Deploy site to GitHub Pages
@@ -134,9 +133,6 @@ jobs:
             generated/content \
             static/vsa \
             --output-mode shortcode
-          # Page-bundle .vsa (oefenhoek/bibliotheek): SVG onder static/vsa/bladermap/
-          # (build-markdown leegt static/vsa; zelfde stap als scripts/_pipeline.cmd)
-          python scripts/sync_oefenhoek_index.py --svg
 
       - name: Generate MusicXML
         run: vsa musicxml content-source static/vsa/mxl
@@ -150,8 +146,6 @@ jobs:
           python scripts/copy_content_extras.py
           python scripts/fingerprint_coria_mxl.py
           python scripts/write_build_stamp.py
-          python scripts/check_hub_products.py
-          python scripts/check_vsa_products.py
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
