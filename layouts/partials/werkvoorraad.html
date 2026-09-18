@@ -4,7 +4,7 @@
 */ -}}
 {{- $path := "content-source/praktijk/oefenhoek/input/werkvoorraad.md" -}}
 {{- if not (fileExists $path) -}}
-  {{- errorf "werkvoorraad: %s ontbreekt" $path -}}
+  {{- errorf "shortcode werkvoorraad: %s ontbreekt" $path -}}
 {{- end -}}
 <details class="werkvoorraad">
   <summary>Werkvoorraad (interne inputs)</summary>

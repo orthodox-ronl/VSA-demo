@@ -61,10 +61,10 @@
       "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\6-derde-antifoon\\zondag\\hemelum\"",
       "issues": []
     },
-    "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/hemelum": {
-      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/hemelum/7-kleine-intocht-moeder-gods-hemelum.mscz",
+    "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/groningen": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/groningen/7-kleine-intocht-moeder-gods-groningen.mscz",
       "ok": true,
-      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\7-kleine-intocht\\moeder-gods\\hemelum\"",
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\7-kleine-intocht\\moeder-gods\\groningen\"",
       "issues": []
     },
     "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/weekdagen/hemelum": {

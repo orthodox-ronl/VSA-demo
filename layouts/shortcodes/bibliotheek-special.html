@@ -6,7 +6,7 @@
 {{- $kind := .Get "kind" | default "voorzien" -}}
 {{- $bib := site.GetPage "/praktijk/oefenhoek/bibliotheek" -}}
 {{- if not $bib -}}
-  {{- errorf "bibliotheek-special: bibliotheek-root ontbreekt" -}}
+  {{- errorf "shortcode bibliotheek-special: bibliotheek-root ontbreekt" -}}
 {{- end -}}
 {{- $prefix := "praktijk/oefenhoek/bibliotheek/" -}}
 
@@ -86,5 +86,5 @@
   {{- end -}}
 
 {{- else -}}
-  {{- errorf "bibliotheek-special: onbekend kind %q (voorzien|ongerefereerd|oefenbaar)" $kind -}}
+  {{- errorf "shortcode bibliotheek-special: onbekend kind %q (voorzien|ongerefereerd|oefenbaar)" $kind -}}
 {{- end -}}

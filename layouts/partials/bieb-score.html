@@ -6,7 +6,7 @@
 {{- $p := .score -}}
 {{- $viewer := or .viewer $p -}}
 {{- if not $p -}}
-  {{- errorf "bieb-score: score-pagina ontbreekt" -}}
+  {{- errorf "shortcode bieb-score: score-pagina ontbreekt" -}}
 {{- end -}}
 {{ partial "oefenhoek-score-acties.html" (dict "score" $p "viewer" $viewer) }}
 {{- $pdf := "" -}}

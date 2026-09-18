@@ -11,12 +11,12 @@
 */ -}}
 {{- $id := .Get "id" -}}
 {{- if not $id -}}
-  {{- errorf "bieb: parameter id is verplicht" -}}
+  {{- errorf "shortcode bieb: parameter id is verplicht" -}}
 {{- end -}}
 {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
 {{- $path := printf "/praktijk/oefenhoek/bibliotheek/%s" $id -}}
 {{- $p := site.GetPage $path -}}
 {{- if not $p -}}
-  {{- errorf "bieb: geen bibliotheek-pagina voor %q (GetPage %s)" $id $path -}}
+  {{- errorf "shortcode bieb: geen bibliotheek-pagina voor %q (GetPage %s)" $id $path -}}
 {{- end -}}
 {{ partial "bieb-score.html" (dict "score" $p "viewer" .Page) }}

@@ -8,7 +8,7 @@
 {{- $canonPath := printf "/praktijk/oefenhoek/bibliotheek/%s" $aliasVan -}}
 {{- $canon := site.GetPage $canonPath -}}
 {{- if not $canon -}}
-  {{- errorf "alias_van %q op %s: geen bibliotheek-variant %s" $aliasVan .RelPermalink $canonPath -}}
+  {{- errorf "shortcode oefenhoek-alias: alias_van %q op %s: geen bibliotheek-variant %s" $aliasVan .RelPermalink $canonPath -}}
 {{- end -}}
 {{- $canonLabel := or $canon.Params.linkTitle $canon.Title -}}
 <aside class="oefenhoek-alias-banner" role="note">
