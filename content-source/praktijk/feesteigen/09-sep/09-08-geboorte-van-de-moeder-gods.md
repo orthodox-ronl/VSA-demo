@@ -56,11 +56,11 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
 
 ### Tropaar
 ::: vsa-notatie
-<!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Liturgikon, p.274) -->
+<!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Meneon I, p.12-13) -->
 [//:] Uw Geboorte, o {Moe_.}{/der} {\Gods_},
-{/heeft} de Vreugde geopenbaard aan {/heel} {\de} {\we__}{reld_}.
+{/heeft} de Vreugde geopenbaard aan heel de {\we__}{reld_}.
 Want uit U is opgegaan de Zon der Gerechtigheid: Christus {on_}{/ze} {\God_};
-{/Hij} heeft ons van de vervloeking be{\vrijd_}
+{/Hij} heeft ons van de ver{vloe_}king be{\vrijd_}
 en schenkt ons Zijn {-&/ze_&_}{\gen_}.
 {/Hij} heeft de dood te{niet_.} ge{\daan_}
 en Hij verleent ons het eeuwige {-&/Le_&_}{\ven_}. [//:]
@@ -92,4 +92,16 @@ Daarom is dit ook een {feest_} {/voor} uw {\volk_}
 en daarom {roe_}pen {/wij} tot {\U_}:
 {/de} onvruchtbare baart de {Moe_.}der {\Gods_},
 // de Voedster van ons {-&/Le_&_}{\ven_}. [//:]
+:::
+
+### Prijslied (na de Polyleos)
+
+::: vsa-notatie
+<!-- Prijslied (na de Polyleos), Meneon I, p.21 -->
+<!-- Muziek: Horol. blz 111 -->
+[:] {-&/Wij} {/&\prij_&_}{+\zen_}, *
+{/&/wij} {/&\&\prij}{+\zen} {/u_} *
+al-{+\hei_}lige {/Maagd} *
+{\\Wij} {/ver}{/e}ren uw {-&\\hei}{/li}{/ge} {/&\&\&+\ou}{/ders_}, *
+en loven {/uw} {/roem_}rij{/ke} Ge{\&\boor_&_}{\te__}.
 :::

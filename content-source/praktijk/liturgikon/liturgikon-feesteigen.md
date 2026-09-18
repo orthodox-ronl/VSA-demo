@@ -714,6 +714,7 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
 ### Tropaar
 ::: vsa-notatie
 <!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Liturgikon, p.274) -->
+<!-- Dat is iets anders dan in Meneon I, p.12-13 -->
 [//:] Uw Geboorte, o {Moe_.}{/der} {\Gods_},
 {/heeft} de Vreugde geopenbaard aan {/heel} {\de} {\we__}{reld_}.
 Want uit U is opgegaan de Zon der Gerechtigheid: Christus {on_}{/ze} {\God_};
