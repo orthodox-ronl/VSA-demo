@@ -64,7 +64,7 @@ voor download, MuseScore of handmatig importeren in Coria.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="op-de-site-downloadknop"&gt;Op de site (downloadknop)&lt;/h2&gt;
 &lt;p&gt;Zelfde bronbestand, via include (pad relatief t.o.v. deze pagina):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:::include mxl &amp;#34;assets/voorbeeld.vsa&amp;#34; label=&amp;#34;voorbeeld.mxl — download MusicXML&amp;#34;:::
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class="mxl-download"&gt;&lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/mxl/praktijk/demo/assets/voorbeeld.mxl" download&gt;voorbeeld.mxl — download MusicXML&lt;/a&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/vsa/mxl/praktijk/demo/assets/voorbeeld.mxl" download&gt;voorbeeld.mxl — download MusicXML&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Generate: &lt;code&gt;scripts\check.cmd --skip-hugo&lt;/code&gt; (zet &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;static\vsa\mxl\…&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Oefenen met Coria</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/05-coria-oefenen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/demo/05-coria-oefenen/</guid><description>&lt;h1 id="oefenen-met-coria"&gt;Oefenen met Coria&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://coria.nl"&gt;Coria&lt;/a&gt;
@@ -144,4 +144,4 @@ weggelaten — een relatieve site-knop werkt niet vanuit een PDF-bestand.&lt;/li
  width="100%"
  height="560"
  style="border:1px solid #ccc;border-radius:4px;"&gt;&lt;/iframe&gt;
-&lt;p class="mxl-download"&gt;&lt;a class="btn" href="https://orthodox-ronl.github.io/VSA-demo/preview/demo/voorbeeld-blad.pdf" download&gt;voorbeeld-blad.pdf — download&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p class="mxl-download"&gt;&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/demo/voorbeeld-blad.pdf" download&gt;voorbeeld-blad.pdf — download&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

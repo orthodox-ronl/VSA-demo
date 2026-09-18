@@ -44,8 +44,9 @@ async function renderPages(pdf, host, renderedWidth) {
   return cssWidth;
 }
 
-function wirePrint(link, src) {
-  if (!link || !src) {
+function wirePrint(root, src) {
+  const link = root.querySelector(".pdf-sheet-print");
+  if (!link) {
     return;
   }
   link.addEventListener("click", (event) => {
@@ -78,9 +79,7 @@ async function initSheet(root) {
   if (!src || !host) {
     return;
   }
-  root.querySelectorAll(".pdf-sheet-print").forEach((link) => {
-    wirePrint(link, link.getAttribute("href") || src);
-  });
+  wirePrint(root, src);
   try {
     const pdfjs = await import(PDFJS_SRC);
     pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
@@ -106,6 +105,6 @@ async function initSheet(root) {
 }
 
 document.querySelectorAll(".pdf-sheet").forEach(initSheet);
-document.querySelectorAll(".score-actions .pdf-sheet-print").forEach((link) => {
-  wirePrint(link, link.getAttribute("href") || "");
+document.querySelectorAll(".score-actions[data-pdf-src]").forEach((row) => {
+  wirePrint(row, row.dataset.pdfSrc);
 });
