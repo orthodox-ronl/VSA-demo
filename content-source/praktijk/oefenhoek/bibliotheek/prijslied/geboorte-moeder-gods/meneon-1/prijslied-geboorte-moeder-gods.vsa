@@ -1,0 +1,20 @@
+---
+identificatie:
+  title: Prijslied - Geboorte Moeder Gods
+  composer: Traditioneel
+  bron: Meneon I, p.21
+  language: nl
+muziek:
+  do: F4
+  mode: major
+  tempo: 120
+---
+
+<!-- Prijslied (na de Polyleos), Meneon I, p.21 -->
+<!-- Muziek: Horologion. blz 111 -->
+[:] {-&/Wij} {/&\prij_&_}{+\zen_}, *
+{/&/wij} {/&\&\prij}{+\zen} {/u_} *
+al{+\hei_}lige {/Maagd} *
+{\\Wij} {/ver}{/e}ren uw {-&\\hei}{/li}{/ge} {/&\&\&+\ou}{/ders_}, *
+en loven {/uw} {/roem_}rij{/ke} Ge{\&\boor_&_}{\te__}.
+<!-- De hoogte-markering op het eind (`[/:]`) komt als de nieuwe `+\` semantiek operationeel is -->

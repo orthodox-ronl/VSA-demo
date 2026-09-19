@@ -22,7 +22,7 @@ alleen voor tropaar toon 4.
 
 **Wanneer:** je hebt tekst (en een bekende melodie) in plaats van een
 Capella-partituur. Voorbeeld-bibliotheek-id:
-`2-eerste-antifoon/weekdagen-hemelum/hemelum`.
+`2-eerste-antifoon/weekdagen/hemelum`.
 
 ## Wat de site van je `.vsa` maakt
 
@@ -92,7 +92,7 @@ automatische_inhoud: false
 
 # …
 
-{{</* bieb id="2-eerste-antifoon/weekdagen-hemelum/hemelum" */>}}
+{{</* bieb id="2-eerste-antifoon/weekdagen/hemelum" */>}}
 ```
 
 6. Hetzelfde id in de **slot-pagina** van de koormap (bijv.

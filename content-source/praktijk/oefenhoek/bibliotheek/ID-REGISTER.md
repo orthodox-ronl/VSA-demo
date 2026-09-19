@@ -53,12 +53,12 @@ script tegelijk.
 | `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; print-track |
 | `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
 | `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | `tropaar-nikolaas-van-myra-toon-4-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; onder zangstuk `tropaar/` |
-| `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen-hemelum/hemelum` | `2-eerste-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | Koormap = Hemelum; geen `liturgikon/`-slot meer |
+| `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen/hemelum` | `2-eerste-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | Koormap = Hemelum; geen `liturgikon/`-slot meer |
 | *(alleen bibliotheek)* | `2-eerste-antifoon/weekdagen-liturgikon/hemelum` | `2-eerste-antifoon-weekdagen-liturgikon-hemelum` | vsa, vsa.mxl | Niet in Hemelum-koormap |
 | `2-eerste-antifoon/zondag/` | `2-eerste-antifoon/zondag/hemelum` | `2-eerste-antifoon-zondag-hemelum` | mscz, mxl, pdf | stub-achtig in koormap |
-| `4-tweede-antifoon/weekdagen/` | `4-tweede-antifoon/weekdagen-hemelum/hemelum` | `4-tweede-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | |
+| `4-tweede-antifoon/weekdagen/` | `4-tweede-antifoon/weekdagen/hemelum` | `4-tweede-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | |
 | `4-tweede-antifoon/zondag/` | `4-tweede-antifoon/zondag/hemelum` | `4-tweede-antifoon-zondag-hemelum` | mscz, mxl, pdf | |
-| `6-derde-antifoon/weekdagen/` | `6-derde-antifoon/weekdagen-hemelum/hemelum` | `6-derde-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | |
+| `6-derde-antifoon/weekdagen/` | `6-derde-antifoon/weekdagen/hemelum` | `6-derde-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | |
 | `6-derde-antifoon/zondag/` | `6-derde-antifoon/zondag/hemelum` | `6-derde-antifoon-zondag-hemelum` | mscz, mxl, pdf | Variant-id = koormap-mapnaam |
 | `5-eniggeboren-zoon/` | `5-eniggeboren-zoon/default/hemelum` | `5-eniggeboren-zoon-default-hemelum` | mscz, mxl, pdf | `default` = enige variant |
 | `7-kleine-intocht/zondag/` | `7-kleine-intocht/zondag/hemelum` | `7-kleine-intocht-zondag-hemelum` | mscz, mxl, pdf | |

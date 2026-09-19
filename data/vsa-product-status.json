@@ -1,14 +1,14 @@
 {
   "fix_page": "/praktijk/handleiding/vsa/1-vsa-schrijven/",
   "folders": {
-    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-hemelum/hemelum": {
-      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-hemelum/hemelum/2-eerste-antifoon-weekdagen-hemelum-hemelum.vsa",
+    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/hemelum/2-eerste-antifoon-weekdagen.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
     },
-    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-liturgikon/hemelum": {
-      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen-liturgikon/hemelum/2-eerste-antifoon-weekdagen-liturgikon-hemelum.vsa",
+    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/liturgikon": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/liturgikon/2-eerste-antifoon-weekdagen-liturgikon.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
@@ -19,14 +19,14 @@
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
     },
-    "praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen-hemelum/hemelum": {
-      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen-hemelum/hemelum/4-tweede-antifoon-weekdagen-hemelum-hemelum.vsa",
+    "praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/weekdagen/hemelum/4-tweede-antifoon-weekdagen-hemelum.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
     },
-    "praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen-hemelum/hemelum": {
-      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen-hemelum/hemelum/6-derde-antifoon-weekdagen-hemelum-hemelum.vsa",
+    "praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen/hemelum/6-derde-antifoon-weekdagen-hemelum-hemelum.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
@@ -165,6 +165,24 @@
     },
     "praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-8/groningen": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/kondak/zondag-toon-8/groningen/kondak-zondag-toon-8-groningen.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/prijslied/geboorte-moeder-gods/meneon-1": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/prijslied/geboorte-moeder-gods/meneon-1/prijslied-geboorte-moeder-gods.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/prijslied/icoon-moeder-gods-vladimir/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/prijslied/icoon-moeder-gods-vladimir/hemelum/prijslied-icoon-moeder-gods-vladimir.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/prijslied/johannes-de-voorloper/hemelum": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/prijslied/johannes-de-voorloper/hemelum/prijslied-johannes-de-voorloper.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []

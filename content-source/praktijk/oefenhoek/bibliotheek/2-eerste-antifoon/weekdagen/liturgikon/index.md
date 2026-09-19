@@ -7,4 +7,4 @@ automatische_inhoud: false
 
 # 2 Eerste antifoon (weekdagen, Liturgikon)
 
-{{< bieb id="2-eerste-antifoon/weekdagen-liturgikon/hemelum" >}}
+{{< bieb id="2-eerste-antifoon/weekdagen/liturgikon" >}}
