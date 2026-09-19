@@ -112,7 +112,10 @@ Uitleg: [scripts/README.md](scripts/README.md).
   embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
   Contract: `scripts/mscz-hub-contract.md`. Afgeleiden per representatie-id
   (`hub` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
-  Pagina-UI (sticky header, shortcode `bieb`): `scripts/oefenhoek-ui-contract.md`.
+  Pagina-UI (sticky header, shortcode `bieb`, bibliotheek-id op leaves):
+  `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in hub-colofon/PDF:
+  `mscz-hub-contract.md` / `oefenhoek-product-contract.md`
+  (`ensure_bibliotheek_id.py`, `check_bibliotheek_id.py`).
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
   Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij

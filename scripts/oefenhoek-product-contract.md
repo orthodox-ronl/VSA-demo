@@ -69,6 +69,25 @@ hieronder).
 
 ---
 
+## Bibliotheek-id in eindproducten
+
+**Principe** (geldt voor hub, vsa, print en latere sporen zoals mvsa): elk
+**menselijk leesbaar** publicatieblad (PDF, afdruk uit `.mscz`) toont het
+**bibliotheek-id** (`zangstuk/variant/uitvoeringsvorm`) in het colofon of
+eindmateriaal. Machineleesbare provenance (hashes) blijft; het id is
+**identiteit**, de hash is **versheid**.
+
+| Spoor | Waar het id landt | Gate |
+| ----- | ----------------- | ---- |
+| `hub` | Colofon + meta in hub-`.mscz` → PDF via MuseScore-export | `ensure_bibliotheek_id` / `check_bibliotheek_id` |
+| `vsa` | Bij `{stam}.vsa.pdf` (nog te bouwen): eindblok met id uit pad; Coria-`.vsa.mxl` mag misc-field `vsa-bibliotheek-id` | zelfde principe bij eerste PDF-export |
+| `print` / handmatig | Beheerder zet id in colofon bij export; pipeline overschrijft niet | warn/check optioneel; geen stille overwrite |
+
+Geen uitzondering voor nieuwe generators: wie een blad produceert, schrijft
+het bibliotheek-id mee (afleiden via `bibliotheek.id_from_path` / `--id`).
+
+---
+
 ## Handmatige artefacten
 
 Frontmatter op bibliotheek-`index.md`:

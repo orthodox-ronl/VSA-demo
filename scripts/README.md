@@ -42,8 +42,14 @@ nodig, en niet open tijdens de run. Niet in `check`. Geen PDF/Coria.
 reciteer-collaps `||O||`, tempo, copyright). Accepteert ook opgekuiste `.mxl`.
 Weigert `*.print.mscz` (print-/koormap-vel buiten de hub-straat).
 Copyright: bronnotice of default CC BY-SA 4.0 + eredienst-zin.
-Contract: `scripts/mscz-hub-contract.md`. Hyphenatie: `scripts/nl_hyphen.py`.
-Transforms: `scripts/mscz-product-transforms.md`.
+In de bibliotheek: colofonregel `Bibliotheek-id:` + meta `vsaBibliotheekId`
+(optioneel `--id=`). Contract: `scripts/mscz-hub-contract.md`.
+Hyphenatie: `scripts/nl_hyphen.py`. Transforms: `scripts/mscz-product-transforms.md`.
+
+`ensure_bibliotheek_id.py` zet ontbrekende/verkeerde bibliotheek-id’s in
+hub-`.mscz` onder `bibliotheek/` (lokaal; CI alleen check).
+`check_bibliotheek_id.py` faalt op `main` / `--strict` als meta of colofon
+niet klopt. Daarna `mscz-products` voor verse PDF’s.
 
 `mscz-products.cmd` (`sync_mscz_products.py`) exporteert sibling-PDF en
 Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
@@ -61,8 +67,9 @@ Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
 `partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
 artefacten: `oefenhoek-product-contract.md` (`{stam}.hub.mxl` /
 `{stam}.vsa.mxl` / …; frontmatter `artefacten_handmatig`).
-Pagina-UI (sticky header, shortcode `bieb`, actieknoppen):
-`oefenhoek-ui-contract.md`.
+Pagina-UI (sticky header, bibliotheek-id op leaves, shortcode `bieb`,
+actieknoppen): `oefenhoek-ui-contract.md`.
+Bibliotheek-id in eindproducten (colofon): `oefenhoek-product-contract.md`.
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
 voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na

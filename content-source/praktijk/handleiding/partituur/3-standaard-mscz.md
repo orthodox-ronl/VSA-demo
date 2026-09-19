@@ -115,7 +115,7 @@ feathered noot later tot één kwart per lettergreep.
 | Leidende rusten | Ritmisch behouden; na start/dubbele streep met gap |
 | Lyric-underlines (melisma-ticks) | Standaard weg (Capella-slurs zijn frasen); opt-in via meta `vsaLyricExtenders` |
 | Tempo | Verplicht voor Coria; default **120 BPM** als er geen metronoom in de hub staat |
-| Copyright | Notice uit de bron → korte footer + colofon; ontbreekt notice → CC BY-SA 4.0 (deze uitgave) + eredienst-kopieertoestemming |
+| Copyright | Notice uit de bron → korte footer + colofon; ontbreekt notice → CC BY-SA 4.0 (deze uitgave) + eredienst-kopieertoestemming; in de bibliotheek: regel `Bibliotheek-id:` + meta `vsaBibliotheekId` |
 | Contractmeta | `vsaHubContract` = `hub-1` |
 
 ## Wat het script níet doet

@@ -118,12 +118,18 @@ Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlin
 | Bron heeft notice | korte footer + colofon afgeleid | PDF elke pagina + einde |
 | Bron heeft geen notice | CC BY-SA 4.0, bron = deze uitgave (`orthodoxekerkmuziek.nl`) | idem |
 | Altijd | zin: kopiëren voor orthodoxe eredienst is toegestaan | colofon |
+| Hub onder `bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/` | colofonregel `Bibliotheek-id: …` + meta `vsaBibliotheekId` | identiteit op papier en in check |
 
 | Veld | Rol |
 | ---- | --- |
 | `metaTag copyright` | Korte footer (`$C`) |
-| `metaTag vsaCopyrightFull` | Volledige colofon |
+| `metaTag vsaCopyrightFull` | Volledige colofon (inclusief bibliotheek-id-regel indien van toepassing) |
+| `metaTag vsaBibliotheekId` | Canonieke `zangstuk/variant/uitvoeringsvorm` (alleen in bibliotheek-hub) |
 | VBox "Colofon" | Direct na de laatste muziekmaat; op **dezelfde pagina** als er ruimte is, anders laat MuseScore een nieuwe pagina beginnen |
+
+Pipeline: `ensure_bibliotheek_id.py` zet ontbrekende/verkeerde id’s in de hub
+(lokaal); `check_bibliotheek_id.py` faalt op `main` als meta of colofon
+niet klopt. Hub-PDF erft het colofon bij `mscz-products`.
 
 VOW-sibling mag **niet** stilzwijgend op een Capella-publicatie worden geplakt.
 

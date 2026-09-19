@@ -30,6 +30,10 @@ if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="mscz-products" goto man_mscz_products
 if /I "%FILTER%"=="sync_mscz_products.py" goto man_mscz_products
+if /I "%FILTER%"=="ensure_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="ensure_bibliotheek_id.py" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id.py" goto man_bibliotheek_id
 if /I "%FILTER%"=="vsa-products" goto man_vsa_products
 if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
@@ -69,6 +73,7 @@ echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
 echo   test_check_hugo_links_and_assets.py, test_fingerprint_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
+echo   ensure_bibliotheek_id.py, check_bibliotheek_id.py, test_bibliotheek_id_colophon.py,
 echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
 echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py
@@ -330,6 +335,7 @@ echo.
 echo   Pipeline roept dit lokaal aan. Eerst apply_mscz_layout.py,
 echo   eventueel editslag in MuseScore, daarna dit script.
 echo   check_hub_products.py controleert stamps (main: streng).
+echo   ensure_bibliotheek_id.py zet Bibliotheek-id in colofon/meta.
 echo   Print-velden (*.print.mscz): zie handleiding partituur/7-print-mscz.
 echo.
 echo WHEN
@@ -337,12 +343,35 @@ echo   Als de hub-.mscz klaar is voor publicatie-PDF en Coria.
 echo.
 echo SEE ALSO
 echo   scripts\apply_mscz_layout.py
+echo   scripts\ensure_bibliotheek_id.py
 echo   scripts\sync_mscz_products.py
 echo   scripts\check_hub_products.py
 echo   scripts\score_filenames.py
 echo   scripts\oefenhoek-product-contract.md
 echo   scripts\mscz-hub-contract.md
 echo   scripts\mscz-product-transforms.md
+echo.
+goto end_ok
+
+:man_bibliotheek_id
+echo.
+echo NAME
+echo   scripts\ensure_bibliotheek_id.py / check_bibliotheek_id.py
+echo.
+echo SYNOPSIS
+echo   python scripts\ensure_bibliotheek_id.py [root]
+echo   python scripts\check_bibliotheek_id.py [root]
+echo.
+echo DESCRIPTION
+echo   Hub-.mscz onder bibliotheek/ moeten Bibliotheek-id in colofon
+echo   en meta vsaBibliotheekId hebben. ensure herstelt lokaal
+echo   (process_mscz); check-only / CI schrijft niet. main/strict: fail.
+echo   Daarna mscz-products voor verse PDF.
+echo.
+echo SEE ALSO
+echo   scripts\apply_mscz_layout.py
+echo   scripts\mscz-hub-contract.md
+echo   scripts\oefenhoek-product-contract.md
 echo.
 goto end_ok
 

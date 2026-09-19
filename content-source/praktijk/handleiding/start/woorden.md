@@ -16,7 +16,7 @@ weight: 30
 - `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = hub-standaard met `apply_mscz_layout.py` (zelfde scriptstap; “layouten” is de gewone naam)
-- **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen)
+- **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van hub-`.mscz`/PDF
 - **`bieb`** = shortcode die knoppen + partituur van een bibliotheek-id toont
 - **publicatiestatus** = wat koorleden op de pagina zien (sticky header); intern *Stap* in de werkvoorraad is iets anders
 {{< /cue >}}
