@@ -61,7 +61,7 @@ publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;</description></it
 &lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van hub-&lt;code&gt;.mscz&lt;/code&gt;/PDF&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;bieb&lt;/code&gt;&lt;/strong&gt; = shortcode die knoppen + partituur van een bibliotheek-id toont&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;publicatiestatus&lt;/strong&gt; = wat koorleden op de pagina zien (sticky header); intern &lt;em&gt;Stap&lt;/em&gt; in de werkvoorraad is iets anders&lt;/li&gt;
 &lt;/ul&gt;
