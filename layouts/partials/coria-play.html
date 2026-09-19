@@ -10,15 +10,12 @@
 {{- with index $fps $fpKey -}}
   {{- $mapped = strings.TrimSpace . -}}
 {{- end -}}
-{{- if $mapped -}}
-  {{- if or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix $mapped ".musicxml") (strings.HasSuffix $mapped ".xml") -}}
-    {{- $src = $mapped -}}
+{{- if and $mapped (or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix $mapped ".musicxml") (strings.HasSuffix $mapped ".xml")) -}}
+  {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" $mapped) -}}
+  {{- if $absolute -}}
+  {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
+<a class="btn coria-play" href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a>
   {{- end -}}
 {{- else if or (strings.HasSuffix $src ".mxl") (strings.HasSuffix $src ".musicxml") (strings.HasSuffix $src ".xml") -}}
-  {{- if not (strings.HasPrefix $src "mxl/c/") -}}
-    {{- errorf "shortcode coria-play: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
-  {{- end -}}
+  {{- errorf "shortcode coria-play: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
 {{- end -}}
-{{- $absolute := absURL $src -}}
-{{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
-<a class="btn coria-play" href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a>

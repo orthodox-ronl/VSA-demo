@@ -52,6 +52,11 @@ jobs:
       - name: Sync zondag bronbestanden
         run: python scripts/sync_bron_zondagen.py --bron-root vendor/bron
 
+      - name: Coria URL unit tests
+        run: |
+          python scripts/test_check_hugo_links_and_assets.py
+          python scripts/test_fingerprint_coria_mxl.py
+
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source
 

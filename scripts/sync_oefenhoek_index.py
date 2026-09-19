@@ -12,6 +12,7 @@
   python scripts/sync_oefenhoek_index.py
   python scripts/sync_oefenhoek_index.py --dry-run
   python scripts/sync_oefenhoek_index.py --svg
+  python scripts/sync_oefenhoek_index.py --svg --verbose
 """
 from __future__ import annotations
 

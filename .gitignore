@@ -4,6 +4,7 @@ public/
 resources/
 data/build.yaml
 data/coria-fp.json
+data/coria-public-base.json
 static/vsa/
 static/coria/
 static/mxl/

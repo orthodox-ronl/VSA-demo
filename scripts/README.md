@@ -87,9 +87,15 @@ naam). `fingerprint_coria_mxl.py` leest page-bundle-`.mxl` uit
 `content-source` (niet `oefenhoek/input/`) plus `static/vsa/mxl`, en
 publiceert uncompressed MusicXML als `/mxl/c/<hash>.musicxml` (URL eindigt
 op `.musicxml`, geen spaties of query-string; compressed `.mxl` laat Coria
-op sommige stukken falen). Oefenen-knoppen moeten die fingerprint-sleutel
-gebruiken (`mxl/<content-pad>/<bestand>`), niet een Hugo-`RelPermalink`
-(die verdubbelt de GitHub Pages-baseURL → Coria `failed to retrieve file`).
+op sommige stukken falen). Oefenen-knoppen gebruiken die fingerprint via
+een **absolute** GitHub Pages-URL (`https://…/mxl/c/<hash>.musicxml`),
+niet `absURL` met lokale `baseURL=/` en niet een Hugo-`RelPermalink`
+(pad-only of verdubbelde prefix → Coria `failed to retrieve file`).
+`fingerprint_coria_mxl.py` schrijft de publieke root in
+`data/coria-public-base.json` (zelfde branch→URL als `pages.yml`).
+`check_hugo_links_and_assets.py` eist die absolute fingerprint-URL;
+unit-tests in `test_check_hugo_links_and_assets.py` en
+`test_fingerprint_coria_mxl.py` (in `check` / `build` / `serve`).
 `check_publicatiestatus.py` (in `check`) eist `publicatiestatus` en
 `automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /
 `index.md` (niet `input/`). Status: `voorzien`, `concept`, `reviewable` of

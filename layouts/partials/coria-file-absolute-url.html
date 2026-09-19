@@ -1,0 +1,28 @@
+{{- /*
+  Publieke https-URL van een fingerprint-pad (mxl/c/<hash>.musicxml).
+
+  Coria play_from_url haalt het bestand server-side op. Een pad zonder host
+  (/mxl/c/…) of localhost is voor Coria onbereikbaar → "failed to retrieve file".
+  Bron: data/coria-public-base.json via readFile (bestand is gitignored; hugo.Data
+  laadt het dan niet). Geschreven door fingerprint_coria_mxl.py; zelfde mapping
+  als .github/workflows/pages.yml. Fallback: site.BaseURL met publieke host.
+*/ -}}
+{{- $src := replaceRE "^/" "" . -}}
+{{- $pub := "" -}}
+{{- if fileExists "data/coria-public-base.json" -}}
+  {{- $cfg := transform.Unmarshal (readFile "data/coria-public-base.json") -}}
+  {{- with $cfg.base -}}
+    {{- $pub = strings.TrimSuffix "/" . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $pub -}}
+  {{- $bu := strings.TrimSuffix "/" site.BaseURL -}}
+  {{- if and (strings.Contains $bu "://") (not (strings.Contains $bu "127.0.0.1")) (not (strings.Contains $bu "localhost")) -}}
+    {{- $pub = $bu -}}
+  {{- end -}}
+{{- end -}}
+{{- if or (not $pub) (not (strings.HasPrefix $pub "http")) -}}
+  {{- errorf "Coria: geen publieke https-base (kregen %q, site.BaseURL=%q). Draai python scripts/fingerprint_coria_mxl.py." $pub site.BaseURL -}}
+{{- else -}}
+{{- printf "%s/%s" $pub $src -}}
+{{- end -}}

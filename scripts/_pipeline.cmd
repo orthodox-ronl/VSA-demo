@@ -36,6 +36,10 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\bibliotheek.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\test_check_hugo_links_and_assets.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\test_fingerprint_coria_mxl.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 

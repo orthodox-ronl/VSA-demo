@@ -62,6 +62,7 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
 
           # Site-root en speciale paden: niet als branch-preview-map gebruiken.
+          # Keep in sync with scripts/fingerprint_coria_mxl.py::github_pages_base_url
           reserved='^(preview|main|gh-pages|development|coria|css|demo|images|js|mxl|praktijk|vsa)$'
 
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
@@ -122,6 +123,11 @@ jobs:
 
       - name: Sync zondag bronbestanden
         run: python scripts/sync_bron_zondagen.py --bron-root vendor/bron
+
+      - name: Coria URL unit tests
+        run: |
+          python scripts/test_check_hugo_links_and_assets.py
+          python scripts/test_fingerprint_coria_mxl.py
 
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source

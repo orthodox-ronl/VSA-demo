@@ -9,6 +9,11 @@ Coria's importer ("translation failed") is unreliable on compressed
 .mxl ZIP for some scores (Cherubijnenhymne Kastorski). Uncompressed
 MusicXML 3.1 from the same payload loads. We always serve that.
 
+Coria haalt het bestand server-side op: de Oefenen-knop moet een
+publieke https-URL zijn (GitHub Pages), niet /mxl/c/… of localhost.
+De publieke root staat in data/coria-public-base.json — zelfde mapping
+als .github/workflows/pages.yml (branch → site-URL).
+
 Bronnen:
 - content-source/**/*.mxl (niet oefenhoek/input/) — page-bundle Coria-.mxl
 - static/mxl/** (legacy/extra)
@@ -19,12 +24,16 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import re
 import shutil
+import subprocess
 import zipfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = REPO_ROOT / "data" / "coria-fp.json"
+PUBLIC_BASE_FILE = REPO_ROOT / "data" / "coria-public-base.json"
 DEST_ROOT = REPO_ROOT / "static" / "mxl" / "c"
 CONTENT_SOURCE = REPO_ROOT / "content-source"
 URL_PREFIX = "mxl/c"
@@ -34,6 +43,74 @@ SOURCE_TREES = (
     (REPO_ROOT / "static" / "mxl", "mxl"),
     (REPO_ROOT / "static" / "vsa" / "mxl", "vsa/mxl"),
 )
+
+# Keep in sync with .github/workflows/pages.yml (Determine deploy target).
+PAGES_ROOT = "https://orthodox-ronl.github.io/VSA-demo"
+RESERVED_SLUGS = frozenset(
+    {
+        "preview",
+        "main",
+        "gh-pages",
+        "development",
+        "coria",
+        "css",
+        "demo",
+        "images",
+        "js",
+        "mxl",
+        "praktijk",
+        "vsa",
+    }
+)
+
+
+def github_pages_base_url(branch: str) -> str:
+    """Publieke site-root voor deze git-branch (trailing slash)."""
+    branch = (branch or "").strip()
+    if branch == "main":
+        return f"{PAGES_ROOT}/"
+    if branch == "development":
+        return f"{PAGES_ROOT}/preview/"
+    slug = re.sub(r"[^a-z0-9_-]+", "-", branch.lower())
+    slug = re.sub(r"-+", "-", slug).strip("-")
+    if not slug:
+        raise ValueError(f"Branchnaam {branch!r} levert geen URL-slug op.")
+    if slug in RESERVED_SLUGS:
+        slug = f"b-{slug}"
+    return f"{PAGES_ROOT}/{slug}/"
+
+
+def detect_git_branch() -> str:
+    """Branch voor Pages-URL: PR-head, GITHUB_REF, anders lokale git."""
+    head_ref = os.environ.get("GITHUB_HEAD_REF", "").strip()
+    if head_ref:
+        return head_ref
+    ref = os.environ.get("GITHUB_REF", "").strip()
+    if ref.startswith("refs/heads/"):
+        return ref[len("refs/heads/") :]
+    result = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    branch = (result.stdout or "").strip()
+    if result.returncode == 0 and branch and branch != "HEAD":
+        return branch
+    raise SystemExit(
+        "FAIL: git-branch onbekend; Coria-public-base kan niet bepaald worden."
+    )
+
+
+def write_public_base(branch: str | None = None) -> str:
+    base = github_pages_base_url(branch or detect_git_branch())
+    PUBLIC_BASE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    PUBLIC_BASE_FILE.write_text(
+        json.dumps({"base": base}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return base
 
 
 def _fingerprint(data: bytes) -> str:
@@ -111,7 +188,12 @@ def main() -> int:
         json.dumps(mapping, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    print(f"Coria MusicXML fingerprints: {len(mapping)} bestand(en)", flush=True)
+    public_base = write_public_base()
+    print(
+        f"Coria MusicXML fingerprints: {len(mapping)} bestand(en); "
+        f"public base {public_base}",
+        flush=True,
+    )
     return 0
 
 

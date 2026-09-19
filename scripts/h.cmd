@@ -67,6 +67,7 @@ echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
+echo   test_check_hugo_links_and_assets.py, test_fingerprint_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
 echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
@@ -215,11 +216,11 @@ echo   Start de Hugo-development server ^(http://127.0.0.1:18731/^).
 echo   Poort 18731, niet 1313 ^(1313 is lokaal gereserveerd^).
 echo   Standaard: pipeline ^(sync/validate/generate via _pipeline.cmd^), daarna server.
 echo   Validate zonder --strict ^(snellere preview^).
-echo   Met --no-build: alleen server; vereist bestaande generated\content
-echo   ^(bijv. na check.cmd --strict^).
+echo   Met --no-build: alleen Coria-fingerprints + server; vereist bestaande
+echo   generated\content ^(bijv. na check.cmd --strict^).
 echo.
 echo OPTIONS
-echo   --no-build   sla sync/validate/generate over; sneller herstarten
+echo   --no-build   sla sync/validate/generate over; wel Coria-fingerprints
 echo.
 echo WHEN
 echo   Browser-preview. CI-gelijk: eerst check.cmd --strict, dan --no-build.
