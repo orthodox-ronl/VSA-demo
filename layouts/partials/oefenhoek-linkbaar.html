@@ -7,7 +7,7 @@
   Niet linkbaar: voorzien (tenzij er al oefenbestanden liggen).
 
   Secties: eigen status telt niet; linkbaar als minstens één nakomeling
-  linkbaar is.
+    linkbaar is, of (alias-variant) de canonieke variant linkbaar is.
 
   Extra leaf-signalen: oefenbestanden; bieb-doel (andere pagina);
   :::include (catalogus).
@@ -16,8 +16,15 @@
 {{- $linkbareStatus := slice "concept" "reviewable" "productie" -}}
 {{- $ok := false -}}
 {{- if $p.IsSection -}}
-  {{- range $p.Sections -}}
-    {{- if partial "oefenhoek-linkbaar.html" . -}}{{- $ok = true -}}{{- end -}}
+  {{- with $p.Params.alias_van -}}
+    {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" .) -}}
+      {{- if partial "oefenhoek-linkbaar.html" . -}}{{- $ok = true -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $ok -}}
+    {{- range $p.Sections -}}
+      {{- if partial "oefenhoek-linkbaar.html" . -}}{{- $ok = true -}}{{- end -}}
+    {{- end -}}
   {{- end -}}
   {{- if not $ok -}}
     {{- range $p.RegularPages -}}
@@ -41,6 +48,7 @@
     {{- with findRE `\bbieb\s+id="([^"]+)"` $p.RawContent 1 -}}
       {{- $m := index . 0 -}}
       {{- $id := replaceRE `.*id="([^"]+)".*` `$1` $m -}}
+      {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
       {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" $id) -}}
         {{- if ne .RelPermalink $p.RelPermalink -}}
           {{- if partial "oefenhoek-linkbaar.html" . -}}{{- $ok = true -}}{{- end -}}

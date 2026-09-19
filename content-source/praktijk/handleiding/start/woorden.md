@@ -61,7 +61,7 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 | **Koormap-sectie** | Map met `_index.md` in de koormap: liturgische plek / hoofdstuk (kindlijst of eigen TOC) |
 | **Slot-pagina** | Map met `index.md` in de koormap: markdown plus `bieb` (geen catalogus-include in de oefenhoek) |
 | **Compositieblad** | Slot-pagina met proza en **meerdere** `bieb`-shortcodes (bijv. prokimens van de week) |
-| **Alias-variant** | Variant-leaf zonder eigen bestanden; `alias_van` + `bieb` naar de canonieke uitvoeringsvorm |
+| **Alias-variant** | Variant zonder eigen uitvoeringsvorm-bestanden; op de variant-`_index.md` staat `alias_van: zangstuk/canonieke-variant` |
 | **Diversen** | Bibliotheek-zangstuk-id voor korte/losse gezangen (bv. `diversen/uw-heilig-kruis/hemelum`) |
 | **Tropaar** / **kondak** | Nederlandse termen voor die gezangen (niet “troparion” / “kondakion”) |
 | **Special page** | Automatisch overzicht onder `bibliotheek\speciaal\` (voorzien, ongerefereerd, oefenbaar) |

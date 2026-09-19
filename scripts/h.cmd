@@ -445,7 +445,10 @@ echo DESCRIPTION
 echo   Eenmalig: verplaatst hub-partituren van liturgiemap-hemelum naar
 echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\ en zet
 echo   koormap-slots op bieb. Niet in check/build/serve.
-echo   bibliotheek.py: parse_id / folder / stem / leaf_folders.
+echo   bibliotheek.py: parse_id / folder / stem / leaf_folders / resolve_id.
+echo   In check: python scripts\bibliotheek.py weigert alias-varianten met
+echo   een uitvoeringsvorm-map; alias_van hoort op de variant-_index
+echo   (zangstuk/canonieke-variant).
 echo.
 echo WHEN
 echo   Bij de bibliotheek-conversie op deze branch (na review van SCORE_MOVES).

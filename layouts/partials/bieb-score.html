@@ -1,0 +1,63 @@
+{{- /*
+  Actieknoppen + PDF/SVG van een bibliotheek-uitvoeringsvorm-pagina.
+
+  Context: dict "score" (Page), optioneel "viewer" (pagina van de shortcode).
+*/ -}}
+{{- $p := .score -}}
+{{- $viewer := or .viewer $p -}}
+{{- if not $p -}}
+  {{- errorf "shortcode bieb-score: score-pagina ontbreekt" -}}
+{{- end -}}
+{{ partial "oefenhoek-score-acties.html" (dict "score" $p "viewer" $viewer) }}
+{{- $pdf := "" -}}
+{{- $vsas := slice -}}
+{{- $hasMscz := false -}}
+{{- range $p.Resources.Match "*.pdf" -}}
+  {{- $pdf = .RelPermalink -}}
+{{- end -}}
+{{- range $p.Resources.Match "*.mscz" -}}
+  {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
+    {{- $hasMscz = true -}}
+  {{- end -}}
+{{- end -}}
+{{- range $p.Resources.Match "*.vsa" -}}
+  {{- $vsas = $vsas | append .Name -}}
+{{- end -}}
+{{- $dir := "" -}}
+{{- with $p.File -}}
+  {{- $dir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
+{{- end -}}
+{{- if $dir -}}
+  {{- $srcDir := printf "content-source/%s" $dir -}}
+  {{- if fileExists $srcDir -}}
+    {{- range os.ReadDir $srcDir -}}
+      {{- if not .IsDir -}}
+        {{- $ext := strings.ToLower (path.Ext .Name) -}}
+        {{- if and (eq $ext ".vsa") (not (in $vsas .Name)) -}}
+          {{- $vsas = $vsas | append .Name -}}
+        {{- end -}}
+        {{- if and (eq $ext ".mscz") (not (strings.HasSuffix (lower .Name) ".print.mscz")) -}}
+          {{- $hasMscz = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $pdf -}}
+<div class="pdf-sheet vsa-container" data-pdf-src="{{ $pdf }}">
+  <div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"></div>
+</div>
+{{- end -}}
+{{- if and $vsas (not $hasMscz) $dir -}}
+  {{- $alt := $p.Title -}}
+  {{- range $vsas -}}
+    {{- $rel := replaceRE "\\.vsa$" ".svg" (printf "%s/%s" $dir .) -}}
+    {{- $svgFile := printf "static/vsa/bladermap/%s" $rel -}}
+    {{- if fileExists $svgFile -}}
+      {{- $src := printf "vsa/bladermap/%s" $rel -}}
+<div class="vsa-container"><img class="vsa-notation" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"></div>
+    {{- else -}}
+      {{- warnf "bieb: SVG ontbreekt voor %s (verwacht %s). Oplossing: python scripts\\sync_oefenhoek_index.py --svg   (of scripts\\check.cmd --strict). serve --no-build slaat die stap over. Zie handleiding praktijk/handleiding/vsa/1-vsa-schrijven/." $p.RelPermalink $svgFile -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

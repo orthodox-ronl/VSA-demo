@@ -16,7 +16,7 @@
   {{- end -}}
 {{- else if or (strings.HasSuffix $src ".mxl") (strings.HasSuffix $src ".musicxml") (strings.HasSuffix $src ".xml") -}}
   {{- if not (strings.HasPrefix $src "mxl/c/") -}}
-    {{- errorf "coria-play: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
+    {{- errorf "shortcode coria-play: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
   {{- end -}}
 {{- end -}}
 {{- $absolute := absURL $src -}}

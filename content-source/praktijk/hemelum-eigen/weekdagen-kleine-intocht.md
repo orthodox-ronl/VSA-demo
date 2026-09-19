@@ -20,4 +20,4 @@ Varianten op de tussenzin:
 <!-- Bronnen: Koormap Groningen, V. Jewsewy, Liturgikon p56 -->
 -   *weekdagen* : “die wonderbaar zijt in Uw heiligen”; 
 -    *zondagen* : “die opgestaan zijt uit de doden”;
-- *Moeder Gods* : “die uit de Maagd geboren zijt”.
+- *Moeder Gods* : “die uit de Maagd geboren zijt”. (of ook: “Gij die uit de Maagd geboren zijt” )

@@ -7,6 +7,7 @@
 {{- with findRE `\bbieb\s+id="([^"]+)"` .RawContent 1 -}}
   {{- $m := index . 0 -}}
   {{- $id := replaceRE `.*id="([^"]+)".*` `$1` $m -}}
+  {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
   {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" $id) -}}
     {{- $page = . -}}
   {{- end -}}

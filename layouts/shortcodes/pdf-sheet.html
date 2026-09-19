@@ -4,7 +4,7 @@
 */ -}}
 {{- $raw := .Get "src" -}}
 {{- if not $raw -}}
-  {{- errorf "pdf-sheet: parameter src is verplicht" -}}
+  {{- errorf "shortcode pdf-sheet: parameter src is verplicht" -}}
 {{- end -}}
 {{- $href := "" -}}
 {{- if strings.HasPrefix $raw "/" -}}

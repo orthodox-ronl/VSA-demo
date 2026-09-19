@@ -46,6 +46,11 @@ een eigen knoppenrij + content.
 
 Oude naam `bibliotheek-score` is verwijderd (geen alias).
 
+Alias-variant (`alias_van` op de variant-`_index.md`): `bieb` herschrijft
+een id waarvan de variant-laag een alias is naar de canonieke
+uitvoeringsvorm. De alias-pagina zelf toont een banner en de partituur van
+die canonieke variant (`layouts/partials/oefenhoek-alias.html`).
+
 SVG voor `.vsa` (geen hub-`.mscz`): `python scripts\sync_oefenhoek_index.py --svg`
 (in `check` / `build` / volle `serve`). Ontbrekende SVG: Hugo-waarschuwing
 van `bieb` noemt dit commando. `*.print.mscz` blokkeert SVG niet.

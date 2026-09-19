@@ -13,7 +13,7 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-from bibliotheek import folder, leaf_folders, parse_id
+from bibliotheek import folder, leaf_folders, parse_id, resolve_id
 from score_filenames import published_stem
 
 REPO = Path(__file__).resolve().parents[1]
@@ -135,6 +135,11 @@ def _match_doel(dump_name: str, old_id: str) -> tuple[str, Path | None]:
         if not old_id or old_id == "7-kleine-intocht":
             old_id = "7-kleine-intocht/moeder-gods/hemelum"
     ident = _normalize_id(old_id)
+    if ident:
+        try:
+            ident = resolve_id(ident)
+        except ValueError:
+            pass
     leaves = {i: p for i, p in leaf_folders()}
     if ident in leaves:
         return ident, leaves[ident]

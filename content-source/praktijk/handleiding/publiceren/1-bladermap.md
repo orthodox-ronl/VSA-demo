@@ -17,6 +17,10 @@ Slot-pagina in de koormap:
 shortcode `bieb` (parameter `id` = bibliotheek-id) en
 `automatische_inhoud: false`.
 
+Een **alias-variant** (andere naam voor dezelfde variant) krijgt geen
+uitvoeringsvorm-map. Zet `alias_van` op de variant-`_index.md`; zie
+[Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/).
+
 Koormap-sectie (hoofdstuk): map met `_index.md` — kindlijst of eigen TOC;
 zie [Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/).
 

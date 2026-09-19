@@ -63,20 +63,29 @@ voor wie converteert.
 | `capella/8a - trisagion.mxl` | `8-trisagion/8a-nederlands/hemelum` |  | `.mscz` | gepubliceerd | — |  |
 | `musescore/alleluja-toon-1.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musescore/allelujas 1-8 - ruw.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/021-prokimen-alleluja-toon-1.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/021-prokimen-alleluja-toon-1.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/022-prokimen-alleluja-toon-2.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/022-prokimen-alleluja-toon-2.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/023-prokimen-alleluja-toon-3.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/023-prokimen-alleluja-toon-3.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/024-prokimen-alleluja-toon-4.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/024-prokimen-alleluja-toon-4.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/025-prokimen-alleluja-toon-5.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/025-prokimen-alleluja-toon-5.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/026-prokimen-alleluja-toon-6.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/026-prokimen-alleluja-toon-6.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/027-prokimen-alleluja-toon-7.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/027-prokimen-alleluja-toon-7.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/028-prokimen-alleluja-toon-8.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/028-prokimen-alleluja-toon-8.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/tonen (vers, stichier, tropaar).musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
+| `musicxml/tonen-vers-stichier-tropaar.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `vow/Cherubijnenlied-Kastorskij.mscz` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne/15c-kastorski` | `.mscz` | gepubliceerd | — | tweede bron (VOW); Capella is canonieke hub |
 | `vow/dankzegging_toon_2_Kyiv.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
 | `vow/eind-liturgie.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
 | `vow/Eucharistische Canon-Rostov.mscz` | `19-eucharistische-canon/rostov/hemelum` |  | `.mscz` | ontvangen | layout | sibling van 19a-feofan |
-| `vow/Kleine_intocht-moedergods.mscz` | `7-kleine-intocht/moeder-gods/hemelum` | `7-kleine-intocht` | `.mscz` | gepubliceerd | — |  |
+| `vow/Kleine_intocht-moedergods.mscz` | `7-kleine-intocht/moeder-gods/hemelum` | `7-kleine-intocht` | `.mscz` | ontvangen | migratie |  |
 | `vow/Kleine_intocht-weekdagen.mscz` | `7-kleine-intocht/weekdagen/hemelum` | `7-kleine-intocht` | `.mscz` | gepubliceerd | — | tweede bron (VOW) |
 | `vow/Kleine_intocht-zondag.mscz` | `7-kleine-intocht/zondag/hemelum` | `7-kleine-intocht` | `.mscz` | gepubliceerd | — | tweede bron (VOW) |
 | `vow/Tropaar-opstanding-toon1.mscz` |  |  | `.mscz` | ontvangen | doel-id | voorlopig laten zitten |
