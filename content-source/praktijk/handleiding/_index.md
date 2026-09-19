@@ -38,7 +38,7 @@ de koormap-map. Model (boom versus compositieblad):
 3. VOW-`.mscz` → Capella-script overslaan; wel stemmen/lettergrepen checken ([opkuisen](partituur/2-opkuisen/)), daarna [standaard-.mscz](partituur/3-standaard-mscz/).
 4. Eenstemmige tekst → [.vsa schrijven](vsa/1-vsa-schrijven/) (SVG + Coria-`.vsa.mxl` via `check`); tropaar toon 4 optioneel [template SATB](vsa/2-template-satb/).
 5. Print-vel → [Print-.mscz](partituur/7-print-mscz/) in de bibliotheek (`*.print.mscz` + handmatige PDF; vaak `artefacten_handmatig: true`).
-6. Klaar voor koorleden → [bibliotheek en koormap](publiceren/1-bladermap/) + `publicatiestatus: reviewable` + `scripts\check.cmd --strict`.
+6. Klaar voor de bibliotheek → [opnemen in de bibliotheek](publiceren/1-opnemen-in-bibliotheek/) (`bieb-accepteer`), daarna [koormap](publiceren/1-bladermap/) + `scripts\check.cmd --strict`.
 {{< /cue >}}
 
 ## Kies je pad
@@ -50,7 +50,7 @@ de koormap-map. Model (boom versus compositieblad):
 | Je hebt een VOW-bestand of een andere ruwe `.mscz` | [Opkuisen](partituur/2-opkuisen/) (stemmen/lettergrepen), daarna [standaard-.mscz](partituur/3-standaard-mscz/) |
 | Je hebt alleen tekst op een bekende melodie (antifoon, communievers, …) | [VSA](vsa/) — eenstemmig + Coria |
 | Je wilt één printvel (bijv. meerdere tekstregels) of handmatig bijgehouden PDF/MXL | [Print-.mscz](partituur/7-print-mscz/) |
-| De publicatiebestanden liggen al klaar en moeten op de Oefenhoek | [Publiceren](publiceren/) |
+| De publicatiebestanden liggen al klaar en moeten op de Oefenhoek | [Opnemen in de bibliotheek](publiceren/1-opnemen-in-bibliotheek/) |
 
 ## De route (van ruw tot Oefenhoek)
 
@@ -71,7 +71,7 @@ werkvoorraad  (bibliotheek-id kiezen; niet raden — zie ID-REGISTER)
     +-- print-vel:        naam.print.mscz -> handmatige PDF (+ eventueel handmatige .mxl)
     |
     v
-bibliotheek  (index.md + bestanden, publicatiestam zonder spaties)
+bibliotheek  (via bieb-accepteer: index.md + bestanden, publicatiestam)
     |
     v
 koormap  (sectie-_index of slot-index.md met bieb; geen catalogus/lokaal-include)
@@ -84,7 +84,8 @@ check --strict  ->  lokale preview  ->  Oefenhoek op de site
 **normaliseren** / **layouten** is de hub-standaard met
 `apply_mscz_layout.py`. Kort overzicht: [Partituur](partituur/). Een
 Capella-partituur, een tropaar-`.vsa` en een print-`.mscz` zijn drie
-verschillende straten.
+verschillende straten. Opnemen in de catalogus:
+[Opnemen in de bibliotheek](publiceren/1-opnemen-in-bibliotheek/).
 
 Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
@@ -93,6 +94,6 @@ Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 1. [Start](start/) — programma’s, mappen, woorden
 2. [Partituur](partituur/) — van Capella/VOW naar hub-`.mscz`, PDF en Coria; plus [print-`.mscz`](partituur/7-print-mscz/)
 3. [VSA](vsa/) — notatie schrijven, Coria-`.vsa.mxl`, en (voor tropaar toon 4) template SATB
-4. [Publiceren](publiceren/) — bibliotheek, koormap, status, controle, als het misgaat
+4. [Publiceren](publiceren/) — opnemen (`bieb-accepteer`), koormap, status, controle, als het misgaat
 
 {{< navbuttons "Start|/praktijk/handleiding/start/" >}}

@@ -96,8 +96,9 @@ Uitleg: [scripts/README.md](scripts/README.md).
 - Register: `input/werkvoorraad.md` (een rij per input). De tabel wordt bij
   sitebuild bijgewerkt; doel-id, koormap en notitie in bestaande rijen blijven
   staan. Onbekend doel-id: **vragen**, niet raden. Doel-id wordt
-  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/` (conversie
-  via `scripts/migrate_oefenhoek_bibliotheek.py`, nog niet in check).
+  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/`
+  (`scripts/bieb-accepteer.cmd`; historische conversie
+  `migrate_oefenhoek_bibliotheek.py`, niet in check).
 - Bibliotheek vs koormap: bibliotheek = catalogus; koormap = geordende
   verwijzingen. Uitvoeringsvorm mag in bibliotheek zonder koormap-ref.
   Root toont oefenbare items; stubs/ids via `bibliotheek/speciaal/` en

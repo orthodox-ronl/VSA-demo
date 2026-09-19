@@ -38,6 +38,9 @@ if /I "%FILTER%"=="vsa-products" goto man_vsa_products
 if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
+if /I "%FILTER%"=="bieb-accepteer" goto man_bieb_accepteer
+if /I "%FILTER%"=="bieb_accepteer" goto man_bieb_accepteer
+if /I "%FILTER%"=="bieb_accepteer.py" goto man_bieb_accepteer
 if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
 if /I "%FILTER%"=="sync_oefenhoek_index.py" goto man_oefenhoek_index
 if /I "%FILTER%"=="migrate_oefenhoek_bibliotheek" goto man_migrate_bibliotheek
@@ -65,6 +68,7 @@ call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :emit_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
+call :emit_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
@@ -75,6 +79,7 @@ echo   test_check_hugo_links_and_assets.py, test_fingerprint_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
 echo   ensure_bibliotheek_id.py, check_bibliotheek_id.py, test_bibliotheek_id_colophon.py,
 echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
+echo   bieb_accepteer.py, test_bieb_accepteer.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
 echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
@@ -96,6 +101,7 @@ call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :try_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
+call :try_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
 echo.
@@ -105,7 +111,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, bieb-accepteer, h
 echo.
 goto end_fail
 
@@ -465,6 +471,40 @@ echo   CONTENT-STRUCTURE.md
 echo.
 goto end_ok
 
+:man_bieb_accepteer
+echo.
+echo NAME
+echo   scripts\bieb-accepteer.cmd
+echo   scripts\bieb_accepteer.py
+echo.
+echo SYNOPSIS
+echo   scripts\bieb-accepteer.cmd ^<id^> ^<bestand^> [meer...] [opties]
+echo   python scripts\bieb_accepteer.py ^<id^> ^<bestand^> ...
+echo.
+echo DESCRIPTION
+echo   Neemt een hub-.mscz, .vsa of .print.mscz op in
+echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\.
+echo   Maakt ontbrekende _index.md / index.md met bieb, hernoemt naar
+echo   de publicatiestam. Weigert Capella-.capx e.d. en kale Capella-.mxl.
+echo   Bij .vsa: vsa validate (tenzij --skip-vsa-validate).
+echo   Default status: reviewable (stub: voorzien). Geen productie zonder
+echo   --force. Niet in check/build/serve.
+echo.
+echo OPTIONS
+echo   --title --status --stub --move --force --dry-run
+echo   --skip-vsa-validate --artefacten-handmatig
+echo.
+echo WHEN
+echo   Als de partituur klaar is om in de bibliotheek te staan (na opkuisen
+echo   / normaliseren of na een werkende .vsa). Daarna koormap + check.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd bibliotheek
+echo   handleiding publiceren/1-opnemen-in-bibliotheek
+echo   layouts\shortcodes\bieb.html
+echo.
+goto end_ok
+
 :man_migrate_bibliotheek
 echo.
 echo NAME
@@ -475,18 +515,20 @@ echo SYNOPSIS
 echo   python scripts\migrate_oefenhoek_bibliotheek.py
 echo.
 echo DESCRIPTION
-echo   Eenmalig: verplaatst hub-partituren van liturgiemap-hemelum naar
-echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\ en zet
-echo   koormap-slots op bieb. Niet in check/build/serve.
+echo   Eenmalig (historisch): verplaatste hub-partituren van
+echo   liturgiemap-hemelum naar oefenhoek\bibliotheek\... en zette
+echo   koormap-slots op bieb. Nieuwe stukken: scripts\bieb-accepteer.cmd.
 echo   bibliotheek.py: parse_id / folder / stem / leaf_folders / resolve_id.
 echo   In check: python scripts\bibliotheek.py weigert alias-varianten met
 echo   een uitvoeringsvorm-map; alias_van hoort op de variant-_index
 echo   (zangstuk/canonieke-variant).
 echo.
 echo WHEN
-echo   Bij de bibliotheek-conversie op deze branch (na review van SCORE_MOVES).
+echo   Alleen bij herhaalbare SCORE_MOVES-conversie; dagelijks werk via
+echo   bieb-accepteer.
 echo.
 echo SEE ALSO
+echo   scripts\h.cmd bieb-accepteer
 echo   CONTENT-STRUCTURE.md
 echo   layouts\shortcodes\bieb.html
 echo   scripts\oefenhoek-ui-contract.md

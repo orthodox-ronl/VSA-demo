@@ -23,6 +23,7 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `mscz-products` | PDF + Coria-`.mxl` uit hub-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
 | `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
 | `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
+| `bieb-accepteer` | Partituur opnemen in `oefenhoek/bibliotheek/` | `<id> <bestand> [--dry-run --force --stub]` |
 
 `cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
 op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
@@ -122,8 +123,15 @@ worden genormaliseerd.
 `bibliotheek.py` — pad/id-hulp voor `oefenhoek/bibliotheek/` (drie lagen) en
 check van alias-varianten (`alias_van` op de variant-`_index`; geen
 uitvoeringsvorm-bestanden). Draait in `check` / `build` / `serve`.
-`migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek (niet
-in check; zie CONTENT-STRUCTURE.md).
+`bieb-accepteer.cmd` (`bieb_accepteer.py`) neemt een hub-`.mscz`, `.vsa` of
+`.print.mscz` (optioneel sibling-`.pdf`/`.mxl`) op onder een bibliotheek-id:
+maakt sectie-`_index.md` en leaf-`index.md` met `bieb`, hernoemt naar de
+publicatiestam. Weigert Capella-bronformats en een kale `.mxl` zonder
+score. Bij `.vsa`: `vsa validate`. Default `publicatiestatus: reviewable`
+(`voorzien` bij `--stub`). Niet in `check`. Handleiding:
+`publiceren/1-opnemen-in-bibliotheek`. Tests: `test_bieb_accepteer.py`.
+`migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek
+(historisch; nieuwe stukken via `bieb-accepteer`; niet in check).
 `sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes
 en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). Pagina's met
 `bieb` of `automatische_inhoud: false` blijven onaangeroerd. De

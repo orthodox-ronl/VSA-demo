@@ -33,6 +33,15 @@ en vraag het na. Twee inputs naar dezelfde uitvoeringsvorm mag (Capella én VOW)
 noteer dat in de notitie. Id-lijst:
 [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
+## bieb-accepteer weigert het bestand
+
+**Symptoom:** `scripts\bieb-accepteer.cmd` eindigt met `FAIL:`.
+
+Lees de regel `Oplossing:` in het opdrachtvenster. Veelvoorkomend: verkeerd
+id, bestand bestaat al (dan `--force` alleen als je bewust overschrijft),
+`.vsa` die `vsa validate` niet haalt, of een Capella-`.mxl` zonder hub.
+Stappen: [Opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/).
+
 ## Layout of `mscz-products` “herstelt” je speciale partituur
 
 Eindigt de bestandsnaam op `.print.mscz`? Dan hoort die **niet** door

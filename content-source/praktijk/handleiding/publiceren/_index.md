@@ -19,6 +19,7 @@ compositiebladen, boom versus één blad).
 - Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)
 - Special: [voorzien / ongerefereerd / oefenbaar](/praktijk/oefenhoek/bibliotheek/speciaal/)
 
-1. [Bibliotheek en koormap](1-bladermap/)
-2. [Status en check](2-status-en-check/)
-3. [Als het misgaat](3-als-het-misgaat/)
+1. [Opnemen in de bibliotheek](1-opnemen-in-bibliotheek/) — `bieb-accepteer`
+2. [Bibliotheek en koormap](1-bladermap/) — koormap-slot met `bieb`
+3. [Status en check](2-status-en-check/)
+4. [Als het misgaat](3-als-het-misgaat/)
