@@ -63,6 +63,8 @@ publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;</description></it
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van hub-&lt;code&gt;.mscz&lt;/code&gt;/PDF&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;bieb&lt;/code&gt;&lt;/strong&gt; = shortcode die knoppen + partituur van een bibliotheek-id toont&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bieb-accepteer&lt;/strong&gt; = script dat een &lt;code&gt;.mscz&lt;/code&gt; / &lt;code&gt;.vsa&lt;/code&gt; / &lt;code&gt;.print.mscz&lt;/code&gt; in de bibliotheek zet (mappen + &lt;code&gt;index.md&lt;/code&gt;); zie &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/"&gt;Opnemen in de bibliotheek&lt;/a&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;publicatiestatus&lt;/strong&gt; = wat koorleden op de pagina zien (sticky header); intern &lt;em&gt;Stap&lt;/em&gt; in de werkvoorraad is iets anders&lt;/li&gt;
 &lt;/ul&gt;
 

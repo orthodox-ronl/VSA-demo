@@ -1,31 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publiceren on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/</link><description>Recent content in Publiceren on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/index.xml" rel="self" type="application/rss+xml"/><item><title>Bibliotheek en koormap</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-bladermap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-bladermap/</guid><description>&lt;h1 id="bibliotheek-en-koormap"&gt;Bibliotheek en koormap&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publiceren on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/</link><description>Recent content in Publiceren on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/index.xml" rel="self" type="application/rss+xml"/><item><title>Opnemen in de bibliotheek</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</guid><description>&lt;h1 id="opnemen-in-de-bibliotheek"&gt;Opnemen in de bibliotheek&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
- &lt;p&gt;Bibliotheek-map:
-&lt;code&gt;content-source\praktijk\oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;\&lt;/code&gt;
-met &lt;code&gt;index.md&lt;/code&gt; + oefenbestanden (hub/PDF/Coria/VSA of print; publicatiestam
-zonder spaties).&lt;/p&gt;
-&lt;p&gt;Slot-pagina in de koormap:
-&lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
-shortcode &lt;code&gt;bieb&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
-&lt;code&gt;automatische_inhoud: false&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Een &lt;strong&gt;alias-variant&lt;/strong&gt; (andere naam voor dezelfde variant) krijgt geen
-uitvoeringsvorm-map. Zet &lt;code&gt;alias_van&lt;/code&gt; op de variant-&lt;code&gt;_index.md&lt;/code&gt;; zie
-&lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
-.&lt;/p&gt;
-&lt;p&gt;Koormap-sectie (hoofdstuk): map met &lt;code&gt;_index.md&lt;/code&gt; — kindlijst of eigen TOC;
-zie &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
-.&lt;/p&gt;
+ &lt;ol&gt;
+&lt;li&gt;Ken het &lt;strong&gt;bibliotheek-id&lt;/strong&gt; (drie delen met schuine strepen), of vraag het na.&lt;/li&gt;
+&lt;li&gt;Zorg dat je bestand al een bruikbare &lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt;, of
+&lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt; is — niet een ruwe Capella-file.&lt;/li&gt;
+&lt;li&gt;Open het Windows-opdrachtvenster in de map &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Plak een regel zoals hieronder (pas id en pad aan) en druk Enter.&lt;/li&gt;
+&lt;li&gt;Controleer daarna met &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; een klaar oefenbestand &lt;strong&gt;opnemen&lt;/strong&gt; in de catalogus
+(de &lt;strong&gt;bibliotheek&lt;/strong&gt;), zodat de Oefenhoek het kan tonen. Het script maakt de
+mappen en de pagina-bestanden voor je; jij hoeft die niet met de hand te
+typen.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormap</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-bladermap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-bladermap/</guid><description>&lt;h1 id="bibliotheek-en-koormap"&gt;Bibliotheek en koormap&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Nieuwe partituur in de bibliotheek zetten:
+&lt;a href="../1-opnemen-in-bibliotheek/"&gt;Opnemen in de bibliotheek&lt;/a&gt;
+
+(&lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Daarna deze pagina: koormap-slot met shortcode &lt;code&gt;bieb&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; =
+bibliotheek-id), &lt;code&gt;automatische_inhoud: false&lt;/code&gt;. Geen hub-bestanden meer in
+de koormap-map.&lt;/p&gt;
 &lt;p&gt;Id-lijst: &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/"&gt;Id-register&lt;/a&gt;
 .&lt;/p&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; oefenbestanden in het &lt;strong&gt;bibliotheek&lt;/strong&gt; zetten en de
-&lt;strong&gt;koormap&lt;/strong&gt; laten verwijzen. Koorleden openen meestal de liturgiemap; de
-partituur komt uit de bibliotheek.&lt;/p&gt;</description></item><item><title>Status, check en live</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/</guid><description>&lt;h1 id="status-check-en-live"&gt;Status, check en live&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; na het opnemen van bestanden in de &lt;strong&gt;bibliotheek&lt;/strong&gt; de
+&lt;strong&gt;koormap&lt;/strong&gt; laten verwijzen, zodat koorleden de liturgiemap kunnen volgen.
+De partituur blijft in de bibliotheek; de koormap is de route.&lt;/p&gt;</description></item><item><title>Status, check en live</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/</guid><description>&lt;h1 id="status-check-en-live"&gt;Status, check en live&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;

@@ -43,11 +43,15 @@ PDF/MXL + <code>.vsa</code>;</li><li><code>20-moeder-godslied/ontslapen-moeder-g
 worden niet automatisch bijgewerkt. De bibliotheekpagina toont een gele
 beheerdersmelding. Afspraak over bestandsnamen per spoor:
 <code>scripts\oefenhoek-product-contract.md</code>.</p><h2 id=wat-je-niet-doet>Wat je niet doet</h2><ul><li>Geen <code>apply_mscz_layout.py</code> op <code>.print.mscz</code>.</li><li>Geen <code>mscz-products.cmd</code> voor dit bestand.</li><li>Geen hernoemen naar gewone <code>.mscz</code> “even snel” — dan eist <code>check</code> hub-producten.</li><li>Geen verwachting dat <code>vsa-products</code> de Coria-<code>.mxl</code> vernieuwt zolang
-<code>artefacten_handmatig: true</code> staat.</li></ul><h2 id=stap-voor-stap>Stap voor stap</h2><ol><li>Bewerk in MuseScore 4; sla op in de bibliotheek als
-<code>{stam}.print.mscz</code> (geen spaties; stam uit bibliotheek-id).</li><li>Exporteer PDF handmatig naar <code>{stam}.pdf</code> in dezelfde bibliotheek-map.
+<code>artefacten_handmatig: true</code> staat.</li></ul><h2 id=stap-voor-stap>Stap voor stap</h2><ol><li>Bewerk in MuseScore 4. Neem het bestand op met
+<a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/>bieb-accepteer</a>
+(bestandsnaam eindigend op <code>.print.mscz</code>), of sla handmatig op als
+<code>{stam}.print.mscz</code> in de bibliotheek (geen spaties; stam uit
+bibliotheek-id).</li><li>Exporteer PDF handmatig naar <code>{stam}.pdf</code> in dezelfde bibliotheek-map.
 Eventuele Coria-<code>.mxl</code> eveneens handmatig (of uit de template-render)
-ernaast zetten en bij elke bronwijziging meenemen.</li><li>Bibliotheek-<code>index.md</code> met <code>artefacten_handmatig: true</code> + koormap-slot
-met <code>bieb</code> (zie <a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
+ernaast zetten en bij elke bronwijziging meenemen.</li><li>Bibliotheek-<code>index.md</code> met <code>artefacten_handmatig: true</code> (bieb-accepteer
+zet dat automatisch bij <code>.print.mscz</code>) + koormap-slot met <code>bieb</code> (zie
+<a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
 ).</li><li><code>scripts\check.cmd --strict</code> — hub- en VSA-productgate slaan deze map over.</li></ol><h2 id=klaar-als>Klaar als</h2><p>Bibliotheek bevat <code>*.print.mscz</code> en PDF (plus eventueel handmatige <code>.mxl</code> /
 <code>.vsa</code>); <code>artefacten_handmatig: true</code> staat op de <code>index.md</code>; koormap-slot
 verwijst ernaar; check klaagt niet over ontbrekende automatische Coria voor

@@ -22,35 +22,27 @@
 </a><a class=site-jump href=https://orthodox-ronl.github.io/VSA-tooling/ title="VSA-tooling - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.5 3 7 8.5 1.5 10 7 11.5 8.5 17 10 11.5 15.5 10 10 8.5 8.5 3zm7 4L14 10.5 9.5 12 14 13.5 15.5 19 17 13.5 22.5 12 17 10.5 15.5 7z"/></svg>
 <span class=site-jump-label>VSA-tooling</span>
 </a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
-<span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=bibliotheek-en-koormap>Bibliotheek en koormap</h1><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><p>Bibliotheek-map:
+<span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=bibliotheek-en-koormap>Bibliotheek en koormap</h1><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><p>Nieuwe partituur in de bibliotheek zetten:
+<a href=../1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a>
+(<code>scripts\bieb-accepteer.cmd</code>).</p><p>Daarna deze pagina: koormap-slot met shortcode <code>bieb</code> (parameter <code>id</code> =
+bibliotheek-id), <code>automatische_inhoud: false</code>. Geen hub-bestanden meer in
+de koormap-map.</p><p>Id-lijst: <a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
+.</p></div></aside><p><strong>Wat je nu doet:</strong> na het opnemen van bestanden in de <strong>bibliotheek</strong> de
+<strong>koormap</strong> laten verwijzen, zodat koorleden de liturgiemap kunnen volgen.
+De partituur blijft in de bibliotheek; de koormap is de route.</p><p><strong>Wanneer:</strong> nadat <a href=../1-opnemen-in-bibliotheek/>opnemen in de bibliotheek</a>
+klaar is (of de leaf al bestaat). Familie met meerdere varianten op één
+liturgische plek: zie
+<a href=../../start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
+.</p><h2 id=bibliotheek-kort>Bibliotheek: kort</h2><p>Gebruik <strong>bieb-accepteer</strong> voor mappen, <code>index.md</code> en de juiste
+bestandsnamen. Handmatig kopiëren van voorbeelden is alleen nog nodig bij
+uitzonderingen. Details en voorbeelden van commando’s:
+<a href=../1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a>
+.</p><p>Pad na acceptatie:
 <code>content-source\praktijk\oefenhoek\bibliotheek\&lt;zangstuk>\&lt;variant>\&lt;uitvoeringsvorm>\</code>
-met <code>index.md</code> + oefenbestanden (hub/PDF/Coria/VSA of print; publicatiestam
-zonder spaties).</p><p>Slot-pagina in de koormap:
-<code>content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md</code> met
-shortcode <code>bieb</code> (parameter <code>id</code> = bibliotheek-id) en
-<code>automatische_inhoud: false</code>.</p><p>Een <strong>alias-variant</strong> (andere naam voor dezelfde variant) krijgt geen
+met <code>index.md</code> + oefenbestanden (publicatiestam zonder spaties).</p><p>Een <strong>alias-variant</strong> (andere naam voor dezelfde variant) krijgt geen
 uitvoeringsvorm-map. Zet <code>alias_van</code> op de variant-<code>_index.md</code>; zie
 <a href=../../start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
-.</p><p>Koormap-sectie (hoofdstuk): map met <code>_index.md</code> — kindlijst of eigen TOC;
-zie <a href=../../start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
-.</p><p>Id-lijst: <a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
-.</p></div></aside><p><strong>Wat je nu doet:</strong> oefenbestanden in het <strong>bibliotheek</strong> zetten en de
-<strong>koormap</strong> laten verwijzen. Koorleden openen meestal de liturgiemap; de
-partituur komt uit de bibliotheek.</p><p><strong>Wanneer:</strong> na partituur-producten of na een werkende <code>.vsa</code>. Familie
-(meerdere varianten op één liturgische plek): <code>_index.md</code> in bibliotheek en
-in de koormap — kopieer een bestaande structuur (antifoon, kleine intocht).</p><h2 id=stap-voor-stap-bibliotheek>Stap voor stap (bibliotheek)</h2><ol><li>Kies het <strong>bibliotheek-id</strong> (drie lagen). Onbekend? Zie
-<a href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
-of vraag na;
-niet verzinnen.</li><li>Maak de map
-<code>bibliotheek\&lt;zangstuk>\&lt;variant>\&lt;uitvoeringsvorm>\</code>.</li><li>Kopieer de oefenbestanden naar die map. Bestandsnamen = publicatiestam +
-extensie (bijv. <code>8-trisagion-8a-nederlands-hemelum.mscz</code>). Bij VSA-Coria
-hoort <code>{stam}.vsa.mxl</code> naast de <code>.vsa</code>. Als één map <strong>twee</strong> Coria- of
-PDF-bestanden van verschillende sporen nodig heeft: gebruik
-<code>{stam}.hub.mxl</code> / <code>{stam}.vsa.mxl</code> (zie
-<code>scripts\oefenhoek-product-contract.md</code>).</li><li>Maak <code>index.md</code> in de bibliotheek door een <strong>bestaand</strong> voorbeeld te
-kopiëren:</li></ol><div class=table-scroll><table><thead><tr><th>Wat je hebt</th><th>Kopieer bibliotheek-<code>index.md</code> van</th></tr></thead><tbody><tr><td>Hub + PDF + Coria</td><td><code>bibliotheek\8-trisagion\8a-nederlands\hemelum\</code></td></tr><tr><td>Alleen VSA (+ auto Coria-<code>.vsa.mxl</code>)</td><td><code>bibliotheek\2-eerste-antifoon\weekdagen-hemelum\hemelum\</code></td></tr><tr><td>Print + handmatige PDF/MXL (+ optioneel <code>.vsa</code>)</td><td><code>bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\</code> (<code>*.print.mscz</code>, <code>artefacten_handmatig: true</code>)</td></tr><tr><td>Print-vel (alleen PDF)</td><td><code>bibliotheek\7-kleine-intocht\zo-wk-mg\hemelum\</code></td></tr></tbody></table></div><p>In de bibliotheek-<code>index.md</code> horen <code>publicatiestatus</code>, <code>automatische_inhoud: false</code>, en meestal de shortcode <code>bieb</code> (zelfde id als de map).
-Bij print of template-export die jij zelf bijhoudt: ook
-<code>artefacten_handmatig: true</code>.</p><h2 id=stap-voor-stap-slot-pagina-in-de-koormap>Stap voor stap (slot-pagina in de koormap)</h2><ol><li>Open of maak de slot-pagina (bijv.
+.</p><h2 id=stap-voor-stap-slot-pagina-in-de-koormap>Stap voor stap (slot-pagina in de koormap)</h2><ol><li>Open of maak de slot-pagina (bijvoorbeeld
 <code>liturgiemap-hemelum\8-trisagion\8a-trisagion\index.md</code>).</li><li>Zorg dat alleen <strong><code>index.md</code></strong> in die slotmap staat — geen <code>.mscz</code> meer
 in de koormap.</li><li>Frontmatter: <code>automatische_inhoud: false</code>, <code>publicatiestatus</code> passend
 bij wat koorleden zien.</li><li>In de body: titel + shortcode <code>bieb</code> met jouw id (voorbeeld:
@@ -59,8 +51,12 @@ bij wat koorleden zien.</li><li>In de body: titel + shortcode <code>bieb</code> 
 zetten (elk met een eigen bibliotheek-id). Elke shortcode zet eerst de
 knoppen <strong>Oefenen</strong> / <strong>Downloaden</strong> / <strong>Printen</strong> voor die uitvoeringsvorm,
 en daarna de PDF of VSA-SVG. Zo heeft elke score op dezelfde pagina een
-eigen knoppenrij.</p><h2 id=eénmalig-migreren-bestaande-site>Eénmalig migreren (bestaande site)</h2><p>Als veel slots nog hub-bestanden in de koormap hebben:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\migrate_oefenhoek_bibliotheek.py
-</span></span></code></pre></div><p>Niet in <code>check</code>. Daarna legacy-dubbelen opruimen (zie ID-REGISTER).</p><h2 id=klaar-als>Klaar als</h2><p>Na <code>check --strict</code> toont de preview de slot-pagina met PDF/<strong>Oefenen</strong>/VSA
+eigen knoppenrij.</p><h2 id=oude-migratie-alleen-historisch>Oude migratie (alleen historisch)</h2><p>De eenmalige verhuizing van hubs uit de liturgiemap naar de bibliotheek is
+al gedaan. Nieuwe stukken gaan via
+<a href=../1-opnemen-in-bibliotheek/>opnemen in de bibliotheek</a>
+. Het oude script
+<code>migrate_oefenhoek_bibliotheek.py</code> is geen dagelijkse tool meer.</p><h2 id=klaar-als>Klaar als</h2><p>Na <code>check --strict</code> toont de preview de slot-pagina met PDF/<strong>Oefenen</strong>/VSA
 via <code>bieb</code>. De bibliotheek heeft de bestanden; de
 koormap-map heeft geen hub meer. Je weet wanneer je een sectie (boom)
-gebruikt en wanneer een compositieblad.</p><div class=nav-buttons><a class=btn href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/>Volgende: status en check</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-19</p></div></footer></body></html>
+gebruikt en wanneer een compositieblad.</p><div class=nav-buttons><a class=btn href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/>Vorige: opnemen in de bibliotheek
+</a><a class=btn href=/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/publiceren/2-status-en-check/>Volgende: status en check</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-19</p></div></footer></body></html>

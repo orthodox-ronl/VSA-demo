@@ -43,12 +43,15 @@ daarna opnieuw deze stap (of <a href=../6-afgeleiden/>Afgeleiden</a>
 <code>content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz</code>.</li><li>Die <code>.mscz</code> is na de laatste inhoudelijke edit opnieuw genormaliseerd
 (<code>apply_mscz_layout.py</code>).</li><li><strong>MuseScore 4</strong> is geïnstalleerd (het product-script roept MuseScore aan).</li><li>Dit is een <strong>hub</strong>-bestand, geen <code>*.print.mscz</code> — printvel: PDF handmatig
 (<a href=../7-print-mscz/>Print-.mscz</a>
-).</li></ol><h2 id=stap-voor-stap>Stap voor stap</h2><ol><li>Zet de <code>.mscz</code> in de bibliotheek-map als die daar nog niet staat (kopiëren
-uit <code>_werk</code>). Gebruik de <strong>publicatiestam</strong> zonder spaties:</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\
+).</li></ol><h2 id=stap-voor-stap>Stap voor stap</h2><ol><li>Zet de <code>.mscz</code> in de bibliotheek als die daar nog niet staat. Gebruik
+bij voorkeur
+<a href=../../publiceren/1-opnemen-in-bibliotheek/>opnemen in de bibliotheek</a>
+(<code>scripts\bieb-accepteer.cmd</code>), zodat map, <code>index.md</code> en bestandsnaam
+kloppen. Handmatig: kopieer uit <code>_werk</code> naar de publicatiestam zonder
+spaties:</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\
 </span></span><span style=display:flex><span>  8-trisagion-8a-nederlands-hemelum.mscz
-</span></span></code></pre></div><p>Bibliotheek-<code>index.md</code> mag nog ontbreken; <code>mscz-products</code> kijkt naar de
-<code>.mscz</code>. Koormap-slot en <code>publicatiestatus</code> volgen bij
-<a href=../../publiceren/1-bladermap/>publiceren</a>
+</span></span></code></pre></div><p>Koormap-slot en verdere publicatie: zie
+<a href=../../publiceren/1-bladermap/>Bibliotheek en koormap</a>
 .</p><ol start=2><li>Open het opdrachtvenster in <code>VSA-demo</code> en maak de producten:</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 </span></span></code></pre></div><p>Of alles onder content-source:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\mscz-products.cmd content-source
 </span></span></code></pre></div><ol start=3><li><p>In die bibliotheek-map horen naast de <code>.mscz</code> ook
