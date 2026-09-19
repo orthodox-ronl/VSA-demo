@@ -45,10 +45,14 @@ MuseScore 4; gebruik niet MuseScore 3. Open het opdrachtvenster opnieuw
 na installatie. (Voor alleen <code>.vsa</code> → Coria is MuseScore niet nodig:
 <code>vsa-products</code>.)</p><h2 id=de-pagina-is-lelijk-of-de-stijl-is-weg>De pagina is lelijk of de stijl is weg</h2><p>Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
 hub-<code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
-</span></span></code></pre></div><h2 id=coria-failed-to-retrieve-file>Coria: <code>failed to retrieve file</code></h2><p>De Oefenen-knop moet naar <code>/mxl/c/&lt;hash>.musicxml</code> wijzen (fingerprint),
-niet naar het page-bundle-<code>.mxl</code> met een verdubbelde site-prefix. Draai
-<code>check</code>/<code>build</code> opnieuw zodat <code>fingerprint_coria_mxl.py</code> en Hugo meelopen.
-<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> of <code>vsa-products</code>
+</span></span></code></pre></div><h2 id=coria-failed-to-retrieve-file>Coria: <code>failed to retrieve file</code></h2><p>Coria haalt het muziekbestand zelf vanaf internet op. De Oefenen-knop
+moet daarom naar een <strong>volledig</strong> adres wijzen:
+<code>https://orthodox-ronl.github.io/…/mxl/c/&lt;hash>.musicxml</code> (fingerprint).
+Gebruik geen pad zonder host (<code>/mxl/c/…</code>), geen <code>http://127.0.0.1:…</code>,
+en geen page-bundle-<code>.mxl</code> (Hugo zet de site-prefix dan twee keer in de URL).</p><p>Draai <code>scripts\check.cmd</code> of <code>scripts\build.cmd</code> opnieuw zodat
+<code>fingerprint_coria_mxl.py</code> en Hugo meelopen.
+<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><p>Een nieuw zangstuk dat nog niet op GitHub Pages staat, opent in Coria
+pas na een <code>git push</code> (Coria kan de lokale Hugo-server niet bereiken).</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> of <code>vsa-products</code>
 komen (of handmatig bij <code>artefacten_handmatig</code>), niet een ruwe Capella-<code>.mxl</code>.
 Maak hub-producten opnieuw ná de laatste normalisatie, of draai
 <code>scripts\vsa-products.cmd</code> voor een bibliotheek-<code>.vsa</code>. <code>check</code> heeft een
