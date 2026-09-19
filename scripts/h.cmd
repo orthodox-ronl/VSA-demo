@@ -216,6 +216,7 @@ echo   Start de Hugo-development server ^(http://127.0.0.1:18731/^).
 echo   Poort 18731, niet 1313 ^(1313 is lokaal gereserveerd^).
 echo   Standaard: pipeline ^(sync/validate/generate via _pipeline.cmd^), daarna server.
 echo   Validate zonder --strict ^(snellere preview^).
+echo   Console: stapvoortgang + samenvattingen, geen bestandslijsten.
 echo   Met --no-build: alleen Coria-fingerprints + server; vereist bestaande
 echo   generated\content ^(bijv. na check.cmd --strict^).
 echo.
@@ -412,7 +413,7 @@ echo NAME
 echo   scripts\sync_oefenhoek_index.py
 echo.
 echo SYNOPSIS
-echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg]
+echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg] [--verbose]
 echo.
 echo DESCRIPTION
 echo   Zonder flags: haalt auto-includes en score-shortcodes uit
@@ -422,7 +423,9 @@ echo   blijven. Widgets komen uit de Hugo-layout of bieb.
 echo.
 echo   --svg schrijft SVG van lokale .vsa (geen hub-.mscz; print-.mscz
 echo   mag) naar static\vsa\bladermap\ (na vsa build-markdown), ook onder
-echo   bibliotheek\.echo.
+echo   bibliotheek\.
+echo   Standaard alleen een samenvatting; --verbose toont elk pad.
+echo.
 echo WHEN
 echo   Automatisch in check/build/serve.
 echo.

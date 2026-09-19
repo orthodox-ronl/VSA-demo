@@ -66,7 +66,8 @@ klinkende toon afwijkt van de voortekening). Coria speelt via NWC-voortekening
 plus toonvoorteken, niet via MusicXML `alter`. Een map mag: recursief, `input\`
 overslaan. Uitvoernamen zonder spaties. `--sanitize-mxl` kuist bestaande
 publicatie-`.mxl` in-place (geen MuseScore), en na `vsa musicxml` ook
-`static\vsa\mxl`. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
+`static\vsa\mxl`. Standaard alleen een samenvatting; `--verbose` toont
+detail per bestand. `check_coria_mxl.py` (in `check`) weigert publicatie-`.mxl`
 met markup waar Coria `translation failed` op geeft.
 
 `patch_oefenhoek_8-trisagion.py` is een inhoudelijke patch op de twee
@@ -119,8 +120,11 @@ kinderen (`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1
 kind volgt een doorverwijzing. Catalogus-includes
 (`id:` / `lokaal:` / `bron:`) blijven. `--svg` (na `build-markdown`) zet
 lokale `.vsa` zonder hub-`.mscz` om naar `static/vsa/bladermap/` (ook onder
-`bibliotheek/`; `*.print.mscz` blokkeert SVG niet). `--dry-run` toont wat de
+`bibliotheek/`; `*.print.mscz` blokkeert SVG niet). Standaard alleen een
+samenvatting; `--verbose` toont elk SVG- of strip-pad. `--dry-run` toont wat de
 strip zou wijzigen.
+In `check` / `build` / `serve` blijft de console bij stapvoortgang +
+samenvattingen (geen bestandslijsten); detail via `--verbose` op die scripts.
 Groen voor commit: `check --strict`. Daarna `serve --no-build`.
 
 Oude namen `serve-hugo` / `build-hugo` / `bootstrap` zijn aliases (`use: ...`).

@@ -25,6 +25,7 @@ Bestandsnamen: geen spaties (`scripts/score_filenames.py`).
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz -o uit.mxl
   python scripts/export_mscz_coria_mxl.py content-source\\praktijk
   python scripts/export_mscz_coria_mxl.py --sanitize-mxl content-source\\praktijk
+  python scripts/export_mscz_coria_mxl.py --sanitize-mxl static\\vsa\\mxl --verbose
 """
 from __future__ import annotations
 
@@ -911,7 +912,7 @@ def set_senza_misura(root: ET.Element) -> None:
                 attrs.insert(0, new)
 
 
-def apply_coria_timing(root: ET.Element) -> None:
+def apply_coria_timing(root: ET.Element, *, verbose: bool = False) -> None:
     """Print-pickups weg; [PAUZE] na dubbele streep; kwart na cesuur; geen hidden rusten."""
     parts = music_parts(root)
     if not parts:
@@ -938,11 +939,13 @@ def apply_coria_timing(root: ET.Element) -> None:
                 snd = child(d, "sound")
                 if snd is not None and snd.get("tempo"):
                     n_tempo += 1
-    print(
-        f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
-        f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad} "
-        f"tempo-markers={n_tempo}"
-    )
+    if verbose:
+        print(
+            f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
+            f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad} "
+            f"tempo-markers={n_tempo}",
+            flush=True,
+        )
 
 
 def apply_melisma_extenders(root: ET.Element) -> int:
@@ -975,7 +978,9 @@ def apply_melisma_extenders(root: ET.Element) -> int:
     return n
 
 
-def explode_satb(root: ET.Element, voice_map: list[tuple[str, str]]) -> ET.Element:
+def explode_satb(
+    root: ET.Element, voice_map: list[tuple[str, str]], *, verbose: bool = False
+) -> ET.Element:
     src_part = music_parts(root)[0]
     measures = children(src_part, "measure")
     new = ET.Element(root.tag, attrib=root.attrib)
@@ -1010,30 +1015,31 @@ def explode_satb(root: ET.Element, voice_map: list[tuple[str, str]]) -> ET.Eleme
             )
         built.append(part)
     n_ly = copy_lyrics_from_soprano(built)
-    print(f"  SATB explode S/A/T/B, lyrics gekopieerd={n_ly}")
+    if verbose:
+        print(f"  SATB explode S/A/T/B, lyrics gekopieerd={n_ly}", flush=True)
     return new
 
 
-def sanitize_existing_parts(root: ET.Element) -> ET.Element:
+def sanitize_existing_parts(root: ET.Element, *, verbose: bool = False) -> ET.Element:
     """Al 4 parts: layout weg, lyrics aanvullen, MIDI als die ontbreekt."""
     strip_layout(root)
     parts = music_parts(root)
     if len(parts) == 4:
         n_ly = copy_lyrics_from_soprano(parts)
-        if n_ly:
-            print(f"  lyrics gekopieerd naar lagere parts={n_ly}")
+        if n_ly and verbose:
+            print(f"  lyrics gekopieerd naar lagere parts={n_ly}", flush=True)
     return root
 
 
-def convert_root(root: ET.Element) -> ET.Element:
+def convert_root(root: ET.Element, *, verbose: bool = False) -> ET.Element:
     parts = music_parts(root)
     if len(parts) == 1:
         voice_map = satb_voice_map(parts[0])
         if voice_map is not None:
-            new = explode_satb(root, voice_map)
+            new = explode_satb(root, voice_map, verbose=verbose)
             strip_layout(new)
             return new
-    return sanitize_existing_parts(root)
+    return sanitize_existing_parts(root, verbose=verbose)
 
 
 def summarize(root: ET.Element) -> str:
@@ -1051,21 +1057,23 @@ def summarize(root: ET.Element) -> str:
     return f"title={title!r} parts={len(music_parts(root))} {', '.join(bits)}"
 
 
-def process(mscz: Path, out: Path) -> None:
+def process(mscz: Path, out: Path, *, verbose: bool = False) -> None:
     musescore = find_musescore()
-    print(f"using {musescore}")
+    if verbose:
+        print(f"using {musescore}", flush=True)
     with tempfile.TemporaryDirectory() as tmp:
         raw_mxl = Path(tmp) / "export.mxl"
         musescore_export(mscz, raw_mxl, musescore)
         root = load_score_xml(raw_mxl)
-    root = convert_root(root)
+    root = convert_root(root, verbose=verbose)
     n_recite = expand_recite_notes(root)
-    if n_recite:
-        print(f"  recite-expand={n_recite}")
-    apply_coria_timing(root)
+    if n_recite and verbose:
+        print(f"  recite-expand={n_recite}", flush=True)
+    apply_coria_timing(root, verbose=verbose)
     n_ext = apply_melisma_extenders(root)
-    print(f"  melisma-extend={n_ext}")
-    print(f"  {summarize(root)}")
+    if verbose:
+        print(f"  melisma-extend={n_ext}", flush=True)
+        print(f"  {summarize(root)}", flush=True)
     parts = music_parts(root)
     if len(parts) >= 2:
         bad = []
@@ -1076,23 +1084,27 @@ def process(mscz: Path, out: Path) -> None:
             if len(set(durs)) > 1:
                 bad.append(f"m{mi}:{durs}")
         if bad:
-            print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}")
+            print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}", flush=True)
     sanitize_coria_importer(root)
     n_acc = apply_playback_accidentals(root)
-    print(f"  playback-accidentals={n_acc}")
+    if verbose:
+        print(f"  playback-accidentals={n_acc}", flush=True)
     write_mxl(out, root)
-    print(f"geschreven: {out}")
+    if verbose:
+        print(f"geschreven: {out}", flush=True)
 
 
-def process_existing_mxl(path: Path) -> None:
+def process_existing_mxl(path: Path, *, verbose: bool = False) -> None:
     require_no_spaces(path)
     root = load_score_xml(path)
     sanitize_coria_importer(root)
     n_acc = apply_playback_accidentals(root)
-    print(f"  playback-accidentals={n_acc}")
+    if verbose:
+        print(f"  playback-accidentals={n_acc}", flush=True)
     write_mxl(path, root)
-    print(f"  {summarize(root)}")
-    print(f"gesaneerd: {path}")
+    if verbose:
+        print(f"  {summarize(root)}", flush=True)
+        print(f"gesaneerd: {path}", flush=True)
 
 
 def coria_importer_violations(root: ET.Element) -> list[str]:
@@ -1147,6 +1159,11 @@ def main() -> int:
         action="store_true",
         help="Bestaande publicatie-.mxl in-place Coria-veilig maken (geen MuseScore)",
     )
+    p.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Toon detail per bestand (standaard alleen een samenvatting)",
+    )
     args = p.parse_args()
     if args.sanitize_mxl:
         files = expand_score_files(args.paths, ".mxl")
@@ -1157,19 +1174,21 @@ def main() -> int:
             raise SystemExit("-o niet samen met --sanitize-mxl")
         failed = 0
         for path in files:
-            print(f"== {path}", flush=True)
+            if args.verbose:
+                print(f"== {path}", flush=True)
             if not path.is_file() or path.suffix.lower() != ".mxl":
                 print(f"  overgeslagen: {path}", flush=True)
                 failed += 1
                 continue
             try:
-                process_existing_mxl(path)
+                process_existing_mxl(path, verbose=args.verbose)
             except Exception as exc:  # noqa: BLE001
-                print(f"  FAILED {exc}", flush=True)
+                print(f"  FAILED {path}: {exc}", flush=True)
                 failed += 1
         if failed:
             print(f"{failed} mislukt van {len(files)}", flush=True)
             return 1
+        print(f"Coria-sanitize: {len(files)} bestand(en)", flush=True)
         return 0
 
     # Map-scan slaat print al over; expliciete print-paden melden we apart.
@@ -1188,7 +1207,8 @@ def main() -> int:
         raise SystemExit("-o alleen bij precies een .mscz")
     failed = 0
     for path in files:
-        print(f"== {path}", flush=True)
+        if args.verbose:
+            print(f"== {path}", flush=True)
         if not path.is_file():
             print(f"  niet gevonden: {path}", flush=True)
             failed += 1
@@ -1202,13 +1222,15 @@ def main() -> int:
             out = args.output if args.output is not None else path.with_suffix(".mxl")
             out = published_path(out)
             require_no_spaces(out)
-            process(path, out)
+            process(path, out, verbose=args.verbose)
         except Exception as exc:  # noqa: BLE001
-            print(f"  FAILED {exc}", flush=True)
+            print(f"  FAILED {path}: {exc}", flush=True)
             failed += 1
     if failed:
         print(f"{failed} mislukt van {len(files)}", flush=True)
         return 1
+    if not args.verbose:
+        print(f"Coria-export: {len(files)} bestand(en)", flush=True)
     return 0
 
 

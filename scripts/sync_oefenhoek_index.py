@@ -90,7 +90,7 @@ def _iter_indexes() -> list[Path]:
     return out
 
 
-def strip_indexes(*, dry_run: bool) -> int:
+def strip_indexes(*, dry_run: bool, verbose: bool) -> int:
     changed = 0
     skipped = 0
     for path in _iter_indexes():
@@ -120,7 +120,8 @@ def strip_indexes(*, dry_run: bool) -> int:
             print(f"would strip {rel}", flush=True)
         else:
             path.write_text(new, encoding="utf-8", newline="\n")
-            print(f"stripped {rel}", flush=True)
+            if verbose:
+                print(f"stripped {rel}", flush=True)
         changed += 1
     print(
         f"oefenhoek-index: {changed} gestript, {skipped} overgeslagen",
@@ -146,7 +147,7 @@ def _render_one_vsa(src: Path, dest: Path) -> None:
     dest.write_text(svg, encoding="utf-8")
 
 
-def render_svgs() -> int:
+def render_svgs(*, verbose: bool) -> int:
     source = REPO / "content-source"
     if SVG_ROOT.exists():
         for old in SVG_ROOT.rglob("*.svg"):
@@ -171,7 +172,8 @@ def render_svgs() -> int:
             dest = SVG_ROOT / rel
             _render_one_vsa(vsa, dest)
             written += 1
-            print(f"svg {rel.as_posix()}", flush=True)
+            if verbose:
+                print(f"svg {rel.as_posix()}", flush=True)
     print(f"oefenhoek-bladermap svg: {written} bestand(en)", flush=True)
     return 0
 
@@ -186,10 +188,15 @@ def main() -> int:
         action="store_true",
         help="Schrijf SVG van lokale .vsa naar static/vsa/bladermap/",
     )
+    p.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Toon elk bestand (standaard alleen een samenvatting)",
+    )
     args = p.parse_args()
     if args.svg:
-        return render_svgs()
-    return strip_indexes(dry_run=args.dry_run)
+        return render_svgs(verbose=args.verbose)
+    return strip_indexes(dry_run=args.dry_run, verbose=args.verbose)
 
 
 if __name__ == "__main__":
