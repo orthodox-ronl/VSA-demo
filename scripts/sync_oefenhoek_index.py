@@ -137,10 +137,7 @@ def _render_one_vsa(src: Path, dest: Path) -> None:
     from vsa.svg_renderer import SVGRenderer
 
     text = src.read_text(encoding="utf-8")
-    try:
-        body, _ = prepare_vsa_body(text, src)
-    except IncludeVsaError as exc:
-        raise RuntimeError(f"{src}: {exc.message_nl}") from exc
+    body, _ = prepare_vsa_body(text, src)
     document = Parser(preserve_vsa_source_newlines(body)).parse()
     svg = SVGRenderer().render_document(document)
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -148,11 +145,16 @@ def _render_one_vsa(src: Path, dest: Path) -> None:
 
 
 def render_svgs(*, verbose: bool) -> int:
+    from _diag import format_issue
+    from vsa.errors import VSAError
+    from vsa.include_vsa import IncludeVsaError
+
     source = REPO / "content-source"
     if SVG_ROOT.exists():
         for old in SVG_ROOT.rglob("*.svg"):
             old.unlink()
     written = 0
+    errors: list[str] = []
     for folder in sorted(OEFENHOEK.rglob("*")):
         if not folder.is_dir():
             continue
@@ -170,10 +172,56 @@ def render_svgs(*, verbose: bool) -> int:
         for vsa in sorted(folder.glob("*.vsa")):
             rel = vsa.relative_to(source).with_suffix(".svg")
             dest = SVG_ROOT / rel
-            _render_one_vsa(vsa, dest)
+            try:
+                _render_one_vsa(vsa, dest)
+            except IncludeVsaError as exc:
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        exc.message_nl,
+                        line=exc.line,
+                        fix=(
+                            "controleer @include-vsa (id=, lokaal= of zoek=) "
+                            "en of het doelbestand bestaat"
+                        ),
+                    )
+                )
+                continue
+            except VSAError as exc:
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        str(exc),
+                        fix=(
+                            "corrigeer de VSA-notatie in dit bestand "
+                            "(of draai python scripts/validate_content.py)"
+                        ),
+                    )
+                )
+                continue
+            except Exception as exc:  # noqa: BLE001 — opsparen alle SVG-fouten
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        str(exc),
+                        fix=(
+                            "corrigeer dit .vsa-bestand en draai daarna "
+                            "python scripts/sync_oefenhoek_index.py --svg"
+                        ),
+                    )
+                )
+                continue
             written += 1
             if verbose:
                 print(f"svg {rel.as_posix()}", flush=True)
+    if errors:
+        for line in errors:
+            print(f"FAIL: {line}", flush=True)
+        print(
+            f"oefenhoek-bladermap svg: {written} ok, {len(errors)} fout(en)",
+            flush=True,
+        )
+        return 1
     print(f"oefenhoek-bladermap svg: {written} bestand(en)", flush=True)
     return 0
 

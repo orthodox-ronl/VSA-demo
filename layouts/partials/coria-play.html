@@ -1,6 +1,7 @@
 {{- $src := .src -}}
 {{- $src = replaceRE "^/" "" $src -}}
 {{- $label := or .label "Oefenen" -}}
+{{- $loc := partial "diag-location.html" (dict "position" .position "page" .page) -}}
 {{- $fps := dict -}}
 {{- if fileExists "data/coria-fp.json" -}}
   {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
@@ -11,11 +12,11 @@
   {{- $mapped = strings.TrimSpace . -}}
 {{- end -}}
 {{- if and $mapped (or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix $mapped ".musicxml") (strings.HasSuffix $mapped ".xml")) -}}
-  {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" $mapped) -}}
+  {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" (dict "src" $mapped "position" .position "page" .page)) -}}
   {{- if $absolute -}}
   {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
 <a class="btn coria-play" href="{{ $coria }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a>
   {{- end -}}
 {{- else if or (strings.HasSuffix $src ".mxl") (strings.HasSuffix $src ".musicxml") (strings.HasSuffix $src ".xml") -}}
-  {{- errorf "shortcode coria-play: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
+  {{- errorf "%s: geen Coria-fingerprint voor MusicXML-bestand %q. Oplossing: draai python scripts/fingerprint_coria_mxl.py (of scripts\\check.cmd), zodat data/coria-fp.json bijgewerkt wordt." $loc $src -}}
 {{- end -}}

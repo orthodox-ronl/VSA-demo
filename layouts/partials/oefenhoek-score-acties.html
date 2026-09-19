@@ -1,12 +1,13 @@
 {{- /*
   Oefenen / Downloaden / Printen voor één score-pagina (bibliotheek-uitvoeringsvorm).
   Context: dict "score" (Page met PDF/MXL), optioneel "viewer" (pagina waar de
-  shortcode staat — bepaalt knopkleur bibliotheek vs koormap).
+  shortcode staat — bepaalt knopkleur bibliotheek vs koormap), optioneel "position".
 
   Geen Bibliotheek/Koormap-knop: navigatie zit in oefenhoek-header.
 */ -}}
 {{- $score := .score -}}
 {{- $viewer := or .viewer $score -}}
+{{- $loc := partial "diag-location.html" (dict "position" .position "page" $viewer) -}}
 {{- if $score -}}
 {{- $inBibliotheek := strings.Contains $viewer.RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
 {{- $pdfItems := slice -}}
@@ -39,13 +40,13 @@
     {{- $mapped = strings.TrimSpace . -}}
   {{- end -}}
   {{- if and $mapped (or (strings.HasSuffix $mapped ".mxl") (strings.HasSuffix $mapped ".musicxml") (strings.HasSuffix $mapped ".xml")) -}}
-    {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" $mapped) -}}
+    {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" (dict "src" $mapped "position" $.position "page" $viewer)) -}}
     {{- if $absolute -}}
     {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
     {{- $oefenMenu = $oefenMenu | append (dict "href" $coria "label" .label "class" "coria-play" "target" "_blank" "rel" "noopener noreferrer") -}}
     {{- end -}}
   {{- else -}}
-    {{- errorf "shortcode oefenhoek-score-acties: geen fingerprint voor %q (sleutel %s). Draai scripts/fingerprint_coria_mxl.py in de pipeline." $src $fpKey -}}
+    {{- errorf "%s: geen Coria-fingerprint voor MusicXML-bestand %q. Oplossing: draai python scripts/fingerprint_coria_mxl.py (of scripts\\check.cmd), zodat data/coria-fp.json bijgewerkt wordt." $loc $src -}}
   {{- end -}}
 {{- end -}}
 {{- $downloadMenu := slice -}}

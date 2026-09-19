@@ -2,6 +2,12 @@
 
 Org-conventie: https://github.com/orthodox-ronl/bron/blob/main/docs/specs/repo-scripts.md
 
+Foutmeldingen (scripts + Hugo): betekenisvol voor wie het script runt; bij voorkeur
+`pad:regel:kolom`, korte uitleg en een `Oplossing:`/`Hint:`-regel; fouten opsparen
+zodat je ze in één run ziet. VSA-notatie: zie
+https://github.com/orthodox-ronl/VSA-tooling/blob/main/docs/specification/error-handling.md
+(helper: `scripts/_diag.py`).
+
 `.\scripts` op PATH; Python 3.14; Hugo Extended 0.160.1; `vsa` op PATH.
 Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 

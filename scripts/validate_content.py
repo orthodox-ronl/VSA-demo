@@ -35,13 +35,42 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _validation_context_line(
+    source: str,
+    line_number: int,
+    cache: dict[str, list[str]],
+) -> str | None:
+    if source not in cache:
+        path = Path(source)
+        if not path.is_file():
+            return None
+        cache[source] = path.read_text(encoding="utf-8").splitlines()
+
+    lines = cache[source]
+    if line_number < 1 or line_number > len(lines):
+        return None
+    return lines[line_number - 1]
+
+
 def main() -> int:
     args = parse_args()
     result = validate_path(args.path)
+    source_lines: dict[str, list[str]] = {}
 
     if result.messages:
         for message in result.messages:
-            for line in format_validation_message(message, summary=args.summary):
+            source_line = None
+            if not args.summary:
+                source_line = _validation_context_line(
+                    message.source,
+                    message.line,
+                    source_lines,
+                )
+            for line in format_validation_message(
+                message,
+                summary=args.summary,
+                source_line=source_line,
+            ):
                 print(line)
     else:
         print("OK")

@@ -6,8 +6,20 @@
   Bron: data/coria-public-base.json via readFile (bestand is gitignored; hugo.Data
   laadt het dan niet). Geschreven door fingerprint_coria_mxl.py; zelfde mapping
   als .github/workflows/pages.yml. Fallback: site.BaseURL met publieke host.
+
+  Context: string (legacy) of dict met src, optioneel position/page.
 */ -}}
-{{- $src := replaceRE "^/" "" . -}}
+{{- $src := "" -}}
+{{- $position := false -}}
+{{- $page := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $src = replaceRE "^/" "" .src -}}
+  {{- $position = .position -}}
+  {{- $page = .page -}}
+{{- else -}}
+  {{- $src = replaceRE "^/" "" . -}}
+{{- end -}}
+{{- $loc := partial "diag-location.html" (dict "position" $position "page" $page "file" "data/coria-public-base.json") -}}
 {{- $pub := "" -}}
 {{- if fileExists "data/coria-public-base.json" -}}
   {{- $cfg := transform.Unmarshal (readFile "data/coria-public-base.json") -}}
@@ -22,7 +34,7 @@
   {{- end -}}
 {{- end -}}
 {{- if or (not $pub) (not (strings.HasPrefix $pub "http")) -}}
-  {{- errorf "Coria: geen publieke https-base (kregen %q, site.BaseURL=%q). Draai python scripts/fingerprint_coria_mxl.py." $pub site.BaseURL -}}
+  {{- errorf "%s: Coria kan geen publieke https-basis bepalen (nu %q; site.BaseURL=%q). Oplossing: draai python scripts/fingerprint_coria_mxl.py zodat data/coria-public-base.json een https-URL krijgt." $loc $pub site.BaseURL -}}
 {{- else -}}
 {{- printf "%s/%s" $pub $src -}}
 {{- end -}}
