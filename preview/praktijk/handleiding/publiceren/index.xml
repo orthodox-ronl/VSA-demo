@@ -10,6 +10,10 @@ zonder spaties).&lt;/p&gt;
 &lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
 shortcode &lt;code&gt;bieb&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
 &lt;code&gt;automatische_inhoud: false&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Een &lt;strong&gt;alias-variant&lt;/strong&gt; (andere naam voor dezelfde variant) krijgt geen
+uitvoeringsvorm-map. Zet &lt;code&gt;alias_van&lt;/code&gt; op de variant-&lt;code&gt;_index.md&lt;/code&gt;; zie
+&lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
+.&lt;/p&gt;
 &lt;p&gt;Koormap-sectie (hoofdstuk): map met &lt;code&gt;_index.md&lt;/code&gt; — kindlijst of eigen TOC;
 zie &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
 .&lt;/p&gt;
