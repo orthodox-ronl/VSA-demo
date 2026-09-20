@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+import tempfile
 from pathlib import Path
 
 from export_mscz_coria_mxl import (
@@ -24,6 +25,7 @@ from export_mscz_coria_mxl import (
     process,
     write_mxl,
 )
+from apply_mscz_layout import write_mscz_with_all_pages_footer
 from hub_product_meta import (
     FIELD_HUB_SHA,
     hub_sha256,
@@ -120,7 +122,11 @@ def sync_one(
     if pdf is not None:
         print(f"  PDF  {rel} -> {pdf.name}", flush=True)
         if not dry_run:
-            musescore_export(mscz, pdf, musescore)
+            # Temp-kopie: letterlijke copyright-footer op alle pagina's ($C = alleen p.1).
+            with tempfile.TemporaryDirectory(prefix="vsa-pdf-") as td:
+                tmp = Path(td) / mscz.name
+                write_mscz_with_all_pages_footer(mscz, tmp)
+                musescore_export(tmp, pdf, musescore)
             stamp_pdf(pdf, hub_hash=hub_hash, generated_at=generated_at)
     if mxl is not None:
         print(f"  MXL  {rel} -> {mxl.name}", flush=True)

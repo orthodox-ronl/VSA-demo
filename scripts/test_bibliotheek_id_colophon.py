@@ -5,7 +5,9 @@ import unittest
 
 from apply_mscz_layout import (
     _BIB_ID_LABEL,
+    copyright_footer_overrides,
     format_copyright_notices,
+    overlay_style,
     strip_bibliotheek_id_line,
     with_bibliotheek_id_line,
 )
@@ -39,6 +41,22 @@ class BibliotheekIdColophonTests(unittest.TestCase):
     def test_empty_id_strips_only(self) -> None:
         text = "Notice\nBibliotheek-id: x/y/z"
         self.assertEqual(with_bibliotheek_id_line(text, ""), "Notice")
+
+
+class CopyrightFooterStyleTests(unittest.TestCase):
+    def test_literal_footer_replaces_dollar_C(self) -> None:
+        mss = (
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<museScore version="4.70">\n  <Style>\n'
+            "    <oddFooterC>$C</oddFooterC>\n"
+            "    <evenFooterC>$C</evenFooterC>\n"
+            "  </Style>\n</museScore>\n"
+        )
+        short = "CC BY-SA 4.0 - example - zie colofon"
+        out = overlay_style(mss, copyright_footer_overrides(short))
+        self.assertIn(f"<oddFooterC>{short}</oddFooterC>", out)
+        self.assertIn(f"<evenFooterC>{short}</evenFooterC>", out)
+        self.assertNotIn("<oddFooterC>$C</oddFooterC>", out)
 
 
 if __name__ == "__main__":

@@ -122,10 +122,14 @@ Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlin
 
 | Veld | Rol |
 | ---- | --- |
-| `metaTag copyright` | Korte footer (`$c`, alle pagina's) |
+| `metaTag copyright` | Korte footer (letterlijke tekst op alle pagina's; niet `$C`) |
 | `metaTag vsaCopyrightFull` | Volledige colofon (inclusief bibliotheek-id-regel indien van toepassing) |
 | `metaTag vsaBibliotheekId` | Canonieke `zangstuk/variant/uitvoeringsvorm` (alleen in bibliotheek-hub) |
 | VBox "Colofon" | Direct na de laatste muziekmaat; op **dezelfde pagina** als er ruimte is, anders laat MuseScore een nieuwe pagina beginnen |
+
+Bij normalisatie (`apply_mscz_layout`) en bij PDF-export (`mscz-products`) wordt de
+korte notice **letterlijk** in `oddFooterC`/`evenFooterC` gezet. MuseScore’s `$C`
+toont alleen pagina 1; daarom geen macro meer voor de korte footer.
 
 Pipeline: `ensure_bibliotheek_id.py` zet ontbrekende/verkeerde id’s in de hub
 (lokaal); `check_bibliotheek_id.py` faalt op `main` als meta of colofon

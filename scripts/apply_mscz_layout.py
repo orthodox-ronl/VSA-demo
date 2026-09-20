@@ -15,7 +15,8 @@ publicatiestam `{zangstuk}-{variant}-{uitvoeringsvorm}.mscz`
 `scripts\\mscz-products.cmd` na de editslag.
 
 Copyright: notice uit de bron, of default CC BY-SA 4.0 (deze uitgave) plus
-eredienst-kopieertoestemming. Standaard: korte footer (`$c`, alle pagina's) + colofon.
+eredienst-kopieertoestemming. Standaard: korte footer (letterlijke notice op alle
+pagina's) + colofon.
 Contract: `scripts/mscz-hub-contract.md`.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
@@ -115,16 +116,16 @@ STYLE_OVERRIDES: dict[str, str] = {
     "subTitleFontSize": "14",
     "frameFontFace": _FONT,
     "frameFontSize": "12",
-    # Copyright: $c = metaTag copyright op alle pagina's (korte footer).
-    # ($C zou alleen pagina 1 tonen.) Colofon = VBox achteraan.
+    # Copyright-footer: letterlijke notice (niet $C/$c). $C = alleen pagina 1;
+    # $c zou alle pagina's moeten doen, maar hubs bleven op $C hangen. Letterlijke
+    # tekst in odd/even footer verschijnt op elke pagina. Colofon = VBox achteraan.
+    # oddFooterC/evenFooterC worden in process_mscz gezet uit meta copyright.
     "showFooter": "1",
     "footerFirstPage": "1",
     "footerOddEven": "1",
     "oddFooterL": "",
-    "oddFooterC": "$c",
     "oddFooterR": "",
     "evenFooterL": "",
-    "evenFooterC": "$c",
     "evenFooterR": "",
     "footerFontFace": _FONT,
     "footerFontSize": "8",
@@ -279,7 +280,7 @@ def _ensure_liturgy_copy(full: str) -> str:
 
 
 def format_copyright_notices(source_notice: str) -> tuple[str, str]:
-    """(korte footer voor $c, volledige colofontekst).
+    """(korte footer-tekst, volledige colofontekst).
 
     Lege bron -> default CC BY-SA 4.0 (deze uitgave). Altijd eredienst-zin
     in het colofon. Bibliotheek-id wordt apart toegevoegd via
@@ -568,6 +569,12 @@ def _staff_plain(block: str) -> str:
     return _plain(xm.group(1)) if xm else ""
 
 
+def copyright_footer_overrides(short: str) -> dict[str, str]:
+    """Letterlijke korte notice in odd/even footer (zichtbaar op alle pagina's)."""
+    esc = _xml_text((short or "").strip())
+    return {"oddFooterC": esc, "evenFooterC": esc}
+
+
 def overlay_style(mss: str, extra: dict[str, str] | None = None) -> str:
     overrides = dict(STYLE_OVERRIDES)
     if extra:
@@ -585,7 +592,8 @@ def overlay_style(mss: str, extra: dict[str, str] | None = None) -> str:
         pat = rf"<{tag}>.*?</{tag}>"
         repl = f"<{tag}>{value}</{tag}>"
         if re.search(pat, mss, re.S):
-            mss = re.sub(pat, repl, mss, count=1, flags=re.S)
+            # lambda: $ in copyright-tekst mag geen re.sub-backref worden
+            mss = re.sub(pat, lambda _m, r=repl: r, mss, count=1, flags=re.S)
         else:
             mss = mss.replace(
                 "</Style>",
@@ -593,6 +601,40 @@ def overlay_style(mss: str, extra: dict[str, str] | None = None) -> str:
                 1,
             )
     return mss
+
+
+def write_mscz_with_all_pages_footer(src: Path, dest: Path) -> str:
+    """Kopieer .mscz naar dest met letterlijke copyright-footer op alle pagina's.
+
+    Laat de bron-hub ongemoeid (handig voor PDF-export). Returns de footertekst.
+    """
+    with zipfile.ZipFile(src, "r") as zin:
+        names = zin.namelist()
+        mscx_name = _pick_mscx_name(names)
+        mscx = zin.read(mscx_name).decode("utf-8")
+        mss = (
+            zin.read("score_style.mss").decode("utf-8")
+            if "score_style.mss" in names
+            else ""
+        )
+        others = {
+            n: zin.read(n)
+            for n in names
+            if n != mscx_name and n != "score_style.mss"
+        }
+    short = _meta(mscx, "copyright").strip()
+    if not short:
+        short = _VOW_SHORT
+    new_mss = overlay_style(mss, copyright_footer_overrides(short))
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as zout:
+        zout.writestr(mscx_name, mscx.encode("utf-8"))
+        zout.writestr("score_style.mss", new_mss.encode("utf-8"))
+        for n, data in others.items():
+            zout.writestr(n, data)
+    dest.write_bytes(buf.getvalue())
+    return short
 
 
 def _build_vbox(title: str, composer: str) -> str:
@@ -1569,8 +1611,14 @@ def process_mscz(
     if n_empty:
         mscx_notes.insert(0, f"lege notenbalken verwijderd: {n_empty}")
     notes.extend(mscx_notes)
-    new_mss = overlay_style(mss, extra_style)
+    short = _meta(new_mscx, "copyright").strip()
+    style_extra = dict(extra_style or {})
+    if short:
+        style_extra.update(copyright_footer_overrides(short))
+    new_mss = overlay_style(mss, style_extra)
     notes.append("score_style.mss overlays toegepast")
+    if short:
+        notes.append(f"footer alle pagina's (letterlijk)={short!r}")
 
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as zout:
