@@ -59,7 +59,9 @@ Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
 op `main` falen bij mismatch. Print-velden tellen niet mee in die gate.
 
 `vsa-products.cmd` (`sync_vsa_products.py`) maakt `{stam}.vsa.mxl` uit
-bibliotheek-`.vsa` (playback + Coria-sanitize + `vsa-source-sha256`). Slaat
+bibliotheek-`.vsa` (syllabify in temp-bestand, `vsa musicxml` playback,
+Coria-sanitize + `vsa-source-sha256` van de canonieke `.vsa`). Slaat
+`*.syl.vsa`-sidecars over. Slaat
 `artefacten_handmatig` over. Pipeline lokaal; `check_vsa_products.py` →
 `data/vsa-product-status.json` (banner; `main` streng). Zie
 `oefenhoek-product-contract.md`.
@@ -130,7 +132,8 @@ publicatiestam. Ontbrekende id/bestand worden interactief gevraagd; typ `?`
 voor uitleg. Weigert Capella-bronformats en een kale `.mxl` zonder score.
 Bij `.vsa`: `vsa validate`. Default `publicatiestatus: reviewable`
 (`voorzien` bij `--stub`). Niet in `check`. Handleiding:
-`publiceren/1-opnemen-in-bibliotheek`. Tests: `test_bieb_accepteer.py`.
+`publiceren/1-opnemen-in-bibliotheek`. Tests: `test_bieb_accepteer.py`,
+`test_sync_vsa_products.py`.
 `migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek
 (historisch; nieuwe stukken via `bieb-accepteer`; niet in check).
 `sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes

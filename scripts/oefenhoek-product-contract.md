@@ -20,7 +20,7 @@ Hub-transforms: [mscz-product-transforms.md](mscz-product-transforms.md).
 | representatie-id | Canonieke bron in de bladermap | Pipeline (normaal) |
 | ---------------- | ------------------------------ | ------------------ |
 | `hub` | `{stam}.mscz` (niet `.print.`) | `apply_mscz_layout` → `mscz-products` → PDF + Coria-`.mxl` + hub-hash-gate |
-| `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (`vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
+| `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (syllabify in temp → `vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
 | `print` | `{stam}.print.mscz` | Geen layout/products/Coria uit dit bestand; PDF handmatig |
 
 Ids: `[a-z0-9_-]+`. Geen ad-hoc synoniemen (“route”, “uv”) in bestandsnamen.
@@ -134,6 +134,7 @@ korte legacy-label.
 | --- | --- |
 | Commando | `scripts\vsa-products.cmd` (`sync_vsa_products.py`) |
 | Product | `{stam}.vsa.mxl` |
+| Syllabify | Alleen tijdens export (temp); canonieke `.vsa` blijft zonder Pyphen-streepjes voor SVG. Sidecar `{stam}.syl.vsa` is geen bron. |
 | Stamp | `vsa-source-sha256`, `vsa-source-kind=vsa`, `vsa-generator=vsa-musicxml` |
 | Lokaal | pipeline stap 2c vernieuwt stale producten |
 | Preview | rode banner via `data/vsa-product-status.json` |

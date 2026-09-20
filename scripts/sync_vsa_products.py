@@ -3,6 +3,9 @@
 Doelbestand: `{stam}.vsa.mxl` naast de `.vsa` (oefenhoek-product-contract).
 Slaat `oefenhoek/input/` en mappen met `artefacten_handmatig: true` over.
 
+Coria-export gebruikt een kortstondige syllabified kopie (Pyphen) zodat de
+canonieke `.vsa` zonder lettergreepstreepjes op de site-SVG blijft.
+
 Lokaal (pipeline): stale producten vernieuwen. CI: niet aanroepen vóór check
 (productie faalt bij missing/stale committed producten).
 """
@@ -11,6 +14,8 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+import tempfile
+from dataclasses import dataclass
 from pathlib import Path
 
 from bibliotheek import under_alias_variant
@@ -25,7 +30,8 @@ from hub_product_meta import (
     stamp_mxl_source,
     utc_now_iso,
 )
-from score_filenames import require_no_spaces
+from score_filenames import is_bibliotheek_vsa_source, require_no_spaces
+from vsa.syllabify import syllabify_vsa_source
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ROOT = (
@@ -68,6 +74,8 @@ def collect_vsa(root: Path) -> list[Path]:
     if not root.is_dir():
         return out
     for path in sorted(root.rglob("*.vsa")):
+        if not is_bibliotheek_vsa_source(path):
+            continue
         if "input" in path.parts:
             continue
         if folder_is_handmatig(path.parent):
@@ -77,6 +85,35 @@ def collect_vsa(root: Path) -> list[Path]:
         require_no_spaces(path)
         out.append(path)
     return out
+
+
+@dataclass
+class PlaybackVsaSource:
+    """Pad voor ``vsa musicxml``; optioneel temp-bestand om daarna te verwijderen."""
+
+    path: Path
+    _temp: Path | None = None
+
+    def cleanup(self) -> None:
+        if self._temp is not None and self._temp.is_file():
+            self._temp.unlink(missing_ok=True)
+
+
+def playback_vsa_for_export(canonical: Path) -> PlaybackVsaSource:
+    """Syllabify ongescoopte tekst voor Coria; canonieke bron blijft ongewijzigd."""
+    text = canonical.read_text(encoding="utf-8")
+    result = syllabify_vsa_source(text)
+    if not result.changed:
+        return PlaybackVsaSource(path=canonical)
+    handle, tmp_name = tempfile.mkstemp(suffix=".vsa", prefix="vsa-coria-")
+    tmp_path = Path(tmp_name)
+    try:
+        with open(handle, "w", encoding="utf-8", closefd=True) as fh:
+            fh.write(result.text)
+    except OSError:
+        tmp_path.unlink(missing_ok=True)
+        raise
+    return PlaybackVsaSource(path=tmp_path, _temp=tmp_path)
 
 
 def _stamp_ok(mxl: Path, source_hash: str) -> bool:
@@ -116,7 +153,11 @@ def sync_one(vsa: Path, mxl: Path, *, dry_run: bool) -> None:
     if dry_run:
         return
     require_no_spaces(mxl)
-    _run_vsa_musicxml(vsa, mxl)
+    playback = playback_vsa_for_export(vsa)
+    try:
+        _run_vsa_musicxml(playback.path, mxl)
+    finally:
+        playback.cleanup()
     process_existing_mxl(mxl)
     root = load_score_xml(mxl)
     stamp_mxl_source(

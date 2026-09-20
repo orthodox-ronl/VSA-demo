@@ -391,7 +391,7 @@ echo   scripts\vsa-products.cmd [pad] [--force] [--dry-run]
 echo.
 echo DESCRIPTION
 echo   Maakt sibling Coria-.vsa.mxl bij bibliotheek-.vsa
-echo   (vsa musicxml playback + sanitize + source-sha stamp).
+echo   (syllabify in temp, vsa musicxml playback, sanitize, source-sha stamp).
 echo   Slaat artefacten_handmatig over. Zonder pad: oefenhoek\bibliotheek.
 echo   Pipeline roept dit lokaal aan. check_vsa_products.py op main streng.
 echo.

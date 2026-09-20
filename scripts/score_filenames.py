@@ -16,6 +16,7 @@ from pathlib import Path
 
 _UNSAFE = re.compile(r"[^a-zA-Z0-9_-]+")
 PRINT_MSCZ_SUFFIX = ".print.mscz"
+SYLLABIFY_VSA_SUFFIX = ".syl.vsa"
 # Canonieke representatie-ids (contract). Uitbreiden alleen via contract-PR.
 KNOWN_REPRESENTATIE_IDS = frozenset({"hub", "vsa", "print"})
 
@@ -29,6 +30,17 @@ def is_print_mscz(path: Path | str) -> bool:
     """True als dit een print-vel is (scripts moeten ervan afblijven)."""
     name = path.name if isinstance(path, Path) else Path(path).name
     return name.lower().endswith(PRINT_MSCZ_SUFFIX)
+
+
+def is_syllabify_sidecar_vsa(path: Path | str) -> bool:
+    """Tussenvorm ``vsa syllabify --extension .syl.vsa``; geen canonieke bron."""
+    name = path.name if isinstance(path, Path) else Path(path).name
+    return name.lower().endswith(SYLLABIFY_VSA_SUFFIX.lower())
+
+
+def is_bibliotheek_vsa_source(path: Path) -> bool:
+    """Canonieke bibliotheek-``.vsa`` (geen syllabify-sidecar)."""
+    return path.suffix.lower() == ".vsa" and not is_syllabify_sidecar_vsa(path)
 
 
 def published_stem(name: str) -> str:

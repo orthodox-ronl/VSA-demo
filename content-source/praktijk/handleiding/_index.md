@@ -33,6 +33,7 @@ de koormap-map. Model (boom versus compositieblad):
 [Bibliotheek en koormappen](start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
+0. Welk spoor? → [Publicatietrajecten](start/publicatietrajecten/) (hub / VSA / print / site-build)
 1. Nieuw ruw bestand → [Start](start/), daarna [binnenhalen](partituur/1-binnenhalen/).
 2. Capella-`.mxl` → opkuisen → normaliseren (standaard-`.mscz`) → review in MuseScore → opnieuw normaliseren → `scripts\mscz-products.cmd`.
 3. VOW-`.mscz` → Capella-script overslaan; wel stemmen/lettergrepen checken ([opkuisen](partituur/2-opkuisen/)), daarna [standaard-.mscz](partituur/3-standaard-mscz/).

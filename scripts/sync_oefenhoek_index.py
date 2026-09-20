@@ -20,6 +20,8 @@ import argparse
 import re
 from pathlib import Path
 
+from score_filenames import is_bibliotheek_vsa_source
+
 REPO = Path(__file__).resolve().parents[1]
 OEFENHOEK = REPO / "content-source" / "praktijk" / "oefenhoek"
 SVG_ROOT = REPO / "static" / "vsa" / "bladermap"
@@ -170,6 +172,8 @@ def render_svgs(*, verbose: bool) -> int:
         if msczs:
             continue
         for vsa in sorted(folder.glob("*.vsa")):
+            if not is_bibliotheek_vsa_source(vsa):
+                continue
             rel = vsa.relative_to(source).with_suffix(".svg")
             dest = SVG_ROOT / rel
             try:
