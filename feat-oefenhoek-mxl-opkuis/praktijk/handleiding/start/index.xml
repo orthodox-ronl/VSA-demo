@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Start on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/</link><description>Recent content in Start on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/index.xml" rel="self" type="application/rss+xml"/><item><title>Wat heb je nodig</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/wat-heb-je-nodig/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/wat-heb-je-nodig/</guid><description>&lt;h1 id="wat-heb-je-nodig"&gt;Wat heb je nodig&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Start on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/</link><description>Recent content in Start on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/index.xml" rel="self" type="application/rss+xml"/><item><title>Publicatietrajecten (overzicht)</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/publicatietrajecten/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/publicatietrajecten/</guid><description>&lt;h1 id="publicatietrajecten-overzicht"&gt;Publicatietrajecten (overzicht)&lt;/h1&gt;
+&lt;p&gt;Antwoord eerst: &lt;strong&gt;elk zichtbaar product hoort bij precies één bron&lt;/strong&gt; in de
+bibliotheek. Welke bron, welk afgeleid bestand en welk script — dat staat
+hier per &lt;strong&gt;representatie-id&lt;/strong&gt; (&lt;code&gt;hub&lt;/code&gt;, &lt;code&gt;vsa&lt;/code&gt;, &lt;code&gt;print&lt;/code&gt;). Technische details:
+&lt;code&gt;scripts\oefenhoek-product-contract.md&lt;/code&gt; in de repository &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Termen: &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/woorden/"&gt;Woorden&lt;/a&gt;
+ en
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
+.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hub-partituur:&lt;/strong&gt; &lt;code&gt;{stam}.mscz&lt;/code&gt; → layout → &lt;code&gt;mscz-products&lt;/code&gt; → PDF + Coria-&lt;code&gt;.mxl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VSA:&lt;/strong&gt; &lt;code&gt;{stam}.vsa&lt;/code&gt; → SVG uit canonieke bron; Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt; via &lt;code&gt;vsa-products&lt;/code&gt; (syllabify alleen tijdens export)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Print:&lt;/strong&gt; &lt;code&gt;{stam}.print.mscz&lt;/code&gt; → handmatige PDF (geen hub-pijplijn)&lt;/li&gt;
+&lt;li&gt;Controle: &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="drie-sporen-naar-de-bibliotheek"&gt;Drie sporen naar de bibliotheek&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;representatie-id&lt;/th&gt;
+ &lt;th&gt;Canonieke bron in de bladermap&lt;/th&gt;
+ &lt;th&gt;Typische afgeleiden&lt;/th&gt;
+ &lt;th&gt;Automatische keten&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;hub&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;{stam}.mscz&lt;/code&gt; (niet &lt;code&gt;.print.&lt;/code&gt;)&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;{stam}.pdf&lt;/code&gt;, &lt;code&gt;{stam}.mxl&lt;/code&gt; (legacy) of &lt;code&gt;{stam}.hub.pdf&lt;/code&gt; / &lt;code&gt;{stam}.hub.mxl&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;apply_mscz_layout.py&lt;/code&gt; → &lt;code&gt;mscz-products&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;vsa&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;{stam}.vsa&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;SVG (site), &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt; (Coria)&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;sync_oefenhoek_index.py --svg&lt;/code&gt;, &lt;code&gt;vsa-products&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;print&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;{stam}.print.mscz&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;{stam}.print.pdf&lt;/code&gt; (handmatig)&lt;/td&gt;
+ &lt;td&gt;geen; vaak &lt;code&gt;artefacten_handmatig: true&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Meerdere producten van hetzelfde type in één map → expliciete namen met
+representatie-id (contract). Eén product per type mag nog korte namen
+(&lt;code&gt;{stam}.mxl&lt;/code&gt;, &lt;code&gt;{stam}.pdf&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Wat heb je nodig</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/wat-heb-je-nodig/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/wat-heb-je-nodig/</guid><description>&lt;h1 id="wat-heb-je-nodig"&gt;Wat heb je nodig&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -58,7 +113,8 @@ publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;</description></it
 &lt;li&gt;&lt;strong&gt;artefacten_handmatig&lt;/strong&gt; = frontmatter op bibliotheek-&lt;code&gt;index.md&lt;/code&gt;: PDF/MXL niet auto-bijwerken&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.mxl&lt;/code&gt; / &lt;code&gt;.vsa.mxl&lt;/code&gt; = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.pdf&lt;/code&gt; = A4-afgeleide om te lezen of te printen&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.vsa&lt;/code&gt; = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt;); overzicht trajecten: &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-oefenhoek-mxl-opkuis/praktijk/handleiding/start/publicatietrajecten/"&gt;Publicatietrajecten&lt;/a&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = hub-standaard met &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van hub-&lt;code&gt;.mscz&lt;/code&gt;/PDF&lt;/li&gt;
