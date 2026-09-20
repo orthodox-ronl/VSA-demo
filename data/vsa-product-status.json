@@ -26,7 +26,7 @@
       "issues": []
     },
     "praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen/hemelum": {
-      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen/hemelum/6-derde-antifoon-weekdagen-hemelum-hemelum.vsa",
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/weekdagen/hemelum/6-derde-antifoon-weekdagen-hemelum.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []

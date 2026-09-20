@@ -36,7 +36,11 @@ class TestPlaybackVsaForExport(unittest.TestCase):
     def test_unchanged_uses_canonical(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             vsa = Path(tmp) / "x.vsa"
-            vsa.write_text("---\ndo: C4\nmode: major\n---\nmar-te{la_}\n", encoding="utf-8")
+            # Al volledig gesyllabificeerd, inclusief brugstreepje voor de
+            # scope; Pyphen mag hier niets meer wijzigen.
+            vsa.write_text(
+                "---\ndo: C4\nmode: major\n---\nmar-te-{la_}\n", encoding="utf-8"
+            )
             playback = playback_vsa_for_export(vsa)
             self.assertEqual(playback.path, vsa)
             self.assertIsNone(playback._temp)
