@@ -15,7 +15,7 @@ publicatiestam `{zangstuk}-{variant}-{uitvoeringsvorm}.mscz`
 `scripts\\mscz-products.cmd` na de editslag.
 
 Copyright: notice uit de bron, of default CC BY-SA 4.0 (deze uitgave) plus
-eredienst-kopieertoestemming. Standaard: korte footer (`$C`) + colofon.
+eredienst-kopieertoestemming. Standaard: korte footer (`$c`, alle pagina's) + colofon.
 Contract: `scripts/mscz-hub-contract.md`.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
@@ -115,15 +115,16 @@ STYLE_OVERRIDES: dict[str, str] = {
     "subTitleFontSize": "14",
     "frameFontFace": _FONT,
     "frameFontSize": "12",
-    # Copyright: $C = metaTag copyright (korte footer). Colofon = VBox achteraan.
+    # Copyright: $c = metaTag copyright op alle pagina's (korte footer).
+    # ($C zou alleen pagina 1 tonen.) Colofon = VBox achteraan.
     "showFooter": "1",
     "footerFirstPage": "1",
     "footerOddEven": "1",
     "oddFooterL": "",
-    "oddFooterC": "$C",
+    "oddFooterC": "$c",
     "oddFooterR": "",
     "evenFooterL": "",
-    "evenFooterC": "$C",
+    "evenFooterC": "$c",
     "evenFooterR": "",
     "footerFontFace": _FONT,
     "footerFontSize": "8",
@@ -278,7 +279,7 @@ def _ensure_liturgy_copy(full: str) -> str:
 
 
 def format_copyright_notices(source_notice: str) -> tuple[str, str]:
-    """(korte footer voor $C, volledige colofontekst).
+    """(korte footer voor $c, volledige colofontekst).
 
     Lege bron -> default CC BY-SA 4.0 (deze uitgave). Altijd eredienst-zin
     in het colofon. Bibliotheek-id wordt apart toegevoegd via

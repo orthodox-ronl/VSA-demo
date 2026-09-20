@@ -122,7 +122,7 @@ Hyphen (`Va-der`) ≠ melisma. Default bij normalisatie: **geen** lyric-underlin
 
 | Veld | Rol |
 | ---- | --- |
-| `metaTag copyright` | Korte footer (`$C`) |
+| `metaTag copyright` | Korte footer (`$c`, alle pagina's) |
 | `metaTag vsaCopyrightFull` | Volledige colofon (inclusief bibliotheek-id-regel indien van toepassing) |
 | `metaTag vsaBibliotheekId` | Canonieke `zangstuk/variant/uitvoeringsvorm` (alleen in bibliotheek-hub) |
 | VBox "Colofon" | Direct na de laatste muziekmaat; op **dezelfde pagina** als er ruimte is, anders laat MuseScore een nieuwe pagina beginnen |
