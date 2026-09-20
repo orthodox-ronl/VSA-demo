@@ -35,18 +35,18 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    {\\Hij} zal {/het} {/ze}{\ker} {\ge}{/stand__}{\doen_}. [:]
 
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] Een koning uit uw lendenen
-   zal ik doen zetelen op uw troon. [:] Verlos ons ...
+   zal ik doen zetelen op uw troon. [:]  refrein
 
 3. [:] Daar zal Ik een hoorn oprichten voor David:
-   een licht bereiden voor Mijn Christus. [:] Verlos ons ...
+   een licht bereiden voor Mijn Christus. [:]  refrein
 
 4. [:] Want de Heer heeft Si-on uitverkoren,
-   Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:] Verlos ons ...
+   Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:]  refrein
 :::
 
 ## Derde Antifoon

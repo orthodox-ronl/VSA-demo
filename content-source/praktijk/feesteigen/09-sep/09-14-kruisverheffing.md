@@ -65,7 +65,7 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    
 <!-- Liturgikon, pp.174 -->
 4. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest},
-   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:] Door ...
+   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:]  refrein
 
 ## Tweede Antifoon (Ps.73)
 
@@ -75,22 +75,22 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    {\\Waar}om woedt {/Uw} {/toorn} o{\ver} {\Uw} {/kud__}{\de_}? [:]
 
 <!-- Middelste en laatste regel aangepast naar Hemelum's voorbeeld -->
-[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die in {/Uw} {/vlees_} ge{\krui}{/sigd} {/zijt_}, 
 {\wij} {/die} {\tot} {\U} {\zin}gen: {\Al}{/le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] {-&/Ge}{/denk} {\uw} {/Ge}{/meen__}{\te_} *
-   {\\die} Gij van den {/be}{/gin}ne {\af} {\hebt} {/vrij__}{\ge}{kocht_}. [:] Verlos ons ...
+   {\\die} Gij van den {/be}{/gin}ne {\af} {\hebt} {/vrij__}{\ge}{kocht_}. [:]  refrein
 
 3. [:] {-&/Hier} {/is} {\de} {/berg} {/Si__}{\on_}, *
-   {\\die} Gij {/U}{/zelf} als woonplaats hebt {\uit}{\ver}{/ko__}{\ren_}. [:] Verlos ons ...
+   {\\die} Gij {/U}{/zelf} als woonplaats hebt {\uit}{\ver}{/ko__}{\ren_}. [:]  refrein
 
 4. [:] God is {/van} {/eeuw}igheid {\on}{/ze} {/Ko__}{\ning_}: *
-   {\\Hij} bewerkt {/Ver}{/los}sing in het mid{\den} {\der} {/aar__}{\de_}. [:] Verlos ons ...
+   {\\Hij} bewerkt {/Ver}{/los}sing in het mid{\den} {\der} {/aar__}{\de_}. [:]  refrein
 
 <!-- Liturgikon, pp.174 -->
 5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest},
-   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:] Verlos ons ...
+   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:]  refrein
 :::
 
 **3e Ant. Ps.98**

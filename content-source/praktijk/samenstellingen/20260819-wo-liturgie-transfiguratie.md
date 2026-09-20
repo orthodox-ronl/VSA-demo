@@ -12,7 +12,7 @@ source: "Koorinstructie woensdag 19 augustus 2026 (Hemelum)"
    {\\in} {/de} {/stad} van onze God, {\op} {\Zijn} {/hei_}lige {\berg_}. [:]
 
 <!-- Liturgikon, p174 -->
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. Ps.64 [:] Gij {/grond}{/vest} de {\ber}{/gen} {/in_} {Uw_} {\kracht_}; *
@@ -40,18 +40,18 @@ source: "Koorinstructie woensdag 19 augustus 2026 (Hemelum)"
   {\\de} Heer {/be}{/mint} {\Si}{\ons} {/poor__}{\ten_}.
  
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die op {/de} {/Tha_}bor ver{\heer}{/lijkt} {/zijt_}, 
 {\wij} {/die} {\tot} {\U} {\zin}gen: {\Al}{/le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] O{/ver} {/u} zijn roemr{\ij}{/ke} {/din_}gen ge{\zegd_}; * 
-   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:] Verlos ons ...
+   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:]  refrein
 
 3. [:] E{/l}{/ke} mens zal zeggen: {\Moe}{/der} {/Si_}{\on_}, *
-   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:] Verlos ons ...
+   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:]  refrein
 
 4. [:] {-&/De} {/&\Al}{/ler}{/hoog__}{\ste_} * 
-   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:] Verlos ons ...
+   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:]  refrein
 
 <!-- Liturgikon, p174 -->
 5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_}, 
