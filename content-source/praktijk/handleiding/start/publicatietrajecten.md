@@ -11,8 +11,8 @@ bibliotheek. Welke bron, welk afgeleid bestand en welk script — dat staat
 hier per **representatie-id** (`hub`, `vsa`, `print`). Technische details:
 `scripts\oefenhoek-product-contract.md` in de repository `VSA-demo`.
 
-Termen: [Woorden](woorden/) en
-[Bibliotheek en koormappen](bibliotheek-en-koormappen/).
+Termen: [Woorden](/praktijk/handleiding/start/woorden/) en
+[Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
 - **Hub-partituur:** `{stam}.mscz` → layout → `mscz-products` → PDF + Coria-`.mxl`

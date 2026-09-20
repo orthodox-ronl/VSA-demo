@@ -34,7 +34,7 @@ doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 | SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `python scripts\sync_oefenhoek_index.py --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
 | `{stam}.vsa.mxl` naast de `.vsa` | Knop **Oefenen** (Coria) | `scripts\vsa-products.cmd` (of dezelfde `check`-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je `.vsa` te wijzigen |
 
-Volledig overzicht hub/VSA/print: [Publicatietrajecten](../start/publicatietrajecten/).
+Volledig overzicht hub/VSA/print: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
 
 `*.print.mscz` in dezelfde map blokkeert de SVG **niet** (dat is een
 printvel, geen hub). Een hub-`.mscz` wél: dan toont de pagina de PDF uit
