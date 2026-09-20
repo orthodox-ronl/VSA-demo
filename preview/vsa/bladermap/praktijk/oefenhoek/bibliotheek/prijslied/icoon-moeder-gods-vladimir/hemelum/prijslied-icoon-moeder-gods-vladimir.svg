@@ -111,6 +111,7 @@
 <line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="150.08" y1="86.43" x2="160.88" y2="81.57" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 <g class="vsa-glyph-group vsa-lower-glyphs">
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="148.88" y1="109.00" x2="162.08" y2="109.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 </g>
 <g class="vsa-unit vsa-unit-text" data-vsa-unit="7">
@@ -122,7 +123,6 @@
 <text class="vsa-text vsa-sung-text" x="8.00" y="138.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Wij</text>
 <g class="vsa-glyph-group vsa-upper-glyphs">
 <line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="18.84" y1="115.57" x2="29.63" y2="120.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="18.84" y1="111.89" x2="29.63" y2="116.75" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 <g class="vsa-glyph-group vsa-lower-glyphs">
 </g>
