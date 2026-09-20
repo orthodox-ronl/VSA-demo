@@ -101,7 +101,7 @@ en daarom {roe_}pen {/wij} tot {\U_}:
 <!-- Muziek: Horol. blz 111 -->
 [:] {-&/Wij} {/&\prij_&_}{+\zen_}, *
 {/&/wij} {/&\&\prij}{+\zen} {/u_} *
-al-{+\hei_}lige {/Maagd} *
+al-{+\hei_}lige {/Maagd_} *
 {\\Wij} {/ver}{/e}ren uw {-&\\hei}{/li}{/ge} {/&\&\&+\ou}{/ders_}, *
 en loven {/uw} {/roem_}rij{/ke} Ge{\&\boor_&_}{\te__}.
 :::
