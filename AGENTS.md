@@ -162,9 +162,18 @@ content-source  --vsa validate-->
 | Branch | Doel | URL |
 | ------ | ---- | --- |
 | `main` | Productie | https://orthodox-ronl.github.io/VSA-demo/ |
-| andere | Preview | https://orthodox-ronl.github.io/VSA-demo/preview/ |
+| `development` | Gedeelde preview | https://orthodox-ronl.github.io/VSA-demo/preview/ |
+| andere | Branch-preview | https://orthodox-ronl.github.io/VSA-demo/{slug}/ |
 
-Zelfde patroon als `bron` (`docs-pages.yml`). Deploy via reusable workflow in VSA-tooling.
+`{slug}` is de branchnaam in kleine letters, met `/` en andere niet-URL-tekens als `-`
+(bijvoorbeeld `feat/oefenhoek` → `feat-oefenhoek`). Namen die botsen met sitepaden
+(`praktijk`, `css`, …) krijgen het voorvoegsel `b-`.
+
+Elke push (behalve `gh-pages`) triggert de workflow. Productie, `preview/` en
+branch-mappen delen branch `gh-pages`.
+
+Zelfde patroon als `bron` (`docs-pages.yml`), met branch-previews erbij. Deploy via
+reusable workflow in VSA-tooling.
 
 ---
 
