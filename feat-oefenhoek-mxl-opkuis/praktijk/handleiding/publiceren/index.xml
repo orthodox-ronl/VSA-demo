@@ -7,7 +7,9 @@
 &lt;li&gt;Zorg dat je bestand al een bruikbare &lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt;, of
 &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt; is — niet een ruwe Capella-file.&lt;/li&gt;
 &lt;li&gt;Open het Windows-opdrachtvenster in de map &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Plak een regel zoals hieronder (pas id en pad aan) en druk Enter.&lt;/li&gt;
+&lt;li&gt;Typ &lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt; en Enter — het script vraagt id en
+bestand na. (Of plak een volledige regel, zie hieronder.)&lt;/li&gt;
+&lt;li&gt;Op een vraag mag je &lt;code&gt;?&lt;/code&gt; typen voor uitleg; daarna vul je alsnog in.&lt;/li&gt;
 &lt;li&gt;Controleer daarna met &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
