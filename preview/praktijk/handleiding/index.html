@@ -39,19 +39,21 @@ liturgische plekken (secties), met slot-pagina’s die via <code>bieb</code>
 naar de bibliotheek verwijzen. Partituren horen in de bibliotheek, niet in
 de koormap-map. Model (boom versus compositieblad):
 <a href=start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
-.</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><ol><li>Nieuw ruw bestand → <a href=start/>Start</a>
+.</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><ol start=0><li>Welk spoor? → <a href=start/publicatietrajecten/>Publicatietrajecten</a>
+(hub / VSA / print / site-build)</li><li>Nieuw ruw bestand → <a href=start/>Start</a>
 , daarna <a href=partituur/1-binnenhalen/>binnenhalen</a>
 .</li><li>Capella-<code>.mxl</code> → opkuisen → normaliseren (standaard-<code>.mscz</code>) → review in MuseScore → opnieuw normaliseren → <code>scripts\mscz-products.cmd</code>.</li><li>VOW-<code>.mscz</code> → Capella-script overslaan; wel stemmen/lettergrepen checken (<a href=partituur/2-opkuisen/>opkuisen</a>
 ), daarna <a href=partituur/3-standaard-mscz/>standaard-.mscz</a>
 .</li><li>Eenstemmige tekst → <a href=vsa/1-vsa-schrijven/>.vsa schrijven</a>
 (SVG + Coria-<code>.vsa.mxl</code> via <code>check</code>); tropaar toon 4 optioneel <a href=vsa/2-template-satb/>template SATB</a>
 .</li><li>Print-vel → <a href=partituur/7-print-mscz/>Print-.mscz</a>
-in de bibliotheek (<code>*.print.mscz</code> + handmatige PDF; vaak <code>artefacten_handmatig: true</code>).</li><li>Klaar voor koorleden → <a href=publiceren/1-bladermap/>bibliotheek en koormap</a>
-+ <code>publicatiestatus: reviewable</code> + <code>scripts\check.cmd --strict</code>.</li></ol></div></aside><h2 id=kies-je-pad>Kies je pad</h2><div class=table-scroll><table><thead><tr><th>Situatie</th><th>Begin hier</th></tr></thead><tbody><tr><td>Je bent nieuw als beheerder, of je hebt lang geen conversiewerk gedaan</td><td><a href=start/>Start</a>
+in de bibliotheek (<code>*.print.mscz</code> + handmatige PDF; vaak <code>artefacten_handmatig: true</code>).</li><li>Klaar voor de bibliotheek → <a href=publiceren/1-opnemen-in-bibliotheek/>opnemen in de bibliotheek</a>
+(<code>bieb-accepteer</code>), daarna <a href=publiceren/1-bladermap/>koormap</a>
++ <code>scripts\check.cmd --strict</code>.</li></ol></div></aside><h2 id=kies-je-pad>Kies je pad</h2><div class=table-scroll><table><thead><tr><th>Situatie</th><th>Begin hier</th></tr></thead><tbody><tr><td>Je bent nieuw als beheerder, of je hebt lang geen conversiewerk gedaan</td><td><a href=start/>Start</a>
 — programma’s, mappen, woorden</td></tr><tr><td>Je hebt een Capella- of CapToMusic-bestand (<code>.mxl</code>, <code>.cap</code>, <code>.capx</code>)</td><td><a href=partituur/>Partituur</a>
 — vanaf opkuisen</td></tr><tr><td>Je hebt een VOW-bestand of een andere ruwe <code>.mscz</code></td><td><a href=partituur/2-opkuisen/>Opkuisen</a>
 (stemmen/lettergrepen), daarna <a href=partituur/3-standaard-mscz/>standaard-.mscz</a></td></tr><tr><td>Je hebt alleen tekst op een bekende melodie (antifoon, communievers, …)</td><td><a href=vsa/>VSA</a>
-— eenstemmig + Coria</td></tr><tr><td>Je wilt één printvel (bijv. meerdere tekstregels) of handmatig bijgehouden PDF/MXL</td><td><a href=partituur/7-print-mscz/>Print-.mscz</a></td></tr><tr><td>De publicatiebestanden liggen al klaar en moeten op de Oefenhoek</td><td><a href=publiceren/>Publiceren</a></td></tr></tbody></table></div><h2 id=de-route-van-ruw-tot-oefenhoek>De route (van ruw tot Oefenhoek)</h2><p>Er zijn <strong>drie</strong> sporen naar de bibliotheek. Meng ze niet in één ronde voor
+— eenstemmig + Coria</td></tr><tr><td>Je wilt één printvel (bijv. meerdere tekstregels) of handmatig bijgehouden PDF/MXL</td><td><a href=partituur/7-print-mscz/>Print-.mscz</a></td></tr><tr><td>De publicatiebestanden liggen al klaar en moeten op de Oefenhoek</td><td><a href=publiceren/1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a></td></tr></tbody></table></div><h2 id=de-route-van-ruw-tot-oefenhoek>De route (van ruw tot Oefenhoek)</h2><p>Er zijn <strong>drie</strong> sporen naar de bibliotheek. Meng ze niet in één ronde voor
 hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> hubs zet.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>ruwe input  (blijft in oefenhoek/input/, niet op de publieke site)
 </span></span><span style=display:flex><span>    |
 </span></span><span style=display:flex><span>    v
@@ -65,7 +67,7 @@ hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> hubs zet.</p><d
 </span></span><span style=display:flex><span>    +-- print-vel:        naam.print.mscz -&gt; handmatige PDF (+ eventueel handmatige .mxl)
 </span></span><span style=display:flex><span>    |
 </span></span><span style=display:flex><span>    v
-</span></span><span style=display:flex><span>bibliotheek  (index.md + bestanden, publicatiestam zonder spaties)
+</span></span><span style=display:flex><span>bibliotheek  (via bieb-accepteer: index.md + bestanden, publicatiestam)
 </span></span><span style=display:flex><span>    |
 </span></span><span style=display:flex><span>    v
 </span></span><span style=display:flex><span>koormap  (sectie-_index of slot-index.md met bieb; geen catalogus/lokaal-include)
@@ -77,9 +79,11 @@ hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> hubs zet.</p><d
 <code>apply_mscz_layout.py</code>. Kort overzicht: <a href=partituur/>Partituur</a>
 . Een
 Capella-partituur, een tropaar-<code>.vsa</code> en een print-<code>.mscz</code> zijn drie
-verschillende straten.</p><p>Id-lijst: <a href=/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
+verschillende straten. Opnemen in de catalogus:
+<a href=publiceren/1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a>
+.</p><p>Id-lijst: <a href=/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
 .</p><h2 id=onderdelen>Onderdelen</h2><ol><li><a href=start/>Start</a>
 — programma’s, mappen, woorden</li><li><a href=partituur/>Partituur</a>
 — van Capella/VOW naar hub-<code>.mscz</code>, PDF en Coria; plus <a href=partituur/7-print-mscz/>print-<code>.mscz</code></a></li><li><a href=vsa/>VSA</a>
 — notatie schrijven, Coria-<code>.vsa.mxl</code>, en (voor tropaar toon 4) template SATB</li><li><a href=publiceren/>Publiceren</a>
-— bibliotheek, koormap, status, controle, als het misgaat</li></ol><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/start/>Start</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-19</p></div></footer></body></html>
+— opnemen (<code>bieb-accepteer</code>), koormap, status, controle, als het misgaat</li></ol><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/start/>Start</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-20</p></div></footer></body></html>
