@@ -10,6 +10,27 @@
 {{- $loc := partial "diag-location.html" (dict "position" .position "page" $viewer) -}}
 {{- if $score -}}
 {{- $inBibliotheek := strings.Contains $viewer.RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
+{{- $hasHubMscz := false -}}
+{{- range $score.Resources.Match "*.mscz" -}}
+  {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
+    {{- $hasHubMscz = true -}}
+  {{- end -}}
+{{- end -}}
+{{- with $score.File -}}
+  {{- $srcDir := printf "content-source/%s" (strings.TrimSuffix "/" (replace .Dir "\\" "/")) -}}
+  {{- if fileExists $srcDir -}}
+    {{- range os.ReadDir $srcDir -}}
+      {{- if and (not .IsDir) (strings.HasSuffix (lower .Name) ".mscz") (not (strings.HasSuffix (lower .Name) ".print.mscz")) -}}
+        {{- $hasHubMscz = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- /* Voorkeur: hub als de pagina een MuseScore-blad toont, anders VSA. */ -}}
+{{- $preferId := "vsa" -}}
+{{- if $hasHubMscz -}}
+  {{- $preferId = "hub" -}}
+{{- end -}}
 {{- $pdfItems := slice -}}
 {{- $coriaItems := slice -}}
 {{- $scoreDir := "" -}}
@@ -17,21 +38,22 @@
   {{- $scoreDir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}
 {{- end -}}
 {{- range $score.Resources.Match "*.pdf" -}}
-  {{- $label := partial "product-representatie-label.html" (dict "name" .Name) -}}
-  {{- $pdfItems = $pdfItems | append (dict "href" .RelPermalink "label" $label "name" .Name) -}}
+  {{- $meta := partial "product-representatie-label.html" (dict "name" .Name "score" $score) -}}
+  {{- $pdfItems = $pdfItems | append (dict "href" .RelPermalink "label" $meta.label "detail" $meta.detail "id" $meta.id "name" .Name) -}}
 {{- end -}}
 {{- range $score.Resources.Match "*.mxl" -}}
   {{- if $scoreDir -}}
     {{- $src := printf "mxl/%s/%s" $scoreDir .Name -}}
-    {{- $label := partial "product-representatie-label.html" (dict "name" .Name) -}}
-    {{- $coriaItems = $coriaItems | append (dict "src" $src "label" $label) -}}
+    {{- $meta := partial "product-representatie-label.html" (dict "name" .Name "score" $score) -}}
+    {{- $coriaItems = $coriaItems | append (dict "src" $src "label" $meta.label "detail" $meta.detail "id" $meta.id "name" .Name) -}}
   {{- end -}}
 {{- end -}}
 {{- $fps := dict -}}
 {{- if fileExists "data/coria-fp.json" -}}
   {{- $fps = transform.Unmarshal (readFile "data/coria-fp.json") -}}
 {{- end -}}
-{{- $oefenMenu := slice -}}
+{{- $oefenPreferred := slice -}}
+{{- $oefenOther := slice -}}
 {{- range $coriaItems -}}
   {{- $src := replaceRE "^/" "" .src -}}
   {{- $fpKey := replace $src "/" "__" -}}
@@ -43,21 +65,62 @@
     {{- $absolute := strings.TrimSpace (partial "coria-file-absolute-url.html" (dict "src" $mapped "position" $.position "page" $viewer)) -}}
     {{- if $absolute -}}
     {{- $coria := printf "https://coria.nl/play_from_url?back=coria.nl&url=%s" (urlquery $absolute) -}}
-    {{- $oefenMenu = $oefenMenu | append (dict "href" $coria "label" .label "class" "coria-play" "target" "_blank" "rel" "noopener noreferrer") -}}
+    {{- $item := dict "href" $coria "label" .label "detail" .detail "name" .name "class" "coria-play" "target" "_blank" "rel" "noopener noreferrer" -}}
+    {{- if eq .id $preferId -}}
+      {{- $oefenPreferred = $oefenPreferred | append $item -}}
+    {{- else -}}
+      {{- $oefenOther = $oefenOther | append $item -}}
+    {{- end -}}
     {{- end -}}
   {{- else -}}
     {{- errorf "%s: geen Coria-fingerprint voor MusicXML-bestand %q. Oplossing: draai python scripts/fingerprint_coria_mxl.py (of scripts\\check.cmd), zodat data/coria-fp.json bijgewerkt wordt." $loc $src -}}
   {{- end -}}
 {{- end -}}
-{{- $downloadMenu := slice -}}
-{{- $printMenu := slice -}}
-{{- range $pdfItems -}}
-  {{- $downloadMenu = $downloadMenu | append (dict "href" .href "label" .label "download" true) -}}
-  {{- $printMenu = $printMenu | append (dict "href" .href "label" .label "class" "pdf-sheet-print") -}}
+{{- $oefenMenu := $oefenPreferred | append $oefenOther -}}
+{{- /* Zelfde label twee keer: bestandsstam erachter zodat de keuze leesbaar blijft. */ -}}
+{{- if gt (len $oefenMenu) 1 -}}
+  {{- $counts := dict -}}
+  {{- range $oefenMenu -}}
+    {{- $k := .label -}}
+    {{- $n := 0 -}}
+    {{- with index $counts $k -}}{{- $n = . -}}{{- end -}}
+    {{- $counts = merge $counts (dict $k (add $n 1)) -}}
+  {{- end -}}
+  {{- $fixed := slice -}}
+  {{- range $oefenMenu -}}
+    {{- $label := .label -}}
+    {{- $c := 0 -}}
+    {{- with index $counts $label -}}{{- $c = . -}}{{- end -}}
+    {{- if gt $c 1 -}}
+      {{- $stem := strings.TrimSuffix (path.Ext .name) (path.Base .name) -}}
+      {{- $stem = strings.TrimSuffix ".vsa" $stem -}}
+      {{- $stem = strings.TrimSuffix ".hub" $stem -}}
+      {{- $label = printf "%s — %s" $label $stem -}}
+    {{- end -}}
+    {{- $fixed = $fixed | append (dict "href" .href "label" $label "detail" .detail "class" .class "target" .target "rel" .rel) -}}
+  {{- end -}}
+  {{- $oefenMenu = $fixed -}}
 {{- end -}}
+{{- $downloadPreferred := slice -}}
+{{- $downloadOther := slice -}}
+{{- $printPreferred := slice -}}
+{{- $printOther := slice -}}
+{{- range $pdfItems -}}
+  {{- $dl := dict "href" .href "label" .label "detail" .detail "download" true -}}
+  {{- $pr := dict "href" .href "label" .label "detail" .detail "class" "pdf-sheet-print" -}}
+  {{- if eq .id $preferId -}}
+    {{- $downloadPreferred = $downloadPreferred | append $dl -}}
+    {{- $printPreferred = $printPreferred | append $pr -}}
+  {{- else -}}
+    {{- $downloadOther = $downloadOther | append $dl -}}
+    {{- $printOther = $printOther | append $pr -}}
+  {{- end -}}
+{{- end -}}
+{{- $downloadMenu := $downloadPreferred | append $downloadOther -}}
+{{- $printMenu := $printPreferred | append $printOther -}}
 {{- $primaryPdf := "" -}}
 {{- if gt (len $pdfItems) 0 -}}
-  {{- $primaryPdf = (index $pdfItems 0).href -}}
+  {{- $primaryPdf = (index $downloadMenu 0).href -}}
 {{- end -}}
 {{- $hasOefenen := gt (len $oefenMenu) 0 -}}
 {{- $hasPdf := gt (len $downloadMenu) 0 -}}
@@ -66,10 +129,18 @@
 {{- if $inBibliotheek -}}
   {{- $wrapClass = printf "%s oefenhoek-acties--bibliotheek" $wrapClass -}}
 {{- end -}}
+{{- $oefenHint := "" -}}
+{{- if gt (len $oefenMenu) 1 -}}
+  {{- $oefenHint = "Kies de versie die past bij het blad waarmee je meezingt." -}}
+{{- end -}}
+{{- $pdfHint := "" -}}
+{{- if gt (len $downloadMenu) 1 -}}
+  {{- $pdfHint = "Kies het blad dat je wilt downloaden of printen." -}}
+{{- end -}}
 <div class="{{ $wrapClass }}"{{ with $primaryPdf }} data-pdf-src="{{ . }}"{{ end }}>
-  {{ partial "score-action-menu.html" (dict "title" "Oefenen" "items" $oefenMenu "btnClass" "btn") }}
-  {{ partial "score-action-menu.html" (dict "title" "Downloaden" "items" $downloadMenu "btnClass" "btn") }}
-  {{ partial "score-action-menu.html" (dict "title" "Printen" "items" $printMenu "btnClass" "btn") }}
+  {{ partial "score-action-menu.html" (dict "title" "Oefenen" "items" $oefenMenu "btnClass" "btn" "hint" $oefenHint) }}
+  {{ partial "score-action-menu.html" (dict "title" "Downloaden" "items" $downloadMenu "btnClass" "btn" "hint" $pdfHint) }}
+  {{ partial "score-action-menu.html" (dict "title" "Printen" "items" $printMenu "btnClass" "btn" "hint" $pdfHint) }}
 </div>
 {{- end -}}
 {{- end -}}

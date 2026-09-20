@@ -40,18 +40,18 @@ source: "Koorinstructie woensdag 19 augustus 2026 (Hemelum)"
   {\\de} Heer {/be}{/mint} {\Si}{\ons} {/poor__}{\ten_}.
  
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-REFREIN [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die op {/de} {/Tha_}bor ver{\heer}{/lijkt} {/zijt_}, 
 {\wij} {/die} {\tot} {\U} {\zin}gen: {\Al}{/le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] O{/ver} {/u} zijn roemr{\ij}{/ke} {/din_}gen ge{\zegd_}; * 
-   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:] Ver{//los} {\\ons}...
+   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:] Verlos ons ...
 
 3. [:] E{/l}{/ke} mens zal zeggen: {\Moe}{/der} {/Si_}{\on_}, *
-   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:] Ver{//los} {\\ons}...
+   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:] Verlos ons ...
 
 4. [:] {-&/De} {/&\Al}{/ler}{/hoog__}{\ste_} * 
-   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:] Ver{//los} {\\ons}...
+   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:] Verlos ons ...
 
 <!-- Liturgikon, p174 -->
 5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_}, 

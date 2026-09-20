@@ -56,6 +56,13 @@ Per aanroep, in deze volgorde:
    (`layouts/partials/oefenhoek-score-acties.html`)
 2. PDF-blad en/of VSA-SVG (`layouts/shortcodes/bieb.html`)
 
+**Oefenen** met één Coria-`.mxl`: één knop, geen menu. Met meerdere
+`.mxl`: keuzemenu met menselijke labels (`Melodie (één stem)` /
+`Koorblad (meerdere stemmen)`), detailregel, en hulpzin
+«Kies de versie die past bij het blad waarmee je meezingt.» Zelfde
+patroon voor meerdere PDF’s op Downloaden/Printen. Zie
+`scripts/oefenhoek-product-contract.md` (UI: meerdere producten).
+
 Meerdere `bieb`-shortcodes op één markdown-pagina: elke shortcode heeft
 een eigen knoppenrij + content.
 

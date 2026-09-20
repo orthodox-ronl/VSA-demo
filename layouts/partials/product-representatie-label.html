@@ -1,21 +1,77 @@
 {{/*
-  Label voor een productbestand: representatie-id uit de naam, anders "standaard".
-  Context: dict "name" (bestandsnaam). Returns string.
+  Menselijk label voor een productbestand (Oefenen / Downloaden / Printen).
+
+  Context: dict
+    "name"  — bestandsnaam
+    "score" — optioneel Page: sibling hub-.mscz / .vsa voor legacy korte namen
+
+  Returns dict:
+    "id"     — representatie-id (hub | vsa | print) of "" bij onbekend
+    "label"  — knoptekst voor koorleden
+    "detail" — korte uitleg onder het label (leeg mag)
 */}}
 {{- $name := .name | default "" -}}
+{{- $score := .score -}}
 {{- $base := path.Base $name -}}
 {{- $lower := lower $base -}}
-{{- $label := "standaard" -}}
+{{- $id := "" -}}
 {{- if strings.HasSuffix $lower ".print.mscz" -}}
-  {{- $label = "print" -}}
+  {{- $id = "print" -}}
 {{- else -}}
   {{- $stem := strings.TrimSuffix (path.Ext $base) $base -}}
-  {{- if strings.HasSuffix (lower $stem) ".hub" -}}
-    {{- $label = "hub" -}}
-  {{- else if strings.HasSuffix (lower $stem) ".vsa" -}}
-    {{- $label = "vsa" -}}
-  {{- else if strings.HasSuffix (lower $stem) ".print" -}}
-    {{- $label = "print" -}}
+  {{- $stemLower := lower $stem -}}
+  {{- if strings.HasSuffix $stemLower ".hub" -}}
+    {{- $id = "hub" -}}
+  {{- else if strings.HasSuffix $stemLower ".vsa" -}}
+    {{- $id = "vsa" -}}
+  {{- else if strings.HasSuffix $stemLower ".print" -}}
+    {{- $id = "print" -}}
   {{- end -}}
 {{- end -}}
-{{- return $label -}}
+{{- /* Legacy {stam}.mxl / {stam}.pdf: afleiden uit siblings in de bladermap. */ -}}
+{{- if and (eq $id "") $score -}}
+  {{- $hasHubMscz := false -}}
+  {{- $hasVsa := false -}}
+  {{- range $score.Resources.Match "*.mscz" -}}
+    {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
+      {{- $hasHubMscz = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $score.Resources.Match "*.vsa" -}}
+    {{- $hasVsa = true -}}
+  {{- end -}}
+  {{- with $score.File -}}
+    {{- $dir := printf "content-source/%s" (strings.TrimSuffix "/" (replace .Dir "\\" "/")) -}}
+    {{- if fileExists $dir -}}
+      {{- range os.ReadDir $dir -}}
+        {{- if not .IsDir -}}
+          {{- $n := lower .Name -}}
+          {{- if and (strings.HasSuffix $n ".mscz") (not (strings.HasSuffix $n ".print.mscz")) -}}
+            {{- $hasHubMscz = true -}}
+          {{- end -}}
+          {{- if strings.HasSuffix $n ".vsa" -}}
+            {{- $hasVsa = true -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $hasHubMscz -}}
+    {{- $id = "hub" -}}
+  {{- else if $hasVsa -}}
+    {{- $id = "vsa" -}}
+  {{- end -}}
+{{- end -}}
+{{- $label := "Blad" -}}
+{{- $detail := "" -}}
+{{- if eq $id "vsa" -}}
+  {{- $label = "Melodie (één stem)" -}}
+  {{- $detail = "Zoals de notatie op deze pagina" -}}
+{{- else if eq $id "hub" -}}
+  {{- $label = "Koorblad (meerdere stemmen)" -}}
+  {{- $detail = "Zoals het PDF-blad" -}}
+{{- else if eq $id "print" -}}
+  {{- $label = "Printblad" -}}
+  {{- $detail = "Koormap-vel om te printen" -}}
+{{- end -}}
+{{- return (dict "id" $id "label" $label "detail" $detail) -}}

@@ -2,12 +2,15 @@
   Actieknop of hover-keuzemenu.
   Context: dict
     "title"   — knoptekst (Oefenen / Downloaden / Printen)
-    "items"   — slice van dict "href", "label", optioneel "class", "attrs"
+    "items"   — slice van dict "href", "label", optioneel "detail",
+                "class", "target", "rel", "download", "extra"
     "btnClass" — extra classes op de trigger (default "btn")
+    "hint"    — optioneel: korte hulpzin boven de keuzes (alleen bij menu)
 */}}
 {{- $title := .title -}}
 {{- $items := .items | default (slice) -}}
 {{- $btnClass := or .btnClass "btn" -}}
+{{- $hint := .hint | default "" -}}
 {{- $n := len $items -}}
 {{- if eq $n 0 -}}
 {{- else if eq $n 1 -}}
@@ -18,9 +21,17 @@
 <div class="score-action-menu">
   <button type="button" class="{{ $btnClass }} score-action-menu-trigger" aria-haspopup="true" aria-expanded="false">{{ $title }}</button>
   <ul class="score-action-menu-panel" role="menu">
+    {{- with $hint -}}
+    <li class="score-action-menu-hint" role="presentation">{{ . }}</li>
+    {{- end -}}
     {{- range $items -}}
     <li role="none">
-      <a role="menuitem" class="{{ .class | default "" }}" href="{{ .href }}"{{ with .target }} target="{{ . }}"{{ end }}{{ with .rel }} rel="{{ . }}"{{ end }}{{ with .download }} download{{ end }}{{ with .extra }} {{ . | safeHTMLAttr }}{{ end }}>{{ .label }}</a>
+      <a role="menuitem" class="{{ .class | default "" }}" href="{{ .href }}"{{ with .target }} target="{{ . }}"{{ end }}{{ with .rel }} rel="{{ . }}"{{ end }}{{ with .download }} download{{ end }}{{ with .extra }} {{ . | safeHTMLAttr }}{{ end }}>
+        <span class="score-action-menu-label">{{ .label }}</span>
+        {{- with .detail -}}
+        <span class="score-action-menu-detail">{{ . }}</span>
+        {{- end -}}
+      </a>
     </li>
     {{- end -}}
   </ul>

@@ -123,8 +123,20 @@ hub-producten) slaan die mappen over. `python scripts/bibliotheek.py` (in
 
 Meerdere Coria-`.mxl` → meerdere oefenopties (hover-keuzemenu op **Oefenen**).
 Zelfde patroon voor meerdere PDF’s op **Downloaden** / **Printen**.
-Menulabels = representatie-id waar die in de bestandsnaam staat; anders een
-korte legacy-label.
+
+Menulabels zijn **mensentaal** (geen ruwe representatie-id):
+
+| representatie-id | Label | Detailregel |
+| ---------------- | ----- | ----------- |
+| `vsa` | Melodie (één stem) | Zoals de notatie op deze pagina |
+| `hub` | Koorblad (meerdere stemmen) | Zoals het PDF-blad |
+| `print` | Printblad | Koormap-vel om te printen |
+
+Legacy korte namen (`{stam}.mxl` / `{stam}.pdf`) volgen de sibling-bron
+(hub-`.mscz` → hub, anders `.vsa` → vsa). Bij meerdere opties: voorkeur
+eerst (hub als er een hub-`.mscz` is, anders vsa) en een korte hulpzin in
+het menu. Twee bestanden met hetzelfde label: bestandsstam erachter
+(noodrem; hoort niet bij een schone bladermap).
 
 ---
 
