@@ -11,9 +11,17 @@ Nieuwe partituur in de bibliotheek zetten:
 [Opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/)
 (`scripts\bieb-accepteer.cmd`).
 
-Daarna deze pagina: koormap-slot met shortcode `bieb` (parameter `id` =
-bibliotheek-id), `automatische_inhoud: false`. Geen hub-bestanden meer in
-de koormap-map.
+Slot-pagina in de koormap:
+`content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md` met
+shortcode `bieb` (parameter `id` = bibliotheek-id) en
+`automatische_inhoud: false`. Geen hub-bestanden in de koormap-map.
+
+Een **alias-variant** (andere naam voor dezelfde variant) krijgt geen
+uitvoeringsvorm-map. Zet `alias_van` op de variant-`_index.md`; zie
+[Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/).
+
+Koormap-sectie (hoofdstuk): map met `_index.md` — kindlijst of eigen TOC;
+zie [Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/).
 
 Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 {{< /cue >}}
