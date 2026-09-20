@@ -46,7 +46,7 @@ SCORE_MOVES: list[tuple[str, str]] = [
     ),
     (
         "2-eerste-antifoon/weekdagen/hemelum",
-        "2-eerste-antifoon/weekdagen-hemelum/hemelum",
+        "2-eerste-antifoon/weekdagen/hemelum",
     ),
     (
         "2-eerste-antifoon/weekdagen/liturgikon",
@@ -55,12 +55,12 @@ SCORE_MOVES: list[tuple[str, str]] = [
     ("2-eerste-antifoon/zondag", "2-eerste-antifoon/zondag/hemelum"),
     (
         "4-tweede-antifoon/weekdagen/hemelum",
-        "4-tweede-antifoon/weekdagen-hemelum/hemelum",
+        "4-tweede-antifoon/weekdagen/hemelum",
     ),
     ("4-tweede-antifoon/zondag", "4-tweede-antifoon/zondag/hemelum"),
     (
         "6-derde-antifoon/weekdagen/hemelum",
-        "6-derde-antifoon/weekdagen-hemelum/hemelum",
+        "6-derde-antifoon/weekdagen/hemelum",
     ),
     (
         "6-derde-antifoon/zondag",

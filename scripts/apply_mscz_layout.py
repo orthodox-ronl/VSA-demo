@@ -134,8 +134,10 @@ STYLE_OVERRIDES: dict[str, str] = {
 }
 
 _META_COPYRIGHT_FULL = "vsaCopyrightFull"
+_META_BIBLIOTHEEK_ID = "vsaBibliotheekId"
 _COLOPHON_TITLE = "Colofon"
 _SEE_COLOPHON = "zie colofon"
+_BIB_ID_LABEL = "Bibliotheek-id:"
 _LITURGY_COPY = (
     "Voor gebruik in de orthodoxe eredienst is kopiëren toegestaan."
 )
@@ -279,7 +281,8 @@ def format_copyright_notices(source_notice: str) -> tuple[str, str]:
     """(korte footer voor $C, volledige colofontekst).
 
     Lege bron -> default CC BY-SA 4.0 (deze uitgave). Altijd eredienst-zin
-    in het colofon.
+    in het colofon. Bibliotheek-id wordt apart toegevoegd via
+    with_bibliotheek_id_line.
     """
     raw = (source_notice or "").strip()
     if not raw:
@@ -297,12 +300,35 @@ def format_copyright_notices(source_notice: str) -> tuple[str, str]:
     return short, _ensure_liturgy_copy(raw)
 
 
+def strip_bibliotheek_id_line(text: str) -> str:
+    """Verwijder bestaande Bibliotheek-id-regels (idempotent herschrijven)."""
+    cleaned = re.sub(
+        rf"(?im)^\s*{re.escape(_BIB_ID_LABEL)}\s*.*$",
+        "",
+        text or "",
+    )
+    return re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+
+
+def with_bibliotheek_id_line(full_text: str, bibliotheek_id: str) -> str:
+    """Zet of vervang de Bibliotheek-id-regel aan het eind van de colofontekst."""
+    body = strip_bibliotheek_id_line(full_text)
+    ident = (bibliotheek_id or "").strip()
+    if not ident:
+        return body
+    line = f"{_BIB_ID_LABEL} {ident}"
+    if not body:
+        return line
+    return f"{body}\n{line}"
+
+
 def resolve_copyright_source(mscx: str, rights_hint: str = "") -> str:
     """Bronnotice voor deze representatie: full-meta, anders copyright, anders MXL-hint.
 
     Geen sibling-VOW of andere map raadplegen. Leeg = default CC BY-SA.
+    Bibliotheek-id-regels in meta tellen niet als copyrightbron.
     """
-    full = _meta(mscx, _META_COPYRIGHT_FULL).strip()
+    full = strip_bibliotheek_id_line(_meta(mscx, _META_COPYRIGHT_FULL))
     if full and not _looks_like_short_footer(full):
         return full
     cr = _meta(mscx, "copyright").strip()
@@ -420,20 +446,74 @@ def _ensure_visible_system_barlines(mscx: str) -> tuple[str, int]:
     return re.sub(r"<BarLine\b.*?</BarLine>", fix_bar, mscx, flags=re.S), n
 
 
-def apply_copyright_notices(mscx: str, rights_hint: str = "") -> tuple[str, list[str]]:
-    """Footer kort + colofon; bronnotice of default CC BY-SA + eredienst-zin."""
+def apply_copyright_notices(
+    mscx: str,
+    rights_hint: str = "",
+    bibliotheek_id: str = "",
+) -> tuple[str, list[str]]:
+    """Footer kort + colofon; bronnotice of default CC BY-SA + eredienst-zin.
+
+    bibliotheek_id: als gezet, colofonregel + meta vsaBibliotheekId.
+    """
     notes: list[str] = []
     source = resolve_copyright_source(mscx, rights_hint)
     short, full = format_copyright_notices(source)
+    ident = (bibliotheek_id or "").strip()
+    if ident:
+        full = with_bibliotheek_id_line(full, ident)
     if not source:
         notes.append("geen copyright in bron: default CC BY-SA 4.0 (deze uitgave)")
     mscx = _set_meta(mscx, "copyright", short)
     mscx = _set_meta(mscx, _META_COPYRIGHT_FULL, full)
+    if ident:
+        mscx = _set_meta(mscx, _META_BIBLIOTHEEK_ID, ident)
+        notes.append(f"bibliotheek-id in colofon/meta={ident}")
     mscx = _insert_colophon_after_staff1(mscx, full)
     notes.append(f"copyright footer={short!r}")
     notes.append("colofon na laatste maat (zelfde pagina als er ruimte is)")
     return mscx, notes
 
+
+def read_mscx_from_mscz(path: Path) -> str:
+    """Lees de score-.mscx uit een .mscz-archief."""
+    with zipfile.ZipFile(path, "r") as zin:
+        mscx_name = _pick_mscx_name(zin.namelist())
+        return zin.read(mscx_name).decode("utf-8")
+
+
+def bibliotheek_id_status(path: Path, expected: str) -> tuple[bool, str]:
+    """Of hub-meta + colofon het verwachte bibliotheek-id hebben.
+
+    Returns (ok, detail).
+    """
+    expected = (expected or "").strip()
+    if not expected:
+        return False, "geen verwacht bibliotheek-id"
+    try:
+        mscx = read_mscx_from_mscz(path)
+    except (OSError, zipfile.BadZipFile, FileNotFoundError, KeyError) as exc:
+        return False, f"kan .mscz niet lezen: {exc}"
+    got_meta = _meta(mscx, _META_BIBLIOTHEEK_ID).strip()
+    full = _meta(mscx, _META_COPYRIGHT_FULL)
+    line_re = re.compile(
+        rf"(?im)^\s*{re.escape(_BIB_ID_LABEL)}\s*{re.escape(expected)}\s*$"
+    )
+    has_line = bool(line_re.search(full)) or bool(line_re.search(mscx))
+    if not has_line:
+        # MuseScore/PDF mag tab i.p.v. spatie; accepteer ook inline.
+        loose = re.compile(
+            rf"{re.escape(_BIB_ID_LABEL)}\s*{re.escape(expected)}",
+            re.I,
+        )
+        has_line = bool(loose.search(full)) or bool(loose.search(mscx))
+    if got_meta == expected and has_line:
+        return True, "ok"
+    parts: list[str] = []
+    if got_meta != expected:
+        parts.append(f"meta={got_meta!r} (verwacht {expected!r})")
+    if not has_line:
+        parts.append("colofon mist Bibliotheek-id-regel")
+    return False, "; ".join(parts)
 
 def _has_tempo(mscx: str) -> bool:
     return bool(re.search(r"<Tempo\b", mscx))
@@ -1222,7 +1302,11 @@ def _split_undersplit_lyrics(mscx: str) -> tuple[str, int]:
     return out, splits
 
 
-def apply_mscx(mscx: str, rights_hint: str = "") -> tuple[str, list[str]]:
+def apply_mscx(
+    mscx: str,
+    rights_hint: str = "",
+    bibliotheek_id: str = "",
+) -> tuple[str, list[str]]:
     notes: list[str] = []
     vbox_m = VBOX_RE.search(mscx)
     fields = _vbox_fields(vbox_m.group(0)) if vbox_m else {}
@@ -1296,7 +1380,9 @@ def apply_mscx(mscx: str, rights_hint: str = "") -> tuple[str, list[str]]:
     mscx, tnotes = ensure_tempo(mscx)
     notes.extend(tnotes)
 
-    mscx, cnotes = apply_copyright_notices(mscx, rights_hint=rights_hint)
+    mscx, cnotes = apply_copyright_notices(
+        mscx, rights_hint=rights_hint, bibliotheek_id=bibliotheek_id
+    )
     notes.extend(cnotes)
 
     mscx = _set_meta(mscx, "vsaHubContract", _CONTRACT_VERSION)
@@ -1451,6 +1537,7 @@ def process_mscz(
     extra_style: dict[str, str] | None = None,
     no_extenders: bool = False,
     rights_hint: str = "",
+    bibliotheek_id: str = "",
 ) -> list[str]:
     notes: list[str] = []
     with zipfile.ZipFile(path, "r") as zin:
@@ -1470,7 +1557,10 @@ def process_mscz(
     mscx, n_empty = _strip_empty_staves(mscx)
     mscx, n_split = _split_undersplit_lyrics(mscx)
     mscx, n_syll = _ensure_note_per_syllable(mscx)
-    new_mscx, mscx_notes = apply_mscx(mscx, rights_hint=rights_hint)
+    ident = (bibliotheek_id or "").strip() or (id_from_path(path) or "")
+    new_mscx, mscx_notes = apply_mscx(
+        mscx, rights_hint=rights_hint, bibliotheek_id=ident
+    )
     if n_syll:
         mscx_notes.insert(0, f"noten per lettergreep geknipt: {n_syll}")
     if n_split:
@@ -1504,6 +1594,13 @@ def main() -> int:
         "--no-extenders",
         action="store_true",
         help="Geen lyric-underlines (ticks); zet meta vsaNoLyricExtenders",
+    )
+    p.add_argument(
+        "--id",
+        dest="bibliotheek_id",
+        default="",
+        help="Bibliotheek-id (zangstuk/variant/uitvoeringsvorm); "
+        "default: afleiden uit pad onder bibliotheek/",
     )
     args = p.parse_args()
     src = args.mscz
@@ -1545,7 +1642,7 @@ def main() -> int:
         raise SystemExit("verwacht een .mscz of .mxl")
     if " " in src.name and suffix == ".mscz" and args.output is None:
         raise SystemExit(f"bestandsnaam mag geen spaties hebben: {src.name}")
-    ident = id_from_path(path)
+    ident = (args.bibliotheek_id or "").strip() or (id_from_path(path) or "")
     if ident:
         expected = f"{bibliotheek_stem(ident)}.mscz"
         if path.name != expected:
@@ -1554,7 +1651,12 @@ def main() -> int:
                 f"{expected}, kreeg {path.name}",
                 flush=True,
             )
-    notes = process_mscz(path, no_extenders=args.no_extenders, rights_hint=rights_hint)
+    notes = process_mscz(
+        path,
+        no_extenders=args.no_extenders,
+        rights_hint=rights_hint,
+        bibliotheek_id=ident,
+    )
     if ident:
         notes.append(f"bibliotheek-id={ident}")
     print(f"ok {path}")

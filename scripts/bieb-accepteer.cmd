@@ -1,0 +1,33 @@
+@echo off
+setlocal EnableExtensions
+cd /d %~dp0\..
+
+REM Neem .mscz / .vsa / .print.mscz op in oefenhoek\bibliotheek.
+REM Ontbrekende id/bestand: Python vraagt interactief; typ ? voor uitleg.
+REM Zie scripts\h.cmd bieb-accepteer
+
+if /I "%~1"=="-h" goto usage
+if /I "%~1"=="--help" goto usage
+
+python scripts\bieb_accepteer.py %*
+exit /b %ERRORLEVEL%
+
+:usage
+echo.
+echo Gebruik: scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
+echo.
+echo   Zonder id of bestand vraagt het script die na (typbaar).
+echo   Typ ? op een vraag voor meer uitleg, daarna opnieuw invullen.
+echo.
+echo   id = zangstuk/variant/uitvoeringsvorm
+echo   bestand = .mscz, .vsa, .print.mscz (optioneel .pdf / .mxl ernaast)
+echo   stub = typ "stub" i.p.v. een pad voor een lege leaf
+echo.
+echo Opties: --title --status --stub --move --force --dry-run
+echo         --skip-vsa-validate --artefacten-handmatig
+echo.
+echo Detail: scripts\h.cmd bieb-accepteer
+echo Handleiding: content-source\praktijk\handleiding\publiceren\1-opnemen-in-bibliotheek.md
+echo.
+endlocal
+exit /b 0

@@ -12,12 +12,15 @@
   python scripts/sync_oefenhoek_index.py
   python scripts/sync_oefenhoek_index.py --dry-run
   python scripts/sync_oefenhoek_index.py --svg
+  python scripts/sync_oefenhoek_index.py --svg --verbose
 """
 from __future__ import annotations
 
 import argparse
 import re
 from pathlib import Path
+
+from score_filenames import is_bibliotheek_vsa_source
 
 REPO = Path(__file__).resolve().parents[1]
 OEFENHOEK = REPO / "content-source" / "praktijk" / "oefenhoek"
@@ -89,7 +92,7 @@ def _iter_indexes() -> list[Path]:
     return out
 
 
-def strip_indexes(*, dry_run: bool) -> int:
+def strip_indexes(*, dry_run: bool, verbose: bool) -> int:
     changed = 0
     skipped = 0
     for path in _iter_indexes():
@@ -119,7 +122,8 @@ def strip_indexes(*, dry_run: bool) -> int:
             print(f"would strip {rel}", flush=True)
         else:
             path.write_text(new, encoding="utf-8", newline="\n")
-            print(f"stripped {rel}", flush=True)
+            if verbose:
+                print(f"stripped {rel}", flush=True)
         changed += 1
     print(
         f"oefenhoek-index: {changed} gestript, {skipped} overgeslagen",
@@ -135,22 +139,24 @@ def _render_one_vsa(src: Path, dest: Path) -> None:
     from vsa.svg_renderer import SVGRenderer
 
     text = src.read_text(encoding="utf-8")
-    try:
-        body, _ = prepare_vsa_body(text, src)
-    except IncludeVsaError as exc:
-        raise RuntimeError(f"{src}: {exc.message_nl}") from exc
+    body, _ = prepare_vsa_body(text, src)
     document = Parser(preserve_vsa_source_newlines(body)).parse()
     svg = SVGRenderer().render_document(document)
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(svg, encoding="utf-8")
 
 
-def render_svgs() -> int:
+def render_svgs(*, verbose: bool) -> int:
+    from _diag import format_issue
+    from vsa.errors import VSAError
+    from vsa.include_vsa import IncludeVsaError
+
     source = REPO / "content-source"
     if SVG_ROOT.exists():
         for old in SVG_ROOT.rglob("*.svg"):
             old.unlink()
     written = 0
+    errors: list[str] = []
     for folder in sorted(OEFENHOEK.rglob("*")):
         if not folder.is_dir():
             continue
@@ -166,11 +172,60 @@ def render_svgs() -> int:
         if msczs:
             continue
         for vsa in sorted(folder.glob("*.vsa")):
+            if not is_bibliotheek_vsa_source(vsa):
+                continue
             rel = vsa.relative_to(source).with_suffix(".svg")
             dest = SVG_ROOT / rel
-            _render_one_vsa(vsa, dest)
+            try:
+                _render_one_vsa(vsa, dest)
+            except IncludeVsaError as exc:
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        exc.message_nl,
+                        line=exc.line,
+                        fix=(
+                            "controleer @include-vsa (id=, lokaal= of zoek=) "
+                            "en of het doelbestand bestaat"
+                        ),
+                    )
+                )
+                continue
+            except VSAError as exc:
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        str(exc),
+                        fix=(
+                            "corrigeer de VSA-notatie in dit bestand "
+                            "(of draai python scripts/validate_content.py)"
+                        ),
+                    )
+                )
+                continue
+            except Exception as exc:  # noqa: BLE001 — opsparen alle SVG-fouten
+                errors.append(
+                    format_issue(
+                        vsa.relative_to(REPO).as_posix(),
+                        str(exc),
+                        fix=(
+                            "corrigeer dit .vsa-bestand en draai daarna "
+                            "python scripts/sync_oefenhoek_index.py --svg"
+                        ),
+                    )
+                )
+                continue
             written += 1
-            print(f"svg {rel.as_posix()}", flush=True)
+            if verbose:
+                print(f"svg {rel.as_posix()}", flush=True)
+    if errors:
+        for line in errors:
+            print(f"FAIL: {line}", flush=True)
+        print(
+            f"oefenhoek-bladermap svg: {written} ok, {len(errors)} fout(en)",
+            flush=True,
+        )
+        return 1
     print(f"oefenhoek-bladermap svg: {written} bestand(en)", flush=True)
     return 0
 
@@ -185,10 +240,15 @@ def main() -> int:
         action="store_true",
         help="Schrijf SVG van lokale .vsa naar static/vsa/bladermap/",
     )
+    p.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Toon elk bestand (standaard alleen een samenvatting)",
+    )
     args = p.parse_args()
     if args.svg:
-        return render_svgs()
-    return strip_indexes(dry_run=args.dry_run)
+        return render_svgs(verbose=args.verbose)
+    return strip_indexes(dry_run=args.dry_run, verbose=args.verbose)
 
 
 if __name__ == "__main__":

@@ -33,6 +33,15 @@ en vraag het na. Twee inputs naar dezelfde uitvoeringsvorm mag (Capella én VOW)
 noteer dat in de notitie. Id-lijst:
 [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
+## bieb-accepteer weigert het bestand
+
+**Symptoom:** `scripts\bieb-accepteer.cmd` eindigt met `FAIL:`.
+
+Lees de regel `Oplossing:` in het opdrachtvenster. Veelvoorkomend: verkeerd
+id, bestand bestaat al (dan `--force` alleen als je bewust overschrijft),
+`.vsa` die `vsa validate` niet haalt, of een Capella-`.mxl` zonder hub.
+Stappen: [Opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/).
+
 ## Layout of `mscz-products` “herstelt” je speciale partituur
 
 Eindigt de bestandsnaam op `.print.mscz`? Dan hoort die **niet** door
@@ -60,10 +69,18 @@ python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 
 ## Coria: `failed to retrieve file`
 
-De Oefenen-knop moet naar `/mxl/c/<hash>.musicxml` wijzen (fingerprint),
-niet naar het page-bundle-`.mxl` met een verdubbelde site-prefix. Draai
-`check`/`build` opnieuw zodat `fingerprint_coria_mxl.py` en Hugo meelopen.
+Coria haalt het muziekbestand zelf vanaf internet op. De Oefenen-knop
+moet daarom naar een **volledig** adres wijzen:
+`https://orthodox-ronl.github.io/…/mxl/c/<hash>.musicxml` (fingerprint).
+Gebruik geen pad zonder host (`/mxl/c/…`), geen `http://127.0.0.1:…`,
+en geen page-bundle-`.mxl` (Hugo zet de site-prefix dan twee keer in de URL).
+
+Draai `scripts\check.cmd` of `scripts\build.cmd` opnieuw zodat
+`fingerprint_coria_mxl.py` en Hugo meelopen.
 `check_hugo_links_and_assets.py` faalt op kapotte Coria-URL's.
+
+Een nieuw zangstuk dat nog niet op GitHub Pages staat, opent in Coria
+pas na een `git push` (Coria kan de lokale Hugo-server niet bereiken).
 
 ## Coria: `translation failed` of check weigert de `.mxl`
 

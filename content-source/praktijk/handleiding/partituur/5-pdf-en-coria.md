@@ -52,17 +52,20 @@ daarna opnieuw deze stap (of [Afgeleiden](../6-afgeleiden/)).
 
 ## Stap voor stap
 
-1. Zet de `.mscz` in de bibliotheek-map als die daar nog niet staat (kopiëren
-   uit `_werk`). Gebruik de **publicatiestam** zonder spaties:
+1. Zet de `.mscz` in de bibliotheek als die daar nog niet staat. Gebruik
+   bij voorkeur
+   [opnemen in de bibliotheek](../../publiceren/1-opnemen-in-bibliotheek/)
+   (`scripts\bieb-accepteer.cmd`), zodat map, `index.md` en bestandsnaam
+   kloppen. Handmatig: kopieer uit `_werk` naar de publicatiestam zonder
+   spaties:
 
 ```text
 content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\
   8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
-   Bibliotheek-`index.md` mag nog ontbreken; `mscz-products` kijkt naar de
-   `.mscz`. Koormap-slot en `publicatiestatus` volgen bij
-   [publiceren](../../publiceren/1-bladermap/).
+   Koormap-slot en verdere publicatie: zie
+   [Bibliotheek en koormap](../../publiceren/1-bladermap/).
 
 2. Open het opdrachtvenster in `VSA-demo` en maak de producten:
 

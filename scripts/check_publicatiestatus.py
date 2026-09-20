@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from _diag import format_issue, frontmatter_key_line
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OEFENHOEK = REPO_ROOT / "content-source" / "praktijk" / "oefenhoek"
 VALID = frozenset({"voorzien", "concept", "reviewable", "productie"})
@@ -27,7 +29,14 @@ def _fm_value(text: str, key: str) -> str | None:
 
 def main() -> int:
     if not OEFENHOEK.is_dir():
-        print("FAIL: oefenhoek ontbreekt.", flush=True)
+        print(
+            format_issue(
+                "content-source/praktijk/oefenhoek",
+                "Oefenhoek-map ontbreekt",
+                fix="controleer of content-source/praktijk/oefenhoek bestaat",
+            ),
+            flush=True,
+        )
         return 1
     errors: list[str] = []
     checked = 0
@@ -40,15 +49,49 @@ def main() -> int:
         rel = path.relative_to(REPO_ROOT).as_posix()
         text = path.read_text(encoding="utf-8")
         status = _fm_value(text, "publicatiestatus")
+        status_line = frontmatter_key_line(text, "publicatiestatus")
         if not status:
-            errors.append(f"{rel}: publicatiestatus ontbreekt")
+            errors.append(
+                format_issue(
+                    rel,
+                    "publicatiestatus ontbreekt in de frontmatter",
+                    fix=(
+                        "zet publicatiestatus op voorzien, concept, "
+                        "reviewable of productie"
+                    ),
+                )
+            )
         elif status not in VALID:
-            errors.append(f"{rel}: onbekende publicatiestatus {status!r}")
+            errors.append(
+                format_issue(
+                    rel,
+                    f"onbekende publicatiestatus {status!r}",
+                    line=status_line,
+                    fix=(
+                        "gebruik precies: voorzien, concept, "
+                        "reviewable of productie"
+                    ),
+                )
+            )
         auto = (_fm_value(text, "automatische_inhoud") or "").lower()
+        auto_line = frontmatter_key_line(text, "automatische_inhoud")
         if not auto:
-            errors.append(f"{rel}: automatische_inhoud ontbreekt")
+            errors.append(
+                format_issue(
+                    rel,
+                    "automatische_inhoud ontbreekt in de frontmatter",
+                    fix="zet automatische_inhoud op true of false",
+                )
+            )
         elif auto not in AUTO_VALID:
-            errors.append(f"{rel}: onbekende automatische_inhoud {auto!r}")
+            errors.append(
+                format_issue(
+                    rel,
+                    f"onbekende automatische_inhoud {auto!r}",
+                    line=auto_line,
+                    fix="gebruik precies: true of false",
+                )
+            )
     if errors:
         for line in errors:
             print(f"FAIL: {line}", flush=True)

@@ -29,6 +29,21 @@ De oude knoppenrij direct onder `<h1>` (Bibliotheek/Koormap, Oefenen,
 Downloaden, Printen) bestaat niet meer. Navigatie naar deelrubriek en
 bovenliggende onderdelen loopt via de breadcrumb.
 
+## Bibliotheek-id op leaves
+
+Elke **bibliotheek-leaf** (pagina
+`bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`) toont het
+**bibliotheek-id** (`zangstuk/variant/uitvoeringsvorm`) zichtbaar op de
+pagina. Het id wordt uit het pad afgeleid (layout), niet handmatig in de
+markdown herhaald. Alias-varianten: canonieke id via
+`layouts/partials/bibliotheek-canonical-id.html`.
+
+Koormap-slots tonen het id niet verplicht (die verwijzen via `bieb`).
+Special pages tonen id’s al in hun cataloguslijst.
+
+Implementatie: `layouts/partials/bibliotheek-id-line.html`, aangeroepen
+vanuit `layouts/oefenhoek/single.html`.
+
 ## Shortcode `bieb`
 
 ```hugo

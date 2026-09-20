@@ -65,13 +65,17 @@ beheerdersmelding. Afspraak over bestandsnamen per spoor:
 
 ## Stap voor stap
 
-1. Bewerk in MuseScore 4; sla op in de bibliotheek als
-   `{stam}.print.mscz` (geen spaties; stam uit bibliotheek-id).
+1. Bewerk in MuseScore 4. Neem het bestand op met
+   [bieb-accepteer](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
+   (bestandsnaam eindigend op `.print.mscz`), of sla handmatig op als
+   `{stam}.print.mscz` in de bibliotheek (geen spaties; stam uit
+   bibliotheek-id).
 2. Exporteer PDF handmatig naar `{stam}.pdf` in dezelfde bibliotheek-map.
    Eventuele Coria-`.mxl` eveneens handmatig (of uit de template-render)
    ernaast zetten en bij elke bronwijziging meenemen.
-3. Bibliotheek-`index.md` met `artefacten_handmatig: true` + koormap-slot
-   met `bieb` (zie [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
+3. Bibliotheek-`index.md` met `artefacten_handmatig: true` (bieb-accepteer
+   zet dat automatisch bij `.print.mscz`) + koormap-slot met `bieb` (zie
+   [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
 4. `scripts\check.cmd --strict` — hub- en VSA-productgate slaan deze map over.
 
 ## Klaar als

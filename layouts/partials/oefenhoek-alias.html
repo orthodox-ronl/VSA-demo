@@ -5,10 +5,11 @@
 */ -}}
 {{- if and (strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/") .Params.alias_van -}}
 {{- $aliasVan := .Params.alias_van -}}
+{{- $loc := partial "diag-location.html" (dict "page" .) -}}
 {{- $canonPath := printf "/praktijk/oefenhoek/bibliotheek/%s" $aliasVan -}}
 {{- $canon := site.GetPage $canonPath -}}
 {{- if not $canon -}}
-  {{- errorf "shortcode oefenhoek-alias: alias_van %q op %s: geen bibliotheek-variant %s" $aliasVan .RelPermalink $canonPath -}}
+  {{- errorf "%s: alias_van %q wijst niet naar een bestaande bibliotheek-variant. Oplossing: zet alias_van op zangstuk/canonieke-variant die wel bestaat (verwacht pad %s)." $loc $aliasVan $canonPath -}}
 {{- end -}}
 {{- $canonLabel := or $canon.Params.linkTitle $canon.Title -}}
 <aside class="oefenhoek-alias-banner" role="note">

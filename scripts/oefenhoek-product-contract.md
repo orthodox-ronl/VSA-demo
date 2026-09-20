@@ -20,7 +20,7 @@ Hub-transforms: [mscz-product-transforms.md](mscz-product-transforms.md).
 | representatie-id | Canonieke bron in de bladermap | Pipeline (normaal) |
 | ---------------- | ------------------------------ | ------------------ |
 | `hub` | `{stam}.mscz` (niet `.print.`) | `apply_mscz_layout` → `mscz-products` → PDF + Coria-`.mxl` + hub-hash-gate |
-| `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (`vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
+| `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (syllabify in temp → `vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
 | `print` | `{stam}.print.mscz` | Geen layout/products/Coria uit dit bestand; PDF handmatig |
 
 Ids: `[a-z0-9_-]+`. Geen ad-hoc synoniemen (“route”, “uv”) in bestandsnamen.
@@ -66,6 +66,25 @@ Elk afgeleid bestand heeft **precies één** bron-representatie. Wijzigt de bron
 dan moet dat product opnieuw (automatisch of handmatig). Een product zonder
 bijbehorende bron hoort niet in de map (of de map staat op handmatig, zie
 hieronder).
+
+---
+
+## Bibliotheek-id in eindproducten
+
+**Principe** (geldt voor hub, vsa, print en latere sporen zoals mvsa): elk
+**menselijk leesbaar** publicatieblad (PDF, afdruk uit `.mscz`) toont het
+**bibliotheek-id** (`zangstuk/variant/uitvoeringsvorm`) in het colofon of
+eindmateriaal. Machineleesbare provenance (hashes) blijft; het id is
+**identiteit**, de hash is **versheid**.
+
+| Spoor | Waar het id landt | Gate |
+| ----- | ----------------- | ---- |
+| `hub` | Colofon + meta in hub-`.mscz` → PDF via MuseScore-export | `ensure_bibliotheek_id` / `check_bibliotheek_id` |
+| `vsa` | Bij `{stam}.vsa.pdf` (nog te bouwen): eindblok met id uit pad; Coria-`.vsa.mxl` mag misc-field `vsa-bibliotheek-id` | zelfde principe bij eerste PDF-export |
+| `print` / handmatig | Beheerder zet id in colofon bij export; pipeline overschrijft niet | warn/check optioneel; geen stille overwrite |
+
+Geen uitzondering voor nieuwe generators: wie een blad produceert, schrijft
+het bibliotheek-id mee (afleiden via `bibliotheek.id_from_path` / `--id`).
 
 ---
 
@@ -115,6 +134,7 @@ korte legacy-label.
 | --- | --- |
 | Commando | `scripts\vsa-products.cmd` (`sync_vsa_products.py`) |
 | Product | `{stam}.vsa.mxl` |
+| Syllabify | Alleen tijdens export (temp); canonieke `.vsa` blijft zonder Pyphen-streepjes voor SVG. Sidecar `{stam}.syl.vsa` is geen bron. |
 | Stamp | `vsa-source-sha256`, `vsa-source-kind=vsa`, `vsa-generator=vsa-musicxml` |
 | Lokaal | pipeline stap 2c vernieuwt stale producten |
 | Preview | rode banner via `data/vsa-product-status.json` |

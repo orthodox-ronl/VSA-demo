@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # 6 Derde antifoon (weekdagen)
 
-{{< bieb id="6-derde-antifoon/weekdagen-hemelum/hemelum" >}}
+{{< bieb id="6-derde-antifoon/weekdagen/hemelum" >}}

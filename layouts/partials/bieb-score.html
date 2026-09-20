@@ -1,14 +1,16 @@
 {{- /*
   Actieknoppen + PDF/SVG van een bibliotheek-uitvoeringsvorm-pagina.
 
-  Context: dict "score" (Page), optioneel "viewer" (pagina van de shortcode).
+  Context: dict "score" (Page), optioneel "viewer" (pagina van de shortcode),
+  optioneel "position" (shortcode-Position).
 */ -}}
 {{- $p := .score -}}
 {{- $viewer := or .viewer $p -}}
+{{- $loc := partial "diag-location.html" (dict "position" .position "page" $viewer) -}}
 {{- if not $p -}}
-  {{- errorf "shortcode bieb-score: score-pagina ontbreekt" -}}
+  {{- errorf "%s: bieb-score: score-pagina ontbreekt. Oplossing: geef een bestaande bibliotheek-uitvoeringsvorm door." $loc -}}
 {{- end -}}
-{{ partial "oefenhoek-score-acties.html" (dict "score" $p "viewer" $viewer) }}
+{{ partial "oefenhoek-score-acties.html" (dict "score" $p "viewer" $viewer "position" .position) }}
 {{- $pdf := "" -}}
 {{- $vsas := slice -}}
 {{- $hasMscz := false -}}
@@ -57,7 +59,7 @@
       {{- $src := printf "vsa/bladermap/%s" $rel -}}
 <div class="vsa-container"><img class="vsa-notation" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"></div>
     {{- else -}}
-      {{- warnf "bieb: SVG ontbreekt voor %s (verwacht %s). Oplossing: python scripts\\sync_oefenhoek_index.py --svg   (of scripts\\check.cmd --strict). serve --no-build slaat die stap over. Zie handleiding praktijk/handleiding/vsa/1-vsa-schrijven/." $p.RelPermalink $svgFile -}}
+      {{- warnf "%s: SVG ontbreekt voor %s (verwacht bestand %s). Oplossing: python scripts\\sync_oefenhoek_index.py --svg   (of scripts\\check.cmd --strict). serve --no-build slaat die stap over. Zie handleiding praktijk/handleiding/vsa/1-vsa-schrijven/." $loc $p.RelPermalink $svgFile -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

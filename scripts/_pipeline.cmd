@@ -36,6 +36,21 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\bibliotheek.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\test_check_hugo_links_and_assets.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\test_fingerprint_coria_mxl.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\test_bibliotheek_id_colophon.py
+"%PY%" scripts\test_bieb_accepteer.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\test_sync_vsa_products.py
+if errorlevel 1 exit /b 1
+echo OK
+echo.
+
+echo [2a/7] Bibliotheek-id in hub-colofon
+"%PY%" scripts\ensure_bibliotheek_id.py
+if errorlevel 1 exit /b 1
 echo OK
 echo.
 
@@ -87,6 +102,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_hub_products.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\check_bibliotheek_id.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_vsa_products.py
 if errorlevel 1 exit /b 1

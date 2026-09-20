@@ -23,6 +23,7 @@ Heb je het traject al eens gedaan? Dan volstaat vaak alleen de
 
 ## In dit onderdeel
 
+0. [Publicatietrajecten](publicatietrajecten/) — hub, VSA, print, site-build (overzicht)
 1. [Wat heb je nodig](wat-heb-je-nodig/)
 2. [Waar ligt wat](waar-ligt-wat/)
 3. [Bibliotheek en koormappen](bibliotheek-en-koormappen/) — catalogus vs view; secties en compositiebladen

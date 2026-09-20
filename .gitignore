@@ -4,6 +4,7 @@ public/
 resources/
 data/build.yaml
 data/coria-fp.json
+data/coria-public-base.json
 static/vsa/
 static/coria/
 static/mxl/
@@ -14,6 +15,10 @@ static/mxl/
 *.autosave
 
 # Oefenhoek: lokale inbox en tussenwerk (inputs in capella/vow/… blijven in git)
+content-source/praktijk/oefenhoek/input/_inbox/
+content-source/praktijk/oefenhoek/input/_werk/
+
+# Oefenhoek: lokale inbox en tussenwerk (dumps in capella/vow/… blijven in git)
 content-source/praktijk/oefenhoek/input/_inbox/
 content-source/praktijk/oefenhoek/input/_werk/
 

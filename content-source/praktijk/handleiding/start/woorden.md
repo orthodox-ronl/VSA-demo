@@ -13,11 +13,12 @@ weight: 30
 - **artefacten_handmatig** = frontmatter op bibliotheek-`index.md`: PDF/MXL niet auto-bijwerken
 - `.mxl` / `.vsa.mxl` = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)
 - `.pdf` = A4-afgeleide om te lezen of te printen
-- `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`)
+- `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`); overzicht trajecten: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = hub-standaard met `apply_mscz_layout.py` (zelfde scriptstap; “layouten” is de gewone naam)
-- **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen)
+- **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van hub-`.mscz`/PDF
 - **`bieb`** = shortcode die knoppen + partituur van een bibliotheek-id toont
+- **bieb-accepteer** = script dat een `.mscz` / `.vsa` / `.print.mscz` in de bibliotheek zet (mappen + `index.md`); zie [Opnemen in de bibliotheek](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
 - **publicatiestatus** = wat koorleden op de pagina zien (sticky header); intern *Stap* in de werkvoorraad is iets anders
 {{< /cue >}}
 

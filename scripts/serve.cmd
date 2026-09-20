@@ -27,7 +27,10 @@ if defined NO_BUILD (
     echo        of serve zonder --no-build.
     exit /b 1
   )
-  echo [1/1] Generate overgeslagen --no-build. Start Hugo server
+  echo [1/1] Generate overgeslagen --no-build. Coria-fingerprints + Hugo server
+  echo.
+  python scripts\fingerprint_coria_mxl.py
+  if errorlevel 1 exit /b 1
   echo.
   goto start_server
 )

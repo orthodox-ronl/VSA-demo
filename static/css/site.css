@@ -357,6 +357,16 @@ code.bibliotheek-id {
   color: #555;
 }
 
+.bibliotheek-id-line {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.bibliotheek-id-line code.bibliotheek-id {
+  margin-left: 0.25rem;
+}
+
 .bibliotheek-overzicht,
 .bibliotheek-special {
   margin-top: 0.75rem;

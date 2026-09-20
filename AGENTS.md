@@ -96,8 +96,9 @@ Uitleg: [scripts/README.md](scripts/README.md).
 - Register: `input/werkvoorraad.md` (een rij per input). De tabel wordt bij
   sitebuild bijgewerkt; doel-id, koormap en notitie in bestaande rijen blijven
   staan. Onbekend doel-id: **vragen**, niet raden. Doel-id wordt
-  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/` (conversie
-  via `scripts/migrate_oefenhoek_bibliotheek.py`, nog niet in check).
+  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/`
+  (`scripts/bieb-accepteer.cmd`; historische conversie
+  `migrate_oefenhoek_bibliotheek.py`, niet in check).
 - Bibliotheek vs koormap: bibliotheek = catalogus; koormap = geordende
   verwijzingen. Uitvoeringsvorm mag in bibliotheek zonder koormap-ref.
   Root toont oefenbare items; stubs/ids via `bibliotheek/speciaal/` en
@@ -112,7 +113,10 @@ Uitleg: [scripts/README.md](scripts/README.md).
   embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
   Contract: `scripts/mscz-hub-contract.md`. Afgeleiden per representatie-id
   (`hub` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
-  Pagina-UI (sticky header, shortcode `bieb`): `scripts/oefenhoek-ui-contract.md`.
+  Pagina-UI (sticky header, shortcode `bieb`, bibliotheek-id op leaves):
+  `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in hub-colofon/PDF:
+  `mscz-hub-contract.md` / `oefenhoek-product-contract.md`
+  (`ensure_bibliotheek_id.py`, `check_bibliotheek_id.py`).
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
   Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij
@@ -158,9 +162,18 @@ content-source  --vsa validate-->
 | Branch | Doel | URL |
 | ------ | ---- | --- |
 | `main` | Productie | https://orthodox-ronl.github.io/VSA-demo/ |
-| andere | Preview | https://orthodox-ronl.github.io/VSA-demo/preview/ |
+| `development` | Gedeelde preview | https://orthodox-ronl.github.io/VSA-demo/preview/ |
+| andere | Branch-preview | https://orthodox-ronl.github.io/VSA-demo/{slug}/ |
 
-Zelfde patroon als `bron` (`docs-pages.yml`). Deploy via reusable workflow in VSA-tooling.
+`{slug}` is de branchnaam in kleine letters, met `/` en andere niet-URL-tekens als `-`
+(bijvoorbeeld `feat/oefenhoek` → `feat-oefenhoek`). Namen die botsen met sitepaden
+(`praktijk`, `css`, …) krijgen het voorvoegsel `b-`.
+
+Elke push (behalve `gh-pages`) triggert de workflow. Productie, `preview/` en
+branch-mappen delen branch `gh-pages`.
+
+Zelfde patroon als `bron` (`docs-pages.yml`), met branch-previews erbij. Deploy via
+reusable workflow in VSA-tooling.
 
 ---
 

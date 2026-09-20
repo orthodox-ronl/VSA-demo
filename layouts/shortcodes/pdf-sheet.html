@@ -3,8 +3,9 @@
   (praktijk/…/x.pdf of /praktijk/…/x.pdf). Page-bundle PDF wint als die bestaat.
 */ -}}
 {{- $raw := .Get "src" -}}
+{{- $loc := partial "diag-location.html" (dict "position" .Position "page" .Page) -}}
 {{- if not $raw -}}
-  {{- errorf "shortcode pdf-sheet: parameter src is verplicht" -}}
+  {{- errorf "%s: shortcode pdf-sheet mist parameter src. Oplossing: voeg src=\"naam.pdf\" toe aan de shortcode pdf-sheet." $loc -}}
 {{- end -}}
 {{- $href := "" -}}
 {{- if strings.HasPrefix $raw "/" -}}

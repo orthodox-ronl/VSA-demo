@@ -9,12 +9,22 @@ aliases:
   - /praktijk/oefenhoek/repertoire/
 ---
 
-Hier staat wat er **al is** om te oefenen: uitvoeringsvormen met partituur
-(of VSA). Volg je de misorde, begin in de
-[liturgiemap Hemelum](/praktijk/oefenhoek/liturgiemap-hemelum/).
+De bibliotheek bevat alles wat hier digitaal beschikbaar is.
+De bibliotheek bevat mappen met z.g. 'zangstukken', 
+die een vaste plek hebben in een of meer diensten.
+Elke zangstuk-map bevat mappen met z.g. 'varianten',
+die doorgaans elk hun eigen melodie hebben.
+Elke 'variant'-map heeft bevat mappen met z.g. 'uitvoeringsvormen',
+die onderling op details verschillen, bijvoorbeeld 
+in de precieze teksten die worden gebruikt, 
+of de precieze duur van noten, loopjes, e.d.
 
-Een stuk mag in deze bibliotheek staan zonder dat een koormap ernaar
-verwijst — handig om iets te leren dat nog niet in de Hemelum-dienst zit.
+Deze pagina is gericht op diegenen die pagina's of websites maken 
+waarop de zangstukken beschikbaar worden gemaakt 
+voor een zeker publiek en een zeker doel. 
+Een voorbeeld is de [liturgiemap van Hemelum](/praktijk/oefenhoek/liturgiemap-hemelum/),
+waarvan het de bedoeling is dat koorleden hier de zangstukken voor de H. Liturgie
+in kunnen terugvinden, en deze ook kunnen oefenen.
 
 {{< bibliotheek-overzicht >}}
 

@@ -1,0 +1,17 @@
+{{- /*
+  Toon bibliotheek-id op een leaf onder oefenhoek/bibliotheek/.
+  Id = drie padsegmenten na bibliotheek/; alias via canonical-id.
+*/ -}}
+{{- $marker := "praktijk/oefenhoek/bibliotheek/" -}}
+{{- if and .File (not .IsSection) (strings.Contains .RelPermalink (printf "/%s" $marker)) -}}
+  {{- $dir := strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+  {{- if strings.HasPrefix $dir $marker -}}
+    {{- $rel := strings.TrimPrefix $marker $dir -}}
+    {{- $segs := split $rel "/" -}}
+    {{- if eq (len $segs) 3 -}}
+      {{- $id := delimit $segs "/" -}}
+      {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
+<p class="bibliotheek-id-line">Bibliotheek-id: <code class="bibliotheek-id">{{ $id }}</code></p>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

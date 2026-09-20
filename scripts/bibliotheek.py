@@ -13,6 +13,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from _diag import format_issue, frontmatter_key_line
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 BIBLIOTHEEK_ROOT = (
     REPO_ROOT / "content-source" / "praktijk" / "oefenhoek" / "bibliotheek"
@@ -159,35 +161,72 @@ def check_alias_variants() -> list[str]:
         depth = len(parent_rel.parts)
         text = path.read_text(encoding="utf-8")
         alias = _fm_value(text, "alias_van")
+        alias_line = frontmatter_key_line(text, "alias_van")
         rel = _rel(path)
         if path.name == "index.md":
             if alias:
                 errors.append(
-                    f"{rel}: alias_van hoort op de variant-_index, "
-                    "niet op een uitvoeringsvorm-index"
+                    format_issue(
+                        rel,
+                        "alias_van hoort op de variant-_index, "
+                        "niet op een uitvoeringsvorm-index",
+                        line=alias_line,
+                        fix=(
+                            "verplaats alias_van naar "
+                            "zangstuk/variant/_index.md en verwijder het "
+                            "hier"
+                        ),
+                    )
                 )
             continue
         if not alias:
             continue
         if depth != 2:
             errors.append(
-                f"{rel}: alias_van alleen op variant-_index "
-                "(zangstuk/variant), niet op deze laag"
+                format_issue(
+                    rel,
+                    "alias_van alleen op variant-_index "
+                    "(zangstuk/variant), niet op deze laag",
+                    line=alias_line,
+                    fix="zet alias_van alleen op zangstuk/variant/_index.md",
+                )
             )
             continue
         try:
             parse_variant_id(alias)
         except ValueError as exc:
-            errors.append(f"{rel}: alias_van ongeldig ({exc})")
+            errors.append(
+                format_issue(
+                    rel,
+                    f"alias_van ongeldig ({exc})",
+                    line=alias_line,
+                    fix="gebruik het formaat zangstuk/variant (kleine letters, streepjes)",
+                )
+            )
             continue
         self_id = parent_rel.as_posix()
         if alias == self_id:
-            errors.append(f"{rel}: alias_van wijst naar zichzelf")
+            errors.append(
+                format_issue(
+                    rel,
+                    "alias_van wijst naar zichzelf",
+                    line=alias_line,
+                    fix="wijs alias_van naar de canonieke variant, niet naar deze map",
+                )
+            )
             continue
         target_index = variant_folder(alias) / "_index.md"
         if not target_index.is_file():
             errors.append(
-                f"{rel}: alias_van {alias!r} heeft geen variant-_index"
+                format_issue(
+                    rel,
+                    f"alias_van {alias!r} heeft geen variant-_index",
+                    line=alias_line,
+                    fix=(
+                        f"maak {_rel(target_index)} of corrigeer alias_van "
+                        "naar een bestaande variant"
+                    ),
+                )
             )
             continue
         nested = _fm_value(
@@ -195,15 +234,28 @@ def check_alias_variants() -> list[str]:
         )
         if nested:
             errors.append(
-                f"{rel}: alias_van {alias!r} is zelf een alias "
-                f"({nested}); geen ketens"
+                format_issue(
+                    rel,
+                    f"alias_van {alias!r} is zelf een alias ({nested}); "
+                    "geen ketens",
+                    line=alias_line,
+                    fix="wijs rechtstreeks naar de canonieke variant",
+                )
             )
         for child in sorted(path.parent.iterdir()):
             if child.name == "_index.md" and child.is_file():
                 continue
             errors.append(
-                f"{rel}: alias-variant mag alleen _index.md bevatten "
-                f"(geen uitvoeringsvorm), gevonden {child.name}"
+                format_issue(
+                    rel,
+                    "alias-variant mag alleen _index.md bevatten "
+                    f"(geen uitvoeringsvorm), gevonden {child.name}",
+                    line=alias_line,
+                    fix=(
+                        "verwijder of verplaats bestanden/mappen naast "
+                        "_index.md in deze alias-variant"
+                    ),
+                )
             )
     return errors
 

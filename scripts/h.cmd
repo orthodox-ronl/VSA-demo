@@ -30,10 +30,17 @@ if /I "%FILTER%"=="demo-pdf" goto man_demo_pdf
 if /I "%FILTER%"=="sync-bron-zondagen" goto man_sync
 if /I "%FILTER%"=="mscz-products" goto man_mscz_products
 if /I "%FILTER%"=="sync_mscz_products.py" goto man_mscz_products
+if /I "%FILTER%"=="ensure_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="ensure_bibliotheek_id.py" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id.py" goto man_bibliotheek_id
 if /I "%FILTER%"=="vsa-products" goto man_vsa_products
 if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
+if /I "%FILTER%"=="bieb-accepteer" goto man_bieb_accepteer
+if /I "%FILTER%"=="bieb_accepteer" goto man_bieb_accepteer
+if /I "%FILTER%"=="bieb_accepteer.py" goto man_bieb_accepteer
 if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
 if /I "%FILTER%"=="sync_oefenhoek_index.py" goto man_oefenhoek_index
 if /I "%FILTER%"=="migrate_oefenhoek_bibliotheek" goto man_migrate_bibliotheek
@@ -61,14 +68,18 @@ call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :emit_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
+call :emit_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
 echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
+echo   test_check_hugo_links_and_assets.py, test_fingerprint_coria_mxl.py,
 echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
+echo   ensure_bibliotheek_id.py, check_bibliotheek_id.py, test_bibliotheek_id_colophon.py,
 echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
+echo   bieb_accepteer.py, test_bieb_accepteer.py,
 echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
 echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py
 echo   - proef, niet in check; publicatienamen zonder spaties
@@ -90,6 +101,7 @@ call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
 call :try_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
+call :try_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
 echo.
@@ -99,7 +111,7 @@ goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, bieb-accepteer, h
 echo.
 goto end_fail
 
@@ -215,11 +227,12 @@ echo   Start de Hugo-development server ^(http://127.0.0.1:18731/^).
 echo   Poort 18731, niet 1313 ^(1313 is lokaal gereserveerd^).
 echo   Standaard: pipeline ^(sync/validate/generate via _pipeline.cmd^), daarna server.
 echo   Validate zonder --strict ^(snellere preview^).
-echo   Met --no-build: alleen server; vereist bestaande generated\content
-echo   ^(bijv. na check.cmd --strict^).
+echo   Console: stapvoortgang + samenvattingen, geen bestandslijsten.
+echo   Met --no-build: alleen Coria-fingerprints + server; vereist bestaande
+echo   generated\content ^(bijv. na check.cmd --strict^).
 echo.
 echo OPTIONS
-echo   --no-build   sla sync/validate/generate over; sneller herstarten
+echo   --no-build   sla sync/validate/generate over; wel Coria-fingerprints
 echo.
 echo WHEN
 echo   Browser-preview. CI-gelijk: eerst check.cmd --strict, dan --no-build.
@@ -328,6 +341,7 @@ echo.
 echo   Pipeline roept dit lokaal aan. Eerst apply_mscz_layout.py,
 echo   eventueel editslag in MuseScore, daarna dit script.
 echo   check_hub_products.py controleert stamps (main: streng).
+echo   ensure_bibliotheek_id.py zet Bibliotheek-id in colofon/meta.
 echo   Print-velden (*.print.mscz): zie handleiding partituur/7-print-mscz.
 echo.
 echo WHEN
@@ -335,12 +349,35 @@ echo   Als de hub-.mscz klaar is voor publicatie-PDF en Coria.
 echo.
 echo SEE ALSO
 echo   scripts\apply_mscz_layout.py
+echo   scripts\ensure_bibliotheek_id.py
 echo   scripts\sync_mscz_products.py
 echo   scripts\check_hub_products.py
 echo   scripts\score_filenames.py
 echo   scripts\oefenhoek-product-contract.md
 echo   scripts\mscz-hub-contract.md
 echo   scripts\mscz-product-transforms.md
+echo.
+goto end_ok
+
+:man_bibliotheek_id
+echo.
+echo NAME
+echo   scripts\ensure_bibliotheek_id.py / check_bibliotheek_id.py
+echo.
+echo SYNOPSIS
+echo   python scripts\ensure_bibliotheek_id.py [root]
+echo   python scripts\check_bibliotheek_id.py [root]
+echo.
+echo DESCRIPTION
+echo   Hub-.mscz onder bibliotheek/ moeten Bibliotheek-id in colofon
+echo   en meta vsaBibliotheekId hebben. ensure herstelt lokaal
+echo   (process_mscz); check-only / CI schrijft niet. main/strict: fail.
+echo   Daarna mscz-products voor verse PDF.
+echo.
+echo SEE ALSO
+echo   scripts\apply_mscz_layout.py
+echo   scripts\mscz-hub-contract.md
+echo   scripts\oefenhoek-product-contract.md
 echo.
 goto end_ok
 
@@ -354,7 +391,7 @@ echo   scripts\vsa-products.cmd [pad] [--force] [--dry-run]
 echo.
 echo DESCRIPTION
 echo   Maakt sibling Coria-.vsa.mxl bij bibliotheek-.vsa
-echo   (vsa musicxml playback + sanitize + source-sha stamp).
+echo   (syllabify in temp, vsa musicxml playback, sanitize, source-sha stamp).
 echo   Slaat artefacten_handmatig over. Zonder pad: oefenhoek\bibliotheek.
 echo   Pipeline roept dit lokaal aan. check_vsa_products.py op main streng.
 echo.
@@ -411,7 +448,7 @@ echo NAME
 echo   scripts\sync_oefenhoek_index.py
 echo.
 echo SYNOPSIS
-echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg]
+echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg] [--verbose]
 echo.
 echo DESCRIPTION
 echo   Zonder flags: haalt auto-includes en score-shortcodes uit
@@ -421,7 +458,9 @@ echo   blijven. Widgets komen uit de Hugo-layout of bieb.
 echo.
 echo   --svg schrijft SVG van lokale .vsa (geen hub-.mscz; print-.mscz
 echo   mag) naar static\vsa\bladermap\ (na vsa build-markdown), ook onder
-echo   bibliotheek\.echo.
+echo   bibliotheek\.
+echo   Standaard alleen een samenvatting; --verbose toont elk pad.
+echo.
 echo WHEN
 echo   Automatisch in check/build/serve.
 echo.
@@ -429,6 +468,42 @@ echo SEE ALSO
 echo   scripts\README.md
 echo   scripts\bibliotheek.py
 echo   CONTENT-STRUCTURE.md
+echo.
+goto end_ok
+
+:man_bieb_accepteer
+echo.
+echo NAME
+echo   scripts\bieb-accepteer.cmd
+echo   scripts\bieb_accepteer.py
+echo.
+echo SYNOPSIS
+echo   scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
+echo   python scripts\bieb_accepteer.py [id] [bestand...] ...
+echo.
+echo DESCRIPTION
+echo   Neemt een hub-.mscz, .vsa of .print.mscz op in
+echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\.
+echo   Maakt ontbrekende _index.md / index.md met bieb, hernoemt naar
+echo   de publicatiestam. Weigert Capella-.capx e.d. en kale Capella-.mxl.
+echo   Bij .vsa: vsa validate (tenzij --skip-vsa-validate).
+echo   Default status: reviewable (stub: voorzien). Geen productie zonder
+echo   --force. Niet in check/build/serve.
+echo   Ontbrekende id of bestand: interactief gevraagd. Typ ? voor uitleg,
+echo   daarna opnieuw invullen. Zonder argumenten: beide vragen.
+echo.
+echo OPTIONS
+echo   --title --status --stub --move --force --dry-run
+echo   --skip-vsa-validate --artefacten-handmatig
+echo.
+echo WHEN
+echo   Als de partituur klaar is om in de bibliotheek te staan (na opkuisen
+echo   / normaliseren of na een werkende .vsa). Daarna koormap + check.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd bibliotheek
+echo   handleiding publiceren/1-opnemen-in-bibliotheek
+echo   layouts\shortcodes\bieb.html
 echo.
 goto end_ok
 
@@ -442,18 +517,20 @@ echo SYNOPSIS
 echo   python scripts\migrate_oefenhoek_bibliotheek.py
 echo.
 echo DESCRIPTION
-echo   Eenmalig: verplaatst hub-partituren van liturgiemap-hemelum naar
-echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\ en zet
-echo   koormap-slots op bieb. Niet in check/build/serve.
+echo   Eenmalig (historisch): verplaatste hub-partituren van
+echo   liturgiemap-hemelum naar oefenhoek\bibliotheek\... en zette
+echo   koormap-slots op bieb. Nieuwe stukken: scripts\bieb-accepteer.cmd.
 echo   bibliotheek.py: parse_id / folder / stem / leaf_folders / resolve_id.
 echo   In check: python scripts\bibliotheek.py weigert alias-varianten met
 echo   een uitvoeringsvorm-map; alias_van hoort op de variant-_index
 echo   (zangstuk/canonieke-variant).
 echo.
 echo WHEN
-echo   Bij de bibliotheek-conversie op deze branch (na review van SCORE_MOVES).
+echo   Alleen bij herhaalbare SCORE_MOVES-conversie; dagelijks werk via
+echo   bieb-accepteer.
 echo.
 echo SEE ALSO
+echo   scripts\h.cmd bieb-accepteer
 echo   CONTENT-STRUCTURE.md
 echo   layouts\shortcodes\bieb.html
 echo   scripts\oefenhoek-ui-contract.md

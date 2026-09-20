@@ -1,0 +1,40 @@
+{{- /*
+  Locatielabel voor foutmeldingen: pad[:regel[:kolom]].
+
+  Context (dict), één van:
+    position — shortcode .Position (Filename, LineNumber, ColumnNumber)
+    page     — Page; gebruikt .File.Filename zonder regel
+    file     — expliciet pad (string)
+
+  Retourneert een string (via print).
+*/ -}}
+{{- $file := "" -}}
+{{- $line := 0 -}}
+{{- $col := 0 -}}
+{{- with .position -}}
+  {{- $file = .Filename -}}
+  {{- $line = .LineNumber -}}
+  {{- $col = .ColumnNumber -}}
+{{- end -}}
+{{- if not $file -}}
+  {{- with .page -}}
+    {{- with .File -}}
+      {{- $file = .Filename -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with .file -}}
+  {{- if not $file -}}{{- $file = . -}}{{- end -}}
+{{- end -}}
+{{- $file = replace $file "\\" "/" -}}
+{{- if and $file (gt $line 0) -}}
+  {{- if gt $col 0 -}}
+    {{- printf "%s:%d:%d" $file $line $col -}}
+  {{- else -}}
+    {{- printf "%s:%d" $file $line -}}
+  {{- end -}}
+{{- else if $file -}}
+  {{- print $file -}}
+{{- else -}}
+  {{- print "onbekende-locatie" -}}
+{{- end -}}

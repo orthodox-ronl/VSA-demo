@@ -3,8 +3,9 @@
 Spiegel van VSA-tooling/scripts/check-hugo-links-and-assets.py,
 met configureerbare site-root en optionele URL-prefix (GitHub Pages).
 
-Coria play_from_url-links: controleer dat de url=-parameter naar een
-bestaand /mxl/c/*.musicxml op de site wijst (geen dubbele baseURL-path).
+Coria play_from_url-links: controleer dat de url=-parameter een absolute
+http(s)-URL is (geen localhost, geen pad-only) naar een bestaand
+/mxl/c/*.musicxml op de site (geen dubbele baseURL-path).
 """
 
 from __future__ import annotations
@@ -107,8 +108,27 @@ def is_coria_play_url(value: str) -> bool:
     return host.endswith("coria.nl") and "play_from_url" in (parsed.path or "")
 
 
+def _is_localhost_host(host: str) -> bool:
+    host = host.lower()
+    return (
+        host in {"localhost", "127.0.0.1"}
+        or host.startswith("localhost:")
+        or host.startswith("127.0.0.1:")
+    )
+
+
+def _doubled_path_prefix(prefix: str) -> bool:
+    """True if /a/b/a/b (even number of segments, first half == second half)."""
+    parts = [p for p in prefix.split("/") if p]
+    n = len(parts)
+    if n < 2 or n % 2:
+        return False
+    half = n // 2
+    return parts[:half] == parts[half:]
+
+
 def coria_target_path(value: str, url_prefix: str) -> tuple[str | None, str | None]:
-    """Return (site-relative path, error). Path starts with /."""
+    """Return (site-relative /mxl/c/… path, error). Path starts with /."""
     parsed = urlparse(value.strip())
     qs = parse_qs(parsed.query)
     targets = qs.get("url") or []
@@ -118,6 +138,10 @@ def coria_target_path(value: str, url_prefix: str) -> tuple[str | None, str | No
     if not raw:
         return None, "play_from_url met lege url="
     target = urlparse(raw)
+    if target.scheme not in {"http", "https"} or not target.netloc:
+        return None, f"Coria-url is geen absolute http(s)-URL: {raw}"
+    if _is_localhost_host(target.netloc):
+        return None, f"Coria kan localhost niet ophalen: {raw}"
     path = target.path or ""
     if not path.startswith("/"):
         path = "/" + path
@@ -128,11 +152,18 @@ def coria_target_path(value: str, url_prefix: str) -> tuple[str | None, str | No
         doubled = f"{url_prefix}{url_prefix}/"
         if path == f"{url_prefix}{url_prefix}" or path.startswith(doubled):
             return None, f"dubbele URL-prefix in Coria-url: {path}"
-        if path == url_prefix or path.startswith(url_prefix + "/"):
-            path = path[len(url_prefix) :] or "/"
-    if not path.startswith("/mxl/c/"):
+    marker = "/mxl/c/"
+    idx = path.find(marker)
+    if idx < 0:
         return None, f"Coria-url is geen fingerprint-pad /mxl/c/…: {path}"
-    return path, None
+    prefix = path[:idx]
+    if _doubled_path_prefix(prefix):
+        return None, f"dubbele URL-prefix in Coria-url: {path}"
+    fingerprint = path[idx:]
+    rest = path[idx + len(marker) :]
+    if not rest or "/" in rest:
+        return None, f"Coria-url is geen fingerprint-pad /mxl/c/…: {path}"
+    return fingerprint, None
 
 
 def site_path_from_ref(ref: LinkRef, site_dir: Path, url_prefix: str) -> Path | None:
