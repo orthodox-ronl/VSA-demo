@@ -478,8 +478,8 @@ echo   scripts\bieb-accepteer.cmd
 echo   scripts\bieb_accepteer.py
 echo.
 echo SYNOPSIS
-echo   scripts\bieb-accepteer.cmd ^<id^> ^<bestand^> [meer...] [opties]
-echo   python scripts\bieb_accepteer.py ^<id^> ^<bestand^> ...
+echo   scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
+echo   python scripts\bieb_accepteer.py [id] [bestand...] ...
 echo.
 echo DESCRIPTION
 echo   Neemt een hub-.mscz, .vsa of .print.mscz op in
@@ -489,6 +489,8 @@ echo   de publicatiestam. Weigert Capella-.capx e.d. en kale Capella-.mxl.
 echo   Bij .vsa: vsa validate (tenzij --skip-vsa-validate).
 echo   Default status: reviewable (stub: voorzien). Geen productie zonder
 echo   --force. Niet in check/build/serve.
+echo   Ontbrekende id of bestand: interactief gevraagd. Typ ? voor uitleg,
+echo   daarna opnieuw invullen. Zonder argumenten: beide vragen.
 echo.
 echo OPTIONS
 echo   --title --status --stub --move --force --dry-run

@@ -126,8 +126,9 @@ uitvoeringsvorm-bestanden). Draait in `check` / `build` / `serve`.
 `bieb-accepteer.cmd` (`bieb_accepteer.py`) neemt een hub-`.mscz`, `.vsa` of
 `.print.mscz` (optioneel sibling-`.pdf`/`.mxl`) op onder een bibliotheek-id:
 maakt sectie-`_index.md` en leaf-`index.md` met `bieb`, hernoemt naar de
-publicatiestam. Weigert Capella-bronformats en een kale `.mxl` zonder
-score. Bij `.vsa`: `vsa validate`. Default `publicatiestatus: reviewable`
+publicatiestam. Ontbrekende id/bestand worden interactief gevraagd; typ `?`
+voor uitleg. Weigert Capella-bronformats en een kale `.mxl` zonder score.
+Bij `.vsa`: `vsa validate`. Default `publicatiestatus: reviewable`
 (`voorzien` bij `--stub`). Niet in `check`. Handleiding:
 `publiceren/1-opnemen-in-bibliotheek`. Tests: `test_bieb_accepteer.py`.
 `migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek

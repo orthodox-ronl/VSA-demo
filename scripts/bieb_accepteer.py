@@ -385,22 +385,195 @@ def accept(
     return 0
 
 
+HELP_IDENT = """\
+Bibliotheek-id = drie delen met schuine streep, bijvoorbeeld:
+  5-eniggeboren-zoon/default/hemelum
+  zangstuk / variant / uitvoeringsvorm
+
+Alleen kleine letters, cijfers, - en _. Geen spaties.
+Lijst: content-source\\praktijk\\oefenhoek\\bibliotheek\\ID-REGISTER.md
+  (op de site: Oefenhoek > Bibliotheek > Id-register)
+
+Ken je het id niet? Verzin het niet - vraag na bij een beheerder.
+Typ daarna het id opnieuw (of Enter om te stoppen).
+"""
+
+HELP_BESTAND = """\
+Geef het volledige pad naar het bestand dat in de bibliotheek moet, bijvoorbeeld:
+  C:\\Git\\orthodox-ronl\\VSA-demo\\content-source\\praktijk\\oefenhoek\\input\\_werk\\...\\stam.mscz
+
+Toegestaan:
+  - hub-.mscz (MuseScore, genormaliseerd)
+  - .vsa
+  - bestandsnaam eindigend op .print.mscz
+  - optioneel daarna nog .pdf of .mxl in een volgende vraag
+
+Niet toegestaan hier: ruwe Capella (.capx / alleen .mxl) - eerst opkuisen.
+
+Geen partituur, alleen een lege pagina reserveren? Typ: stub
+Typ daarna het pad opnieuw (of Enter om te stoppen).
+"""
+
+
+def _print_help_block(text: str) -> None:
+    print(flush=True)
+    print(text.rstrip(), flush=True)
+    print(flush=True)
+
+
+def prompt_line(message: str) -> str:
+    """Lees een regel van de gebruiker; EOF/leeg na strip = ''."""
+    try:
+        return input(message).strip()
+    except EOFError:
+        return ""
+
+
+def prompt_until(
+    message: str,
+    help_text: str,
+    *,
+    allow_empty: bool = False,
+) -> str | None:
+    """Vraag tot er een waarde is. '?' toont help. Leeg + niet allow_empty = stop (None)."""
+    while True:
+        value = prompt_line(message)
+        if value == "?":
+            _print_help_block(help_text)
+            continue
+        if not value:
+            if allow_empty:
+                return ""
+            print(
+                "Niets ingevuld. Typ een waarde, of ? voor uitleg, "
+                "of Enter opnieuw om te stoppen.",
+                flush=True,
+            )
+            again = prompt_line(message)
+            if again == "?":
+                _print_help_block(help_text)
+                continue
+            if not again:
+                return None
+            return again
+        return value
+
+
+def resolve_ident(raw: str | None) -> str | None:
+    """CLI-waarde of interactieve vraag. None = gebruiker stopt."""
+    if raw is not None and raw.strip() and raw.strip() != "?":
+        return raw.strip()
+    if raw is not None and raw.strip() == "?":
+        _print_help_block(HELP_IDENT)
+    print(
+        "Bibliotheek-id ontbreekt. Typ het id, of ? voor uitleg.",
+        flush=True,
+    )
+    while True:
+        value = prompt_until(
+            "Bibliotheek-id (zangstuk/variant/uitvoeringsvorm): ",
+            HELP_IDENT,
+        )
+        if value is None:
+            return None
+        try:
+            parse_id(value)
+        except ValueError as exc:
+            print(f"Dat id klopt niet ({exc}).", flush=True)
+            print("Typ ? voor uitleg, of probeer opnieuw.", flush=True)
+            continue
+        return value
+
+
+def resolve_bestanden_en_stub(
+    bestanden: list[Path],
+    *,
+    stub: bool,
+) -> tuple[list[Path], bool] | None:
+    """Vul bestanden of stub aan. None = gebruiker stopt."""
+    if stub:
+        return [], True
+    cleaned: list[Path] = []
+    for path in bestanden:
+        name = str(path).strip()
+        if not name or name == "?":
+            continue
+        cleaned.append(Path(name))
+    if cleaned:
+        return cleaned, False
+
+    # Vraag interactief: pad, of stub
+    if any(str(p).strip() == "?" for p in bestanden):
+        _print_help_block(HELP_BESTAND)
+    print(
+        "Bestand ontbreekt. Typ het pad naar .mscz / .vsa / .print.mscz,",
+        flush=True,
+    )
+    print(
+        "of typ stub voor een lege leaf, of ? voor uitleg.",
+        flush=True,
+    )
+    while True:
+        value = prompt_until(
+            "Bestand (pad) of stub: ",
+            HELP_BESTAND,
+        )
+        if value is None:
+            return None
+        if value.lower() == "stub":
+            return [], True
+        path = Path(value).expanduser()
+        if not path.is_file():
+            print(f"Bestand niet gevonden: {path}", flush=True)
+            print("Typ ? voor uitleg, of een ander pad.", flush=True)
+            continue
+        extra = prompt_until(
+            "Nog een bestand (pad), of Enter om door te gaan: ",
+            HELP_BESTAND,
+            allow_empty=True,
+        )
+        paths = [path]
+        while extra:
+            if extra.lower() == "stub":
+                print(
+                    "stub kan niet samen met bestanden; genegeerd.",
+                    flush=True,
+                )
+                break
+            more = Path(extra).expanduser()
+            if not more.is_file():
+                print(f"Bestand niet gevonden: {more}", flush=True)
+            else:
+                paths.append(more)
+            extra = prompt_until(
+                "Nog een bestand (pad), of Enter om door te gaan: ",
+                HELP_BESTAND,
+                allow_empty=True,
+            )
+            if extra is None:
+                break
+        return paths, False
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         description=(
             "Neem .mscz / .vsa / .print.mscz (en optioneel PDF/MXL) op in "
-            "oefenhoek/bibliotheek onder een bibliotheek-id."
+            "oefenhoek/bibliotheek onder een bibliotheek-id. "
+            "Ontbrekende id/bestand worden gevraagd; typ ? voor uitleg."
         )
     )
     p.add_argument(
         "ident",
-        help="bibliotheek-id: zangstuk/variant/uitvoeringsvorm",
+        nargs="?",
+        default=None,
+        help="bibliotheek-id: zangstuk/variant/uitvoeringsvorm (of ?)",
     )
     p.add_argument(
         "bestanden",
         nargs="*",
         type=Path,
-        help="een of meer bronbestanden",
+        help="een of meer bronbestanden (of ?)",
     )
     p.add_argument(
         "--title",
@@ -446,12 +619,21 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    ident = resolve_ident(args.ident)
+    if ident is None:
+        print("Gestopt: geen bibliotheek-id.", flush=True)
+        return 2
+    resolved = resolve_bestanden_en_stub(list(args.bestanden), stub=args.stub)
+    if resolved is None:
+        print("Gestopt: geen bestand en geen stub.", flush=True)
+        return 2
+    bestanden, stub = resolved
     return accept(
-        args.ident.strip(),
-        list(args.bestanden),
+        ident,
+        bestanden,
         title=args.title,
         status=args.status,
-        stub=args.stub,
+        stub=stub,
         move=args.move,
         force=args.force,
         dry_run=args.dry_run,

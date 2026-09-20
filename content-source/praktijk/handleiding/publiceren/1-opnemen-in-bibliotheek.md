@@ -11,8 +11,10 @@ weight: 5
 2. Zorg dat je bestand al een bruikbare **hub-`.mscz`**, **`.vsa`**, of
    **`.print.mscz`** is — niet een ruwe Capella-file.
 3. Open het Windows-opdrachtvenster in de map `VSA-demo`.
-4. Plak een regel zoals hieronder (pas id en pad aan) en druk Enter.
-5. Controleer daarna met `scripts\check.cmd --strict`.
+4. Typ `scripts\bieb-accepteer.cmd` en Enter — het script vraagt id en
+   bestand na. (Of plak een volledige regel, zie hieronder.)
+5. Op een vraag mag je `?` typen voor uitleg; daarna vul je alsnog in.
+6. Controleer daarna met `scripts\check.cmd --strict`.
 {{< /cue >}}
 
 **Wat je nu doet:** een klaar oefenbestand **opnemen** in de catalogus
@@ -52,36 +54,47 @@ of [VSA](../../vsa/).
 
 1. Open het Windows-opdrachtvenster in `VSA-demo`
    ([hoe](../../start/wat-heb-je-nodig/)).
-2. Kies eerst een **droge proef** (niets wordt weggeschreven), zodat je ziet
-   wat er zou gebeuren. Vervang het voorbeeld-id en het pad door jouw
-   gegevens:
+2. **Eenvoudigste weg:** alleen het script starten. Het vraagt wat
+   ontbreekt:
+
+```cmd
+scripts\bieb-accepteer.cmd
+```
+
+   Typ het bibliotheek-id, daarna het pad naar het bestand. Weet je even
+   niet wat er gevraagd wordt? Typ `?` en Enter — dan komt uitleg, en mag
+   je daarna alsnog invullen. Geen partituur, alleen een lege pagina?
+   Typ `stub` als bestand.
+
+3. **Of** alles in één regel (handig als je id en pad al weet). Eerst een
+   **droge proef** (niets wordt weggeschreven):
 
 ```cmd
 scripts\bieb-accepteer.cmd 5-eniggeboren-zoon/default/hemelum "C:\pad\naar\mijn-bestand.mscz" --dry-run
 ```
 
-3. Klopt de uitvoer? Draai dezelfde regel **zonder** `--dry-run`:
+4. Klopt de uitvoer? Draai dezelfde regel **zonder** `--dry-run`:
 
 ```cmd
 scripts\bieb-accepteer.cmd 5-eniggeboren-zoon/default/hemelum "C:\pad\naar\mijn-bestand.mscz"
 ```
 
-4. Voor een **VSA**-bestand hetzelfde patroon, met `.vsa` in plaats van
+5. Voor een **VSA**-bestand hetzelfde patroon, met `.vsa` in plaats van
    `.mscz`. Voor een **print-vel**: bestandsnaam eindigend op `.print.mscz`
    (het script zet dan ook `artefacten_handmatig` aan).
-5. Optioneel: geef een leesbare titel mee:
+6. Optioneel: geef een leesbare titel mee:
 
 ```cmd
 scripts\bieb-accepteer.cmd 5-eniggeboren-zoon/default/hemelum "C:\pad\naar\bestand.mscz" --title "5 Eniggeboren Zoon"
 ```
 
-6. Draai de controle:
+7. Draai de controle:
 
 ```cmd
 scripts\check.cmd --strict
 ```
 
-7. Hoort het stuk in de liturgiemap (koormap)? Zet of controleer daar een
+8. Hoort het stuk in de liturgiemap (koormap)? Zet of controleer daar een
    slot-pagina met `bieb` — zie
    [Bibliotheek en koormap](../1-bladermap/). De partituur blijft in de
    bibliotheek; de koormap is alleen de route voor koorleden.
