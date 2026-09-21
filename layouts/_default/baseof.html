@@ -46,7 +46,6 @@
   {{ partial "oefenhoek-header.html" . }}
 
   <main class="page">
-    {{ partial "publicatiestatus.html" . }}
     {{ block "main" . }}{{ end }}
     {{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" }}
       {{ partial "oefenhoek-kinderen.html" . }}

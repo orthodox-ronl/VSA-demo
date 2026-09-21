@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Tropaar Nikolaas van Myra
 
-{{< bieb id="tropaar/nikolaas-van-myra-toon-4/hemelum" >}}
+{{< bieb id="110-tropaar/nikolaas-van-myra-toon-4/hemelum" >}}

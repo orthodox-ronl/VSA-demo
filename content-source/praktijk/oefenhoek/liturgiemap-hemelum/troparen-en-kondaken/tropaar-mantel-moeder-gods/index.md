@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Tropaar Mantel Moeder Gods toon 4
 
-{{< bieb id="tropaar/mantel-moeder-gods-toon-4/hemelum" >}}
+{{< bieb id="110-tropaar/mantel-moeder-gods-toon-4/hemelum" >}}

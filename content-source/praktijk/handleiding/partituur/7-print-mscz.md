@@ -29,7 +29,7 @@ gewone basispartituur-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
 Voorbeelden in de bibliotheek:
 
 - `7-kleine-intocht/zo-wk-mg/hemelum` — gecombineerd printvel;
-- `tropaar/nikolaas-van-myra-toon-4/hemelum` — template-SATB + handmatige
+- `110-tropaar/nikolaas-van-myra-toon-4/hemelum` — template-SATB + handmatige
   PDF/MXL + `.vsa`;
 - `20-moeder-godslied/ontslapen-moeder-gods/hemelum` — idem print + handmatig.
 

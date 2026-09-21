@@ -52,7 +52,7 @@ script tegelijk.
 | `20-moeder-godslied/20d-in-waarheid-moeder-godslied/` | `20-moeder-godslied/20d-in-waarheid/hemelum` | `20-moeder-godslied-20d-in-waarheid-hemelum` | mscz, mxl, pdf | |
 | `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; print-track |
 | `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | vsa, vsa.mxl, pdf | Geen basispartituur-mscz; Coria via VSA-productgate |
-| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | `tropaar-nikolaas-van-myra-toon-4-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; onder zangstuk `tropaar/` |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `110-tropaar/nikolaas-van-myra-toon-4/hemelum` | `110-tropaar-nikolaas-van-myra-toon-4-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; onder zangstuk `110-tropaar/` |
 | `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen/hemelum` | `2-eerste-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | Koormap = Hemelum; geen `liturgikon/`-slot meer |
 | *(alleen bibliotheek)* | `2-eerste-antifoon/weekdagen-liturgikon/hemelum` | `2-eerste-antifoon-weekdagen-liturgikon-hemelum` | vsa, vsa.mxl | Niet in Hemelum-koormap |
 | `2-eerste-antifoon/zondag/` | `2-eerste-antifoon/zondag/hemelum` | `2-eerste-antifoon-zondag-hemelum` | mscz, mxl, pdf | stub-achtig in koormap |
@@ -74,7 +74,7 @@ script tegelijk.
 | Koormap-pad | Bibliotheek-id | Bestanden nu | Opmerking |
 | --- | --- | --- | --- |
 | `7-kleine-intocht/zo-wk-mg/` | `7-kleine-intocht/zo-wk-mg/hemelum` | `*.print.mscz`, pdf | Print-vel; bij voorkeur `artefacten_handmatig: true` |
-| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
+| `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `110-tropaar/nikolaas-van-myra-toon-4/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
 | `20-moeder-godslied/…` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | print.mscz, mxl, pdf, vsa | Handmatige artefacten |
 
 ---
@@ -118,19 +118,19 @@ de melodieklasse (Kiev / znameni), niet het liturgienummer.
 
 ### Tropaar / kondak
 
-Zangstuk-ids `tropaar/` en `kondak/`. Variant bv. `zondag-toon-3`,
+Zangstuk-ids `110-tropaar/` en `120-kondak/`. Variant bv. `zondag-toon-3`,
 `maandag-toon-4`, `nikolaas-van-myra-toon-4`. Alias-varianten: veld
 `alias_van` op de variant-`_index.md` (geen tweede `.vsa`, geen
 uitvoeringsvorm-map).
 
 | Voorbeeld | Id |
 | --- | --- |
-| Zondag tropaar toon 1 | `tropaar/zondag-toon-1/groningen` |
-| Weekdag + alias | canonieke variant `tropaar/maandag-toon-4` ← alias `tropaar/heilige-engelen-toon-4` |
-| Nikolaas tropaar | `tropaar/nikolaas-van-myra-toon-4/hemelum` |
-| Nikolaas kondak | `kondak/nikolaas-van-myra-toon-3/hemelum` |
-| Moeder Gods kondak | `kondak/moeder-gods-toon-6/hemelum` |
-| Losse Hemelum-troparen | `tropaar/heilige-martelaren-toon-4/hemelum`, `…/icoon-moeder-gods-vladimir-toon-4/…`, `…/mantel-moeder-gods-toon-4/…` |
+| Zondag tropaar toon 1 | `110-tropaar/zondag-toon-1/groningen` |
+| Weekdag + alias | canonieke variant `110-tropaar/maandag-toon-4` ← alias `110-tropaar/heilige-engelen-toon-4` |
+| Nikolaas tropaar | `110-tropaar/nikolaas-van-myra-toon-4/hemelum` |
+| Nikolaas kondak | `120-kondak/nikolaas-van-myra-toon-3/hemelum` |
+| Moeder Gods kondak | `120-kondak/moeder-gods-toon-6/hemelum` |
+| Losse Hemelum-troparen | `110-tropaar/heilige-martelaren-toon-4/hemelum`, `…/icoon-moeder-gods-vladimir-toon-4/…`, `…/mantel-moeder-gods-toon-4/…` |
 
 `default` als variant-id betekent: één uitvoeringsvorm in Hemelum, geen
 geneste varianten in de koormap.
@@ -161,19 +161,20 @@ nog in de *variant*-laag; niet hernoemen tot een aparte migratie.
 ## CATALOGUS_KOORMAP — niet meer in oefenhoek
 
 Oefenhoek-pagina’s gebruiken **geen** `:::include` naar catalogus/`lokaal/`.
-Kondaken en troparen staan als bibliotheek-leafs onder `kondak/`, `tropaar/`
-of `diversen/`, met `bieb` op de koormap.
+Kondaken en troparen staan als bibliotheek-leafs onder `120-kondak/` en
+`110-tropaar/`; losse gezangen onder eigen zangstuk-ids (bv. `220-uw-heilig-kruis/`),
+met `bieb` op de koormap.
 
 | Was (catalogus) | Nu (bibliotheek) |
 | --- | --- |
-| `kondak-nikolaas-van-myra/liturgikon/Liturgikon` | `kondak/nikolaas-van-myra-toon-3/hemelum` |
-| `kondak-moeder-gods-toon-6/hemelum/Hemelum` | `kondak/moeder-gods-toon-6/hemelum` |
+| `kondak-nikolaas-van-myra/liturgikon/Liturgikon` | `120-kondak/nikolaas-van-myra-toon-3/hemelum` |
+| `kondak-moeder-gods-toon-6/hemelum/Hemelum` | `120-kondak/moeder-gods-toon-6/hemelum` |
 
 ### Diversen
 
 | Koormap-pad | Bibliotheek-id |
 | --- | --- |
-| `troparen-en-kondaken/uw-heilig-kruis/` | `diversen/uw-heilig-kruis/hemelum` |
+| `troparen-en-kondaken/uw-heilig-kruis/` | `220-uw-heilig-kruis/default/hemelum` |
 
 ---
 
@@ -190,8 +191,8 @@ of `diversen/`, met `bieb` op de koormap.
 
 ### 1. Tropaar Nikolaas — besloten
 
-Bibliotheek-id: `tropaar/nikolaas-van-myra-toon-4/hemelum` (zangstuk
-`tropaar/`, niet een apart zangstuk-id). Oude map
+Bibliotheek-id: `110-tropaar/nikolaas-van-myra-toon-4/hemelum` (zangstuk
+`110-tropaar/`, niet een apart zangstuk-id). Oude map
 `tropaar-nikolaas-van-myra/…` verwijderd.
 
 ### 2. Variant-id `default` — besloten

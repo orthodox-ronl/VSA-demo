@@ -10,8 +10,7 @@ sources:
 ::: vsa-notatie
 <!-- Uw Heilig Kruis vereren wij - Liturgikon, p58 -->
 [\:] Uw {/hei_}{\lig_} {/Kruis_} *
-{/&/ver}{/e}{\ren} {/wij}, {\\o} {/&\Mees_&_}{\&/ter}; *
-{/en} Uw {\hei_}{\li_}{\&/ge} {/&/Ver}{\rij_}{\ze.}{\&/&/nis.&.&~} {\lo_}{\ven_} {/wij_}. [:]
+{/&/ver}{/e}{\ren} {/wij}, {\\o} {/&\Mees_&_}{\&/ter}; {/en} Uw {\hei_}{\li_}{\&/ge} {/&/Ver}{\rij_}{\ze.}{\&/&/nis.&.&~} {\lo_}{\ven_} {/wij_}. [:]
 :::
 
 #### Ksl - Naar het Liturgikon

@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Uw Heilig Kruis
 
-{{< bieb id="diversen/uw-heilig-kruis/hemelum" >}}
+{{< bieb id="220-uw-heilig-kruis/default/hemelum" >}}

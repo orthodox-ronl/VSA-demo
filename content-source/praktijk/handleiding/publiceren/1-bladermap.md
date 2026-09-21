@@ -67,7 +67,7 @@ uitvoeringsvorm-map. Zet `alias_van` op de variant-`_index.md`; zie
 | VSA via bibliotheek | `liturgiemap-hemelum\2-eerste-antifoon\weekdagen\index.md` |
 | Sectie (boom van keuzes) | `liturgiemap-hemelum\15-cherubijnenhymne\_index.md` + kindmappen |
 | Compositieblad (meerdere scores) | Eén `index.md` met markdown en meerdere `bieb`-shortcodes — zie [Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/) |
-| Diversen / tropaar / kondak | Bijv. `diversen/uw-heilig-kruis/hemelum`, `tropaar/…`, `kondak/…` — altijd `bieb`, geen `:::include` |
+| Troparen / kondaken / losse gezangen | Bijv. `110-tropaar/…`, `120-kondak/…`, `220-uw-heilig-kruis/default/hemelum` — altijd `bieb`, geen `:::include` |
 
 5. Hoort het stuk in het liturgie-overzicht? Controleer
    `liturgiemap-hemelum\_index.md` (handmatige inhoudsopgave).

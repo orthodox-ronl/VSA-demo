@@ -99,16 +99,16 @@ van de Heilige Engelen, gezongen op maandag). Dat is een alias op
 Dan:
 
 - partituren (`.vsa`, PDF, …) staan **alleen** bij de canonieke variant, hier
-  de uitvoeringsvorm `tropaar/maandag-toon-4/hemelum`;
+  de uitvoeringsvorm `110-tropaar/maandag-toon-4/hemelum`;
 - de alias-variant heeft alleen een `_index.md` met frontmatter
-  `alias_van: tropaar/maandag-toon-4` — geen map `hemelum/`, geen `index.md`,
+  `alias_van: 110-tropaar/maandag-toon-4` — geen map `hemelum/`, geen `index.md`,
   geen partituur;
-- de bibliotheek-index van het zangstuk (`tropaar/`, `kondak/`, …) noemt
+- de bibliotheek-index van het zangstuk (`110-tropaar/`, `120-kondak/`, …) noemt
   **beide** varianten; achter de alias-naam staat dat het een alias is.
 
 Shortcode `bieb` krijgt een uitvoeringsvorm-id (drie lagen). Wie de
 alias-variant in dat id zet, bijvoorbeeld
-`tropaar/heilige-engelen-toon-4/hemelum`, wordt herschreven naar de canonieke
+`110-tropaar/heilige-engelen-toon-4/hemelum`, wordt herschreven naar de canonieke
 uitvoeringsvorm. Product-tools (`vsa-products`, basispartituur-producten) slaan
 alias-varianten over: daar is niets te genereren.
 

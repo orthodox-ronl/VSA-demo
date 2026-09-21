@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Kondak H. Nikolaas van Myra (toon 3)
 
-{{< bieb id="kondak/nikolaas-van-myra-toon-3/hemelum" >}}
+{{< bieb id="120-kondak/nikolaas-van-myra-toon-3/hemelum" >}}

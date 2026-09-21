@@ -8,4 +8,4 @@ automatische_inhoud: false
 
 # Kondak H. Moeder Gods (toon 6)
 
-{{< bieb id="kondak/moeder-gods-toon-6/hemelum" >}}
+{{< bieb id="120-kondak/moeder-gods-toon-6/hemelum" >}}
