@@ -1,0 +1,42 @@
+{{- /*
+  Publieke https-URL van een fingerprint-pad (mxl/c/<hash>.musicxml).
+
+  Coria play_from_url haalt het bestand server-side op. Een pad zonder host
+  (/mxl/c/…) of localhost is voor Coria onbereikbaar. github.io is de site
+  voor mensen; Coria faalt daar regelmatig met "failed to retrieve file".
+  Bron: data/coria-public-base.json via readFile (bestand is gitignored; hugo.Data
+  laadt het dan niet). Geschreven door fingerprint_coria_mxl.py: fetch-root is
+  raw.githubusercontent.com/.../gh-pages/ (zelfde mappen als pages.yml).
+  Fallback: site.BaseURL met publieke host (niet github.io).
+
+  Context: string (legacy) of dict met src, optioneel position/page.
+*/ -}}
+{{- $src := "" -}}
+{{- $position := false -}}
+{{- $page := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $src = replaceRE "^/" "" .src -}}
+  {{- $position = .position -}}
+  {{- $page = .page -}}
+{{- else -}}
+  {{- $src = replaceRE "^/" "" . -}}
+{{- end -}}
+{{- $loc := partial "diag-location.html" (dict "position" $position "page" $page "file" "data/coria-public-base.json") -}}
+{{- $pub := "" -}}
+{{- if fileExists "data/coria-public-base.json" -}}
+  {{- $cfg := transform.Unmarshal (readFile "data/coria-public-base.json") -}}
+  {{- with $cfg.base -}}
+    {{- $pub = strings.TrimSuffix "/" . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $pub -}}
+  {{- $bu := strings.TrimSuffix "/" site.BaseURL -}}
+  {{- if and (strings.Contains $bu "://") (not (strings.Contains $bu "127.0.0.1")) (not (strings.Contains $bu "localhost")) (not (strings.Contains $bu "github.io")) -}}
+    {{- $pub = $bu -}}
+  {{- end -}}
+{{- end -}}
+{{- if or (not $pub) (not (strings.HasPrefix $pub "http")) -}}
+  {{- errorf "%s: Coria kan geen publieke https-basis bepalen (nu %q; site.BaseURL=%q). Oplossing: draai python scripts/fingerprint_coria_mxl.py zodat data/coria-public-base.json raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/ krijgt." $loc $pub site.BaseURL -}}
+{{- else -}}
+{{- printf "%s/%s" $pub $src -}}
+{{- end -}}

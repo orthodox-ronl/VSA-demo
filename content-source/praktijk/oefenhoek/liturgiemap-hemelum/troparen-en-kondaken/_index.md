@@ -4,7 +4,9 @@ linkTitle: "Troparen en Kondaken"
 weight: 8
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
 
-Troparen en kondaken die in de liturgie in Hemelum kunnen worden gebruikt.
-Dit overzicht is nog (lang) niet compleet.
+Troparen, kondaken en verwante korte gezangen voor de liturgie in Hemelum.
+Bestanden staan in de bibliotheek onder `110-tropaar/`, `120-kondak/` en `diversen/`
+(geen catalogus-includes; geen verwijzing naar `content-source/lokaal/`).

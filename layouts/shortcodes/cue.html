@@ -1,0 +1,6 @@
+<aside class="handleiding-cue">
+  <p class="handleiding-cue-label">{{ or (.Get "label") "Snel (als je het al eens deed)" }}</p>
+  <div class="handleiding-cue-body">
+    {{ .Inner | strings.TrimSpace | .Page.RenderString }}
+  </div>
+</aside>

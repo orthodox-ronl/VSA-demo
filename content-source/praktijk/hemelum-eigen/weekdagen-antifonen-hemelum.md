@@ -13,22 +13,22 @@ sources:
    {\\&/breng} {/lof} {\aan} {\Zijn} {/heer_}lijk{\heid_}. [:]
 
 <!-- Liturgikon, pp.174 -->
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
 {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 <!-- Liturgikon, 270 -->
 2. [:] Belijd {/de} {/Heer} en {\roep} {/Zijn} {/Naam__} {\in_}, 
-   {\\ver}kondig {/Zijn} {/wer}ken on{\der} {\de} {/vol_}ke{\ren_}. [:] Door ... 
+   {\\ver}kondig {/Zijn} {/wer}ken on{\der} {\de} {/vol_}ke{\ren_}. [:]  refrein 
 
 3. [:] In {/de} {/Stad} van de {\Heer} {/der} {/Krach__}{\ten_}, 
-   {\\in} {/de} {/Stad} {\&\van} {/on__}ze {\God_}. [:] Door ... 
+   {\\in} {/de} {/Stad} {\&\van} {/on__}ze {\God_}. [:]  refrein 
 
 4. [:] Zijn {/ver}{/blijf}plaats {\is} {/in} {/Vre__}{\de_}, 
-   {\\&/Zijn} {/Wo}{\ning} {\in} {/Si__}{\on_}. [:] Door ... 
+   {\\&/Zijn} {/Wo}{\ning} {\in} {/Si__}{\on_}. [:]  refrein 
 
 <!-- Liturgikon, pp.174 -->
 5. [:] Eer aan {/de} {/Va}der, de {\\Zoon} {/en} {/de} {/Hei_}lige {\Geest},
-   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:] Door ...
+   {\\nu} en {/al}{/tijd} en in de eeuwen der {\eeuw}{\en}, {/A_}{\men_}. [:]  refrein
 :::
 
 {{< pagebreak >}}
@@ -45,20 +45,20 @@ sources:
    {\\bo}{/ven} {/al}le ten{\ten} {\van} {/Ja__}{\cob_}. [:]
 
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
 <!-- Liturgikon, pp.270-271 -->
 2. [:] O{/ver} {/u} zijn roem{\rij}{/ke} {/din_}gen ge{\zegd_}: 
-   {\\&/Gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:] Ver{//los} {\\ons} …
+   {\\&/Gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:]  refrein
 
 3. [:] God heeft haar {/ge}{/grond}{\vest} {/voor} {/eeuw__}{\ig_}; 
    {\\God}, wij {/ver}{/wach}ten Uw barmhartigheid 
-      in het mid{\den} {\van} {/uw__} {\volk}. [:] Ver{//los} {\\ons} …
+      in het mid{\den} {\van} {/uw__} {\volk}. [:]  refrein
 
 4. [:] {-&/De} {/Al}{\&/ler}{/hoog_}{\ste_}
-   hei{\ligt} {\Zijn} {/Woon__}{\tent}. [:] Ver{//los} {\\ons} … 
+   hei{\ligt} {\Zijn} {/Woon__}{\tent}. [:]  refrein 
 :::
 
 {{< pagebreak >}}
@@ -71,23 +71,19 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
    {\\laat} {/ons} {/jui}chen voor God, {\on}{\ze} {/Hei_}{\land_}. [:]
 
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-[:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] Laat {/ons} {/voor} Zijn aanschijn treden {\met} {/be}{/lij_}de{\nis_}, * 
-   {\\en} {/met} {/&\psal}{\men} {/jui_}chen voor {\Hem}. [:]
-   Ver{//los} {\\ons} …
+   {\\en} {/met} {/&\psal}{\men} {/jui_}chen voor {\Hem}. [:]  refrein
 
 3. [:] {-&/Want} {/God} {\is} {/een} {/mach_}tig {\Heer_}, * 
-   {\\een} gro{/te} {/Ko}ning over {\heel} {\de} {/aar_}{\de_}. [:]
-   Ver{//los} {\\ons} …
+   {\\een} gro{/te} {/Ko}ning over {\heel} {\de} {/aar_}{\de_}. [:]  refrein
 
 4. [:] In {/Zijn} {/hand} zijn de ein{\den} {/der} {/aar_}{\de_}, * 
-   {\\en} {/de} {/top}pen der ber{\gen} {\be}{/ho_}ren Hem {\toe_}. [:]
-   Ver{//los} {\\ons} …
+   {\\en} {/de} {/top}pen der ber{\gen} {\be}{/ho_}ren Hem {\toe_}. [:]  refrein
 
 5. [:] {-&/Van} {/Hem} is de zee, Hij{\zelf} {/heeft} {/die_} ge{\maakt_}; * 
-   {\\het} dro{/ge} {/land} hebben Zijn han{\den} {\ge}{/scha_}{\pen_}. [:] 
-   Ver{//los} {\\ons} …
+   {\\het} dro{/ge} {/land} hebben Zijn han{\den} {\ge}{/scha_}{\pen_}. [:]   refrein
 :::

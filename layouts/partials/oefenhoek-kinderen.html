@@ -1,0 +1,27 @@
+{{- /*
+  Linklijst van kind-pagina's. Bij precies 1 kind: niets (redirect in head),
+  behalve als dat kind niet linkbaar is (voorzien) — dan toon platte tekst.
+*/ -}}
+{{- if .IsSection -}}
+{{- $items := partial "oefenhoek-kind-items.html" . -}}
+{{- if gt (len $items) 1 -}}
+<ul class="page-list oefenhoek-kinderen">
+  {{- range $items -}}
+    {{- $label := or .Params.linkTitle .Title -}}
+    {{- if partial "oefenhoek-linkbaar.html" . -}}
+  <li><a href="{{ .RelPermalink }}">{{ $label }}</a>{{- partial "oefenhoek-alias-tag.html" . -}}</li>
+    {{- else -}}
+  <li><span class="oefenhoek-voorzien">{{ $label }} <span class="oefenhoek-voorzien-tag">(voorzien)</span></span>{{- partial "oefenhoek-alias-tag.html" . -}}</li>
+    {{- end -}}
+  {{- end -}}
+</ul>
+{{- else if eq (len $items) 1 -}}
+{{- $one := index $items 0 -}}
+{{- $label := or $one.Params.linkTitle $one.Title -}}
+{{- if partial "oefenhoek-linkbaar.html" $one -}}
+<p class="oefenhoek-doorverwijzing"><a href="{{ $one.RelPermalink }}">{{ $label }}</a>{{- partial "oefenhoek-alias-tag.html" $one -}}</p>
+{{- else -}}
+<p class="oefenhoek-voorzien">{{ $label }} <span class="oefenhoek-voorzien-tag">(voorzien)</span>{{- partial "oefenhoek-alias-tag.html" $one -}}</p>
+{{- end -}}
+{{- end -}}
+{{- end -}}

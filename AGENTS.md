@@ -30,7 +30,7 @@ Normatieve org-specs staan in **bron** — link, niet dupliceren.
 
 `zangstuk-id` → `variant-id` → `uitvoeringsvorm-id` → `representatie-id`
 
-Vermijd: `uv-id`, afkorting `uv`, **uitvoeringsalternatief**, impliciet `variant-id: standaard`.
+Vermijd: `uv-id`, afkorting `uv`, **uitvoeringsalternatief**, impliciet weggelaten variant-id (gebruik expliciet `default` of een inhoudelijke id).
 
 ---
 
@@ -91,15 +91,46 @@ Uitleg: [scripts/README.md](scripts/README.md).
 
 ### Oefenhoek (input en publicatiestatus)
 
-- Dumps: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
+- Inputs: `content-source/praktijk/oefenhoek/input/<herkomst>/`. Originele namen laten staan.
 - `_inbox/` en `_werk/` niet committen. Geen `_index.md` onder `input/`.
-- Register: `input/werkvoorraad.md` (een rij per dump). De tabel wordt bij
-  sitebuild bijgewerkt; doel-id en notitie in bestaande rijen blijven staan.
-  Onbekend doel-id: **vragen**, niet raden.
+- Register: `input/werkvoorraad.md` (een rij per input). De tabel wordt bij
+  sitebuild bijgewerkt; doel-id, koormap en notitie in bestaande rijen blijven
+  staan. Onbekend doel-id: **vragen**, niet raden. Doel-id wordt
+  `zangstuk/variant/uitvoeringsvorm` onder `oefenhoek/bibliotheek/`
+  (`scripts/bieb-accepteer.cmd`; historische conversie
+  `migrate_oefenhoek_bibliotheek.py`, niet in check).
+- Bibliotheek vs koormap: bibliotheek = catalogus; koormap = geordende
+  verwijzingen. Uitvoeringsvorm mag in bibliotheek zonder koormap-ref.
+  Root toont oefenbare items; stubs/ids via `bibliotheek/speciaal/` en
+  Id-register. Docs: handleiding `start/bibliotheek-en-koormappen`.
+  Alias-variant: alleen `_index.md` met `alias_van: zangstuk/canonieke-variant`
+  (geen uitvoeringsvorm-map; `python scripts/bibliotheek.py` in check).
+- Taal op uitvoeringsvorm: NL ongemerkt; `-ksl` (Cyrillisch), `-ksl-trlat`
+  (getranslitereerd), `-nl-ksl` (mengvorm).
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:
   `voorzien` | `concept` | `reviewable` | `productie`.
-- Stub zonder oefenbare inhoud -> `voorzien`. Bladermap mét partituur/include -> `reviewable`
-  tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal `concept`.
+- Basispartituur-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
+  embedded `partituur-sha256` (`mscz-products`, `check_partituur_products.py`).
+  Contract: `scripts/mscz-partituur-contract.md`. Afgeleiden per representatie-id
+  (`partituur` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
+  Pagina-UI (sticky header, shortcode `bieb`, bibliotheek-id op leaves):
+  `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in basispartituur-colofon/PDF:
+  `mscz-partituur-contract.md` / `oefenhoek-product-contract.md`
+  (`ensure_bibliotheek_id.py`, `check_bibliotheek_id.py`).
+  Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
+  (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.
+  Frontmatter `artefacten_handmatig: true` = beheerder houdt PDF/MXL zelf bij
+  (banner op bibliotheekpagina; pipeline slaat auto-producten over).
+  VSA-Coria: `{stam}.vsa.mxl` via `vsa-products` / `check_vsa_products.py`
+  (`scripts/oefenhoek-product-contract.md`).
+- `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
+  en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
+  `bieb`-shortcodes horen bij `false`. Geen `#`-titel in
+  sectie-`_index.md`. Actieknoppen (Oefenen/Downloaden/Printen) alleen via
+  `bieb`, vóór de plaatjes — niet onder de paginatitel.
+- Stub zonder oefenbare inhoud -> `voorzien`. Uitvoeringsvorm mét partituur ->
+  `reviewable` tenzij de gebruiker anders zegt. Sectie-`_index` -> meestal
+  `concept`.
 - **Niet raden** op `productie`. Onbekend doel-id of onbekende status: **vragen**.
 
 ### Scripts onderhouden

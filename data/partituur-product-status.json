@@ -1,0 +1,101 @@
+{
+  "fix_page": "/praktijk/handleiding/partituur/6-afgeleiden/",
+  "folders": {
+    "praktijk/feesteigen/08-aug": {
+      "mscz": "content-source/praktijk/feesteigen/08-aug/08-15-mgods-ontslapen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\feesteigen\\08-aug\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/15-cherubijnenhymne/15c-kastorski/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/15-cherubijnenhymne/15c-kastorski/hemelum/15-cherubijnenhymne-15c-kastorski-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\15-cherubijnenhymne\\15c-kastorski\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/15-cherubijnenhymne/15e-bortnjanski/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/15-cherubijnenhymne/15e-bortnjanski/hemelum/15-cherubijnenhymne-15e-bortnjanski-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\15-cherubijnenhymne\\15e-bortnjanski\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/19-eucharistische-canon/19a-feofan/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/19-eucharistische-canon/19a-feofan/hemelum/19-eucharistische-canon-19a-feofan-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\19-eucharistische-canon\\19a-feofan\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/zondag/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/zondag/hemelum/2-eerste-antifoon-zondag-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\2-eerste-antifoon\\zondag\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/20-moeder-godslied/20d-in-waarheid/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/20-moeder-godslied/20d-in-waarheid/hemelum/20-moeder-godslied-20d-in-waarheid-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\20-moeder-godslied\\20d-in-waarheid\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/28-wij-hebben-het-ware-licht/default/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/28-wij-hebben-het-ware-licht/default/hemelum/28-wij-hebben-het-ware-licht-default-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\28-wij-hebben-het-ware-licht\\default\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/29-de-naam-des-heren-zij-gezegend/default/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/29-de-naam-des-heren-zij-gezegend/default/hemelum/29-de-naam-des-heren-zij-gezegend-default-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\29-de-naam-des-heren-zij-gezegend\\default\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/zondag/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/4-tweede-antifoon/zondag/hemelum/4-tweede-antifoon-zondag-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\4-tweede-antifoon\\zondag\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/5-eniggeboren-zoon/default/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/5-eniggeboren-zoon/default/hemelum/5-eniggeboren-zoon-default-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\5-eniggeboren-zoon\\default\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/6-derde-antifoon/zondag/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/6-derde-antifoon/zondag/hemelum/6-derde-antifoon-zondag-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\6-derde-antifoon\\zondag\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/groningen": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/moeder-gods/groningen/7-kleine-intocht-moeder-gods-groningen.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\7-kleine-intocht\\moeder-gods\\groningen\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/weekdagen/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/weekdagen/hemelum/7-kleine-intocht-weekdagen-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\7-kleine-intocht\\weekdagen\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zondag/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/7-kleine-intocht/zondag/hemelum/7-kleine-intocht-zondag-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\7-kleine-intocht\\zondag\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/8-trisagion/8a-nederlands/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/8-trisagion/8a-nederlands/hemelum/8-trisagion-8a-nederlands-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\8-trisagion\\8a-nederlands\\hemelum\"",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/8-trisagion/8a-slav/hemelum": {
+      "mscz": "content-source/praktijk/oefenhoek/bibliotheek/8-trisagion/8a-slav/hemelum/8-trisagion-8a-slav-hemelum.mscz",
+      "ok": true,
+      "fix_cmd": "scripts\\mscz-products.cmd \"content-source\\praktijk\\oefenhoek\\bibliotheek\\8-trisagion\\8a-slav\\hemelum\"",
+      "issues": []
+    }
+  }
+}

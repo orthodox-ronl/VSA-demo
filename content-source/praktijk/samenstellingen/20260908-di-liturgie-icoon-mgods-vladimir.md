@@ -20,7 +20,7 @@ en dat Hij ons redt in Zijn barm{har_}{\tig_}{/heid_}. [//:]
 
 ### Tropaar H. Nikolaas (Toon 4) ***Nls en Ksl***
 
-:::include svg id:troparion-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
+:::include svg id:tropaar-nikolaas-van-myra/liturgikon/Liturgikon alt="Tropaar H. Nikolaas van Myra (Toon 4)":::
 
 ***EER AAN DE VADER ...***
 ***NU EN ALTIJD ...***
@@ -62,8 +62,8 @@ en de Naam des {\He}{/ren} {/aan}roe{pen_} *
 ::: vsa-notatie
 <!-- Wij verheerlijken U, ongerepte Moeder van Christus onze God - praktijk Hemelum -->
 [:] Wij {/ver}{/heer_}{\lij_}{+\ken_}, *
-{b/wij} {/ver}{/&\heer}{\lij}{+\ken} {b/u__} *
-ongerepte Moeder van Christus {+\on_}{ze_}{b/God} *
-{\en} {/ver}{/e_}{ren_} {-&\\en} {/&/be}{/&\&\&+\zin}{b/gen_}, *
+{/wij} {/ver}{/&\heer}{\lij}{+\ken} {/u__} *
+ongerepte Moeder van Christus {+\on_}{ze_}{/God} *
+{\en} {/ver}{/e_}{ren_} {-&\\en} {/&/be}{/&\&\&+\zin}{/gen_}, *
 {//Uw} {/roem_}{rij_}{\ke_} {\i_}{\coon__}. [/:]
 :::

@@ -1,7 +1,8 @@
 """Faal als een publicatie-.mxl markup heeft waar Coria op crasht.
 
-Coria meldt dan 'Fout: translation failed'. Ruwe dumps in oefenhoek/input/
+Coria meldt dan 'Fout: translation failed'. Ruwe inputs in oefenhoek/input/
 worden overgeslagen. Zie export_mscz_coria_mxl.sanitize_coria_importer.
+<accidental> is toegestaan: Coria heeft die nodig voor herstellingen.
 """
 from __future__ import annotations
 

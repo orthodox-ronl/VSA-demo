@@ -2,6 +2,12 @@
 
 Spiegel van VSA-tooling/scripts/check-hugo-links-and-assets.py,
 met configureerbare site-root en optionele URL-prefix (GitHub Pages).
+
+Coria play_from_url-links: controleer dat de url=-parameter een absolute
+http(s)-URL is (geen localhost, geen github.io, geen pad-only) naar een
+bestaand /mxl/c/*.musicxml op de site (geen dubbele baseURL-path).
+github.io is de site voor mensen; Coria haalt MusicXML op vanaf
+raw.githubusercontent.com (gh-pages).
 """
 
 from __future__ import annotations
@@ -11,7 +17,7 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import NamedTuple
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, unquote, urlparse
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SITE_DIR = REPO_ROOT / "generated" / "site"
@@ -93,6 +99,81 @@ def should_skip(value: str) -> bool:
         or value.startswith("javascript:")
         or clean == "/livereload.js"
     )
+
+
+def is_coria_play_url(value: str) -> bool:
+    try:
+        parsed = urlparse(value.strip())
+    except ValueError:
+        return False
+    host = (parsed.netloc or "").lower()
+    return host.endswith("coria.nl") and "play_from_url" in (parsed.path or "")
+
+
+def _is_localhost_host(host: str) -> bool:
+    host = host.lower()
+    return (
+        host in {"localhost", "127.0.0.1"}
+        or host.startswith("localhost:")
+        or host.startswith("127.0.0.1:")
+    )
+
+
+def _doubled_path_prefix(prefix: str) -> bool:
+    """True if /a/b/a/b (even number of segments, first half == second half)."""
+    parts = [p for p in prefix.split("/") if p]
+    n = len(parts)
+    if n < 2 or n % 2:
+        return False
+    half = n // 2
+    return parts[:half] == parts[half:]
+
+
+def coria_target_path(value: str, url_prefix: str) -> tuple[str | None, str | None]:
+    """Return (site-relative /mxl/c/… path, error). Path starts with /."""
+    parsed = urlparse(value.strip())
+    qs = parse_qs(parsed.query)
+    targets = qs.get("url") or []
+    if not targets:
+        return None, "play_from_url zonder url="
+    raw = unquote(targets[0].strip())
+    if not raw:
+        return None, "play_from_url met lege url="
+    target = urlparse(raw)
+    if target.scheme not in {"http", "https"} or not target.netloc:
+        return None, f"Coria-url is geen absolute http(s)-URL: {raw}"
+    if _is_localhost_host(target.netloc):
+        return None, f"Coria kan localhost niet ophalen: {raw}"
+    host = (target.netloc or "").lower()
+    if host.endswith("github.io"):
+        return None, (
+            "Coria haalt MusicXML niet betrouwbaar op vanaf github.io "
+            "(failed to retrieve file). Oplossing: fingerprint_coria_mxl.py "
+            "moet data/coria-public-base.json op "
+            "raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/ zetten."
+        )
+    path = target.path or ""
+    if not path.startswith("/"):
+        path = "/" + path
+    lower = path.lower()
+    if not lower.endswith((".musicxml", ".mxl", ".xml")):
+        return None, f"Coria-url eindigt niet op .musicxml/.mxl/.xml: {path}"
+    if url_prefix:
+        doubled = f"{url_prefix}{url_prefix}/"
+        if path == f"{url_prefix}{url_prefix}" or path.startswith(doubled):
+            return None, f"dubbele URL-prefix in Coria-url: {path}"
+    marker = "/mxl/c/"
+    idx = path.find(marker)
+    if idx < 0:
+        return None, f"Coria-url is geen fingerprint-pad /mxl/c/…: {path}"
+    prefix = path[:idx]
+    if _doubled_path_prefix(prefix):
+        return None, f"dubbele URL-prefix in Coria-url: {path}"
+    fingerprint = path[idx:]
+    rest = path[idx + len(marker) :]
+    if not rest or "/" in rest:
+        return None, f"Coria-url is geen fingerprint-pad /mxl/c/…: {path}"
+    return fingerprint, None
 
 
 def site_path_from_ref(ref: LinkRef, site_dir: Path, url_prefix: str) -> Path | None:
@@ -183,8 +264,21 @@ def main() -> int:
 
     broken: list[LinkRef] = []
     forbidden_hits: list[LinkRef] = []
+    coria_broken: list[tuple[LinkRef, str]] = []
+    coria_checked = 0
 
     for ref in refs:
+        if is_coria_play_url(ref.value):
+            coria_checked += 1
+            path, err = coria_target_path(ref.value, url_prefix)
+            if err:
+                coria_broken.append((ref, err))
+                continue
+            assert path is not None
+            candidate = site_dir / path.lstrip("/")
+            if not candidate.is_file():
+                coria_broken.append((ref, f"bestand ontbreekt op site: {path}"))
+            continue
         if should_skip(ref.value):
             continue
         if forbidden and is_forbidden(ref.value, forbidden, url_prefix):
@@ -192,7 +286,7 @@ def main() -> int:
         elif not resolves(ref, site_dir, url_prefix):
             broken.append(ref)
 
-    if broken or forbidden_hits:
+    if broken or forbidden_hits or coria_broken:
         print("Hugo link/asset checker: fouten gevonden.")
         if forbidden_hits:
             print()
@@ -207,11 +301,18 @@ def main() -> int:
                 hint = suggest(ref.value, site_dir, url_prefix)
                 if hint:
                     print(f"  mogelijk bedoeld: {hint}")
+        if coria_broken:
+            print()
+            print("Coria play_from_url:")
+            for ref, err in coria_broken:
+                print(format_ref(ref, site_dir))
+                print(f"  {err}")
         return 1
 
     print(
         f"Hugo link/asset checker: OK "
-        f"({len(refs)} verwijzingen gecontroleerd in {site_dir})."
+        f"({len(refs)} verwijzingen gecontroleerd in {site_dir}"
+        f", {coria_checked} Coria-link(s))."
     )
     return 0
 

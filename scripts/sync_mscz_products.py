@@ -1,23 +1,41 @@
-"""Maak PDF en Coria-MXL in bladermappen gelijk aan hun .mscz.
+"""Maak PDF en Coria-MXL bij een basispartituur-.mscz (na de editslag).
 
-Per publicatie-.mscz (niet oefenhoek/input/): bestaande sibling-.pdf /
-sibling-.mxl opnieuw exporteren als ze ontbreken of ouder zijn dan de .mscz.
-Zonder MuseScore: op CI overslaan; lokaal falen als er stale producten zijn.
+Wrapper: `scripts\\mscz-products.cmd`. Wordt ook vanuit de pipeline
+aangeroepen (lokaal, met MuseScore). Op CI zonder MuseScore: overslaan.
 
-Aangeroepen vanuit scripts\\_pipeline.cmd (check / build / serve).
+Per basispartituur-`.mscz` onder content-source (niet `oefenhoek/input/`, niet
+`*.print.mscz`): sibling-.pdf en Coria-.mxl. Na bibliotheek-migratie liggen
+basispartituren onder
+`oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
+Freshness voor de gate zit in embedded partituur-sha256
+(zie partituur_product_meta.py); lokaal skip gebruikt FS-mtime of
+ontbrekende/verkeerde stamp.
 """
 from __future__ import annotations
 
 import argparse
 import os
 import sys
+import tempfile
 from pathlib import Path
 
 from export_mscz_coria_mxl import (
-    expand_score_files,
+    expand_mscz,
     find_musescore,
+    load_score_xml,
     musescore_export,
     process,
+    write_mxl,
+)
+from apply_mscz_layout import write_mscz_with_all_pages_footer
+from partituur_product_meta import (
+    partituur_sha256,
+    read_mxl_stamp,
+    read_pdf_stamp,
+    stamp_mxl_tree,
+    stamp_pdf,
+    stamp_sha_from_dict,
+    utc_now_iso,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -35,32 +53,41 @@ def _find_musescore() -> Path | None:
         return None
 
 
-def _sibling_product(mscz: Path, suffix: str) -> Path | None:
-    same = mscz.with_suffix(suffix)
-    if same.is_file():
-        return same
-    found = sorted(p for p in mscz.parent.glob(f"*{suffix}") if p.is_file())
-    if len(found) == 1:
-        return found[0]
-    if found:
-        return None
-    return same
+def _sibling_product(mscz: Path, suffix: str) -> Path:
+    """Zelfde stam als de .mscz (aanmaken mag)."""
+    return mscz.with_suffix(suffix)
 
 
-def _is_stale(product: Path, mscz: Path) -> bool:
+def _stamp_matches(product: Path, digest: str, *, kind: str) -> bool:
+    if not product.is_file():
+        return False
+    if kind == "pdf":
+        stamp = read_pdf_stamp(product)
+    else:
+        stamp = read_mxl_stamp(product)
+    return stamp_sha_from_dict(stamp) == digest
+
+
+def _is_stale(product: Path, mscz: Path, digest: str, *, kind: str) -> bool:
     if not product.is_file():
         return True
-    return product.stat().st_mtime < mscz.stat().st_mtime
+    if _stamp_matches(product, digest, kind=kind):
+        return False
+    # Geen/verkeerde stamp: regenerate. Mtime alleen als hint dat het
+    # sowieso ouder is; mismatch stamp wint altijd.
+    return True
 
 
-def collect_jobs(root: Path) -> list[tuple[Path, Path | None, Path | None]]:
-    jobs: list[tuple[Path, Path | None, Path | None]] = []
-    for mscz in expand_score_files([root], ".mscz"):
-        pdf = _sibling_product(mscz, ".pdf")
-        mxl = _sibling_product(mscz, ".mxl")
-        if pdf is None and mxl is None:
-            continue
-        jobs.append((mscz, pdf, mxl))
+def collect_jobs(root: Path) -> list[tuple[Path, Path, Path]]:
+    jobs: list[tuple[Path, Path, Path]] = []
+    for mscz in expand_mscz([root]):
+        jobs.append(
+            (
+                mscz,
+                _sibling_product(mscz, ".pdf"),
+                _sibling_product(mscz, ".mxl"),
+            )
+        )
     return jobs
 
 
@@ -69,8 +96,9 @@ def stale_jobs(
 ) -> list[tuple[Path, Path | None, Path | None]]:
     out: list[tuple[Path, Path | None, Path | None]] = []
     for mscz, pdf, mxl in jobs:
-        need_pdf = pdf is not None and _is_stale(pdf, mscz)
-        need_mxl = mxl is not None and _is_stale(mxl, mscz)
+        digest = partituur_sha256(mscz)
+        need_pdf = pdf is not None and _is_stale(pdf, mscz, digest, kind="pdf")
+        need_mxl = mxl is not None and _is_stale(mxl, mscz, digest, kind="mxl")
         if need_pdf or need_mxl:
             out.append(
                 (
@@ -91,14 +119,24 @@ def sync_one(
     dry_run: bool,
 ) -> None:
     rel = mscz.relative_to(REPO_ROOT)
+    digest = partituur_sha256(mscz)
+    generated_at = utc_now_iso()
     if pdf is not None:
         print(f"  PDF  {rel} -> {pdf.name}", flush=True)
         if not dry_run:
-            musescore_export(mscz, pdf, musescore)
+            # Temp-kopie: letterlijke copyright-footer op alle pagina's ($C = alleen p.1).
+            with tempfile.TemporaryDirectory(prefix="vsa-pdf-") as td:
+                tmp = Path(td) / mscz.name
+                write_mscz_with_all_pages_footer(mscz, tmp)
+                musescore_export(tmp, pdf, musescore)
+            stamp_pdf(pdf, partituur_hash=digest, generated_at=generated_at)
     if mxl is not None:
         print(f"  MXL  {rel} -> {mxl.name}", flush=True)
         if not dry_run:
             process(mscz, mxl)
+            root = load_score_xml(mxl)
+            stamp_mxl_tree(root, partituur_hash=digest, generated_at=generated_at)
+            write_mxl(mxl, root)
 
 
 def main() -> int:
@@ -134,7 +172,7 @@ def main() -> int:
             return 0
         print(
             r"Installeer MuseScore 4 of regenereer met "
-            r"python scripts\sync_mscz_products.py",
+            r"scripts\mscz-products.cmd",
             flush=True,
         )
         for mscz, pdf, mxl in todo:

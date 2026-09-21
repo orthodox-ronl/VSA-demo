@@ -1,32 +1,42 @@
-"""Oefenhoek: elk _index.md en index.md (niet input/) heeft publicatiestatus."""
-
+"""Oefenhoek: elk _index.md en index.md (niet input/) heeft
+publicatiestatus en automatische_inhoud."""
 from __future__ import annotations
 
-import sys
 from pathlib import Path
+
+from _diag import format_issue, frontmatter_key_line
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OEFENHOEK = REPO_ROOT / "content-source" / "praktijk" / "oefenhoek"
 VALID = frozenset({"voorzien", "concept", "reviewable", "productie"})
+AUTO_VALID = frozenset({"true", "false"})
 NAMES = frozenset({"_index.md", "index.md"})
 
 
-def _status(text: str) -> str | None:
+def _fm_value(text: str, key: str) -> str | None:
     in_fm = False
+    prefix = f"{key.lower()}:"
     for line in text.splitlines():
         if line.strip() == "---":
             if not in_fm:
                 in_fm = True
                 continue
             break
-        if in_fm and line.lower().startswith("publicatiestatus:"):
+        if in_fm and line.lower().startswith(prefix):
             return line.split(":", 1)[1].strip().strip("\"'")
     return None
 
 
 def main() -> int:
     if not OEFENHOEK.is_dir():
-        print("FAIL: oefenhoek ontbreekt.", flush=True)
+        print(
+            format_issue(
+                "content-source/praktijk/oefenhoek",
+                "Oefenhoek-map ontbreekt",
+                fix="controleer of content-source/praktijk/oefenhoek bestaat",
+            ),
+            flush=True,
+        )
         return 1
     errors: list[str] = []
     checked = 0
@@ -37,16 +47,56 @@ def main() -> int:
             continue
         checked += 1
         rel = path.relative_to(REPO_ROOT).as_posix()
-        status = _status(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        status = _fm_value(text, "publicatiestatus")
+        status_line = frontmatter_key_line(text, "publicatiestatus")
         if not status:
-            errors.append(f"{rel}: publicatiestatus ontbreekt")
+            errors.append(
+                format_issue(
+                    rel,
+                    "publicatiestatus ontbreekt in de frontmatter",
+                    fix=(
+                        "zet publicatiestatus op voorzien, concept, "
+                        "reviewable of productie"
+                    ),
+                )
+            )
         elif status not in VALID:
-            errors.append(f"{rel}: onbekende publicatiestatus {status!r}")
+            errors.append(
+                format_issue(
+                    rel,
+                    f"onbekende publicatiestatus {status!r}",
+                    line=status_line,
+                    fix=(
+                        "gebruik precies: voorzien, concept, "
+                        "reviewable of productie"
+                    ),
+                )
+            )
+        auto = (_fm_value(text, "automatische_inhoud") or "").lower()
+        auto_line = frontmatter_key_line(text, "automatische_inhoud")
+        if not auto:
+            errors.append(
+                format_issue(
+                    rel,
+                    "automatische_inhoud ontbreekt in de frontmatter",
+                    fix="zet automatische_inhoud op true of false",
+                )
+            )
+        elif auto not in AUTO_VALID:
+            errors.append(
+                format_issue(
+                    rel,
+                    f"onbekende automatische_inhoud {auto!r}",
+                    line=auto_line,
+                    fix="gebruik precies: true of false",
+                )
+            )
     if errors:
         for line in errors:
             print(f"FAIL: {line}", flush=True)
         return 1
-    print(f"Oefenhoek publicatiestatus: {checked} pagina('s) OK", flush=True)
+    print(f"Oefenhoek frontmatter: {checked} pagina('s) OK", flush=True)
     return 0
 
 

@@ -16,7 +16,12 @@ content-source/
     liturgikon/       liturgikon-teksten
     diversen/         losse zangstukken buiten de andere secties
     oefenhoek/        WIP-oefenmateriaal voor koorleden (geen catalogus)
+      bibliotheek/     (conversie) bibliotheek drie lagen; zie Oefenhoek
+      liturgiemap-hemelum/  koormap Hemelum
+      overig/         testmateriaal
+      input/          ruwe dumps
     demo/             tooling-demo's (svg CLI/inline/include, mxl, coria, pdf) + assets/
+    handleiding/      beheerder-handleiding oefenhoek (ruwe input tot publicatie)
   lokaal/             parochie-lokaal (manifest + repr per zangstuk)
   _index.md           site-home
 ```
@@ -29,9 +34,10 @@ content-source/
 | Inline VSA ter referentie/bewerking        | `hemelum-eigen/`           | geen duplicate stub-pagina's       |
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
 | Tooling-demo (svg CLI → inline → include; mxl; coria; pdf) | `demo/` (+ `demo/assets/`) | één topic per pagina |
-| WIP-oefenmateriaal voor koorleden          | `oefenhoek/`               | geen `nav_group`; bladermap per zangstuk-id |
+| Beheerder-handleiding (oefenhoek-straat)   | `handleiding/`             | geen `nav_group`; balk-knop **Handleiding** (weight na Demo) |
+| WIP-oefenmateriaal voor koorleden          | `oefenhoek/`               | geen `nav_group`; bibliotheek + koormap-slots |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
-| Header-nav                                 | `nav_group` op sectie-`_index.md` | `diensten` / `materiaal`; sectie zonder groep (Oefenhoek, Demo) wordt dropdown van haar pagina’s |
+| Header-nav                                 | `nav_group` op sectie-`_index.md` | `diensten` / `materiaal`; sectie zonder groep (Oefenhoek, Demo, Handleiding) wordt dropdown van haar pagina’s |
 | Weekdag-subnav                             | balk onder de header       | ma–za via `weight` 1–6             |
 | Feesteigen-subnav                          | balk onder de header       | maanden via `weight` 1–12          |
 | Paginalijst op `_index`                    | Hugo `page-list.html`      | default bestandsnaam (`mm-dd-…`); `nav_sort: weight` op weekdagen |
@@ -48,23 +54,32 @@ catalogus en geen tooling-demo.
 | Afspraak | Toelichting |
 | -------- | ----------- |
 | Eigen rubriek, geen `nav_group` | Balk-knop **Oefenhoek** (weight lager dan Demo, dus links daarvan); dropdown = deelrubrieken |
-| Deelrubrieken | `liturgiemap-hemelum/`, `overig/` (later bijv. `liturgiemap-zwolle/`); `input/` blijft op oefenhoek-niveau |
-| Eén bladermap per zangstuk | `oefenhoek/<deelrubriek>/<id>/index.md`; familie (meerdere varianten): `<id>/_index.md` + kind-bladermappen |
-| Liturgiemap-overzicht | Koor-TOC (`hide_section_list`); titel linkt naar familie-overzicht of naar een stuk met getoonde PDF/VSA |
-| Geen spaties in publicatienamen | Map + `.mscz` / Coria-`.mxl` / PDF: spaties -> `-`; stam `[a-z0-9_-]+`. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
-| Geen dubbele canonieke VSA | Notatie via catalogus-include (`id:…` / `lokaal:…` / `bron:…`); experimentele exports mogen wél in de bladermap |
+| Deelrubrieken | `bibliotheek/` (doel), `liturgiemap-hemelum/`, `overig/`; `input/` blijft op oefenhoek-niveau |
+| Bibliotheek | `oefenhoek/bibliotheek/<zangstuk-id>/<variant-id>/<uitvoeringsvorm-id>/` (altijd drie lagen voor een echte uitvoeringsvorm). Basispartituur-`.mscz` + PDF/Coria/VSA + `index.md`. Mag uitvoeringsvormen bevatten **zonder** koormap-verwijzing. **Alias-variant:** alleen `_index.md` met `alias_van: zangstuk/canonieke-variant` (geen uitvoeringsvorm-map). Root toont oefenbare zangstukken (niet alle stubs). Id-register: `bibliotheek/ID-REGISTER.md`. Special pages: `bibliotheek/speciaal/` (voorzien, ongerefereerd, oefenbaar). Opnemen: `scripts/bieb-accepteer.cmd` (niet in check). Historische migratie: `migrate_oefenhoek_bibliotheek.py`. Print-vel: `{stam}.print.mscz` in bibliotheek, geen Coria-basispartituur. Check: `python scripts/bibliotheek.py`. |
+| Koormap | Geordende view (liturgie, later feest/collectie/parochie). **Sectie** = map met `_index.md` (liturgische plek / hoofdstuk). **Slot-pagina** = map met `index.md` + `{{< bieb id="zangstuk/variant/uitvoeringsvorm" >}}` (één of meer shortcodes = compositieblad). Geen basispartituur-`.mscz` in die mappen. Handleiding: `praktijk/handleiding/start/bibliotheek-en-koormappen.md`. |
+| Publicatiestam | `{zangstuk}-{variant}-{uitvoeringsvorm}` voor bronbestanden; afgeleiden bij voorkeur `{stam}.{representatie-id}.{ext}` (`scripts/oefenhoek-product-contract.md`) |
+| Migratie uitgevoerd (Hemelum) | Basispartituur-bestanden in `bibliotheek/`; koormap-slots alleen `index.md` + `bieb`. Geen `:::include` naar catalogus/`lokaal/` in de oefenhoek. |
+| Geen spaties in publicatienamen | Stam `[a-z0-9_-]+`. Print-vel: `*.print.mscz` (buiten partituur-productgate). Afgeleiden per representatie-id: zie product-contract. Ruwe dumps: `oefenhoek/input/` (niet gekopieerd) |
+| Geen dubbele canonieke VSA | Catalogus-include (`id:…` / `lokaal:…` / `bron:…`) mag op een koormap-slot; MuseScore-uitgaven in bibliotheek |
 | `check --strict` blijft gelden | Alleen plaatsen wat de pipeline groen houdt; anders eerst in de tool-tak laten |
 | Klaar? Verhuizen | Naar Diensten/Materiaal (later: oefenmodus op die pagina’s); oefenhoek-pagina inkorten of verwijzen |
 | Input vs publicatie | Ruwe dumps in `oefenhoek/input/<herkomst>/` (capella, vow, musescore, musicxml, pdf). `_inbox/` en `_werk/` alleen lokaal (gitignore). Geen `_index.md` in `input/`. |
-| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per dump; tabel bij sitebuild). Uitklapbaar onderaan de Oefenhoek-`_index`, na de deelrubrieken. |
-| Publicatiestatus | Frontmatter `publicatiestatus` op elke oefenhoek-`_index.md` en `index.md`: `voorzien` (gepland, nog geen uitgave), `concept` (eerste versie), `reviewable` (feedback gevraagd), `productie`. Balk + e-mail/GitHub-issue. Secties: collectie als geheel. |
+| Werkvoorraad | `oefenhoek/input/werkvoorraad.md` (een rij per input; tabel bij sitebuild). Doel-id = bibliotheek-id wanneer bekend. |
+| Publicatiestatus | Frontmatter `publicatiestatus` op elke oefenhoek-`_index.md` en `index.md`: `voorzien` (gepland, nog geen uitgave), `concept` (eerste versie), `reviewable` (feedback gevraagd), `productie`. Sticky Oefenhoek-header (breadcrumb + status/feedback). Secties: collectie als geheel. UI: `scripts/oefenhoek-ui-contract.md`. |
+| Kind-lijst linkbaar | `layouts/partials/oefenhoek-linkbaar.html`: doorlinken als er oefenbestanden zijn, of leaf-status in `concept` \| `reviewable` \| `productie`, of (sectie) een nakomeling linkbaar is, of `bieb` naar een linkbaar doel. Anders platte tekst + `(voorzien)`. |
+| Bibliotheek- / koormap-`index.md` | Met `automatische_inhoud: true`: widgets via Hugo-layout uit bestanden in de map. Met `bieb`: `automatische_inhoud: false`. |
+| Sectie-`_index.md` | Eigen tekst (geen `#`-titel; die komt uit de layout) + linklijst van kind-pagina's als `automatische_inhoud: true`. Precies 1 kind: doorverwijzen naar dat kind. Navigatie via sticky breadcrumb. Zet `false` als je zelf een TOC houdt (zoals de liturgiemap-root). |
+| Slot-pagina / compositieblad | `index.md` met `automatische_inhoud: false` + één of meer `bieb`. Elke shortcode toont eerst Oefenen/Downloaden/Printen, daarna PDF/SVG. |
+| `automatische_inhoud` | Verplicht op elke oefenhoek-`_index.md` / `index.md`: `true` of `false`. |
+| `artefacten_handmatig` | Optioneel op bibliotheek-`index.md`: `true` = PDF/MXL e.d. niet via product-pipeline; beheerdersbanner op de pagina. Zie `scripts/oefenhoek-product-contract.md`. |
 
 Intern register (conversiestap) is niet hetzelfde als publieke `publicatiestatus`.
 
 Nog niet in deze ronde: oefenmodus-schakelaar, audio-player, automatische sync
 uit VSA-tooling.
 
-Overig (niet in een liturgiemap): o.a. `troparion-nikolaas-van-myra` (catalogus-id; spelling Nikolaas).
+Overig: testhoek. Bibliotheek = catalogus van uitvoeringsvormen; koormappen
+zijn views. Handleiding: `praktijk/handleiding/start/bibliotheek-en-koormappen.md`.
 
 ## Antifonen weekdagen (voorbeeld)
 

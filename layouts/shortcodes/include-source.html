@@ -3,8 +3,9 @@
   in een codeblok. Probeert generated/content en content-source.
 */ -}}
 {{- $src := .Get "src" -}}
+{{- $loc := partial "diag-location.html" (dict "position" .Position "page" .Page) -}}
 {{- if not $src -}}
-  {{- errorf "include-source: parameter src is verplicht" -}}
+  {{- errorf "%s: shortcode include-source mist parameter src. Oplossing: voeg src=\"bestandsnaam.md\" toe aan de shortcode include-source." $loc -}}
 {{- end -}}
 {{- $lang := or (.Get "lang") "markdown" -}}
 {{- $rel := replace (path.Join .Page.File.Dir $src) "\\" "/" -}}
@@ -19,6 +20,6 @@
   {{- end -}}
 {{- end -}}
 {{- if eq $text "" -}}
-  {{- errorf "include-source: bestand niet gevonden voor %q (geprobeerd: %s)" $src (delimit $candidates ", ") -}}
+  {{- errorf "%s: shortcode include-source: bestand %q niet gevonden. Oplossing: zet het bestand naast deze pagina (geprobeerd: %s)." $loc $src (delimit $candidates ", ") -}}
 {{- end -}}
 {{- highlight $text $lang "" -}}

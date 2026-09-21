@@ -3,10 +3,12 @@
 SATB in MuseScore is meestal 1 part / 2 balken / 4 stemmen. Coria kiest een
 partij op score-part, niet op voice: dit script explodeert naar S/A/T/B,
 kopieert lyrics, zet melisma-extenders, en schrijft .mxl zonder DOCTYPE
-(DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern (foutmelding
+(DTD-fetch laat Coria falen). Coria vertaalt MusicXML intern naar NWC (foutmelding
 "translation failed"); layout-only markup (balken, stokken, slur-notations,
-toonvoortekens, default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
-Pitch/alter, duur en lyrics blijven. Coria krijgt uncompressed `.musicxml`
+default-x/y, movement-title) gaat eraf. Versie wordt 3.1.
+Pitch/alter, duur, lyrics en playback-toonvoortekens blijven. Coria negeert
+pitch/alter en speelt via voortekening + <accidental>; zonder herstelling
+wordt een B bij 1 mol een Bes. Coria krijgt uncompressed `.musicxml`
 via fingerprint_coria_mxl.py (ZIP-.mxl faalt op o.a. Kastorski).
 
 Leidende rusten na een dubbele streep (print: gap/onzichtbaar) gaan eraf;
@@ -23,6 +25,7 @@ Bestandsnamen: geen spaties (`scripts/score_filenames.py`).
   python scripts/export_mscz_coria_mxl.py pad\\naar\\file.mscz -o uit.mxl
   python scripts/export_mscz_coria_mxl.py content-source\\praktijk
   python scripts/export_mscz_coria_mxl.py --sanitize-mxl content-source\\praktijk
+  python scripts/export_mscz_coria_mxl.py --sanitize-mxl static\\vsa\\mxl --verbose
 """
 from __future__ import annotations
 
@@ -38,7 +41,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from score_filenames import published_path, require_no_spaces
+from score_filenames import published_path, require_no_spaces, is_print_mscz
 
 CUE_RE = re.compile(r"^\s*[PDK]\s*[:;]", re.I)
 PAUSE_LYRIC = "[PAUZE]"
@@ -216,15 +219,29 @@ def satb_voice_map(part: ET.Element) -> list[tuple[str, str]] | None:
 _NOTE_MARKUP = frozenset({"beam", "stem", "notations", "accidental"})
 _LAYOUT_ATTR_PREFIXES = ("default-", "relative-")
 _LAYOUT_ATTRS = frozenset({"width", "print-object", "color"})
-CORIA_FORBIDDEN_TAGS = _NOTE_MARKUP | frozenset({"part-group", "movement-title", "supports", "tie"})
+# <accidental> is playback voor Coria (NWC); wel strippen-en-herzitten.
+CORIA_FORBIDDEN_TAGS = frozenset(
+    {"beam", "stem", "notations", "part-group", "movement-title", "supports", "tie"}
+)
+_STEPS = "CDEFGAB"
+_SHARP_ORDER = "FCGDAEB"
+_FLAT_ORDER = "BEADGCF"
+_ALTER_TO_ACCIDENTAL = {
+    -2: "double-flat",
+    -1: "flat",
+    0: "natural",
+    1: "sharp",
+    2: "double-sharp",
+}
 
 
 def sanitize_coria_importer(root: ET.Element) -> None:
     """Strip visuele MusicXML die Coria's vertaler laat crashen.
 
-    Playback blijft pitch+alter+duration+lyric. Getest tegen Coria:
-    Cherubijnenhymne Kastorski faalt tot deze markup weg is, versie 3.1,
-    geen movement-title. (Feofan werkte toevallig al zonder deze strip.)
+    Playback blijft pitch+alter+duration+lyric; toonvoortekens worden daarna
+    opnieuw gezet. Getest tegen Coria: Cherubijnenhymne Kastorski faalt tot
+    balken/stokken/notations/movement-title weg zijn, versie 3.1.
+    (Feofan werkte toevallig al zonder deze strip.)
     """
     root.set("version", "3.1")
     for el in list(root):
@@ -258,6 +275,80 @@ def sanitize_coria_importer(root: ET.Element) -> None:
         for el in list(plist):
             if local(el.tag) == "part-group":
                 plist.remove(el)
+
+
+def key_alters(fifths: int) -> dict[str, int]:
+    alters = {step: 0 for step in _STEPS}
+    if fifths > 0:
+        for step in _SHARP_ORDER[:fifths]:
+            alters[step] = 1
+    elif fifths < 0:
+        for step in _FLAT_ORDER[:-fifths]:
+            alters[step] = -1
+    return alters
+
+
+def note_sounding_alter(note: ET.Element) -> int | None:
+    pitch = child(note, "pitch")
+    if pitch is None:
+        return None
+    alter_el = child(pitch, "alter")
+    if alter_el is None or not text(alter_el):
+        return 0
+    try:
+        return int(float(text(alter_el)))
+    except ValueError:
+        return None
+
+
+def _insert_accidental(note: ET.Element, name: str) -> None:
+    acc = ET.Element("accidental")
+    acc.text = name
+    type_el = child(note, "type")
+    if type_el is not None:
+        note.insert(list(note).index(type_el) + 1, acc)
+    else:
+        note.append(acc)
+
+
+def apply_playback_accidentals(root: ET.Element) -> int:
+    """Zet <accidental> waar de klinkende toon afwijkt van voortekening/maat.
+
+    Coria vertaalt naar NWC en negeert pitch/alter. Zonder herstellingstekens
+    klinkt een B bij 1 mol als Bes.
+    """
+    n = 0
+    for part in music_parts(root):
+        fifths = 0
+        for measure in children(part, "measure"):
+            attrs = child(measure, "attributes")
+            if attrs is not None:
+                key = child(attrs, "key")
+                if key is not None:
+                    raw = text(child(key, "fifths"))
+                    if raw.lstrip("-").isdigit():
+                        fifths = int(raw)
+            implied_key = key_alters(fifths)
+            state: dict[tuple[str, str], int] = {}
+            for note in children(measure, "note"):
+                sounding = note_sounding_alter(note)
+                pitch = child(note, "pitch")
+                if sounding is None or pitch is None:
+                    continue
+                step = text(child(pitch, "step"))
+                octave = text(child(pitch, "octave"))
+                if step not in implied_key:
+                    continue
+                current = state.get((step, octave), implied_key[step])
+                if sounding == current:
+                    continue
+                name = _ALTER_TO_ACCIDENTAL.get(sounding)
+                if name is None:
+                    continue
+                _insert_accidental(note, name)
+                state[(step, octave)] = sounding
+                n += 1
+    return n
 
 
 def strip_layout(root: ET.Element) -> None:
@@ -325,6 +416,179 @@ def prepare_note(note: ET.Element) -> ET.Element:
     if is_pitched(n) and n.get("print-object") == "no":
         del n.attrib["print-object"]
     return n
+
+
+def _is_feathered_recite(note: ET.Element) -> bool:
+    """Basispartituur ||O|| na MuseScore-export: breve-kop, stokloos, of type long/maxima.
+
+    MuseScore schrijft feathered basispartituur-noten vaak als ``<type>long</type>`` met
+    ``notehead=normal`` en (op de sopraan) multi-lettergreep-lyric; lagere
+    stemmen hebben dezelfde noot zonder lyric.
+    """
+    nh = child(note, "notehead")
+    if nh is not None and (nh.text or "").strip().lower() == "breve":
+        return True
+    ntype = child(note, "type")
+    type_s = (ntype.text or "").strip() if ntype is not None else ""
+    if type_s in {"long", "breve", "maxima"}:
+        return True
+    stem = child(note, "stem")
+    stem_none = (
+        stem is not None and (stem.text or "").strip() == "none"
+    )
+    lyrics = lyric_elements(note)
+    joined = (
+        " ".join(text(child(ly, "text")) for ly in lyrics).strip()
+        if lyrics
+        else ""
+    )
+    multi = bool(joined) and (
+        " " in joined or len(_syllables_from_lyric_text(joined)) > 1
+    )
+    if stem_none and type_s in {"half", "whole", "breve", "long"}:
+        return True
+    if multi and type_s in {"half", "whole", "breve", "long", "maxima"}:
+        return True
+    return False
+
+
+def _syllables_from_lyric_text(raw: str) -> list[tuple[str, str]]:
+    """Split basispartituur-lyric tot (syllable_text, syllabic) paren."""
+    from nl_hyphen import hyphenate_token
+
+    tokens: list[str] = []
+    for word in raw.split():
+        word = word.strip()
+        if not word:
+            continue
+        if "-" in word:
+            tokens.extend(p for p in word.split("-") if p)
+        else:
+            parts = hyphenate_token(word)
+            tokens.extend(parts if parts else [word])
+    n = len(tokens)
+    out: list[tuple[str, str]] = []
+    for i, tok in enumerate(tokens):
+        if n <= 1:
+            syll = "single"
+        elif i == 0:
+            syll = "begin"
+        elif i == n - 1:
+            syll = "end"
+        else:
+            syll = "middle"
+        out.append((tok, syll))
+    return out
+
+
+def _quarter_duration(divisions: int) -> int:
+    return max(1, divisions)
+
+
+def _make_quarter_note(
+    template: ET.Element,
+    *,
+    syl_text: str | None,
+    syllabic: str,
+    divisions: int,
+) -> ET.Element:
+    n = copy.deepcopy(template)
+    # Verwijder feathered markeringen
+    for el in list(n):
+        tag = local(el.tag)
+        if tag in {"notehead", "dot", "time-modification", "beam", "notations"}:
+            # notations later opnieuw indien nodig; strip slurs op recite expand
+            if tag == "notations":
+                n.remove(el)
+            elif tag != "notations":
+                n.remove(el)
+        if tag == "stem":
+            el.text = "up"
+        if tag == "type":
+            el.text = "quarter"
+        if tag == "duration":
+            el.text = str(_quarter_duration(divisions))
+        if tag == "lyric":
+            n.remove(el)
+    # duration/type opnieuw verzekeren
+    dur = child(n, "duration")
+    if dur is None:
+        dur = ET.Element("duration")
+        # na pitch
+        pitch = child(n, "pitch")
+        idx = list(n).index(pitch) + 1 if pitch is not None else 0
+        n.insert(idx, dur)
+    dur.text = str(_quarter_duration(divisions))
+    typ = child(n, "type")
+    if typ is None:
+        typ = ET.Element("type")
+        n.append(typ)
+    typ.text = "quarter"
+    stem = child(n, "stem")
+    if stem is None:
+        stem = ET.SubElement(n, "stem")
+    stem.text = "up"
+    if syl_text:
+        ly = ET.SubElement(n, "lyric", number="1")
+        ET.SubElement(ly, "syllabic").text = syllabic
+        ET.SubElement(ly, "text").text = syl_text
+    return n
+
+
+def expand_recite_notes(root: ET.Element) -> int:
+    """Feathered basispartituur-noten -> een kwart per lettergreep (Coria-playback)."""
+    expanded = 0
+    for part in music_parts(root):
+        divisions = 1
+        for measure in children(part, "measure"):
+            attrs = child(measure, "attributes")
+            if attrs is not None:
+                div = child(attrs, "divisions")
+                if div is not None and (div.text or "").strip().isdigit():
+                    divisions = int(div.text.strip())
+            q = _quarter_duration(divisions)
+            new_children: list[ET.Element] = []
+            changed = False
+            for el in list(measure):
+                if local(el.tag) != "note" or is_rest(el) or is_chord(el):
+                    new_children.append(el)
+                    continue
+                if not _is_feathered_recite(el):
+                    new_children.append(el)
+                    continue
+                lyrics = lyric_elements(el)
+                raw = " ".join(text(child(ly, "text")) for ly in lyrics).strip()
+                dur_el = child(el, "duration")
+                dur = (
+                    int(dur_el.text.strip())
+                    if dur_el is not None and (dur_el.text or "").strip().isdigit()
+                    else q
+                )
+                n_by_dur = max(1, dur // q)
+                if raw:
+                    syllables = _syllables_from_lyric_text(raw)
+                    if len(syllables) <= 1:
+                        syllables = [(raw, "single")]
+                else:
+                    # Lagere stemmen: zelfde aantal kwarten, zonder lyric
+                    syllables = [(None, "single")] * n_by_dur
+                for syl_text, syllabic in syllables:
+                    new_children.append(
+                        _make_quarter_note(
+                            el,
+                            syl_text=syl_text,
+                            syllabic=syllabic,
+                            divisions=divisions,
+                        )
+                    )
+                expanded += 1
+                changed = True
+            if changed:
+                for c in list(measure):
+                    measure.remove(c)
+                for c in new_children:
+                    measure.append(c)
+    return expanded
 
 
 def tempo_direction(bpm: str) -> ET.Element:
@@ -648,7 +912,7 @@ def set_senza_misura(root: ET.Element) -> None:
                 attrs.insert(0, new)
 
 
-def apply_coria_timing(root: ET.Element) -> None:
+def apply_coria_timing(root: ET.Element, *, verbose: bool = False) -> None:
     """Print-pickups weg; [PAUZE] na dubbele streep; kwart na cesuur; geen hidden rusten."""
     parts = music_parts(root)
     if not parts:
@@ -675,11 +939,13 @@ def apply_coria_timing(root: ET.Element) -> None:
                 snd = child(d, "sound")
                 if snd is not None and snd.get("tempo"):
                     n_tempo += 1
-    print(
-        f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
-        f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad} "
-        f"tempo-markers={n_tempo}"
-    )
+    if verbose:
+        print(
+            f"  sectie-pickup rusten weg={n_lead} pauze-maten={n_pause} "
+            f"cesuur-kwarten={n_caes} unhide={n_hide} duur-pad={n_pad} "
+            f"tempo-markers={n_tempo}",
+            flush=True,
+        )
 
 
 def apply_melisma_extenders(root: ET.Element) -> int:
@@ -712,7 +978,9 @@ def apply_melisma_extenders(root: ET.Element) -> int:
     return n
 
 
-def explode_satb(root: ET.Element, voice_map: list[tuple[str, str]]) -> ET.Element:
+def explode_satb(
+    root: ET.Element, voice_map: list[tuple[str, str]], *, verbose: bool = False
+) -> ET.Element:
     src_part = music_parts(root)[0]
     measures = children(src_part, "measure")
     new = ET.Element(root.tag, attrib=root.attrib)
@@ -747,30 +1015,31 @@ def explode_satb(root: ET.Element, voice_map: list[tuple[str, str]]) -> ET.Eleme
             )
         built.append(part)
     n_ly = copy_lyrics_from_soprano(built)
-    print(f"  SATB explode S/A/T/B, lyrics gekopieerd={n_ly}")
+    if verbose:
+        print(f"  SATB explode S/A/T/B, lyrics gekopieerd={n_ly}", flush=True)
     return new
 
 
-def sanitize_existing_parts(root: ET.Element) -> ET.Element:
+def sanitize_existing_parts(root: ET.Element, *, verbose: bool = False) -> ET.Element:
     """Al 4 parts: layout weg, lyrics aanvullen, MIDI als die ontbreekt."""
     strip_layout(root)
     parts = music_parts(root)
     if len(parts) == 4:
         n_ly = copy_lyrics_from_soprano(parts)
-        if n_ly:
-            print(f"  lyrics gekopieerd naar lagere parts={n_ly}")
+        if n_ly and verbose:
+            print(f"  lyrics gekopieerd naar lagere parts={n_ly}", flush=True)
     return root
 
 
-def convert_root(root: ET.Element) -> ET.Element:
+def convert_root(root: ET.Element, *, verbose: bool = False) -> ET.Element:
     parts = music_parts(root)
     if len(parts) == 1:
         voice_map = satb_voice_map(parts[0])
         if voice_map is not None:
-            new = explode_satb(root, voice_map)
+            new = explode_satb(root, voice_map, verbose=verbose)
             strip_layout(new)
             return new
-    return sanitize_existing_parts(root)
+    return sanitize_existing_parts(root, verbose=verbose)
 
 
 def summarize(root: ET.Element) -> str:
@@ -788,18 +1057,27 @@ def summarize(root: ET.Element) -> str:
     return f"title={title!r} parts={len(music_parts(root))} {', '.join(bits)}"
 
 
-def process(mscz: Path, out: Path) -> None:
+def process(mscz: Path, out: Path, *, verbose: bool = False) -> None:
     musescore = find_musescore()
-    print(f"using {musescore}")
+    if verbose:
+        print(f"using {musescore}", flush=True)
     with tempfile.TemporaryDirectory() as tmp:
+        # MuseScore kan de invoer-.mscz herschrijven bij export; werk vanaf
+        # een kopie zodat de canonieke basispartituur intact blijft.
+        src_copy = Path(tmp) / mscz.name
+        shutil.copy2(mscz, src_copy)
         raw_mxl = Path(tmp) / "export.mxl"
-        musescore_export(mscz, raw_mxl, musescore)
+        musescore_export(src_copy, raw_mxl, musescore)
         root = load_score_xml(raw_mxl)
-    root = convert_root(root)
-    apply_coria_timing(root)
+    root = convert_root(root, verbose=verbose)
+    n_recite = expand_recite_notes(root)
+    if n_recite and verbose:
+        print(f"  recite-expand={n_recite}", flush=True)
+    apply_coria_timing(root, verbose=verbose)
     n_ext = apply_melisma_extenders(root)
-    print(f"  melisma-extend={n_ext}")
-    print(f"  {summarize(root)}")
+    if verbose:
+        print(f"  melisma-extend={n_ext}", flush=True)
+        print(f"  {summarize(root)}", flush=True)
     parts = music_parts(root)
     if len(parts) >= 2:
         bad = []
@@ -810,19 +1088,27 @@ def process(mscz: Path, out: Path) -> None:
             if len(set(durs)) > 1:
                 bad.append(f"m{mi}:{durs}")
         if bad:
-            print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}")
+            print(f"  WAARSCHUWING maatduur verschilt: {', '.join(bad)}", flush=True)
     sanitize_coria_importer(root)
+    n_acc = apply_playback_accidentals(root)
+    if verbose:
+        print(f"  playback-accidentals={n_acc}", flush=True)
     write_mxl(out, root)
-    print(f"geschreven: {out}")
+    if verbose:
+        print(f"geschreven: {out}", flush=True)
 
 
-def process_existing_mxl(path: Path) -> None:
+def process_existing_mxl(path: Path, *, verbose: bool = False) -> None:
     require_no_spaces(path)
     root = load_score_xml(path)
     sanitize_coria_importer(root)
+    n_acc = apply_playback_accidentals(root)
+    if verbose:
+        print(f"  playback-accidentals={n_acc}", flush=True)
     write_mxl(path, root)
-    print(f"  {summarize(root)}")
-    print(f"gesaneerd: {path}")
+    if verbose:
+        print(f"  {summarize(root)}", flush=True)
+        print(f"gesaneerd: {path}", flush=True)
 
 
 def coria_importer_violations(root: ET.Element) -> list[str]:
@@ -837,12 +1123,21 @@ def coria_importer_violations(root: ET.Element) -> list[str]:
 
 
 def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
+    """Zoek bestanden met de gegeven suffix.
+
+    Bij `.mscz` in een map: sla `*.print.mscz` over (print-vel, geen basispartituur).
+    Een expliciet pad naar een print-`.mscz` blijft in de lijst; callers
+    weigeren die met een duidelijke melding.
+    """
     out: list[Path] = []
+    suf = suffix if suffix.startswith(".") else f".{suffix}"
     for path in paths:
         if path.is_dir():
-            found = sorted(p for p in path.rglob(f"*{suffix}") if p.is_file())
+            found = sorted(p for p in path.rglob(f"*{suf}") if p.is_file())
             if path.name != "input" and "input" not in path.parts:
                 found = [p for p in found if "input" not in p.parts]
+            if suf.lower() == ".mscz":
+                found = [p for p in found if not is_print_mscz(p)]
             out.extend(found)
         else:
             out.append(path)
@@ -850,7 +1145,8 @@ def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
 
 
 def expand_mscz(paths: list[Path]) -> list[Path]:
-    return expand_score_files(paths, ".mscz")
+    """Basispartituur-`.mscz` alleen (geen `*.print.mscz`, ook niet als pad expliciet is)."""
+    return [p for p in expand_score_files(paths, ".mscz") if not is_print_mscz(p)]
 
 
 def main() -> int:
@@ -867,6 +1163,11 @@ def main() -> int:
         action="store_true",
         help="Bestaande publicatie-.mxl in-place Coria-veilig maken (geen MuseScore)",
     )
+    p.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Toon detail per bestand (standaard alleen een samenvatting)",
+    )
     args = p.parse_args()
     if args.sanitize_mxl:
         files = expand_score_files(args.paths, ".mxl")
@@ -877,30 +1178,41 @@ def main() -> int:
             raise SystemExit("-o niet samen met --sanitize-mxl")
         failed = 0
         for path in files:
-            print(f"== {path}", flush=True)
+            if args.verbose:
+                print(f"== {path}", flush=True)
             if not path.is_file() or path.suffix.lower() != ".mxl":
                 print(f"  overgeslagen: {path}", flush=True)
                 failed += 1
                 continue
             try:
-                process_existing_mxl(path)
+                process_existing_mxl(path, verbose=args.verbose)
             except Exception as exc:  # noqa: BLE001
-                print(f"  FAILED {exc}", flush=True)
+                print(f"  FAILED {path}: {exc}", flush=True)
                 failed += 1
         if failed:
             print(f"{failed} mislukt van {len(files)}", flush=True)
             return 1
+        print(f"Coria-sanitize: {len(files)} bestand(en)", flush=True)
         return 0
 
-    files = expand_mscz(args.paths)
+    # Map-scan slaat print al over; expliciete print-paden melden we apart.
+    raw = expand_score_files(args.paths, ".mscz")
+    skipped_print = [p for p in raw if is_print_mscz(p)]
+    for path in skipped_print:
+        print(
+            f"OVERGESLAGEN print-.mscz (geen Coria): {path.name}",
+            flush=True,
+        )
+    files = [p for p in raw if not is_print_mscz(p)]
     if not files:
-        print("Geen .mscz-bestanden gevonden.", flush=True)
-        return 1
+        print("Geen basispartituur-.mscz-bestanden gevonden.", flush=True)
+        return 1 if not skipped_print else 0
     if args.output is not None and len(files) != 1:
         raise SystemExit("-o alleen bij precies een .mscz")
     failed = 0
     for path in files:
-        print(f"== {path}", flush=True)
+        if args.verbose:
+            print(f"== {path}", flush=True)
         if not path.is_file():
             print(f"  niet gevonden: {path}", flush=True)
             failed += 1
@@ -914,13 +1226,15 @@ def main() -> int:
             out = args.output if args.output is not None else path.with_suffix(".mxl")
             out = published_path(out)
             require_no_spaces(out)
-            process(path, out)
+            process(path, out, verbose=args.verbose)
         except Exception as exc:  # noqa: BLE001
-            print(f"  FAILED {exc}", flush=True)
+            print(f"  FAILED {path}: {exc}", flush=True)
             failed += 1
     if failed:
         print(f"{failed} mislukt van {len(files)}", flush=True)
         return 1
+    if not args.verbose:
+        print(f"Coria-export: {len(files)} bestand(en)", flush=True)
     return 0
 
 

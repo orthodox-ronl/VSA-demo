@@ -8,7 +8,8 @@
 # Pages setting: Deploy from a branch → gh-pages → /.
 #
 # Checks (blocking): sync, validate (--fail-on-warnings), build-markdown,
-# musicxml, hugo, interne link/asset-check.
+# sync_oefenhoek_index --svg (page-bundle VSA → static/vsa/bladermap), musicxml,
+# hugo, interne link/asset-check.
 # Checks (niet-blocking): externe http(s)-links.
 
 name: Deploy site to GitHub Pages
@@ -61,6 +62,8 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
 
           # Site-root en speciale paden: niet als branch-preview-map gebruiken.
+          # Keep in sync with scripts/fingerprint_coria_mxl.py::_pages_subdir
+          # Site (browser): github.io. Coria fetch: raw.githubusercontent.com gh-pages.
           reserved='^(preview|main|gh-pages|development|coria|css|demo|images|js|mxl|praktijk|vsa)$'
 
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
@@ -122,6 +125,12 @@ jobs:
       - name: Sync zondag bronbestanden
         run: python scripts/sync_bron_zondagen.py --bron-root vendor/bron
 
+      - name: Coria URL unit tests
+        run: |
+          python scripts/test_check_hugo_links_and_assets.py
+          python scripts/test_fingerprint_coria_mxl.py
+          python scripts/test_check_coria_retrieve.py
+
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source
 
@@ -133,6 +142,9 @@ jobs:
             generated/content \
             static/vsa \
             --output-mode shortcode
+          # Page-bundle .vsa (oefenhoek/bibliotheek): SVG onder static/vsa/bladermap/
+          # (build-markdown leegt static/vsa; zelfde stap als scripts/_pipeline.cmd)
+          python scripts/sync_oefenhoek_index.py --svg
 
       - name: Generate MusicXML
         run: vsa musicxml content-source static/vsa/mxl
@@ -146,6 +158,8 @@ jobs:
           python scripts/copy_content_extras.py
           python scripts/fingerprint_coria_mxl.py
           python scripts/write_build_stamp.py
+          python scripts/check_partituur_products.py
+          python scripts/check_vsa_products.py
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -191,3 +205,31 @@ jobs:
       keep_files: ${{ needs.build.outputs.keep_files == 'true' }}
     permissions:
       contents: write
+
+  coria-retrieve:
+    name: Coria retrieve smoke
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: pages-site
+          path: generated/site
+
+      - name: Coria retrieve smoke
+        run: |
+          python scripts/check_coria_retrieve.py \
+            --site-dir generated/site \
+            --max 5

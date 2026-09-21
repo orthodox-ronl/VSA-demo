@@ -1,0 +1,91 @@
+{{- /*
+  Special-page lijsten voor de bibliotheek (build-time, Wikipedia-achtig).
+
+  kind: voorzien | ongerefereerd | oefenbaar
+*/ -}}
+{{- $kind := .Get "kind" | default "voorzien" -}}
+{{- $loc := partial "diag-location.html" (dict "position" .Position "page" .Page) -}}
+{{- $bib := site.GetPage "/praktijk/oefenhoek/bibliotheek" -}}
+{{- if not $bib -}}
+  {{- errorf "%s: shortcode bibliotheek-special: sectie praktijk/oefenhoek/bibliotheek ontbreekt. Oplossing: controleer of die map in content-source staat." $loc -}}
+{{- end -}}
+{{- $prefix := "praktijk/oefenhoek/bibliotheek/" -}}
+
+{{- if eq $kind "voorzien" -}}
+  {{- $items := slice -}}
+  {{- range $bib.Sections -}}
+    {{- if ne .File.ContentBaseName "speciaal" -}}
+      {{- if not (partial "oefenhoek-linkbaar.html" .) -}}
+        {{- $items = $items | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $items = sort $items "Weight" -}}
+  {{- if $items -}}
+<ul class="page-list bibliotheek-special">
+  {{- range $items -}}
+  <li><span class="oefenhoek-voorzien">{{ or .Params.linkTitle .Title }} <span class="oefenhoek-voorzien-tag">(voorzien)</span></span></li>
+  {{- end -}}
+</ul>
+  {{- else -}}
+<p>Geen voorzien-zangstukken op dit moment.</p>
+  {{- end -}}
+
+{{- else if or (eq $kind "oefenbaar") (eq $kind "ongerefereerd") -}}
+  {{- $refs := dict -}}
+  {{- if eq $kind "ongerefereerd" -}}
+    {{- range site.Pages -}}
+      {{- if not (strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/") -}}
+        {{- range findRE `\bbieb\s+id="([^"]+)"` .RawContent -}}
+          {{- $id := replaceRE `.*id="([^"]+)".*` `$1` . -}}
+          {{- $id = partial "bibliotheek-canonical-id.html" $id -}}
+          {{- $refs = merge $refs (dict $id true) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $rows := slice -}}
+  {{- range $bib.RegularPagesRecursive -}}
+    {{- $dir := "" -}}
+    {{- with .File -}}{{- $dir = strings.TrimSuffix "/" (replace .Dir "\\" "/") -}}{{- end -}}
+    {{- if and $dir (not (strings.Contains $dir "/speciaal")) -}}
+      {{- $id := strings.TrimPrefix $prefix $dir -}}
+      {{- if and (ne $id $dir) (eq (len (split $id "/")) 3) -}}
+        {{- $include := false -}}
+        {{- if eq $kind "oefenbaar" -}}
+          {{- $include = partial "oefenhoek-linkbaar.html" . -}}
+        {{- else -}}
+          {{- $include = not (index $refs $id) -}}
+        {{- end -}}
+        {{- if $include -}}
+          {{- $rows = $rows | append (dict "page" . "id" $id "title" (or .Params.linkTitle .Title)) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $rows = sort $rows "id" -}}
+  {{- if $rows -}}
+<ul class="page-list bibliotheek-special">
+  {{- range $rows -}}
+  <li>
+    {{- if partial "oefenhoek-linkbaar.html" .page -}}
+    <a href="{{ .page.RelPermalink }}">{{ .title }}</a>
+    {{- else -}}
+    <span class="oefenhoek-voorzien">{{ .title }} <span class="oefenhoek-voorzien-tag">(voorzien)</span></span>
+    {{- end -}}
+    <code class="bibliotheek-id">{{ .id }}</code>
+  </li>
+  {{- end -}}
+</ul>
+  {{- else -}}
+    {{- if eq $kind "oefenbaar" -}}
+<p>Nog geen oefenbare uitvoeringsvormen.</p>
+    {{- else -}}
+<p>Elke uitvoeringsvorm in de bibliotheek wordt ergens in een koormap aangeroepen.</p>
+    {{- end -}}
+  {{- end -}}
+
+{{- else -}}
+  {{- errorf "%s: shortcode bibliotheek-special: onbekend kind %q. Oplossing: gebruik kind=\"voorzien\", \"ongerefereerd\" of \"oefenbaar\"." $loc $kind -}}
+{{- end -}}

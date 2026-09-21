@@ -1,14 +1,16 @@
 {{- /*
   Interne werkvoorraad, onderaan de Oefenhoek-overzichtspagina.
   Bron: content-source (input/ is geen Hugo-sectie).
+  Context: de Oefenhoek-overzichtspagina (Page).
 */ -}}
 {{- $path := "content-source/praktijk/oefenhoek/input/werkvoorraad.md" -}}
+{{- $loc := partial "diag-location.html" (dict "page" . "file" $path) -}}
 {{- if not (fileExists $path) -}}
-  {{- errorf "werkvoorraad: %s ontbreekt" $path -}}
+  {{- errorf "%s: werkvoorraad-bestand ontbreekt. Oplossing: zet of herstel %s (zie handleiding Oefenhoek)." $loc $path -}}
 {{- end -}}
 <details class="werkvoorraad">
-  <summary>Werkvoorraad (interne dumps)</summary>
+  <summary>Werkvoorraad (interne inputs)</summary>
   <div class="werkvoorraad-body">
-    {{ readFile $path | .Page.RenderString }}
+    {{ readFile $path | .RenderString }}
   </div>
 </details>

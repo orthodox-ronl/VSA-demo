@@ -1,8 +1,5 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-
+{{ partial "oefenhoek-alias.html" . }}
 {{ .Content }}
-
-{{ partial "page-list.html" . }}
-{{ partial "werkvoorraad.html" . }}
 {{ end }}

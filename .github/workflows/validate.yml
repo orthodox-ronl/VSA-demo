@@ -52,6 +52,12 @@ jobs:
       - name: Sync zondag bronbestanden
         run: python scripts/sync_bron_zondagen.py --bron-root vendor/bron
 
+      - name: Coria URL unit tests
+        run: |
+          python scripts/test_check_hugo_links_and_assets.py
+          python scripts/test_fingerprint_coria_mxl.py
+          python scripts/test_check_coria_retrieve.py
+
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source
 
@@ -63,6 +69,7 @@ jobs:
             generated/content \
             static/vsa \
             --output-mode shortcode
+          python scripts/sync_oefenhoek_index.py --svg
 
       - name: Generate MusicXML
         run: vsa musicxml content-source static/vsa/mxl
@@ -76,6 +83,8 @@ jobs:
           python scripts/copy_content_extras.py
           python scripts/fingerprint_coria_mxl.py
           python scripts/write_build_stamp.py
+          python scripts/check_partituur_products.py
+          python scripts/check_vsa_products.py
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3

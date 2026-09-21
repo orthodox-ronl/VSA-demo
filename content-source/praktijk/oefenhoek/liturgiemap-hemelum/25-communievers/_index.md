@@ -4,6 +4,7 @@ linkTitle: "25 Communieversen"
 weight: 25
 nav_sort: weight
 publicatiestatus: concept
+automatische_inhoud: true
 ---
 
 Communiverzen die in de liturgie in Hemelum kunnen worden gebruikt.

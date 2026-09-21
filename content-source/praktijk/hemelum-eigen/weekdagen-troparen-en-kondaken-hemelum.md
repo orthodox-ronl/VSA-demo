@@ -17,7 +17,8 @@ dat gij ons beschermt door uw ge{-&/be_&_}{\den_}, *
 {/en} ons beschut met de dekking van uw {vleu_}ge{\len}. * 
 Behoed ons door uw bovenzinnelijke {heer_}{/lijk_}{\heid_}, * 
 {/nu} wij nedervallen en tot u {roe__}{\pen_}: * 
-// redt ons uit de gevaren, Aanvoerders der Krachten uit den {-&/ho_&_}{\ge_}. [//:]
+// redt ons uit de gevaren, 
+        Aanvoerders der Krachten uit den {-&/ho_&_}{\ge_}. [//:]
 :::
 
 ### KONDAK (Toon 2)

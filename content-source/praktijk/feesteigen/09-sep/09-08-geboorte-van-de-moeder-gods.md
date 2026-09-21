@@ -35,16 +35,18 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    {\\Hij} zal {/het} {/ze}{\ker} {\ge}{/stand__}{\doen_}. [:]
 
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
-2. [:] Een koning uit uw lendenen
-   zal ik doen zetelen op uw troon. [:] (refrein)
-3. [:] Daar zal Ik een hoorn oprichten voor David:
-   een licht bereiden voor Mijn Christus. [:] (refrein)
-4. [:] Want de Heer heeft Si-on uitverkoren,
-   Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:] (refrein)
+2. [:] Een {/ko}{/ning} {\uit} {/uw} {/len_.}de{\nen_}
+   {\\zal} ik {/doen} {/ze}{\te}{\len} {/op_} {uw_} {\troon}. [:]  refrein
+
+3. [:] Daar zal Ik {/een} {/hoorn} oprich{\ten} {/voor} {/Da__}{\vid_}:
+   {\\een} {/licht} {/be}reiden {\voor} {\Mijn} {/Chris__}{\tus_}. [:]  refrein
+
+4. [:] Want de Heer {/heeft} {/Si}on {\uit}{/ver}{/ko_.}{\ren_},
+   {\\Hij} heeft haar {/ge}{/ko}zen {\tot} {\Zijn} {/woon__}{\plaats_}. [:]  refrein
 :::
 
 ## Derde Antifoon
@@ -56,11 +58,11 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
 
 ### Tropaar
 ::: vsa-notatie
-<!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Liturgikon, p.274) -->
+<!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Meneon I, p.12-13) -->
 [//:] Uw Geboorte, o {Moe_.}{/der} {\Gods_},
-{/heeft} de Vreugde geopenbaard aan {/heel} {\de} {\we__}{reld_}.
+{/heeft} de Vreugde geopenbaard aan heel de {\we__}{reld_}.
 Want uit U is opgegaan de Zon der Gerechtigheid: Christus {on_}{/ze} {\God_};
-{/Hij} heeft ons van de vervloeking be{\vrijd_}
+{/Hij} heeft ons van de ver{vloe_}king be{\vrijd_}
 en schenkt ons Zijn {-&/ze_&_}{\gen_}.
 {/Hij} heeft de dood te{niet_.} ge{\daan_}
 en Hij verleent ons het eeuwige {-&/Le_&_}{\ven_}. [//:]
@@ -92,4 +94,16 @@ Daarom is dit ook een {feest_} {/voor} uw {\volk_}
 en daarom {roe_}pen {/wij} tot {\U_}:
 {/de} onvruchtbare baart de {Moe_.}der {\Gods_},
 // de Voedster van ons {-&/Le_&_}{\ven_}. [//:]
+:::
+
+### Prijslied (na de Polyleos)
+
+::: vsa-notatie
+<!-- Prijslied (na de Polyleos), Meneon I, p.21 -->
+<!-- Muziek: Horol. blz 111 -->
+[:] {-&/Wij} {/&\prij_&_}{+\zen_}, *
+{/&/wij} {/&\&\prij}{+\zen} {/u_} *
+al-{+\hei_}lige {/Maagd_} *
+{\Wij} {/ver}{/e}ren uw {-&\\hei}{/li}{/ge} {/&\&\&+\ou}{/ders_}, *
+en loven {/uw} {/roem_}rij{/ke} Ge{\&\boor_&_}{\te__}.
 :::

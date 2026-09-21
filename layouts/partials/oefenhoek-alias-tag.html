@@ -1,0 +1,10 @@
+{{- /*
+  Optionele tag achter een kind-label als de pagina een alias-variant is.
+*/ -}}
+{{- with .Params.alias_van -}}
+  {{- $canonLabel := . -}}
+  {{- with site.GetPage (printf "/praktijk/oefenhoek/bibliotheek/%s" .) -}}
+    {{- $canonLabel = or .Params.linkTitle .Title -}}
+  {{- end -}}
+ <span class="oefenhoek-alias-tag">(alias van {{ $canonLabel }})</span>
+{{- end -}}

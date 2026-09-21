@@ -1,0 +1,26 @@
+{{/*
+  Rode banner als bibliotheek-.vsa afgeleiden missing/stale zijn.
+  Data: data/vsa-product-status.json (check_vsa_products.py).
+  Key = pad van de bladermap t.o.v. content-source (File.Dir).
+*/}}
+{{- $status := hugo.Data.vsa_product_status -}}
+{{- if and $status .File -}}
+{{- $key := strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+{{- $folder := index $status.folders $key -}}
+{{- if and $folder (not $folder.ok) -}}
+{{- $fixPage := or $status.fix_page "/praktijk/handleiding/vsa/1-vsa-schrijven/" -}}
+<aside class="partituur-product-banner" role="alert">
+  <p class="partituur-product-banner-title">VSA-afgeleiden niet in orde</p>
+  <ul>
+    {{- range $folder.issues -}}
+    <li><strong>{{ .kind }}</strong>: {{ .detail }} ({{ .file }})</li>
+    {{- end -}}
+  </ul>
+  <p>Oplossen (lokaal):</p>
+  <pre class="partituur-product-banner-cmd">{{ $folder.fix_cmd }}</pre>
+  <p>Daarna <code>.vsa</code> + <code>.vsa.mxl</code> samen committen.
+    Uitleg: <a href="{{ $fixPage | relURL }}">.vsa schrijven</a>;
+    contract: <code>scripts/oefenhoek-product-contract.md</code>.</p>
+</aside>
+{{- end -}}
+{{- end -}}

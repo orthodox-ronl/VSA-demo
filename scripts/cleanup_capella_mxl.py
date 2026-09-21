@@ -19,9 +19,10 @@ halve/hele noten (echte melodische lengte, geen recitatief-dummy).
 Laag 2 - Tekst-noot-binding
 ----------------------------------------------------------------------
 - Een lettergreep <-> een noot (recitatief: een kwart).
-- Meerdere lettergrepen op een token (`koninkrijk`, `aanbidden`): extra
-  noten INVOEGEN met dezelfde duur als het origineel (blijven kwarten),
-  niet de originele kwart in triolen/achten/16en knippen.
+- Meerdere lettergrepen op een token (`koninkrijk`, `aanbidden`, `melse`
+  als eindlettergreep van `he-melse`): extra noten INVOEGEN met dezelfde
+  duur als het origineel (blijven kwarten), niet de originele kwart in
+  triolen/achten/16en knippen. Ook tokens die al begin/middle/end zijn.
 - Melisma: bestaande langere noten of noten zonder tekst houden.
   Lyric-extender (`<extend/>`) alleen als die extra noten niet onder een
   slur vanaf de lettergreep vallen (Capella-slur = frase/doorgangsnoot;
@@ -36,6 +37,8 @@ Laag 2 - Tekst-noot-binding
 - Geen partijnamen (SATB) op elk systeem.
 - Titels uit staff-tekst naar work-title/credit; boekpagina-cijfers weg.
 - Geen maten die alleen rusten of helemaal leeg zijn (Capella-maat 0).
+- Bij precies twee notenbalken: sleutels G (balk 1) en F (balk 2), ook
+  mid-score (C2/G8vb enz. -> G/F). Toonsoorten blijven onaangeroerd.
 
 ----------------------------------------------------------------------
 Laag 3 - Partituurhint (MXL als start voor .mscz)
@@ -57,6 +60,10 @@ Capella-input in `oefenhoek/input/` mag spaties houden; schrijf opgekuiste
 uitvoer met `-o` naar een naam zonder spaties. In-place op een naam mét
 spaties is geweigerd.
 
+`<rights>` / copyright in de MusicXML blijft staan (niet strippen). Ontbreekt
+die in Capella-export, dan zet `apply_mscz_layout` later default CC BY-SA 4.0
+(deze uitgave) + eredienst-zin — zie partituur-contract.
+
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl -o uit.mxl
@@ -71,50 +78,9 @@ import zipfile
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+from nl_hyphen import hyphenate_token, split_syllabic
 from score_filenames import published_path, require_no_spaces
-
-# Handmatige splitsing voor liturgische woorden die de naive regel mist
-# of verkeerd zou doen. Alleen de stam, zonder leestekens.
-HYPHEN_EXCEPTIONS: dict[str, str] = {
-    "altijd": "al-tijd",
-    "eeuwen": "eeuw-en",
-    "aanbidden": "aan-bid-den",
-    "aanschouwen": "aan-schou-wen",
-    "aarde": "aar-de",
-    "allerlei": "al-ler-lei",
-    "barmhartigheid": "barm-har-tig-heid",
-    "barmhartigen": "barm-har-ti-gen",
-    "dorsten": "dors-ten",
-    "gedenk": "ge-denk",
-    "gekomen": "ge-ko-men",
-    "geschieden": "ge-schie-den",
-    "heilige": "hei-li-ge",
-    "hongeren": "hon-ge-ren",
-    "kinderen": "kin-de-ren",
-    "koninkrijk": "ko-nink-rijk",
-    "lasterlijk": "las-ter-lijk",
-    "nedervallen": "ne-der-val-len",
-    "opgestaan": "op-ge-staan",
-    "treurenden": "treu-ren-den",
-    "vader": "va-der",
-    "verheugt": "ver-heugt",
-    "vervolgd": "ver-volgd",
-    "vredestichters": "vre-de-stich-ters",
-    "wanneer": "wan-neer",
-    "wonderbaar": "won-der-baar",
-    "worden": "wor-den",
-    "zachtmoedigen": "zacht-moe-di-gen",
-    "zalig": "za-lig",
-    "zingen": "zin-gen",
-    "zullen": "zul-len",
-}
-
-VOWELS = "aeiouyáéíóúàèëïöü"
-DIPHTHONGS = (
-    "aa", "ee", "oo", "uu", "ie", "ei", "ij", "ou", "au", "ui", "eu", "oe",
-)
-# Niet splitsen midden in deze clusters (VC-CV zou ch/ng stukmaken).
-_CONS_KEEP = ("sch", "ch", "ng", "nk")
+from staff_clefs import ensure_two_staff_clefs_musicxml
 
 
 def local(tag: str) -> str:
@@ -134,134 +100,6 @@ def children(el: ET.Element, name: str) -> list[ET.Element]:
 
 def findall(el: ET.Element, name: str) -> list[ET.Element]:
     return [c for c in el.iter() if local(c.tag) == name]
-
-
-def strip_punct(token: str) -> tuple[str, str, str]:
-    m = re.match(r"^(\W*)(.*?)(\W*)$", token, flags=re.U)
-    if not m:
-        return "", token, ""
-    return m.group(1), m.group(2), m.group(3)
-
-
-def _letter_units(stem: str) -> list[tuple[str, int, int]]:
-    """('v'|'c', start, end) met tweeklanken als een klinker."""
-    w = stem.lower()
-    units: list[tuple[str, int, int]] = []
-    i = 0
-    while i < len(w):
-        if w[i : i + 2] in DIPHTHONGS:
-            units.append(("v", i, i + 2))
-            i += 2
-        elif w[i] in VOWELS:
-            units.append(("v", i, i + 1))
-            i += 1
-        else:
-            j = i
-            while (
-                j < len(w)
-                and w[j] not in VOWELS
-                and w[j : j + 2] not in DIPHTHONGS
-            ):
-                j += 1
-            units.append(("c", i, j))
-            i = j
-    return units
-
-
-def naive_hyphen(stem: str) -> list[str]:
-    """Eenvoudige NL-splitsing: prefix, dubbele cons, V-CV / VC-CV."""
-    w = stem.lower()
-    if len(w) < 4:
-        return [stem]
-    prefixes = (
-        "neder",
-        "achter",
-        "onder",
-        "over",
-        "voor",
-        "aarts",
-        "ge",
-        "be",
-        "ver",
-        "ont",
-        "aan",
-        "her",
-        "neer",
-        "op",
-        "uit",
-        "toe",
-        "mis",
-        "wan",
-    )
-    for pref in prefixes:
-        if w.startswith(pref) and len(w) - len(pref) >= 3:
-            rest = stem[len(pref) :]
-            return _restore_case(stem[: len(pref)], stem) + naive_hyphen(rest)
-
-    # identieke medeklinkers: zul-len, bid-den
-    m = re.search(r"([^aeiouyáéíóúàèëïöü])\1", w)
-    if m and 0 < m.start() < len(w) - 1:
-        i = m.start() + 1
-        return _restore_case(stem[:i], stem) + naive_hyphen(stem[i:])
-
-    units = _letter_units(stem)
-    for i in range(len(units) - 2):
-        kind0, _, _ = units[i]
-        kind1, c0, c1 = units[i + 1]
-        kind2, _, _ = units[i + 2]
-        if kind0 != "v" or kind1 != "c" or kind2 != "v":
-            continue
-        cluster = w[c0:c1]
-        if cluster in _CONS_KEEP or len(cluster) == 1:
-            cut = c0
-        else:
-            cut = c0 + 1
-        if 0 < cut < len(stem):
-            return _restore_case(stem[:cut], stem) + naive_hyphen(stem[cut:])
-    return [stem]
-
-
-def _restore_case(part: str, original: str) -> list[str]:
-    if original.isupper():
-        return [part.upper()]
-    if original[:1].isupper():
-        return [part[:1].upper() + part[1:].lower()]
-    return [part]
-
-
-def hyphenate_token(token: str) -> list[str]:
-    raw = (token or "").replace("\xa0", " ").strip()
-    if not raw:
-        return []
-    lead, stem, trail = strip_punct(raw)
-    if not stem:
-        return [raw]
-    key = stem.lower()
-    if key in HYPHEN_EXCEPTIONS:
-        parts = HYPHEN_EXCEPTIONS[key].split("-")
-        parts = _apply_case(parts, stem)
-    else:
-        groups = re.findall(rf"[{VOWELS}]+", stem, flags=re.I)
-        if len(groups) < 2 or len(stem) < 4:
-            return [raw]
-        parts = naive_hyphen(stem)
-        if len(parts) == 1:
-            return [raw]
-    if lead:
-        parts[0] = lead + parts[0]
-    if trail:
-        parts[-1] = parts[-1] + trail
-    return parts
-
-
-def _apply_case(parts: list[str], stem: str) -> list[str]:
-    if stem.isupper():
-        return [p.upper() for p in parts]
-    if stem[:1].isupper():
-        out = [p.lower() for p in parts]
-        out[0] = out[0][:1].upper() + out[0][1:]
-        return out
-    return [p.lower() for p in parts]
 
 
 def set_text(el: ET.Element | None, value: str) -> None:
@@ -320,11 +158,12 @@ def replicate_note(
     note: ET.Element,
     n: int,
     parts: list[str] | None = None,
+    orig_syll: str = "single",
 ) -> list[ET.Element]:
     """N kopieen van dezelfde noot (zelfde duur en type). Geen triolen."""
     if n <= 1:
         if parts:
-            set_lyric_syllables(note, parts[0], "single")
+            set_lyric_syllables(note, parts[0], orig_syll or "single")
         return [note]
     out = [note]
     for _ in range(n - 1):
@@ -337,13 +176,9 @@ def replicate_note(
         for beam in children(el, "beam"):
             el.remove(beam)
         if parts:
-            if i == 0:
-                syll = "begin"
-            elif i == n - 1:
-                syll = "end"
-            else:
-                syll = "middle"
-            set_lyric_syllables(el, parts[i], syll)
+            set_lyric_syllables(
+                el, parts[i], split_syllabic(orig_syll, i, n)
+            )
         else:
             clear_lyrics(el)
         if i > 0:
@@ -532,7 +367,7 @@ def split_lyrics_keep_quarters(root: ET.Element) -> int:
         for measure in children(part, "measure"):
             voices = notes_by_voice(measure)
             v1 = voices.get("1", [])
-            ops: list[tuple[int, list[str]]] = []
+            ops: list[tuple[int, list[str], str]] = []
             for i, note in enumerate(v1):
                 lys = lyric_elements(note)
                 if not lys:
@@ -542,24 +377,23 @@ def split_lyrics_keep_quarters(root: ET.Element) -> int:
                 syll_v = (syll.text or "single") if syll is not None else "single"
                 raw = (txt_el.text or "") if txt_el is not None else ""
                 raw = raw.replace("\xa0", " ").strip()
-                if syll_v in ("begin", "middle", "end"):
-                    if txt_el is not None:
-                        txt_el.text = raw
-                    continue
                 parts = hyphenate_token(raw)
                 if len(parts) <= 1:
                     if txt_el is not None:
                         txt_el.text = raw
                     continue
-                ops.append((i, parts))
-            for i, parts in reversed(ops):
+                ops.append((i, parts, syll_v))
+            for i, parts, orig_syll in reversed(ops):
                 n = len(parts)
                 for vid, vnotes in voices.items():
                     if i >= len(vnotes):
                         continue
                     note = vnotes[i]
                     replicas = replicate_note(
-                        note, n, parts if vid == "1" else None
+                        note,
+                        n,
+                        parts if vid == "1" else None,
+                        orig_syll if vid == "1" else "single",
                     )
                     replace_note_with_sequence(measure, note, replicas)
                 splits += 1
@@ -825,11 +659,14 @@ def cleanup(root: ET.Element) -> None:
         for measure in children(part, "measure"):
             fix_backups_in_measure(measure)
     compact_layout(root)
+    clef_notes = ensure_two_staff_clefs_musicxml(root)
     print(
         f"  unhide={n_unhide} page-words={n_pages} title={title!r} "
         f"subtitle={subtitle!r} splits={n_split} lyrics_stripped={n_stripped} "
         f"melisma_extend={n_melisma} empty_measures={n_empty}"
     )
+    for line in clef_notes:
+        print(f"  {line}")
     print(f"  {summarize(root)}")
 
 

@@ -1,0 +1,50 @@
+L: Heer,  Uw   barm- har-tig-heid ko-me o-ver ons
+S: 2:a    1:a        2:g
+A:
+T:
+B:
+
+[:Lyr] {Heer_}, Uw barm{har_}tig-heid ko-me  o-ver {ons_} | zo-als wij {ver.&.}{trou_}{wen_} {op_} {U__}  | zo-als wij {ver.&.}{trou_}{wen_} {op_} {U__}
+[/2:S]                  \    +\       /  /   /      \     | \  /   \   \&/      /      \            \     | \  /   \   \&/      /      \      /2    \    
+ [-:A]                  \2               /2               | \  /   \   \&/      /      \            \2    | \  /   \   \&/      /      \      /2    \    
+[\3:T]                  \    \        /  /   /      \     |            \2&/2                  \     \     |            \2&/2                             
+[\8:B]                  /    \3       /3 \   \3 /2  /2    | \3         /&\      /3     \3           /3    | \3         /&\      /3     \3           /3 
+
+[:Lyr] Al-{le.&.}-{lu_}-{i_}-{a_}, al-le-{lu_}-{ia} | {Al-&-&-&.&.&-}-{le}-{lu_&_}-{ia__} | {Al-&-&-&.&.&-}-{le}-{lu_&_}-{ia__} |
+ [-:S]  -  -&/     /     \    +\   /  /   /     \   |    \&/&\&\&/&/    -   \&-     \     |    \&/&\&\&/&/        \&/2    \     |
+[\3:A]  -  -&-     /3    \2   -    /  /2  -     -   |    \&/&\&\&/&/    -   \&-     \2    |    \&/&\&\&/&/        \&/2    \     |
+[\6:T]  -  -&/     /     \    \    /  /   /     \   |  -&-&-&\2&/2&/    -   \&\     \     |  -&-&-&\2&/2&/                      |
+[\8:B]  -  -&-     -     /    \3   /3 \   \4&/2 /2  |  \3&-&-&/&\&/3    -   \3&-    /3    |  \3&-&-&/&\&/3        \3&-    /3    |
+
+# Alleluia, toon 1 — systeem 1 (maten 1–2)
+# do-context staat in frontmatter (bijv. do: F4); ankers = ladder t.o.v. do
+
+@start S=- A=\3 T=\6 B=\8
+
+L:  Al- {le.&.} {lu_} {i_} {a_}, al- le- {lu_} {ia} | {Al- & - & - & .&. & -} {le} {lu_ &_} {ia__}
+L:  Al-{le.&.}-{lu_}-{i_}-{a_}, {al}-{le}-{lu_}-{ia} | {Al- & - & - & .&. & -}-{le}-{lu_ &_}-{ia__}
+S:         -&/   /     \    #\   /   /   /   \     |  \&/ & \/ & \\ & \/ & /    \&-   \
+A:         -     -     /3   \2   -   /   /2  -     |  \&/ & \/ & \\ & \/ & /    \&-   \2
+T:         -&/   /     \    \    /   /   /   \     |  - & - & - & \2 & /2 & /   \&\   \
+B:         -     -     /    \3   /3  \   \4&/2 /2  |  \3 & - & - & / & \/ & /3  \3&-  /3
+
+@start S=- A=\3 T=\6 B=\8
+
+# maat 1: alles vast (1 stem-EHM per L-event; melisma = meerdere EHM's in één {...})
+L: {Al-&-}-{le.&.}-{lu_}-{i_}-{a_}, {al}-{le}-{lu_}-{ia}
+S: -&/ / \ #\ / / / \
+A: -   - /3 \2 - / /2 -
+T: -&/ / \ \  / / / \
+B: -   - / \3 /3 \ \4&/2 /2
+
+# maat 2: melisma vast; stel dat "{le}" later een recite-slot zou zijn (hier nog vast)
+S: \&/&\&\&/&/  \&-  \
+A: \&/&\&\&/&/  \&-  \2
+L: {Al-&-&-&.&.&-}-{le}-{lu_&_}-{ia__}
+T: -&-&-&\2&/2&/ \&\  \
+B: \3&-&-&/&\&/3 \3&- /3
+
+Al-&-|le.&.|lu_|i_|a_|, al|le|lu_|ia
+
+Alleluia toon 8
+L: ~Al-le-lu-ia,~Al-le-lu-ia,~al-{le}-{lu_&-&-&_&}{i_}{\a__}

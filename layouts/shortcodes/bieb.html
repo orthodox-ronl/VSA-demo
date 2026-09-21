@@ -1,0 +1,23 @@
+{{- /*
+  Toon actieknoppen + PDF-blad en/of VSA-SVG van een bibliotheek-uitvoeringsvorm
+  (id = zangstuk/variant/uitvoeringsvorm). Knoppen staan vóór de plaatjes, zodat
+  meerdere {{< bieb >}} op één pagina elk hun eigen knoppenrij hebben.
+
+  PDF/MXL: Hugo page-bundle (generated/content). .vsa: content-source +
+  SVG onder static/vsa/bladermap/.
+
+  Alias-variant: id met een alias-variant wordt herschreven naar de canonieke
+    uitvoeringsvorm (frontmatter alias_van op de variant-_index).
+*/ -}}
+{{- $id := .Get "id" -}}
+{{- $loc := partial "diag-location.html" (dict "position" .Position "page" .Page) -}}
+{{- if not $id -}}
+  {{- errorf "%s: shortcode bieb mist parameter id. Oplossing: voeg id=\"zangstuk/variant/uitvoeringsvorm\" toe aan de shortcode bieb." $loc -}}
+{{- end -}}
+{{- $id = partial "bibliotheek-canonical-id.html" $id -}}
+{{- $path := printf "/praktijk/oefenhoek/bibliotheek/%s" $id -}}
+{{- $p := site.GetPage $path -}}
+{{- if not $p -}}
+  {{- errorf "%s: shortcode bieb: geen bibliotheek-pagina voor id %q. Oplossing: controleer of die uitvoeringsvorm bestaat onder praktijk/oefenhoek/bibliotheek/ (pad %s), of verbeter het id." $loc $id $path -}}
+{{- end -}}
+{{ partial "bieb-score.html" (dict "score" $p "viewer" .Page "position" .Position) }}

@@ -1,0 +1,32 @@
+{{- /*
+  Partituur via automatische_inhoud (SVG/PDF). Actieknoppen horen bij
+  shortcode bieb, niet hier.
+*/ -}}
+{{- $files := partial "oefenhoek-bladermap-files.html" . -}}
+{{- $dir := "" -}}
+{{- if .File -}}
+  {{- $dir = strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+{{- end -}}
+{{- $alt := .Title -}}
+{{- if and $files.vsas (not $files.hasMscz) -}}
+  {{- range $files.vsas -}}
+    {{- $rel := replaceRE "\\.vsa$" ".svg" (printf "%s/%s" $dir .) -}}
+    {{- $svgFile := printf "static/vsa/bladermap/%s" $rel -}}
+    {{- if fileExists $svgFile -}}
+      {{- $src := printf "vsa/bladermap/%s" $rel -}}
+<div class="vsa-container"><img class="vsa-notation" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"></div>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $files.pdfs -}}
+  {{- $pdf := index $files.pdfs 0 -}}
+  {{- $href := "" -}}
+  {{- with .Resources.GetMatch $pdf -}}
+    {{- $href = .RelPermalink -}}
+  {{- else -}}
+    {{- $href = urls.JoinPath $.RelPermalink $pdf -}}
+  {{- end -}}
+<div class="pdf-sheet vsa-container" data-pdf-src="{{ $href }}">
+  <div class="pdf-sheet-pages vsa-notation" role="img" aria-label="PDF"></div>
+</div>
+{{- end -}}

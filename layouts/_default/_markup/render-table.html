@@ -1,0 +1,23 @@
+{{- /* Wrap markdown tables so overflow stays local and thead can stick. */ -}}
+<div class="table-scroll">
+<table>
+  <thead>
+  {{- range .THead }}
+    <tr>
+    {{- range . }}
+      <th>{{ .Text | safeHTML }}</th>
+    {{- end }}
+    </tr>
+  {{- end }}
+  </thead>
+  <tbody>
+  {{- range .TBody }}
+    <tr>
+    {{- range . }}
+      <td>{{ .Text | safeHTML }}</td>
+    {{- end }}
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+</div>

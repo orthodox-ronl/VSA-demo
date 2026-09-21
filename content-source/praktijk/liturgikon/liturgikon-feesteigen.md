@@ -34,7 +34,7 @@ Zegen, Heer, de jaarkrans Uwer {\goed_}{\heid_}. *
 1. Ps.113 [:] Bij de uittocht van Israël uit Egypte, *
 van het huis Jacob uit een vreemd volk. [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] Toen werd Judea Zijn Heiligdom, *
@@ -122,7 +122,7 @@ De Heer schenkt Zijn volk kracht; de Heer zegent Zijn volk met vrede. *Mt. 3;13-
 1. Ps.44 [:] Een goed woord welt op uit mijn hart, *
 ik zeg mijn werken aan de Koning. [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] Gij zijt schoon boven alle zonen der mensen, *
@@ -195,7 +195,7 @@ Nu wordt dit gebod voor ons zichtbaar: * al het mannelijke dat de moederschoot o
 1. Ps.71 [:] God, schenk de Koning Uw oordeel, *
 uw rechtvaardigheid aan de koningszoon. [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] De bergen ontvangen vrede voor het volk, *
@@ -384,7 +384,7 @@ Ere {\zij} {\Uw} {/&/&/&\&\&\&/macht-&-&-&-&-&-&_}, {o_} {\Heer_}. [:]
    {\\in} {/de} {/stad} van onze God, {\op} {\Zijn} {/hei_}lige {\berg_}. [:]
 
 <!-- Liturgikon, p174 -->
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. Ps.64 [:] Gij {/grond}{/vest} de {\ber}{/gen} {/in_} {Uw_} {\kracht_}; *
@@ -408,18 +408,18 @@ Ere {\zij} {\Uw} {/&/&/&\&\&\&/macht-&-&-&-&-&-&_}, {o_} {\Heer_}. [:]
   {\\de} Heer {/be}{/mint} {\Si}{\ons} {/poor__}{\ten_}.
  
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-REFREIN [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die op {/de} {/Tha_}bor ver{\heer}{/lijkt} {/zijt_}, 
 {\wij} {/die} {\tot} {\U} {\zin}gen: {\Al}{/le}{/lu_}{i_}{\a_}. [:]
 
 2. [:] O{/ver} {/u} zijn roemr{\ij}{/ke} {/din_}gen ge{\zegd_}; * 
-   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:] Ver{//los} {\\ons}...
+   {\\&/gij} {/zijt} {\&\de} {/Stad__} van {\God_}. [:]  refrein
 
 3. [:] E{/l}{/ke} mens zal zeggen: {\Moe}{/der} {/Si_}{\on_}, *
-   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:] Ver{//los} {\\ons}...
+   {\\want} {/de} {/mens}heid is in {\haar} {\ge}{/bo__}{\ren_}. [:]  refrein
 
 4. [:] {-&/De} {/&\Al}{/ler}{/hoog__}{\ste_} * 
-   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:] Ver{//los} {\\ons}...
+   {\\&/heeft} {/&\haar} {\ge}{/grond_}{\vest_}. [:]  refrein
 
 <!-- Liturgikon, p174 -->
 5. [:] Eer aan {/de} {/Va}{\der}, {/en} {/aan_} de {\Zoon_}, 
@@ -471,7 +471,7 @@ dat Gij in waarheid zijt de {\Af_}{\glans} {\des} {/Va__}{\ders}. [\:]
 Het Noorden en de Zee hebt Gij geschapen; 
 Thabor en Hermon zullen juichen om Uw Naam. 
 ::: vsa-notatie
-[:] Ver{//los} {\\ons}...
+[:]  refrein
 :::
 
 ### Prokimen (Ps.103, Toon 4)
@@ -565,7 +565,7 @@ nu en altijd en in de eeuwen der eeuwen. {\A_}{men_}. [//:]
 ::: vsa-notatie
 <!-- PROKIMEN (Liturgikon, p247) -->
 [//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
-en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
+en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{/der_}. [/:]
 :::
 
 <!-- pagina 272 -->
@@ -581,16 +581,16 @@ Vrucht van uw lichaam zal Ik plaatsen op uw troon. *Luk. 10;38-42, 11;27-28*
 ### Prijslied
 ::: vsa-notatie
 <!-- Prijslied/Moeder Godslied - Ontslaping Moeder Gods (Liturgikon p.272) -->
-[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {b/&/aan.&.}{/&\schou}{\wend_}, *
+[/:] {En_}{\ge}{\len}, {/het.} {/Ont.}{/sla}pen der Al{/&\rei.&.}{\&+\ne.&.} {/&/aan.&.}{/&\schou}{\wend_}, *
 za{/&/gen.&.} {/met} {\&\ver.&.}{/won}{\de}{\ring_}, *
 hoe {b\de} {\Jonk_}vrouw {/op.}{/ge.}{/no}{\&+\men.&.} {/werd_}, *
-{/van} {/de} {/aar_}{de.} {\naar} {\de} {\&+\He_&_}{b/mel_}. * [/:]
-{\&/In} {/U} worden de grenzen der natuur {\o}{+\ver}{b/&/won}{/nen_}, *
+{/van} {/de} {/aar_}{de.} {\naar} {\de} {\&+\He_&_}{/mel_}. * [/:]
+{\&/In} {/U} worden de grenzen der natuur {\o}{+\ver}{/&/won}{/nen_}, *
 {/zui}{\ve}{/&/re} {\&\Maagd_&_}: *
 {\maag}delijk {\is} {//uw} {\&\ba}{\ren_}, *
-en {/uw} {/ster}{\ven} {+\&b/brengt} {/het} {/le_}{ven_}; *
+en {/uw} {/ster}{\ven} {+\&/brengt} {/het} {/le_}{ven_}; *
 {\na} {/het} {/ba}ren zijt {\gij} {/maagd} {/ge}{\ble_}{\ven_}, *
-{\en} levend {\zijt} {+\gij} {b/na} {/uw} {/dood_}. *
+{\en} levend {\zijt} {+\gij} {/na} {/uw} {/dood_}. *
 {\Moe}der Gods, red {\al}{/tijd} {/uw} {\&\erf_&_}{\deel_}. [:]
 Wij, alle geslachten, prijzen {/U} {/za_}{lig_}, *
 {\&/die} {/al}{\leen_} {\&/Gods} {\Moe_}{der_} {\zijt_}. [:]
@@ -692,16 +692,18 @@ refrein: [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/
    {\\Hij} zal {/het} {/ze}{\ker} {\ge}{/stand__}{\doen_}. [:]
 
 <!-- Liturgikon, pp.270, met aanpassingen vanuit de praktijk in Groningen -->
-refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
+refrein: Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_} 
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
-2. [:] Een koning uit uw lendenen
-   zal ik doen zetelen op uw troon. [:] (refrein)
-3. [:] Daar zal Ik een hoorn oprichten voor David:
-   een licht bereiden voor Mijn Christus. [:] (refrein)
-4. [:] Want de Heer heeft Si-on uitverkoren,
-   Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:] (refrein)
+2. [:] Een {/ko}{/ning} {\uit} {/uw} {/len_.}de{\nen_}
+   {\\zal} ik {/doen} {/ze}{\te}{\len} {/op_} {uw_} {\troon}. [:]  refrein
+
+3. [:] Daar zal Ik {/een} {/hoorn} oprich{\ten} {/voor} {/Da__}{\vid_}:
+   {\\een} {/licht} {/be}reiden {\voor} {\Mijn} {/Chris__}{\tus_}. [:]  refrein
+
+4. [:] Want de Heer {/heeft} {/Si}on {\uit}{/ver}{/ko_.}{\ren_},
+   {\\Hij} heeft haar {/ge}{/ko}zen {\tot} {\Zijn} {/woon__}{\plaats_}. [:]  refrein
 :::
 
 ### Derde Antifoon
@@ -714,6 +716,7 @@ Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~},
 ### Tropaar
 ::: vsa-notatie
 <!-- Tropaar Geboorte van de Moeder Gods, Toon 4 (Liturgikon, p.274) -->
+<!-- Dat is iets anders dan in Meneon I, p.12-13 -->
 [//:] Uw Geboorte, o {Moe_.}{/der} {\Gods_},
 {/heeft} de Vreugde geopenbaard aan {/heel} {\de} {\we__}{reld_}.
 Want uit U is opgegaan de Zon der Gerechtigheid: Christus {on_}{/ze} {\God_};
@@ -764,7 +767,7 @@ en daarom {roe_}pen {/wij} tot {\U_}:
 1. Ps.21 [:] God, mijn God, zie naar mij: *
 waarom hebt Gij Mij verlaten? [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] Ik ben ver van mijn heil verwijderd *
@@ -972,7 +975,7 @@ niet slechts de zwakheden van het lichaam, * maar ook de diepe wonden der ziel. 
 1. [:] Dauwt Hemelen van boven *
 en wolken, regent den Gerechte. [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] De aarde opene zich *
@@ -1086,7 +1089,7 @@ Een scepter van kracht zal de Heer U zenden vanuit Sion. Uit de schoot heb Ik U 
 1. Ps.110 [:] U wil ik belijden, Heer, uit heel mijn hart: *
 al Uw wonderwerken verhalen. [:]
 
-[:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
+refrein [:] Door de {/ge}{/be_}den van de {\\hei}{/li}{/ge} {\Moe}{/der} {/&\&/&\&\Gods_&~&~&~&~},
     {\o} {Hei_}{-&/land}, {/&\red_&_} {\ons_}. [:]
 
 2. [:] Groot zijn de werken des Heren, *

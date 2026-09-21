@@ -1,0 +1,35 @@
+{{- /*
+  Sticky Oefenhoek-paginakop: breadcrumb (vanaf deelrubriek) + publicatiestatus.
+  Labels: .LinkTitle (frontmatter linkTitle). Geen Praktijk/Oefenhoek in het pad.
+*/ -}}
+{{- if strings.Contains .RelPermalink "/praktijk/oefenhoek/" -}}
+{{- $deel := false -}}
+{{- with site.GetPage "praktijk/oefenhoek" -}}
+  {{- $self := $ -}}
+  {{- range .Sections -}}
+    {{- if or ($self.Eq .) ($self.IsDescendant .) -}}
+      {{- $deel = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<header class="oefenhoek-header">
+  <div class="oefenhoek-header-inner">
+  {{- if $deel -}}
+  <nav class="oefenhoek-breadcrumb" aria-label="Broodkruimels">
+    {{- if .Eq $deel -}}
+    <span class="oefenhoek-breadcrumb-current" aria-current="page">{{ .LinkTitle }}</span>
+    {{- else -}}
+      {{- range .Ancestors.Reverse -}}
+        {{- if or (.Eq $deel) (.IsDescendant $deel) -}}
+    <a class="oefenhoek-breadcrumb-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    <span class="oefenhoek-breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+        {{- end -}}
+      {{- end -}}
+    <span class="oefenhoek-breadcrumb-current" aria-current="page">{{ .LinkTitle }}</span>
+    {{- end -}}
+  </nav>
+  {{- end -}}
+  {{ partial "publicatiestatus.html" . }}
+  </div>
+</header>
+{{- end -}}

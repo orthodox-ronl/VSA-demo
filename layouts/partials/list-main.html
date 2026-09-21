@@ -2,4 +2,6 @@
 
 {{ .Content }}
 
+{{- if not (strings.Contains .RelPermalink "/praktijk/oefenhoek/") }}
 {{ partial "page-list.html" . }}
+{{- end }}

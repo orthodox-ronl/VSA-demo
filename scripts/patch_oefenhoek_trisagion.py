@@ -1,4 +1,4 @@
-"""Eenmalige inhoudelijke patch op de twee trisagion-.mscz (oefenhoek).
+"""Eenmalige inhoudelijke patch op de twee 8-trisagion-.mscz (oefenhoek).
 
 - 8a-trisagion: herhaling m1-m4 (start/end repeat + sectiebreuk, geen
   systeembreuk die het blok uitsmeert).

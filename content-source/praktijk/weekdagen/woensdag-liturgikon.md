@@ -72,7 +72,7 @@ Want {/&/Gij_&_} {\\zijt} {/on}{/ze} {/Hel_}{per_} *
 ::: vsa-notatie
 <!-- Prokimen - Woensdag - H. Kruis - (Toon 3 - Liturgikon, p247) -->
 [//:] Mijn ziel ver{/heft_} {den_} {\Heer_},
-en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{b/der_}. [/:]
+en ge{/juicht_} {\heeft} mijn {\geest_} {-&/in} {/&\God}, {\&/mijn} {\&+\Red_&_}{/der_}. [/:]
 :::
 Machtigen heeft Hij neergehaald van de troon,  
 maar geringen heeft Hij verheven.  

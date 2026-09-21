@@ -4,13 +4,20 @@ public/
 resources/
 data/build.yaml
 data/coria-fp.json
+data/coria-public-base.json
 static/vsa/
 static/coria/
 static/mxl/
+zzz/
 
 # MuseScore backup files
 .mscbackup/
 .archief/
+*.autosave
+
+# Oefenhoek: lokale inbox en tussenwerk (inputs in capella/vow/… blijven in git)
+content-source/praktijk/oefenhoek/input/_inbox/
+content-source/praktijk/oefenhoek/input/_werk/
 
 # Oefenhoek: lokale inbox en tussenwerk (dumps in capella/vow/… blijven in git)
 content-source/praktijk/oefenhoek/input/_inbox/
@@ -54,3 +61,7 @@ build/
 *.egg-info/
 pip-log.txt
 .ensure-stamp
+
+# Local Coria/MuseScore probes
+_tmp_coria/
+scripts/_tmp_*.py

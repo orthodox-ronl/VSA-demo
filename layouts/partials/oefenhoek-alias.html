@@ -1,0 +1,31 @@
+{{- /*
+  Alias-variant: banner + partituur van de canonieke variant.
+
+  Frontmatter alias_van: zangstuk/canonieke-variant op de variant-_index.
+*/ -}}
+{{- if and (strings.Contains .RelPermalink "/praktijk/oefenhoek/bibliotheek/") .Params.alias_van -}}
+{{- $aliasVan := .Params.alias_van -}}
+{{- $loc := partial "diag-location.html" (dict "page" .) -}}
+{{- $canonPath := printf "/praktijk/oefenhoek/bibliotheek/%s" $aliasVan -}}
+{{- $canon := site.GetPage $canonPath -}}
+{{- if not $canon -}}
+  {{- errorf "%s: alias_van %q wijst niet naar een bestaande bibliotheek-variant. Oplossing: zet alias_van op zangstuk/canonieke-variant die wel bestaat (verwacht pad %s)." $loc $aliasVan $canonPath -}}
+{{- end -}}
+{{- $canonLabel := or $canon.Params.linkTitle $canon.Title -}}
+<aside class="oefenhoek-alias-banner" role="note">
+  <p class="oefenhoek-alias-banner-title">Alias-variant</p>
+  <p>Deze variant is een andere naam voor
+    <a href="{{ $canon.RelPermalink }}">{{ $canonLabel }}</a>
+    (<code>{{ $aliasVan }}</code>).
+    Partituren staan alleen bij die canonieke variant; deze alias-pagina
+    heeft geen eigen uitvoeringsvorm-bestanden.</p>
+</aside>
+{{- $leaves := slice -}}
+{{- range $canon.RegularPages -}}
+  {{- $leaves = $leaves | append . -}}
+{{- end -}}
+{{- $leaves = sort $leaves "Weight" -}}
+{{- range $leaves -}}
+{{ partial "bieb-score.html" (dict "score" . "viewer" $) }}
+{{- end -}}
+{{- end -}}

@@ -1,4 +1,4 @@
 {{- $src := .Get "src" -}}
 {{- $src = replaceRE "^/" "" $src -}}
 {{- $label := or (.Get "label") "Download MusicXML" -}}
-<p class="mxl-download"><a href="{{ $src | relURL }}" download>{{ $label }}</a></p>
+<p class="mxl-download"><a class="btn" href="{{ $src | relURL }}" download>{{ $label }}</a></p>
