@@ -8,24 +8,10 @@ publicatiestatus: concept
 automatische_inhoud: false
 ---
 
-Inhoudsopgave van de liturgiemap van Hemelum (Nederlandse gedeelte).
-De titels volgen de inhoudsopgave van de papieren koormap.
-
-Een titel kan verwijzen naar een enkel zangstuk, of naar een
-**koormap-sectie** (hoofdstuk) met meerdere keuzes — bijvoorbeeld
-antifonen voor weekdagen en zondag. Een **slot-pagina** binnen zo’n
-sectie toont markdown met shortcodes `bieb` naar de
-bibliotheek. Model voor beheerders:
-[Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
-
-Slots zonder oefenbare inhoud staan als platte tekst met *(voorzien)*; zodra er
-partituur is, wordt het weer een link (zelfde regel als in de bibliotheek: zie
-`layouts/partials/oefenhoek-linkbaar.html`).
-
-**De inhoud van dit alles is nog verre van kompleet.**
+{{< table-plain >}}
 
 |  Nr  | Titel |
-| :--: | :---- |
+| ---: | :---- |
 |   1  | Vredeslitanie *(voorzien)* |
 |   2  | [Eerste Antifoon](2-eerste-antifoon/) |
 |   3  | Eerste Kleine Litanie / Ektinia *(voorzien)* |
@@ -35,9 +21,9 @@ partituur is, wordt het weer een link (zelfde regel als in de bibliotheek: zie
 |   7  | [Kleine Intocht](7-kleine-intocht/) |
 |  --  | [Troparen en Kondaken](troparen-en-kondaken/) |
 |  --  | [Kondak Moeder Gods - Toon 6](troparen-en-kondaken/kondak-moeder-gods-toon-6/) |
-|  --  | Dialoog met de Diaken *(voorzien)* |
-|   8  | [Trisagion](8-trisagion/) ([Nls](8-trisagion/8a-trisagion/), [Nls met Ksl](8-trisagion/8a-trisagion-slav/)) |
-|  9a  | [Prokimen](9a-prokimen/) ([weekdagen](9a-prokimen/weekdagen/)) |
+|  --  | [Dialoog met de Diaken](7d-dialoog-met-diaken) |
+|   8  | [Trisagion](8-trisagion/)   ([Nls](8-trisagion/8a-trisagion/), [Nls met Ksl](8-trisagion/8a-trisagion-slav/)) |
+|  9a  | [Prokimen](9a-prokimen/)   ([weekdagen](9a-prokimen/weekdagen/)) |
 |  9b  | [Alleluia](9b-alleluia/) |
 |  10  | Evangelielezing *(voorzien)* |
 |  11  | Dringende Litanie/Ektinia *(voorzien)* |
@@ -59,3 +45,5 @@ partituur is, wordt het weer een link (zelfde regel als in de bibliotheek: zie
 |  27  | Communiezang *(voorzien)* |
 |  28  | [Wij hebben het Ware Licht aanschouwd](28-wij-hebben-het-ware-licht/) |
 |  29  | [De Naam des Heren zij gezegend](29-de-naam-des-heren-zij-gezegend/) |
+
+{{< /table-plain >}}
