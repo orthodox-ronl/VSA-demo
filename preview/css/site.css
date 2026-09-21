@@ -528,6 +528,25 @@ th, td {
   box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
+/* Opt-out via shortcode table-plain: geen nested scroll, sticky kop of
+   volle paginabreedte. Andere tabellen blijven .table-scroll. */
+.table-plain .table-scroll {
+  max-height: none;
+  overflow: visible;
+  scrollbar-gutter: auto;
+}
+
+.table-plain .table-scroll table,
+.table-plain table {
+  width: auto;
+}
+
+.table-plain .table-scroll thead th {
+  position: static;
+  background: transparent;
+  box-shadow: none;
+}
+
 .werkvoorraad-body {
   max-width: 100%;
   overflow-x: auto;
