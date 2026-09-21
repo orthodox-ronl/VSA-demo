@@ -1,4 +1,4 @@
-<svg class="vsa-svg" xmlns="http://www.w3.org/2000/svg" width="781" height="254" viewBox="0 0 781 254">
+<svg class="vsa-svg" xmlns="http://www.w3.org/2000/svg" width="579" height="288" viewBox="0 0 579 288">
 <rect width="100%" height="100%" fill="white"/>
 <g class="vsa-score">
 <g class="vsa-line" data-vsa-line="1">
@@ -319,51 +319,53 @@
 <g class="vsa-unit vsa-unit-text" data-vsa-unit="11">
 <text class="vsa-text vsa-free-text" x="200.54" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">gevaren,</text>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="13">
-<text class="vsa-text vsa-free-text" x="299.17" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Aanvoerders</text>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="15">
-<text class="vsa-text vsa-free-text" x="436.10" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">der</text>
+<g class="vsa-line" data-vsa-line="8">
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="2">
+<text class="vsa-text vsa-free-text" x="91.20" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Aanvoerders</text>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="17">
-<text class="vsa-text vsa-free-text" x="479.73" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Krachten</text>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="4">
+<text class="vsa-text vsa-free-text" x="228.13" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">der</text>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="19">
-<text class="vsa-text vsa-free-text" x="580.21" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">uit</text>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="6">
+<text class="vsa-text vsa-free-text" x="271.76" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">Krachten</text>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="21">
-<text class="vsa-text vsa-free-text" x="616.69" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">den</text>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="8">
+<text class="vsa-text vsa-free-text" x="372.24" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">uit</text>
 </g>
-<g class="vsa-unit vsa-unit-scope" data-vsa-unit="23">
-<text class="vsa-text vsa-sung-text" x="664.78" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ho</text>
-<line class="vsa-filler-line" x1="692.69" y1="234.00" x2="701.69" y2="234.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="10">
+<text class="vsa-text vsa-free-text" x="408.72" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">den</text>
+</g>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="12">
+<text class="vsa-text vsa-sung-text" x="456.81" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ho</text>
+<line class="vsa-filler-line" x1="484.72" y1="268.00" x2="493.72" y2="268.00" stroke="black" stroke-width="0.75" stroke-linecap="round"/>
 <g class="vsa-glyph-group vsa-upper-glyphs">
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-flat" x1="670.10" y1="220.00" x2="679.92" y2="220.00" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="690.55" y1="222.21" x2="700.37" y2="217.79" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-flat" x1="462.13" y1="254.00" x2="471.95" y2="254.00" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="482.58" y1="256.21" x2="492.40" y2="251.79" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 <g class="vsa-glyph-group vsa-lower-glyphs">
-<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="669.38" y1="245.00" x2="680.63" y2="245.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
-<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="689.84" y1="245.00" x2="701.09" y2="245.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="461.41" y1="279.00" x2="472.66" y2="279.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="481.87" y1="279.00" x2="493.12" y2="279.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 </g>
-<g class="vsa-unit vsa-unit-scope" data-vsa-unit="24">
-<text class="vsa-text vsa-sung-text" x="709.69" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ge</text>
+<g class="vsa-unit vsa-unit-scope" data-vsa-unit="13">
+<text class="vsa-text vsa-sung-text" x="501.72" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">ge</text>
 <g class="vsa-glyph-group vsa-upper-glyphs">
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="717.80" y1="217.57" x2="728.60" y2="222.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-fall" x1="509.83" y1="251.57" x2="520.63" y2="256.43" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 <g class="vsa-glyph-group vsa-lower-glyphs">
-<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="716.60" y1="245.00" x2="729.80" y2="245.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-lower-glyph vsa-glyph-length" x1="508.63" y1="279.00" x2="521.83" y2="279.00" stroke="red" stroke-width="1.00" stroke-linecap="round"/>
 </g>
 </g>
-<g class="vsa-unit vsa-unit-text" data-vsa-unit="25">
-<text class="vsa-text vsa-free-text" x="736.71" y="240.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">.</text>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="14">
+<text class="vsa-text vsa-free-text" x="528.74" y="274.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">.</text>
 </g>
-<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="27">
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="16">
 <g class="vsa-pitch-marker-upper-glyph vsa-upper-glyphs">
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="758.67" y1="230.16" x2="768.27" y2="225.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
-<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="758.67" y1="226.48" x2="768.27" y2="222.16" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="550.70" y1="264.16" x2="560.30" y2="259.84" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
+<line class="vsa-glyph vsa-upper-glyph vsa-glyph-rise" x1="550.70" y1="260.48" x2="560.30" y2="256.16" stroke="black" stroke-width="1.00" stroke-linecap="round"/>
 </g>
-<line class="vsa-pitch-marker-dash" x1="758.97" y1="235.00" x2="767.97" y2="235.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+<line class="vsa-pitch-marker-dash" x1="551.00" y1="269.00" x2="560.00" y2="269.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
 </g>
 </g>
 </g>

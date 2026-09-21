@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publiceren on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/</link><description>Recent content in Publiceren on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/index.xml" rel="self" type="application/rss+xml"/><item><title>Opnemen in de bibliotheek</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</guid><description>&lt;h1 id="opnemen-in-de-bibliotheek"&gt;Opnemen in de bibliotheek&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Ken het &lt;strong&gt;bibliotheek-id&lt;/strong&gt; (drie delen met schuine strepen), of vraag het na.&lt;/li&gt;
+&lt;li&gt;Zorg dat je bestand al een bruikbare &lt;strong&gt;basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt;, of
+&lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt; is — niet een ruwe Capella-file.&lt;/li&gt;
+&lt;li&gt;Open het Windows-opdrachtvenster in de map &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Typ &lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt; en Enter — het script vraagt id en
+bestand na. (Of plak een volledige regel, zie hieronder.)&lt;/li&gt;
+&lt;li&gt;Op een vraag mag je &lt;code&gt;?&lt;/code&gt; typen voor uitleg; daarna vul je alsnog in.&lt;/li&gt;
+&lt;li&gt;Controleer daarna met &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; een klaar oefenbestand &lt;strong&gt;opnemen&lt;/strong&gt; in de catalogus
+(de &lt;strong&gt;bibliotheek&lt;/strong&gt;), zodat de Oefenhoek het kan tonen. Het script maakt de
+mappen en de pagina-bestanden voor je; jij hoeft die niet met de hand te
+typen.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormap</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/1-bladermap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/1-bladermap/</guid><description>&lt;h1 id="bibliotheek-en-koormap"&gt;Bibliotheek en koormap&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Nieuwe partituur in de bibliotheek zetten:
+&lt;a href="../1-opnemen-in-bibliotheek/"&gt;Opnemen in de bibliotheek&lt;/a&gt;
+
+(&lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Slot-pagina in de koormap:
+&lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
+shortcode &lt;code&gt;bieb&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
+&lt;code&gt;automatische_inhoud: false&lt;/code&gt;. Geen basispartituur-bestanden in de koormap-map.&lt;/p&gt;
+&lt;p&gt;Een &lt;strong&gt;alias-variant&lt;/strong&gt; (andere naam voor dezelfde variant) krijgt geen
+uitvoeringsvorm-map. Zet &lt;code&gt;alias_van&lt;/code&gt; op de variant-&lt;code&gt;_index.md&lt;/code&gt;; zie
+&lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;Koormap-sectie (hoofdstuk): map met &lt;code&gt;_index.md&lt;/code&gt; — kindlijst of eigen TOC;
+zie &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>Status, check en live</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/2-status-en-check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/2-status-en-check/</guid><description>&lt;h1 id="status-check-en-live"&gt;Status, check en live&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Zet &lt;code&gt;publicatiestatus&lt;/code&gt; op bibliotheek-&lt;code&gt;index.md&lt;/code&gt; &lt;strong&gt;en&lt;/strong&gt; koormap-&lt;code&gt;index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\check.cmd --strict&lt;/code&gt; moet groen zijn.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts\serve.cmd --no-build&lt;/code&gt; → http://127.0.0.1:18731/ — klik zelf als koorlid (koormap-slot).&lt;/li&gt;
+&lt;li&gt;Live: pas na groen, via git naar &lt;code&gt;main&lt;/code&gt; (of vragen). &lt;code&gt;productie&lt;/code&gt; niet raden.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; zeggen wat koorleden mogen verwachten, de keten laten
+controleren, zelf de pagina nalopen, daarna pas publiceren op internet.&lt;/p&gt;
+&lt;h2 id="publicatiestatus"&gt;Publicatiestatus&lt;/h2&gt;
+&lt;p&gt;Op &lt;strong&gt;elke&lt;/strong&gt; Oefenhoek-pagina die koorleden zien (bibliotheek en koormap),
+in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item><title>Als het misgaat</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/3-als-het-misgaat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/publiceren/3-als-het-misgaat/</guid><description>&lt;h1 id="als-het-misgaat"&gt;Als het misgaat&lt;/h1&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
+wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de basispartituur-&lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
+de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (partituur-product of &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;), niet een
+&lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad
+&lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de veelvoorkomende blokkades herkennen. Blijft het
+stuk: bewaar de fouttekst en vraag na; probeer niet drie andere scripts
+tegelijk.&lt;/p&gt;</description></item></channel></rss>
