@@ -4,8 +4,6 @@ linkTitle: "Publiceren"
 weight: 40
 ---
 
-# Publiceren
-
 Koorleden zien een **slot-pagina** of **koormap-sectie** in de liturgiemap
 (of test in `overig/`). De oefenbestanden staan in de **bibliotheek**; de
 slot-pagina verwijst met `bieb`. Een uitvoeringsvorm mag in
