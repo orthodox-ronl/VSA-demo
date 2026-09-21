@@ -48,7 +48,7 @@ voor wie converteert.
 | --- | --- | --- | --- | --- | --- | --- |
 | `capella/15c - cherubijnenhymne - kastorski.mxl` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne/15c-kastorski` | `.mscz` | gepubliceerd | — | gepubliceerd |
 | `capella/15c - cherubijnenhymne - kastorskij - ksl.mxl` | `15-cherubijnenhymne/15c-kastorski/hemelum-ksl-trlat` |  | `.mscz` | ontvangen | opkuisen | Kerkslavisch getranslitereerd |
-| `capella/15e Cherubijnenhymne Bortnjanski no.5.mxl` | `15-cherubijnenhymne/15e-bortnjanski/hemelum` | `15-cherubijnenhymne/15e-bortnjanski` | `.mscz` | ontvangen | opkuisen | Capella 15e |
+| `capella/15e Cherubijnenhymne Bortnjanski no.5.mxl` | `15-cherubijnenhymne/15e-bortnjanski/hemelum` | `15-cherubijnenhymne/15e-bortnjanski` | `.mscz` | gepubliceerd | — | Capella 15e |
 | `capella/19a - eucharistische kanon - feofan.mxl` | `19-eucharistische-canon/19a-feofan/hemelum` | `19a-eucharistische-kanon` | `.mscz` | gepubliceerd | — | gepubliceerd |
 | `capella/2 - 1e antifoon.mxl` | `2-eerste-antifoon/zondag/hemelum` | `2-eerste-antifoon` | `.mscz` | gepubliceerd | — |  |
 | `capella/20d - in waarheid - moeder godslied.mxl` | `20-moeder-godslied/20d-in-waarheid/hemelum` | `20d-in-waarheid-moeder-godslied` | `.mscz` | gepubliceerd | — | gepubliceerd |
