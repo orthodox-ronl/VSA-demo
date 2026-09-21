@@ -27,10 +27,11 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 
 `cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
 op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
-lyrics tussen de balken; geen lyric-underline onder Capella-slurs). Geen
-MuseScore-stijl tot op de pixel. Niet in `check`.
-`-o` schrijft naar een naam zonder spaties; in-place op een naam mét spaties
-wordt geweigerd. Ruwe Capella-inputs blijven in `oefenhoek/input/`.
+lyrics tussen de balken; geen lyric-underline onder Capella-slurs; bij twee
+balken sleutels G/F via `staff_clefs.py`). Geen MuseScore-stijl tot op de
+pixel. Niet in `check`. `-o` schrijft naar een naam zonder spaties; in-place
+op een naam mét spaties wordt geweigerd. Ruwe Capella-inputs blijven in
+`oefenhoek/input/`.
 
 `capella-mxl-to-mscz.cmd` (`batch_capella_mxl_to_mscz.py`) kuist een map
 Capella-`.mxl` (recursief) op en schrijft standaard-`.mscz` ernaast in de
@@ -40,7 +41,8 @@ bestaande verse `.mscz` worden overgeslagen (hervatten). MuseScore 4
 nodig, en niet open tijdens de run. Niet in `check`. Geen PDF/Coria.
 
 `apply_mscz_layout.py` normaliseert de **basispartituur-`.mscz`** (A4-layout, lettergrepen,
-reciteer-collaps `||O||`, tempo, copyright). Accepteert ook opgekuiste `.mxl`.
+reciteer-collaps `||O||`, tempo, copyright, twee-balks G/F-sleutels via
+`staff_clefs.py`). Accepteert ook opgekuiste `.mxl`.
 Weigert `*.print.mscz` (print-/koormap-vel buiten de basispartituur-spoor).
 Copyright: bronnotice of default CC BY-SA 4.0 + eredienst-zin.
 In de bibliotheek: colofonregel `Bibliotheek-id:` + meta `vsaBibliotheekId`
@@ -74,7 +76,8 @@ Pagina-UI (sticky header, bibliotheek-id op leaves, shortcode `bieb`,
 actieknoppen): `oefenhoek-ui-contract.md`.
 Bibliotheek-id in eindproducten (colofon): `oefenhoek-product-contract.md`.
 `export_mscz_coria_mxl.py` maakt van zo'n layout-`.mscz` een playback-`.mxl`
-voor Coria (MuseScore-CLI-export, SATB naar vier parts, geen DOCTYPE,
+voor Coria (MuseScore-CLI-export vanaf een temp-kopie zodat de canonieke
+`.mscz` niet wordt herschreven; SATB naar vier parts, geen DOCTYPE,
 MusicXML 3.1, geen `movement-title`, sectie-pickups weg, `[PAUZE]` na
 dubbele streep, kwart-rust na cesuur, BPM-markers als `sound tempo` op
 alle parts, daarna Coria-veilige markup, daarna `<accidental>` waar de

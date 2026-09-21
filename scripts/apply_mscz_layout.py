@@ -26,7 +26,9 @@ hebben (`melse` -> `mel` + `se`) worden gesplitst: extra noten met dezelfde
 duur, SATB homofoon. Waar S een lettergreep heeft en T/B een langere noot
 over die inzet heen, wordt die noot geknipt (zelfde toon, som van duren
 gelijk) zodat elke partij per lettergreep minstens een noot heeft. Een lege
-extra notenbalk (na SAT+B-import) verdwijnt. Overige pitches/slurs blijven.
+extra notenbalk (na SAT+B-import) verdwijnt. Bij twee niet-lege balken:
+sleutels G (balk 1) / F (balk 2), ook mid-score (`staff_clefs.py`).
+Overige pitches/slurs blijven.
 
 Productierijp -> verhuizen naar VSA-tooling (docs + demo-verhaal in VSA-demo).
 """
@@ -48,6 +50,7 @@ from nl_hyphen import hyphenate_token, split_syllabic
 from score_filenames import published_path, require_no_spaces, is_print_mscz
 from bibliotheek import id_from_path, stem as bibliotheek_stem
 from recite_collapse_mscx import collapse_recite_mscx, sync_measures_no_filler_rests
+from staff_clefs import ensure_two_staff_header_clefs_mscx
 
 # A4 in inches (MuseScore pageWidth/pageHeight). 15 mm = 0.590551 in.
 _A4_W = "8.26772"
@@ -1430,6 +1433,10 @@ def apply_mscx(
         mscx, rights_hint=rights_hint, bibliotheek_id=bibliotheek_id
     )
     notes.extend(cnotes)
+
+    # Na recite-collaps: die herschrijft maten en kan Clefs droppen.
+    mscx, clef_notes = ensure_two_staff_header_clefs_mscx(mscx)
+    notes.extend(clef_notes)
 
     mscx = _set_meta(mscx, _CONTRACT_META, _CONTRACT_VERSION)
     notes.append(f"partituur-contract {_CONTRACT_VERSION}")

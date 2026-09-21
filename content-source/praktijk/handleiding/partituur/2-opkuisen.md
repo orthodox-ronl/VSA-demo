@@ -70,6 +70,7 @@ Veel voorkomende bronproblemen:
 | Situatie | Wat jij doet |
 | --- | --- |
 | SAT op balk 1, B op balk 2, maar verkeerde stemmen of ontbrekende stem | In MuseScore 4: controleer per noot welke stem (1–4) actief is; zet S/A/T/B op de juiste stem en balk |
+| Verkeerde of ontbrekende sleutel (bijv. G op de onderbalk, C2, G8vb) | Opkuisen en normalisatie zetten bij twee balken G boven / F onder (ook mid-score). Bij één of drie+ gevulde balken: zelf in MuseScore zetten |
 | Extra **lege** derde balk na import | Mag blijven tot normalisatie: `apply_mscz_layout.py` verwijdert lege maat-balken vaak automatisch |
 | Extra balk mét noten die niet horen | Verwijder of verplaats die noten in MuseScore; het layout-script wist geen gevulde balk “voor jou” |
 | Partijnamen “Sopraan / Alt / …” op elk systeem | Capella-script verbergt partijnamen; bij `.mscz` zet je instrumentnamen uit of laat normalisatie de stijl zetten |

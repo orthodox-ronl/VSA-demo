@@ -1062,8 +1062,12 @@ def process(mscz: Path, out: Path, *, verbose: bool = False) -> None:
     if verbose:
         print(f"using {musescore}", flush=True)
     with tempfile.TemporaryDirectory() as tmp:
+        # MuseScore kan de invoer-.mscz herschrijven bij export; werk vanaf
+        # een kopie zodat de canonieke basispartituur intact blijft.
+        src_copy = Path(tmp) / mscz.name
+        shutil.copy2(mscz, src_copy)
         raw_mxl = Path(tmp) / "export.mxl"
-        musescore_export(mscz, raw_mxl, musescore)
+        musescore_export(src_copy, raw_mxl, musescore)
         root = load_score_xml(raw_mxl)
     root = convert_root(root, verbose=verbose)
     n_recite = expand_recite_notes(root)

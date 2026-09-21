@@ -37,6 +37,8 @@ Laag 2 - Tekst-noot-binding
 - Geen partijnamen (SATB) op elk systeem.
 - Titels uit staff-tekst naar work-title/credit; boekpagina-cijfers weg.
 - Geen maten die alleen rusten of helemaal leeg zijn (Capella-maat 0).
+- Bij precies twee notenbalken: sleutels G (balk 1) en F (balk 2), ook
+  mid-score (C2/G8vb enz. -> G/F). Toonsoorten blijven onaangeroerd.
 
 ----------------------------------------------------------------------
 Laag 3 - Partituurhint (MXL als start voor .mscz)
@@ -78,6 +80,7 @@ import xml.etree.ElementTree as ET
 
 from nl_hyphen import hyphenate_token, split_syllabic
 from score_filenames import published_path, require_no_spaces
+from staff_clefs import ensure_two_staff_clefs_musicxml
 
 
 def local(tag: str) -> str:
@@ -656,11 +659,14 @@ def cleanup(root: ET.Element) -> None:
         for measure in children(part, "measure"):
             fix_backups_in_measure(measure)
     compact_layout(root)
+    clef_notes = ensure_two_staff_clefs_musicxml(root)
     print(
         f"  unhide={n_unhide} page-words={n_pages} title={title!r} "
         f"subtitle={subtitle!r} splits={n_split} lyrics_stripped={n_stripped} "
         f"melisma_extend={n_melisma} empty_measures={n_empty}"
     )
+    for line in clef_notes:
+        print(f"  {line}")
     print(f"  {summarize(root)}")
 
 

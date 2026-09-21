@@ -80,8 +80,9 @@ echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
 echo   ensure_bibliotheek_id.py, check_bibliotheek_id.py, test_bibliotheek_id_colophon.py,
 echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
 echo   bieb_accepteer.py, test_bieb_accepteer.py,
-echo   cleanup_capella_mxl.py, apply_mscz_layout.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
-echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py
+echo   cleanup_capella_mxl.py, apply_mscz_layout.py, staff_clefs.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
+echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py,
+echo   test_staff_clefs.py
 echo   - proef, niet in check; publicatienamen zonder spaties
 echo.
 goto end_ok

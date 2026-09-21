@@ -86,6 +86,21 @@ cadens/intonatie met bewuste lengte; toonwissels.
 Na MuseScore-edit: normalisatie collapt opnieuw toegevoegde kwarten volgens
 bovenstaande regel; de tekst blijft verdeeld over eerste / midden / laatste.
 
+## Sleutels (twee notenbalken)
+
+Bij precies **twee** niet-lege notenbalken (typische SATB-hub):
+
+| Balk | Sleutel | Nodig voor |
+| ---- | ------- | ---------- |
+| 1 (boven) | G (vioolsleutel) | leesbare PDF |
+| 2 (onder) | F (bassleutel) | leesbare PDF |
+
+Normalisatie (`apply_mscz_layout`) en Capella-opkuis (`cleanup_capella_mxl`)
+zetten ontbrekende header-sleutels en herschrijven afwijkende sleutels
+(inclusief mid-score, bijv. C2 / G8vb) naar G/F. Scores met één balk of
+meer dan twee niet-lege balken blijven onaangeroerd. **Toonsoorten**
+(key signatures) vallen buiten dit contract.
+
 ## Maatstrepen (MCI)
 
 | MCI | Basispartituur | Nodig voor |
