@@ -2,7 +2,7 @@
 &lt;p&gt;Dit register is de &lt;strong&gt;bron van waarheid&lt;/strong&gt; voor bibliotheek-id&amp;rsquo;s tijdens de
 conversie op &lt;code&gt;feat/oefenhoek-mxl-opkuis&lt;/code&gt;. Een bibliotheek-id heeft altijd drie
 lagen: &lt;code&gt;zangstuk-id&lt;/code&gt; / &lt;code&gt;variant-id&lt;/code&gt; / &lt;code&gt;uitvoeringsvorm-id&lt;/code&gt; (elk segment
-&lt;code&gt;[a-z0-9_-]+&lt;/code&gt;). De &lt;strong&gt;publicatiestam&lt;/strong&gt; voor hub-bestanden is
+&lt;code&gt;[a-z0-9_-]+&lt;/code&gt;). De &lt;strong&gt;publicatiestam&lt;/strong&gt; voor basispartituur-bestanden is
 &lt;code&gt;{zangstuk}-{variant}-{uitvoeringsvorm}&lt;/code&gt; (functie &lt;code&gt;stem()&lt;/code&gt; in
 &lt;code&gt;scripts/bibliotheek.py&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;Het migratiescript &lt;code&gt;scripts/migrate_oefenhoek_bibliotheek.py&lt;/code&gt; volgt de tabellen
@@ -19,11 +19,11 @@ script tegelijk.&lt;/p&gt;
  &lt;tbody&gt;
  &lt;tr&gt;
  &lt;td&gt;score&lt;/td&gt;
- &lt;td&gt;Hub of VSA-bundle verhuist via &lt;code&gt;SCORE_MOVES&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Basispartituur of VSA-bundle verhuist via &lt;code&gt;SCORE_MOVES&lt;/code&gt;&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;print&lt;/td&gt;
- &lt;td&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; + PDF via &lt;code&gt;PRINT_MOVES&lt;/code&gt; (geen Coria-hub)&lt;/td&gt;
+ &lt;td&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; + PDF via &lt;code&gt;PRINT_MOVES&lt;/code&gt; (geen Coria-basispartituur)&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;stub&lt;/td&gt;
@@ -44,13 +44,13 @@ script tegelijk.&lt;/p&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id="score--hub-vsa-of-gemengd"&gt;SCORE — hub, VSA of gemengd&lt;/h2&gt;
+&lt;h2 id="score--basispartituur-vsa-of-gemengd"&gt;SCORE — basispartituur, VSA of gemengd&lt;/h2&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
  &lt;th&gt;Koormap-pad (t.o.v. &lt;code&gt;liturgiemap-hemelum/&lt;/code&gt;)&lt;/th&gt;
  &lt;th&gt;Bibliotheek-id&lt;/th&gt;
- &lt;th&gt;Publicatiestam (hub)&lt;/th&gt;
+ &lt;th&gt;Publicatiestam (basispartituur)&lt;/th&gt;
  &lt;th&gt;Bestanden nu&lt;/th&gt;
  &lt;th&gt;Opmerking&lt;/th&gt;
  &lt;/tr&gt;
@@ -101,7 +101,7 @@ script tegelijk.&lt;/p&gt;
 | &lt;em&gt;(alleen bibliotheek voorlopig)&lt;/em&gt; | &lt;code&gt;19-eucharistische-canon/rostov/hemelum&lt;/code&gt; | &lt;code&gt;19-eucharistische-canon-rostov-hemelum&lt;/code&gt; | — | VOW-input; stub |
 | &lt;code&gt;20-moeder-godslied/20d-in-waarheid-moeder-godslied/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/20d-in-waarheid/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-20d-in-waarheid-hemelum&lt;/code&gt; | mscz, mxl, pdf | |
 | &lt;code&gt;20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/&lt;/code&gt; | &lt;code&gt;20-moeder-godslied/ontslapen-moeder-gods/hemelum&lt;/code&gt; | &lt;code&gt;20-moeder-godslied-ontslapen-moeder-gods-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; print-track |
-| &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
+| &lt;code&gt;25-communievers/25-communievers-onthoofding-johannes-de-doper/&lt;/code&gt; | &lt;code&gt;25-communievers/onthoofding-johannes-de-doper/hemelum&lt;/code&gt; | &lt;code&gt;25-communievers-onthoofding-johannes-de-doper-hemelum&lt;/code&gt; | vsa, vsa.mxl, pdf | Geen basispartituur-mscz; Coria via VSA-productgate |
 | &lt;code&gt;troparen-en-kondaken/tropaar-nikolaas-van-myra/&lt;/code&gt; | &lt;code&gt;tropaar/nikolaas-van-myra-toon-4/hemelum&lt;/code&gt; | &lt;code&gt;tropaar-nikolaas-van-myra-toon-4-hemelum&lt;/code&gt; | print.mscz, mxl, pdf, vsa | &lt;code&gt;artefacten_handmatig&lt;/code&gt;; onder zangstuk &lt;code&gt;tropaar/&lt;/code&gt; |
 | &lt;code&gt;2-eerste-antifoon/weekdagen/&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-hemelum-hemelum&lt;/code&gt; | vsa, vsa.mxl | Koormap = Hemelum; geen &lt;code&gt;liturgikon/&lt;/code&gt;-slot meer |
 | &lt;em&gt;(alleen bibliotheek)&lt;/em&gt; | &lt;code&gt;2-eerste-antifoon/weekdagen-liturgikon/hemelum&lt;/code&gt; | &lt;code&gt;2-eerste-antifoon-weekdagen-liturgikon-hemelum&lt;/code&gt; | vsa, vsa.mxl | Niet in Hemelum-koormap |

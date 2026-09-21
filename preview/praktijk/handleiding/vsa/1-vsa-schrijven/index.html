@@ -28,11 +28,11 @@ vierstemmig blad — daarvoor is de <a href=../2-template-satb/>volgende pagina<
 ,
 alleen voor tropaar toon 4.</p><p><strong>Wanneer:</strong> je hebt tekst (en een bekende melodie) in plaats van een
 Capella-partituur. Voorbeeld-bibliotheek-id:
-<code>2-eerste-antifoon/weekdagen/hemelum</code>.</p><h2 id=wat-de-site-van-je-vsa-maakt>Wat de site van je <code>.vsa</code> maakt</h2><p>Op een gewone eenstemmige bibliotheek-pagina (geen hub-<code>.mscz</code> ernaast)
-doet de build twee aparte dingen met hetzelfde <code>.vsa</code>-bestand:</p><div class=table-scroll><table><thead><tr><th>Afgeleide</th><th>Rol op de pagina</th><th>Hoe maak je die</th></tr></thead><tbody><tr><td>SVG onder <code>static\vsa\bladermap\…</code></td><td>Het <strong>plaatje</strong> dat shortcode <code>bieb</code> toont</td><td>Pipeline-stap <code>python scripts\sync_oefenhoek_index.py --svg</code> (zit in <code>check</code> / <code>build</code> / <code>serve</code> <strong>zonder</strong> <code>--no-build</code>)</td></tr><tr><td><code>{stam}.vsa.mxl</code> naast de <code>.vsa</code></td><td>Knop <strong>Oefenen</strong> (Coria)</td><td><code>scripts\vsa-products.cmd</code> (of dezelfde <code>check</code>-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je <code>.vsa</code> te wijzigen</td></tr></tbody></table></div><p>Volledig overzicht hub/VSA/print: <a href=/VSA-demo/preview/praktijk/handleiding/start/publicatietrajecten/>Publicatietrajecten</a>
+<code>2-eerste-antifoon/weekdagen/hemelum</code>.</p><h2 id=wat-de-site-van-je-vsa-maakt>Wat de site van je <code>.vsa</code> maakt</h2><p>Op een gewone eenstemmige bibliotheek-pagina (geen basispartituur-<code>.mscz</code> ernaast)
+doet de build twee aparte dingen met hetzelfde <code>.vsa</code>-bestand:</p><div class=table-scroll><table><thead><tr><th>Afgeleide</th><th>Rol op de pagina</th><th>Hoe maak je die</th></tr></thead><tbody><tr><td>SVG onder <code>static\vsa\bladermap\…</code></td><td>Het <strong>plaatje</strong> dat shortcode <code>bieb</code> toont</td><td>Pipeline-stap <code>python scripts\sync_oefenhoek_index.py --svg</code> (zit in <code>check</code> / <code>build</code> / <code>serve</code> <strong>zonder</strong> <code>--no-build</code>)</td></tr><tr><td><code>{stam}.vsa.mxl</code> naast de <code>.vsa</code></td><td>Knop <strong>Oefenen</strong> (Coria)</td><td><code>scripts\vsa-products.cmd</code> (of dezelfde <code>check</code>-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je <code>.vsa</code> te wijzigen</td></tr></tbody></table></div><p>Volledig overzicht partituur/VSA/print: <a href=/VSA-demo/preview/praktijk/handleiding/start/publicatietrajecten/>Publicatietrajecten</a>
 .</p><p><code>*.print.mscz</code> in dezelfde map blokkeert de SVG <strong>niet</strong> (dat is een
-printvel, geen hub). Een hub-<code>.mscz</code> wél: dan toont de pagina de PDF uit
-de hub-straat, geen VSA-SVG.</p><p>Los alleen SVG vernieuwen (na <code>vsa build-markdown</code>, of als <code>static\vsa</code>
+printvel, geen basispartituur). Een basispartituur-<code>.mscz</code> wél: dan toont de pagina de PDF uit
+de basispartituur-spoor, geen VSA-SVG.</p><p>Los alleen SVG vernieuwen (na <code>vsa build-markdown</code>, of als <code>static\vsa</code>
 al bestaat):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\sync_oefenhoek_index.py --svg
 </span></span></code></pre></div><p><code>serve --no-build</code> slaat generate + <code>--svg</code> over. Zie je Hugo-waarschuwing
 “SVG ontbreekt”, draai dan eerst die regel of een volle <code>check</code> / <code>serve</code>
@@ -81,7 +81,7 @@ en de gele banner op die
 bibliotheekpagina. Afspraak over namen en sporen:
 <code>scripts\oefenhoek-product-contract.md</code> in <code>VSA-demo</code>.</p><p>Ligt er wél een <code>.vsa</code> naast een <code>{stam}.print.mscz</code>, dan mag de build
 nog steeds de <strong>SVG</strong> van die <code>.vsa</code> maken (notatie naast de handmatige
-PDF). Alleen hub-<code>.mscz</code> onderdrukt die SVG-route.</p><h3 id=banner-of-check-over-vsamxl>Banner of check over <code>.vsa.mxl</code></h3><p>Rode banner “VSA-afgeleiden niet in orde”, of <code>check</code> rood op <code>main</code>: de
+PDF). Alleen basispartituur-<code>.mscz</code> onderdrukt die SVG-route.</p><h3 id=banner-of-check-over-vsamxl>Banner of check over <code>.vsa.mxl</code></h3><p>Rode banner “VSA-afgeleiden niet in orde”, of <code>check</code> rood op <code>main</code>: de
 <code>.vsa.mxl</code> ontbreekt, is ouder dan de <code>.vsa</code>, of mist de provenance-stamp.
 Oplossing: <code>scripts\vsa-products.cmd</code>, daarna opnieuw <code>check</code>, en beide
 bestanden committen. Zie ook <a href=../../publiceren/3-als-het-misgaat/>Als het misgaat</a>
@@ -93,4 +93,4 @@ Ontbreekt dat bestand:</p><div class=highlight><pre tabindex=0 style=color:#f8f8
 na <code>check</code> zie je het plaatje op de lokale preview, en er ligt een verse
 <code>{stam}.vsa.mxl</code> naast de <code>.vsa</code> (knop <strong>Oefenen</strong>), tenzij
 <code>artefacten_handmatig: true</code> op die bibliotheekpagina staat (dan houd jij
-de Coria-<code>.mxl</code> zelf bij; de SVG mag de pipeline nog steeds schrijven).</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/vsa/2-template-satb/>Volgende: template SATB</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-20</p></div></footer></body></html>
+de Coria-<code>.mxl</code> zelf bij; de SVG mag de pipeline nog steeds schrijven).</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/vsa/2-template-satb/>Volgende: template SATB</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-21</p></div></footer></body></html>

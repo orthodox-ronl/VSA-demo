@@ -32,7 +32,7 @@ dingen nodig:</p><ol><li>het notatieprogramma <strong>MuseScore 4</strong> (grat
 de browser — je bewerkt bestanden lokaal, zie
 <a href=start/wat-heb-je-nodig/>Wat heb je nodig</a>
 );</li><li>het <strong>Windows-opdrachtvenster</strong> (<code>cmd</code>), waarin je kant-en-klare
-regels plakt die deze handleiding geeft.</li></ol><p><strong>Bibliotheek</strong> is de catalogus met oefenbare bestanden (hub-<code>.mscz</code>,
+regels plakt die deze handleiding geeft.</li></ol><p><strong>Bibliotheek</strong> is de catalogus met oefenbare bestanden (basispartituur-<code>.mscz</code>,
 PDF, Coria-<code>.mxl</code>, <code>.vsa</code>, of print-<code>.mscz</code>). <strong>Koormap</strong> is een geordende
 route op de site (nu vooral de Hemelum-liturgiemap): inhoudsopgave van
 liturgische plekken (secties), met slot-pagina’s die via <code>bieb</code>
@@ -40,7 +40,7 @@ naar de bibliotheek verwijzen. Partituren horen in de bibliotheek, niet in
 de koormap-map. Model (boom versus compositieblad):
 <a href=start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
 .</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><ol start=0><li>Welk spoor? → <a href=start/publicatietrajecten/>Publicatietrajecten</a>
-(hub / VSA / print / site-build)</li><li>Nieuw ruw bestand → <a href=start/>Start</a>
+(basispartituur / VSA / print / site-build)</li><li>Nieuw ruw bestand → <a href=start/>Start</a>
 , daarna <a href=partituur/1-binnenhalen/>binnenhalen</a>
 .</li><li>Capella-<code>.mxl</code> → opkuisen → normaliseren (standaard-<code>.mscz</code>) → review in MuseScore → opnieuw normaliseren → <code>scripts\mscz-products.cmd</code>.</li><li>VOW-<code>.mscz</code> → Capella-script overslaan; wel stemmen/lettergrepen checken (<a href=partituur/2-opkuisen/>opkuisen</a>
 ), daarna <a href=partituur/3-standaard-mscz/>standaard-.mscz</a>
@@ -54,12 +54,12 @@ in de bibliotheek (<code>*.print.mscz</code> + handmatige PDF; vaak <code>artefa
 — vanaf opkuisen</td></tr><tr><td>Je hebt een VOW-bestand of een andere ruwe <code>.mscz</code></td><td><a href=partituur/2-opkuisen/>Opkuisen</a>
 (stemmen/lettergrepen), daarna <a href=partituur/3-standaard-mscz/>standaard-.mscz</a></td></tr><tr><td>Je hebt alleen tekst op een bekende melodie (antifoon, communievers, …)</td><td><a href=vsa/>VSA</a>
 — eenstemmig + Coria</td></tr><tr><td>Je wilt één printvel (bijv. meerdere tekstregels) of handmatig bijgehouden PDF/MXL</td><td><a href=partituur/7-print-mscz/>Print-.mscz</a></td></tr><tr><td>De publicatiebestanden liggen al klaar en moeten op de Oefenhoek</td><td><a href=publiceren/1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a></td></tr></tbody></table></div><h2 id=de-route-van-ruw-tot-oefenhoek>De route (van ruw tot Oefenhoek)</h2><p>Er zijn <strong>drie</strong> sporen naar de bibliotheek. Meng ze niet in één ronde voor
-hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> hubs zet.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>ruwe input  (blijft in oefenhoek/input/, niet op de publieke site)
+hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> basispartituren zet.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>ruwe input  (blijft in oefenhoek/input/, niet op de publieke site)
 </span></span><span style=display:flex><span>    |
 </span></span><span style=display:flex><span>    v
 </span></span><span style=display:flex><span>werkvoorraad  (bibliotheek-id kiezen; niet raden — zie ID-REGISTER)
 </span></span><span style=display:flex><span>    |
-</span></span><span style=display:flex><span>    +-- partituur (hub):  opkuisen -&gt; normaliseren -&gt; review -&gt; PDF + Coria-.mxl
+</span></span><span style=display:flex><span>    +-- partituur (basispartituur):  opkuisen -&gt; normaliseren -&gt; review -&gt; PDF + Coria-.mxl
 </span></span><span style=display:flex><span>    |
 </span></span><span style=display:flex><span>    +-- VSA:              .vsa schrijven -&gt; SVG + Coria-.vsa.mxl (check/vsa-products)
 </span></span><span style=display:flex><span>    |                     (optioneel tropaar toon 4: template SATB)
@@ -75,7 +75,7 @@ hetzelfde zangstuk, tenzij je bewust een printvel <em>naast</em> hubs zet.</p><d
 </span></span><span style=display:flex><span>    v
 </span></span><span style=display:flex><span>check --strict  -&gt;  lokale preview  -&gt;  Oefenhoek op de site
 </span></span></code></pre></div><p><strong>Opkuisen</strong> is inhoudelijke opschoning (stemmen, lettergrepen↔noten);
-<strong>normaliseren</strong> / <strong>layouten</strong> is de hub-standaard met
+<strong>normaliseren</strong> / <strong>layouten</strong> is de basispartituur-standaard met
 <code>apply_mscz_layout.py</code>. Kort overzicht: <a href=partituur/>Partituur</a>
 . Een
 Capella-partituur, een tropaar-<code>.vsa</code> en een print-<code>.mscz</code> zijn drie
@@ -84,6 +84,6 @@ verschillende straten. Opnemen in de catalogus:
 .</p><p>Id-lijst: <a href=/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
 .</p><h2 id=onderdelen>Onderdelen</h2><ol><li><a href=start/>Start</a>
 — programma’s, mappen, woorden</li><li><a href=partituur/>Partituur</a>
-— van Capella/VOW naar hub-<code>.mscz</code>, PDF en Coria; plus <a href=partituur/7-print-mscz/>print-<code>.mscz</code></a></li><li><a href=vsa/>VSA</a>
+— van Capella/VOW naar basispartituur-<code>.mscz</code>, PDF en Coria; plus <a href=partituur/7-print-mscz/>print-<code>.mscz</code></a></li><li><a href=vsa/>VSA</a>
 — notatie schrijven, Coria-<code>.vsa.mxl</code>, en (voor tropaar toon 4) template SATB</li><li><a href=publiceren/>Publiceren</a>
-— opnemen (<code>bieb-accepteer</code>), koormap, status, controle, als het misgaat</li></ol><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/start/>Start</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-20</p></div></footer></body></html>
+— opnemen (<code>bieb-accepteer</code>), koormap, status, controle, als het misgaat</li></ol><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/start/>Start</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-21</p></div></footer></body></html>

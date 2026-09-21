@@ -23,8 +23,8 @@
 <span class=site-jump-label>VSA-tooling</span>
 </a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
 <span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=als-het-misgaat>Als het misgaat</h1><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body>Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel <code>apply_mscz_layout.py</code> op de hub-<code>.mscz</code>. Coria rood bij <code>check</code>? Gebruik
-de <code>.mxl</code> in het <strong>bibliotheek</strong> (hub-product of <code>{stam}.vsa.mxl</code>), niet een
+wel <code>apply_mscz_layout.py</code> op de basispartituur-<code>.mscz</code>. Coria rood bij <code>check</code>? Gebruik
+de <code>.mxl</code> in het <strong>bibliotheek</strong> (partituur-product of <code>{stam}.vsa.mxl</code>), niet een
 <code>.mxl</code> onder <code>input\</code>. MuseScore niet gevonden? Versie <strong>4</strong>, pad
 <code>C:\Program Files\MuseScore 4\bin\MuseScore4.exe</code>.</div></aside><p><strong>Wat je nu doet:</strong> de veelvoorkomende blokkades herkennen. Blijft het
 stuk: bewaar de fouttekst en vraag na; probeer niet drie andere scripts
@@ -36,7 +36,7 @@ noteer dat in de notitie. Id-lijst:
 <a href=/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
 .</p><h2 id=bieb-accepteer-weigert-het-bestand>bieb-accepteer weigert het bestand</h2><p><strong>Symptoom:</strong> <code>scripts\bieb-accepteer.cmd</code> eindigt met <code>FAIL:</code>.</p><p>Lees de regel <code>Oplossing:</code> in het opdrachtvenster. Veelvoorkomend: verkeerd
 id, bestand bestaat al (dan <code>--force</code> alleen als je bewust overschrijft),
-<code>.vsa</code> die <code>vsa validate</code> niet haalt, of een Capella-<code>.mxl</code> zonder hub.
+<code>.vsa</code> die <code>vsa validate</code> niet haalt, of een Capella-<code>.mxl</code> zonder basispartituur.
 Stappen: <a href=../1-opnemen-in-bibliotheek/>Opnemen in de bibliotheek</a>
 .</p><h2 id=layout-of-mscz-products-herstelt-je-speciale-partituur>Layout of <code>mscz-products</code> “herstelt” je speciale partituur</h2><p>Eindigt de bestandsnaam op <code>.print.mscz</code>? Dan hoort die <strong>niet</strong> door
 <code>apply_mscz_layout</code> of <code>mscz-products</code>. Zie
@@ -48,19 +48,25 @@ als PDF/MXL handmatig blijven.</p><h2 id=musescore-start-niet--niet-gevonden>Mus
 MuseScore 4; gebruik niet MuseScore 3. Open het opdrachtvenster opnieuw
 na installatie. (Voor alleen <code>.vsa</code> → Coria is MuseScore niet nodig:
 <code>vsa-products</code>.)</p><h2 id=de-pagina-is-lelijk-of-de-stijl-is-weg>De pagina is lelijk of de stijl is weg</h2><p>Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
-hub-<code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+basispartituur-<code>.mscz</code> (of opnieuw vanaf opgekuiste <code>.mxl</code> plus normaliseren). Daarna:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 </span></span></code></pre></div><h2 id=coria-failed-to-retrieve-file>Coria: <code>failed to retrieve file</code></h2><p>Coria haalt het muziekbestand zelf vanaf internet op. De Oefenen-knop
-moet daarom naar een <strong>volledig</strong> adres wijzen:
-<code>https://orthodox-ronl.github.io/…/mxl/c/&lt;hash>.musicxml</code> (fingerprint).
+moet daarom naar een <strong>volledig</strong> adres op <code>raw.githubusercontent.com</code>
+wijzen, bijvoorbeeld
+<code>https://raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/preview/mxl/c/&lt;hash>.musicxml</code>
+(fingerprint op branch <code>gh-pages</code>). De website voor mensen blijft
+<code>https://orthodox-ronl.github.io/VSA-demo/</code>; Coria&rsquo;s server faalt op
+<code>github.io</code>-MusicXML regelmatig met <code>failed to retrieve file</code>.
 Gebruik geen pad zonder host (<code>/mxl/c/…</code>), geen <code>http://127.0.0.1:…</code>,
-en geen page-bundle-<code>.mxl</code> (Hugo zet de site-prefix dan twee keer in de URL).</p><p>Draai <code>scripts\check.cmd</code> of <code>scripts\build.cmd</code> opnieuw zodat
+geen <code>github.io</code>-MusicXML, en geen page-bundle-<code>.mxl</code>.</p><p>Draai <code>scripts\check.cmd</code> of <code>scripts\build.cmd</code> opnieuw zodat
 <code>fingerprint_coria_mxl.py</code> en Hugo meelopen.
-<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.</p><p>Een nieuw zangstuk dat nog niet op GitHub Pages staat, opent in Coria
+<code>check_hugo_links_and_assets.py</code> faalt op kapotte Coria-URL&rsquo;s.
+Na een push controleert de Pages-workflow met <code>check_coria_retrieve.py</code>
+of Coria het bestand echt ophaalt.</p><p>Een nieuw zangstuk dat nog niet op branch <code>gh-pages</code> staat, opent in Coria
 pas na een <code>git push</code> (Coria kan de lokale Hugo-server niet bereiken).</p><h2 id=coria-translation-failed-of-check-weigert-de-mxl>Coria: <code>translation failed</code> of check weigert de <code>.mxl</code></h2><p>De <code>.mxl</code> in de bibliotheek moet uit <code>mscz-products</code> of <code>vsa-products</code>
 komen (of handmatig bij <code>artefacten_handmatig</code>), niet een ruwe Capella-<code>.mxl</code>.
-Maak hub-producten opnieuw ná de laatste normalisatie, of draai
+Maak basispartituur-producten opnieuw ná de laatste normalisatie, of draai
 <code>scripts\vsa-products.cmd</code> voor een bibliotheek-<code>.vsa</code>. <code>check</code> heeft een
-aparte Coria-controle; de melding wijst het bestand aan.</p><h2 id=rode-banner-hub--of-vsa-afgeleiden-niet-in-orde>Rode banner: hub- of VSA-afgeleiden niet in orde</h2><div class=table-scroll><table><thead><tr><th>Banner</th><th>Oorzaak</th><th>Actie</th></tr></thead><tbody><tr><td>Hub-afgeleiden</td><td>PDF/MXL passen niet bij de hub-<code>.mscz</code></td><td><a href=../../partituur/6-afgeleiden/>Afgeleiden</a>
+aparte Coria-controle; de melding wijst het bestand aan.</p><h2 id=rode-banner-partituur--of-vsa-afgeleiden-niet-in-orde>Rode banner: partituur- of VSA-afgeleiden niet in orde</h2><div class=table-scroll><table><thead><tr><th>Banner</th><th>Oorzaak</th><th>Actie</th></tr></thead><tbody><tr><td>Basispartituur-afgeleiden</td><td>PDF/MXL passen niet bij de basispartituur-<code>.mscz</code></td><td><a href=../../partituur/6-afgeleiden/>Afgeleiden</a>
 — layout + <code>mscz-products</code></td></tr><tr><td>VSA-afgeleiden</td><td><code>{stam}.vsa.mxl</code> ontbreekt of is ouder dan de <code>.vsa</code></td><td><code>scripts\vsa-products.cmd</code>, commit beide</td></tr></tbody></table></div><p>Op <code>main</code> faalt de build bij dezelfde situaties.</p><h2 id=gele-banner-handmatige-artefacten>Gele banner: handmatige artefacten</h2><p>Geen fout: <code>artefacten_handmatig: true</code> staat op die bibliotheekpagina.
 PDF/MXL vernieuwen de scripts niet; doe dat zelf na elke bronwijziging.</p><h2 id=bieb-faalt-bij-build><code>bieb</code> faalt bij build</h2><p>De shortcode verwijst naar een bibliotheek-pagina die nog niet bestaat, of
 het id klopt niet (<code>zangstuk/variant/uitvoeringsvorm</code>). Maak eerst de
@@ -77,4 +83,4 @@ regel <code>publicatiestatus</code> in de <code>---</code> hebben. Handleiding-p
 oorzaak. Los dat ene bestand op, draai check opnieuw. Pak niet de hele
 foutenmuur tegelijk aan.</p><h2 id=waar-vraag-je-het>Waar vraag je het</h2><p>Gebruik dezelfde kanalen als op de Oefenhoek-pagina’s (e-mail / GitHub).
 Stuur mee: welk bibliotheek-id, welk commando, de foutregel, en of het om
-Capella, VOW of VSA gaat.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/>Terug naar overzicht</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-20</p></div></footer></body></html>
+Capella, VOW of VSA gaat.</p><div class=nav-buttons><a class=btn href=/VSA-demo/preview/praktijk/handleiding/>Terug naar overzicht</a></div></main><footer class=site-footer><div class=site-meta><p class=page-git-date>Bijgewerkt: 2026-09-21</p></div></footer></body></html>

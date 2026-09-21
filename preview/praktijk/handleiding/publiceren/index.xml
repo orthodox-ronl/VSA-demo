@@ -4,7 +4,7 @@
  &lt;div class="handleiding-cue-body"&gt;
  &lt;ol&gt;
 &lt;li&gt;Ken het &lt;strong&gt;bibliotheek-id&lt;/strong&gt; (drie delen met schuine strepen), of vraag het na.&lt;/li&gt;
-&lt;li&gt;Zorg dat je bestand al een bruikbare &lt;strong&gt;hub-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt;, of
+&lt;li&gt;Zorg dat je bestand al een bruikbare &lt;strong&gt;basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt;, of
 &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt; is — niet een ruwe Capella-file.&lt;/li&gt;
 &lt;li&gt;Open het Windows-opdrachtvenster in de map &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Typ &lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt; en Enter — het script vraagt id en
@@ -30,7 +30,7 @@ typen.&lt;/p&gt;</description></item><item><title>Bibliotheek en koormap</title>
 &lt;p&gt;Slot-pagina in de koormap:
 &lt;code&gt;content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md&lt;/code&gt; met
 shortcode &lt;code&gt;bieb&lt;/code&gt; (parameter &lt;code&gt;id&lt;/code&gt; = bibliotheek-id) en
-&lt;code&gt;automatische_inhoud: false&lt;/code&gt;. Geen hub-bestanden in de koormap-map.&lt;/p&gt;
+&lt;code&gt;automatische_inhoud: false&lt;/code&gt;. Geen basispartituur-bestanden in de koormap-map.&lt;/p&gt;
 &lt;p&gt;Een &lt;strong&gt;alias-variant&lt;/strong&gt; (andere naam voor dezelfde variant) krijgt geen
 uitvoeringsvorm-map. Zet &lt;code&gt;alias_van&lt;/code&gt; op de variant-&lt;code&gt;_index.md&lt;/code&gt;; zie
 &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
@@ -60,8 +60,8 @@ in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de hub-&lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
-de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (hub-product of &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;), niet een
+wel &lt;code&gt;apply_mscz_layout.py&lt;/code&gt; op de basispartituur-&lt;code&gt;.mscz&lt;/code&gt;. Coria rood bij &lt;code&gt;check&lt;/code&gt;? Gebruik
+de &lt;code&gt;.mxl&lt;/code&gt; in het &lt;strong&gt;bibliotheek&lt;/strong&gt; (partituur-product of &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;), niet een
 &lt;code&gt;.mxl&lt;/code&gt; onder &lt;code&gt;input\&lt;/code&gt;. MuseScore niet gevonden? Versie &lt;strong&gt;4&lt;/strong&gt;, pad
 &lt;code&gt;C:\Program Files\MuseScore 4\bin\MuseScore4.exe&lt;/code&gt;.
  &lt;/div&gt;
