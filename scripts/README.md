@@ -108,14 +108,18 @@ naam). `fingerprint_coria_mxl.py` leest page-bundle-`.mxl` uit
 publiceert uncompressed MusicXML als `/mxl/c/<hash>.musicxml` (URL eindigt
 op `.musicxml`, geen spaties of query-string; compressed `.mxl` laat Coria
 op sommige stukken falen). Oefenen-knoppen gebruiken die fingerprint via
-een **absolute** GitHub Pages-URL (`https://…/mxl/c/<hash>.musicxml`),
-niet `absURL` met lokale `baseURL=/` en niet een Hugo-`RelPermalink`
-(pad-only of verdubbelde prefix → Coria `failed to retrieve file`).
-`fingerprint_coria_mxl.py` schrijft de publieke root in
-`data/coria-public-base.json` (zelfde branch→URL als `pages.yml`).
-`check_hugo_links_and_assets.py` eist die absolute fingerprint-URL;
-unit-tests in `test_check_hugo_links_and_assets.py` en
-`test_fingerprint_coria_mxl.py` (in `check` / `build` / `serve`).
+een **absolute** `raw.githubusercontent.com`-URL op branch `gh-pages`
+(`https://raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/…/mxl/c/<hash>.musicxml`),
+niet `github.io` (Coria `failed to retrieve file`), niet `absURL` met lokale
+`baseURL=/` en niet een Hugo-`RelPermalink` (pad-only of verdubbelde prefix).
+`fingerprint_coria_mxl.py` schrijft die fetch-root in
+`data/coria-public-base.json` (zelfde mappen als `pages.yml`: root / `preview` / slug).
+`check_hugo_links_and_assets.py` eist die URL en weigert `github.io`.
+`check_coria_retrieve.py` (na Pages-deploy, niet in lokale `check`) opent een
+steekproef `play_from_url` en faalt op `failed to retrieve file`.
+Unit-tests: `test_check_hugo_links_and_assets.py`,
+`test_fingerprint_coria_mxl.py`, `test_check_coria_retrieve.py`
+(in `check` / `build` / `serve`).
 `check_publicatiestatus.py` (in `check`) eist `publicatiestatus` en
 `automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /
 `index.md` (niet `input/`). Status: `voorzien`, `concept`, `reviewable` of

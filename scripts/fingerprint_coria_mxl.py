@@ -10,9 +10,11 @@ Coria's importer ("translation failed") is unreliable on compressed
 MusicXML 3.1 from the same payload loads. We always serve that.
 
 Coria haalt het bestand server-side op: de Oefenen-knop moet een
-publieke https-URL zijn (GitHub Pages), niet /mxl/c/… of localhost.
-De publieke root staat in data/coria-public-base.json — zelfde mapping
-als .github/workflows/pages.yml (branch → site-URL).
+publieke https-URL zijn, niet /mxl/c/… of localhost. github.io is de
+site voor mensen; Coria's server faalt daar regelmatig met
+"failed to retrieve file". Oefenen gebruikt daarom raw.githubusercontent.com
+op branch gh-pages (zelfde mappen als pages.yml: root / preview / slug).
+Die fetch-root staat in data/coria-public-base.json.
 
 Bronnen:
 - content-source/**/*.mxl (niet oefenhoek/input/) — page-bundle Coria-.mxl
@@ -46,6 +48,7 @@ SOURCE_TREES = (
 
 # Keep in sync with .github/workflows/pages.yml (Determine deploy target).
 PAGES_ROOT = "https://orthodox-ronl.github.io/VSA-demo"
+RAW_ROOT = "https://raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages"
 RESERVED_SLUGS = frozenset(
     {
         "preview",
@@ -64,20 +67,37 @@ RESERVED_SLUGS = frozenset(
 )
 
 
-def github_pages_base_url(branch: str) -> str:
-    """Publieke site-root voor deze git-branch (trailing slash)."""
+def _pages_subdir(branch: str) -> str:
+    """Map onder gh-pages / github.io voor deze git-branch (leeg = site-root)."""
     branch = (branch or "").strip()
     if branch == "main":
-        return f"{PAGES_ROOT}/"
+        return ""
     if branch == "development":
-        return f"{PAGES_ROOT}/preview/"
+        return "preview"
     slug = re.sub(r"[^a-z0-9_-]+", "-", branch.lower())
     slug = re.sub(r"-+", "-", slug).strip("-")
     if not slug:
         raise ValueError(f"Branchnaam {branch!r} levert geen URL-slug op.")
     if slug in RESERVED_SLUGS:
         slug = f"b-{slug}"
-    return f"{PAGES_ROOT}/{slug}/"
+    return slug
+
+
+def _join_root(root: str, subdir: str) -> str:
+    root = root.rstrip("/")
+    if subdir:
+        return f"{root}/{subdir}/"
+    return f"{root}/"
+
+
+def github_pages_base_url(branch: str) -> str:
+    """Publieke site-root voor mensen in de browser (trailing slash)."""
+    return _join_root(PAGES_ROOT, _pages_subdir(branch))
+
+
+def coria_fetch_base_url(branch: str) -> str:
+    """Host die Coria server-side mag ophalen (trailing slash)."""
+    return _join_root(RAW_ROOT, _pages_subdir(branch))
 
 
 def detect_git_branch() -> str:
@@ -104,7 +124,7 @@ def detect_git_branch() -> str:
 
 
 def write_public_base(branch: str | None = None) -> str:
-    base = github_pages_base_url(branch or detect_git_branch())
+    base = coria_fetch_base_url(branch or detect_git_branch())
     PUBLIC_BASE_FILE.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC_BASE_FILE.write_text(
         json.dumps({"base": base}, indent=2) + "\n",

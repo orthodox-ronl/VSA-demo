@@ -70,16 +70,22 @@ python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 ## Coria: `failed to retrieve file`
 
 Coria haalt het muziekbestand zelf vanaf internet op. De Oefenen-knop
-moet daarom naar een **volledig** adres wijzen:
-`https://orthodox-ronl.github.io/…/mxl/c/<hash>.musicxml` (fingerprint).
+moet daarom naar een **volledig** adres op `raw.githubusercontent.com`
+wijzen, bijvoorbeeld
+`https://raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/preview/mxl/c/<hash>.musicxml`
+(fingerprint op branch `gh-pages`). De website voor mensen blijft
+`https://orthodox-ronl.github.io/VSA-demo/`; Coria's server faalt op
+`github.io`-MusicXML regelmatig met `failed to retrieve file`.
 Gebruik geen pad zonder host (`/mxl/c/…`), geen `http://127.0.0.1:…`,
-en geen page-bundle-`.mxl` (Hugo zet de site-prefix dan twee keer in de URL).
+geen `github.io`-MusicXML, en geen page-bundle-`.mxl`.
 
 Draai `scripts\check.cmd` of `scripts\build.cmd` opnieuw zodat
 `fingerprint_coria_mxl.py` en Hugo meelopen.
 `check_hugo_links_and_assets.py` faalt op kapotte Coria-URL's.
+Na een push controleert de Pages-workflow met `check_coria_retrieve.py`
+of Coria het bestand echt ophaalt.
 
-Een nieuw zangstuk dat nog niet op GitHub Pages staat, opent in Coria
+Een nieuw zangstuk dat nog niet op branch `gh-pages` staat, opent in Coria
 pas na een `git push` (Coria kan de lokale Hugo-server niet bereiken).
 
 ## Coria: `translation failed` of check weigert de `.mxl`

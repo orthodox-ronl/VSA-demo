@@ -4,8 +4,10 @@ Spiegel van VSA-tooling/scripts/check-hugo-links-and-assets.py,
 met configureerbare site-root en optionele URL-prefix (GitHub Pages).
 
 Coria play_from_url-links: controleer dat de url=-parameter een absolute
-http(s)-URL is (geen localhost, geen pad-only) naar een bestaand
-/mxl/c/*.musicxml op de site (geen dubbele baseURL-path).
+http(s)-URL is (geen localhost, geen github.io, geen pad-only) naar een
+bestaand /mxl/c/*.musicxml op de site (geen dubbele baseURL-path).
+github.io is de site voor mensen; Coria haalt MusicXML op vanaf
+raw.githubusercontent.com (gh-pages).
 """
 
 from __future__ import annotations
@@ -142,6 +144,14 @@ def coria_target_path(value: str, url_prefix: str) -> tuple[str | None, str | No
         return None, f"Coria-url is geen absolute http(s)-URL: {raw}"
     if _is_localhost_host(target.netloc):
         return None, f"Coria kan localhost niet ophalen: {raw}"
+    host = (target.netloc or "").lower()
+    if host.endswith("github.io"):
+        return None, (
+            "Coria haalt MusicXML niet betrouwbaar op vanaf github.io "
+            "(failed to retrieve file). Oplossing: fingerprint_coria_mxl.py "
+            "moet data/coria-public-base.json op "
+            "raw.githubusercontent.com/orthodox-ronl/VSA-demo/gh-pages/ zetten."
+        )
     path = target.path or ""
     if not path.startswith("/"):
         path = "/" + path

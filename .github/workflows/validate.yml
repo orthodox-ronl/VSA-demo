@@ -56,6 +56,7 @@ jobs:
         run: |
           python scripts/test_check_hugo_links_and_assets.py
           python scripts/test_fingerprint_coria_mxl.py
+          python scripts/test_check_coria_retrieve.py
 
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source

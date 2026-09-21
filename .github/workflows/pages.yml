@@ -62,7 +62,8 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
 
           # Site-root en speciale paden: niet als branch-preview-map gebruiken.
-          # Keep in sync with scripts/fingerprint_coria_mxl.py::github_pages_base_url
+          # Keep in sync with scripts/fingerprint_coria_mxl.py::_pages_subdir
+          # Site (browser): github.io. Coria fetch: raw.githubusercontent.com gh-pages.
           reserved='^(preview|main|gh-pages|development|coria|css|demo|images|js|mxl|praktijk|vsa)$'
 
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
@@ -128,6 +129,7 @@ jobs:
         run: |
           python scripts/test_check_hugo_links_and_assets.py
           python scripts/test_fingerprint_coria_mxl.py
+          python scripts/test_check_coria_retrieve.py
 
       - name: Validate VSA content
         run: python scripts/validate_content.py --summary --fail-on-warnings content-source
@@ -203,3 +205,31 @@ jobs:
       keep_files: ${{ needs.build.outputs.keep_files == 'true' }}
     permissions:
       contents: write
+
+  coria-retrieve:
+    name: Coria retrieve smoke
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: pages-site
+          path: generated/site
+
+      - name: Coria retrieve smoke
+        run: |
+          python scripts/check_coria_retrieve.py \
+            --site-dir generated/site \
+            --max 5

@@ -40,6 +40,8 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\test_fingerprint_coria_mxl.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\test_check_coria_retrieve.py
+if errorlevel 1 exit /b 1
 "%PY%" scripts\test_bibliotheek_id_colophon.py
 "%PY%" scripts\test_bieb_accepteer.py
 if errorlevel 1 exit /b 1

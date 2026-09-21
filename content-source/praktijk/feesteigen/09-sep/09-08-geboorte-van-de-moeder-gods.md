@@ -39,7 +39,7 @@ Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_}
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
-2. [:] Een {/ko}{/ning} {\uit} {/uw} {len_.}de{\nen_}
+2. [:] Een {/ko}{/ning} {\uit} {/uw} {/len_.}de{\nen_}
    {\\zal} ik {/doen} {/ze}{\te}{\len} {/op_} {uw_} {\troon}. [:]  refrein
 
 3. [:] Daar zal Ik {/een} {/hoorn} oprich{\ten} {/voor} {/Da__}{\vid_}:
