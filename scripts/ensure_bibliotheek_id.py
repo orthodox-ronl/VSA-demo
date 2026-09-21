@@ -1,11 +1,11 @@
-"""Zet bibliotheek-id in hub-.mscz colofon/meta; optioneel alleen controleren.
+"""Zet bibliotheek-id in basispartituur-.mscz colofon/meta; optioneel alleen controleren.
 
-Hubs onder `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
+Basispartituren onder `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
 Lokaal (niet-CI): ontbrekende/verkeerde id -> `process_mscz` (geen MuseScore).
 CI / `--check-only`: alleen rapporteren. Exit 1 op main / `--fail` /
 `VSA_BIBLIOTHEEK_ID_STRICT` als er nog problemen zijn.
 
-Contract: scripts/mscz-hub-contract.md, scripts/oefenhoek-product-contract.md.
+Contract: scripts/mscz-partituur-contract.md, scripts/oefenhoek-product-contract.md.
 """
 from __future__ import annotations
 
@@ -34,8 +34,8 @@ def _rel(path: Path) -> str:
         return path.as_posix()
 
 
-def collect_hubs(root: Path) -> list[tuple[Path, str]]:
-    """(hub-.mscz, expected bibliotheek-id) voor scores in de bibliotheekboom."""
+def collect_basispartituren(root: Path) -> list[tuple[Path, str]]:
+    """(basispartituur-.mscz, expected bibliotheek-id) voor scores in de bibliotheekboom."""
     out: list[tuple[Path, str]] = []
     for mscz in expand_mscz([root]):
         if is_print_mscz(mscz):
@@ -93,12 +93,12 @@ def main() -> int:
     )
     args = p.parse_args()
     root = args.root if args.root.is_absolute() else REPO_ROOT / args.root
-    hubs = collect_hubs(root)
+    items = collect_basispartituren(root)
     write = not args.check_only and not _running_in_ci()
 
     fixed = 0
     bad: list[tuple[Path, str, str]] = []
-    for mscz, expected in hubs:
+    for mscz, expected in items:
         ok, detail = bibliotheek_id_status(mscz, expected)
         if ok:
             continue
@@ -114,7 +114,7 @@ def main() -> int:
             bad.append((mscz, expected, detail))
 
     print(
-        f"Bibliotheek-id: {len(hubs) - len(bad)} ok, {fixed} hersteld, "
+        f"Bibliotheek-id: {len(items) - len(bad)} ok, {fixed} hersteld, "
         f"{len(bad)} probleem",
         flush=True,
     )

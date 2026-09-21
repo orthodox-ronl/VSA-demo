@@ -10,7 +10,7 @@ weight: 20
 - Input: `oefenhoek\input\<herkomst>\` (originele bestandsnaam mag spaties hebben)
 - Tussenwerk: `oefenhoek\input\_werk\<stam>\` (publicatiestam; alleen op jouw pc, niet in git)
 - Bibliotheek: `oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\` — **geen spaties** in bestandsnamen
-- Koormap: `oefenhoek\liturgiemap-hemelum\` — sectie-`_index.md` of slot-`index.md` + verwijzing (geen hub-bestanden)
+- Koormap: `oefenhoek\liturgiemap-hemelum\` — sectie-`_index.md` of slot-`index.md` + verwijzing (geen basispartituur-bestanden)
 - Register: `oefenhoek\input\werkvoorraad.md` en [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)
 {{< /cue >}}
 
@@ -18,7 +18,7 @@ weight: 20
 het origineel, of komt een half af bestand op de publieke site.
 
 Een **bibliotheek-uitvoeringsvorm** is één map in de bibliotheek met
-`index.md` en de bestanden die koorleden oefenen (hub, PDF, Coria, VSA of
+`index.md` en de bestanden die koorleden oefenen (basispartituur, PDF, Coria, VSA of
 print). In de Hemelum-**koormap** verwijst een **slot-pagina**
 (`index.md`) met `bieb` naar die uitvoeringsvorm. Een
 **koormap-sectie** (`_index.md`) groepeert kindpagina’s op één liturgische
@@ -58,11 +58,11 @@ Hernoemen gebeurt pas bij publicatie in de bibliotheek.
 ## Publicatienamen
 
 In de bibliotheek (en in `_werk`): geen spaties; alleen kleine letters,
-cijfers, `-` en `_`. Hub-bestanden hebben de **publicatiestam** uit het
+cijfers, `-` en `_`. Basispartituur-bestanden hebben de **publicatiestam** uit het
 bibliotheek-id (functie `stem()` in `scripts\bibliotheek.py`). Voorbeeld:
 id `8-trisagion/8a-nederlands/hemelum` → `8-trisagion-8a-nederlands-hemelum.mscz`.
 VSA-Coria: zelfde stam + `.vsa.mxl`. Bij meerdere Coria-bestanden in één map:
-`{stam}.hub.mxl` / `{stam}.vsa.mxl` (`scripts\oefenhoek-product-contract.md`).
+`{stam}.partituur.mxl` / `{stam}.vsa.mxl` (`scripts\oefenhoek-product-contract.md`).
 Het script `scripts\score_filenames.py` helpt bij opkuisen en layout.
 
 ## Koormap vs bibliotheek-id

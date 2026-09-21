@@ -24,7 +24,7 @@ dingen nodig:
 3. het **Windows-opdrachtvenster** (`cmd`), waarin je kant-en-klare
    regels plakt die deze handleiding geeft.
 
-**Bibliotheek** is de catalogus met oefenbare bestanden (hub-`.mscz`,
+**Bibliotheek** is de catalogus met oefenbare bestanden (basispartituur-`.mscz`,
 PDF, Coria-`.mxl`, `.vsa`, of print-`.mscz`). **Koormap** is een geordende
 route op de site (nu vooral de Hemelum-liturgiemap): inhoudsopgave van
 liturgische plekken (secties), met slot-pagina’s die via `bieb`
@@ -33,7 +33,7 @@ de koormap-map. Model (boom versus compositieblad):
 [Bibliotheek en koormappen](start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
-0. Welk spoor? → [Publicatietrajecten](start/publicatietrajecten/) (hub / VSA / print / site-build)
+0. Welk spoor? → [Publicatietrajecten](start/publicatietrajecten/) (basispartituur / VSA / print / site-build)
 1. Nieuw ruw bestand → [Start](start/), daarna [binnenhalen](partituur/1-binnenhalen/).
 2. Capella-`.mxl` → opkuisen → normaliseren (standaard-`.mscz`) → review in MuseScore → opnieuw normaliseren → `scripts\mscz-products.cmd`.
 3. VOW-`.mscz` → Capella-script overslaan; wel stemmen/lettergrepen checken ([opkuisen](partituur/2-opkuisen/)), daarna [standaard-.mscz](partituur/3-standaard-mscz/).
@@ -56,7 +56,7 @@ de koormap-map. Model (boom versus compositieblad):
 ## De route (van ruw tot Oefenhoek)
 
 Er zijn **drie** sporen naar de bibliotheek. Meng ze niet in één ronde voor
-hetzelfde zangstuk, tenzij je bewust een printvel *naast* hubs zet.
+hetzelfde zangstuk, tenzij je bewust een printvel *naast* basispartituren zet.
 
 ```text
 ruwe input  (blijft in oefenhoek/input/, niet op de publieke site)
@@ -64,7 +64,7 @@ ruwe input  (blijft in oefenhoek/input/, niet op de publieke site)
     v
 werkvoorraad  (bibliotheek-id kiezen; niet raden — zie ID-REGISTER)
     |
-    +-- partituur (hub):  opkuisen -> normaliseren -> review -> PDF + Coria-.mxl
+    +-- partituur (basispartituur):  opkuisen -> normaliseren -> review -> PDF + Coria-.mxl
     |
     +-- VSA:              .vsa schrijven -> SVG + Coria-.vsa.mxl (check/vsa-products)
     |                     (optioneel tropaar toon 4: template SATB)
@@ -82,7 +82,7 @@ check --strict  ->  lokale preview  ->  Oefenhoek op de site
 ```
 
 **Opkuisen** is inhoudelijke opschoning (stemmen, lettergrepen↔noten);
-**normaliseren** / **layouten** is de hub-standaard met
+**normaliseren** / **layouten** is de basispartituur-standaard met
 `apply_mscz_layout.py`. Kort overzicht: [Partituur](partituur/). Een
 Capella-partituur, een tropaar-`.vsa` en een print-`.mscz` zijn drie
 verschillende straten. Opnemen in de catalogus:
@@ -93,7 +93,7 @@ Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 ## Onderdelen
 
 1. [Start](start/) — programma’s, mappen, woorden
-2. [Partituur](partituur/) — van Capella/VOW naar hub-`.mscz`, PDF en Coria; plus [print-`.mscz`](partituur/7-print-mscz/)
+2. [Partituur](partituur/) — van Capella/VOW naar basispartituur-`.mscz`, PDF en Coria; plus [print-`.mscz`](partituur/7-print-mscz/)
 3. [VSA](vsa/) — notatie schrijven, Coria-`.vsa.mxl`, en (voor tropaar toon 4) template SATB
 4. [Publiceren](publiceren/) — opnemen (`bieb-accepteer`), koormap, status, controle, als het misgaat
 

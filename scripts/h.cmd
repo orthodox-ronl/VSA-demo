@@ -333,28 +333,28 @@ echo SYNOPSIS
 echo   scripts\mscz-products.cmd [pad] [--force] [--dry-run]
 echo.
 echo DESCRIPTION
-echo   Exporteert sibling-PDF en Coria-.mxl bij hub-.mscz
+echo   Exporteert sibling-PDF en Coria-.mxl bij basispartituur-.mscz
 echo   (niet oefenhoek\input, niet *.print.mscz). Zonder pad:
-echo   content-source. Ontbrekend/verkeerde hub-hash stamp,
+echo   content-source. Ontbrekend/verkeerde partituur-hash stamp,
 echo   tenzij --force.
 echo.
 echo   Pipeline roept dit lokaal aan. Eerst apply_mscz_layout.py,
 echo   eventueel editslag in MuseScore, daarna dit script.
-echo   check_hub_products.py controleert stamps (main: streng).
+echo   check_partituur_products.py controleert stamps (main: streng).
 echo   ensure_bibliotheek_id.py zet Bibliotheek-id in colofon/meta.
 echo   Print-velden (*.print.mscz): zie handleiding partituur/7-print-mscz.
 echo.
 echo WHEN
-echo   Als de hub-.mscz klaar is voor publicatie-PDF en Coria.
+echo   Als de basispartituur-.mscz klaar is voor publicatie-PDF en Coria.
 echo.
 echo SEE ALSO
 echo   scripts\apply_mscz_layout.py
 echo   scripts\ensure_bibliotheek_id.py
 echo   scripts\sync_mscz_products.py
-echo   scripts\check_hub_products.py
+echo   scripts\check_partituur_products.py
 echo   scripts\score_filenames.py
 echo   scripts\oefenhoek-product-contract.md
-echo   scripts\mscz-hub-contract.md
+echo   scripts\mscz-partituur-contract.md
 echo   scripts\mscz-product-transforms.md
 echo.
 goto end_ok
@@ -369,14 +369,14 @@ echo   python scripts\ensure_bibliotheek_id.py [root]
 echo   python scripts\check_bibliotheek_id.py [root]
 echo.
 echo DESCRIPTION
-echo   Hub-.mscz onder bibliotheek/ moeten Bibliotheek-id in colofon
+echo   Basispartituur-.mscz onder bibliotheek/ moeten Bibliotheek-id in colofon
 echo   en meta vsaBibliotheekId hebben. ensure herstelt lokaal
 echo   (process_mscz); check-only / CI schrijft niet. main/strict: fail.
 echo   Daarna mscz-products voor verse PDF.
 echo.
 echo SEE ALSO
 echo   scripts\apply_mscz_layout.py
-echo   scripts\mscz-hub-contract.md
+echo   scripts\mscz-partituur-contract.md
 echo   scripts\oefenhoek-product-contract.md
 echo.
 goto end_ok
@@ -437,7 +437,7 @@ echo.
 echo SEE ALSO
 echo   scripts\cleanup_capella_mxl.py
 echo   scripts\apply_mscz_layout.py
-echo   scripts\mscz-hub-contract.md
+echo   scripts\mscz-partituur-contract.md
 echo   scripts\mscz-product-transforms.md
 echo.
 goto end_ok
@@ -456,7 +456,7 @@ echo   oefenhoek bladermap-index.md. Frontmatter en eigen tekst blijven.
 echo   Catalogus-includes, bieb en automatische_inhoud: false
 echo   blijven. Widgets komen uit de Hugo-layout of bieb.
 echo.
-echo   --svg schrijft SVG van lokale .vsa (geen hub-.mscz; print-.mscz
+echo   --svg schrijft SVG van lokale .vsa (geen basispartituur-.mscz; print-.mscz
 echo   mag) naar static\vsa\bladermap\ (na vsa build-markdown), ook onder
 echo   bibliotheek\.
 echo   Standaard alleen een samenvatting; --verbose toont elk pad.
@@ -482,7 +482,7 @@ echo   scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
 echo   python scripts\bieb_accepteer.py [id] [bestand...] ...
 echo.
 echo DESCRIPTION
-echo   Neemt een hub-.mscz, .vsa of .print.mscz op in
+echo   Neemt een basispartituur-.mscz, .vsa of .print.mscz op in
 echo   oefenhoek\bibliotheek\zangstuk\variant\uitvoeringsvorm\.
 echo   Maakt ontbrekende _index.md / index.md met bieb, hernoemt naar
 echo   de publicatiestam. Weigert Capella-.capx e.d. en kale Capella-.mxl.
@@ -517,7 +517,7 @@ echo SYNOPSIS
 echo   python scripts\migrate_oefenhoek_bibliotheek.py
 echo.
 echo DESCRIPTION
-echo   Eenmalig (historisch): verplaatste hub-partituren van
+echo   Eenmalig (historisch): verplaatste basispartituur-partituren van
 echo   liturgiemap-hemelum naar oefenhoek\bibliotheek\... en zette
 echo   koormap-slots op bieb. Nieuwe stukken: scripts\bieb-accepteer.cmd.
 echo   bibliotheek.py: parse_id / folder / stem / leaf_folders / resolve_id.

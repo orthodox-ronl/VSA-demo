@@ -10,10 +10,10 @@
 {{- $loc := partial "diag-location.html" (dict "position" .position "page" $viewer) -}}
 {{- if $score -}}
 {{- $inBibliotheek := strings.Contains $viewer.RelPermalink "/praktijk/oefenhoek/bibliotheek/" -}}
-{{- $hasHubMscz := false -}}
+{{- $hasBasispartituur := false -}}
 {{- range $score.Resources.Match "*.mscz" -}}
   {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
-    {{- $hasHubMscz = true -}}
+    {{- $hasBasispartituur = true -}}
   {{- end -}}
 {{- end -}}
 {{- with $score.File -}}
@@ -21,15 +21,15 @@
   {{- if fileExists $srcDir -}}
     {{- range os.ReadDir $srcDir -}}
       {{- if and (not .IsDir) (strings.HasSuffix (lower .Name) ".mscz") (not (strings.HasSuffix (lower .Name) ".print.mscz")) -}}
-        {{- $hasHubMscz = true -}}
+        {{- $hasBasispartituur = true -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- /* Voorkeur: hub als de pagina een MuseScore-blad toont, anders VSA. */ -}}
+{{- /* Voorkeur: basispartituur als de pagina een MuseScore-blad toont, anders VSA. */ -}}
 {{- $preferId := "vsa" -}}
-{{- if $hasHubMscz -}}
-  {{- $preferId = "hub" -}}
+{{- if $hasBasispartituur -}}
+  {{- $preferId = "partituur" -}}
 {{- end -}}
 {{- $pdfItems := slice -}}
 {{- $coriaItems := slice -}}
@@ -94,6 +94,7 @@
     {{- if gt $c 1 -}}
       {{- $stem := strings.TrimSuffix (path.Ext .name) (path.Base .name) -}}
       {{- $stem = strings.TrimSuffix ".vsa" $stem -}}
+      {{- $stem = strings.TrimSuffix ".partituur" $stem -}}
       {{- $stem = strings.TrimSuffix ".hub" $stem -}}
       {{- $label = printf "%s — %s" $label $stem -}}
     {{- end -}}

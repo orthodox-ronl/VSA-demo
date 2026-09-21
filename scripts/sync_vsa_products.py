@@ -20,7 +20,9 @@ from pathlib import Path
 
 from bibliotheek import under_alias_variant
 from export_mscz_coria_mxl import load_score_xml, process_existing_mxl, write_mxl
-from hub_product_meta import (
+from partituur_product_meta import (
+    FIELD_PARTITUUR_SHA,
+    FIELD_PARTITUUR_SHA_LEGACY,
     FIELD_SOURCE_KIND,
     FIELD_SOURCE_SHA,
     GENERATOR_VSA,
@@ -173,8 +175,10 @@ def sync_one(vsa: Path, mxl: Path, *, dry_run: bool) -> None:
     if legacy.is_file() and legacy.resolve() != mxl.resolve():
         stamp = read_mxl_stamp(legacy)
         if stamp.get(FIELD_SOURCE_KIND, SOURCE_KIND_VSA) in {"", SOURCE_KIND_VSA}:
-            # Geen hub-stamp: mag legacy VSA-mxl zijn.
-            if not stamp.get("vsa-hub-sha256"):
+            # Geen partituur-stamp: mag legacy VSA-mxl zijn.
+            if not stamp.get(FIELD_PARTITUUR_SHA) and not stamp.get(
+                FIELD_PARTITUUR_SHA_LEGACY
+            ):
                 print(f"  remove legacy {legacy.name}", flush=True)
                 legacy.unlink()
 

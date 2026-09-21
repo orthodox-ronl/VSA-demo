@@ -7,16 +7,16 @@ weight: 50
 # PDF en Coria-.mxl maken
 
 {{< cue >}}
-Hub-`.mscz` staat in het **bibliotheek** (niet alleen in `_werk`). Daarna:
+Basispartituur-`.mscz` staat in het **bibliotheek** (niet alleen in `_werk`). Daarna:
 ```cmd
 scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum
 ```
-Of heel `content-source`. `--force` als producten ouder zijn dan de hub of
+Of heel `content-source`. `--force` als producten ouder zijn dan de basispartituur of
 de bestandsdatum niet klopt. Lokale `check`/`build`/`serve` vernieuwen
-stale hub-producten ook automatisch. Weigert / slaat `*.print.mscz` over.
+stale basispartituur-producten ook automatisch. Weigert / slaat `*.print.mscz` over.
 {{< /cue >}}
 
-**Wat je nu doet:** uit de nagekeken, genormaliseerde **hub-`.mscz`** twee
+**Wat je nu doet:** uit de nagekeken, genormaliseerde **basispartituur-`.mscz`** twee
 sibling-bestanden maken:
 
 | Bestand | Rol |
@@ -24,30 +24,30 @@ sibling-bestanden maken:
 | `{stam}.pdf` | A4-afdruk om te lezen of te printen |
 | `{stam}.mxl` | MusicXML voor **Coria** (online oefenen) |
 
-Beide krijgen een ingebedde `hub-sha256` zodat `check` kan zien of PDF/MXL
-nog bij de huidige hub horen. Technische transforms staan in
+Beide krijgen een ingebedde `partituur-sha256` zodat `check` kan zien of PDF/MXL
+nog bij de huidige basispartituur horen. Technische transforms staan in
 `scripts\mscz-product-transforms.md` in `VSA-demo`.
 
-Dit is het **hub**-spoor (representatie-id `hub`). Eenstemmige VSA gebruikt
+Dit is het **partituur**-spoor (representatie-id `partituur`). Eenstemmige VSA gebruikt
 `{stam}.vsa.mxl` via [`.vsa schrijven`](../../vsa/1-vsa-schrijven/). Als in
 één map ooit twee Coria-bestanden nodig zijn, gebruik expliciete namen
-`{stam}.hub.mxl` / `{stam}.vsa.mxl` — zie
+`{stam}.partituur.mxl` / `{stam}.vsa.mxl` — zie
 `scripts\oefenhoek-product-contract.md`.
 
 **Wanneer:** ná [reviewen en opnieuw normaliseren](../4-reviewen/). Niet
 meteen na de eerste normalisatie als je nog gaat editen: dan maak je de
-producten twee keer. Bij een latere hub-wijziging: opnieuw normaliseren,
+producten twee keer. Bij een latere basispartituur-wijziging: opnieuw normaliseren,
 daarna opnieuw deze stap (of [Afgeleiden](../6-afgeleiden/)).
 
 ## Voorwaarden
 
-1. De hub-`.mscz` ligt in het **bibliotheek**, niet alleen in
+1. De basispartituur-`.mscz` ligt in het **bibliotheek**, niet alleen in
    `input\_werk\`. Padvoorbeeld:
    `content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz`.
 2. Die `.mscz` is na de laatste inhoudelijke edit opnieuw genormaliseerd
    (`apply_mscz_layout.py`).
 3. **MuseScore 4** is geïnstalleerd (het product-script roept MuseScore aan).
-4. Dit is een **hub**-bestand, geen `*.print.mscz` — printvel: PDF handmatig
+4. Dit is een **basispartituur**-bestand, geen `*.print.mscz` — printvel: PDF handmatig
    ([Print-.mscz](../7-print-mscz/)).
 
 ## Stap voor stap
@@ -93,22 +93,22 @@ scripts\mscz-products.cmd content-source
 
 | Situatie | Actie |
 | --- | --- |
-| PDF/MXL ouder dan de hub-`.mscz` | Gewoon opnieuw `mscz-products` — of `check` lokaal (pipeline vernieuwt stale) |
-| Hub inhoudelijk gewijzigd maar bestandsdatum klopt niet | Zet `--force` achter het commando |
-| Preview toont een banner dat hub-afgeleiden niet kloppen | Zie [Afgeleiden](../6-afgeleiden/); opnieuw producten ná laatste normalisatie |
+| PDF/MXL ouder dan de basispartituur-`.mscz` | Gewoon opnieuw `mscz-products` — of `check` lokaal (pipeline vernieuwt stale) |
+| Basispartituur inhoudelijk gewijzigd maar bestandsdatum klopt niet | Zet `--force` achter het commando |
+| Preview toont een banner dat basispartituur-afgeleiden niet kloppen | Zie [Afgeleiden](../6-afgeleiden/); opnieuw producten ná laatste normalisatie |
 
 ## Wat je niet doet
 
 - Geen Coria-`.mxl` uit Capella of uit “Exporteren als MusicXML” in
   MuseScore gebruiken als publicatiebestand.
-- Geen producten maken van een hub die je daarna nog gaat editen zonder
+- Geen producten maken van een basispartituur die je daarna nog gaat editen zonder
   opnieuw te normaliseren én producten te vernieuwen.
 - Geen `mscz-products` verwachten voor `*.print.mscz`.
 
 ## Klaar als
 
 In de bibliotheek liggen `.mscz`, `.pdf` en `.mxl` met dezelfde
-publicatiestam; de PDF ziet er hub-achtig uit; je kunt door naar
+publicatiestam; de PDF ziet er basispartituur-achtig uit; je kunt door naar
 [bibliotheek en koormap](../../publiceren/1-bladermap/).
 
 {{< navbuttons "Volgende: afgeleiden|/praktijk/handleiding/partituur/6-afgeleiden/" >}}

@@ -997,7 +997,8 @@ a.btn.coria-play:focus,
   margin-top: 0.15rem;
 }
 
-.hub-product-banner {
+.hub-product-banner,
+.partituur-product-banner {
   margin: 0 0 1.25rem;
   padding: 0.75rem 0.9rem;
   border: 2px solid #b00020;
@@ -1006,17 +1007,20 @@ a.btn.coria-play:focus,
   font-size: 0.95rem;
 }
 
-.hub-product-banner-title {
+.hub-product-banner-title,
+.partituur-product-banner-title {
   margin: 0 0 0.4rem;
   font-weight: 700;
 }
 
-.hub-product-banner ul {
+.hub-product-banner ul,
+.partituur-product-banner ul {
   margin: 0.35rem 0 0.75rem;
   padding-left: 1.2rem;
 }
 
-.hub-product-banner-cmd {
+.hub-product-banner-cmd,
+.partituur-product-banner-cmd {
   margin: 0.35rem 0 0.75rem;
   padding: 0.5rem 0.65rem;
   background: #fff;

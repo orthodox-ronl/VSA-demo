@@ -1,8 +1,9 @@
-"""Controleer bibliotheek-.vsa vs sibling `{stam}.vsa.mxl` via source-sha256.
+"""Controleer basispartituur-.mscz vs PDF/Coria-MXL via embedded partituur-sha256.
 
-Schrijft data/vsa-product-status.json voor Hugo-banners.
-Slaat artefacten_handmatig over. Exit 1 bij problemen tenzij --warn-only.
+Schrijft data/partituur-product-status.json voor Hugo-banners.
+Exit 1 bij problemen tenzij --warn-only (preview).
 """
+
 from __future__ import annotations
 
 import argparse
@@ -12,28 +13,24 @@ import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from export_mscz_coria_mxl import expand_mscz
 from partituur_product_meta import (
     FIELD_GENERATED_AT,
-    FIELD_SOURCE_KIND,
-    FIELD_SOURCE_SHA,
-    SOURCE_KIND_VSA,
+    partituur_sha256,
     read_mxl_stamp,
-    source_sha256,
-)
-from sync_vsa_products import (
-    DEFAULT_ROOT,
-    collect_vsa,
-    product_path_for_vsa,
+    read_pdf_stamp,
+    stamp_sha_from_dict,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-STATUS_PATH = REPO_ROOT / "data" / "vsa-product-status.json"
-FIX_PAGE = "/praktijk/handleiding/vsa/1-vsa-schrijven/"
+DEFAULT_ROOT = REPO_ROOT / "content-source"
+STATUS_PATH = REPO_ROOT / "data" / "partituur-product-status.json"
+FIX_PAGE = "/praktijk/handleiding/partituur/6-afgeleiden/"
 
 
 @dataclass
 class Issue:
-    kind: str  # missing_mxl | stale_mxl | unstamped_mxl | wrong_kind
+    kind: str  # missing_pdf | missing_mxl | stale_pdf | stale_mxl | unstamped_pdf | unstamped_mxl
     file: str
     detail: str
 
@@ -41,7 +38,7 @@ class Issue:
 @dataclass
 class FolderStatus:
     dir: str
-    vsa: str
+    mscz: str
     ok: bool
     issues: list[Issue]
     fix_cmd: str
@@ -54,56 +51,85 @@ def _rel(path: Path) -> str:
         return path.as_posix()
 
 
-def _bladermap_key(vsa: Path) -> str:
-    rel = vsa.parent.relative_to(REPO_ROOT / "content-source")
+def _bladermap_key(mscz: Path) -> str:
+    """Pad relatief t.o.v. content-source, met trailing slash-achtige dir."""
+    rel = mscz.parent.relative_to(REPO_ROOT / "content-source")
     return rel.as_posix()
 
 
-def check_one(vsa: Path) -> FolderStatus:
-    mxl = product_path_for_vsa(vsa)
+def check_one(mscz: Path) -> FolderStatus:
+    pdf = mscz.with_suffix(".pdf")
+    mxl = mscz.with_suffix(".mxl")
     issues: list[Issue] = []
-    src_hash = source_sha256(vsa)
-    fix = r'scripts\vsa-products.cmd'
+    digest = partituur_sha256(mscz)
+    rel_mscz = _rel(mscz)
+    fix = (
+        f'scripts\\mscz-products.cmd "{mscz.parent.relative_to(REPO_ROOT)}"'
+    )
+
+    if not pdf.is_file():
+        issues.append(
+            Issue(
+                "missing_pdf",
+                _rel(pdf),
+                "PDF ontbreekt naast de basispartituur-.mscz",
+            )
+        )
+    else:
+        stamp = read_pdf_stamp(pdf)
+        got = stamp_sha_from_dict(stamp)
+        if not got:
+            issues.append(
+                Issue(
+                    "unstamped_pdf",
+                    _rel(pdf),
+                    "PDF heeft geen VSAPartituurSHA256-metadata (opnieuw genereren)",
+                )
+            )
+        elif got != digest:
+            when = stamp.get(FIELD_GENERATED_AT, "?")
+            issues.append(
+                Issue(
+                    "stale_pdf",
+                    _rel(pdf),
+                    f"PDF-partituur-hash wijkt af (gegenereerd {when}); "
+                    f"basispartituur is gewijzigd",
+                )
+            )
+
     if not mxl.is_file():
         issues.append(
             Issue(
                 "missing_mxl",
                 _rel(mxl),
-                "Coria-.vsa.mxl ontbreekt naast de bibliotheek-.vsa",
+                "Coria-.mxl ontbreekt naast de basispartituur-.mscz",
             )
         )
     else:
         stamp = read_mxl_stamp(mxl)
-        kind = stamp.get(FIELD_SOURCE_KIND, "")
-        got = stamp.get(FIELD_SOURCE_SHA, "")
+        got = stamp_sha_from_dict(stamp)
         if not got:
             issues.append(
                 Issue(
                     "unstamped_mxl",
                     _rel(mxl),
-                    "MXL heeft geen vsa-source-sha256 (opnieuw genereren)",
+                    "MXL heeft geen vsa-partituur-sha256 (opnieuw genereren)",
                 )
             )
-        elif kind and kind != SOURCE_KIND_VSA:
-            issues.append(
-                Issue(
-                    "wrong_kind",
-                    _rel(mxl),
-                    f"MXL source-kind is {kind!r}, verwacht {SOURCE_KIND_VSA!r}",
-                )
-            )
-        elif got != src_hash:
+        elif got != digest:
             when = stamp.get(FIELD_GENERATED_AT, "?")
             issues.append(
                 Issue(
                     "stale_mxl",
                     _rel(mxl),
-                    f"MXL-source-hash wijkt af (gegenereerd {when}); .vsa is gewijzigd",
+                    f"MXL-partituur-hash wijkt af (gegenereerd {when}); "
+                    f"basispartituur is gewijzigd",
                 )
             )
+
     return FolderStatus(
-        dir=_bladermap_key(vsa),
-        vsa=_rel(vsa),
+        dir=_bladermap_key(mscz),
+        mscz=rel_mscz,
         ok=not issues,
         issues=issues,
         fix_cmd=fix,
@@ -111,23 +137,11 @@ def check_one(vsa: Path) -> FolderStatus:
 
 
 def collect_statuses(root: Path) -> list[FolderStatus]:
-    # Eén status per bladermap (meerdere .vsa zeldzaam; dan laatste wint + issues mergen)
-    by_dir: dict[str, FolderStatus] = {}
-    for vsa in collect_vsa(root):
-        status = check_one(vsa)
-        prev = by_dir.get(status.dir)
-        if prev is None:
-            by_dir[status.dir] = status
-            continue
-        merged_issues = list(prev.issues) + list(status.issues)
-        by_dir[status.dir] = FolderStatus(
-            dir=status.dir,
-            vsa=prev.vsa + "; " + status.vsa,
-            ok=not merged_issues,
-            issues=merged_issues,
-            fix_cmd=status.fix_cmd,
-        )
-    return sorted(by_dir.values(), key=lambda s: s.dir)
+    out: list[FolderStatus] = []
+    for mscz in expand_mscz([root]):
+        out.append(check_one(mscz))
+    out.sort(key=lambda s: s.dir)
+    return out
 
 
 def write_status_json(statuses: list[FolderStatus], path: Path = STATUS_PATH) -> None:
@@ -136,7 +150,7 @@ def write_status_json(statuses: list[FolderStatus], path: Path = STATUS_PATH) ->
         "fix_page": FIX_PAGE,
         "folders": {
             s.dir: {
-                "vsa": s.vsa,
+                "mscz": s.mscz,
                 "ok": s.ok,
                 "fix_cmd": s.fix_cmd,
                 "issues": [asdict(i) for i in s.issues],
@@ -144,9 +158,14 @@ def write_status_json(statuses: list[FolderStatus], path: Path = STATUS_PATH) ->
             for s in statuses
         },
     }
-    path.write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _strict_env() -> bool:
+    for key in ("VSA_PARTITUUR_PRODUCTS_STRICT", "VSA_PARTITUUR_PRODUCTS_STRICT"):
+        if os.environ.get(key, "").strip().lower() in {"1", "true", "yes"}:
+            return True
+    return False
 
 
 def main() -> int:
@@ -156,7 +175,7 @@ def main() -> int:
         nargs="?",
         type=Path,
         default=DEFAULT_ROOT,
-        help="Zoekroot (default: oefenhoek/bibliotheek)",
+        help="Zoekroot (default: content-source)",
     )
     p.add_argument(
         "--warn-only",
@@ -174,7 +193,7 @@ def main() -> int:
     write_status_json(statuses)
     bad = [s for s in statuses if not s.ok]
     print(
-        f"VSA-producten: {len(statuses) - len(bad)} ok, {len(bad)} probleem "
+        f"Basispartituur-producten: {len(statuses) - len(bad)} ok, {len(bad)} probleem "
         f"({STATUS_PATH.relative_to(REPO_ROOT).as_posix()})",
         flush=True,
     )
@@ -191,6 +210,7 @@ def main() -> int:
         return 0
     if args.fail:
         return 1
+    # Productie op GitHub main: streng. Elders (lokaal/preview): banner only.
     ref = (
         os.environ.get("GITHUB_REF", "")
         or os.environ.get("GITHUB_REF_NAME", "")
@@ -198,11 +218,7 @@ def main() -> int:
     )
     if ref in {"main", "refs/heads/main"}:
         return 1
-    if os.environ.get("VSA_PARTITUUR_PRODUCTS_STRICT", "").strip().lower() in {
-        "1",
-        "true",
-        "yes",
-    }:
+    if _strict_env():
         return 1
     return 0
 

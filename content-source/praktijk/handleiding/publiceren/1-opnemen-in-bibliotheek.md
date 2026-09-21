@@ -8,7 +8,7 @@ weight: 5
 
 {{< cue >}}
 1. Ken het **bibliotheek-id** (drie delen met schuine strepen), of vraag het na.
-2. Zorg dat je bestand al een bruikbare **hub-`.mscz`**, **`.vsa`**, of
+2. Zorg dat je bestand al een bruikbare **basispartituur-`.mscz`**, **`.vsa`**, of
    **`.print.mscz`** is — niet een ruwe Capella-file.
 3. Open het Windows-opdrachtvenster in de map `VSA-demo`.
 4. Typ `scripts\bieb-accepteer.cmd` en Enter — het script vraagt id en
@@ -43,7 +43,7 @@ Het commando `scripts\bieb-accepteer.cmd` (kort: **bieb-accepteer**):
 - kopieert je bestand en geeft het de **publicatiestam** als naam (zonder
   spaties), afgeleid van het id;
 - weigert bestanden die niet in de bibliotheek horen (bijvoorbeeld Capella
-  `.capx`, of alleen een ruwe `.mxl` zonder hub of VSA);
+  `.capx`, of alleen een ruwe `.mxl` zonder basispartituur of VSA);
 - controleert een `.vsa` met `vsa validate` voordat die wordt opgenomen.
 
 Het script doet **niet** de muzikale opkuis in MuseScore en maakt **niet**
@@ -103,10 +103,10 @@ scripts\check.cmd --strict
 
 | Bestand | Mag met bieb-accepteer? | Opmerking |
 | --- | --- | --- |
-| Hub-`.mscz` (MuseScore, genormaliseerd) | Ja | Daarna vaak nog PDF/Coria maken |
+| Basispartituur-`.mscz` (MuseScore, genormaliseerd) | Ja | Daarna vaak nog PDF/Coria maken |
 | `.vsa` | Ja | Script runt `vsa validate` |
 | `naam.print.mscz` | Ja | Print-vel; PDF meestal handmatig |
-| `.pdf` of `.mxl` **naast** hub of VSA | Ja | Meenemen in dezelfde opdracht |
+| `.pdf` of `.mxl` **naast** basispartituur of VSA | Ja | Meenemen in dezelfde opdracht |
 | Alleen een `.mxl` (Capella/ CapToMusic) | Nee | Eerst [opkuisen](../../partituur/2-opkuisen/) |
 | `.cap` / `.capx` / `.musicxml` | Nee | Eerst omzetten via de partituurstraat |
 

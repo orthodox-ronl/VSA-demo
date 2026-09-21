@@ -20,13 +20,13 @@ checklist hieronder af, daarna [normaliseren](../3-standaard-mscz/).
 
 **Wat je nu doet:** de **inhoud** van de partituur opschonen zodat noten,
 stemmen en lettergrepen kloppen — vóór (of, bij een `.mscz`, naast) de
-hub-standaard. **Opkuisen** is geen A4-layout en geen PDF/Coria. Die horen bij
+basispartituur-standaard. **Opkuisen** is geen A4-layout en geen PDF/Coria. Die horen bij
 [normaliseren / layouten](../3-standaard-mscz/) en
 [PDF en Coria](../5-pdf-en-coria/).
 
 **Wanneer:** bij elke nieuwe Capella-/CapToMusic-`.mxl`, en bij elke ruwe
-`.mscz` (VOW, MuseScore-input) waarvan de inhoud nog niet hub-klaar is. Heb je
-al een genormaliseerde hub-`.mscz` en corrigeer je alleen een noot of een
+`.mscz` (VOW, MuseScore-input) waarvan de inhoud nog niet basispartituur-klaar is. Heb je
+al een genormaliseerde basispartituur-`.mscz` en corrigeer je alleen een noot of een
 lettergreep? Dat is nog steeds opkuiswerk in MuseScore, gevolgd door opnieuw
 normaliseren — zie [reviewen](../4-reviewen/).
 
@@ -36,7 +36,7 @@ Opkuisen = alles wat de **muzikale en tekstuele inhoud** betreft, zodat de
 partituur voldoet aan de afspraken over lettergrepen, stemmen en
 reciteertoon die hieronder en op
 [standaard-.mscz](../3-standaard-mscz/) staan. De technische norm voor
-scripts staat in het bestand `scripts\mscz-hub-contract.md` in je
+scripts staat in het bestand `scripts\mscz-partituur-contract.md` in je
 repository-map `VSA-demo` (niet als pagina op deze site).
 
 | Wel opkuisen | Niet opkuisen (andere stap) |
@@ -44,7 +44,7 @@ repository-map `VSA-demo` (niet als pagina op deze site).
 | Stemmen op de juiste notenbalken | A4, marges, lettertypes (`apply_mscz_layout.py`) |
 | Lettergreep ↔ noot synchroon | Reciteertoon-collaps naar feathered `\|\|O\|\|` (normalisatie) |
 | Geen plakkerige multi-klinker op één noot zonder split | PDF en Coria-`.mxl` (`mscz-products`) |
-| Capella: verborgen reciteerkwarten, lege maten, titelrommel | Print-vel buiten de hub (`*.print.mscz`) |
+| Capella: verborgen reciteerkwarten, lege maten, titelrommel | Print-vel buiten de basispartituur (`*.print.mscz`) |
 
 **Normaliseren** (gangbaar: **layouten**) is de volgende scriptstap:
 `apply_mscz_layout.py`. Dat script doet wél enkele inhoudsfixes (lege balk
@@ -60,7 +60,7 @@ toch. Bij een `.mscz` doe je de checklist in MuseScore 4.
 
 ### 1. Stemmen en notenbalken
 
-De Oefenhoek-hub is meestal één SATB-partituur op **twee notenbalken** in het
+De Oefenhoek-basispartituur is meestal één SATB-partituur op **twee notenbalken** in het
 systeem: bovenstemmen (S/A/T) op de eerste balk, bas (B) op de tweede, met
 de gezongen tekst **tussen** die balken (niet onder de bas, niet vier keer
 herhaald per stem).
@@ -175,7 +175,7 @@ Twijfel over de bibliotheek-id? Niet raden — vraag na en noteer in
 ## Wat je niet doet bij opkuisen
 
 - Geen PDF of Coria-`.mxl` maken (dat is `mscz-products`, later).
-- Geen MusicXML-roundtrip: hub-`.mscz` exporteren naar `.mxl` en weer
+- Geen MusicXML-roundtrip: basispartituur-`.mscz` exporteren naar `.mxl` en weer
   openen gooit de MuseScore-stijl weg.
 - Geen `apply_mscz_layout.py` op `*.print.mscz` (printvel staat buiten deze
   straat — [Print-.mscz](../7-print-mscz/)).

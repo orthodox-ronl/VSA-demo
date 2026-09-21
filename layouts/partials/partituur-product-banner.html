@@ -1,0 +1,25 @@
+{{/*
+  Rode banner als basispartituur-.mscz afgeleiden missing/stale zijn.
+  Data: data/partituur-product-status.json (check_partituur_products.py).
+  Key = pad van de bladermap t.o.v. content-source (File.Dir).
+*/}}
+{{- $status := or hugo.Data.partituur_product_status hugo.Data.partituur_product_status -}}
+{{- if and $status .File -}}
+{{- $key := strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
+{{- $folder := index $status.folders $key -}}
+{{- if and $folder (not $folder.ok) -}}
+{{- $fixPage := or $status.fix_page "/praktijk/handleiding/partituur/6-afgeleiden/" -}}
+<aside class="partituur-product-banner" role="alert">
+  <p class="partituur-product-banner-title">Basispartituur-afgeleiden niet in orde</p>
+  <ul>
+    {{- range $folder.issues -}}
+    <li><strong>{{ .kind }}</strong>: {{ .detail }} ({{ .file }})</li>
+    {{- end -}}
+  </ul>
+  <p>Oplossen (lokaal, MuseScore 4):</p>
+  <pre class="partituur-product-banner-cmd">{{ $folder.fix_cmd }}</pre>
+  <p>Daarna basispartituur + PDF + MXL samen committen.
+    Uitleg: <a href="{{ $fixPage | relURL }}">Afgeleiden bijwerken</a>.</p>
+</aside>
+{{- end -}}
+{{- end -}}

@@ -15,14 +15,14 @@ MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestan
 {{< /cue >}}
 
 **Wat je nu doet:** een MuseScore-bestand in het **bibliotheek** zetten dat de
-hub-pijplijn **niet** mag aanpassen — typisch één A4-vel voor de koormap met
-layout of tekstregels die de hub-normalisatie zou vernielen, of een
+basispartituur-pijplijn **niet** mag aanpassen — typisch één A4-vel voor de koormap met
+layout of tekstregels die de basispartituur-normalisatie zou vernielen, of een
 template-SATB-blad dat jij handmatig bijhoudt. Het koormap-slot verwijst met
 `bieb`.
 
-**Wanneer:** als je bewust **buiten** de hub-straat werkt. Voor gewoon
+**Wanneer:** als je bewust **buiten** de basispartituur-spoor werkt. Voor gewoon
 oefenmateriaal (één tekst, automatische Coria, standaardlayout) gebruik je een
-gewone hub-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
+gewone basispartituur-`.mscz` via [standaard-.mscz](../3-standaard-mscz/) en
 [PDF en Coria](../5-pdf-en-coria/), of een eenstemmige `.vsa` via
 [.vsa schrijven](../../vsa/1-vsa-schrijven/).
 
@@ -59,7 +59,7 @@ beheerdersmelding. Afspraak over bestandsnamen per spoor:
 
 - Geen `apply_mscz_layout.py` op `.print.mscz`.
 - Geen `mscz-products.cmd` voor dit bestand.
-- Geen hernoemen naar gewone `.mscz` “even snel” — dan eist `check` hub-producten.
+- Geen hernoemen naar gewone `.mscz` “even snel” — dan eist `check` basispartituur-producten.
 - Geen verwachting dat `vsa-products` de Coria-`.mxl` vernieuwt zolang
   `artefacten_handmatig: true` staat.
 
@@ -76,7 +76,7 @@ beheerdersmelding. Afspraak over bestandsnamen per spoor:
 3. Bibliotheek-`index.md` met `artefacten_handmatig: true` (bieb-accepteer
    zet dat automatisch bij `.print.mscz`) + koormap-slot met `bieb` (zie
    [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)).
-4. `scripts\check.cmd --strict` — hub- en VSA-productgate slaan deze map over.
+4. `scripts\check.cmd --strict` — partituur- en VSA-productgate slaan deze map over.
 
 ## Klaar als
 

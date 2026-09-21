@@ -68,7 +68,7 @@ def default_title(ident: str) -> str:
 
 
 def classify_source(path: Path) -> str:
-    """Geef soort: hub_mscz | print_mscz | vsa | pdf | mxl | refuse:..."""
+    """Geef soort: partituur_mscz | print_mscz | vsa | pdf | mxl | refuse:..."""
     if not path.is_file():
         return f"refuse:bestaat niet ({path})"
     name = path.name.lower()
@@ -76,7 +76,7 @@ def classify_source(path: Path) -> str:
         return "print_mscz"
     suffix = path.suffix.lower()
     if suffix == ".mscz":
-        return "hub_mscz"
+        return "partituur_mscz"
     if suffix == ".vsa":
         return "vsa"
     if suffix == ".pdf":
@@ -94,7 +94,7 @@ def classify_source(path: Path) -> str:
 
 def target_name(kind: str, ident: str, *, with_vsa: bool) -> str:
     stam = stem(ident)
-    if kind == "hub_mscz":
+    if kind == "partituur_mscz":
         return f"{stam}.mscz"
     if kind == "print_mscz":
         return f"{stam}.print.mscz"
@@ -259,17 +259,17 @@ def accept(
         classified.append((src, kind))
 
     kinds = {k for _, k in classified}
-    if "mxl" in kinds and "hub_mscz" not in kinds and "vsa" not in kinds:
+    if "mxl" in kinds and "partituur_mscz" not in kinds and "vsa" not in kinds:
         errors.append(
             "alleen een .mxl: dat is meestal een Capella- of productbestand. "
             "Accepteer eerst een .mscz of .vsa, of leg de .mxl ernaast als "
             "sibling. Ruwe Capella: zie handleiding opkuisen."
         )
 
-    has_score = bool(kinds & {"hub_mscz", "print_mscz", "vsa"}) or stub
+    has_score = bool(kinds & {"partituur_mscz", "print_mscz", "vsa"}) or stub
     if not has_score and classified:
         errors.append(
-            "geen hub-.mscz, .print.mscz of .vsa: de bibliotheek-leaf heeft "
+            "geen basispartituur-.mscz, .print.mscz of .vsa: de bibliotheek-leaf heeft "
             "dan niets oefenbaars. Gebruik --stub voor een lege placeholder."
         )
 
@@ -365,9 +365,9 @@ def accept(
     print("OK: opgenomen in de bibliotheek", flush=True)
     if dry_run:
         print("(dry-run: herhaal zonder --dry-run om echt te schrijven)", flush=True)
-    if not stub and "hub_mscz" in kinds:
+    if not stub and "partituur_mscz" in kinds:
         print(
-            "Volgende (hub): normaliseren/layouten indien nog niet gedaan, "
+            "Volgende (basispartituur): normaliseren/layouten indien nog niet gedaan, "
             "daarna scripts\\mscz-products.cmd",
             flush=True,
         )
@@ -403,7 +403,7 @@ Geef het volledige pad naar het bestand dat in de bibliotheek moet, bijvoorbeeld
   C:\\Git\\orthodox-ronl\\VSA-demo\\content-source\\praktijk\\oefenhoek\\input\\_werk\\...\\stam.mscz
 
 Toegestaan:
-  - hub-.mscz (MuseScore, genormaliseerd)
+  - basispartituur-.mscz (MuseScore, genormaliseerd)
   - .vsa
   - bestandsnaam eindigend op .print.mscz
   - optioneel daarna nog .pdf of .mxl in een volgende vraag

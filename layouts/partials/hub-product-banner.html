@@ -1,25 +1,2 @@
-{{/*
-  Rode banner als hub-.mscz afgeleiden missing/stale zijn.
-  Data: data/hub-product-status.json (check_hub_products.py).
-  Key = pad van de bladermap t.o.v. content-source (File.Dir).
-*/}}
-{{- $status := hugo.Data.hub_product_status -}}
-{{- if and $status .File -}}
-{{- $key := strings.TrimSuffix "/" (replace .File.Dir "\\" "/") -}}
-{{- $folder := index $status.folders $key -}}
-{{- if and $folder (not $folder.ok) -}}
-{{- $fixPage := or $status.fix_page "/praktijk/handleiding/partituur/6-afgeleiden/" -}}
-<aside class="hub-product-banner" role="alert">
-  <p class="hub-product-banner-title">Hub-afgeleiden niet in orde</p>
-  <ul>
-    {{- range $folder.issues -}}
-    <li><strong>{{ .kind }}</strong>: {{ .detail }} ({{ .file }})</li>
-    {{- end -}}
-  </ul>
-  <p>Oplossen (lokaal, MuseScore 4):</p>
-  <pre class="hub-product-banner-cmd">{{ $folder.fix_cmd }}</pre>
-  <p>Daarna hub + PDF + MXL samen committen.
-    Uitleg: <a href="{{ $fixPage | relURL }}">Afgeleiden bijwerken</a>.</p>
-</aside>
-{{- end -}}
-{{- end -}}
+{{/* Compatibility: gebruik partituur-product-banner.html */}}
+{{ partial "partituur-product-banner.html" . }}

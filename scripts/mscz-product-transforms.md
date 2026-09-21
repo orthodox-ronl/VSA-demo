@@ -1,10 +1,10 @@
-# Hub-producten: transforms PDF en Coria-`.mxl`
+# Basispartituur-producten: transforms PDF en Coria-`.mxl`
 
-Bron: genormaliseerde **hub-`.mscz`** ([mscz-hub-contract.md](mscz-hub-contract.md)).
+Bron: genormaliseerde **basispartituur-`.mscz`** ([mscz-partituur-contract.md](mscz-partituur-contract.md)).
 Commando: `scripts\mscz-products.cmd [bladermap]`.
 
 Alleen bestanden die **niet** op `.print.mscz` eindigen. Print-velden horen
-in het derde publicatiespoor; zie hub-contract en handleiding print-`.mscz`.
+in het derde publicatiespoor; zie partituur-contract en handleiding print-`.mscz`.
 
 ## Provenance (in het productbestand)
 
@@ -12,30 +12,30 @@ Bij elke generatie:
 
 | Veld | MXL | PDF |
 | ---- | --- | --- |
-| Hub-hash | `miscellaneous-field` `vsa-hub-sha256` | Info `/VSAHubSHA256` |
+| Partituur-hash | `miscellaneous-field` `vsa-partituur-sha256` | Info `/VSAPartituurSHA256` |
 | Generatietijd (UTC) | `vsa-generated-at` + `encoding-date` | `/VSAGeneratedAt` |
 | Generator | `vsa-generator` = `mscz-products` | `/VSAGenerator` |
 
-**Fresh** = product bestaat en `hub-sha256` == SHA-256 van de huidige hub.
-Check: `python scripts\check_hub_products.py` → `data/hub-product-status.json`.
+**Fresh** = product bestaat en `partituur-sha256` == SHA-256 van de huidige basispartituur.
+Check: `python scripts\check_partituur_products.py` → `data/partituur-product-status.json`.
 Preview: rode banner; productie (`main`): build faalt.
 
 ---
 
-## Hub → PDF
+## Basispartituur → PDF
 
-| Hub | PDF |
+| Basispartituur | PDF |
 | --- | --- |
 | Hele genormaliseerde partituur | MuseScore A4-export, daarna provenance-stamp |
 | Reciteernoten `\|\|O\|\|` | blijven compact (geen expansie) |
-| Titel / composer / footer / colofon | zoals in hub |
+| Titel / composer / footer / colofon | zoals in de basispartituur |
 | SATB-akkolade | ongewijzigd |
 
 Geen lettergreep-explosie, geen vier aparte Coria-parts.
 
-## Hub → Coria-`.mxl`
+## Basispartituur → Coria-`.mxl`
 
-| Hub | Coria |
+| Basispartituur | Coria |
 | --- | --- |
 | Feathered reciteernoot + lyrictekst | **Explosie:** één kwart per lettergreep (split op spatie en `-`; anders `nl_hyphen.py`). MuseScore-export als `type=long` telt ook. |
 | Melisma (slur + ticks) | lyric op eerste noot + `<extend/>` |
@@ -52,19 +52,19 @@ Script: `export_mscz_coria_mxl.py` (aanroep via `sync_mscz_products.py`).
 
 ### Wanneer worden woorden in lettergrepen gesplitst?
 
-1. **Bij hub-normalisatie** (`apply_mscz_layout`): tokens met meerdere
+1. **Bij basispartituur-normalisatie** (`apply_mscz_layout`): tokens met meerdere
    klinkergroepen (`melse` → `mel` + `se`) krijgen extra noten; reciteerreeksen
-   van meer dan drie gelijke lettergrepen collapsen tot **eerste gewone noot +
+   van meer dan vijf gelijke lettergrepen collapsen tot **eerste gewone noot +
    één `||O||` (midden) + laatste gewone noot** (MCI).
 2. **Bij Coria-export**: tekst onder de feathered middennoot wordt opnieuw
-   gesplitst tot één kwart per lettergreep (hyphens in de hub-tekst winnen;
+   gesplitst tot één kwart per lettergreep (hyphens in de basispartituur-tekst winnen;
    anders `nl_hyphen`). Eerste en laatste noot blijven al gewone noten.
 
 ## Lokaal vs CI
 
 | Omgeving | Genereren | Controleren |
 | -------- | --------- | ----------- |
-| Lokaal (MuseScore) | `mscz-products` in pipeline | `check_hub_products` (streng) |
+| Lokaal (MuseScore) | `mscz-products` in pipeline | `check_partituur_products` (streng) |
 | GitHub preview | geen MuseScore; skip export | waarschuwing + banner |
 | GitHub `main` | geen MuseScore | fail bij missing/stale/unstamped |
 

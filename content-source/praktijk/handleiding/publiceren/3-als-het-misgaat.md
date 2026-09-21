@@ -8,8 +8,8 @@ weight: 30
 
 {{< cue >}}
 Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel `apply_mscz_layout.py` op de hub-`.mscz`. Coria rood bij `check`? Gebruik
-de `.mxl` in het **bibliotheek** (hub-product of `{stam}.vsa.mxl`), niet een
+wel `apply_mscz_layout.py` op de basispartituur-`.mscz`. Coria rood bij `check`? Gebruik
+de `.mxl` in het **bibliotheek** (partituur-product of `{stam}.vsa.mxl`), niet een
 `.mxl` onder `input\`. MuseScore niet gevonden? Versie **4**, pad
 `C:\Program Files\MuseScore 4\bin\MuseScore4.exe`.
 {{< /cue >}}
@@ -39,7 +39,7 @@ noteer dat in de notitie. Id-lijst:
 
 Lees de regel `Oplossing:` in het opdrachtvenster. Veelvoorkomend: verkeerd
 id, bestand bestaat al (dan `--force` alleen als je bewust overschrijft),
-`.vsa` die `vsa validate` niet haalt, of een Capella-`.mxl` zonder hub.
+`.vsa` die `vsa validate` niet haalt, of een Capella-`.mxl` zonder basispartituur.
 Stappen: [Opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/).
 
 ## Layout of `mscz-products` “herstelt” je speciale partituur
@@ -61,7 +61,7 @@ na installatie. (Voor alleen `.vsa` → Coria is MuseScore niet nodig:
 ## De pagina is lelijk of de stijl is weg
 
 Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
-hub-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
+basispartituur-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
 
 ```cmd
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
@@ -86,15 +86,15 @@ pas na een `git push` (Coria kan de lokale Hugo-server niet bereiken).
 
 De `.mxl` in de bibliotheek moet uit `mscz-products` of `vsa-products`
 komen (of handmatig bij `artefacten_handmatig`), niet een ruwe Capella-`.mxl`.
-Maak hub-producten opnieuw ná de laatste normalisatie, of draai
+Maak basispartituur-producten opnieuw ná de laatste normalisatie, of draai
 `scripts\vsa-products.cmd` voor een bibliotheek-`.vsa`. `check` heeft een
 aparte Coria-controle; de melding wijst het bestand aan.
 
-## Rode banner: hub- of VSA-afgeleiden niet in orde
+## Rode banner: partituur- of VSA-afgeleiden niet in orde
 
 | Banner | Oorzaak | Actie |
 | --- | --- | --- |
-| Hub-afgeleiden | PDF/MXL passen niet bij de hub-`.mscz` | [Afgeleiden](../../partituur/6-afgeleiden/) — layout + `mscz-products` |
+| Basispartituur-afgeleiden | PDF/MXL passen niet bij de basispartituur-`.mscz` | [Afgeleiden](../../partituur/6-afgeleiden/) — layout + `mscz-products` |
 | VSA-afgeleiden | `{stam}.vsa.mxl` ontbreekt of is ouder dan de `.vsa` | `scripts\vsa-products.cmd`, commit beide |
 
 Op `main` faalt de build bij dezelfde situaties.

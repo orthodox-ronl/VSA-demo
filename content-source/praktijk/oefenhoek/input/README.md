@@ -2,7 +2,7 @@
 
 Hier komen **inputs** binnen die **nog geen** oefenhoek-uitgave zijn: bestanden
 uit Capella, VOW, MuseScore, een PDF-scan, MusicXML uit een andere app, enz.
-Pas na conversie horen hub-bestanden in het **bibliotheek**
+Pas na conversie horen basispartituur-bestanden in het **bibliotheek**
 (`oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`); het
 **koormap-slot** in `liturgiemap-hemelum/` verwijst daarheen.
 

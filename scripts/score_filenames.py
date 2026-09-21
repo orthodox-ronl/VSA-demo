@@ -4,7 +4,8 @@ Geen spaties in de bestandsnaam (Coria/GitHub weigeren of miscoderen die).
 Map- en stamnamen: [a-z0-9_-]+ (` - ` en spaties -> '-'; overige leestekens -> '-').
 
 Print-`.mscz` (naam eindigt op `.print.mscz`): koormap-/PDF-vel buiten de
-hub-pijplijn. Geen apply_mscz_layout, geen mscz-products, geen hub-product-gate.
+basispartituur-pijplijn. Geen apply_mscz_layout, geen mscz-products, geen
+partituur-product-gate.
 
 Afgeleiden per representatie-id: zie scripts/oefenhoek-product-contract.md
 (`{stam}.{representatie-id}.{ext}`).
@@ -18,8 +19,9 @@ _UNSAFE = re.compile(r"[^a-zA-Z0-9_-]+")
 PRINT_MSCZ_SUFFIX = ".print.mscz"
 SYLLABIFY_VSA_SUFFIX = ".syl.vsa"
 # Canonieke representatie-ids (contract). Uitbreiden alleen via contract-PR.
-KNOWN_REPRESENTATIE_IDS = frozenset({"hub", "vsa", "print"})
-
+KNOWN_REPRESENTATIE_IDS = frozenset({"partituur", "vsa", "print"})
+# Oude id in bestandsnamen / docs → canonieke id.
+REPRESENTATIE_ID_ALIASES = {"hub": "partituur"}
 
 def require_no_spaces(path: Path) -> None:
     if " " in path.name:
@@ -69,14 +71,20 @@ def representatie_id_from_name(name: str) -> str | None:
     if "." not in stem:
         return None
     maybe = stem.rsplit(".", 1)[-1].lower()
+    maybe = REPRESENTATIE_ID_ALIASES.get(maybe, maybe)
     if maybe in KNOWN_REPRESENTATIE_IDS:
         return maybe
     return None
 
 
+def canonicalize_representatie_id(representatie_id: str) -> str:
+    rid = representatie_id.strip().lower()
+    return REPRESENTATIE_ID_ALIASES.get(rid, rid)
+
+
 def product_filename(stam: str, representatie_id: str, ext: str) -> str:
     """Bouw `{stam}.{representatie-id}.{ext}` (ext met of zonder punt)."""
-    rid = representatie_id.strip().lower()
+    rid = canonicalize_representatie_id(representatie_id)
     if rid not in KNOWN_REPRESENTATIE_IDS:
         raise SystemExit(f"onbekende representatie-id: {representatie_id!r}")
     suffix = ext if ext.startswith(".") else f".{ext}"

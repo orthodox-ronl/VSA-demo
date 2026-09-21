@@ -12,7 +12,7 @@ vsa_nav_exclude: true
 Dit register is de **bron van waarheid** voor bibliotheek-id's tijdens de
 conversie op `feat/oefenhoek-mxl-opkuis`. Een bibliotheek-id heeft altijd drie
 lagen: `zangstuk-id` / `variant-id` / `uitvoeringsvorm-id` (elk segment
-`[a-z0-9_-]+`). De **publicatiestam** voor hub-bestanden is
+`[a-z0-9_-]+`). De **publicatiestam** voor basispartituur-bestanden is
 `{zangstuk}-{variant}-{uitvoeringsvorm}` (functie `stem()` in
 `scripts/bibliotheek.py`).
 
@@ -24,8 +24,8 @@ script tegelijk.
 
 | Status | Betekenis |
 | --- | --- |
-| score | Hub of VSA-bundle verhuist via `SCORE_MOVES` |
-| print | Print-`.mscz` + PDF via `PRINT_MOVES` (geen Coria-hub) |
+| score | Basispartituur of VSA-bundle verhuist via `SCORE_MOVES` |
+| print | Print-`.mscz` + PDF via `PRINT_MOVES` (geen Coria-basispartituur) |
 | stub | Geen partituur; bibliotheek-stub + `bieb` op koormap |
 | catalogus | Koormap blijft catalogus-include; **geen** bibliotheek-leaf in fase 2 |
 | legacy | Dubbele/oude map; opruimen na migratie |
@@ -33,9 +33,9 @@ script tegelijk.
 
 ---
 
-## SCORE — hub, VSA of gemengd
+## SCORE — basispartituur, VSA of gemengd
 
-| Koormap-pad (t.o.v. `liturgiemap-hemelum/`) | Bibliotheek-id | Publicatiestam (hub) | Bestanden nu | Opmerking |
+| Koormap-pad (t.o.v. `liturgiemap-hemelum/`) | Bibliotheek-id | Publicatiestam (basispartituur) | Bestanden nu | Opmerking |
 | --- | --- | --- | --- | --- |
 | `15-cherubijnenhymne/15c-kastorski/` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne-15c-kastorski-hemelum` | mscz, mxl, pdf | reviewable; NL (ongemerkt) |
 | *(alleen bibliotheek voorlopig)* | `15-cherubijnenhymne/15c-kastorski/hemelum-ksl-trlat` | `15-cherubijnenhymne-15c-kastorski-hemelum-ksl-trlat` | — | Kerkslavisch getranslitereerd; stub |
@@ -51,7 +51,7 @@ script tegelijk.
 | *(alleen bibliotheek voorlopig)* | `19-eucharistische-canon/rostov/hemelum` | `19-eucharistische-canon-rostov-hemelum` | — | VOW-input; stub |
 | `20-moeder-godslied/20d-in-waarheid-moeder-godslied/` | `20-moeder-godslied/20d-in-waarheid/hemelum` | `20-moeder-godslied-20d-in-waarheid-hemelum` | mscz, mxl, pdf | |
 | `20-moeder-godslied/20-moeder-godslied-ontslapen-mgods/` | `20-moeder-godslied/ontslapen-moeder-gods/hemelum` | `20-moeder-godslied-ontslapen-moeder-gods-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; print-track |
-| `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | vsa, vsa.mxl, pdf | Geen hub-mscz; Coria via VSA-productgate |
+| `25-communievers/25-communievers-onthoofding-johannes-de-doper/` | `25-communievers/onthoofding-johannes-de-doper/hemelum` | `25-communievers-onthoofding-johannes-de-doper-hemelum` | vsa, vsa.mxl, pdf | Geen basispartituur-mscz; Coria via VSA-productgate |
 | `troparen-en-kondaken/tropaar-nikolaas-van-myra/` | `tropaar/nikolaas-van-myra-toon-4/hemelum` | `tropaar-nikolaas-van-myra-toon-4-hemelum` | print.mscz, mxl, pdf, vsa | `artefacten_handmatig`; onder zangstuk `tropaar/` |
 | `2-eerste-antifoon/weekdagen/` | `2-eerste-antifoon/weekdagen/hemelum` | `2-eerste-antifoon-weekdagen-hemelum-hemelum` | vsa, vsa.mxl | Koormap = Hemelum; geen `liturgikon/`-slot meer |
 | *(alleen bibliotheek)* | `2-eerste-antifoon/weekdagen-liturgikon/hemelum` | `2-eerste-antifoon-weekdagen-liturgikon-hemelum` | vsa, vsa.mxl | Niet in Hemelum-koormap |
@@ -69,7 +69,7 @@ script tegelijk.
 
 ---
 
-## PRINT — koormap-vel (geen hub-pijplijn)
+## PRINT — koormap-vel (geen basispartituur-pijplijn)
 
 | Koormap-pad | Bibliotheek-id | Bestanden nu | Opmerking |
 | --- | --- | --- | --- |
@@ -248,14 +248,14 @@ Lokaal aanwezig (nog untracked tot commit):
 - `20-moeder-godslied/20d-in-waarheid/hemelum`
 - `20-moeder-godslied/ontslapen-moeder-gods/hemelum`
 
-Koormap-slots verwijzen via `bieb`; hub-bestanden staan niet meer
+Koormap-slots verwijzen via `bieb`; basispartituur-bestanden staan niet meer
 in de liturgiemap (dat is de migratie, geen verdwijning).
 
 ---
 
 ## Review-checklist (na migratie)
 
-- [x] Geen hub-bestanden meer in koormap-leaves (`*.print.mscz` alleen in bibliotheek)
+- [x] Geen basispartituur-bestanden meer in koormap-leaves (`*.print.mscz` alleen in bibliotheek)
 - [x] Legacy-mappen `8a-trisagion*` weg
 - [x] Catalogus-kondak-pagina's ongewijzigd qua includes
 - [x] `check --strict` groen (2026-09-16)

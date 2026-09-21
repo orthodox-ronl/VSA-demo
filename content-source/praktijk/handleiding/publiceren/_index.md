@@ -13,7 +13,7 @@ de bibliotheek staan zonder koormap — zie
 [Bibliotheek en koormappen](../start/bibliotheek-en-koormappen/) (secties,
 compositiebladen, boom versus één blad).
 
-- Bibliotheek: `index.md` + hub/PDF/Coria/VSA of print (publicatiestam zonder spaties; eventueel `artefacten_handmatig: true`)
+- Bibliotheek: `index.md` + basispartituur/PDF/Coria/VSA of print (publicatiestam zonder spaties; eventueel `artefacten_handmatig: true`)
 - Slot-pagina: `index.md` + shortcode `bieb` met parameter `id` (drie lagen); optioneel meerdere shortcodes
 - Koormap-sectie: `_index.md` met kindlijst of eigen TOC
 - Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/)

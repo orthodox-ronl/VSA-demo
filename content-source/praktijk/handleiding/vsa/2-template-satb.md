@@ -13,7 +13,7 @@ cd /d C:\Git\orthodox-ronl\VSA-tooling
 python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
 ```
 Kopieer het resultaat naar de Oefenhoek-bibliotheek als **print-vel** +
-handmatige artefacten (zie stap 5), niet als automatische hub.
+handmatige artefacten (zie stap 5), niet als automatische basispartituur.
 {{< /cue >}}
 
 **Wat je nu doet:** de eenstemmige tropaar-`.vsa` (sopraan plus tekst)
@@ -74,10 +74,10 @@ python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
    `bibliotheek\tropaar-nikolaas-van-myra\liturgikon\hemelum\`).
    Bestandsnamen **zonder spaties**. Voor dit soort template-blad:
 
-   - hernoem de `.mscz` naar `{stam}.print.mscz` (buiten hub-pijplijn);
+   - hernoem de `.mscz` naar `{stam}.print.mscz` (buiten basispartituur-pijplijn);
    - houd PDF en Coria-`.mxl` handmatig bij naast die print;
    - zet op bibliotheek-`index.md` `artefacten_handmatig: true`
-     (gele beheerdersbanner; `vsa-products` en hub-productgate laten de map met rust);
+     (gele beheerdersbanner; `vsa-products` en partituur-productgate laten de map met rust);
    - de eenstemmige `.vsa` mag ernaast blijven staan voor de notatie
      (SVG via `python scripts\sync_oefenhoek_index.py --svg` / volle
      `check`; zie [.vsa schrijven](../1-vsa-schrijven/)).

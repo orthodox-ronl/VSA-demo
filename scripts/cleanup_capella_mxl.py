@@ -60,7 +60,7 @@ spaties is geweigerd.
 
 `<rights>` / copyright in de MusicXML blijft staan (niet strippen). Ontbreekt
 die in Capella-export, dan zet `apply_mscz_layout` later default CC BY-SA 4.0
-(deze uitgave) + eredienst-zin — zie hub-contract.
+(deze uitgave) + eredienst-zin — zie partituur-contract.
 
 Gebruik:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl

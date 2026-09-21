@@ -28,7 +28,7 @@ publicatie, ids en navigatie niet door elkaar lopen.
 ## Kernregel
 
 De bibliotheek is de **bron van waarheid**. Koormappen zijn **views**: ze
-bevatten geen tweede kopie van de hub-bestanden, maar verwijzen met
+bevatten geen tweede kopie van de basispartituur-bestanden, maar verwijzen met
 `bieb` naar `zangstuk/variant/uitvoeringsvorm`.
 
 Een uitvoeringsvorm mag publiek in de bibliotheek staan terwijl **geen
@@ -109,7 +109,7 @@ Dan:
 Shortcode `bieb` krijgt een uitvoeringsvorm-id (drie lagen). Wie de
 alias-variant in dat id zet, bijvoorbeeld
 `tropaar/heilige-engelen-toon-4/hemelum`, wordt herschreven naar de canonieke
-uitvoeringsvorm. Product-tools (`vsa-products`, hub-producten) slaan
+uitvoeringsvorm. Product-tools (`vsa-products`, basispartituur-producten) slaan
 alias-varianten over: daar is niets te genereren.
 
 `check` weigert een alias-variant die toch een uitvoeringsvorm-map of

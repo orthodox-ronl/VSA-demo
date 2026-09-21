@@ -48,13 +48,13 @@ if errorlevel 1 exit /b 1
 echo OK
 echo.
 
-echo [2a/7] Bibliotheek-id in hub-colofon
+echo [2a/7] Bibliotheek-id in basispartituur-colofon
 "%PY%" scripts\ensure_bibliotheek_id.py
 if errorlevel 1 exit /b 1
 echo OK
 echo.
 
-echo [2b/7] Hub-producten (PDF/MXL) bijwerken indien nodig
+echo [2b/7] Basispartituur-producten (PDF/MXL) bijwerken indien nodig
 "%PY%" scripts\sync_mscz_products.py
 if errorlevel 1 exit /b 1
 echo OK
@@ -101,7 +101,7 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 "%PY%" scripts\write_build_stamp.py
 if errorlevel 1 exit /b 1
-"%PY%" scripts\check_hub_products.py
+"%PY%" scripts\check_partituur_products.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_bibliotheek_id.py
 if errorlevel 1 exit /b 1

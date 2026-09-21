@@ -1,8 +1,8 @@
-"""Reciteertoon-collaps in MuseScore MSCX (hub-encoding ||O||).
+"""Reciteertoon-collaps in MuseScore MSCX (basispartituur-encoding ||O||).
 
-MCI / hub-afspraak 1-n-1:
+MCI / basispartituur-afspraak 1-n-1:
   Eerst een rij zoeken van opeenvolgende noten met **zelfde toonhoogte** én
-  **zelfde nootduur**, met lyrics (lettergrepen). Alleen als die rij ≥4
+  **zelfde nootduur**, met lyrics (lettergrepen). Alleen als die rij ≥6
   lettergrepen heeft:
     eerste noot = gewone noot (behoud duur)
     middelste = één feathered ||O|| (glyph half; zelfde toon)
@@ -20,7 +20,7 @@ import re
 from dataclasses import dataclass
 from fractions import Fraction
 
-_MIN_SYLLABLES = 4
+_MIN_SYLLABLES = 6
 _COLLAPSE_DURS = {
     "quarter",
     "eighth",
@@ -441,7 +441,7 @@ def _word_continues_ok(events: list[Ev], j: int, pitch: str) -> bool:
 
 
 def _lead_runs(events: list[Ev]) -> list[Run]:
-    """Vind reeksen ≥4 lettergrepen: zelfde toonhoogte én dezelfde nootduur."""
+    """Vind reeksen ≥6 lettergrepen: zelfde toonhoogte én dezelfde nootduur."""
     runs: list[Run] = []
     i = 0
     while i < len(events):
@@ -713,7 +713,7 @@ def _break_function_hyphens(text: str) -> str:
 
 
 def _syllables_from_merged(text: str) -> list[tuple[str, str]]:
-    """Splits hub-lyric (spaties + trailing '-') naar (syllable, syllabic)."""
+    """Splits basispartituur-lyric (spaties + trailing '-') naar (syllable, syllabic)."""
     from nl_hyphen import hyphenate_token
 
     text = _break_function_hyphens(text)

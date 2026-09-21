@@ -80,7 +80,7 @@ SCORE_MOVES: list[tuple[str, str]] = [
     ),
 ]
 
-# Print-vel: *.print.mscz + PDF (geen hub-pijplijn / geen Coria).
+# Print-vel: *.print.mscz + PDF (geen basispartituur-pijplijn / geen Coria).
 PRINT_MOVES: list[tuple[str, str]] = [
     ("7-kleine-intocht/zo-wk-mg", "7-kleine-intocht/zo-wk-mg/hemelum"),
 ]
@@ -108,7 +108,7 @@ STUB_SLOTS: list[tuple[str, str]] = [
     ("7d-dialoog-met-diaken", "7d-dialoog-met-diaken/default/hemelum"),
 ]
 
-# Koormap-slots met catalogus-include (geen lokale hub): niet via migrate_stub.
+# Koormap-slots met catalogus-include (geen lokale basispartituur): niet via migrate_stub.
 # Zie ID-REGISTER.md (CATALOGUS_KOORMAP).
 
 FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.S)
@@ -257,7 +257,7 @@ def migrate_print(rel: str, ident: str) -> None:
         _move_print_bundle(src, dest, ident)
     body = (
         f"# {title}\n\n"
-        "Print-vel (geen Coria-hub). PDF via de knoppen hieronder.\n\n"
+        "Print-vel (geen Coria-basispartituur). PDF via de knoppen hieronder.\n\n"
         f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )
     _write(
@@ -271,7 +271,7 @@ def migrate_print(rel: str, ident: str) -> None:
     koormap_body = (
         f"# {title}\n\n"
         "Print-vel voor de koormap (zondag / weekdagen / Moeder Gods). "
-        "Canonieke hubs: [Zondag](../zondag/), [Weekdagen](../weekdagen/), "
+        "Canonieke basispartituren: [Zondag](../zondag/), [Weekdagen](../weekdagen/), "
         "[Moeder Gods](../moeder-gods/).\n\n"
         f"{{{{< bieb id=\"{ident}\" >}}}}\n"
     )

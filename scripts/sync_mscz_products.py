@@ -1,13 +1,15 @@
-"""Maak PDF en Coria-MXL bij een hub-.mscz (na de editslag).
+"""Maak PDF en Coria-MXL bij een basispartituur-.mscz (na de editslag).
 
 Wrapper: `scripts\\mscz-products.cmd`. Wordt ook vanuit de pipeline
 aangeroepen (lokaal, met MuseScore). Op CI zonder MuseScore: overslaan.
 
-Per hub-`.mscz` onder content-source (niet `oefenhoek/input/`, niet
+Per basispartituur-`.mscz` onder content-source (niet `oefenhoek/input/`, niet
 `*.print.mscz`): sibling-.pdf en Coria-.mxl. Na bibliotheek-migratie liggen
-hubs onder `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
-Freshness voor de gate zit in embedded hub-sha256 (zie hub_product_meta.py);
-lokaal skip gebruikt FS-mtime of ontbrekende/verkeerde stamp.
+basispartituren onder
+`oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/`.
+Freshness voor de gate zit in embedded partituur-sha256
+(zie partituur_product_meta.py); lokaal skip gebruikt FS-mtime of
+ontbrekende/verkeerde stamp.
 """
 from __future__ import annotations
 
@@ -26,13 +28,13 @@ from export_mscz_coria_mxl import (
     write_mxl,
 )
 from apply_mscz_layout import write_mscz_with_all_pages_footer
-from hub_product_meta import (
-    FIELD_HUB_SHA,
-    hub_sha256,
+from partituur_product_meta import (
+    partituur_sha256,
     read_mxl_stamp,
     read_pdf_stamp,
     stamp_mxl_tree,
     stamp_pdf,
+    stamp_sha_from_dict,
     utc_now_iso,
 )
 
@@ -56,20 +58,20 @@ def _sibling_product(mscz: Path, suffix: str) -> Path:
     return mscz.with_suffix(suffix)
 
 
-def _stamp_matches(product: Path, hub_hash: str, *, kind: str) -> bool:
+def _stamp_matches(product: Path, digest: str, *, kind: str) -> bool:
     if not product.is_file():
         return False
     if kind == "pdf":
         stamp = read_pdf_stamp(product)
     else:
         stamp = read_mxl_stamp(product)
-    return stamp.get(FIELD_HUB_SHA, "") == hub_hash
+    return stamp_sha_from_dict(stamp) == digest
 
 
-def _is_stale(product: Path, mscz: Path, hub_hash: str, *, kind: str) -> bool:
+def _is_stale(product: Path, mscz: Path, digest: str, *, kind: str) -> bool:
     if not product.is_file():
         return True
-    if _stamp_matches(product, hub_hash, kind=kind):
+    if _stamp_matches(product, digest, kind=kind):
         return False
     # Geen/verkeerde stamp: regenerate. Mtime alleen als hint dat het
     # sowieso ouder is; mismatch stamp wint altijd.
@@ -94,9 +96,9 @@ def stale_jobs(
 ) -> list[tuple[Path, Path | None, Path | None]]:
     out: list[tuple[Path, Path | None, Path | None]] = []
     for mscz, pdf, mxl in jobs:
-        hub_hash = hub_sha256(mscz)
-        need_pdf = pdf is not None and _is_stale(pdf, mscz, hub_hash, kind="pdf")
-        need_mxl = mxl is not None and _is_stale(mxl, mscz, hub_hash, kind="mxl")
+        digest = partituur_sha256(mscz)
+        need_pdf = pdf is not None and _is_stale(pdf, mscz, digest, kind="pdf")
+        need_mxl = mxl is not None and _is_stale(mxl, mscz, digest, kind="mxl")
         if need_pdf or need_mxl:
             out.append(
                 (
@@ -117,7 +119,7 @@ def sync_one(
     dry_run: bool,
 ) -> None:
     rel = mscz.relative_to(REPO_ROOT)
-    hub_hash = hub_sha256(mscz)
+    digest = partituur_sha256(mscz)
     generated_at = utc_now_iso()
     if pdf is not None:
         print(f"  PDF  {rel} -> {pdf.name}", flush=True)
@@ -127,13 +129,13 @@ def sync_one(
                 tmp = Path(td) / mscz.name
                 write_mscz_with_all_pages_footer(mscz, tmp)
                 musescore_export(tmp, pdf, musescore)
-            stamp_pdf(pdf, hub_hash=hub_hash, generated_at=generated_at)
+            stamp_pdf(pdf, partituur_hash=digest, generated_at=generated_at)
     if mxl is not None:
         print(f"  MXL  {rel} -> {mxl.name}", flush=True)
         if not dry_run:
             process(mscz, mxl)
             root = load_score_xml(mxl)
-            stamp_mxl_tree(root, hub_hash=hub_hash, generated_at=generated_at)
+            stamp_mxl_tree(root, partituur_hash=digest, generated_at=generated_at)
             write_mxl(mxl, root)
 
 

@@ -1,4 +1,4 @@
-"""Controleer bibliotheek-id in hub-.mscz (meta + colofon).
+"""Controleer bibliotheek-id in basispartituur-.mscz (meta + colofon).
 
 Dunne wrapper om `ensure_bibliotheek_id.py --check-only`.
 """

@@ -419,9 +419,9 @@ def prepare_note(note: ET.Element) -> ET.Element:
 
 
 def _is_feathered_recite(note: ET.Element) -> bool:
-    """Hub ||O|| na MuseScore-export: breve-kop, stokloos, of type long/maxima.
+    """Basispartituur ||O|| na MuseScore-export: breve-kop, stokloos, of type long/maxima.
 
-    MuseScore schrijft feathered hub-noten vaak als ``<type>long</type>`` met
+    MuseScore schrijft feathered basispartituur-noten vaak als ``<type>long</type>`` met
     ``notehead=normal`` en (op de sopraan) multi-lettergreep-lyric; lagere
     stemmen hebben dezelfde noot zonder lyric.
     """
@@ -453,7 +453,7 @@ def _is_feathered_recite(note: ET.Element) -> bool:
 
 
 def _syllables_from_lyric_text(raw: str) -> list[tuple[str, str]]:
-    """Split hub-lyric tot (syllable_text, syllabic) paren."""
+    """Split basispartituur-lyric tot (syllable_text, syllabic) paren."""
     from nl_hyphen import hyphenate_token
 
     tokens: list[str] = []
@@ -536,7 +536,7 @@ def _make_quarter_note(
 
 
 def expand_recite_notes(root: ET.Element) -> int:
-    """Feathered hub-noten -> een kwart per lettergreep (Coria-playback)."""
+    """Feathered basispartituur-noten -> een kwart per lettergreep (Coria-playback)."""
     expanded = 0
     for part in music_parts(root):
         divisions = 1
@@ -1121,7 +1121,7 @@ def coria_importer_violations(root: ET.Element) -> list[str]:
 def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
     """Zoek bestanden met de gegeven suffix.
 
-    Bij `.mscz` in een map: sla `*.print.mscz` over (print-vel, geen hub).
+    Bij `.mscz` in een map: sla `*.print.mscz` over (print-vel, geen basispartituur).
     Een expliciet pad naar een print-`.mscz` blijft in de lijst; callers
     weigeren die met een duidelijke melding.
     """
@@ -1141,7 +1141,7 @@ def expand_score_files(paths: list[Path], suffix: str) -> list[Path]:
 
 
 def expand_mscz(paths: list[Path]) -> list[Path]:
-    """Hub-`.mscz` alleen (geen `*.print.mscz`, ook niet als pad expliciet is)."""
+    """Basispartituur-`.mscz` alleen (geen `*.print.mscz`, ook niet als pad expliciet is)."""
     return [p for p in expand_score_files(paths, ".mscz") if not is_print_mscz(p)]
 
 
@@ -1201,7 +1201,7 @@ def main() -> int:
         )
     files = [p for p in raw if not is_print_mscz(p)]
     if not files:
-        print("Geen hub-.mscz-bestanden gevonden.", flush=True)
+        print("Geen basispartituur-.mscz-bestanden gevonden.", flush=True)
         return 1 if not skipped_print else 0
     if args.output is not None and len(files) != 1:
         raise SystemExit("-o alleen bij precies een .mscz")

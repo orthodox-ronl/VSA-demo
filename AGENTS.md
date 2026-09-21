@@ -109,13 +109,13 @@ Uitleg: [scripts/README.md](scripts/README.md).
   (getranslitereerd), `-nl-ksl` (mengvorm).
 - Publiek: `publicatiestatus` op elke oefenhoek-`_index.md` / `index.md`:
   `voorzien` | `concept` | `reviewable` | `productie`.
-- Hub-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
-  embedded `hub-sha256` (`mscz-products`, `check_hub_products.py`).
-  Contract: `scripts/mscz-hub-contract.md`. Afgeleiden per representatie-id
-  (`hub` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
+- Basispartituur-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
+  embedded `partituur-sha256` (`mscz-products`, `check_partituur_products.py`).
+  Contract: `scripts/mscz-partituur-contract.md`. Afgeleiden per representatie-id
+  (`partituur` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
   Pagina-UI (sticky header, shortcode `bieb`, bibliotheek-id op leaves):
-  `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in hub-colofon/PDF:
-  `mscz-hub-contract.md` / `oefenhoek-product-contract.md`
+  `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in basispartituur-colofon/PDF:
+  `mscz-partituur-contract.md` / `oefenhoek-product-contract.md`
   (`ensure_bibliotheek_id.py`, `check_bibliotheek_id.py`).
   Bestanden `*.print.mscz` zijn print-/koormap-velden **buiten** die keten
   (geen layout, geen product-gate); handleiding `partituur/7-print-mscz`.

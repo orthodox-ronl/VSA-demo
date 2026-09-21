@@ -12,16 +12,16 @@ from bibliotheek import BIBLIOTHEEK_ROOT, stem
 
 
 class ClassifyTests(unittest.TestCase):
-    def test_print_vs_hub(self) -> None:
+    def test_print_vs_partituur(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            hub = root / "x.mscz"
-            hub.write_bytes(b"PK")
+            basispartituur = root / "x.mscz"
+            basispartituur.write_bytes(b"PK")
             print_mscz = root / "x.print.mscz"
             print_mscz.write_bytes(b"PK")
             vsa = root / "x.vsa"
             vsa.write_text("t\n", encoding="utf-8")
-            self.assertEqual(ba.classify_source(hub), "hub_mscz")
+            self.assertEqual(ba.classify_source(basispartituur), "partituur_mscz")
             self.assertEqual(ba.classify_source(print_mscz), "print_mscz")
             self.assertEqual(ba.classify_source(vsa), "vsa")
 
@@ -35,7 +35,7 @@ class ClassifyTests(unittest.TestCase):
     def test_target_names(self) -> None:
         ident = "5-eniggeboren-zoon/default/hemelum"
         self.assertEqual(
-            ba.target_name("hub_mscz", ident, with_vsa=False),
+            ba.target_name("partituur_mscz", ident, with_vsa=False),
             f"{stem(ident)}.mscz",
         )
         self.assertEqual(

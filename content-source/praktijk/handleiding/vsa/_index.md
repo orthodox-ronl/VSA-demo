@@ -16,7 +16,7 @@ krijgen. Dat zijn twee aparte stappen — zie
 Voor een tropaar op **toon 4** kun je dat `.vsa`-bestand daarna combineren
 met een formule-template. Dan komen alt, tenor en bas erbij (SATB). Dat
 blad zet je vaak als print-vel neer (handmatige artefacten), niet als
-automatische hub — zie [template SATB](2-template-satb/).
+automatische basispartituur — zie [template SATB](2-template-satb/).
 
 Oefenbare `.vsa`-bestanden staan in het **bibliotheek**; het **koormap-slot**
 in de liturgiemap toont ze via shortcode `bieb` (zelfde id

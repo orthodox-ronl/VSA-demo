@@ -73,12 +73,12 @@ een id waarvan de variant-laag een alias is naar de canonieke
 uitvoeringsvorm. De alias-pagina zelf toont een banner en de partituur van
 die canonieke variant (`layouts/partials/oefenhoek-alias.html`).
 
-SVG voor `.vsa` (geen hub-`.mscz`): `python scripts\sync_oefenhoek_index.py --svg`
+SVG voor `.vsa` (geen basispartituur-`.mscz`): `python scripts\sync_oefenhoek_index.py --svg`
 (in `check` / `build` / volle `serve`). Ontbrekende SVG: Hugo-waarschuwing
 van `bieb` noemt dit commando. `*.print.mscz` blokkeert SVG niet.
 
 ## Gerelateerd
 
 - Productbestanden / representatie-id: `scripts/oefenhoek-product-contract.md`
-- Hub-PDF/MXL: `scripts/mscz-hub-contract.md`
+- Basispartituur-PDF/MXL: `scripts/mscz-partituur-contract.md`
 - Handleiding: `content-source/praktijk/handleiding/publiceren/1-bladermap.md`

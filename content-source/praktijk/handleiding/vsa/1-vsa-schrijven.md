@@ -26,7 +26,7 @@ Capella-partituur. Voorbeeld-bibliotheek-id:
 
 ## Wat de site van je `.vsa` maakt
 
-Op een gewone eenstemmige bibliotheek-pagina (geen hub-`.mscz` ernaast)
+Op een gewone eenstemmige bibliotheek-pagina (geen basispartituur-`.mscz` ernaast)
 doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 
 | Afgeleide | Rol op de pagina | Hoe maak je die |
@@ -34,11 +34,11 @@ doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 | SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `python scripts\sync_oefenhoek_index.py --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
 | `{stam}.vsa.mxl` naast de `.vsa` | Knop **Oefenen** (Coria) | `scripts\vsa-products.cmd` (of dezelfde `check`-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je `.vsa` te wijzigen |
 
-Volledig overzicht hub/VSA/print: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
+Volledig overzicht partituur/VSA/print: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
 
 `*.print.mscz` in dezelfde map blokkeert de SVG **niet** (dat is een
-printvel, geen hub). Een hub-`.mscz` wél: dan toont de pagina de PDF uit
-de hub-straat, geen VSA-SVG.
+printvel, geen basispartituur). Een basispartituur-`.mscz` wél: dan toont de pagina de PDF uit
+de basispartituur-spoor, geen VSA-SVG.
 
 Los alleen SVG vernieuwen (na `vsa build-markdown`, of als `static\vsa`
 al bestaat):
@@ -131,7 +131,7 @@ bibliotheekpagina. Afspraak over namen en sporen:
 
 Ligt er wél een `.vsa` naast een `{stam}.print.mscz`, dan mag de build
 nog steeds de **SVG** van die `.vsa` maken (notatie naast de handmatige
-PDF). Alleen hub-`.mscz` onderdrukt die SVG-route.
+PDF). Alleen basispartituur-`.mscz` onderdrukt die SVG-route.
 
 ### Banner of check over `.vsa.mxl`
 

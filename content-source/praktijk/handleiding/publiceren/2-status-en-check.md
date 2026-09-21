@@ -28,7 +28,7 @@ in de `---` bovenaan:
 | `reviewable` | Er staat iets in; feedback welkom |
 | `productie` | Alleen bewust, nooit gokken |
 
-Bibliotheek mét hub, VSA of print-PDF: meestal `reviewable`. Lege stub:
+Bibliotheek mét basispartituur, VSA of print-PDF: meestal `reviewable`. Lege stub:
 `voorzien`. Intern *Stap* in de werkvoorraad (`opkuisen`, `layout`, …) is
 iets anders — dat zien koorleden niet.
 
@@ -44,12 +44,12 @@ In de map `VSA-demo`:
 scripts\check.cmd --strict
 ```
 
-Dat controleert onder meer VSA-notatie, Coria-`.mxl` (hub én `.vsa.mxl`),
-of `publicatiestatus` erop staat, of hub-/VSA-afgeleiden bij hun bron
+Dat controleert onder meer VSA-notatie, Coria-`.mxl` (basispartituur én `.vsa.mxl`),
+of `publicatiestatus` erop staat, of partituur-/VSA-afgeleiden bij hun bron
 horen, en of links op de site kloppen. Rood = niet naar live; eerst
 [als het misgaat](../3-als-het-misgaat/).
 
-Lokaal vernieuwt `check` ook stale hub-PDF/MXL (MuseScore) en stale
+Lokaal vernieuwt `check` ook stale basispartituur-PDF/MXL (MuseScore) en stale
 `.vsa.mxl`. Commit gewijzigde producten mee. Op branch `main` faalt de
 build als die producten ontbreken of verouderd zijn.
 
@@ -63,7 +63,7 @@ scripts\serve.cmd --no-build
 
 Browser: **http://127.0.0.1:18731/** — nooit poort 1313. Open jouw
 **koormap-slot** in de liturgiemap. Klik **Oefenen**, **Downloaden**,
-blader de PDF. Alsof je koorlid bent. Rode banner over hub- of VSA-afgeleiden?
+blader de PDF. Alsof je koorlid bent. Rode banner over partituur- of VSA-afgeleiden?
 Terug naar [Afgeleiden](../../partituur/6-afgeleiden/). Gele banner
 “Handmatige artefacten”? Verwacht — jij houdt PDF/MXL zelf bij.
 

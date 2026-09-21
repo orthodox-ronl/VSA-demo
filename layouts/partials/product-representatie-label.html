@@ -3,10 +3,10 @@
 
   Context: dict
     "name"  — bestandsnaam
-    "score" — optioneel Page: sibling hub-.mscz / .vsa voor legacy korte namen
+    "score" — optioneel Page: sibling basispartituur-.mscz / .vsa voor legacy korte namen
 
   Returns dict:
-    "id"     — representatie-id (hub | vsa | print) of "" bij onbekend
+    "id"     — representatie-id (partituur | vsa | print) of "" bij onbekend
     "label"  — knoptekst voor koorleden
     "detail" — korte uitleg onder het label (leeg mag)
 */}}
@@ -20,8 +20,8 @@
 {{- else -}}
   {{- $stem := strings.TrimSuffix (path.Ext $base) $base -}}
   {{- $stemLower := lower $stem -}}
-  {{- if strings.HasSuffix $stemLower ".hub" -}}
-    {{- $id = "hub" -}}
+  {{- if or (strings.HasSuffix $stemLower ".partituur") (strings.HasSuffix $stemLower ".hub") -}}
+    {{- $id = "partituur" -}}
   {{- else if strings.HasSuffix $stemLower ".vsa" -}}
     {{- $id = "vsa" -}}
   {{- else if strings.HasSuffix $stemLower ".print" -}}
@@ -30,11 +30,11 @@
 {{- end -}}
 {{- /* Legacy {stam}.mxl / {stam}.pdf: afleiden uit siblings in de bladermap. */ -}}
 {{- if and (eq $id "") $score -}}
-  {{- $hasHubMscz := false -}}
+  {{- $hasBasispartituur := false -}}
   {{- $hasVsa := false -}}
   {{- range $score.Resources.Match "*.mscz" -}}
     {{- if not (strings.HasSuffix (lower .Name) ".print.mscz") -}}
-      {{- $hasHubMscz = true -}}
+      {{- $hasBasispartituur = true -}}
     {{- end -}}
   {{- end -}}
   {{- range $score.Resources.Match "*.vsa" -}}
@@ -47,7 +47,7 @@
         {{- if not .IsDir -}}
           {{- $n := lower .Name -}}
           {{- if and (strings.HasSuffix $n ".mscz") (not (strings.HasSuffix $n ".print.mscz")) -}}
-            {{- $hasHubMscz = true -}}
+            {{- $hasBasispartituur = true -}}
           {{- end -}}
           {{- if strings.HasSuffix $n ".vsa" -}}
             {{- $hasVsa = true -}}
@@ -56,8 +56,8 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-  {{- if $hasHubMscz -}}
-    {{- $id = "hub" -}}
+  {{- if $hasBasispartituur -}}
+    {{- $id = "partituur" -}}
   {{- else if $hasVsa -}}
     {{- $id = "vsa" -}}
   {{- end -}}
@@ -67,7 +67,7 @@
 {{- if eq $id "vsa" -}}
   {{- $label = "Melodie (één stem)" -}}
   {{- $detail = "Zoals de notatie op deze pagina" -}}
-{{- else if eq $id "hub" -}}
+{{- else if eq $id "partituur" -}}
   {{- $label = "Koorblad (meerdere stemmen)" -}}
   {{- $detail = "Zoals het PDF-blad" -}}
 {{- else if eq $id "print" -}}

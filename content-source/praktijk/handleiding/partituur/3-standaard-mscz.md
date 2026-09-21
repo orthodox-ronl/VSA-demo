@@ -4,7 +4,7 @@ linkTitle: "Standaard-.mscz"
 weight: 30
 ---
 
-# Standaard- / hub-`.mscz` maken (normaliseren / layouten)
+# Standaard- / basispartituur-`.mscz` maken (normaliseren / layouten)
 
 {{< cue >}}
 Van opgekuiste `.mxl`:
@@ -13,35 +13,35 @@ python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_wer
 ```
 Van ruwe `.mscz` (VOW e.d.): zelfde script; invoer is die `.mscz`; `-o` naar
 `_werk\STAM\STAM.mscz` (geen spaties in de bestandsnaam).
-Opnieuw op een bestaande hub (in-place, na editslag):
+Opnieuw op een bestaande basispartituur (in-place, na editslag):
 ```cmd
 python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 ```
-Norm: bestand `scripts\mscz-hub-contract.md` in `VSA-demo`. Weigert `*.print.mscz`.
+Norm: bestand `scripts\mscz-partituur-contract.md` in `VSA-demo`. Weigert `*.print.mscz`.
 {{< /cue >}}
 
 **Wat je nu doet:** **normaliseren** — in gewone taal vaak **layouten**
-genoemd. Je past de Oefenhoek-hub-standaard toe met
-`scripts\apply_mscz_layout.py`. Uitkomst: een **hub-`.mscz`** (canonieke
+genoemd. Je past de Oefenhoek-basispartituur-standaard toe met
+`scripts\apply_mscz_layout.py`. Uitkomst: een **basispartituur-`.mscz`** (canonieke
 MuseScore-partituur) op A4, klaar om na te kijken en later PDF + Coria van te
 maken.
 
 **Wanneer:** na [opkuisen](../2-opkuisen/) (Capella-script of handmatige
 `.mscz`-check), of meteen als de inhoud van een ruwe `.mscz` al klopt. Sla
-deze pagina over als er al een genormaliseerde hub ligt en je alleen noten of
+deze pagina over als er al een genormaliseerde basispartituur ligt en je alleen noten of
 tekst wilt wijzigen → [reviewen en opnieuw normaliseren](../4-reviewen/).
 
 ## Normaliseren en layouten — dezelfde scriptstap
 
 | Term | Gebruik |
 | --- | --- |
-| **Normaliseren** | Contractterm: de hub-regels toepassen op de `.mscz` |
+| **Normaliseren** | Contractterm: de basispartituur-regels toepassen op de `.mscz` |
 | **Layouten** | Gangbare naam voor dezelfde stap (“de layout opnieuw zetten”) |
 | **Script** | Altijd `python scripts\apply_mscz_layout.py …` |
-| **Niet** | Handmatig in MuseScore “A4 kiezen” en hopen dat fonts/recitatief/copyright kloppen — dat is niet de hub-standaard |
+| **Niet** | Handmatig in MuseScore “A4 kiezen” en hopen dat fonts/recitatief/copyright kloppen — dat is niet de basispartituur-standaard |
 
 Opkuisen ≠ normaliseren. Opkuisen maakt de **inhoud** kloppend (stemmen,
-lettergrepen). Normaliseren zet die inhoud in de **hub-vorm** (pagina, stijl,
+lettergrepen). Normaliseren zet die inhoud in de **basispartituur-vorm** (pagina, stijl,
 reciteertoon-encoding, tempo, copyright-velden). Details over inhoud:
 [Opkuisen](../2-opkuisen/).
 
@@ -59,7 +59,7 @@ reciteertoon-encoding, tempo, copyright-velden). Details over inhoud:
 
 ## Wat `apply_mscz_layout.py` wél doet
 
-Alles hieronder komt uit die hub-norm (`scripts\mscz-hub-contract.md`).
+Alles hieronder komt uit die basispartituur-norm (`scripts\mscz-partituur-contract.md`).
 Het script is **idempotent**: opnieuw draaien mag en hoort na elke
 inhoudelijke editslag.
 
@@ -91,10 +91,10 @@ inhoudelijke editslag.
 - Lege maat-balken (vaak een derde lege balk na Capella SAT+B-import)
   verwijderen.
 
-### Reciteertoon (MCI, één hub-encoding)
+### Reciteertoon (MCI, één basispartituur-encoding)
 
 Bij een rij opeenvolgende noten met **zelfde toon** én **zelfde duur**, elk
-met een lettergreep, en **meer dan drie** lettergrepen in die rij:
+met een lettergreep, en **meer dan vijf** lettergrepen in die rij:
 
 | Positie | Resultaat |
 | --- | --- |
@@ -102,7 +102,7 @@ met een lettergreep, en **meer dan drie** lettergrepen in die rij:
 | Middelste lettergrepen | Eén stokloze feathered noot `\|\|O\|\|` met de middelste tekst |
 | Laatste lettergreep | Gewone noot |
 
-Reeksen van drie of minder blijven gewone noten. Melisma, cadens met
+Reeksen van vijf of minder blijven gewone noten. Melisma, cadens met
 bewuste lengte en toonwissels worden niet gecollapsed. Coria exploseert de
 feathered noot later tot één kwart per lettergreep.
 
@@ -114,9 +114,9 @@ feathered noot later tot één kwart per lettergreep.
 | Opvulrusten aan het eind van een maat | Weg; maatlengte = som van de noten |
 | Leidende rusten | Ritmisch behouden; na start/dubbele streep met gap |
 | Lyric-underlines (melisma-ticks) | Standaard weg (Capella-slurs zijn frasen); opt-in via meta `vsaLyricExtenders` |
-| Tempo | Verplicht voor Coria; default **120 BPM** als er geen metronoom in de hub staat |
+| Tempo | Verplicht voor Coria; default **120 BPM** als er geen metronoom in de basispartituur staat |
 | Copyright | Notice uit de bron → korte footer + colofon; ontbreekt notice → CC BY-SA 4.0 (deze uitgave) + eredienst-kopieertoestemming; in de bibliotheek: regel `Bibliotheek-id:` + meta `vsaBibliotheekId` |
-| Contractmeta | `vsaHubContract` = `hub-1` |
+| Contractmeta | `vsaPartituurContract` = `partituur-1` |
 
 ## Wat het script níet doet
 
@@ -139,7 +139,7 @@ python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_wer
 ```
 
 Het script converteert via MuseScore 4 naar `.mscz` en past daarna de
-hub-standaard toe. Wacht tot de regel `ok …` verschijnt; daaronder staan
+basispartituur-standaard toe. Wacht tot de regel `ok …` verschijnt; daaronder staan
 korte notities (bijvoorbeeld reciteer-collaps, copyright).
 
 ### Van een VOW- of andere ruwe `.mscz`
@@ -170,9 +170,9 @@ in de werkvoorraad klopt; anders eerst vragen.
 
 Je hebt een `.mscz` in `_werk\<stam>\` (of al in de bibliotheek) die:
 
-- in MuseScore 4 opent op A4 met de hub-typografie;
+- in MuseScore 4 opent op A4 met de basispartituur-typografie;
 - tekst tussen de balken toont;
-- door `apply_mscz_layout.py` is gehaald (meta `vsaHubContract`);
+- door `apply_mscz_layout.py` is gehaald (meta `vsaPartituurContract`);
 - het ruwe origineel in `input\` onaangeroerd laat.
 
 Volgende stap: [reviewen en opnieuw normaliseren](../4-reviewen/).

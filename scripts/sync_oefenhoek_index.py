@@ -4,7 +4,7 @@
   (frontmatter + eigen tekst blijven). Catalogus-includes (id:/lokaal:/bron:)
   en {{< bieb >}} blijven. Draait in check/build/serve, voor
   vsa validate.
-- --svg: schrijft SVG van lokale .vsa (geen sibling hub-.mscz;
+- --svg: schrijft SVG van lokale .vsa (geen sibling basispartituur-.mscz;
   *.print.mscz blokkeert niet) naar static/vsa/bladermap/, na
   vsa build-markdown (die static/vsa leegmaakt).
   Ook onder oefenhoek/bibliotheek/.

@@ -7,7 +7,7 @@ weight: 40
 # Reviewen en opnieuw normaliseren
 
 {{< cue >}}
-1. Open de hub-`.mscz` in MuseScore 4. Corrigeer noten, tekst, herhalingen,
+1. Open de basispartituur-`.mscz` in MuseScore 4. Corrigeer noten, tekst, herhalingen,
    stemmen, cues — **opslaan** (Ctrl+S). Exporteer niet naar MusicXML.
 2. Opnieuw normaliseren (layouten):
 ```cmd
@@ -17,13 +17,13 @@ python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 4. Daarna pas [PDF en Coria](../5-pdf-en-coria/).
 {{< /cue >}}
 
-**Wat je nu doet:** de hub-`.mscz` inhoudelijk controleren en corrigeren, en
-daarna de hub-standaard **opnieuw** toepassen met
+**Wat je nu doet:** de basispartituur-`.mscz` inhoudelijk controleren en corrigeren, en
+daarna de basispartituur-standaard **opnieuw** toepassen met
 `apply_mscz_layout.py` (normaliseren / layouten). Zonder die tweede slag
 blijven A4, fonts, reciteertoon-encoding of copyright uit de pas lopen met
 de rest van de Oefenhoek.
 
-**Wanneer:** altijd tussen de eerste genormaliseerde hub-`.mscz` en het maken
+**Wanneer:** altijd tussen de eerste genormaliseerde basispartituur-`.mscz` en het maken
 van PDF of Coria-`.mxl`. Ook als het koor later een fout meldt: dezelfde
 ronde. Alleen opnieuw vanaf Capella als de **input** zelf fout was.
 
@@ -32,7 +32,7 @@ ronde. Alleen opnieuw vanaf Capella als de **input** zelf fout was.
 | Rol | Wie / wat | Voorbeelden |
 | --- | --- | --- |
 | **Inhoud** (opkuisen tijdens review) | Jij in MuseScore 4 | Verkeerde noot, plakkerige lettergreep, SAT op de verkeerde balk, ontbrekende herhaling, cue in het titelvak |
-| **Hub-vorm** (normaliseren / layouten) | `apply_mscz_layout.py` | A4, marges, Source Sans 3, maatnummers, reciteertoon-collaps, zichtbare eindmaatstrepen, tempo-default, copyright-footer/colofon |
+| **Basispartituur-vorm** (normaliseren / layouten) | `apply_mscz_layout.py` | A4, marges, Source Sans 3, maatnummers, reciteertoon-collaps, zichtbare eindmaatstrepen, tempo-default, copyright-footer/colofon |
 
 Uitgebreide inhoudschecklist: [Opkuisen](../2-opkuisen/).
 Uitgebreide scriptlijst: [Standaard-.mscz](../3-standaard-mscz/).
@@ -40,7 +40,7 @@ Uitgebreide scriptlijst: [Standaard-.mscz](../3-standaard-mscz/).
 ## Review-checklist (inhoud)
 
 Open de `.mscz` in `_werk\<stam>\` of, als het bestand al in het
-**bibliotheek** staat, die hub-`.mscz`. Loop het stuk door, liefst met de
+**bibliotheek** staat, die basispartituur-`.mscz`. Loop het stuk door, liefst met de
 liturgische tekst ernaast. Vink af:
 
 ### Noten en vorm
@@ -84,7 +84,7 @@ liturgische tekst ernaast. Vink af:
 
 ## Stap voor stap
 
-1. Dubbelklik de hub-`.mscz`. MuseScore 4 opent.
+1. Dubbelklik de basispartituur-`.mscz`. MuseScore 4 opent.
 2. Werk de checklist hierboven af. Corrigeer in MuseScore.
 3. Bestand → Opslaan (Ctrl+S). Sluiten mag.
 4. Normaliseer **dezelfde** `.mscz` opnieuw. Geen `-o` nodig als de
@@ -94,7 +94,7 @@ liturgische tekst ernaast. Vink af:
 python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
-   Ligt de hub al in de bibliotheek:
+   Ligt de basispartituur al in de bibliotheek:
 
 ```cmd
 python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
@@ -102,10 +102,10 @@ python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliothee
 
 5. Open de `.mscz` opnieuw in MuseScore 4.
    - Ziet de **pagina** er anders uit dan net na je edit? Dat hoort: het
-     script zet de stijl terug naar de hub-standaard.
+     script zet de stijl terug naar de basispartituur-standaard.
    - Zit er nog een **inhoudelijke** fout? Terug naar stap 2 — het script
      lost een verkeerde noot niet op.
-6. Herhaal tot inhoud én hub-vorm aanvaardbaar zijn.
+6. Herhaal tot inhoud én basispartituur-vorm aanvaardbaar zijn.
 
 ## Wat normaliseren wel en niet overschrijft
 
@@ -115,15 +115,15 @@ python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliothee
 | Welke stem op welke balk (gevulde balken) | Lege maat-balken weg; style overlays |
 | Welke lettergreep jij aan welke noot hing | Splits/knip volgens contract; reciteertoon-collaps |
 | Bewuste melisma-slurs | Lyric-underlines (ticks) standaard weg |
-| Bron-copyright die al in de hub zat | Footer + colofon-velden opnieuw opgebouwd |
+| Bron-copyright die al in de basispartituur zat | Footer + colofon-velden opnieuw opgebouwd |
 
 Daarom na **elke** editslag opnieuw normaliseren, ook als je “maar één noot”
 wijzigde.
 
 ## Klaar als
 
-Je hebt de hub-`.mscz` beluisterd of doorgelopen, opgeslagen, opnieuw
-genormaliseerd, en in MuseScore 4 gecontroleerd dat inhoud én A4-hubvorm
+Je hebt de basispartituur-`.mscz` beluisterd of doorgelopen, opgeslagen, opnieuw
+genormaliseerd, en in MuseScore 4 gecontroleerd dat inhoud én A4-basispartituurvorm
 aanvaardbaar zijn voor het koor om te reviewen.
 
 Volgende stap: [PDF en Coria-.mxl maken](../5-pdf-en-coria/).

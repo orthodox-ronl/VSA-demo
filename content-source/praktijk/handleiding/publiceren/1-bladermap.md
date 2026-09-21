@@ -14,7 +14,7 @@ Nieuwe partituur in de bibliotheek zetten:
 Slot-pagina in de koormap:
 `content-source\praktijk\oefenhoek\liturgiemap-hemelum\…\index.md` met
 shortcode `bieb` (parameter `id` = bibliotheek-id) en
-`automatische_inhoud: false`. Geen hub-bestanden in de koormap-map.
+`automatische_inhoud: false`. Geen basispartituur-bestanden in de koormap-map.
 
 Een **alias-variant** (andere naam voor dezelfde variant) krijgt geen
 uitvoeringsvorm-map. Zet `alias_van` op de variant-`_index.md`; zie
@@ -63,7 +63,7 @@ uitvoeringsvorm-map. Zet `alias_van` op de variant-`_index.md`; zie
 
 | Situatie | Koormap-voorbeeld |
 | --- | --- |
-| Hub via bibliotheek | `liturgiemap-hemelum\8-trisagion\8a-trisagion\index.md` |
+| Basispartituur via bibliotheek | `liturgiemap-hemelum\8-trisagion\8a-trisagion\index.md` |
 | VSA via bibliotheek | `liturgiemap-hemelum\2-eerste-antifoon\weekdagen\index.md` |
 | Sectie (boom van keuzes) | `liturgiemap-hemelum\15-cherubijnenhymne\_index.md` + kindmappen |
 | Compositieblad (meerdere scores) | Eén `index.md` met markdown en meerdere `bieb`-shortcodes — zie [Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/) |
@@ -82,7 +82,7 @@ eigen knoppenrij.
 
 ## Oude migratie (alleen historisch)
 
-De eenmalige verhuizing van hubs uit de liturgiemap naar de bibliotheek is
+De eenmalige verhuizing van basispartituren uit de liturgiemap naar de bibliotheek is
 al gedaan. Nieuwe stukken gaan via
 [opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/). Het oude script
 `migrate_oefenhoek_bibliotheek.py` is geen dagelijkse tool meer.
@@ -91,7 +91,7 @@ al gedaan. Nieuwe stukken gaan via
 
 Na `check --strict` toont de preview de slot-pagina met PDF/**Oefenen**/VSA
 via `bieb`. De bibliotheek heeft de bestanden; de
-koormap-map heeft geen hub meer. Je weet wanneer je een sectie (boom)
+koormap-map heeft geen basispartituur meer. Je weet wanneer je een sectie (boom)
 gebruikt en wanneer een compositieblad.
 
 {{< navbuttons "Vorige: opnemen in de bibliotheek|/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/" "Volgende: status en check|/praktijk/handleiding/publiceren/2-status-en-check/" >}}

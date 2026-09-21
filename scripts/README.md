@@ -20,7 +20,7 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
-| `mscz-products` | PDF + Coria-`.mxl` uit hub-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
+| `mscz-products` | PDF + Coria-`.mxl` uit basispartituur-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
 | `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
 | `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
 | `bieb-accepteer` | Partituur opnemen in `oefenhoek/bibliotheek/` | `<id> <bestand> [--dry-run --force --stub]` |
@@ -39,23 +39,23 @@ doelmap, met dezelfde submappen. Default: `ruwe-invoer\capella-backup-mxl`
 bestaande verse `.mscz` worden overgeslagen (hervatten). MuseScore 4
 nodig, en niet open tijdens de run. Niet in `check`. Geen PDF/Coria.
 
-`apply_mscz_layout.py` normaliseert de **hub-`.mscz`** (A4-layout, lettergrepen,
+`apply_mscz_layout.py` normaliseert de **basispartituur-`.mscz`** (A4-layout, lettergrepen,
 reciteer-collaps `||O||`, tempo, copyright). Accepteert ook opgekuiste `.mxl`.
-Weigert `*.print.mscz` (print-/koormap-vel buiten de hub-straat).
+Weigert `*.print.mscz` (print-/koormap-vel buiten de basispartituur-spoor).
 Copyright: bronnotice of default CC BY-SA 4.0 + eredienst-zin.
 In de bibliotheek: colofonregel `Bibliotheek-id:` + meta `vsaBibliotheekId`
-(optioneel `--id=`). Contract: `scripts/mscz-hub-contract.md`.
+(optioneel `--id=`). Contract: `scripts/mscz-partituur-contract.md`.
 Hyphenatie: `scripts/nl_hyphen.py`. Transforms: `scripts/mscz-product-transforms.md`.
 
 `ensure_bibliotheek_id.py` zet ontbrekende/verkeerde bibliotheek-id’s in
-hub-`.mscz` onder `bibliotheek/` (lokaal; CI alleen check).
+basispartituur-`.mscz` onder `bibliotheek/` (lokaal; CI alleen check).
 `check_bibliotheek_id.py` faalt op `main` / `--strict` als meta of colofon
 niet klopt. Daarna `mscz-products` voor verse PDF’s.
 
 `mscz-products.cmd` (`sync_mscz_products.py`) exporteert sibling-PDF en
-Coria-`.mxl` voor hub-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
-(`hub-sha256`, `generated-at`). Pipeline roept dit lokaal aan.
-`check_hub_products.py` schrijft `data/hub-product-status.json` (Hugo-banner);
+Coria-`.mxl` voor basispartituur-`.mscz` (sla `*.print.mscz` over) en schrijft provenance
+(`partituur-sha256`, `generated-at`). Pipeline roept dit lokaal aan.
+`check_partituur_products.py` schrijft `data/partituur-product-status.json` (Hugo-banner);
 op `main` falen bij mismatch. Print-velden tellen niet mee in die gate.
 
 `vsa-products.cmd` (`sync_vsa_products.py`) maakt `{stam}.vsa.mxl` uit
@@ -66,9 +66,9 @@ Coria-sanitize + `vsa-source-sha256` van de canonieke `.vsa`). Slaat
 `data/vsa-product-status.json` (banner; `main` streng). Zie
 `oefenhoek-product-contract.md`.
 
-Drie Oefenhoek-sporen: hub-partituur; VSA; print-`.mscz` (handleiding
+Drie Oefenhoek-sporen: basispartituur; VSA; print-`.mscz` (handleiding
 `partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
-artefacten: `oefenhoek-product-contract.md` (`{stam}.hub.mxl` /
+artefacten: `oefenhoek-product-contract.md` (`{stam}.partituur.mxl` /
 `{stam}.vsa.mxl` / …; frontmatter `artefacten_handmatig`).
 Pagina-UI (sticky header, bibliotheek-id op leaves, shortcode `bieb`,
 actieknoppen): `oefenhoek-ui-contract.md`.
@@ -125,7 +125,7 @@ worden genormaliseerd.
 `bibliotheek.py` — pad/id-hulp voor `oefenhoek/bibliotheek/` (drie lagen) en
 check van alias-varianten (`alias_van` op de variant-`_index`; geen
 uitvoeringsvorm-bestanden). Draait in `check` / `build` / `serve`.
-`bieb-accepteer.cmd` (`bieb_accepteer.py`) neemt een hub-`.mscz`, `.vsa` of
+`bieb-accepteer.cmd` (`bieb_accepteer.py`) neemt een basispartituur-`.mscz`, `.vsa` of
 `.print.mscz` (optioneel sibling-`.pdf`/`.mxl`) op onder een bibliotheek-id:
 maakt sectie-`_index.md` en leaf-`index.md` met `bieb`, hernoemt naar de
 publicatiestam. Ontbrekende id/bestand worden interactief gevraagd; typ `?`
@@ -144,7 +144,7 @@ uit `{{< bieb >}}`. Sectie-pagina's krijgen een linklijst van
 kinderen (`oefenhoek-kinderen.html`) als `automatische_inhoud: true`; bij 1
 kind volgt een doorverwijzing. Catalogus-includes
 (`id:` / `lokaal:` / `bron:`) blijven. `--svg` (na `build-markdown`) zet
-lokale `.vsa` zonder hub-`.mscz` om naar `static/vsa/bladermap/` (ook onder
+lokale `.vsa` zonder basispartituur-`.mscz` om naar `static/vsa/bladermap/` (ook onder
 `bibliotheek/`; `*.print.mscz` blokkeert SVG niet). Standaard alleen een
 samenvatting; `--verbose` toont elk SVG- of strip-pad. `--dry-run` toont wat de
 strip zou wijzigen.

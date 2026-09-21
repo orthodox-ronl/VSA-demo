@@ -1,12 +1,13 @@
 """Pas de A4-standaard-layout toe op een MuseScore 4 .mscz (idempotent).
 
-Contract: scripts/mscz-hub-contract.md (was: mscz-layout-contract.md)
+Contract: scripts/mscz-partituur-contract.md (was: mscz-partituur-contract.md /
+mscz-layout-contract.md)
 Laag 4 (PDF/A4). Lagen 1-3: cleanup_capella_mxl.py. Niet in check.
 
   python scripts/apply_mscz_layout.py pad\\naar\\file.mscz
   python scripts/apply_mscz_layout.py pad\\naar\\file.mxl -o uit.mscz
 
-Publicatie-hub: bij voorkeur onder
+Publicatie-basispartituur: bij voorkeur onder
 `oefenhoek/bibliotheek/<zangstuk>/<variant>/<uitvoeringsvorm>/` met
 publicatiestam `{zangstuk}-{variant}-{uitvoeringsvorm}.mscz`
 (`scripts/bibliotheek.py`). Bestandsnamen: geen spaties
@@ -17,7 +18,7 @@ publicatiestam `{zangstuk}-{variant}-{uitvoeringsvorm}.mscz`
 Copyright: notice uit de bron, of default CC BY-SA 4.0 (deze uitgave) plus
 eredienst-kopieertoestemming. Standaard: korte footer (letterlijke notice op alle
 pagina's) + colofon.
-Contract: `scripts/mscz-hub-contract.md`.
+Contract: `scripts/mscz-partituur-contract.md`.
 
 Opnieuw draaien is de bedoeling: style-overrides worden steeds gezet, titelvak
 opnieuw opgebouwd. Lettergrepen op een noot die nog meerdere klinkergroepen
@@ -54,7 +55,7 @@ _A4_H = "11.6929"
 _M = "0.590551"
 _PRINTABLE = "7.08662"  # A4_W - 2 * 15 mm
 
-# Moet gelijk lopen met scripts/mscz-hub-contract.md
+# Moet gelijk lopen met scripts/mscz-partituur-contract.md
 # Typografie: VSA-defaults (bron/VSA-tooling): Source Sans 3, lyrics 13 pt, word 12 pt.
 _FONT = "Source Sans 3"
 STYLE_OVERRIDES: dict[str, str] = {
@@ -70,7 +71,7 @@ STYLE_OVERRIDES: dict[str, str] = {
     "pageTwosided": "0",
     "enableIndentationOnFirstSystem": "0",
     "firstSystemIndentationValue": "0",
-    # 0 = laatste systeem altijd over de volle breedte (lyric-ruimte; zie hub-contract)
+    # 0 = laatste systeem altijd over de volle breedte (lyric-ruimte; zie partituur-contract)
     "lastSystemFillLimit": "0",
     "enableVerticalSpread": "0",
     "maxPageFillSpread": "0",
@@ -117,7 +118,7 @@ STYLE_OVERRIDES: dict[str, str] = {
     "frameFontFace": _FONT,
     "frameFontSize": "12",
     # Copyright-footer: letterlijke notice (niet $C/$c). $C = alleen pagina 1;
-    # $c zou alle pagina's moeten doen, maar hubs bleven op $C hangen. Letterlijke
+    # $c zou alle pagina's moeten doen, maar basispartituren bleven op $C hangen. Letterlijke
     # tekst in odd/even footer verschijnt op elke pagina. Colofon = VBox achteraan.
     # oddFooterC/evenFooterC worden in process_mscz gezet uit meta copyright.
     "showFooter": "1",
@@ -160,7 +161,9 @@ _DEFAULT_FULL = (
     f"{_LITURGY_COPY}"
 )
 _DEFAULT_TEMPO_BPM = 120
-_CONTRACT_VERSION = "hub-1"
+_CONTRACT_VERSION = "partituur-1"
+_CONTRACT_META = "vsaPartituurContract"
+_CONTRACT_META_LEGACY = "vsaHubContract"
 _COLOPHON_VBOX_RE = re.compile(
     r"[ \t]*<VBox>(?:(?!</VBox>).)*?"
     + re.escape(_COLOPHON_TITLE)
@@ -484,7 +487,7 @@ def read_mscx_from_mscz(path: Path) -> str:
 
 
 def bibliotheek_id_status(path: Path, expected: str) -> tuple[bool, str]:
-    """Of hub-meta + colofon het verwachte bibliotheek-id hebben.
+    """Of basispartituur-meta + colofon het verwachte bibliotheek-id hebben.
 
     Returns (ok, detail).
     """
@@ -606,7 +609,7 @@ def overlay_style(mss: str, extra: dict[str, str] | None = None) -> str:
 def write_mscz_with_all_pages_footer(src: Path, dest: Path) -> str:
     """Kopieer .mscz naar dest met letterlijke copyright-footer op alle pagina's.
 
-    Laat de bron-hub ongemoeid (handig voor PDF-export). Returns de footertekst.
+    Laat de bron-basispartituur ongemoeid (handig voor PDF-export). Returns de footertekst.
     """
     with zipfile.ZipFile(src, "r") as zin:
         names = zin.namelist()
@@ -1297,7 +1300,7 @@ def _split_undersplit_lyrics(mscx: str) -> tuple[str, int]:
                         if ev.group(1) != "Chord" or _in_tuplet(v0, ev.start()):
                             continue
                         chord = ev.group(0)
-                        # Hub ||O|| niet splitsen — recite-collaps beheert die tekst.
+                        # Basispartituur ||O|| niet splitsen — recite-collaps beheert die tekst.
                         if "<headType>breve</headType>" in chord and (
                             "<noStem>1</noStem>" in chord or "<noStem>true</noStem>" in chord
                         ):
@@ -1428,8 +1431,8 @@ def apply_mscx(
     )
     notes.extend(cnotes)
 
-    mscx = _set_meta(mscx, "vsaHubContract", _CONTRACT_VERSION)
-    notes.append(f"hub-contract {_CONTRACT_VERSION}")
+    mscx = _set_meta(mscx, _CONTRACT_META, _CONTRACT_VERSION)
+    notes.append(f"partituur-contract {_CONTRACT_VERSION}")
 
     return mscx, notes
 
@@ -1658,7 +1661,7 @@ def main() -> int:
     if is_print_mscz(src):
         raise SystemExit(
             f"print-.mscz hoort niet in apply_mscz_layout: {src.name}\n"
-            r"Hernoem naar gewone .mscz (hub) of bewerk alleen in MuseScore; "
+            r"Hernoem naar gewone .mscz (basispartituur) of bewerk alleen in MuseScore; "
             r"zie handleiding partituur/7-print-mscz."
         )
     suffix = src.suffix.lower()

@@ -8,16 +8,16 @@ weight: 5
 
 Antwoord eerst: **elk zichtbaar product hoort bij precies één bron** in de
 bibliotheek. Welke bron, welk afgeleid bestand en welk script — dat staat
-hier per **representatie-id** (`hub`, `vsa`, `print`). Technische details:
+hier per **representatie-id** (`partituur`, `vsa`, `print`). Technische details:
 `scripts\oefenhoek-product-contract.md` in de repository `VSA-demo`.
 
 Termen: [Woorden](/praktijk/handleiding/start/woorden/) en
 [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
 
 {{< cue >}}
-- **Hub-partituur:** `{stam}.mscz` → layout → `mscz-products` → PDF + Coria-`.mxl`
+- **Basispartituur:** `{stam}.mscz` → layout → `mscz-products` → PDF + Coria-`.mxl`
 - **VSA:** `{stam}.vsa` → SVG uit canonieke bron; Coria-`.vsa.mxl` via `vsa-products` (syllabify alleen tijdens export)
-- **Print:** `{stam}.print.mscz` → handmatige PDF (geen hub-pijplijn)
+- **Print:** `{stam}.print.mscz` → handmatige PDF (geen basispartituur-pijplijn)
 - Controle: `scripts\check.cmd --strict`
 {{< /cue >}}
 
@@ -25,7 +25,7 @@ Termen: [Woorden](/praktijk/handleiding/start/woorden/) en
 
 | representatie-id | Canonieke bron in de bladermap | Typische afgeleiden | Automatische keten |
 | --- | --- | --- | --- |
-| `hub` | `{stam}.mscz` (niet `.print.`) | `{stam}.pdf`, `{stam}.mxl` (legacy) of `{stam}.hub.pdf` / `{stam}.hub.mxl` | `apply_mscz_layout.py` → `mscz-products` |
+| `partituur` | `{stam}.mscz` (niet `.print.`) | `{stam}.pdf`, `{stam}.mxl` (legacy) of `{stam}.partituur.pdf` / `{stam}.partituur.mxl` | `apply_mscz_layout.py` → `mscz-products` |
 | `vsa` | `{stam}.vsa` | SVG (site), `{stam}.vsa.mxl` (Coria) | `sync_oefenhoek_index.py --svg`, `vsa-products` |
 | `print` | `{stam}.print.mscz` | `{stam}.print.pdf` (handmatig) | geen; vaak `artefacten_handmatig: true` |
 
@@ -40,11 +40,11 @@ De pipeline in `scripts\_pipeline.cmd` (via `check` / `build` / `serve`):
 ```text
 content-source
     |
-    +-- validate, bibliotheek-checks, hub-id, hub-producten, vsa-producten
+    +-- validate, bibliotheek-checks, bibliotheek-id, basispartituur-producten, vsa-producten
     |
     +-- vsa build-markdown  ->  generated/content + static/vsa (SVG uit .vsa in content)
     |
-    +-- sync_oefenhoek_index --svg  ->  static/vsa/bladermap/... (bibliotheek-.vsa zonder hub)
+    +-- sync_oefenhoek_index --svg  ->  static/vsa/bladermap/... (bibliotheek-.vsa zonder basispartituur)
     |
     +-- vsa musicxml content-source static/vsa/mxl  (embed-Coria in pagina's, geen oefenhoek-bibliotheek)
     |
@@ -56,17 +56,17 @@ bladermap (niet per se `static/vsa/mxl`).
 
 ---
 
-## Traject: hub → PDF en Coria
+## Traject: basispartituur → PDF en Coria
 
 **Doel:** vierstemmig (of meer) blad in MuseScore, A4-PDF en Coria-`.mxl`.
 
 | Stap | Wat | Commando / tool |
 | --- | --- | --- |
 | 1 | Opkuisen (stemmen, lettergrepen↔noten) | Capella-script of MuseScore — [Opkuisen](/praktijk/handleiding/partituur/2-opkuisen/) |
-| 2 | Hub normaliseren | `python scripts\apply_mscz_layout.py` op `{stam}.mscz` |
+| 2 | Basispartituur normaliseren | `python scripts\apply_mscz_layout.py` op `{stam}.mscz` |
 | 3 | Review | MuseScore — [Reviewen](/praktijk/handleiding/partituur/4-reviewen/) |
 | 4 | Afgeleiden | `scripts\mscz-products.cmd` (MuseScore-export + Coria-sanitize) |
-| 5 | Versheid | Stamp `hub-sha256` in PDF/MXL; `check_hub_products.py` |
+| 5 | Versheid | Stamp `partituur-sha256` in PDF/MXL; `check_partituur_products.py` |
 
 Handleiding: [PDF en Coria](/praktijk/handleiding/partituur/5-pdf-en-coria/),
 [Afgeleiden](/praktijk/handleiding/partituur/6-afgeleiden/).
@@ -101,7 +101,7 @@ maakt een sibling `{stam}.syl.vsa`. Die sidecar is **geen** bron voor SVG of
 
 ## Traject: print-vel
 
-**Doel:** één PDF voor koormap (meerdere tekstregels, geen hub-Coria-keten).
+**Doel:** één PDF voor koormap (meerdere tekstregels, geen basispartituur-Coria-keten).
 
 | Bron | Afgeleide | Pipeline |
 | --- | --- | --- |
@@ -130,9 +130,9 @@ Als het er komt, hoort het hier als extra rij:
 - eigen representatie-id (bijv. `mvsa` of een contract-naam uit `bron`);
 - canonieke bron (verwacht: `.mvsa`-bestand);
 - afgeleiden (PDF, Coria, SVG — nog te bepalen);
-- scripts en stamps analoog aan `vsa-products` / `hub`-gate.
+- scripts en stamps analoog aan `vsa-products` / `partituur`-gate.
 
-Tot die tijd: alleen `.vsa` (eenstemmig) en hub-`.mscz` volgens bovenstaande
+Tot die tijd: alleen `.vsa` (eenstemmig) en basispartituur-`.mscz` volgens bovenstaande
 tabellen. Syntax-plannen staan in VSA-tooling (`docs/plans/mvsa-v0-syntax.md`).
 
 ---
@@ -141,10 +141,10 @@ tabellen. Syntax-plannen staan in VSA-tooling (`docs/plans/mvsa-v0-syntax.md`).
 
 | Situatie | Commando |
 | --- | --- |
-| Hub-PDF/Coria vernieuwen | `scripts\mscz-products.cmd` `[bibliotheek-map]` |
+| Basispartituur-PDF/Coria vernieuwen | `scripts\mscz-products.cmd` `[bibliotheek-map]` |
 | VSA-Coria vernieuwen | `scripts\vsa-products.cmd` `[bibliotheek-map]` |
 | Alleen SVG bibliotheek | `python scripts\sync_oefenhoek_index.py --svg` |
 | Alles vóór commit | `scripts\check.cmd --strict` |
 
 Contract en stamps: `scripts\oefenhoek-product-contract.md`,
-`scripts\mscz-hub-contract.md`.
+`scripts\mscz-partituur-contract.md`.

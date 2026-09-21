@@ -39,14 +39,14 @@ Refrein: [:] Ver{//los} {\\ons} {/Zoon} van {\God_}
 Die won{/der}{/baar} zijt {\in} {/Uw} {/&\&/Hei__&~&~}{\li}{\gen~}, 
 {\wij} die tot {/U} {/zin}gen: {\Al}{\le}{/lu_}{i_}{\a_}. [:]
 
-2. [:] Een koning uit uw lendenen
-   zal ik doen zetelen op uw troon. [:]  refrein
+2. [:] Een {/ko}{/ning} {\uit} {/uw} {len_.}de{\nen_}
+   {\\zal} ik {/doen} {/ze}{\te}{\len} {/op_} {uw_} {\troon}. [:]  refrein
 
-3. [:] Daar zal Ik een hoorn oprichten voor David:
-   een licht bereiden voor Mijn Christus. [:]  refrein
+3. [:] Daar zal Ik {/een} {/hoorn} oprich{\ten} {/voor} {/Da__}{\vid_}:
+   {\\een} {/licht} {/be}reiden {\voor} {\Mijn} {/Chris__}{\tus_}. [:]  refrein
 
-4. [:] Want de Heer heeft Si-on uitverkoren,
-   Hij heeft haar ge-ko-zen tot Zijn woonplaats. [:]  refrein
+4. [:] Want de Heer {/heeft} {/Si}on {\uit}{/ver}{/ko_.}{\ren_},
+   {\\Hij} heeft haar {/ge}{/ko}zen {\tot} {\Zijn} {/woon__}{\plaats_}. [:]  refrein
 :::
 
 ## Derde Antifoon

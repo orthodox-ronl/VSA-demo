@@ -9,15 +9,15 @@
 {{- $folder := index $status.folders $key -}}
 {{- if and $folder (not $folder.ok) -}}
 {{- $fixPage := or $status.fix_page "/praktijk/handleiding/vsa/1-vsa-schrijven/" -}}
-<aside class="hub-product-banner" role="alert">
-  <p class="hub-product-banner-title">VSA-afgeleiden niet in orde</p>
+<aside class="partituur-product-banner" role="alert">
+  <p class="partituur-product-banner-title">VSA-afgeleiden niet in orde</p>
   <ul>
     {{- range $folder.issues -}}
     <li><strong>{{ .kind }}</strong>: {{ .detail }} ({{ .file }})</li>
     {{- end -}}
   </ul>
   <p>Oplossen (lokaal):</p>
-  <pre class="hub-product-banner-cmd">{{ $folder.fix_cmd }}</pre>
+  <pre class="partituur-product-banner-cmd">{{ $folder.fix_cmd }}</pre>
   <p>Daarna <code>.vsa</code> + <code>.vsa.mxl</code> samen committen.
     Uitleg: <a href="{{ $fixPage | relURL }}">.vsa schrijven</a>;
     contract: <code>scripts/oefenhoek-product-contract.md</code>.</p>

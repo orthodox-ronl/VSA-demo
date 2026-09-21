@@ -36,7 +36,7 @@ ná de lijst met deelrubrieken.
 | `layout` | Normaliseren / layouten: `apply_mscz_layout.py` → standaard-`.mscz` |
 | `playback` | Coria-`.mxl` uit die `.mscz` |
 | `pdf` | A4-PDF naast de `.mscz` |
-| `gepubliceerd` | Er staat al oefenbare inhoud in de bibliotheek (hub, VSA, print-PDF, …) |
+| `gepubliceerd` | Er staat al oefenbare inhoud in de bibliotheek (basispartituur, VSA, print-PDF, …) |
 
 `publicatiestatus` (`voorzien` / `concept` / `reviewable` / `productie`) staat
 op bibliotheek-`index.md` en koormap-`index.md`, voor koorleden. Deze tabel is
@@ -81,7 +81,7 @@ voor wie converteert.
 | `musicxml/028-prokimen-alleluja-toon-8.musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/tonen (vers, stichier, tropaar).musicxml` |  |  | `.mscz` | ontvangen | doel-id |  |
 | `musicxml/tonen-vers-stichier-tropaar.mscz` |  |  | `.mscz` | ontvangen | doel-id |  |
-| `vow/Cherubijnenlied-Kastorskij.mscz` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne/15c-kastorski` | `.mscz` | gepubliceerd | — | tweede bron (VOW); Capella is canonieke hub |
+| `vow/Cherubijnenlied-Kastorskij.mscz` | `15-cherubijnenhymne/15c-kastorski/hemelum` | `15-cherubijnenhymne/15c-kastorski` | `.mscz` | gepubliceerd | — | tweede bron (VOW); Capella is canonieke basispartituur |
 | `vow/dankzegging_toon_2_Kyiv.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
 | `vow/eind-liturgie.mscz` |  |  | `.mscz` | ontvangen | doel-id | zie ID-REGISTER OPEN 7 |
 | `vow/Eucharistische Canon-Rostov.mscz` | `19-eucharistische-canon/rostov/hemelum` |  | `.mscz` | ontvangen | layout | sibling van 19a-feofan |
