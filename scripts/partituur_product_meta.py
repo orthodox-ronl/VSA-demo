@@ -238,8 +238,11 @@ def stamp_pdf(
 def read_pdf_stamp(path: Path) -> dict[str, str]:
     try:
         from pypdf import PdfReader
-    except ImportError:
-        return {}
+    except ImportError as exc:
+        raise RuntimeError(
+            "pypdf ontbreekt; installeer scripts/requirements-partituur.txt "
+            "(anders lijkt elke PDF 'unstamped')"
+        ) from exc
     try:
         reader = PdfReader(str(path))
     except Exception:  # noqa: BLE001
