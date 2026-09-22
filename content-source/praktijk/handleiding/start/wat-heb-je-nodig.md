@@ -79,7 +79,7 @@ Laat het venster van `serve` open zolang je kijkt. Klaar met kijken:
 Ctrl+C in dat venster, of sluit het venster.
 
 Alle beheer-commando’s (opkuisen, layout, check, …) hebben een uitgebreide
-man-page onder [Scripts](../scripts/). In het opdrachtvenster: `scripts\h.cmd`
+man-page onder [Scripts](/praktijk/handleiding/scripts/). In het opdrachtvenster: `scripts\h.cmd`
 of `scripts\h.cmd <naam>`.
 
 ## Klaar als
