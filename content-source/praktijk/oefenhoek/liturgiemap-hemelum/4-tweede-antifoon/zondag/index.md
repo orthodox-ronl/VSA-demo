@@ -1,6 +1,6 @@
 ---
 title: "4 Tweede antifoon (zondag)"
-linkTitle: "4 Tweede antifoon (zondag)"
+linkTitle: "Zondag"
 weight: 1
 publicatiestatus: reviewable
 automatische_inhoud: false

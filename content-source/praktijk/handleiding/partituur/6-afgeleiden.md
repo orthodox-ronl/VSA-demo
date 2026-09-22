@@ -9,7 +9,7 @@ weight: 60
 {{< cue >}}
 Na basispartituur-edit in de bibliotheek:
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliotheek\DOEL\STAM.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\bibliotheek\DOEL\STAM.mscz
 scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\DOEL
 scripts\check.cmd --strict
 ```
@@ -38,7 +38,7 @@ bibliotheek-`.vsa` die al gepubliceerd wordt, vóór je opnieuw
 ## Basispartituur: volgorde (niet omdraaien)
 
 1. Basispartituur in MuseScore 4 bewerken → Opslaan.
-2. **Opnieuw normaliseren** (`apply_mscz_layout.py` op diezelfde basispartituur).
+2. **Opnieuw normaliseren** (`scripts\layout.cmd` op diezelfde basispartituur).
 3. **Producten** (`mscz-products.cmd` op de bibliotheek-map).
 4. **`check --strict`**.
 5. Preview: koormap-slot openen; PDF-download en **Oefenen** testen.
@@ -53,7 +53,7 @@ de preview een rode banner dat de basispartituur-afgeleiden niet bij de partituu
 2. Normaliseer opnieuw:
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
 3. Maak PDF en Coria-`.mxl` opnieuw:
@@ -75,7 +75,8 @@ scripts\check.cmd --strict
 
 `vsa-products` syllabificeert ongescoopte tekst **alleen tijdens export**
 (Pyphen, temp-bestand). De canonieke `.vsa` blijft geschikt voor SVG op de
-site. Zie [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
+site. Zie [Werktrajecten](/praktijk/handleiding/werktrajecten/)
+(basispartituur: [Basispartituur](/praktijk/handleiding/werktrajecten/basispartituur/)).
 
 Na een wijziging in de bibliotheek-`.vsa`:
 

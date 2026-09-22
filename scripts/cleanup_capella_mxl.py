@@ -64,22 +64,24 @@ spaties is geweigerd.
 die in Capella-export, dan zet `apply_mscz_layout` later default CC BY-SA 4.0
 (deze uitgave) + eredienst-zin — zie partituur-contract.
 
-Gebruik:
-  python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl
+Gebruik (voorkeur):
+  scripts\\opkuisen.cmd pad\\naar\\file.mxl -o uit.mxl
+  python scripts\\opkuisen.py pad\\naar\\file.mxl --assume capella -o uit.mxl
+
+Compat:
   python scripts/cleanup_capella_mxl.py pad\\naar\\file.mxl -o uit.mxl
 """
 from __future__ import annotations
 
-import argparse
 import copy
 import io
 import re
+import sys
 import zipfile
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
 from nl_hyphen import hyphenate_token, split_syllabic
-from score_filenames import published_path, require_no_spaces
 from staff_clefs import ensure_two_staff_clefs_musicxml
 
 
@@ -605,7 +607,7 @@ def write_mxl(path: Path, root: ET.Element, xml_name: str, extras: dict[str, byt
     else:
         xml_text = (
             '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'
-            "<!-- opgekuist door scripts/cleanup_capella_mxl.py -->\n"
+            "<!-- opgekuist door scripts/opkuisen.py (Capella-MusicXML) -->\n"
             '<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 2.0 Partwise//EN"'
             ' "http://www.musicxml.org/dtds/partwise.dtd">\n'
             + body
@@ -646,6 +648,15 @@ def summarize(root: ET.Element) -> str:
     return f"title={title!r} hidden_pitched={hidden} lyrics_by_voice={lyr}"
 
 
+def cleanup_generic(root: ET.Element) -> None:
+    """Veilige MusicXML-opkuis zonder Capella-heuristieken (hoek musicxml-generic)."""
+    clef_notes = ensure_two_staff_clefs_musicxml(root)
+    print("  generic-musicxml: alleen twee-balks G/F-sleutels (geen Capella-unhide)")
+    for line in clef_notes:
+        print(f"  {line}")
+    print(f"  {summarize(root)}")
+
+
 def cleanup(root: ET.Element) -> None:
     n_unhide = unhide_pitched_notes(root)
     n_pages = remove_page_number_directions(root)
@@ -681,46 +692,13 @@ def expand_paths(paths: list[Path]) -> list[Path]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Capella-MXL opkuisen (proef).")
-    parser.add_argument(
-        "paths",
-        nargs="+",
-        type=Path,
-        help="Een of meer .mxl-bestanden, of een map (alleen directe *.mxl, geen submappen)",
-    )
-    parser.add_argument(
-        "-o",
-        "--output",
-        type=Path,
-        help="Doel-.mxl of doelmap (default: in-place). Spaties/leestekens in de naam gaan eruit.",
-    )
-    args = parser.parse_args()
-    files = expand_paths(args.paths)
-    if not files:
-        print("Geen .mxl-bestanden gevonden.", flush=True)
-        return 1
-    if args.output is not None and len(files) > 1 and not args.output.is_dir():
-        print("Bij meerdere invoerbestanden moet -o een map zijn.", flush=True)
-        return 1
-    for path in files:
-        print(f"== {path}")
-        if args.output is None:
-            dest = published_path(path) if " " in path.name else path
-            if dest != path:
-                raise SystemExit(
-                    f"in-place geweigerd (spaties in de naam); gebruik -o, bijv. {dest.name}"
-                )
-        elif args.output.suffix.lower() == ".mxl":
-            dest = published_path(args.output)
-        else:
-            dest = published_path(args.output / path.name)
-        require_no_spaces(dest)
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        root, xml_name, extras = load_mxl(path)
-        cleanup(root)
-        write_mxl(dest, root, xml_name, extras)
-        print(f"  geschreven: {dest}")
-    return 0
+    """Compat-shim: Capella-.mxl via generieke opkuiser."""
+    import opkuisen as _opk
+
+    argv = list(sys.argv[1:])
+    if "--assume" not in argv:
+        argv = ["--assume", "capella", *argv]
+    return _opk.main(argv)
 
 
 if __name__ == "__main__":

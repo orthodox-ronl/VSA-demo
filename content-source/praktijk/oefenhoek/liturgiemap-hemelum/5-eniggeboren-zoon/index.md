@@ -6,6 +6,6 @@ publicatiestatus: reviewable
 automatische_inhoud: false
 ---
 
-# 5 Eniggeboren Zoon
+# 5 Eniggeboren/Eengeboren Zoon
 
 {{< bieb id="5-eniggeboren-zoon/default/hemelum" >}}

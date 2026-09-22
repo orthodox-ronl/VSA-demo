@@ -11,7 +11,7 @@ weight: 40
    stemmen, cues — **opslaan** (Ctrl+S). Exporteer niet naar MusicXML.
 2. Opnieuw normaliseren (layouten):
 ```cmd
-python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+scripts\layout.cmd pad\naar\bestand.mscz
 ```
 3. Open de `.mscz` opnieuw in MuseScore 4. Herhaal 1–2 zo nodig.
 4. Daarna pas [PDF en Coria](../5-pdf-en-coria/).
@@ -19,7 +19,7 @@ python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
 
 **Wat je nu doet:** de basispartituur-`.mscz` inhoudelijk controleren en corrigeren, en
 daarna de basispartituur-standaard **opnieuw** toepassen met
-`apply_mscz_layout.py` (normaliseren / layouten). Zonder die tweede slag
+`scripts\layout.cmd` (normaliseren / layouten). Zonder die tweede slag
 blijven A4, fonts, reciteertoon-encoding of copyright uit de pas lopen met
 de rest van de Oefenhoek.
 
@@ -32,7 +32,7 @@ ronde. Alleen opnieuw vanaf Capella als de **input** zelf fout was.
 | Rol | Wie / wat | Voorbeelden |
 | --- | --- | --- |
 | **Inhoud** (opkuisen tijdens review) | Jij in MuseScore 4 | Verkeerde noot, plakkerige lettergreep, SAT op de verkeerde balk, ontbrekende herhaling, cue in het titelvak |
-| **Basispartituur-vorm** (normaliseren / layouten) | `apply_mscz_layout.py` | A4, marges, Source Sans 3, maatnummers, reciteertoon-collaps, zichtbare eindmaatstrepen, tempo-default, copyright-footer/colofon |
+| **Basispartituur-vorm** (normaliseren / layouten) | `scripts\layout.cmd` | A4, marges, Source Sans 3, maatnummers, reciteertoon-collaps, zichtbare eindmaatstrepen, tempo-default, copyright-footer/colofon |
 
 Uitgebreide inhoudschecklist: [Opkuisen](../2-opkuisen/).
 Uitgebreide scriptlijst: [Standaard-.mscz](../3-standaard-mscz/).
@@ -80,7 +80,7 @@ liturgische tekst ernaast. Vink af:
 
 - Geen Bestand → Exporteren → MusicXML → weer openen (stijl weg).
 - Geen PDF/Coria vóór de her-normalisatie na je laatste edit.
-- Geen `apply_mscz_layout.py` op `*.print.mscz`.
+- Geen `scripts\layout.cmd` op `*.print.mscz`.
 
 ## Stap voor stap
 
@@ -91,13 +91,13 @@ liturgische tekst ernaast. Vink af:
    bestandsnaam al goed is (zonder spaties):
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
    Ligt de basispartituur al in de bibliotheek:
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
 5. Open de `.mscz` opnieuw in MuseScore 4.

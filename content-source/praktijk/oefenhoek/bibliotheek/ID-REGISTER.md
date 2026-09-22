@@ -99,7 +99,7 @@ script tegelijk.
 | `24-een-is-heilig/` | `24-een-is-heilig/default/hemelum` | |
 | `26-gezegend-hij-die-komt/` | `26-gezegend-hij-die-komt/default/hemelum` | |
 | `27-communiezang/` | `27-communiezang/default/hemelum` | |
-| `7d-dialoog-met-diaken/` | `7d-dialoog-met-diaken/default/hemelum` | |
+| `7d-dialoog-met-diaken/` | `7d-dialoog-met-diaken/default/hemelum` | tekstblad.md, tekstblad.pdf |
 
 ### Prokimen / alleluia (Kiev + znameni-reservering)
 

@@ -6,6 +6,10 @@ weight: 20
 
 # Status, check en live
 
+**Werktraject** voor de hele site-keten:
+[Site-build](/praktijk/handleiding/werktrajecten/site-build/).
+Deze pagina is de HOW voor publicatiestatus en lokale controle.
+
 {{< cue >}}
 1. Zet `publicatiestatus` op bibliotheek-`index.md` **en** koormap-`index.md`.
 2. `scripts\check.cmd --strict` moet groen zijn.

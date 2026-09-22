@@ -26,6 +26,8 @@
     {{- $id = "vsa" -}}
   {{- else if strings.HasSuffix $stemLower ".print" -}}
     {{- $id = "print" -}}
+  {{- else if strings.HasSuffix $stemLower ".tekstblad" -}}
+    {{- $id = "tekstblad" -}}
   {{- end -}}
 {{- end -}}
 {{- /* Legacy {stam}.mxl / {stam}.pdf: afleiden uit siblings in de bladermap. */ -}}
@@ -73,5 +75,8 @@
 {{- else if eq $id "print" -}}
   {{- $label = "Printblad" -}}
   {{- $detail = "Koormap-vel om te printen" -}}
+{{- else if eq $id "tekstblad" -}}
+  {{- $label = "Tekstblad" -}}
+  {{- $detail = "Liturgische tekst of dialoog (A4-PDF)" -}}
 {{- end -}}
 {{- return (dict "id" $id "label" $label "detail" $detail) -}}

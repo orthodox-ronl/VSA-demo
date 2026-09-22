@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MusicXML created by CapToMusic.py-->
+<score-partwise version="2.0">
+  <identification><encoding><software>CapToMusic.py CapXML to MusicXML converter</software></encoding></identification>
+  <part-list><score-part id="P1"><part-name>S</part-name></score-part></part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes><divisions>1</divisions></attributes>
+      <note print-object="no"><pitch><step>A</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric><syllabic>single</syllabic><text>Heer</text></lyric></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric><syllabic>single</syllabic><text>ont</text></lyric></note>
+    </measure>
+  </part>
+</score-partwise>

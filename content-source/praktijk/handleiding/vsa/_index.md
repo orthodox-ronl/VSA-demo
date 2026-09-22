@@ -7,11 +7,14 @@ nav_sort: weight
 
 **VSA** is de notatie voor tekst-plus-melodie in een gewoon tekstbestand
 (extensie `.vsa`). De sitebuild maakt daarvan een **plaatje (SVG)** via
-`python scripts\sync_oefenhoek_index.py --svg` (onderdeel van `check` /
+`scripts\oefenhoek-index.cmd --svg` (onderdeel van `check` /
 `build` / `serve`). Bij een bibliotheek-`.vsa` maakt de lokale `check` ook
 een Coria-bestand `{stam}.vsa.mxl`, zodat koorleden de knop **Oefenen**
 krijgen. Dat zijn twee aparte stappen — zie
 [.vsa schrijven](1-vsa-schrijven/).
+
+Pijplijn (waartoe, CI, commando’s): werktraject
+[VSA → SVG en Coria](../werktrajecten/vsa/).
 
 Voor een tropaar op **toon 4** kun je dat `.vsa`-bestand daarna combineren
 met een formule-template. Dan komen alt, tenor en bas erbij (SATB). Dat

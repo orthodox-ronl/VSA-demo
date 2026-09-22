@@ -8,7 +8,7 @@ weight: 30
 
 {{< cue >}}
 Spaties in de publicatiestam? Hernoemen. Layout kwijt? Niet via MusicXML;
-wel `apply_mscz_layout.py` op de basispartituur-`.mscz`. Coria rood bij `check`? Gebruik
+wel `scripts\layout.cmd` op de basispartituur-`.mscz`. Coria rood bij `check`? Gebruik
 de `.mxl` in het **bibliotheek** (partituur-product of `{stam}.vsa.mxl`), niet een
 `.mxl` onder `input\`. MuseScore niet gevonden? Versie **4**, pad
 `C:\Program Files\MuseScore 4\bin\MuseScore4.exe`.
@@ -45,7 +45,7 @@ Stappen: [Opnemen in de bibliotheek](../1-opnemen-in-bibliotheek/).
 ## Layout of `mscz-products` “herstelt” je speciale partituur
 
 Eindigt de bestandsnaam op `.print.mscz`? Dan hoort die **niet** door
-`apply_mscz_layout` of `mscz-products`. Zie
+`scripts\layout.cmd` of `mscz-products`. Zie
 [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/). Per ongeluk
 als gewone `.mscz` gezet? Hernoem terug naar `.print.mscz` vóór de
 volgende `check`. Zet `artefacten_handmatig: true` op de bibliotheek-`index.md`
@@ -64,7 +64,7 @@ Meestal: geëxporteerd naar MusicXML en weer geopend. Ga terug naar de
 basispartituur-`.mscz` (of opnieuw vanaf opgekuiste `.mxl` plus normaliseren). Daarna:
 
 ```cmd
-python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+scripts\layout.cmd pad\naar\bestand.mscz
 ```
 
 ## Coria: `failed to retrieve file`
@@ -122,7 +122,7 @@ Shortcode `bieb` toont het VSA-plaatje uit
 `static\vsa\bladermap\…`. Ontbreekt die SVG:
 
 ```cmd
-python scripts\sync_oefenhoek_index.py --svg
+scripts\oefenhoek-index.cmd --svg
 ```
 
 of `scripts\check.cmd --strict`. `serve --no-build` slaat die stap over.

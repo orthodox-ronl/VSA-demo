@@ -1584,6 +1584,39 @@ def _strip_empty_staves(mscx: str) -> tuple[str, int]:
     return out, len(drop_ids)
 
 
+def content_cleanup_mscx(mscx: str) -> tuple[str, list[str]]:
+    """Alleen inhoudelijke MSCX-fixes (geen A4-layout / copyright / reciteer-collaps).
+
+    Gebruikt door opkuisen (diepte content) en als eerste stap van process_mscz.
+    """
+    notes: list[str] = []
+    mscx, n_empty = _strip_empty_staves(mscx)
+    mscx, n_split = _split_undersplit_lyrics(mscx)
+    mscx, n_syll = _ensure_note_per_syllable(mscx)
+    if n_empty:
+        notes.append(f"lege notenbalken verwijderd: {n_empty}")
+    if n_split:
+        notes.append(f"lettergrepen gesplitst: {n_split}")
+    if n_syll:
+        notes.append(f"noten per lettergreep geknipt: {n_syll}")
+    return mscx, notes
+
+
+def process_mscz_content_only(path: Path) -> list[str]:
+    """Schrijf .mscz terug na content_cleanup_mscx (geen apply_mscx)."""
+    from opkuis_io import read_mscz, write_mscz
+
+    if is_print_mscz(path):
+        raise SystemExit(
+            f"print-.mscz hoort niet in content-opkuis: {path.name}\n"
+            r"Zie handleiding partituur/7-print-mscz."
+        )
+    mscx, mscx_name, others, mss = read_mscz(path)
+    new_mscx, notes = content_cleanup_mscx(mscx)
+    write_mscz(path, new_mscx, mscx_name, others, mss=mss)
+    return notes
+
+
 def process_mscz(
     path: Path,
     *,
@@ -1607,19 +1640,12 @@ def process_mscz(
 
     if no_extenders:
         mscx = _set_meta(mscx, "vsaNoLyricExtenders", "1")
-    mscx, n_empty = _strip_empty_staves(mscx)
-    mscx, n_split = _split_undersplit_lyrics(mscx)
-    mscx, n_syll = _ensure_note_per_syllable(mscx)
+    mscx, content_notes = content_cleanup_mscx(mscx)
+    notes.extend(content_notes)
     ident = (bibliotheek_id or "").strip() or (id_from_path(path) or "")
     new_mscx, mscx_notes = apply_mscx(
         mscx, rights_hint=rights_hint, bibliotheek_id=ident
     )
-    if n_syll:
-        mscx_notes.insert(0, f"noten per lettergreep geknipt: {n_syll}")
-    if n_split:
-        mscx_notes.insert(0, f"lettergrepen gesplitst: {n_split}")
-    if n_empty:
-        mscx_notes.insert(0, f"lege notenbalken verwijderd: {n_empty}")
     notes.extend(mscx_notes)
     short = _meta(new_mscx, "copyright").strip()
     style_extra = dict(extra_style or {})

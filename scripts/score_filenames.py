@@ -17,9 +17,11 @@ from pathlib import Path
 
 _UNSAFE = re.compile(r"[^a-zA-Z0-9_-]+")
 PRINT_MSCZ_SUFFIX = ".print.mscz"
+TEKSTBLAD_MD_SUFFIX = ".tekstblad.md"
+TEKSTBLAD_PDF_SUFFIX = ".tekstblad.pdf"
 SYLLABIFY_VSA_SUFFIX = ".syl.vsa"
 # Canonieke representatie-ids (contract). Uitbreiden alleen via contract-PR.
-KNOWN_REPRESENTATIE_IDS = frozenset({"partituur", "vsa", "print"})
+KNOWN_REPRESENTATIE_IDS = frozenset({"partituur", "vsa", "print", "tekstblad"})
 # Oude id in bestandsnamen / docs → canonieke id.
 REPRESENTATIE_ID_ALIASES = {"hub": "partituur"}
 
@@ -32,6 +34,26 @@ def is_print_mscz(path: Path | str) -> bool:
     """True als dit een print-vel is (scripts moeten ervan afblijven)."""
     name = path.name if isinstance(path, Path) else Path(path).name
     return name.lower().endswith(PRINT_MSCZ_SUFFIX)
+
+
+def is_tekstblad_md(path: Path | str) -> bool:
+    """Canonieke bron voor representatie-id ``tekstblad``."""
+    name = path.name if isinstance(path, Path) else Path(path).name
+    return name.lower().endswith(TEKSTBLAD_MD_SUFFIX)
+
+
+def is_tekstblad_pdf(path: Path | str) -> bool:
+    """Afgeleide PDF bij een tekstblad-bron."""
+    name = path.name if isinstance(path, Path) else Path(path).name
+    return name.lower().endswith(TEKSTBLAD_PDF_SUFFIX)
+
+
+def tekstblad_pdf_for_md(md: Path) -> Path:
+    """``{stam}.tekstblad.md`` -> ``{stam}.tekstblad.pdf``."""
+    name = md.name
+    if not name.lower().endswith(TEKSTBLAD_MD_SUFFIX):
+        raise ValueError(f"geen tekstblad-bron: {name}")
+    return md.with_name(name[: -len(TEKSTBLAD_MD_SUFFIX)] + TEKSTBLAD_PDF_SUFFIX)
 
 
 def is_syllabify_sidecar_vsa(path: Path | str) -> bool:
@@ -67,6 +89,8 @@ def representatie_id_from_name(name: str) -> str | None:
     lower = Path(name).name.lower()
     if lower.endswith(PRINT_MSCZ_SUFFIX):
         return "print"
+    if lower.endswith(TEKSTBLAD_MD_SUFFIX) or lower.endswith(TEKSTBLAD_PDF_SUFFIX):
+        return "tekstblad"
     stem = Path(name).stem  # strips final suffix only (.mxl / .pdf / .mscz)
     if "." not in stem:
         return None

@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "dir": "praktijk/oefenhoek/bibliotheek/7d-dialoog-met-diaken/default/hemelum",
+      "source": "content-source/praktijk/oefenhoek/bibliotheek/7d-dialoog-met-diaken/default/hemelum/7d-dialoog-met-diaken-default-hemelum.tekstblad.md",
+      "ok": true,
+      "issues": [],
+      "fix_cmd": "scripts\\tekstblad-products.cmd"
+    }
+  ],
+  "fix_page": "/praktijk/handleiding/werktrajecten/tekstblad/"
+}

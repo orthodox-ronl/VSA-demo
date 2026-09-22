@@ -28,12 +28,16 @@ FIELD_GENERATED_AT = "vsa-generated-at"
 FIELD_GENERATOR = "vsa-generator"
 GENERATOR_ID = "mscz-products"
 GENERATOR_VSA = "vsa-musicxml"
+GENERATOR_TEKSTBLAD = "tekstblad-products"
 SOURCE_KIND_PARTITUUR = "partituur"
 SOURCE_KIND_HUB = SOURCE_KIND_PARTITUUR  # legacy alias
 SOURCE_KIND_VSA = "vsa"
+SOURCE_KIND_TEKSTBLAD = "tekstblad"
 PDF_KEY_PARTITUUR = "/VSAPartituurSHA256"
 PDF_KEY_PARTITUUR_LEGACY = "/VSAHubSHA256"
 PDF_KEY_HUB = PDF_KEY_PARTITUUR
+PDF_KEY_SOURCE_SHA = "/VSASourceSHA256"
+PDF_KEY_SOURCE_KIND = "/VSASourceKind"
 PDF_KEY_GENERATED = "/VSAGeneratedAt"
 PDF_KEY_GENERATOR = "/VSAGenerator"
 
@@ -194,12 +198,14 @@ def stamp_pdf(
     *,
     partituur_hash: str | None = None,
     hub_hash: str | None = None,
+    source_hash: str | None = None,
+    source_kind: str | None = None,
     generated_at: str,
     generator: str = GENERATOR_ID,
 ) -> None:
     digest = partituur_hash if partituur_hash is not None else hub_hash
-    if not digest:
-        raise ValueError("partituur_hash of hub_hash verplicht")
+    if not digest and not source_hash:
+        raise ValueError("partituur_hash/hub_hash of source_hash verplicht")
     try:
         from pypdf import PdfReader, PdfWriter
     except ImportError:
@@ -221,14 +227,18 @@ def stamp_pdf(
     reader = PdfReader(str(path))
     writer = PdfWriter()
     writer.append(reader)
-    writer.add_metadata(
-        {
-            PDF_KEY_PARTITUUR: digest,
-            PDF_KEY_PARTITUUR_LEGACY: digest,
-            "/VSAGeneratedAt": generated_at,
-            "/VSAGenerator": generator,
-        }
-    )
+    meta: dict[str, str] = {
+        PDF_KEY_GENERATED: generated_at,
+        PDF_KEY_GENERATOR: generator,
+    }
+    if digest:
+        meta[PDF_KEY_PARTITUUR] = digest
+        meta[PDF_KEY_PARTITUUR_LEGACY] = digest
+    if source_hash:
+        meta[PDF_KEY_SOURCE_SHA] = source_hash
+        if source_kind:
+            meta[PDF_KEY_SOURCE_KIND] = source_kind
+    writer.add_metadata(meta)
     tmp = path.with_suffix(path.suffix + ".tmp")
     with tmp.open("wb") as fh:
         writer.write(fh)
@@ -257,6 +267,10 @@ def read_pdf_stamp(path: Path) -> dict[str, str]:
         "VSAPartituurSHA256": FIELD_PARTITUUR_SHA,
         PDF_KEY_PARTITUUR_LEGACY: FIELD_PARTITUUR_SHA_LEGACY,
         "VSAHubSHA256": FIELD_PARTITUUR_SHA_LEGACY,
+        PDF_KEY_SOURCE_SHA: FIELD_SOURCE_SHA,
+        "VSASourceSHA256": FIELD_SOURCE_SHA,
+        PDF_KEY_SOURCE_KIND: FIELD_SOURCE_KIND,
+        "VSASourceKind": FIELD_SOURCE_KIND,
         "/VSAGeneratedAt": FIELD_GENERATED_AT,
         "VSAGeneratedAt": FIELD_GENERATED_AT,
         "/VSAGenerator": FIELD_GENERATOR,

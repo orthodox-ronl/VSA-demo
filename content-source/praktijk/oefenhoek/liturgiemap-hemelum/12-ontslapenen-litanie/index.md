@@ -6,6 +6,8 @@ publicatiestatus: voorzien
 automatische_inhoud: false
 ---
 
-# 12 Ontslapenen Litanie/Ektinia
+# 12 Ontslapenen Litanie/Ektinia (facultatief)
+
+**Deze wordt alleen gezongen als het in de koorinstructie staat.**
 
 {{< bieb id="12-ontslapenen-litanie/default/hemelum" >}}

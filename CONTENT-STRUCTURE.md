@@ -34,7 +34,7 @@ content-source/
 | Inline VSA ter referentie/bewerking        | `hemelum-eigen/`           | geen duplicate stub-pagina's       |
 | Losse zangstukken buiten de andere secties | `diversen/`                | inline VSA, geen catalogus-include |
 | Tooling-demo (svg CLI → inline → include; mxl; coria; pdf) | `demo/` (+ `demo/assets/`) | één topic per pagina |
-| Beheerder-handleiding (oefenhoek-straat)   | `handleiding/`             | geen `nav_group`; balk-knop **Handleiding** (weight na Demo) |
+| Beheerder-handleiding (oefenhoek-straat)   | `handleiding/`             | Start (pc klaarzetten); Werktrajecten (pijplijnen); Partituur/VSA HOW; Publiceren; Scripts; balk-knop **Handleiding** |
 | WIP-oefenmateriaal voor koorleden          | `oefenhoek/`               | geen `nav_group`; bibliotheek + koormap-slots |
 | Parochie-lokaal manifest + `.vsa`          | `lokaal/<zangstuk-id>/...` | pad conform bron-handboek          |
 | Header-nav                                 | `nav_group` op sectie-`_index.md` | `diensten` / `materiaal`; sectie zonder groep (Oefenhoek, Demo, Handleiding) wordt dropdown van haar pagina’s |

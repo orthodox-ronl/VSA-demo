@@ -8,5 +8,5 @@ automatische_inhoud: true
 ---
 
 Troparen, kondaken en verwante korte gezangen voor de liturgie in Hemelum.
-Bestanden staan in de bibliotheek onder `110-tropaar/`, `120-kondak/` en `diversen/`
-(geen catalogus-includes; geen verwijzing naar `content-source/lokaal/`).
+Er zijn er een heleboel; voor Hemelum hebben we de vaak gezongen troparen 
+en kondaken hier staan, alsmede een mapje met weinig gebruikte.

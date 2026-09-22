@@ -1,7 +1,7 @@
 ---
 title: "Kondak H. Moeder Gods (toon 6)"
 linkTitle: "Kondak Moeder Gods (toon 6)"
-weight: 20
+weight: 90
 publicatiestatus: reviewable
 automatische_inhoud: false
 ---
