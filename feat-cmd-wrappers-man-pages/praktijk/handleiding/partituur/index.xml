@@ -24,27 +24,22 @@ CI en vervolgstappen: &lt;a href="../../werktrajecten/opnemen-in-bibliotheek/"&g
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
- &lt;p&gt;Capella-&lt;code&gt;.mxl&lt;/code&gt; → schone &lt;code&gt;.mxl&lt;/code&gt; in &lt;code&gt;_werk&lt;/code&gt; (origineel in &lt;code&gt;capella\&lt;/code&gt; blijft staan):&lt;/p&gt;
+ &lt;p&gt;Snel (Capella-&lt;code&gt;.mxl&lt;/code&gt; → schone &lt;code&gt;.mxl&lt;/code&gt; in &lt;code&gt;_werk&lt;/code&gt;; origineel in &lt;code&gt;capella\&lt;/code&gt; blijft):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\opkuisen.cmd &lt;span style="color:#e6db74"&gt;&amp;#34;content-source\praktijk\oefenhoek\input\capella\NAAM.mxl&amp;#34;&lt;/span&gt; -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Alleen herkomst + rapport (geen schrijven; &lt;code&gt;--analyze&lt;/code&gt; en &lt;code&gt;--dry-run&lt;/code&gt; zijn
+hetzelfde):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\opkuisen.cmd content-source\praktijk\oefenhoek\input\capella --analyze
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;STAM&lt;/code&gt; = publicatiestam uit de bibliotheek-id, zonder spaties
 (voorbeeld: id &lt;code&gt;8-trisagion/8a-nederlands/hemelum&lt;/code&gt; →
 &lt;code&gt;8-trisagion-8a-nederlands-hemelum&lt;/code&gt;).
-Man-page: &lt;a href="../../scripts/opkuisen/"&gt;opkuisen&lt;/a&gt;
+Volledige man-page (hoeken, manieren wel/niet, exitcodes):
+&lt;a href="../../scripts/opkuisen/"&gt;opkuisen&lt;/a&gt;
 .
-Ruwe &lt;code&gt;.mscz&lt;/code&gt; (VOW e.d.): geen Capella-script; open in MuseScore 4 en werk de
-checklist hieronder af, daarna &lt;a href="../3-standaard-mscz/"&gt;normaliseren&lt;/a&gt;
-.&lt;/p&gt;
-
- &lt;/div&gt;
-&lt;/aside&gt;
-
-&lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; de &lt;strong&gt;inhoud&lt;/strong&gt; van de partituur opschonen zodat noten,
-stemmen en lettergrepen kloppen — vóór (of, bij een &lt;code&gt;.mscz&lt;/code&gt;, naast) de
-basispartituur-standaard. &lt;strong&gt;Opkuisen&lt;/strong&gt; is geen A4-layout en geen PDF/Coria. Die horen bij
-&lt;a href="../3-standaard-mscz/"&gt;normaliseren / layouten&lt;/a&gt;
- en
-&lt;a href="../5-pdf-en-coria/"&gt;PDF en Coria&lt;/a&gt;
-.&lt;/p&gt;</description></item><item><title>Standaard-.mscz maken</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/3-standaard-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/3-standaard-mscz/</guid><description>&lt;h1 id="standaard---basispartituur-mscz-maken-normaliseren--layouten"&gt;Standaard- / basispartituur-&lt;code&gt;.mscz&lt;/code&gt; maken (normaliseren / layouten)&lt;/h1&gt;
+Ruwe &lt;code&gt;.mscz&lt;/code&gt;: &lt;code&gt;scripts\opkuisen.cmd pad\naar\bestand.mscz&lt;/code&gt; doet
+inhoudsfixes; stemmen/checklist hieronder blijf je in MuseScore 4
+controleren, daarna &lt;a href="../3-standaard-mscz/"&gt;normaliseren&lt;/a&gt;
+ of
+&lt;code&gt;opkuisen … --layout&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Standaard-.mscz maken</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/3-standaard-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/3-standaard-mscz/</guid><description>&lt;h1 id="standaard---basispartituur-mscz-maken-normaliseren--layouten"&gt;Standaard- / basispartituur-&lt;code&gt;.mscz&lt;/code&gt; maken (normaliseren / layouten)&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;

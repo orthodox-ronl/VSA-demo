@@ -6,8 +6,7 @@
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/liturgikon/>Liturgikon</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/diversen/>Diversen</a></div></details><details class=site-nav-group><summary>Oefenhoek</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/bibliotheek/>Bibliotheek</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/overig/>Overig</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
@@ -28,7 +27,9 @@
 </span></span></code></pre></div><h1 id=description>DESCRIPTION</h1><p>Neemt een klaar bestand op in de <strong>bibliotheek</strong> (de catalogus onder
 <code>oefenhoek\bibliotheek\</code>), onder een bibliotheek-id van drie lagen:
 <code>zangstuk/variant/uitvoeringsvorm</code>. Toegestaan: basispartituur-<code>.mscz</code>,
-<code>.vsa</code>, of <code>.print.mscz</code> (optioneel sibling-<code>.pdf</code> / <code>.mxl</code>).</p><p>Het script maakt ontbrekende <code>_index.md</code> / <code>index.md</code> met shortcode <code>bieb</code>
+<code>.vsa</code>, <code>.print.mscz</code>, of <code>.tekstblad.md</code> (optioneel sibling-<code>.pdf</code> / <code>.mxl</code>).
+Bij <code>.tekstblad.md</code> zet het script indien nodig frontmatter
+<code>build: render: never</code> zodat de bron geen Hugo-pagina wordt.</p><p>Het script maakt ontbrekende <code>_index.md</code> / <code>index.md</code> met shortcode <code>bieb</code>
 en hernoemt naar de publicatiestam. Capella-bronformats en een kale
 Capella-<code>.mxl</code> worden geweigerd — eerst <a href=../opkuisen/>opkuisen</a>
 /

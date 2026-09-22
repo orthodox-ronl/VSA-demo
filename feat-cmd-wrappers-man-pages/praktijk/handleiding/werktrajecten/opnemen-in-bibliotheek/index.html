@@ -6,8 +6,7 @@
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/liturgikon/>Liturgikon</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/diversen/>Diversen</a></div></details><details class=site-nav-group><summary>Oefenhoek</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/bibliotheek/>Bibliotheek</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/overig/>Overig</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
@@ -36,8 +35,8 @@ genoeg is om op te nemen.</p><aside class=handleiding-cue><p class=handleiding-c
 <code>content-source\praktijk\oefenhoek\input\werkvoorraad.md</code> bij
 (<code>update-werkvoorraad</code> of <code>check</code>).</li><li>Vul het <strong>doel-id</strong> in — niet raden; zie het
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/bibliotheek/id-register/>Id-register</a>
-.</li><li>Als het bestand klaar is (basispartituur-<code>.mscz</code>, <code>.vsa</code> of <code>.print.mscz</code>):
-<code>scripts\bieb-accepteer.cmd</code>.</li><li>Controleer met <code>scripts\check.cmd --strict</code>.</li></ol></div></aside><h2 id=waartoe>Waartoe</h2><p>Koorleden zien alleen wat in de <strong>bibliotheek</strong> staat (of via een
+.</li><li>Als het bestand klaar is (basispartituur-<code>.mscz</code>, <code>.vsa</code>, <code>.print.mscz</code>
+of <code>.tekstblad.md</code>): <code>scripts\bieb-accepteer.cmd</code>.</li><li>Controleer met <code>scripts\check.cmd --strict</code>.</li></ol></div></aside><h2 id=waartoe>Waartoe</h2><p>Koorleden zien alleen wat in de <strong>bibliotheek</strong> staat (of via een
 <strong>koormap</strong>-slot ernaar verwijst). Ruwe Capella-, PDF- of VOW-bestanden
 horen niet rechtstreeks in die catalogus. Dit traject houdt de input
 bij, en zet een <strong>klaar</strong> oefenbestand op de juiste plek met de juiste
@@ -66,7 +65,8 @@ de nieuwe rij. Vul kolom <strong>Doel-id</strong> in als je het bibliotheek-id k
 niet? Laat de cel leeg en vraag na — <strong>niet verzinnen</strong>.
 5. Pas <strong>Koormap</strong> of <strong>Notitie</strong> aan als dat nodig is. Kolommen <em>Stap</em>
 en <em>Volgende</em> vult het script; die niet met de hand “rechtzetten”.</p><h3 id=klaar-bestand-opnemen>Klaar bestand opnemen</h3><ol start=6><li>Zorg dat het bestand een bruikbare <strong>basispartituur-<code>.mscz</code></strong>,
-<strong><code>.vsa</code></strong> of <strong><code>.print.mscz</code></strong> is (niet een ruwe Capella-file).</li><li>Neem op in de bibliotheek:</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\bieb-accepteer.cmd
+<strong><code>.vsa</code></strong>, <strong><code>.print.mscz</code></strong> of <strong><code>.tekstblad.md</code></strong> is (niet een ruwe
+Capella-file).</li><li>Neem op in de bibliotheek:</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\bieb-accepteer.cmd
 </span></span></code></pre></div><p>Het script vraagt bibliotheek-id en bestand na (of je geeft die op de
 regel). Het maakt de mappen, zet <code>index.md</code> met shortcode <code>bieb</code>, en
 kopieert het bestand naar de <strong>publicatiestam</strong>-naam.

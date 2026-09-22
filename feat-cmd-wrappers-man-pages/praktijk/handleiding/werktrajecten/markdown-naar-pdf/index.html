@@ -6,8 +6,7 @@
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/liturgikon/>Liturgikon</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/diversen/>Diversen</a></div></details><details class=site-nav-group><summary>Oefenhoek</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/bibliotheek/>Bibliotheek</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a>
-<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/overig/>Overig</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/>Overzicht</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
 <a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
@@ -25,8 +24,11 @@
 <span class=site-jump-label>VSA-tooling</span>
 </a><a class=site-jump href=https://github.com/orthodox-ronl/VSA-demo title="VSA-demo - broncode op GitHub"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483.0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951.0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65.0.0.84-.27 2.75 1.026A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688.0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855.0 1.338-.012 2.419-.012 2.747.0.268.18.58.688.482A10.019 10.019.0 0022 12.021C22 6.484 17.522 2 12 2z"/></svg>
 <span class=site-jump-label>GitHub</span></a></nav></div></header></div><main class=page><h1 id=markdown-naar-pdf>Markdown naar PDF</h1><p>Dit werktraject maakt van één Markdownbestand (tekst, VSA-blokken,
-includes, paginascheidingen) een <strong>A4-PDF</strong>. Het is geen vervanging van
-bibliotheek-PDF’s uit MuseScore.</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><p>Willekeurig blad:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\pdf.cmd pad\naar\blad.md -o pad\naar\uit.pdf --content-root content-source
+includes, paginascheidingen) een <strong>A4-PDF</strong>. Gebruik dit voor demo’s en
+losse bladen <strong>buiten</strong> de oefenhoek-bibliotheek. Voor liturgische tekst
+<strong>in</strong> de bibliotheek: werktraject
+<a href=/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/tekstblad/>Tekstblad</a>
+(<code>{stam}.tekstblad.md</code> → <code>{stam}.tekstblad.pdf</code>).</p><aside class=handleiding-cue><p class=handleiding-cue-label>Snel (als je het al eens deed)</p><div class=handleiding-cue-body><p>Willekeurig blad:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\pdf.cmd pad\naar\blad.md -o pad\naar\uit.pdf --content-root content-source
 </span></span></code></pre></div><p>Vaste demo (Tooling Demo «Markdown naar PDF»):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\demo-pdf.cmd
 </span></span></code></pre></div></div></aside><h2 id=waartoe>Waartoe</h2><p>Je wilt een printbaar blad (bijvoorbeeld een demo of een liturgisch
 leesblad) dat markdown en <code>::: vsa-notatie</code> combineert, zonder een

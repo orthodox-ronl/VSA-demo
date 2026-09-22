@@ -62,6 +62,8 @@ publicatie, ids en navigatie niet door elkaar lopen.&lt;/p&gt;</description></it
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;werktraject&lt;/strong&gt; = vaste pijplijn (waartoe, eindresultaat, CI, handmatige &lt;code&gt;.cmd&lt;/code&gt;); catalogus: &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/"&gt;Werktrajecten&lt;/a&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tekstblad&lt;/strong&gt; = representatie-id: bron &lt;code&gt;{stam}.tekstblad.md&lt;/code&gt; → product &lt;code&gt;{stam}.tekstblad.pdf&lt;/code&gt;; zie &lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/tekstblad/"&gt;Tekstblad&lt;/a&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;opkuisen&lt;/strong&gt; = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;normaliseren&lt;/strong&gt; / &lt;strong&gt;layouten&lt;/strong&gt; = basispartituur-standaard met &lt;code&gt;scripts\layout.cmd&lt;/code&gt; (zelfde scriptstap; “layouten” is de gewone naam)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;bibliotheek-id&lt;/strong&gt; = &lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van basispartituur-&lt;code&gt;.mscz&lt;/code&gt;/PDF&lt;/li&gt;
