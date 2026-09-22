@@ -79,7 +79,9 @@ Coria. Bezoekers hoeven geen MusicXML te downloaden of zelf te importeren
 ).&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/praktijk/demo/06-markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Wat je hier leert:&lt;/strong&gt; van een Markdownblad (tekst, VSA, includes,
 paginascheidingen) een A4-PDF maken. De site-build maakt de PDF niet
-automatisch; wel controleert &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt; of de demo-PDF up-to-date is.&lt;/p&gt;
+automatisch; wel controleert &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt; of de demo-PDF up-to-date is.
+Beheerder-pijplijn: &lt;a href="https://orthodox-ronl.github.io/VSA-demo/praktijk/handleiding/werktrajecten/markdown-naar-pdf/"&gt;Markdown naar PDF (Werktrajecten)&lt;/a&gt;
+.&lt;/p&gt;
 &lt;h2 id="bron"&gt;Bron&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;assets\voorbeeld-blad.md&lt;/code&gt; — niet als Hugo-pagina gepubliceerd; alleen bron
 voor de PDF. Gebruikt o.a. &lt;code&gt;::: vsa-notatie&lt;/code&gt; en &lt;code&gt;:::include svg&lt;/code&gt; (zie de
