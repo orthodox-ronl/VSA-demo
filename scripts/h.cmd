@@ -80,7 +80,7 @@ call :emit_short serve "lokale Hugo-preview" "--no-build"
 call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
-call :emit_short opkuisen "Capella-MXL inhoudelijk opkuisen" "<bron.mxl> [-o]"
+call :emit_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pad> [--analyze|--dry-run] [-o] [--layout]"
 call :emit_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
@@ -118,7 +118,7 @@ call :try_short serve "lokale Hugo-preview" "--no-build"
 call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
-call :try_short opkuisen "Capella-MXL inhoudelijk opkuisen" "<bron.mxl> [-o]"
+call :try_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pad> [--analyze|--dry-run] [-o] [--layout]"
 call :try_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
@@ -509,28 +509,99 @@ goto end_ok
 echo.
 echo NAME
 echo   scripts\opkuisen.cmd
-echo   scripts\cleanup_capella_mxl.py
+echo   scripts\opkuisen.py
+echo   ^(compat: scripts\cleanup_capella_mxl.py -^> --assume capella^)
 echo.
 echo SYNOPSIS
-echo   scripts\opkuisen.cmd ^<bron.mxl^> [-o doel.mxl^|doelmap]
+echo   scripts\opkuisen.cmd ^<pad^> [pad...] [opties]
 echo.
 echo DESCRIPTION
-echo   Kuist Capella/CapToMusic-.mxl inhoudelijk op (lagen 1-3):
-echo   reciteerkwarten, lettergrepen, titelrommel, lege maten, sleutels.
-echo   Geen A4-layout (dat is layout.cmd). Niet in check/build/serve.
-echo   -o naar _werk\STAM\STAM.mxl zonder spaties. Overschrijf nooit
-echo   het Capella-origineel in input\capella\.
+echo   Opkuisen = muzikale/tekstuele INHOUD opschonen. Eerst herkomstanalyse
+echo   ^(hoek^), daarna alleen de manieren die bij die hoek horen.
+echo   Default-diepte: content ^(geen A4^). Met --layout ook normaliseren
+echo   ^(apply_mscz_layout^). PDF/Coria: mscz-products. Niet in check/build/serve.
+echo.
+echo   WAT WEL / NIET ^(kern^)
+echo   Wel: herkomst, inhoudsfixes per hoek, optioneel --layout, rapport
+echo        zonder schrijven ^(--analyze / --dry-run^).
+echo   Niet: stil Capella op elk bestand; PDF/Coria; *.print.mscz;
+echo         stemmen structureel herschikken; SVG / vsa.mxl bouwen.
+echo.
+echo INVOER
+echo   .mxl .musicxml .xml .mscz .mscx
+echo   .vsa / .mvsa: alleen --analyze/--dry-run ^(vsa: validate; mvsa: voorzien^)
+echo   Geweigerd: .cap .capx, *.print.mscz, corrupte zip/XML
+echo.
+echo DIRECTORY
+echo   Recursief. Mapscan slaat *.print.mscz over. Scan-root zonder segment
+echo   input: sla paden onder input\ over. Expliciet pad onder input\capella\
+echo   wordt wél meegenomen.
+echo.
+echo DIEPTES
+echo   content ^(default^)     inhoudsfixes, schrijft
+echo   --analyze             synoniem van --dry-run: rapport, GEEN schrijven
+echo   --dry-run             synoniem van --analyze
+echo   --layout              na content ook basispartituur-layout
+echo   --analyze + --layout  rapporteert alleen dat layout zou volgen
+echo.
+echo HERKOMST ^(hoek^)
+echo   CapToMusic/Capella in software/comment of veel print-object=no
+echo     -^> capella
+echo   MusicXML zonder Capella-signalen -^> musicxml-generic
+echo   .mscz/.mscx -^> musescore
+echo   .vsa / .mvsa -^> vsa / mvsa
+echo   Lage confidence zonder --assume: exit 2 ^(niet stil Capella toepassen^)
+echo   --assume capella^|musicxml-generic^|musescore^|vsa^|mvsa
+echo   --force: lage confidence toch doorzetten
+echo.
+echo MANIEREN WEL/NIET
+echo   capella-musicxml: unhide reciteerkwarten, lettergrepen, lyrics stem1,
+echo     backups, titel/pagina-rommel, lege maten, G/F bij 2 balken.
+echo     Niet: A4/PDF/Coria, stemmen herschikken, stil input\capella\ overschrijven.
+echo   generic-musicxml: alleen veilige G/F-sleutels. Niet: Capella-unhide.
+echo   musescore-content: lege balken, lyric-splits, noot-per-lettergreep.
+echo     Niet: A4/copyright/reciteer-collaps ^(dat is --layout^).
+echo   --layout: zelfde als layout.cmd; weigert print-.mscz; geen losse .mscx.
+echo   vsa v1: analyze=validate; content geweigerd. mvsa: voorzien.
+echo.
+echo UITVOER
+echo   -o bestand^|map     --in-place     --ext .mxl
+echo   Zonder -o: in-place alleen zonder spaties in de naam.
+echo   Schrijven naar ruwe oefenhoek\input\^<herkomst^>\ vereist --in-place;
+echo   voorkeur: -o naar input\_werk\STAM\STAM.mxl
+echo.
+echo EXITCODES
+echo   0 ok   1 fout   2 weigering ^(confidence/input/spaties/VSA-content^)
 echo.
 echo OPTIONS
-echo   -o, --output   doel-.mxl of doelmap (default: in-place zonder spaties)
+echo   --analyze / --dry-run   rapport, geen schrijven ^(synoniemen^)
+echo   --layout                content + layout
+echo   --assume HOEK           detectie overschrijven
+echo   --force                 lage confidence doorzetten
+echo   -o, --output            doelbestand of doelmap
+echo   --in-place              bron / ruwe input overschrijven
+echo   --ext EXT               doel-extensie
+echo   --id ID                 bibliotheek-id bij --layout
+echo.
+echo EXAMPLES
+echo   scripts\opkuisen.cmd "input\capella\NAAM.mxl" -o input\_werk\STAM\STAM.mxl
+echo   scripts\opkuisen.cmd input\capella --analyze
+echo   scripts\opkuisen.cmd input\capella --dry-run
+echo   scripts\opkuisen.cmd pad\stuk.mscz --layout
+echo   scripts\opkuisen.cmd pad\stuk.vsa --analyze
 echo.
 echo WHEN
-echo   Elke nieuwe Capella-/CapToMusic-.mxl, voor layout.cmd.
+echo   Nieuwe Capella/MusicXML/MSCZ voor layout; eerst --analyze bij twijfel.
+echo.
+echo GRENZEN
+echo   Geen menselijke stemverdeling vervangen; geen roundtrip-reparatie;
+echo   geen stil Capella-origineel overschrijven; niet in check.
 echo.
 echo SEE ALSO
 echo   scripts\h.cmd layout
 echo   handleiding scripts\opkuisen
 echo   handleiding partituur\2-opkuisen
+echo   handleiding vsa\1-vsa-schrijven
 echo.
 goto end_ok
 

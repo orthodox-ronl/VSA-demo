@@ -33,7 +33,7 @@ Zet `.\scripts` op je PATH (dat doet `check` via `_ensure`), of roep altijd
 | `pdf` | Maakt van één Markdownbestand (met eventuele VSA-blokken) een A4-PDF die je kiest. Voor willekeurige bladen; vaste demopaden → `demo-pdf`. | [pdf](pdf/) |
 | `demo-pdf` | Vernieuwt het vaste demoblad-PDF `static\demo\voorbeeld-blad.pdf` uit de bron `content-source\praktijk\demo\assets\voorbeeld-blad.md`. Die PDF hoort bij de Tooling Demo «Markdown naar PDF»; `check` faalt als die PDF ouder is dan die bronnen. | [demo-pdf](demo-pdf/) |
 | `sync-bron-zondagen` | Kopieert zondag-tropaar/kondak-bestanden (`.vsa` en bijbehorende plaatjes) uit de sibling-map `bron` naar `content-source\praktijk\zondagen\`, zodat de demo synchroon blijft met canonieke bron. | [sync-bron-zondagen](sync-bron-zondagen/) |
-| `opkuisen` | Schoon een Capella- of CapToMusic-`.mxl` inhoudelijk op (noten, lettergrepen, titelrommel) en schrijft een schone `.mxl` — meestal naar `oefenhoek\input\_werk\`. Geen A4-layout en geen PDF. | [opkuisen](opkuisen/) |
+| `opkuisen` | Herkomstanalyse en inhoudelijke opkuis voor MusicXML (`.mxl` / `.musicxml` / `.xml`) en MuseScore (`.mscz` / `.mscx`); optioneel `--layout`. `--analyze` / `--dry-run` = alleen rapport. | [opkuisen](opkuisen/) |
 | `layout` | Past de Oefenhoek-basispartituur-standaard toe op een `.mscz` of opgekuiste `.mxl` (A4, fonts, reciteertoon, copyright). Resultaat: een genormaliseerde basispartituur-`.mscz`. | [layout](layout/) |
 | `mscz-products` | Maakt naast een basispartituur-`.mscz` de sibling-PDF en Coria-`.mxl` die koorleden downloaden of afspelen. | [mscz-products](mscz-products/) |
 | `vsa-products` | Maakt naast een bibliotheek-`.vsa` het Coria-bestand `{stam}.vsa.mxl` voor de Oefenen-knop. | [vsa-products](vsa-products/) |

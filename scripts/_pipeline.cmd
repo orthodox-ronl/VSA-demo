@@ -45,6 +45,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\test_bibliotheek_id_colophon.py
 "%PY%" scripts\test_bieb_accepteer.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\test_opkuisen.py
+if errorlevel 1 exit /b 1
 "%PY%" scripts\test_sync_vsa_products.py
 if errorlevel 1 exit /b 1
 echo OK

@@ -34,6 +34,11 @@ doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 | SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `scripts\oefenhoek-index.cmd --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
 | `{stam}.vsa.mxl` naast de `.vsa` | Knop **Oefenen** (Coria) | `scripts\vsa-products.cmd` (of dezelfde `check`-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je `.vsa` te wijzigen |
 
+`scripts\opkuisen.cmd` past **geen** Capella-/MusicXML-heuristieken toe op een
+`.vsa`. Met `--analyze` of `--dry-run` kan `opkuisen` wél `vsa validate`
+rapporteren; automatische inhoudsfix op `.vsa` bestaat in v1 niet — zie
+[opkuisen](/praktijk/handleiding/scripts/opkuisen/).
+
 Volledig overzicht van de pijplijnen: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
 (VSA-werktraject: [VSA → SVG en Coria](/praktijk/handleiding/werktrajecten/vsa/)).
 HOW op deze pagina; de werktrajectpagina beschrijft waartoe, CI en commando’s.

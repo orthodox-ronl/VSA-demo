@@ -2,26 +2,32 @@
 setlocal EnableExtensions
 cd /d %~dp0\..
 
-REM Capella/CapToMusic-.mxl inhoudelijk opkuisen (lagen 1-3).
+REM Generieke opkuiser (herkomstanalyse + inhoud; optioneel layout).
 REM Zie scripts\h.cmd opkuisen
 
 if /I "%~1"=="-h" goto usage
 if /I "%~1"=="--help" goto usage
 if "%~1"=="" goto usage
 
-python scripts\cleanup_capella_mxl.py %*
+python scripts\opkuisen.py %*
 exit /b %ERRORLEVEL%
 
 :usage
 echo.
-echo Gebruik: scripts\opkuisen.cmd ^<bron.mxl^> [-o doel.mxl^|doelmap] ...
+echo Gebruik: scripts\opkuisen.cmd ^<pad^> [pad...] [opties]
 echo.
-echo   Kuist Capella/CapToMusic-.mxl op (reciteerkwarten, lettergrepen, ...).
-echo   Geen A4-layout / PDF / Coria - dat is layout.cmd / mscz-products.
+echo   Herkomstanalyse + inhoudelijke opkuis voor .mxl / .musicxml / .xml /
+echo   .mscz / .mscx. Optioneel .vsa/.mvsa (alleen --analyze/--dry-run).
 echo.
-echo   -o: schrijf naar _werk\STAM\STAM.mxl (geen spaties in de naam).
-echo   Zonder -o: in-place alleen als de bestandsnaam al geen spaties heeft.
-echo   Overschrijf nooit het Capella-origineel in input\capella\.
+echo   Default-diepte: content (inhoudsfixes). Geen schrijven: --analyze
+echo   of --dry-run (synoniemen). Layout erbij: --layout.
+echo.
+echo   -o doelbestand^|doelmap   --in-place   --ext .mxl
+echo   --assume capella^|musicxml-generic^|musescore^|vsa^|mvsa
+echo   --force   --id BIBLIOTHEEK-ID
+echo.
+echo   Geen A4/PDF/Coria zonder --layout; PDF/Coria is mscz-products.
+echo   Overschrijf nooit stil ruwe input\capella\ (gebruik -o of --in-place).
 echo.
 echo Detail: scripts\h.cmd opkuisen
 echo Handleiding: content-source\praktijk\handleiding\scripts\opkuisen.md

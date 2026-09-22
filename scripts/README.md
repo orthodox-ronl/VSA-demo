@@ -20,7 +20,7 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
-| `opkuisen` | Capella-`.mxl` inhoudelijk opkuisen | `<bron.mxl> [-o]` |
+| `opkuisen` | Herkomstanalyse + inhoudelijke opkuis (MusicXML/MuseScore; optioneel `--layout`) | `<pad> [--analyze\|--dry-run] [-o] [--layout]` |
 | `layout` | basispartituur-standaard op `.mscz`/`.mxl` | `<pad> [-o] [--id]` |
 | `mscz-products` | PDF + Coria-`.mxl` uit basispartituur-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
 | `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
@@ -33,13 +33,13 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 Uitgebreide man-pages (Hugo): `content-source/praktijk/handleiding/scripts/`.
 Console: `scripts\h.cmd <naam>`.
 
-`opkuisen.cmd` (`cleanup_capella_mxl.py`) is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
-op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
-lyrics tussen de balken; geen lyric-underline onder Capella-slurs; bij twee
-balken sleutels G/F via `staff_clefs.py`). Geen MuseScore-stijl tot op de
-pixel. Niet in `check`. `-o` schrijft naar een naam zonder spaties; in-place
-op een naam mét spaties wordt geweigerd. Ruwe Capella-inputs blijven in
-`oefenhoek/input/`.
+`opkuisen.cmd` (`opkuisen.py`) analyseert de herkomst (Capella, generiek
+MusicXML, MuseScore, VSA) en past de bijbehorende inhoudsfixes toe.
+Default = content (geen A4). `--analyze` en `--dry-run` zijn synoniemen
+(geen schrijven). `--layout` voegt normaliseren toe. Niet in `check`.
+Lange man-page: `content-source/praktijk/handleiding/scripts/opkuisen.md`
+en `scripts\h.cmd opkuisen`. Compat: `cleanup_capella_mxl.py` roept
+`opkuisen --assume capella` aan. Tests: `scripts\test_opkuisen.py`.
 
 `capella-mxl-to-mscz.cmd` (`batch_capella_mxl_to_mscz.py`) kuist een map
 Capella-`.mxl` (recursief) op en schrijft standaard-`.mscz` ernaast in de
@@ -126,7 +126,8 @@ niet `github.io` (Coria `failed to retrieve file`), niet `absURL` met lokale
 `check_coria_retrieve.py` (na Pages-deploy, niet in lokale `check`) opent een
 steekproef `play_from_url` en faalt op `failed to retrieve file`.
 Unit-tests: `test_check_hugo_links_and_assets.py`,
-`test_fingerprint_coria_mxl.py`, `test_check_coria_retrieve.py`
+`test_fingerprint_coria_mxl.py`, `test_check_coria_retrieve.py`,
+`test_opkuisen.py`
 (in `check` / `build` / `serve`).
 `check_publicatiestatus.py` (in `check`) eist `publicatiestatus` en
 `automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /

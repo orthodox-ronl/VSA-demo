@@ -7,16 +7,24 @@ weight: 20
 # Opkuisen
 
 {{< cue >}}
-Capella-`.mxl` → schone `.mxl` in `_werk` (origineel in `capella\` blijft staan):
+Snel (Capella-`.mxl` → schone `.mxl` in `_werk`; origineel in `capella\` blijft):
 ```cmd
 scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\NAAM.mxl" -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl
+```
+Alleen herkomst + rapport (geen schrijven; `--analyze` en `--dry-run` zijn
+hetzelfde):
+```cmd
+scripts\opkuisen.cmd content-source\praktijk\oefenhoek\input\capella --analyze
 ```
 `STAM` = publicatiestam uit de bibliotheek-id, zonder spaties
 (voorbeeld: id `8-trisagion/8a-nederlands/hemelum` →
 `8-trisagion-8a-nederlands-hemelum`).
-Man-page: [opkuisen](../../scripts/opkuisen/).
-Ruwe `.mscz` (VOW e.d.): geen Capella-script; open in MuseScore 4 en werk de
-checklist hieronder af, daarna [normaliseren](../3-standaard-mscz/).
+Volledige man-page (hoeken, manieren wel/niet, exitcodes):
+[opkuisen](../../scripts/opkuisen/).
+Ruwe `.mscz`: `scripts\opkuisen.cmd pad\naar\bestand.mscz` doet
+inhoudsfixes; stemmen/checklist hieronder blijf je in MuseScore 4
+controleren, daarna [normaliseren](../3-standaard-mscz/) of
+`opkuisen … --layout`.
 {{< /cue >}}
 
 **Wat je nu doet:** de **inhoud** van de partituur opschonen zodat noten,
@@ -56,8 +64,9 @@ corrigeer jij — dat blijft opkuisen.
 ## Wat er inhoudelijk moet kloppen (checklist)
 
 Werk deze lijst af tot alles groen is. Bij Capella doet
-`scripts\opkuisen.cmd` een groot deel automatisch; controleer het resultaat
-toch. Bij een `.mscz` doe je de checklist in MuseScore 4.
+`scripts\opkuisen.cmd` (hoek `capella`) een groot deel automatisch;
+controleer het resultaat toch. Bij een `.mscz` kan `opkuisen` inhoudsfixes
+doen; de checklist hieronder controleer je in MuseScore 4.
 
 ### 1. Stemmen en notenbalken
 
@@ -108,11 +117,12 @@ origineel in `input\capella\` **niet**.
 
 ## Pad A — Capella- of CapToMusic-`.mxl`
 
-### Wat `scripts\opkuisen.cmd` doet
+### Wat `scripts\opkuisen.cmd` doet bij Capella
 
-Het script is **geen** “maak het mooi in MuseScore”. Het doet drie lagen
-inhoudelijke opkuis op de MusicXML; A4-layout is laag 4
-([normaliseren](../3-standaard-mscz/)). Volledige man-page:
+Het script herkent Capella/CapToMusic (hoek `capella`) en past de
+Capella-MusicXML-manieren toe. Het is **geen** “maak het mooi in MuseScore”.
+A4-layout is een aparte diepte (`--layout` of [layout](../layout/)).
+Volledige wel/niet-tabellen, andere hoeken en exitcodes:
 [opkuisen](../../scripts/opkuisen/).
 
 | Laag | Wat er gebeurt |
@@ -122,6 +132,14 @@ inhoudelijke opkuis op de MusicXML; A4-layout is laag 4
 | Partituurhint | Compactere systeem-/balkafstand in de XML als startpunt voor MuseScore |
 
 Het script **stript geen** `<rights>` / copyright uit de MusicXML.
+
+Twijfel over de herkomst? Eerst alleen analyseren (geen schrijven):
+
+```cmd
+scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\NAAM.mxl" --analyze
+```
+
+`--dry-run` doet precies hetzelfde als `--analyze`.
 
 ### Stap voor stap
 
@@ -144,9 +162,11 @@ Het script **stript geen** `<rights>` / copyright uit de MusicXML.
 scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\8a - 8-trisagion.mxl" -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl
 ```
 
-6. Wacht tot de prompt terugkomt. Het script print tellers (`unhide=…`,
-   `splits=…`, …). Fout over spaties in de *uitvoer*naam: kies een `-o`-pad
-   zonder spaties. Overschrijf nooit het Capella-origineel in `capella\`.
+6. Wacht tot de prompt terugkomt. Het script print hoek/confidence en
+   tellers (`unhide=…`, `splits=…`, …). Fout over spaties in de
+   *uitvoer*naam: kies een `-o`-pad zonder spaties. Overschrijf nooit het
+   Capella-origineel in `capella\` (schrijven naar ruwe `input\capella\`
+   vereist `--in-place`; gebruik liever `-o` naar `_werk`).
 7. Optioneel: open de opgekuiste `.mxl` even in MuseScore 4 om te zien of
    lettergrepen en maten er redelijk uitzien. Styling hoeft nog niet te
    kloppen.
@@ -155,22 +175,30 @@ Daarna: [standaard-.mscz / normaliseren](../3-standaard-mscz/).
 
 ## Pad B — ruwe `.mscz` (VOW, MuseScore-input, …)
 
-Er is **geen** Capella-opkuis-script voor `.mscz`. Jij doet de checklist
-hierboven in MuseScore 4.
+`scripts\opkuisen.cmd` herkent `.mscz` als hoek `musescore` en kan
+**inhoudsfixes** doen (lege balk weg, lettergrepen splitsen, noot per
+lettergreep). Dat vervangt **niet** jouw checklist hierboven: verkeerde
+stemverdeling of liturgische tekst corrigeer je in MuseScore 4.
 
 1. Zet of kopieer het bestand naar
    `content-source\praktijk\oefenhoek\input\_werk\<stam>\` met een
-   bestandsnaam **zonder spaties** (of laat `-o` dat doen bij de eerste
-   normalisatie — zie volgende pagina). Het origineel in `input\vow\` of
+   bestandsnaam **zonder spaties**. Het origineel in `input\vow\` of
    `input\musescore\` blijft onaangeroerd.
-2. Open de `.mscz` in **MuseScore 4** (niet MuseScore 3).
-3. Werk de checklist af: stemmen/balken, lettergreep↔noot, cues, titel.
-4. Bestand → Opslaan (Ctrl+S).
-5. Ga naar [normaliseren](../3-standaard-mscz/)
-   (`scripts\layout.cmd`). Normaliseer **niet** in de hoop dat een
-   verkeerde SAT+B-indeling vanzelf goed komt: het script haalt lege balken
-   weg en kan lettergrepen knippen, maar herschikt geen verkeerde stemmen
-   voor jou.
+2. Optioneel automatisch:
+
+```cmd
+scripts\opkuisen.cmd content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mscz
+```
+
+3. Open de `.mscz` in **MuseScore 4** (niet MuseScore 3).
+4. Werk de checklist af: stemmen/balken, lettergreep↔noot, cues, titel.
+5. Bestand → Opslaan (Ctrl+S).
+6. Ga naar [normaliseren](../3-standaard-mscz/)
+   (`scripts\layout.cmd`), of combineer met
+   `scripts\opkuisen.cmd … --layout`. Normaliseer **niet** in de hoop dat
+   een verkeerde SAT+B-indeling vanzelf goed komt: het script haalt lege
+   balken weg en kan lettergrepen knippen, maar herschikt geen verkeerde
+   stemmen voor jou.
 
 Twijfel over de bibliotheek-id? Niet raden — vraag na en noteer in
 `content-source\praktijk\oefenhoek\input\werkvoorraad.md`.
