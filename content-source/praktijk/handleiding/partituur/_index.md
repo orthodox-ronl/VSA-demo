@@ -12,6 +12,10 @@ daarna naar een PDF en een bestand voor Coria. Volg de stappen in volgorde.
 De subpagina’s hieronder zijn de volledige instructie; deze pagina is alleen
 het overzicht.
 
+Pijplijn (waartoe, CI, commando’s): werktraject
+[Basispartituur](../werktrajecten/basispartituur/). Print buiten die keten:
+[Print-vel](../werktrajecten/print-vel/).
+
 Drie begrippen — meng ze niet door elkaar:
 
 | Term | In het kort (typisch) | Volledige pagina |

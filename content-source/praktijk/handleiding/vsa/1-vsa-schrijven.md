@@ -34,7 +34,9 @@ doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 | SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `scripts\oefenhoek-index.cmd --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
 | `{stam}.vsa.mxl` naast de `.vsa` | Knop **Oefenen** (Coria) | `scripts\vsa-products.cmd` (of dezelfde `check`-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je `.vsa` te wijzigen |
 
-Volledig overzicht partituur/VSA/print: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
+Volledig overzicht van de pijplijnen: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
+(VSA-werktraject: [VSA → SVG en Coria](/praktijk/handleiding/werktrajecten/vsa/)).
+HOW op deze pagina; de werktrajectpagina beschrijft waartoe, CI en commando’s.
 
 `*.print.mscz` in dezelfde map blokkeert de SVG **niet** (dat is een
 printvel, geen basispartituur). Een basispartituur-`.mscz` wél: dan toont de pagina de PDF uit

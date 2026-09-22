@@ -11,6 +11,7 @@ aliases:
 **Wat je hier leert:** van een Markdownblad (tekst, VSA, includes,
 paginascheidingen) een A4-PDF maken. De site-build maakt de PDF niet
 automatisch; wel controleert `check` / `serve` of de demo-PDF up-to-date is.
+Beheerder-pijplijn: [Markdown naar PDF (Werktrajecten)](/praktijk/handleiding/werktrajecten/markdown-naar-pdf/).
 
 ## Bron
 

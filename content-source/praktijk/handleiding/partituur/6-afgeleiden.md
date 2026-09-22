@@ -75,7 +75,8 @@ scripts\check.cmd --strict
 
 `vsa-products` syllabificeert ongescoopte tekst **alleen tijdens export**
 (Pyphen, temp-bestand). De canonieke `.vsa` blijft geschikt voor SVG op de
-site. Zie [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
+site. Zie [Werktrajecten](/praktijk/handleiding/werktrajecten/)
+(basispartituur: [Basispartituur](/praktijk/handleiding/werktrajecten/basispartituur/)).
 
 Na een wijziging in de bibliotheek-`.vsa`:
 

@@ -13,12 +13,13 @@ weight: 30
 - **artefacten_handmatig** = frontmatter op bibliotheek-`index.md`: PDF/MXL niet auto-bijwerken
 - `.mxl` / `.vsa.mxl` = MusicXML voor Coria (afgeleide; niet terug importeren om te layouten)
 - `.pdf` = A4-afgeleide om te lezen of te printen
-- `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`); overzicht trajecten: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/)
+- `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`); overzicht trajecten: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
+- **werktraject** = vaste pijplijn (waartoe, eindresultaat, CI, handmatige `.cmd`); catalogus: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = basispartituur-standaard met `scripts\layout.cmd` (zelfde scriptstap; “layouten” is de gewone naam)
 - **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van basispartituur-`.mscz`/PDF
 - **`bieb`** = shortcode die knoppen + partituur van een bibliotheek-id toont
-- **bieb-accepteer** = script dat een `.mscz` / `.vsa` / `.print.mscz` in de bibliotheek zet (mappen + `index.md`); zie [Opnemen in de bibliotheek](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
+- **bieb-accepteer** = script dat een `.mscz` / `.vsa` / `.print.mscz` in de bibliotheek zet (mappen + `index.md`); zie [Opnemen](/praktijk/handleiding/werktrajecten/opnemen-in-bibliotheek/) en HOW [Publiceren](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
 - **publicatiestatus** = wat koorleden op de pagina zien (sticky header); intern *Stap* in de werkvoorraad is iets anders
 {{< /cue >}}
 
@@ -73,11 +74,13 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 | **SATB** | Sopraan, alt, tenor, bas — de vier stemmen op één partituur |
 | **Coria** | Online oefenen; knop **Oefenen** bij shortcode `bieb`; heeft een schone `.mxl` nodig |
 | **Uitvoeringsvorm** | Een concrete manier om een zangstuk uit te voeren (schrijf het woord uit; gebruik niet de afkorting “uv”) |
+| **Werktraject** | Pijplijn van bron naar eindproduct (site of PDF); zie [Werktrajecten](/praktijk/handleiding/werktrajecten/) |
 
 Org-brede termen: [glossary in bron](https://github.com/orthodox-ronl/bron/blob/main/docs/specs/terminologie.md).
 
 Id-lijst Hemelum: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 Model: [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
+Pijplijnen: [Werktrajecten](/praktijk/handleiding/werktrajecten/).
 
 ## Klaar als
 
@@ -89,4 +92,4 @@ bibliotheek, slot-pagina in de koormap. Voor een eenstemmige VSA: `.vsa` +
 `.vsa.mxl` via `check` / `vsa-products`. Model van secties en
 compositiebladen: [Bibliotheek en koormappen](/praktijk/handleiding/start/bibliotheek-en-koormappen/).
 
-{{< navbuttons "Volgende: binnenhalen|/praktijk/handleiding/partituur/1-binnenhalen/" >}}
+{{< navbuttons "Volgende: binnenhalen|/praktijk/handleiding/partituur/1-binnenhalen/" "Werktrajecten|/praktijk/handleiding/werktrajecten/" >}}

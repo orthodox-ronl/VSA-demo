@@ -89,4 +89,4 @@ of `scripts\h.cmd <naam>`.
 - De preview op poort **18731** toont de site, inclusief de knop
   **Handleiding** in de balk.
 
-{{< navbuttons "Volgende: waar ligt wat|/praktijk/handleiding/start/waar-ligt-wat/" "Scripts|/praktijk/handleiding/scripts/" >}}
+{{< navbuttons "Volgende: waar ligt wat|/praktijk/handleiding/start/waar-ligt-wat/" "Werktrajecten|/praktijk/handleiding/werktrajecten/" >}}

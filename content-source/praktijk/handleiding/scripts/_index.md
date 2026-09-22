@@ -43,7 +43,8 @@ Zet `.\scripts` op je PATH (dat doet `check` via `_ensure`), of roep altijd
 | `capella-mxl-to-mscz` | Verwerkt een hele map Capella-`.mxl` (recursief) tot standaard-layout `.mscz` — bulk buiten de één-voor-één oefenhoek-flow. | [capella-mxl-to-mscz](capella-mxl-to-mscz/) |
 | `bieb-accepteer` | Neemt een klaar `.mscz`, `.vsa` of `.print.mscz` op in `oefenhoek\bibliotheek\` onder een bibliotheek-id (mappen + `index.md` met shortcode `bieb`). | [bieb-accepteer](bieb-accepteer/) |
 
-Begrippen en pipeline: bestand `scripts\README.md` in de repository-map
-`VSA-demo` (niet als pagina op deze site).
+Begrippen en pipeline: [Werktrajecten](../werktrajecten/); bestand
+`scripts\README.md` in de repository-map `VSA-demo` (niet als pagina op
+deze site).
 
-{{< navbuttons "Opkuisen|/praktijk/handleiding/scripts/opkuisen/" >}}
+{{< navbuttons "Werktrajecten|/praktijk/handleiding/werktrajecten/" "Opkuisen|/praktijk/handleiding/scripts/opkuisen/" >}}

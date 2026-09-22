@@ -13,6 +13,9 @@ een Coria-bestand `{stam}.vsa.mxl`, zodat koorleden de knop **Oefenen**
 krijgen. Dat zijn twee aparte stappen — zie
 [.vsa schrijven](1-vsa-schrijven/).
 
+Pijplijn (waartoe, CI, commando’s): werktraject
+[VSA → SVG en Coria](../werktrajecten/vsa/).
+
 Voor een tropaar op **toon 4** kun je dat `.vsa`-bestand daarna combineren
 met een formule-template. Dan komen alt, tenor en bas erbij (SATB). Dat
 blad zet je vaak als print-vel neer (handmatige artefacten), niet als

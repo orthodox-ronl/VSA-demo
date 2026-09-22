@@ -6,6 +6,10 @@ weight: 70
 
 # Print-`.mscz` (koormap-vel)
 
+**Werktraject** (waartoe, criteria, CI):
+[Print-vel](/praktijk/handleiding/werktrajecten/print-vel/).
+Deze pagina is de HOW.
+
 {{< cue >}}
 Bestandsnaam eindigt op **`.print.mscz`**. Geen `scripts\layout.cmd`, geen
 `mscz-products`, geen Coria-eis uit dit MuseScore-bestand. PDF maak je zelf in

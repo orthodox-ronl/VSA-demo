@@ -6,6 +6,10 @@ weight: 50
 
 # PDF en Coria-.mxl maken
 
+**Werktraject** (waartoe, criteria, CI):
+[Basispartituur](/praktijk/handleiding/werktrajecten/basispartituur/).
+Deze pagina is de HOW voor `mscz-products`.
+
 {{< cue >}}
 Basispartituur-`.mscz` staat in het **bibliotheek** (niet alleen in `_werk`). Daarna:
 ```cmd
