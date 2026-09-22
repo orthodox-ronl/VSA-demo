@@ -121,7 +121,7 @@ origineel in `input\capella\` **niet**.
 
 Het script herkent Capella/CapToMusic (hoek `capella`) en past de
 Capella-MusicXML-manieren toe. Het is **geen** “maak het mooi in MuseScore”.
-A4-layout is een aparte diepte (`--layout` of [layout](../scripts/layout/)).
+A4-layout is een aparte diepte (`--layout` of [layout](../../scripts/layout/)).
 Volledige wel/niet-tabellen, andere hoeken en exitcodes:
 [opkuisen](../../scripts/opkuisen/).
 
