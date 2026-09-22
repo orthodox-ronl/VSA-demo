@@ -15,7 +15,7 @@ weight: 30
 - `.pdf` = A4-afgeleide om te lezen of te printen
 - `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`); overzicht trajecten: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
-- **normaliseren** / **layouten** = basispartituur-standaard met `apply_mscz_layout.py` (zelfde scriptstap; “layouten” is de gewone naam)
+- **normaliseren** / **layouten** = basispartituur-standaard met `scripts\layout.cmd` (zelfde scriptstap; “layouten” is de gewone naam)
 - **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van basispartituur-`.mscz`/PDF
 - **`bieb`** = shortcode die knoppen + partituur van een bibliotheek-id toont
 - **bieb-accepteer** = script dat een `.mscz` / `.vsa` / `.print.mscz` in de bibliotheek zet (mappen + `index.md`); zie [Opnemen in de bibliotheek](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
@@ -29,7 +29,7 @@ commando’s en mappen kloppen.
 
 | Extensie | In het kort | Wat jij ermee doet |
 | --- | --- | --- |
-| basispartituur-`.mscz` | MuseScore 4-bestand volgens de basispartituur-norm (`scripts\mscz-partituur-contract.md` in `VSA-demo`) | Openen, nakijken, opslaan; daarna `apply_mscz_layout.py`; bron voor PDF en Coria |
+| basispartituur-`.mscz` | MuseScore 4-bestand volgens de basispartituur-norm (`scripts\mscz-partituur-contract.md` in `VSA-demo`) | Openen, nakijken, opslaan; daarna `scripts\layout.cmd`; bron voor PDF en Coria |
 | print-`.mscz` | Zelfde soort MuseScore-bestand, naam eindigt op `.print.mscz` | Alleen in MuseScore bewerken; PDF handmatig; in bibliotheek, niet basispartituur-pijplijn — zie [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/) |
 | `.mxl` | Samengeperste MusicXML (partituur: `{stam}.mxl`; VSA: `{stam}.vsa.mxl`) | Naar Coria (afgeleide); of (na opkuisen) als start voor een nieuwe basispartituur. Nooit roundtrip: `.mscz` → `.mxl` → weer `.mscz` gooit de layout weg. |
 | `.pdf` | A4-blad (afgeleide of handmatige print-export) | Downloaden of printen; basispartituur opnieuw via [afgeleiden](/praktijk/handleiding/partituur/6-afgeleiden/) |
@@ -37,12 +37,12 @@ commando’s en mappen kloppen.
 | `.cap` / `.capx` | Capella | Als bron bewaren; eerst naar `.mxl` (CapToMusic) als je nog geen `.mxl` hebt |
 
 **Opkuisen** = inhoudelijke opschoning: stemmen en notenbalken goed zetten,
-lettergrepen synchroon met noten. Capella-`.mxl`: `cleanup_capella_mxl.py`.
+lettergrepen synchroon met noten. Capella-`.mxl`: `scripts\opkuisen.cmd`.
 Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 [Opkuisen](/praktijk/handleiding/partituur/2-opkuisen/).
 
 **Normaliseren** (gangbaar: **layouten**) = de basispartituur-standaard toepassen met
-`apply_mscz_layout.py` (A4, fonts, reciteertoon, contractregels). Zie
+`scripts\layout.cmd` (A4, fonts, reciteertoon, contractregels). Zie
 [Standaard-.mscz](/praktijk/handleiding/partituur/3-standaard-mscz/) en
 [Reviewen](/praktijk/handleiding/partituur/4-reviewen/).
 

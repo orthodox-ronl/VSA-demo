@@ -79,7 +79,7 @@ python scripts\render_tropaar_toon4_corpus.py --id T4-11 --pdf
    - zet op bibliotheek-`index.md` `artefacten_handmatig: true`
      (gele beheerdersbanner; `vsa-products` en partituur-productgate laten de map met rust);
    - de eenstemmige `.vsa` mag ernaast blijven staan voor de notatie
-     (SVG via `python scripts\sync_oefenhoek_index.py --svg` / volle
+     (SVG via `scripts\oefenhoek-index.cmd --svg` / volle
      `check`; zie [.vsa schrijven](../1-vsa-schrijven/)).
 
    Daarna koormap-slot via

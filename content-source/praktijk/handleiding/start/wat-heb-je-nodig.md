@@ -78,6 +78,10 @@ die poort is lokaal voor iets anders gereserveerd.
 Laat het venster van `serve` open zolang je kijkt. Klaar met kijken:
 Ctrl+C in dat venster, of sluit het venster.
 
+Alle beheer-commando’s (opkuisen, layout, check, …) hebben een uitgebreide
+man-page onder [Scripts](../scripts/). In het opdrachtvenster: `scripts\h.cmd`
+of `scripts\h.cmd <naam>`.
+
 ## Klaar als
 
 - MuseScore 4 start vanaf het Start-menu.
@@ -85,4 +89,4 @@ Ctrl+C in dat venster, of sluit het venster.
 - De preview op poort **18731** toont de site, inclusief de knop
   **Handleiding** in de balk.
 
-{{< navbuttons "Volgende: waar ligt wat|/praktijk/handleiding/start/waar-ligt-wat/" >}}
+{{< navbuttons "Volgende: waar ligt wat|/praktijk/handleiding/start/waar-ligt-wat/" "Scripts|/praktijk/handleiding/scripts/" >}}

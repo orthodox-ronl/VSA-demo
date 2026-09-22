@@ -45,7 +45,7 @@ daarna opnieuw deze stap (of [Afgeleiden](../6-afgeleiden/)).
    `input\_werk\`. Padvoorbeeld:
    `content-source\praktijk\oefenhoek\bibliotheek\8-trisagion\8a-nederlands\hemelum\8-trisagion-8a-nederlands-hemelum.mscz`.
 2. Die `.mscz` is na de laatste inhoudelijke edit opnieuw genormaliseerd
-   (`apply_mscz_layout.py`).
+   (`scripts\layout.cmd`).
 3. **MuseScore 4** is geïnstalleerd (het product-script roept MuseScore aan).
 4. Dit is een **basispartituur**-bestand, geen `*.print.mscz` — printvel: PDF handmatig
    ([Print-.mscz](../7-print-mscz/)).

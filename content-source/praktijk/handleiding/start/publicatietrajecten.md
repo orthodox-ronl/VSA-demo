@@ -25,8 +25,8 @@ Termen: [Woorden](/praktijk/handleiding/start/woorden/) en
 
 | representatie-id | Canonieke bron in de bladermap | Typische afgeleiden | Automatische keten |
 | --- | --- | --- | --- |
-| `partituur` | `{stam}.mscz` (niet `.print.`) | `{stam}.pdf`, `{stam}.mxl` (legacy) of `{stam}.partituur.pdf` / `{stam}.partituur.mxl` | `apply_mscz_layout.py` → `mscz-products` |
-| `vsa` | `{stam}.vsa` | SVG (site), `{stam}.vsa.mxl` (Coria) | `sync_oefenhoek_index.py --svg`, `vsa-products` |
+| `partituur` | `{stam}.mscz` (niet `.print.`) | `{stam}.pdf`, `{stam}.mxl` (legacy) of `{stam}.partituur.pdf` / `{stam}.partituur.mxl` | `scripts\layout.cmd` → `mscz-products` |
+| `vsa` | `{stam}.vsa` | SVG (site), `{stam}.vsa.mxl` (Coria) | `scripts\oefenhoek-index.cmd --svg`, `vsa-products` |
 | `print` | `{stam}.print.mscz` | `{stam}.print.pdf` (handmatig) | geen; vaak `artefacten_handmatig: true` |
 
 Meerdere producten van hetzelfde type in één map → expliciete namen met
@@ -44,7 +44,7 @@ content-source
     |
     +-- vsa build-markdown  ->  generated/content + static/vsa (SVG uit .vsa in content)
     |
-    +-- sync_oefenhoek_index --svg  ->  static/vsa/bladermap/... (bibliotheek-.vsa zonder basispartituur)
+    +-- oefenhoek-index --svg  ->  static/vsa/bladermap/... (bibliotheek-.vsa zonder basispartituur)
     |
     +-- vsa musicxml content-source static/vsa/mxl  (embed-Coria in pagina's, geen oefenhoek-bibliotheek)
     |
@@ -63,7 +63,7 @@ bladermap (niet per se `static/vsa/mxl`).
 | Stap | Wat | Commando / tool |
 | --- | --- | --- |
 | 1 | Opkuisen (stemmen, lettergrepen↔noten) | Capella-script of MuseScore — [Opkuisen](/praktijk/handleiding/partituur/2-opkuisen/) |
-| 2 | Basispartituur normaliseren | `python scripts\apply_mscz_layout.py` op `{stam}.mscz` |
+| 2 | Basispartituur normaliseren | `scripts\layout.cmd` op `{stam}.mscz` |
 | 3 | Review | MuseScore — [Reviewen](/praktijk/handleiding/partituur/4-reviewen/) |
 | 4 | Afgeleiden | `scripts\mscz-products.cmd` (MuseScore-export + Coria-sanitize) |
 | 5 | Versheid | Stamp `partituur-sha256` in PDF/MXL; `check_partituur_products.py` |
@@ -107,7 +107,7 @@ maakt een sibling `{stam}.syl.vsa`. Die sidecar is **geen** bron voor SVG of
 | --- | --- | --- |
 | `{stam}.print.mscz` | `{stam}.print.pdf` (of korte `{stam}.pdf` als enige PDF) | handmatig in MuseScore |
 
-Geen `apply_mscz_layout`, geen `mscz-products`, geen automatische Coria-`.mxl`.
+Geen `scripts\layout.cmd`, geen `mscz-products`, geen automatische Coria-`.mxl`.
 Zie [Print-.mscz](/praktijk/handleiding/partituur/7-print-mscz/).
 
 ---
@@ -143,7 +143,7 @@ tabellen. Syntax-plannen staan in VSA-tooling (`docs/plans/mvsa-v0-syntax.md`).
 | --- | --- |
 | Basispartituur-PDF/Coria vernieuwen | `scripts\mscz-products.cmd` `[bibliotheek-map]` |
 | VSA-Coria vernieuwen | `scripts\vsa-products.cmd` `[bibliotheek-map]` |
-| Alleen SVG bibliotheek | `python scripts\sync_oefenhoek_index.py --svg` |
+| Alleen SVG bibliotheek | `scripts\oefenhoek-index.cmd --svg` |
 | Alles vóór commit | `scripts\check.cmd --strict` |
 
 Contract en stamps: `scripts\oefenhoek-product-contract.md`,

@@ -9,7 +9,7 @@ weight: 10
 {{< cue >}}
 1. Zet het bestand in `content-source\praktijk\oefenhoek\input\<herkomst>\` (of eerst `_inbox\`).
 2. Laat de originele bestandsnaam staan.
-3. Draai `scripts\check.cmd` of `python scripts\update_werkvoorraad.py`.
+3. Draai `scripts\check.cmd` of `scripts\update-werkvoorraad.cmd`.
 4. Vul in `input\werkvoorraad.md` het **doel-id** (bibliotheek-id) in als die kolom leeg is — niet raden, vragen.
 {{< /cue >}}
 
@@ -34,7 +34,7 @@ Het **doel-id** is het **bibliotheek-id** in drie lagen:
 4. Ververs de werkvoorraad:
 
 ```cmd
-python scripts\update_werkvoorraad.py
+scripts\update-werkvoorraad.cmd
 ```
 
 Of draai `scripts\check.cmd` — dat doet dezelfde update plus de rest van

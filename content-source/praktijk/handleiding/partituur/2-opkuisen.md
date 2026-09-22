@@ -9,11 +9,12 @@ weight: 20
 {{< cue >}}
 Capella-`.mxl` → schone `.mxl` in `_werk` (origineel in `capella\` blijft staan):
 ```cmd
-python scripts\cleanup_capella_mxl.py "content-source\praktijk\oefenhoek\input\capella\NAAM.mxl" -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl
+scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\NAAM.mxl" -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl
 ```
 `STAM` = publicatiestam uit de bibliotheek-id, zonder spaties
 (voorbeeld: id `8-trisagion/8a-nederlands/hemelum` →
 `8-trisagion-8a-nederlands-hemelum`).
+Man-page: [opkuisen](../../scripts/opkuisen/).
 Ruwe `.mscz` (VOW e.d.): geen Capella-script; open in MuseScore 4 en werk de
 checklist hieronder af, daarna [normaliseren](../3-standaard-mscz/).
 {{< /cue >}}
@@ -41,13 +42,13 @@ repository-map `VSA-demo` (niet als pagina op deze site).
 
 | Wel opkuisen | Niet opkuisen (andere stap) |
 | --- | --- |
-| Stemmen op de juiste notenbalken | A4, marges, lettertypes (`apply_mscz_layout.py`) |
+| Stemmen op de juiste notenbalken | A4, marges, lettertypes (`scripts\layout.cmd`) |
 | Lettergreep ↔ noot synchroon | Reciteertoon-collaps naar feathered `\|\|O\|\|` (normalisatie) |
 | Geen plakkerige multi-klinker op één noot zonder split | PDF en Coria-`.mxl` (`mscz-products`) |
 | Capella: verborgen reciteerkwarten, lege maten, titelrommel | Print-vel buiten de basispartituur (`*.print.mscz`) |
 
 **Normaliseren** (gangbaar: **layouten**) is de volgende scriptstap:
-`apply_mscz_layout.py`. Dat script doet wél enkele inhoudsfixes (lege balk
+`scripts\layout.cmd`. Dat script doet wél enkele inhoudsfixes (lege balk
 weg, lettergrepen splitsen, noot per lettergreep knippen, reciteertoon
 collapsen). Een verkeerde stemverdeling of structureel verkeerde tekst
 corrigeer jij — dat blijft opkuisen.
@@ -55,7 +56,7 @@ corrigeer jij — dat blijft opkuisen.
 ## Wat er inhoudelijk moet kloppen (checklist)
 
 Werk deze lijst af tot alles groen is. Bij Capella doet
-`cleanup_capella_mxl.py` een groot deel automatisch; controleer het resultaat
+`scripts\opkuisen.cmd` een groot deel automatisch; controleer het resultaat
 toch. Bij een `.mscz` doe je de checklist in MuseScore 4.
 
 ### 1. Stemmen en notenbalken
@@ -71,7 +72,7 @@ Veel voorkomende bronproblemen:
 | --- | --- |
 | SAT op balk 1, B op balk 2, maar verkeerde stemmen of ontbrekende stem | In MuseScore 4: controleer per noot welke stem (1–4) actief is; zet S/A/T/B op de juiste stem en balk |
 | Verkeerde of ontbrekende sleutel (bijv. G op de onderbalk, C2, G8vb) | Opkuisen en normalisatie zetten bij twee balken G boven / F onder (ook mid-score). Bij één of drie+ gevulde balken: zelf in MuseScore zetten |
-| Extra **lege** derde balk na import | Mag blijven tot normalisatie: `apply_mscz_layout.py` verwijdert lege maat-balken vaak automatisch |
+| Extra **lege** derde balk na import | Mag blijven tot normalisatie: `scripts\layout.cmd` verwijdert lege maat-balken vaak automatisch |
 | Extra balk mét noten die niet horen | Verwijder of verplaats die noten in MuseScore; het layout-script wist geen gevulde balk “voor jou” |
 | Partijnamen “Sopraan / Alt / …” op elk systeem | Capella-script verbergt partijnamen; bij `.mscz` zet je instrumentnamen uit of laat normalisatie de stijl zetten |
 | Lyrics op alle vier de stemmen herhaald | Alleen op de bovenstem (stem 1) houden; Capella-script stript lagere stemmen |
@@ -107,11 +108,12 @@ origineel in `input\capella\` **niet**.
 
 ## Pad A — Capella- of CapToMusic-`.mxl`
 
-### Wat `cleanup_capella_mxl.py` doet
+### Wat `scripts\opkuisen.cmd` doet
 
 Het script is **geen** “maak het mooi in MuseScore”. Het doet drie lagen
 inhoudelijke opkuis op de MusicXML; A4-layout is laag 4
-([normaliseren](../3-standaard-mscz/)).
+([normaliseren](../3-standaard-mscz/)). Volledige man-page:
+[opkuisen](../../scripts/opkuisen/).
 
 | Laag | Wat er gebeurt |
 | --- | --- |
@@ -139,7 +141,7 @@ Het script **stript geen** `<rights>` / copyright uit de MusicXML.
    aanhalingstekens als er spaties in zitten. Voorbeeld:
 
 ```cmd
-python scripts\cleanup_capella_mxl.py "content-source\praktijk\oefenhoek\input\capella\8a - 8-trisagion.mxl" -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl
+scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\8a - 8-trisagion.mxl" -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl
 ```
 
 6. Wacht tot de prompt terugkomt. Het script print tellers (`unhide=…`,
@@ -165,7 +167,7 @@ hierboven in MuseScore 4.
 3. Werk de checklist af: stemmen/balken, lettergreep↔noot, cues, titel.
 4. Bestand → Opslaan (Ctrl+S).
 5. Ga naar [normaliseren](../3-standaard-mscz/)
-   (`apply_mscz_layout.py`). Normaliseer **niet** in de hoop dat een
+   (`scripts\layout.cmd`). Normaliseer **niet** in de hoop dat een
    verkeerde SAT+B-indeling vanzelf goed komt: het script haalt lege balken
    weg en kan lettergrepen knippen, maar herschikt geen verkeerde stemmen
    voor jou.
@@ -178,7 +180,7 @@ Twijfel over de bibliotheek-id? Niet raden — vraag na en noteer in
 - Geen PDF of Coria-`.mxl` maken (dat is `mscz-products`, later).
 - Geen MusicXML-roundtrip: basispartituur-`.mscz` exporteren naar `.mxl` en weer
   openen gooit de MuseScore-stijl weg.
-- Geen `apply_mscz_layout.py` op `*.print.mscz` (printvel staat buiten deze
+- Geen `scripts\layout.cmd` op `*.print.mscz` (printvel staat buiten deze
   straat — [Print-.mscz](../7-print-mscz/)).
 - Geen Capella-origineel in `input\capella\` overschrijven.
 

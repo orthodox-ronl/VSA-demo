@@ -7,7 +7,7 @@ weight: 70
 # Print-`.mscz` (koormap-vel)
 
 {{< cue >}}
-Bestandsnaam eindigt op **`.print.mscz`**. Geen `apply_mscz_layout.py`, geen
+Bestandsnaam eindigt op **`.print.mscz`**. Geen `scripts\layout.cmd`, geen
 `mscz-products`, geen Coria-eis uit dit MuseScore-bestand. PDF maak je zelf in
 MuseScore 4 (Bestand → Exporteren → PDF) en commit je naast het print-bestand
 **in het bibliotheek**. Zet op de bibliotheek-`index.md`
@@ -57,7 +57,7 @@ beheerdersmelding. Afspraak over bestandsnamen per spoor:
 
 ## Wat je niet doet
 
-- Geen `apply_mscz_layout.py` op `.print.mscz`.
+- Geen `scripts\layout.cmd` op `.print.mscz`.
 - Geen `mscz-products.cmd` voor dit bestand.
 - Geen hernoemen naar gewone `.mscz` “even snel” — dan eist `check` basispartituur-producten.
 - Geen verwachting dat `vsa-products` de Coria-`.mxl` vernieuwt zolang

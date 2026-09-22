@@ -20,12 +20,20 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `pdf` | Markdown + VSA naar A4-PDF | `-o --content-root` |
 | `demo-pdf` | demo-PDF `voorbeeld-blad.pdf` bouwen | — |
 | `sync-bron-zondagen` | zondag-VSA uit bron | `[bron-root]` |
+| `opkuisen` | Capella-`.mxl` inhoudelijk opkuisen | `<bron.mxl> [-o]` |
+| `layout` | basispartituur-standaard op `.mscz`/`.mxl` | `<pad> [-o] [--id]` |
 | `mscz-products` | PDF + Coria-`.mxl` uit basispartituur-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
 | `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
+| `ensure-bibliotheek-id` | bibliotheek-id in `.mscz` colofon/meta | `[root]` |
+| `update-werkvoorraad` | werkvoorraad-tabel uit `input/` | — |
+| `oefenhoek-index` | bladermap-index strippen; optioneel SVG | `[--svg --dry-run --verbose]` |
 | `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
 | `bieb-accepteer` | Partituur opnemen in `oefenhoek/bibliotheek/` | `<id> <bestand> [--dry-run --force --stub]` |
 
-`cleanup_capella_mxl.py` is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
+Uitgebreide man-pages (Hugo): `content-source/praktijk/handleiding/scripts/`.
+Console: `scripts\h.cmd <naam>`.
+
+`opkuisen.cmd` (`cleanup_capella_mxl.py`) is een proef om Capella/CapToMusic-`.mxl` inhoudelijk
 op te kuisen (reciteerkwarten, lettergrepen per noot, titel, lege maten,
 lyrics tussen de balken; geen lyric-underline onder Capella-slurs; bij twee
 balken sleutels G/F via `staff_clefs.py`). Geen MuseScore-stijl tot op de
@@ -40,7 +48,7 @@ doelmap, met dezelfde submappen. Default: `ruwe-invoer\capella-backup-mxl`
 bestaande verse `.mscz` worden overgeslagen (hervatten). MuseScore 4
 nodig, en niet open tijdens de run. Niet in `check`. Geen PDF/Coria.
 
-`apply_mscz_layout.py` normaliseert de **basispartituur-`.mscz`** (A4-layout, lettergrepen,
+`layout.cmd` (`apply_mscz_layout.py`) normaliseert de **basispartituur-`.mscz`** (A4-layout, lettergrepen,
 reciteer-collaps `||O||`, tempo, copyright, twee-balks G/F-sleutels via
 `staff_clefs.py`). Accepteert ook opgekuiste `.mxl`.
 Weigert `*.print.mscz` (print-/koormap-vel buiten de basispartituur-spoor).
@@ -49,7 +57,7 @@ In de bibliotheek: colofonregel `Bibliotheek-id:` + meta `vsaBibliotheekId`
 (optioneel `--id=`). Contract: `scripts/mscz-partituur-contract.md`.
 Hyphenatie: `scripts/nl_hyphen.py`. Transforms: `scripts/mscz-product-transforms.md`.
 
-`ensure_bibliotheek_id.py` zet ontbrekende/verkeerde bibliotheek-id’s in
+`ensure-bibliotheek-id.cmd` (`ensure_bibliotheek_id.py`) zet ontbrekende/verkeerde bibliotheek-id’s in
 basispartituur-`.mscz` onder `bibliotheek/` (lokaal; CI alleen check).
 `check_bibliotheek_id.py` faalt op `main` / `--strict` als meta of colofon
 niet klopt. Daarna `mscz-products` voor verse PDF’s.
@@ -124,7 +132,7 @@ Unit-tests: `test_check_hugo_links_and_assets.py`,
 `automatische_inhoud` (`true` / `false`) op elke oefenhoek-`_index.md` /
 `index.md` (niet `input/`). Status: `voorzien`, `concept`, `reviewable` of
 `productie`.
-`update_werkvoorraad.py` (in `check` / `build` / `serve`) vult de tabel in
+`update-werkvoorraad.cmd` (`update_werkvoorraad.py`) (in `check` / `build` / `serve`) vult de tabel in
 `oefenhoek/input/werkvoorraad.md` en verwijdert `generated/.../oefenhoek/input`
 zodat inputs geen Hugo-pagina's worden. Doel-id: bibliotheek-id
 (`zangstuk/variant/uitvoeringsvorm`) wanneer bekend; oude bladermap-namen
@@ -143,7 +151,7 @@ Bij `.vsa`: `vsa validate`. Default `publicatiestatus: reviewable`
 `test_sync_vsa_products.py`.
 `migrate_oefenhoek_bibliotheek.py` — eenmalig liturgiemap -> bibliotheek
 (historisch; nieuwe stukken via `bieb-accepteer`; niet in check).
-`sync_oefenhoek_index.py` (in `check` / `build` / `serve`): haalt auto-includes
+`oefenhoek-index.cmd` (`sync_oefenhoek_index.py`) (in `check` / `build` / `serve`): haalt auto-includes
 en score-shortcodes uit bladermap-`index.md` (eigen tekst blijft). Pagina's met
 `bieb` of `automatische_inhoud: false` blijven onaangeroerd. De
 partituur komt uit de Hugo-layout (`layouts/partials/bladermap-score.html`) of

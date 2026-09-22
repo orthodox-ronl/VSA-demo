@@ -139,8 +139,10 @@ Wijzig, voeg toe of verwijder je iets onder `scripts/`:
 
 1. Werk [scripts/README.md](scripts/README.md) bij (tabellen, testladder, begrippen).
 2. Werk `scripts\h.cmd` bij (catalogus + man-page).
-3. Gedeelde keten: `_pipeline.cmd` (wrappers: check, build, serve).
-4. Console-tekst in `.cmd` (`echo`): **alleen eenvoudige ASCII** (`->`, `-`, geen
+3. Bij gebruikers-`.cmd`: uitgebreide man-page onder
+   `content-source/praktijk/handleiding/scripts/`.
+4. Gedeelde keten: `_pipeline.cmd` (wrappers: check, build, serve).
+5. Console-tekst in `.cmd` (`echo`): **alleen eenvoudige ASCII** (`->`, `-`, geen
    Unicode-pijlen/em-dashes) — Windows-cmd verknoeit UTF-8 anders.
 
 ---

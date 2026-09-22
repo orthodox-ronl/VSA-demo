@@ -83,10 +83,11 @@ check --strict  ->  lokale preview  ->  Oefenhoek op de site
 
 **Opkuisen** is inhoudelijke opschoning (stemmen, lettergrepen↔noten);
 **normaliseren** / **layouten** is de basispartituur-standaard met
-`apply_mscz_layout.py`. Kort overzicht: [Partituur](partituur/). Een
+`scripts\layout.cmd`. Kort overzicht: [Partituur](partituur/). Een
 Capella-partituur, een tropaar-`.vsa` en een print-`.mscz` zijn drie
 verschillende straten. Opnemen in de catalogus:
 [Opnemen in de bibliotheek](publiceren/1-opnemen-in-bibliotheek/).
+Commando-referentie: [Scripts](scripts/).
 
 Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 
@@ -96,5 +97,6 @@ Id-lijst: [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
 2. [Partituur](partituur/) — van Capella/VOW naar basispartituur-`.mscz`, PDF en Coria; plus [print-`.mscz`](partituur/7-print-mscz/)
 3. [VSA](vsa/) — notatie schrijven, Coria-`.vsa.mxl`, en (voor tropaar toon 4) template SATB
 4. [Publiceren](publiceren/) — opnemen (`bieb-accepteer`), koormap, status, controle, als het misgaat
+5. [Scripts](scripts/) — uitgebreide man-pages voor alle `.cmd`-commando’s
 
 {{< navbuttons "Start|/praktijk/handleiding/start/" >}}

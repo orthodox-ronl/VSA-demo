@@ -31,7 +31,7 @@ doet de build twee aparte dingen met hetzelfde `.vsa`-bestand:
 
 | Afgeleide | Rol op de pagina | Hoe maak je die |
 | --- | --- | --- |
-| SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `python scripts\sync_oefenhoek_index.py --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
+| SVG onder `static\vsa\bladermap\…` | Het **plaatje** dat shortcode `bieb` toont | Pipeline-stap `scripts\oefenhoek-index.cmd --svg` (zit in `check` / `build` / `serve` **zonder** `--no-build`) |
 | `{stam}.vsa.mxl` naast de `.vsa` | Knop **Oefenen** (Coria) | `scripts\vsa-products.cmd` (of dezelfde `check`-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je `.vsa` te wijzigen |
 
 Volledig overzicht partituur/VSA/print: [Publicatietrajecten](/praktijk/handleiding/start/publicatietrajecten/).
@@ -44,7 +44,7 @@ Los alleen SVG vernieuwen (na `vsa build-markdown`, of als `static\vsa`
 al bestaat):
 
 ```cmd
-python scripts\sync_oefenhoek_index.py --svg
+scripts\oefenhoek-index.cmd --svg
 ```
 
 `serve --no-build` slaat generate + `--svg` over. Zie je Hugo-waarschuwing
@@ -104,7 +104,7 @@ automatische_inhoud: false
    [Bibliotheek en koormappen](../../start/bibliotheek-en-koormappen/).
 
 7. Draai `scripts\check.cmd --strict`. Die keten:
-   - schrijft de SVG voor het plaatje (`sync_oefenhoek_index.py --svg`);
+   - schrijft de SVG voor het plaatje (`scripts\oefenhoek-index.cmd --svg`);
    - maakt of vernieuwt `{stam}.vsa.mxl` naast de `.vsa`
      (`scripts\vsa-products.cmd` doet dat ook los).
 
@@ -147,7 +147,7 @@ Shortcode `bieb` zoekt
 Ontbreekt dat bestand:
 
 ```cmd
-python scripts\sync_oefenhoek_index.py --svg
+scripts\oefenhoek-index.cmd --svg
 ```
 
 of `scripts\check.cmd --strict`. Daarna opnieuw previewen. Met
