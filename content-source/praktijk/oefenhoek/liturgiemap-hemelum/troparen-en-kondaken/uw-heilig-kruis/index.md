@@ -1,7 +1,7 @@
 ---
 title: "Uw Heilig Kruis"
 linkTitle: "Uw Heilig Kruis"
-weight: 25
+weight: 30
 publicatiestatus: reviewable
 automatische_inhoud: false
 ---

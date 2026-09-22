@@ -1,6 +1,6 @@
 ---
 title: "6 Derde antifoon (zondag)"
-linkTitle: "6 Derde antifoon (zondag)"
+linkTitle: "Zondag"
 weight: 1
 publicatiestatus: reviewable
 automatische_inhoud: false

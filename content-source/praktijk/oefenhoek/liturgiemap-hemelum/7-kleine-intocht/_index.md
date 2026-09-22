@@ -7,4 +7,4 @@ publicatiestatus: concept
 automatische_inhoud: true
 ---
 
-Varianten in de liturgiemap van Hemelum.
+De Kleine Intocht kent variaties voor verschillende gelegenheden.

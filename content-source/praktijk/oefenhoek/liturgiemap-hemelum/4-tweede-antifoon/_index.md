@@ -7,4 +7,4 @@ publicatiestatus: concept
 automatische_inhoud: true
 ---
 
-Tweede antifonen voor verschillende gelegenheden.
+Tweede antifonen zijn er voor verschillende gelegenheden.

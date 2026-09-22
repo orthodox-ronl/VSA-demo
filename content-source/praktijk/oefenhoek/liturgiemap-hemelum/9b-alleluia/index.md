@@ -9,7 +9,8 @@ automatische_inhoud: false
 # 9b Alleluia
 
 Compositieblad: alle Kiev-alleluias toon 1–8 (uitvoeringsvorm Groningen).
-Partituur volgt wanneer de `.vsa`-bestanden in de bibliotheek staan.
+
+#### **Partituren volgen wanneer de `.vsa`-bestanden in de bibliotheek staan.**
 
 ## Toon 1
 

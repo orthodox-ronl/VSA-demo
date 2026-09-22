@@ -7,4 +7,4 @@ publicatiestatus: concept
 automatische_inhoud: true
 ---
 
-Derde antifonen voor verschillende gelegenheden.
+Derde antifonen zijn er voor verschillende gelegenheden.
