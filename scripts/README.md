@@ -24,11 +24,12 @@ Geen bootstrap-stap: `_ensure` checkt PATH en pip't catalogus/`vsa-tool`.
 | `layout` | basispartituur-standaard op `.mscz`/`.mxl` | `<pad> [-o] [--id]` |
 | `mscz-products` | PDF + Coria-`.mxl` uit basispartituur-`.mscz` (niet `*.print.mscz`) | `[pad] --force --dry-run` |
 | `vsa-products` | Coria-`.vsa.mxl` uit bibliotheek-`.vsa` | `[pad] --force --dry-run` |
+| `tekstblad-products` | PDF uit bibliotheek-`.tekstblad.md` | `[pad] --force --dry-run` |
 | `ensure-bibliotheek-id` | bibliotheek-id in `.mscz` colofon/meta | `[root]` |
 | `update-werkvoorraad` | werkvoorraad-tabel uit `input/` | — |
 | `oefenhoek-index` | bladermap-index strippen; optioneel SVG | `[--svg --dry-run --verbose]` |
 | `capella-mxl-to-mscz` | Capella-`.mxl` map -> standaard-`.mscz` | `[bron] [doel] --force --dry-run --limit` |
-| `bieb-accepteer` | Partituur opnemen in `oefenhoek/bibliotheek/` | `<id> <bestand> [--dry-run --force --stub]` |
+| `bieb-accepteer` | Partituur/tekstblad opnemen in `oefenhoek/bibliotheek/` | `<id> <bestand> [--dry-run --force --stub]` |
 
 Uitgebreide man-pages (Hugo): `content-source/praktijk/handleiding/scripts/`.
 Console: `scripts\h.cmd <naam>`.
@@ -76,8 +77,14 @@ Coria-sanitize + `vsa-source-sha256` van de canonieke `.vsa`). Slaat
 `data/vsa-product-status.json` (banner; `main` streng). Zie
 `oefenhoek-product-contract.md`.
 
-Drie Oefenhoek-sporen: basispartituur; VSA; print-`.mscz` (handleiding
-`partituur/7-print-mscz`). Afgeleiden per representatie-id en handmatige
+`tekstblad-products.cmd` (`sync_tekstblad_products.py`) maakt
+`{stam}.tekstblad.pdf` uit `{stam}.tekstblad.md` via `vsa pdf` +
+source-sha stamp. Pipeline lokaal; CI alleen
+`check_tekstblad_products.py`. Commit bron + PDF samen. Geen Coria.
+Handleiding: werktraject Tekstblad.
+
+Oefenhoek-sporen: basispartituur; VSA; print-`.mscz` (handleiding
+`partituur/7-print-mscz`); **tekstblad** (`.tekstblad.md` → PDF). Afgeleiden per representatie-id en handmatige
 artefacten: `oefenhoek-product-contract.md` (`{stam}.partituur.mxl` /
 `{stam}.vsa.mxl` / …; frontmatter `artefacten_handmatig`).
 Pagina-UI (sticky header, bibliotheek-id op leaves, shortcode `bieb`,

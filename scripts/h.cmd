@@ -36,6 +36,9 @@ if /I "%FILTER%"=="check_bibliotheek_id" goto man_bibliotheek_id
 if /I "%FILTER%"=="check_bibliotheek_id.py" goto man_bibliotheek_id
 if /I "%FILTER%"=="vsa-products" goto man_vsa_products
 if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
+if /I "%FILTER%"=="tekstblad-products" goto man_tekstblad_products
+if /I "%FILTER%"=="sync_tekstblad_products" goto man_tekstblad_products
+if /I "%FILTER%"=="sync_tekstblad_products.py" goto man_tekstblad_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
 if /I "%FILTER%"=="bieb-accepteer" goto man_bieb_accepteer
@@ -84,6 +87,7 @@ call :emit_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pa
 call :emit_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
+call :emit_short tekstblad-products "PDF uit bibliotheek-.tekstblad.md" "[pad] --force --dry-run"
 call :emit_short ensure-bibliotheek-id "bibliotheek-id in .mscz colofon/meta" "[root]"
 call :emit_short update-werkvoorraad "werkvoorraad-tabel uit input/ bijwerken" "-"
 call :emit_short oefenhoek-index "bladermap-index strippen / --svg" "[--svg --dry-run]"
@@ -122,6 +126,7 @@ call :try_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pad
 call :try_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
+call :try_short tekstblad-products "PDF uit bibliotheek-.tekstblad.md" "[pad] --force --dry-run"
 call :try_short ensure-bibliotheek-id "bibliotheek-id in .mscz colofon/meta" "[root]"
 call :try_short update-werkvoorraad "werkvoorraad-tabel uit input/ bijwerken" "-"
 call :try_short oefenhoek-index "bladermap-index strippen / --svg" "[--svg --dry-run]"
@@ -138,7 +143,7 @@ goto end_ok
 :unknown
 echo Geen script gevonden voor "%FILTER%".
 echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen,
-echo   opkuisen, layout, mscz-products, vsa-products, ensure-bibliotheek-id,
+echo   opkuisen, layout, mscz-products, vsa-products, tekstblad-products, ensure-bibliotheek-id,
 echo   update-werkvoorraad, oefenhoek-index, capella-mxl-to-mscz, bieb-accepteer, h
 echo.
 goto end_fail
@@ -434,6 +439,31 @@ echo SEE ALSO
 echo   scripts\sync_vsa_products.py
 echo   scripts\check_vsa_products.py
 echo   scripts\oefenhoek-product-contract.md
+echo.
+goto end_ok
+
+:man_tekstblad_products
+echo.
+echo NAME
+echo   scripts\tekstblad-products.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\tekstblad-products.cmd [pad] [--force] [--dry-run]
+echo.
+echo DESCRIPTION
+echo   Maakt sibling {stam}.tekstblad.pdf bij bibliotheek-.tekstblad.md
+echo   via vsa pdf + source-sha stamp. Slaat artefacten_handmatig over.
+echo   Zonder pad: oefenhoek\bibliotheek. Pipeline vernieuwt lokaal;
+echo   CI checkt alleen (check_tekstblad_products.py). Commit bron + PDF.
+echo.
+echo WHEN
+echo   Na .tekstblad.md-wijziging, of als check een ontbrekende/stale PDF meldt.
+echo.
+echo SEE ALSO
+echo   scripts\sync_tekstblad_products.py
+echo   scripts\check_tekstblad_products.py
+echo   scripts\oefenhoek-product-contract.md
+echo   handleiding scripts\tekstblad-products
 echo.
 goto end_ok
 

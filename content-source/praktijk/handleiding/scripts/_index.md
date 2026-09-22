@@ -37,11 +37,12 @@ Zet `.\scripts` op je PATH (dat doet `check` via `_ensure`), of roep altijd
 | `layout` | Past de Oefenhoek-basispartituur-standaard toe op een `.mscz` of opgekuiste `.mxl` (A4, fonts, reciteertoon, copyright). Resultaat: een genormaliseerde basispartituur-`.mscz`. | [layout](layout/) |
 | `mscz-products` | Maakt naast een basispartituur-`.mscz` de sibling-PDF en Coria-`.mxl` die koorleden downloaden of afspelen. | [mscz-products](mscz-products/) |
 | `vsa-products` | Maakt naast een bibliotheek-`.vsa` het Coria-bestand `{stam}.vsa.mxl` voor de Oefenen-knop. | [vsa-products](vsa-products/) |
+| `tekstblad-products` | Maakt naast een bibliotheek-`.tekstblad.md` de A4-PDF `{stam}.tekstblad.pdf` voor Downloaden/Printen via `bieb`. | [tekstblad-products](tekstblad-products/) |
 | `ensure-bibliotheek-id` | Zet of herstelt de regel «Bibliotheek-id: …» in colofon en metadata van basispartituur-`.mscz` onder `oefenhoek\bibliotheek\`, zodat die id overeenkomt met de map. | [ensure-bibliotheek-id](ensure-bibliotheek-id/) |
 | `update-werkvoorraad` | Werkt de tabel in `oefenhoek\input\werkvoorraad.md` bij aan de hand van bestanden die in `input\` liggen (nieuwe rijen; bestaande doel-ids blijven). | [update-werkvoorraad](update-werkvoorraad/) |
 | `oefenhoek-index` | Ruimt automatische shortcodes uit bladermap-`index.md` op, of schrijft met `--svg` plaatjes van bibliotheek-`.vsa` naar `static\vsa\bladermap\`. Meestal al onderdeel van `check`. | [oefenhoek-index](oefenhoek-index/) |
 | `capella-mxl-to-mscz` | Verwerkt een hele map Capella-`.mxl` (recursief) tot standaard-layout `.mscz` — bulk buiten de één-voor-één oefenhoek-flow. | [capella-mxl-to-mscz](capella-mxl-to-mscz/) |
-| `bieb-accepteer` | Neemt een klaar `.mscz`, `.vsa` of `.print.mscz` op in `oefenhoek\bibliotheek\` onder een bibliotheek-id (mappen + `index.md` met shortcode `bieb`). | [bieb-accepteer](bieb-accepteer/) |
+| `bieb-accepteer` | Neemt een klaar `.mscz`, `.vsa`, `.print.mscz` of `.tekstblad.md` op in `oefenhoek\bibliotheek\` onder een bibliotheek-id (mappen + `index.md` met shortcode `bieb`). | [bieb-accepteer](bieb-accepteer/) |
 
 Begrippen en pipeline: [Werktrajecten](../werktrajecten/); bestand
 `scripts\README.md` in de repository-map `VSA-demo` (niet als pagina op

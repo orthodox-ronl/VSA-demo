@@ -22,6 +22,7 @@ Basispartituur-transforms: [mscz-product-transforms.md](mscz-product-transforms.
 | `partituur` | `{stam}.mscz` (niet `.print.`) | `apply_mscz_layout` → `mscz-products` → PDF + Coria-`.mxl` + partituur-hash-gate |
 | `vsa` | `{stam}.vsa` | `scripts\vsa-products.cmd` (syllabify in temp → `vsa musicxml` + sanitize + source-sha) → `{stam}.vsa.mxl`; gate `check_vsa_products.py` |
 | `print` | `{stam}.print.mscz` | Geen layout/products/Coria uit dit bestand; PDF handmatig |
+| `tekstblad` | `{stam}.tekstblad.md` | `scripts\tekstblad-products.cmd` (`vsa pdf` + source-sha in PDF) → `{stam}.tekstblad.pdf`; gate `check_tekstblad_products.py` |
 
 Ids: `[a-z0-9_-]+`. Geen ad-hoc synoniemen (“route”, “uv”) in bestandsnamen.
 
@@ -42,6 +43,7 @@ Voorbeelden:
 | `{stam}.mscz` | `{stam}.partituur.pdf`, `{stam}.partituur.mxl` |
 | `{stam}.vsa` | `{stam}.vsa.mxl` (later `{stam}.vsa.pdf`) |
 | `{stam}.print.mscz` | `{stam}.print.pdf` |
+| `{stam}.tekstblad.md` | `{stam}.tekstblad.pdf` |
 
 `{publicatiestam}` = `{zangstuk}-{variant}-{uitvoeringsvorm}` zonder spaties
 (`[a-z0-9_-]+`). Helper: `scripts/score_filenames.py`.
@@ -131,6 +133,7 @@ Menulabels zijn **mensentaal** (geen ruwe representatie-id):
 | `vsa` | Melodie (één stem) | Zoals de notatie op deze pagina |
 | `partituur` | Koorblad (meerdere stemmen) | Zoals het PDF-blad |
 | `print` | Printblad | Koormap-vel om te printen |
+| `tekstblad` | Tekstblad | Liturgische tekst / dialoog (A4-PDF) |
 
 Legacy korte namen (`{stam}.mxl` / `{stam}.pdf`) volgen de sibling-bron
 (basispartituur-`.mscz` → representatie `partituur`, anders `.vsa` → `vsa`). Bij meerdere opties: voorkeur
@@ -153,6 +156,22 @@ het menu. Twee bestanden met hetzelfde label: bestandsstam erachter
 | Productie (`main`) | `check_vsa_products.py` faalt bij missing/stale/unstamped |
 
 Commit `.vsa` + `.vsa.mxl` samen. Geen MuseScore nodig.
+
+---
+
+## Tekstblad → PDF (productgate)
+
+| | |
+| --- | --- |
+| Commando | `scripts\tekstblad-products.cmd` (`sync_tekstblad_products.py`) |
+| Bron | `{stam}.tekstblad.md` (nooit een Hugo-pagina; frontmatter `build: render: never`) |
+| Product | `{stam}.tekstblad.pdf` |
+| Renderer | `vsa pdf` (zelfde keten als `scripts\pdf.cmd`) |
+| Stamp | `vsa-source-sha256`, `vsa-source-kind=tekstblad`, generator `tekstblad-products` |
+| Lokaal | pipeline vernieuwt stale producten; commit bron + PDF samen |
+| CI | `check_tekstblad_products.py` faalt bij missing/stale/unstamped (geen PDF-regenerate) |
+
+Geen Coria uit dit spoor. Shortcode `bieb` toont de PDF + Downloaden/Printen.
 
 ---
 

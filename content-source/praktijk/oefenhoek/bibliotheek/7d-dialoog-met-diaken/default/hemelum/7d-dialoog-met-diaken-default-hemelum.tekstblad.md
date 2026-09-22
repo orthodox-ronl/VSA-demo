@@ -2,6 +2,9 @@
 title: "Dialoog-met-diaken"
 sources:
   - "H. Liturgie - koormap - Groningen"
+build:
+  render: never
+  list: never
 ---
 
 <!-- Dit hoort HTML te zijn - dat is geen fout van een generator of zo -->

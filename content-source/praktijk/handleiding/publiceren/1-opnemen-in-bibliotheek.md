@@ -12,8 +12,8 @@ Deze pagina is de HOW voor `bieb-accepteer`.
 
 {{< cue >}}
 1. Ken het **bibliotheek-id** (drie delen met schuine strepen), of vraag het na.
-2. Zorg dat je bestand al een bruikbare **basispartituur-`.mscz`**, **`.vsa`**, of
-   **`.print.mscz`** is — niet een ruwe Capella-file.
+2. Zorg dat je bestand al een bruikbare **basispartituur-`.mscz`**, **`.vsa`**,
+   **`.print.mscz`**, of **`.tekstblad.md`** is — niet een ruwe Capella-file.
 3. Open het Windows-opdrachtvenster in de map `VSA-demo`.
 4. Typ `scripts\bieb-accepteer.cmd` en Enter — het script vraagt id en
    bestand na. (Of plak een volledige regel, zie hieronder.)

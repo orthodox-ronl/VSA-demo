@@ -15,6 +15,7 @@ weight: 30
 - `.pdf` = A4-afgeleide om te lezen of te printen
 - `.vsa` = tekst plus melodie in VSA-notatie (SVG + meestal auto Coria-`.vsa.mxl`); overzicht trajecten: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
 - **werktraject** = vaste pijplijn (waartoe, eindresultaat, CI, handmatige `.cmd`); catalogus: [Werktrajecten](/praktijk/handleiding/werktrajecten/)
+- **tekstblad** = representatie-id: bron `{stam}.tekstblad.md` → product `{stam}.tekstblad.pdf`; zie [Tekstblad](/praktijk/handleiding/werktrajecten/tekstblad/)
 - **opkuisen** = inhoud opschonen (stemmen/balken, lettergreep↔noot); Capella-script of handmatig in MuseScore
 - **normaliseren** / **layouten** = basispartituur-standaard met `scripts\layout.cmd` (zelfde scriptstap; “layouten” is de gewone naam)
 - **bibliotheek-id** = `zangstuk/variant/uitvoeringsvorm` (drie lagen); zichtbaar op bibliotheek-leaves en in het colofon van basispartituur-`.mscz`/PDF
@@ -75,6 +76,7 @@ Bij een `.mscz`: vaak handmatig in MuseScore. Zie
 | **Coria** | Online oefenen; knop **Oefenen** bij shortcode `bieb`; heeft een schone `.mxl` nodig |
 | **Uitvoeringsvorm** | Een concrete manier om een zangstuk uit te voeren (schrijf het woord uit; gebruik niet de afkorting “uv”) |
 | **Werktraject** | Pijplijn van bron naar eindproduct (site of PDF); zie [Werktrajecten](/praktijk/handleiding/werktrajecten/) |
+| **Tekstblad** | Bibliotheek-spoor: `{stam}.tekstblad.md` → `{stam}.tekstblad.pdf` (geen Hugo-pagina); [Tekstblad](/praktijk/handleiding/werktrajecten/tekstblad/) |
 
 Org-brede termen: [glossary in bron](https://github.com/orthodox-ronl/bron/blob/main/docs/specs/terminologie.md).
 

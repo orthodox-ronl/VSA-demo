@@ -22,7 +22,7 @@ mappen, woorden). Stapsgewijze MuseScore- of VSA-HOW’s staan onder
 - **Poort:** [Opnemen in de bibliotheek](opnemen-in-bibliotheek/) — ruw materiaal
   binnenhalen, later opkuisen, daarna `bieb-accepteer`
 - **Publicatiesporen:** [Basispartituur](basispartituur/), [VSA](vsa/),
-  [Print-vel](print-vel/)
+  [Print-vel](print-vel/), [Tekstblad](tekstblad/)
 - **Site zichtbaar maken:** [Site-build](site-build/)
 - **Apart:** [Markdown naar PDF](markdown-naar-pdf/),
   [Ingebedde VSA](ingebedde-vsa/); voorzien: [mvsa](mvsa/)
@@ -39,6 +39,7 @@ Opnemen in de bibliotheek  (werkvoorraad + later opkuis + bieb-accepteer)
     +-- Basispartituur  ->  PDF + Coria-.mxl
     +-- VSA             ->  SVG + Coria-.vsa.mxl
     +-- Print-vel       ->  handmatige PDF
+    +-- Tekstblad       ->  .tekstblad.md -> .tekstblad.pdf
     |
     v
 Site-build  (check / build / serve, of CI)  ->  generated/site + GitHub Pages
@@ -56,8 +57,9 @@ geen bibliotheek-producten.
 | Basispartituur | MuseScore-basispartituur naar A4-PDF en Coria-`.mxl` | [Basispartituur](basispartituur/) |
 | VSA | Eenstemmige `.vsa` naar SVG-plaatje en Coria-`.vsa.mxl` | [VSA](vsa/) |
 | Print-vel | Print-`.mscz` met handmatige PDF, buiten de basispartituur-keten | [Print-vel](print-vel/) |
+| Tekstblad | Liturgische tekst/dialoog: `.tekstblad.md` naar A4-PDF | [Tekstblad](tekstblad/) |
 | Site-build | `content-source` naar lokale site of GitHub Pages | [Site-build](site-build/) |
-| Markdown naar PDF | Markdownblad met VSA naar A4-PDF | [Markdown naar PDF](markdown-naar-pdf/) |
+| Markdown naar PDF | Markdownblad met VSA naar A4-PDF (generiek / demo) | [Markdown naar PDF](markdown-naar-pdf/) |
 | Ingebedde VSA | VSA buiten de oefenhoek-bibliotheek naar SVG (en optioneel MXL) | [Ingebedde VSA](ingebedde-vsa/) |
 | mvsa | Meerstemmige VSA — nog niet actief | [mvsa (voorzien)](mvsa/) |
 

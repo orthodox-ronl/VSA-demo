@@ -1,7 +1,7 @@
 ---
 title: "7d-dialoog-met-diaken"
 linkTitle: "7d-dialoog-met-diaken"
-publicatiestatus: voorzien
+publicatiestatus: reviewable
 automatische_inhoud: false
 ---
 

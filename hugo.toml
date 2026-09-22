@@ -5,7 +5,11 @@ title = "VSA Demo"
 disableKinds = ["taxonomy", "term"]
 
 # Ruwe inputs + register: geen Hugo-pagina's (README/werkvoorraad.md).
-ignoreFiles = ['(?i)praktijk[/\\\\]oefenhoek[/\\\\]input']
+# Tekstblad-bronnen zijn productbronnen, geen pagina's.
+ignoreFiles = [
+  '(?i)praktijk[/\\\\]oefenhoek[/\\\\]input',
+  '(?i)\\.tekstblad\\.md$',
+]
 
 [params]
   linksBron = "https://orthodox-ronl.github.io/bron/"

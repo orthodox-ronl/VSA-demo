@@ -112,7 +112,7 @@ Uitleg: [scripts/README.md](scripts/README.md).
 - Basispartituur-`.mscz` is canonieke partituur; PDF/Coria-`.mxl` zijn afgeleiden met
   embedded `partituur-sha256` (`mscz-products`, `check_partituur_products.py`).
   Contract: `scripts/mscz-partituur-contract.md`. Afgeleiden per representatie-id
-  (`partituur` / `vsa` / `print`): `scripts/oefenhoek-product-contract.md`.
+  (`partituur` / `vsa` / `print` / `tekstblad`): `scripts/oefenhoek-product-contract.md`.
   Pagina-UI (sticky header, shortcode `bieb`, bibliotheek-id op leaves):
   `scripts/oefenhoek-ui-contract.md`. Bibliotheek-id in basispartituur-colofon/PDF:
   `mscz-partituur-contract.md` / `oefenhoek-product-contract.md`
@@ -123,6 +123,9 @@ Uitleg: [scripts/README.md](scripts/README.md).
   (banner op bibliotheekpagina; pipeline slaat auto-producten over).
   VSA-Coria: `{stam}.vsa.mxl` via `vsa-products` / `check_vsa_products.py`
   (`scripts/oefenhoek-product-contract.md`).
+  Tekstblad: `{stam}.tekstblad.md` → `{stam}.tekstblad.pdf` via
+  `tekstblad-products` / `check_tekstblad_products.py` (lokaal bouwen + commit;
+  nooit Hugo-pagina).
 - `automatische_inhoud: true` | `false` op dezelfde pagina's (layout: partituur
   en kind-linklijst; 1 kind = doorverwijzen). Catalogus-includes (`id:`) en
   `bieb`-shortcodes horen bij `false`. Geen `#`-titel in

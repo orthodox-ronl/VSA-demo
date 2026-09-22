@@ -7,8 +7,11 @@ weight: 60
 # Markdown naar PDF
 
 Dit werktraject maakt van één Markdownbestand (tekst, VSA-blokken,
-includes, paginascheidingen) een **A4-PDF**. Het is geen vervanging van
-bibliotheek-PDF’s uit MuseScore.
+includes, paginascheidingen) een **A4-PDF**. Gebruik dit voor demo’s en
+losse bladen **buiten** de oefenhoek-bibliotheek. Voor liturgische tekst
+**in** de bibliotheek: werktraject
+[Tekstblad](/praktijk/handleiding/werktrajecten/tekstblad/)
+(`{stam}.tekstblad.md` → `{stam}.tekstblad.pdf`).
 
 {{< cue >}}
 Willekeurig blad:

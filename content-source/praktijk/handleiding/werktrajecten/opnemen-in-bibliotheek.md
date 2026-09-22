@@ -20,8 +20,8 @@ genoeg is om op te nemen.
    (`update-werkvoorraad` of `check`).
 3. Vul het **doel-id** in — niet raden; zie het
    [Id-register](/praktijk/oefenhoek/bibliotheek/id-register/).
-4. Als het bestand klaar is (basispartituur-`.mscz`, `.vsa` of `.print.mscz`):
-   `scripts\bieb-accepteer.cmd`.
+4. Als het bestand klaar is (basispartituur-`.mscz`, `.vsa`, `.print.mscz`
+   of `.tekstblad.md`): `scripts\bieb-accepteer.cmd`.
 5. Controleer met `scripts\check.cmd --strict`.
 {{< /cue >}}
 
@@ -89,7 +89,8 @@ scripts\update-werkvoorraad.cmd
 ### Klaar bestand opnemen
 
 6. Zorg dat het bestand een bruikbare **basispartituur-`.mscz`**,
-   **`.vsa`** of **`.print.mscz`** is (niet een ruwe Capella-file).
+   **`.vsa`**, **`.print.mscz`** of **`.tekstblad.md`** is (niet een ruwe
+   Capella-file).
 7. Neem op in de bibliotheek:
 
 ```cmd

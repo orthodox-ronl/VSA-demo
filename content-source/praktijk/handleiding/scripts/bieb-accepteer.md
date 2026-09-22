@@ -19,7 +19,9 @@ scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
 Neemt een klaar bestand op in de **bibliotheek** (de catalogus onder
 `oefenhoek\bibliotheek\`), onder een bibliotheek-id van drie lagen:
 `zangstuk/variant/uitvoeringsvorm`. Toegestaan: basispartituur-`.mscz`,
-`.vsa`, of `.print.mscz` (optioneel sibling-`.pdf` / `.mxl`).
+`.vsa`, `.print.mscz`, of `.tekstblad.md` (optioneel sibling-`.pdf` / `.mxl`).
+Bij `.tekstblad.md` zet het script indien nodig frontmatter
+`build: render: never` zodat de bron geen Hugo-pagina wordt.
 
 Het script maakt ontbrekende `_index.md` / `index.md` met shortcode `bieb`
 en hernoemt naar de publicatiestam. Capella-bronformats en een kale
