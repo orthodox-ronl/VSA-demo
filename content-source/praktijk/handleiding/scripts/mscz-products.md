@@ -6,7 +6,7 @@ weight: 100
 
 # NAME
 
-`scripts\mscz-products.cmd` — PDF + Coria-`.mxl` uit basispartituur-`.mscz`
+`scripts\mscz-products.cmd` — PDF en Coria-`.mxl` maken bij een basispartituur-`.mscz`
 
 # SYNOPSIS
 
@@ -16,19 +16,25 @@ scripts\mscz-products.cmd [pad] [--force] [--dry-run]
 
 # DESCRIPTION
 
-Exporteert sibling-PDF en Coria-`.mxl` bij basispartituur-`.mscz` (niet
-`oefenhoek\input`, niet `*.print.mscz`). Schrijft provenance
-(`partituur-sha256`, `generated-at`).
+Exporteert naast een **basispartituur-`.mscz`** de sibling-bestanden die
+koorleden gebruiken: een A4-**PDF** (downloaden/printen) en een
+**Coria-`.mxl`** (afspelen via de Oefenen-knop). Het script schrijft ook
+herkomstinformatie (`partituur-sha256`, `generated-at`) in die producten.
 
-Zonder pad: onder `content-source`. Pipeline roept dit lokaal aan. Eerst
-[layout](../layout/), eventueel editslag in MuseScore, daarna dit script.
+Het zoekt basispartituur-`.mscz` onder het opgegeven pad (of, zonder pad,
+onder `content-source`). Bestanden in `oefenhoek\input\` en namen die
+eindigen op `.print.mscz` worden overgeslagen.
+
+**Volgorde:** eerst [layout](../layout/), daarna eventueel een editslag in
+MuseScore 4, daarna dit commando — niet meteen PDF maken als je nog gaat
+editen. De pipeline roept `mscz-products` lokaal ook aan.
 
 # OPTIONS
 
 | Optie | Betekenis |
 | --- | --- |
-| `--force` | Bestaande producten overschrijven |
-| `--dry-run` | Alleen planning tonen |
+| `--force` | Bestaande PDF/MXL overschrijven |
+| `--dry-run` | Alleen tonen wat er zou gebeuren |
 
 # EXAMPLES
 
@@ -39,12 +45,11 @@ scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\8-trisag
 
 # WHEN
 
-Als de basispartituur-`.mscz` klaar is voor publicatie-PDF en Coria — na
-layout en MuseScore-review, niet meteen na de eerste layout-run als je nog
-gaat editen.
+Als de basispartituur-`.mscz` inhoudelijk en qua layout klaar is voor
+publicatie-PDF en Coria.
 
 # SEE ALSO
 
 - [layout](../layout/)
-- Workflow: [PDF en Coria](../../partituur/5-pdf-en-coria/)
-- `scripts\oefenhoek-product-contract.md`
+- Workflow: [PDF en Coria](/praktijk/handleiding/partituur/5-pdf-en-coria/)
+- Bestand `scripts\oefenhoek-product-contract.md` in `VSA-demo`

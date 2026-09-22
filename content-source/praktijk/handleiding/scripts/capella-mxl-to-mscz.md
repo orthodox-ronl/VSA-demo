@@ -6,7 +6,7 @@ weight: 150
 
 # NAME
 
-`scripts\capella-mxl-to-mscz.cmd` — Capella-`.mxl`-map naar standaard-`.mscz`
+`scripts\capella-mxl-to-mscz.cmd` — hele map Capella-`.mxl` omzetten naar standaard-`.mscz`
 
 # SYNOPSIS
 
@@ -16,22 +16,22 @@ scripts\capella-mxl-to-mscz.cmd [bronmap] [doelmap] [--force] [--dry-run] [--lim
 
 # DESCRIPTION
 
-Kuist Capella/CapToMusic-`.mxl` **recursief** op en zet ze om naar
-standaard-layout `.mscz`. Submappen blijven behouden. Combineert opkuisen +
-layout in batch.
+Kuist Capella- of CapToMusic-`.mxl`-bestanden **recursief** op en zet ze om
+naar standaard-layout `.mscz` (opkuisen + layout in één batch). Submappen
+blijven behouden.
 
-Zonder paden:
+Zonder paden gebruikt het script deze defaults buiten de oefenhoek:
 
 - bron: `C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mxl`
 - doel: `C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mscz`
 
-Hervatbaar: bestaande `.mscz` die niet ouder zijn dan de bron worden
-overgeslagen, tenzij `--force`. Log: `doel\_batch-log.txt`. MuseScore 4 moet
-geïnstalleerd zijn en **niet open** staan. Niet in `check` / `build` /
-`serve`. Geen PDF of Coria-`.mxl`.
+Het is hervatbaar: bestaande `.mscz` die niet ouder zijn dan de bron worden
+overgeslagen, tenzij `--force`. Logbestand: `doel\_batch-log.txt`. MuseScore
+4 moet geïnstalleerd zijn en **niet open** staan tijdens de run. Geen PDF
+en geen Coria-`.mxl`. Niet in `check` / `build` / `serve`.
 
-Voor één bestand in de oefenhoek-flow: liever [opkuisen](../opkuisen/) +
-[layout](../layout/).
+Voor **één** stuk in de oefenhoek-publicatiestroom: liever
+[opkuisen](../opkuisen/) en daarna [layout](../layout/).
 
 # OPTIONS
 
@@ -44,8 +44,8 @@ Voor één bestand in de oefenhoek-flow: liever [opkuisen](../opkuisen/) +
 
 # WHEN
 
-Een hele Capella-MXL-input naar standaard-`.mscz`, buiten de oefenhoek-stukken
-die je één voor één publiceert.
+Je hebt een hele Capella-MXL-backup die je in bulk naar standaard-`.mscz`
+wilt, buiten de stukken die je één voor één publiceert.
 
 # SEE ALSO
 

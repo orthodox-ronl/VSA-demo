@@ -6,7 +6,7 @@ weight: 60
 
 # NAME
 
-`scripts\demo-pdf.cmd` — demo-PDF `voorbeeld-blad.pdf` bouwen
+`scripts\demo-pdf.cmd` — demoblad-PDF voor de Tooling Demo vernieuwen
 
 # SYNOPSIS
 
@@ -16,20 +16,35 @@ scripts\demo-pdf.cmd
 
 # DESCRIPTION
 
-Bouwt `static\demo\voorbeeld-blad.pdf` uit het demo-Markdownblad. Wrapper om
-`scripts\pdf.cmd` met vaste paden.
+Dit commando hoort bij de **Tooling Demo** op de site (sectie «Markdown naar
+PDF»). Het maakt opnieuw het A4-PDF-bestand
+`static\demo\voorbeeld-blad.pdf` uit de bron
+`content-source\praktijk\demo\assets\voorbeeld-blad.md` (Markdown met
+VSA-blokken; die bron wordt zelf niet als Hugo-pagina gepubliceerd). Het
+script roept intern `scripts\pdf.cmd` aan met die vaste paden.
 
-`check` / `build` / `serve` (met build) controleren of die PDF niet ouder is
-dan `voorbeeld-blad.md` en `voorbeeld.vsa`. Bij veroudering: fout + dit
-commando als herstel.
+**Waartoe:** de demopagina toont die PDF in de browser. Daarnaast controleren
+`check`, `build` en `serve` (met build) of `voorbeeld-blad.pdf` niet ouder is
+dan `voorbeeld-blad.md` en het meegeleverde `voorbeeld.vsa`. Is de PDF
+verouderd, dan faalt die controle en is `demo-pdf` het herstelcommando uit
+de foutmelding.
+
+# EXAMPLES
+
+Na een wijziging aan de bron (voorbeeldpaden hierboven):
+
+```cmd
+scripts\demo-pdf.cmd
+```
 
 # WHEN
 
-Na wijziging van
-`content-source\praktijk\demo\assets\voorbeeld-blad.md` of `voorbeeld.vsa`,
-vóór je commit of `serve` opnieuw draait.
+Nadat je
+`content-source\praktijk\demo\assets\voorbeeld-blad.md` of het bijbehorende
+`voorbeeld.vsa` hebt aangepast, en vóór je opnieuw `check` of `serve` draait
+of commit.
 
 # SEE ALSO
 
-- [pdf](../pdf/)
-- Demo-pagina op de site: Markdown naar PDF
+- [pdf](../pdf/) — generiek PDF-commando met zelf gekozen paden
+- Site: [Markdown naar PDF](/praktijk/demo/06-markdown-naar-pdf/)

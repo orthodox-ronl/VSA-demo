@@ -6,7 +6,7 @@ weight: 130
 
 # NAME
 
-`scripts\update-werkvoorraad.cmd` — werkvoorraad-tabel bijwerken
+`scripts\update-werkvoorraad.cmd` — tabel «werkvoorraad» laten aansluiten op `input\`
 
 # SYNOPSIS
 
@@ -16,20 +16,22 @@ scripts\update-werkvoorraad.cmd
 
 # DESCRIPTION
 
-Vult de tabel in
-`content-source\praktijk\oefenhoek\input\werkvoorraad.md` uit bestanden die
-op schijf in `input\` liggen. Doel-id, koormap en notitie in **bestaande**
-rijen blijven staan; nieuwe bestanden krijgen een rij.
+Werkvoorraad is het register van ruwe bestanden onder
+`content-source\praktijk\oefenhoek\input\` (nog niet gepubliceerd). Dit
+commando vult de tabel in het bestand `werkvoorraad.md` in die map aan de
+hand van wat er op schijf ligt. Doel-id, koormap en notitie in **bestaande**
+rijen blijven staan; nieuwe bestanden krijgen een nieuwe rij.
 
-Verwijdert ook `generated\content\...\oefenhoek\input`, zodat inputs geen
-Hugo-pagina’s worden.
+Het verwijdert ook `generated\content\...\oefenhoek\input`, zodat die
+inputs geen Hugo-pagina’s op de site worden.
 
 # WHEN
 
-Automatisch in `check` / `build` / `serve`. Handmatig na nieuwe bestanden in
-`input\` (Capella, VOW, …), zonder een volle check te willen draaien.
+Automatisch in `check` / `build` / `serve`. Handmatig nadat je nieuwe
+bestanden in `input\` hebt gezet en niet meteen een volle `check` wilt
+draaien.
 
 # SEE ALSO
 
 - [check](../check/)
-- Workflow: [Binnenhalen](../../partituur/1-binnenhalen/)
+- Workflow: [Binnenhalen](/praktijk/handleiding/partituur/1-binnenhalen/)

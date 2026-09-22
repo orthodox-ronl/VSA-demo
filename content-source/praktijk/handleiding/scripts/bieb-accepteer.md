@@ -6,7 +6,7 @@ weight: 160
 
 # NAME
 
-`scripts\bieb-accepteer.cmd` — partituur opnemen in de bibliotheek
+`scripts\bieb-accepteer.cmd` — partituur opnemen in de Oefenhoek-bibliotheek
 
 # SYNOPSIS
 
@@ -16,18 +16,20 @@ scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
 
 # DESCRIPTION
 
-Neemt een basispartituur-`.mscz`, `.vsa` of `.print.mscz` op onder
-`oefenhoek\bibliotheek\<zangstuk>\<variant>\<uitvoeringsvorm>\`. Maakt
-ontbrekende `_index.md` / `index.md` met shortcode `bieb`, hernoemt naar de
-publicatiestam.
+Neemt een klaar bestand op in de **bibliotheek** (de catalogus onder
+`oefenhoek\bibliotheek\`), onder een bibliotheek-id van drie lagen:
+`zangstuk/variant/uitvoeringsvorm`. Toegestaan: basispartituur-`.mscz`,
+`.vsa`, of `.print.mscz` (optioneel sibling-`.pdf` / `.mxl`).
 
-Weigert Capella-bronformats en een kale Capella-`.mxl` (eerst
-[opkuisen](../opkuisen/) / [layout](../layout/)). Bij `.vsa`: `vsa validate`
-(tenzij `--skip-vsa-validate`). Default `publicatiestatus: reviewable`
-(`voorzien` bij `--stub`). Geen `productie` zonder `--force`.
+Het script maakt ontbrekende `_index.md` / `index.md` met shortcode `bieb`
+en hernoemt naar de publicatiestam. Capella-bronformats en een kale
+Capella-`.mxl` worden geweigerd — eerst [opkuisen](../opkuisen/) /
+[layout](../layout/). Bij `.vsa` draait `vsa validate` (tenzij
+`--skip-vsa-validate`). Default `publicatiestatus: reviewable` (`voorzien`
+bij `--stub`). Status `productie` alleen met `--force`.
 
-Ontbrekende id of bestand: interactief gevraagd. Typ `?` voor uitleg, daarna
-opnieuw invullen. Zonder argumenten: beide vragen.
+Ontbreken id of bestand, dan vraagt het script die interactief. Typ `?`
+voor uitleg, daarna opnieuw invullen. Zonder argumenten: beide vragen.
 
 # OPTIONS
 
@@ -36,8 +38,8 @@ opnieuw invullen. Zonder argumenten: beide vragen.
 | `--title` | Titel override |
 | `--status` | Publicatiestatus |
 | `--stub` | Lege leaf (`voorzien`) |
-| `--move` | Bronbestand verplaatsen i.p.v. kopiëren |
-| `--force` | Overschrijven / productie toestaan |
+| `--move` | Bronbestand verplaatsen in plaats van kopiëren |
+| `--force` | Overschrijven / `productie` toestaan |
 | `--dry-run` | Alleen tonen |
 | `--skip-vsa-validate` | Geen `vsa validate` |
 | `--artefacten-handmatig` | Zet `artefacten_handmatig: true` |
@@ -51,11 +53,12 @@ scripts\bieb-accepteer.cmd 8-trisagion/8a-nederlands/hemelum pad\naar\bestand.ms
 
 # WHEN
 
-Als de partituur klaar is om in de bibliotheek te staan (na opkuisen /
-normaliseren of na een werkende `.vsa`). Daarna koormap + `check --strict`.
+Als de partituur klaar is om in de catalogus te staan (na opkuisen /
+normaliseren, of na een werkende `.vsa`). Daarna koormap +
+`check --strict`.
 
 # SEE ALSO
 
-- Workflow: [Opnemen in de bibliotheek](../../publiceren/1-opnemen-in-bibliotheek/)
+- Workflow: [Opnemen in de bibliotheek](/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/)
 - [check](../check/)
 - Console: `scripts\h.cmd bieb-accepteer`

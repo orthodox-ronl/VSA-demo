@@ -6,7 +6,7 @@ weight: 40
 
 # NAME
 
-`scripts\serve.cmd` — lokale Hugo-preview
+`scripts\serve.cmd` — lokale website-preview in de browser
 
 # SYNOPSIS
 
@@ -16,35 +16,39 @@ scripts\serve.cmd [--no-build]
 
 # DESCRIPTION
 
-Start de Hugo-development server op **http://127.0.0.1:18731/**. Poort **18731**,
-niet 1313 (1313 is lokaal gereserveerd).
+Start de Hugo-development server. Open daarna in je browser
+**http://127.0.0.1:18731/**. Gebruik niet poort **1313**; die poort is lokaal
+voor iets anders gereserveerd.
 
-Standaard: eerst de pipeline (sync/validate/generate), daarna de server.
-Validate zonder `--strict` (snellere preview). Met `--no-build`: alleen
-Coria-fingerprints + server; daarvoor moet `generated\content` al bestaan
-(bijvoorbeeld na `check.cmd --strict`).
+Standaard draait `serve` eerst de build-keten (sync, validatie, generate) en
+start daarna de server. Validatie is dan sneller dan bij `check --strict`
+(zonder `--strict`).
+
+Met `--no-build` slaat `serve` die keten over en start alleen de server
+(plus Coria-fingerprints). Daarvoor moet `generated\content` al bestaan —
+bijvoorbeeld na een geslaagde `check.cmd --strict`.
 
 # OPTIONS
 
 | Optie | Betekenis |
 | --- | --- |
-| `--no-build` | Sla sync/validate/generate over; wel Coria-fingerprints |
+| `--no-build` | Geen sync/validate/generate; wel Coria-fingerprints + server |
 
 # EXAMPLES
+
+Aanbevolen volgorde vóór een commit-achtige preview:
 
 ```cmd
 scripts\check.cmd --strict
 scripts\serve.cmd --no-build
 ```
 
-Open daarna http://127.0.0.1:18731/ in de browser.
-
 # WHEN
 
-Browser-preview tijdens beheerwerk. CI-gelijk: eerst `check --strict`, dan
-`serve --no-build`.
+Als je in de browser wilt zien hoe de Oefenhoek en de handleiding eruitzien
+tijdens beheerwerk.
 
 # SEE ALSO
 
 - [check](../check/)
-- [Wat heb je nodig](../../start/wat-heb-je-nodig/)
+- [Wat heb je nodig](/praktijk/handleiding/start/wat-heb-je-nodig/)

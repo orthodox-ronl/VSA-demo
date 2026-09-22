@@ -6,7 +6,7 @@ weight: 10
 
 # NAME
 
-`scripts\h.cmd` — catalogus of korte man-page per script
+`scripts\h.cmd` — hulp in het opdrachtvenster: catalogus of korte man-page
 
 # SYNOPSIS
 
@@ -16,25 +16,27 @@ scripts\h.cmd <naam>
 scripts\h.cmd -h
 ```
 
-Met `.\scripts` op PATH: `h` of `h check`.
+Met `.\scripts` op PATH kun je ook `h` of `h check` typen.
 
 # DESCRIPTION
 
-Zonder argument toont `h` een korte catalogus van alle gebruikers-`.cmd`-scripts.
-Met een exacte scriptnaam (bijvoorbeeld `check`, `opkuisen`, `layout`) print
-het opdrachtvenster een korte man-page: doel, opties, wanneer.
+Zonder argument toont `h` een korte lijst van alle gebruikerscommando’s
+(`.cmd`) die bij deze repository horen. Met een exacte naam (bijvoorbeeld
+`check`, `opkuisen` of `layout`) print het opdrachtvenster een korte
+man-page: doel, opties en wanneer je het gebruikt.
 
-Met een onbekende of gedeeltelijke tekst krijg je een gefilterde lijst, of een
-foutmelding met bekende namen.
+Met een onbekende of gedeeltelijke tekst krijg je een gefilterde lijst, of
+een foutmelding met bekende namen.
 
-De **uitgebreide** man-pages staan in deze handleiding-sectie
-[Scripts](../). Console-`h` is bewust kort (ASCII, snel te lezen in `cmd`).
+De console-tekst is bewust kort (alleen eenvoudige tekens). De **uitgebreide**
+uitleg staat in deze handleiding-sectie [Scripts](../).
 
 # EXAMPLES
 
+Voorbeelden (niet de enige geldige namen):
+
 ```cmd
 scripts\h.cmd
-scripts\h.cmd bootstrap
 scripts\h.cmd opkuisen
 scripts\h.cmd layout
 ```
@@ -47,4 +49,4 @@ zonder de browser te openen.
 # SEE ALSO
 
 - [Script-referentie](../)
-- Bestand `scripts\README.md` in `VSA-demo`
+- Bestand `scripts\README.md` in de repository-map `VSA-demo`

@@ -6,7 +6,7 @@ weight: 80
 
 # NAME
 
-`scripts\opkuisen.cmd` — Capella/CapToMusic-`.mxl` inhoudelijk opkuisen
+`scripts\opkuisen.cmd` — Capella/CapToMusic-`.mxl` inhoudelijk opschonen
 
 # SYNOPSIS
 
@@ -16,16 +16,22 @@ scripts\opkuisen.cmd <bron.mxl> [-o doel.mxl|doelmap]
 
 # DESCRIPTION
 
-**Opkuisen** betekent hier: de *inhoud* van een Capella- of CapToMusic-`.mxl`
-opschonen (lagen 1–3): reciteerkwarten zichtbaar maken, lettergreep↔noot,
-titelrommel weg, lege maten, sleutels bij twee balken. Geen A4-layout, geen
-PDF, geen Coria — dat is [layout](../layout/) en [mscz-products](../mscz-products/).
+**Opkuisen** betekent: de *muzikale en tekstuele inhoud* van een Capella- of
+CapToMusic-`.mxl` opschonen. Het script maakt onder meer verborgen
+reciteerkwarten zichtbaar, synchroniseert lettergrepen met noten, ruimt
+titelrommel op en verwijdert lege maten. Het doet **geen** A4-pagina-layout,
+geen PDF en geen Coria-export — dat is [layout](../layout/) en
+[mscz-products](../mscz-products/).
 
-Het Capella-origineel in `oefenhoek\input\capella\` overschrijf je **niet**.
-Schrijf naar `input\_werk\<stam>\<stam>.mxl` (publicatiestam zonder spaties).
+Overschrijf het Capella-origineel in `oefenhoek\input\capella\` **niet**.
+Schrijf het resultaat naar een map onder
+`oefenhoek\input\_werk\<stam>\` met een bestandsnaam zonder spaties.
+De **publicatiestam** is het bibliotheek-id met `-` tussen de drie lagen
+(bijvoorbeeld id `8-trisagion/8a-nederlands/hemelum` → stam
+`8-trisagion-8a-nederlands-hemelum`).
 
-Python-implementatie: `scripts\cleanup_capella_mxl.py`. Niet in
-`check` / `build` / `serve`.
+Python-implementatie: `scripts\cleanup_capella_mxl.py`. Dit commando zit
+niet in `check` / `build` / `serve`.
 
 # OPTIONS
 
@@ -35,22 +41,22 @@ Python-implementatie: `scripts\cleanup_capella_mxl.py`. Niet in
 
 # EXAMPLES
 
+Voorbeeld voor één Capella-bestand (paden zijn illustratief):
+
 ```cmd
 scripts\opkuisen.cmd "content-source\praktijk\oefenhoek\input\capella\8a - 8-trisagion.mxl" -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl
 ```
 
-`STAM` = de drie lagen van het bibliotheek-id met `-` ertussen, bijvoorbeeld
-`8-trisagion/8a-nederlands/hemelum` → `8-trisagion-8a-nederlands-hemelum`.
-
 # WHEN
 
-Bij elke nieuwe Capella-/CapToMusic-`.mxl`, vóór [layout](../layout/).
+Bij elke nieuwe Capella- of CapToMusic-`.mxl`, vóór [layout](../layout/).
 
-Ruwe `.mscz` (VOW e.d.): dit commando overslaan; checklist in MuseScore 4 —
-zie workflow [Opkuisen](../../partituur/2-opkuisen/).
+Heb je een ruwe `.mscz` (bijvoorbeeld VOW): dit Capella-commando overslaan;
+werk de checklist in MuseScore 4 af — zie
+[Opkuisen](/praktijk/handleiding/partituur/2-opkuisen/).
 
 # SEE ALSO
 
 - [layout](../layout/)
-- Workflow: [Opkuisen](../../partituur/2-opkuisen/)
+- Workflow: [Opkuisen](/praktijk/handleiding/partituur/2-opkuisen/)
 - Console: `scripts\h.cmd opkuisen`

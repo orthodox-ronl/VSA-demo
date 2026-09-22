@@ -6,7 +6,7 @@ weight: 120
 
 # NAME
 
-`scripts\ensure-bibliotheek-id.cmd` — bibliotheek-id in basispartituur colofon/meta
+`scripts\ensure-bibliotheek-id.cmd` — bibliotheek-id in colofon en metadata zetten
 
 # SYNOPSIS
 
@@ -16,32 +16,35 @@ scripts\ensure-bibliotheek-id.cmd [root] [--check-only] [--fail]
 
 # DESCRIPTION
 
-Basispartituur-`.mscz` onder `oefenhoek\bibliotheek\` moeten de regel
-`Bibliotheek-id:` in het colofon én meta `vsaBibliotheekId` hebben, gelijk aan
-het pad `zangstuk/variant/uitvoeringsvorm`.
+Elke basispartituur-`.mscz` onder `oefenhoek\bibliotheek\` moet in het
+colofon de regel `Bibliotheek-id:` hebben én in de MuseScore-metadata
+`vsaBibliotheekId`. Die waarde moet gelijk zijn aan het pad
+`zangstuk/variant/uitvoeringsvorm` van de map.
 
-Lokaal herstelt dit commando ontbrekende of verkeerde id’s (via
-`process_mscz`, zonder MuseScore). Met `--check-only` (of in CI) alleen
-rapporteren. Op `main` / strict-pipeline: falen als er nog problemen zijn.
+Lokaal herstelt dit commando ontbrekende of verkeerde id’s (zonder MuseScore
+te openen). Met `--check-only` (of in CI) alleen rapporteren, niet schrijven.
+Op `main` of met een strenge pipeline faalt de check als er nog problemen
+zijn.
 
-Zonder `root`: `content-source\praktijk\oefenhoek\bibliotheek`. Daarna
-[mscz-products](../mscz-products/) voor verse PDF’s.
+Zonder `root` zoekt het script onder
+`content-source\praktijk\oefenhoek\bibliotheek`. Na een herstel: opnieuw
+[mscz-products](../mscz-products/) voor verse PDF’s met het juiste colofon.
 
 # OPTIONS
 
 | Optie | Betekenis |
 | --- | --- |
-| `root` | Zoekroot (default: bibliotheek) |
+| `root` | Map waaronder gezocht wordt (default: bibliotheek) |
 | `--check-only` | Alleen controleren, niet schrijven |
-| `--fail` | Exit 1 bij problemen (ook buiten strict) |
+| `--fail` | Exitcode 1 bij problemen (ook buiten de strenge pipeline) |
 
 # WHEN
 
-Na [layout](../layout/) of verplaatsing in de bibliotheek, of als `check` een
-id-mismatch meldt.
+Na [layout](../layout/) of na verplaatsing in de bibliotheek, of als `check`
+een id-mismatch meldt.
 
 # SEE ALSO
 
 - [layout](../layout/)
 - [mscz-products](../mscz-products/)
-- `scripts\mscz-partituur-contract.md`
+- Bestand `scripts\mscz-partituur-contract.md` in `VSA-demo`

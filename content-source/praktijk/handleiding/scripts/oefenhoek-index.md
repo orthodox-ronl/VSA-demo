@@ -6,7 +6,7 @@ weight: 140
 
 # NAME
 
-`scripts\oefenhoek-index.cmd` — bladermap-index strippen; optioneel SVG uit `.vsa`
+`scripts\oefenhoek-index.cmd` — bladermap-markdown opschonen; optioneel SVG uit `.vsa`
 
 # SYNOPSIS
 
@@ -16,22 +16,24 @@ scripts\oefenhoek-index.cmd [--dry-run] [--svg] [--verbose]
 
 # DESCRIPTION
 
-Zonder flags: haalt auto-includes en score-shortcodes uit oefenhoek
-bladermap-`index.md`. Frontmatter en eigen tekst blijven. Pagina’s met
-`bieb` of `automatische_inhoud: false` blijven onaangeroerd. Widgets komen
-uit de Hugo-layout of shortcode `bieb`.
+Zonder flags haalt dit commando automatische includes en score-shortcodes
+uit oefenhoek bladermap-`index.md`. Frontmatter en tekst die jij zelf
+schreef blijven staan. Pagina’s met shortcode `bieb` of met
+`automatische_inhoud: false` worden niet aangepast. De partituurweergave
+komt uit de Hugo-layout of uit `bieb`.
 
-Met `--svg`: schrijft SVG van lokale `.vsa` (geen basispartituur-`.mscz`;
-`*.print.mscz` mag) naar `static\vsa\bladermap\` (na `vsa build-markdown`),
-ook onder `bibliotheek\`.
+Met `--svg` schrijft het script SVG-plaatjes van lokale `.vsa`-bestanden
+(zonder basispartituur-`.mscz` ernaast; een `.print.mscz` mag) naar
+`static\vsa\bladermap\`, ook onder `bibliotheek\`. Dat gebeurt normaal
+tijdens `check` / `build` / `serve` (niet bij `serve --no-build`).
 
-Standaard alleen een samenvatting; `--verbose` toont elk pad.
+Standaard zie je alleen een samenvatting; `--verbose` toont elk pad.
 
 # OPTIONS
 
 | Optie | Betekenis |
 | --- | --- |
-| `--dry-run` | Toon wat de strip zou wijzigen |
+| `--dry-run` | Toon wat de strip zou wijzigen, zonder te schrijven |
 | `--svg` | Schrijf SVG uit `.vsa` |
 | `--verbose` | Detail per bestand |
 
@@ -51,4 +53,4 @@ Automatisch in `check` / `build` / `serve`. Handmatig: `--svg` na een
 
 - [check](../check/)
 - [vsa-products](../vsa-products/)
-- Workflow: [VSA schrijven](../../vsa/1-vsa-schrijven/)
+- Workflow: [VSA schrijven](/praktijk/handleiding/vsa/1-vsa-schrijven/)

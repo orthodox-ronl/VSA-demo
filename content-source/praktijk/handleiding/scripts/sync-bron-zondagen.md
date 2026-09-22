@@ -6,7 +6,7 @@ weight: 70
 
 # NAME
 
-`scripts\sync-bron-zondagen.cmd` — zondag-VSA uit bron synchroniseren
+`scripts\sync-bron-zondagen.cmd` — zondag-zangstukken uit `bron` naar de demo kopiëren
 
 # SYNOPSIS
 
@@ -16,14 +16,18 @@ scripts\sync-bron-zondagen.cmd [bron-root]
 
 # DESCRIPTION
 
-Kopieert tropaar/kondak (en gerelateerde) zondag-bestanden uit de
-**bron**-repository naar `content-source\praktijk\zondagen\`. Alleen binaire
-bronassets (`.vsa`, melodie-`.jpg`, `.coria.html`) — geen markdown.
+Kopieert tropaar- en kondakbestanden voor de zondagstonen (en gerelateerde
+assets) uit de canonieke repository **bron** naar
+`content-source\praktijk\zondagen\` in `VSA-demo`. Het kopieert alleen
+binaire bronbestanden: `.vsa`, melodie-afbeeldingen (`.jpg`) en
+`.coria.html`. Er wordt geen markdown geschreven.
 
-Zo blijft de demo synchroon met canonieke bron-VSA.
+**Waartoe:** de demo-site blijft synchroon met de canonieke VSA in `bron`,
+zonder die stukken handmatig te kopiëren.
 
-Zonder argument: automatisch sibling `..\bron` of `vendor\bron`. Met argument:
-expliciet pad naar een bron-checkout.
+Zonder argument zoekt het script automatisch de sibling-map `..\bron` of
+`vendor\bron`. Met argument geef je een expliciet pad naar een
+bron-checkout.
 
 # EXAMPLES
 
@@ -34,10 +38,10 @@ scripts\sync-bron-zondagen.cmd C:\Git\orthodox-ronl\bron
 
 # WHEN
 
-Handmatig als je bron net hebt bijgewerkt en alleen die sync wilt.
-`check` / `build` / `serve` roepen sync zelf al aan.
+Handmatig als je `bron` net hebt bijgewerkt en alleen die sync wilt.
+`check`, `build` en `serve` roepen dit commando zelf al aan.
 
 # SEE ALSO
 
 - [check](../check/)
-- Bestand `scripts\README.md` in `VSA-demo`
+- Bestand `scripts\README.md` in de repository-map `VSA-demo`

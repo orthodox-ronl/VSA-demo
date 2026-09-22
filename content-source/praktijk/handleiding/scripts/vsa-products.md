@@ -6,7 +6,7 @@ weight: 110
 
 # NAME
 
-`scripts\vsa-products.cmd` — Coria-`.vsa.mxl` uit bibliotheek-`.vsa`
+`scripts\vsa-products.cmd` — Coria-`.vsa.mxl` maken bij een bibliotheek-`.vsa`
 
 # SYNOPSIS
 
@@ -16,26 +16,31 @@ scripts\vsa-products.cmd [pad] [--force] [--dry-run]
 
 # DESCRIPTION
 
-Maakt sibling Coria-`.vsa.mxl` bij bibliotheek-`.vsa` (syllabify in temp,
-`vsa musicxml` playback, sanitize, `vsa-source-sha256`). Slaat
-`artefacten_handmatig: true` over. Zonder pad: `oefenhoek\bibliotheek`.
+Maakt naast een bibliotheek-`.vsa` het siblingbestand `{stam}.vsa.mxl` voor
+Coria-afspelen (Oefenen-knop). Het script syllabificeert in een tijdelijk
+bestand, exporteert via `vsa musicxml`, saniteert voor Coria en zet een
+`vsa-source-sha256`-stempel.
 
-Pipeline roept dit lokaal aan. `check_vsa_products.py` is op `main` streng.
+Mappen met `artefacten_handmatig: true` in de frontmatter worden
+overgeslagen. Zonder pad werkt het onder `oefenhoek\bibliotheek`.
+
+De pipeline roept dit lokaal aan. Op branch `main` is de bijbehorende check
+streng.
 
 # OPTIONS
 
 | Optie | Betekenis |
 | --- | --- |
 | `--force` | Bestaande `.vsa.mxl` overschrijven |
-| `--dry-run` | Alleen planning tonen |
+| `--dry-run` | Alleen tonen wat er zou gebeuren |
 
 # WHEN
 
-Na een `.vsa`-wijziging, of als de Oefenen-knop / `check` een stale `.vsa.mxl`
-meldt.
+Na een wijziging aan een `.vsa` in de bibliotheek, of als `check` / de
+Oefenen-knop meldt dat de `.vsa.mxl` verouderd is.
 
 # SEE ALSO
 
-- [oefenhoek-index](../oefenhoek-index/) (`--svg` voor plaatjes)
-- Workflow: [VSA schrijven](../../vsa/1-vsa-schrijven/)
-- `scripts\oefenhoek-product-contract.md`
+- [oefenhoek-index](../oefenhoek-index/) (`--svg` voor het plaatje op de pagina)
+- Workflow: [VSA schrijven](/praktijk/handleiding/vsa/1-vsa-schrijven/)
+- Bestand `scripts\oefenhoek-product-contract.md` in `VSA-demo`
