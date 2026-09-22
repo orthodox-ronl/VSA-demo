@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Script-referentie on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/</link><description>Recent content in Script-referentie on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/index.xml" rel="self" type="application/rss+xml"/><item><title>h</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/h/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/h/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\h.cmd&lt;/code&gt; — hulp in het opdrachtvenster: catalogus of korte man-page&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\h.cmd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\h.cmd &amp;lt;naam&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\h.cmd -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Met &lt;code&gt;.\scripts&lt;/code&gt; op PATH kun je ook &lt;code&gt;h&lt;/code&gt; of &lt;code&gt;h check&lt;/code&gt; typen.&lt;/p&gt;
+&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Zonder argument toont &lt;code&gt;h&lt;/code&gt; een korte lijst van alle gebruikerscommando’s
+(&lt;code&gt;.cmd&lt;/code&gt;) die bij deze repository horen. Met een exacte naam (bijvoorbeeld
+&lt;code&gt;check&lt;/code&gt;, &lt;code&gt;opkuisen&lt;/code&gt; of &lt;code&gt;layout&lt;/code&gt;) print het opdrachtvenster een korte
+man-page: doel, opties en wanneer je het gebruikt.&lt;/p&gt;
+&lt;p&gt;Met een onbekende of gedeeltelijke tekst krijg je een gefilterde lijst, of
+een foutmelding met bekende namen.&lt;/p&gt;</description></item><item><title>check</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/check/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\check.cmd&lt;/code&gt; — controleren of de repository klaar is om te delen&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\check.cmd [--strict] [--external] [--skip-hugo]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;check&lt;/code&gt; draait lokaal de controles die ook op GitHub lopen: sync van
+zondag-materiaal, oefenhoek-index, VSA-validatie, genereren van markdown/SVG,
+Coria-controles, Hugo-build en interne linkcontrole. Het is een wrapper om
+&lt;code&gt;scripts\_pipeline.cmd&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vóór commit&lt;/strong&gt; (alles streng, zoals CI): gebruik &lt;code&gt;--strict&lt;/code&gt;. Dat betekent:
+ook VSA-waarschuwingen laten falen, niet alleen harde fouten.&lt;/p&gt;
+&lt;p&gt;MuseScore-PDF’s en Coria-&lt;code&gt;.mxl&lt;/code&gt; uit een basispartituur maak je apart met
+&lt;a href="../mscz-products/"&gt;mscz-products&lt;/a&gt;
+; die stap zit niet in &lt;code&gt;check&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>build</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/build/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/build/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\build.cmd&lt;/code&gt; — hele website bouwen naar &lt;code&gt;generated\site&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\build.cmd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Bouwt de volledige site naar de map &lt;code&gt;generated\site&lt;/code&gt; op je pc. De keten is
+dezelfde als bij &lt;code&gt;check.cmd --strict&lt;/code&gt; (via &lt;code&gt;scripts\_pipeline.cmd&lt;/code&gt;), zonder
+externe linkcheck.&lt;/p&gt;
+&lt;p&gt;Commit de mappen &lt;code&gt;generated\&lt;/code&gt; en &lt;code&gt;static\vsa\&lt;/code&gt; niet: dat is build-output.
+Voor «mag ik committen?» is &lt;code&gt;check.cmd --strict&lt;/code&gt; genoeg; &lt;code&gt;build&lt;/code&gt; is vooral
+handig als je het site-artifact zelf nodig hebt zonder Hugo-server.&lt;/p&gt;
+&lt;h1 id="when"&gt;WHEN&lt;/h1&gt;
+&lt;p&gt;Als je de gebouwde site in &lt;code&gt;generated\site&lt;/code&gt; nodig hebt zonder
+&lt;code&gt;serve&lt;/code&gt; te starten.&lt;/p&gt;</description></item><item><title>serve</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/serve/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/serve/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\serve.cmd&lt;/code&gt; — lokale website-preview in de browser&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\serve.cmd [--no-build]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Start de Hugo-development server. Open daarna in je browser
+&lt;strong&gt;http://127.0.0.1:18731/&lt;/strong&gt;. Gebruik niet poort &lt;strong&gt;1313&lt;/strong&gt;; die poort is lokaal
+voor iets anders gereserveerd.&lt;/p&gt;
+&lt;p&gt;Standaard draait &lt;code&gt;serve&lt;/code&gt; eerst de build-keten (sync, validatie, generate) en
+start daarna de server. Validatie is dan sneller dan bij &lt;code&gt;check --strict&lt;/code&gt;
+(zonder &lt;code&gt;--strict&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Met &lt;code&gt;--no-build&lt;/code&gt; slaat &lt;code&gt;serve&lt;/code&gt; die keten over en start alleen de server
+(plus Coria-fingerprints). Daarvoor moet &lt;code&gt;generated\content&lt;/code&gt; al bestaan —
+bijvoorbeeld na een geslaagde &lt;code&gt;check.cmd --strict&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>pdf</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/pdf/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\pdf.cmd&lt;/code&gt; — één Markdownbestand (met VSA) omzetten naar A4-PDF&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\pdf.cmd &amp;lt;bestand.md&amp;gt; [-o uit.pdf] [--content-root DIR]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Maakt een A4-PDF van een Markdownbestand dat je opgeeft. Dat bestand mag
+VSA-blokken, includes en paginascheidingen bevatten. Includes en SVG-rendering
+lopen via &lt;code&gt;vsa pdf&lt;/code&gt; (zelfde soort keten als bij build-markdown voor dat ene
+bestand).&lt;/p&gt;
+&lt;p&gt;Gebruik &lt;code&gt;pdf&lt;/code&gt; voor &lt;strong&gt;willekeurige&lt;/strong&gt; bronbestanden. Voor het vaste demoblad van
+de Tooling Demo bestaat een apart commando met vaste paden:
+&lt;a href="../demo-pdf/"&gt;demo-pdf&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>demo-pdf</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/demo-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/demo-pdf/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\demo-pdf.cmd&lt;/code&gt; — demoblad-PDF voor de Tooling Demo vernieuwen&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\demo-pdf.cmd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Dit commando hoort bij de &lt;strong&gt;Tooling Demo&lt;/strong&gt; op de site (sectie «Markdown naar
+PDF»). Het maakt opnieuw het A4-PDF-bestand
+&lt;code&gt;static\demo\voorbeeld-blad.pdf&lt;/code&gt; uit de bron
+&lt;code&gt;content-source\praktijk\demo\assets\voorbeeld-blad.md&lt;/code&gt; (Markdown met
+VSA-blokken; die bron wordt zelf niet als Hugo-pagina gepubliceerd). Het
+script roept intern &lt;code&gt;scripts\pdf.cmd&lt;/code&gt; aan met die vaste paden.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Waartoe:&lt;/strong&gt; de demopagina toont die PDF in de browser. Daarnaast controleren
+&lt;code&gt;check&lt;/code&gt;, &lt;code&gt;build&lt;/code&gt; en &lt;code&gt;serve&lt;/code&gt; (met build) of &lt;code&gt;voorbeeld-blad.pdf&lt;/code&gt; niet ouder is
+dan &lt;code&gt;voorbeeld-blad.md&lt;/code&gt; en het meegeleverde &lt;code&gt;voorbeeld.vsa&lt;/code&gt;. Is de PDF
+verouderd, dan faalt die controle en is &lt;code&gt;demo-pdf&lt;/code&gt; het herstelcommando uit
+de foutmelding.&lt;/p&gt;</description></item><item><title>sync-bron-zondagen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/sync-bron-zondagen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/sync-bron-zondagen/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\sync-bron-zondagen.cmd&lt;/code&gt; — zondag-zangstukken uit &lt;code&gt;bron&lt;/code&gt; naar de demo kopiëren&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\sync-bron-zondagen.cmd [bron-root]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Kopieert tropaar- en kondakbestanden voor de zondagstonen (en gerelateerde
+assets) uit de canonieke repository &lt;strong&gt;bron&lt;/strong&gt; naar
+&lt;code&gt;content-source\praktijk\zondagen\&lt;/code&gt; in &lt;code&gt;VSA-demo&lt;/code&gt;. Het kopieert alleen
+binaire bronbestanden: &lt;code&gt;.vsa&lt;/code&gt;, melodie-afbeeldingen (&lt;code&gt;.jpg&lt;/code&gt;) en
+&lt;code&gt;.coria.html&lt;/code&gt;. Er wordt geen markdown geschreven.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Waartoe:&lt;/strong&gt; de demo-site blijft synchroon met de canonieke VSA in &lt;code&gt;bron&lt;/code&gt;,
+zonder die stukken handmatig te kopiëren.&lt;/p&gt;
+&lt;p&gt;Zonder argument zoekt het script automatisch de sibling-map &lt;code&gt;..\bron&lt;/code&gt; of
+&lt;code&gt;vendor\bron&lt;/code&gt;. Met argument geef je een expliciet pad naar een
+bron-checkout.&lt;/p&gt;</description></item><item><title>opkuisen</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/opkuisen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/opkuisen/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\opkuisen.cmd&lt;/code&gt; — herkomstanalyse en inhoudelijke opkuis van
+MusicXML- en MuseScore-bestanden (optioneel daarna layout)&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\opkuisen.cmd &amp;lt;pad&amp;gt; [pad...] [opties]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\h.cmd opkuisen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Python-entrypoint: &lt;code&gt;scripts\opkuisen.py&lt;/code&gt;. Compat-shim voor alleen Capella:
+&lt;code&gt;python scripts\cleanup_capella_mxl.py …&lt;/code&gt; (voegt &lt;code&gt;--assume capella&lt;/code&gt; toe).&lt;/p&gt;
+&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Opkuisen&lt;/strong&gt; betekent: de &lt;em&gt;muzikale en tekstuele inhoud&lt;/em&gt; van een partituur
+opschonen vóór (of naast) de basispartituur-standaard. Het script
+&lt;code&gt;opkuisen.cmd&lt;/code&gt; doet eerst een &lt;strong&gt;herkomstanalyse&lt;/strong&gt; (welke “hoek” het
+invoerbestand lijkt te komen) en past daarna alleen de &lt;strong&gt;opkuis-manieren&lt;/strong&gt;
+toe die bij die hoek horen.&lt;/p&gt;</description></item><item><title>layout</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/layout/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\layout.cmd&lt;/code&gt; — basispartituur-standaard toepassen (normaliseren / layouten)&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\layout.cmd &amp;lt;bestand.mscz|.mxl&amp;gt; [-o doel.mscz] [--id ID] [--no-extenders]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Past de Oefenhoek-&lt;strong&gt;basispartituur&lt;/strong&gt;-standaard toe: A4-papier, fonts,
+reciteertoon-codering (&lt;code&gt;||O||&lt;/code&gt;), tempo, copyrightvelden en (in de
+bibliotheek) de colofonregel met bibliotheek-id. In het dagelijks taalgebruik
+heet deze stap vaak &lt;strong&gt;layouten&lt;/strong&gt;; de contractterm is &lt;strong&gt;normaliseren&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Invoer is een opgekuiste &lt;code&gt;.mxl&lt;/code&gt; (na &lt;a href="../opkuisen/"&gt;opkuisen&lt;/a&gt;
+): MuseScore 4
+importeert het bestand; zet &lt;code&gt;-o&lt;/code&gt; naar een &lt;code&gt;.mscz&lt;/code&gt; zonder spaties in de
+naam (meestal onder &lt;code&gt;input\_werk\&amp;lt;stam&amp;gt;\&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Invoer is al een &lt;code&gt;.mscz&lt;/code&gt;: zonder &lt;code&gt;-o&lt;/code&gt; wijzigt het script het bestand
+&lt;strong&gt;in-place&lt;/strong&gt;. Opnieuw draaien mag en hoort na elke inhoudelijke editslag
+in MuseScore.&lt;/li&gt;
+&lt;li&gt;Bestanden die eindigen op &lt;code&gt;.print.mscz&lt;/code&gt; worden geweigerd (printvel:
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/partituur/7-print-mscz/"&gt;Print-.mscz&lt;/a&gt;
+).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Python-implementatie: &lt;code&gt;scripts\apply_mscz_layout.py&lt;/code&gt;. Technische norm:
+&lt;code&gt;scripts\mscz-partituur-contract.md&lt;/code&gt; in de repository-map &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>mscz-products</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/mscz-products/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/mscz-products/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\mscz-products.cmd&lt;/code&gt; — PDF en Coria-&lt;code&gt;.mxl&lt;/code&gt; maken bij een basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd [pad] [--force] [--dry-run]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Exporteert naast een &lt;strong&gt;basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; de sibling-bestanden die
+koorleden gebruiken: een A4-&lt;strong&gt;PDF&lt;/strong&gt; (downloaden/printen) en een
+&lt;strong&gt;Coria-&lt;code&gt;.mxl&lt;/code&gt;&lt;/strong&gt; (afspelen via de Oefenen-knop). Het script schrijft ook
+herkomstinformatie (&lt;code&gt;partituur-sha256&lt;/code&gt;, &lt;code&gt;generated-at&lt;/code&gt;) in die producten.&lt;/p&gt;
+&lt;p&gt;Het zoekt basispartituur-&lt;code&gt;.mscz&lt;/code&gt; onder het opgegeven pad (of, zonder pad,
+onder &lt;code&gt;content-source&lt;/code&gt;). Bestanden in &lt;code&gt;oefenhoek\input\&lt;/code&gt; en namen die
+eindigen op &lt;code&gt;.print.mscz&lt;/code&gt; worden overgeslagen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Volgorde:&lt;/strong&gt; eerst &lt;a href="../layout/"&gt;layout&lt;/a&gt;
+, daarna eventueel een editslag in
+MuseScore 4, daarna dit commando — niet meteen PDF maken als je nog gaat
+editen. De pipeline roept &lt;code&gt;mscz-products&lt;/code&gt; lokaal ook aan.&lt;/p&gt;</description></item><item><title>vsa-products</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/vsa-products/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/vsa-products/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\vsa-products.cmd&lt;/code&gt; — Coria-&lt;code&gt;.vsa.mxl&lt;/code&gt; maken bij een bibliotheek-&lt;code&gt;.vsa&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\vsa-products.cmd [pad] [--force] [--dry-run]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Maakt naast een bibliotheek-&lt;code&gt;.vsa&lt;/code&gt; het siblingbestand &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt; voor
+Coria-afspelen (Oefenen-knop). Het script syllabificeert in een tijdelijk
+bestand, exporteert via &lt;code&gt;vsa musicxml&lt;/code&gt;, saniteert voor Coria en zet een
+&lt;code&gt;vsa-source-sha256&lt;/code&gt;-stempel.&lt;/p&gt;
+&lt;p&gt;Mappen met &lt;code&gt;artefacten_handmatig: true&lt;/code&gt; in de frontmatter worden
+overgeslagen. Zonder pad werkt het onder &lt;code&gt;oefenhoek\bibliotheek&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;De pipeline roept dit lokaal aan. Op branch &lt;code&gt;main&lt;/code&gt; is de bijbehorende check
+streng.&lt;/p&gt;</description></item><item><title>tekstblad-products</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/tekstblad-products/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/tekstblad-products/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\tekstblad-products.cmd&lt;/code&gt; — A4-PDF maken bij een bibliotheek-&lt;code&gt;.tekstblad.md&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\tekstblad-products.cmd [pad] [--force] [--dry-run]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Zoekt canonieke bronnen &lt;code&gt;{stam}.tekstblad.md&lt;/code&gt; onder het opgegeven pad
+(of, zonder pad, onder &lt;code&gt;oefenhoek\bibliotheek\&lt;/code&gt;) en schrijft ernaast
+&lt;code&gt;{stam}.tekstblad.pdf&lt;/code&gt; via &lt;code&gt;vsa pdf&lt;/code&gt; (zelfde renderer als
+&lt;a href="../pdf/"&gt;pdf&lt;/a&gt;
+). In de PDF komt een stamp (&lt;code&gt;vsa-source-sha256&lt;/code&gt;,
+&lt;code&gt;vsa-source-kind=tekstblad&lt;/code&gt;) zodat &lt;code&gt;check&lt;/code&gt; kan zien of de PDF nog bij de
+bron hoort.&lt;/p&gt;
+&lt;p&gt;Bestanden in &lt;code&gt;oefenhoek\input\&lt;/code&gt; en mappen met
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt; worden overgeslagen. Alias-varianten ook.&lt;/p&gt;</description></item><item><title>ensure-bibliotheek-id</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/ensure-bibliotheek-id/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/ensure-bibliotheek-id/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\ensure-bibliotheek-id.cmd&lt;/code&gt; — bibliotheek-id in colofon en metadata zetten&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\ensure-bibliotheek-id.cmd [root] [--check-only] [--fail]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Elke basispartituur-&lt;code&gt;.mscz&lt;/code&gt; onder &lt;code&gt;oefenhoek\bibliotheek\&lt;/code&gt; moet in het
+colofon de regel &lt;code&gt;Bibliotheek-id:&lt;/code&gt; hebben én in de MuseScore-metadata
+&lt;code&gt;vsaBibliotheekId&lt;/code&gt;. Die waarde moet gelijk zijn aan het pad
+&lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt; van de map.&lt;/p&gt;
+&lt;p&gt;Lokaal herstelt dit commando ontbrekende of verkeerde id’s (zonder MuseScore
+te openen). Met &lt;code&gt;--check-only&lt;/code&gt; (of in CI) alleen rapporteren, niet schrijven.
+Op &lt;code&gt;main&lt;/code&gt; of met een strenge pipeline faalt de check als er nog problemen
+zijn.&lt;/p&gt;</description></item><item><title>update-werkvoorraad</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/update-werkvoorraad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/update-werkvoorraad/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\update-werkvoorraad.cmd&lt;/code&gt; — tabel «werkvoorraad» laten aansluiten op &lt;code&gt;input\&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\update-werkvoorraad.cmd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Werkvoorraad is het register van ruwe bestanden onder
+&lt;code&gt;content-source\praktijk\oefenhoek\input\&lt;/code&gt; (nog niet gepubliceerd). Dit
+commando vult de tabel in het bestand &lt;code&gt;werkvoorraad.md&lt;/code&gt; in die map aan de
+hand van wat er op schijf ligt. Doel-id, koormap en notitie in &lt;strong&gt;bestaande&lt;/strong&gt;
+rijen blijven staan; nieuwe bestanden krijgen een nieuwe rij.&lt;/p&gt;
+&lt;p&gt;Het verwijdert ook &lt;code&gt;generated\content\...\oefenhoek\input&lt;/code&gt;, zodat die
+inputs geen Hugo-pagina’s op de site worden.&lt;/p&gt;</description></item><item><title>oefenhoek-index</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/oefenhoek-index/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/oefenhoek-index/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\oefenhoek-index.cmd&lt;/code&gt; — bladermap-markdown opschonen; optioneel SVG uit &lt;code&gt;.vsa&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\oefenhoek-index.cmd [--dry-run] [--svg] [--verbose]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Zonder flags haalt dit commando automatische includes en score-shortcodes
+uit oefenhoek bladermap-&lt;code&gt;index.md&lt;/code&gt;. Frontmatter en tekst die jij zelf
+schreef blijven staan. Pagina’s met shortcode &lt;code&gt;bieb&lt;/code&gt; of met
+&lt;code&gt;automatische_inhoud: false&lt;/code&gt; worden niet aangepast. De partituurweergave
+komt uit de Hugo-layout of uit &lt;code&gt;bieb&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Met &lt;code&gt;--svg&lt;/code&gt; schrijft het script SVG-plaatjes van lokale &lt;code&gt;.vsa&lt;/code&gt;-bestanden
+(zonder basispartituur-&lt;code&gt;.mscz&lt;/code&gt; ernaast; een &lt;code&gt;.print.mscz&lt;/code&gt; mag) naar
+&lt;code&gt;static\vsa\bladermap\&lt;/code&gt;, ook onder &lt;code&gt;bibliotheek\&lt;/code&gt;. Dat gebeurt normaal
+tijdens &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;build&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt; (niet bij &lt;code&gt;serve --no-build&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>capella-mxl-to-mscz</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/capella-mxl-to-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/capella-mxl-to-mscz/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\capella-mxl-to-mscz.cmd&lt;/code&gt; — hele map Capella-&lt;code&gt;.mxl&lt;/code&gt; omzetten naar standaard-&lt;code&gt;.mscz&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\capella-mxl-to-mscz.cmd [bronmap] [doelmap] [--force] [--dry-run] [--limit N]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Kuist Capella- of CapToMusic-&lt;code&gt;.mxl&lt;/code&gt;-bestanden &lt;strong&gt;recursief&lt;/strong&gt; op en zet ze om
+naar standaard-layout &lt;code&gt;.mscz&lt;/code&gt; (opkuisen + layout in één batch). Submappen
+blijven behouden.&lt;/p&gt;
+&lt;p&gt;Zonder paden gebruikt het script deze defaults buiten de oefenhoek:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bron: &lt;code&gt;C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mxl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;doel: &lt;code&gt;C:\Git\orthodox-ronl\ruwe-invoer\capella-backup-mscz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Het is hervatbaar: bestaande &lt;code&gt;.mscz&lt;/code&gt; die niet ouder zijn dan de bron worden
+overgeslagen, tenzij &lt;code&gt;--force&lt;/code&gt;. Logbestand: &lt;code&gt;doel\_batch-log.txt&lt;/code&gt;. MuseScore
+4 moet geïnstalleerd zijn en &lt;strong&gt;niet open&lt;/strong&gt; staan tijdens de run. Geen PDF
+en geen Coria-&lt;code&gt;.mxl&lt;/code&gt;. Niet in &lt;code&gt;check&lt;/code&gt; / &lt;code&gt;build&lt;/code&gt; / &lt;code&gt;serve&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>bieb-accepteer</title><link>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/bieb-accepteer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/preview/praktijk/handleiding/scripts/bieb-accepteer/</guid><description>&lt;h1 id="name"&gt;NAME&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt; — partituur opnemen in de Oefenhoek-bibliotheek&lt;/p&gt;
+&lt;h1 id="synopsis"&gt;SYNOPSIS&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\bieb-accepteer.cmd [id] [bestand...] [opties]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="description"&gt;DESCRIPTION&lt;/h1&gt;
+&lt;p&gt;Neemt een klaar bestand op in de &lt;strong&gt;bibliotheek&lt;/strong&gt; (de catalogus onder
+&lt;code&gt;oefenhoek\bibliotheek\&lt;/code&gt;), onder een bibliotheek-id van drie lagen:
+&lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt;. Toegestaan: basispartituur-&lt;code&gt;.mscz&lt;/code&gt;,
+&lt;code&gt;.vsa&lt;/code&gt;, &lt;code&gt;.print.mscz&lt;/code&gt;, of &lt;code&gt;.tekstblad.md&lt;/code&gt; (optioneel sibling-&lt;code&gt;.pdf&lt;/code&gt; / &lt;code&gt;.mxl&lt;/code&gt;).
+Bij &lt;code&gt;.tekstblad.md&lt;/code&gt; zet het script indien nodig frontmatter
+&lt;code&gt;build: render: never&lt;/code&gt; zodat de bron geen Hugo-pagina wordt.&lt;/p&gt;
+&lt;p&gt;Het script maakt ontbrekende &lt;code&gt;_index.md&lt;/code&gt; / &lt;code&gt;index.md&lt;/code&gt; met shortcode &lt;code&gt;bieb&lt;/code&gt;
+en hernoemt naar de publicatiestam. Capella-bronformats en een kale
+Capella-&lt;code&gt;.mxl&lt;/code&gt; worden geweigerd — eerst &lt;a href="../opkuisen/"&gt;opkuisen&lt;/a&gt;
+ /
+&lt;a href="../layout/"&gt;layout&lt;/a&gt;
+. Bij &lt;code&gt;.vsa&lt;/code&gt; draait &lt;code&gt;vsa validate&lt;/code&gt; (tenzij
+&lt;code&gt;--skip-vsa-validate&lt;/code&gt;). Default &lt;code&gt;publicatiestatus: reviewable&lt;/code&gt; (&lt;code&gt;voorzien&lt;/code&gt;
+bij &lt;code&gt;--stub&lt;/code&gt;). Status &lt;code&gt;productie&lt;/code&gt; alleen met &lt;code&gt;--force&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>

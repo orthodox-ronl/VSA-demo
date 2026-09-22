@@ -6,8 +6,7 @@
 <a href=/VSA-demo/preview/praktijk/liturgikon/>Liturgikon</a>
 <a href=/VSA-demo/preview/praktijk/diversen/>Diversen</a></div></details><details class=site-nav-group><summary>Oefenhoek</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/oefenhoek/>Overzicht</a>
 <a href=/VSA-demo/preview/praktijk/oefenhoek/bibliotheek/>Bibliotheek</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a>
-<a href=/VSA-demo/preview/praktijk/oefenhoek/overig/>Overig</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/demo/>Overzicht</a>
+<a href=/VSA-demo/preview/praktijk/oefenhoek/liturgiemap-hemelum/>Liturgiemap Hemelum</a></div></details><details class=site-nav-group><summary>Tooling Demo</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/demo/>Overzicht</a>
 <a href=/VSA-demo/preview/praktijk/demo/01-vsa-svg-cli/>VSA naar SVG</a>
 <a href=/VSA-demo/preview/praktijk/demo/02-vsa-inline-markdown/>VSA inline in Markdown</a>
 <a href=/VSA-demo/preview/praktijk/demo/03-vsa-include-bestand/>VSA-bestand includen</a>
@@ -15,9 +14,11 @@
 <a href=/VSA-demo/preview/praktijk/demo/05-coria-oefenen/>Oefenen met Coria</a>
 <a href=/VSA-demo/preview/praktijk/demo/06-markdown-naar-pdf/>Markdown naar PDF</a></div></details><details class="site-nav-group is-current"><summary>Handleiding</summary><div class=site-nav-menu><a href=/VSA-demo/preview/praktijk/handleiding/>Overzicht</a>
 <a href=/VSA-demo/preview/praktijk/handleiding/start/>Start</a>
+<a href=/VSA-demo/preview/praktijk/handleiding/werktrajecten/>Werktrajecten</a>
 <a href=/VSA-demo/preview/praktijk/handleiding/partituur/>Partituur</a>
 <a href=/VSA-demo/preview/praktijk/handleiding/vsa/ aria-current=page>VSA</a>
-<a href=/VSA-demo/preview/praktijk/handleiding/publiceren/>Publiceren</a></div></details></nav></div><nav class=site-jumps aria-label="Gerelateerde sites"><a class=site-jump href=https://orthodox-ronl.github.io/bron/ title="bron - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6 4h12a2 2 0 012 2v13.5L12 15 4 19.5V6a2 2 0 012-2zm0-2A4 4 0 002 6v16l8-4.5 8 4.5V6a4 4 0 00-4-4H6z"/></svg>
+<a href=/VSA-demo/preview/praktijk/handleiding/publiceren/>Publiceren</a>
+<a href=/VSA-demo/preview/praktijk/handleiding/scripts/>Scripts</a></div></details></nav></div><nav class=site-jumps aria-label="Gerelateerde sites"><a class=site-jump href=https://orthodox-ronl.github.io/bron/ title="bron - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6 4h12a2 2 0 012 2v13.5L12 15 4 19.5V6a2 2 0 012-2zm0-2A4 4 0 002 6v16l8-4.5 8 4.5V6a4 4 0 00-4-4H6z"/></svg>
 <span class=site-jump-label>bron</span>
 </a><a class=site-jump href=https://orthodox-ronl.github.io/VSA-tooling/ title="VSA-tooling - documentatie"><svg class="site-jump-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.5 3 7 8.5 1.5 10 7 11.5 8.5 17 10 11.5 15.5 10 10 8.5 8.5 3zm7 4L14 10.5 9.5 12 14 13.5 15.5 19 17 13.5 22.5 12 17 10.5 15.5 7z"/></svg>
 <span class=site-jump-label>VSA-tooling</span>
@@ -29,11 +30,17 @@ vierstemmig blad — daarvoor is de <a href=../2-template-satb/>volgende pagina<
 alleen voor tropaar toon 4.</p><p><strong>Wanneer:</strong> je hebt tekst (en een bekende melodie) in plaats van een
 Capella-partituur. Voorbeeld-bibliotheek-id:
 <code>2-eerste-antifoon/weekdagen/hemelum</code>.</p><h2 id=wat-de-site-van-je-vsa-maakt>Wat de site van je <code>.vsa</code> maakt</h2><p>Op een gewone eenstemmige bibliotheek-pagina (geen basispartituur-<code>.mscz</code> ernaast)
-doet de build twee aparte dingen met hetzelfde <code>.vsa</code>-bestand:</p><div class=table-scroll><table><thead><tr><th>Afgeleide</th><th>Rol op de pagina</th><th>Hoe maak je die</th></tr></thead><tbody><tr><td>SVG onder <code>static\vsa\bladermap\…</code></td><td>Het <strong>plaatje</strong> dat shortcode <code>bieb</code> toont</td><td>Pipeline-stap <code>python scripts\sync_oefenhoek_index.py --svg</code> (zit in <code>check</code> / <code>build</code> / <code>serve</code> <strong>zonder</strong> <code>--no-build</code>)</td></tr><tr><td><code>{stam}.vsa.mxl</code> naast de <code>.vsa</code></td><td>Knop <strong>Oefenen</strong> (Coria)</td><td><code>scripts\vsa-products.cmd</code> (of dezelfde <code>check</code>-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je <code>.vsa</code> te wijzigen</td></tr></tbody></table></div><p>Volledig overzicht partituur/VSA/print: <a href=/VSA-demo/preview/praktijk/handleiding/start/publicatietrajecten/>Publicatietrajecten</a>
-.</p><p><code>*.print.mscz</code> in dezelfde map blokkeert de SVG <strong>niet</strong> (dat is een
+doet de build twee aparte dingen met hetzelfde <code>.vsa</code>-bestand:</p><div class=table-scroll><table><thead><tr><th>Afgeleide</th><th>Rol op de pagina</th><th>Hoe maak je die</th></tr></thead><tbody><tr><td>SVG onder <code>static\vsa\bladermap\…</code></td><td>Het <strong>plaatje</strong> dat shortcode <code>bieb</code> toont</td><td>Pipeline-stap <code>scripts\oefenhoek-index.cmd --svg</code> (zit in <code>check</code> / <code>build</code> / <code>serve</code> <strong>zonder</strong> <code>--no-build</code>)</td></tr><tr><td><code>{stam}.vsa.mxl</code> naast de <code>.vsa</code></td><td>Knop <strong>Oefenen</strong> (Coria)</td><td><code>scripts\vsa-products.cmd</code> (of dezelfde <code>check</code>-keten); export syllabificeert woorden tijdelijk voor Coria, zonder je <code>.vsa</code> te wijzigen</td></tr></tbody></table></div><p><code>scripts\opkuisen.cmd</code> past <strong>geen</strong> Capella-/MusicXML-heuristieken toe op een
+<code>.vsa</code>. Met <code>--analyze</code> of <code>--dry-run</code> kan <code>opkuisen</code> wél <code>vsa validate</code>
+rapporteren; automatische inhoudsfix op <code>.vsa</code> bestaat in v1 niet — zie
+<a href=/VSA-demo/preview/praktijk/handleiding/scripts/opkuisen/>opkuisen</a>
+.</p><p>Volledig overzicht van de pijplijnen: <a href=/VSA-demo/preview/praktijk/handleiding/werktrajecten/>Werktrajecten</a>
+(VSA-werktraject: <a href=/VSA-demo/preview/praktijk/handleiding/werktrajecten/vsa/>VSA → SVG en Coria</a>
+).
+HOW op deze pagina; de werktrajectpagina beschrijft waartoe, CI en commando’s.</p><p><code>*.print.mscz</code> in dezelfde map blokkeert de SVG <strong>niet</strong> (dat is een
 printvel, geen basispartituur). Een basispartituur-<code>.mscz</code> wél: dan toont de pagina de PDF uit
 de basispartituur-spoor, geen VSA-SVG.</p><p>Los alleen SVG vernieuwen (na <code>vsa build-markdown</code>, of als <code>static\vsa</code>
-al bestaat):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\sync_oefenhoek_index.py --svg
+al bestaat):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\oefenhoek-index.cmd --svg
 </span></span></code></pre></div><p><code>serve --no-build</code> slaat generate + <code>--svg</code> over. Zie je Hugo-waarschuwing
 “SVG ontbreekt”, draai dan eerst die regel of een volle <code>check</code> / <code>serve</code>
 zonder <code>--no-build</code>.</p><h2 id=stap-voor-stap>Stap voor stap</h2><ol><li>Maak of kies de bibliotheek-map (<a href=../../publiceren/1-bladermap/>publiceren</a>
@@ -64,7 +71,7 @@ halen is geen oplossing.</p><ol start=5><li>In bibliotheek-<code>index.md</code>
 VSA’s op één liturgische plek? Sectie met kindpagina’s, of één
 compositieblad — zie
 <a href=../../start/bibliotheek-en-koormappen/>Bibliotheek en koormappen</a>
-.</p></li><li><p>Draai <code>scripts\check.cmd --strict</code>. Die keten:</p><ul><li>schrijft de SVG voor het plaatje (<code>sync_oefenhoek_index.py --svg</code>);</li><li>maakt of vernieuwt <code>{stam}.vsa.mxl</code> naast de <code>.vsa</code>
+.</p></li><li><p>Draai <code>scripts\check.cmd --strict</code>. Die keten:</p><ul><li>schrijft de SVG voor het plaatje (<code>scripts\oefenhoek-index.cmd --svg</code>);</li><li>maakt of vernieuwt <code>{stam}.vsa.mxl</code> naast de <code>.vsa</code>
 (<code>scripts\vsa-products.cmd</code> doet dat ook los).</li></ul><p>Commit <strong><code>.vsa</code> en <code>.vsa.mxl</code> samen</strong>. De SVG onder <code>static\vsa\</code> hoort
 bij de build-output (niet handmatig committen). Op de preview verschijnt
 het plaatje én de knop <strong>Oefenen</strong>.</p></li></ol><p>Catalogus-includes horen <strong>niet</strong> in de oefenhoek (geen verwijzing naar
@@ -87,7 +94,7 @@ Oplossing: <code>scripts\vsa-products.cmd</code>, daarna opnieuw <code>check</co
 bestanden committen. Zie ook <a href=../../publiceren/3-als-het-misgaat/>Als het misgaat</a>
 .</p><h3 id=hugo-waarschuwing-svg-ontbreekt>Hugo-waarschuwing “SVG ontbreekt”</h3><p>Shortcode <code>bieb</code> zoekt
 <code>static\vsa\bladermap\praktijk\oefenhoek\bibliotheek\&lt;…>\&lt;naam>.svg</code>.
-Ontbreekt dat bestand:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>python scripts\sync_oefenhoek_index.py --svg
+Ontbreekt dat bestand:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-cmd data-lang=cmd><span style=display:flex><span>scripts\oefenhoek-index.cmd --svg
 </span></span></code></pre></div><p>of <code>scripts\check.cmd --strict</code>. Daarna opnieuw previewen. Met
 <code>serve --no-build</code> gebeurt die SVG-stap niet.</p><h2 id=klaar-als>Klaar als</h2><p><code>vsa validate</code> is stil, bibliotheek en koormap verwijzen met hetzelfde id,
 na <code>check</code> zie je het plaatje op de lokale preview, en er ligt een verse
