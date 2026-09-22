@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Partituur on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/</link><description>Recent content in Partituur on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/index.xml" rel="self" type="application/rss+xml"/><item><title>Ruw materiaal binnenhalen</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/1-binnenhalen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/1-binnenhalen/</guid><description>&lt;h1 id="ruw-materiaal-binnenhalen"&gt;Ruw materiaal binnenhalen&lt;/h1&gt;
+&lt;p&gt;De canonieke beschrijving staat onder het werktraject
+&lt;a href="../../werktrajecten/opnemen-in-bibliotheek/"&gt;Opnemen in de bibliotheek&lt;/a&gt;
+
+(sectie &lt;em&gt;Ruw materiaal binnenhalen&lt;/em&gt;). Die pagina is de poort naar de
+catalogus; een generieke opkuiser volgt later.&lt;/p&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
  &lt;ol&gt;
 &lt;li&gt;Zet het bestand in &lt;code&gt;content-source\praktijk\oefenhoek\input\&amp;lt;herkomst&amp;gt;\&lt;/code&gt; (of eerst &lt;code&gt;_inbox\&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Laat de originele bestandsnaam staan.&lt;/li&gt;
-&lt;li&gt;Draai &lt;code&gt;scripts\check.cmd&lt;/code&gt; of &lt;code&gt;scripts\update-werkvoorraad.cmd&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Vul in &lt;code&gt;input\werkvoorraad.md&lt;/code&gt; het &lt;strong&gt;doel-id&lt;/strong&gt; (bibliotheek-id) in als die kolom leeg is — niet raden, vragen.&lt;/li&gt;
+&lt;li&gt;Draai &lt;code&gt;scripts\update-werkvoorraad.cmd&lt;/code&gt; of &lt;code&gt;scripts\check.cmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Vul in &lt;code&gt;input\werkvoorraad.md&lt;/code&gt; het &lt;strong&gt;doel-id&lt;/strong&gt; in als die kolom leeg is — niet raden, vragen.&lt;/li&gt;
 &lt;/ol&gt;
 
  &lt;/div&gt;
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; het ruwe bestand bewaren op de afgesproken plek en in
-de werkvoorraad zetten, nog zonder te converteren.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Wanneer:&lt;/strong&gt; bij elk nieuw Capella-, VOW-, MuseScore-, MusicXML- of
-PDF-bestand. Sla deze pagina over als het bestand al in &lt;code&gt;input\&lt;/code&gt; staat en
-de tabel al een doel-id heeft.&lt;/p&gt;</description></item><item><title>Opkuisen</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/2-opkuisen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/2-opkuisen/</guid><description>&lt;h1 id="opkuisen"&gt;Opkuisen&lt;/h1&gt;
+de werkvoorraad zetten, nog zonder te converteren. Volledige criteria,
+CI en vervolgstappen: &lt;a href="../../werktrajecten/opnemen-in-bibliotheek/"&gt;Opnemen&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>Opkuisen</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/2-opkuisen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/2-opkuisen/</guid><description>&lt;h1 id="opkuisen"&gt;Opkuisen&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -85,6 +89,10 @@ daarna de basispartituur-standaard &lt;strong&gt;opnieuw&lt;/strong&gt; toepasse
 &lt;code&gt;scripts\layout.cmd&lt;/code&gt; (normaliseren / layouten). Zonder die tweede slag
 blijven A4, fonts, reciteertoon-encoding of copyright uit de pas lopen met
 de rest van de Oefenhoek.&lt;/p&gt;</description></item><item><title>PDF en Coria-.mxl maken</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/5-pdf-en-coria/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/5-pdf-en-coria/</guid><description>&lt;h1 id="pdf-en-coria-mxl-maken"&gt;PDF en Coria-.mxl maken&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Werktraject&lt;/strong&gt; (waartoe, criteria, CI):
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/basispartituur/"&gt;Basispartituur&lt;/a&gt;
+.
+Deze pagina is de HOW voor &lt;code&gt;mscz-products&lt;/code&gt;.&lt;/p&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -98,28 +106,7 @@ stale basispartituur-producten ook automatisch. Weigert / slaat &lt;code&gt;*.pr
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; uit de nagekeken, genormaliseerde &lt;strong&gt;basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; twee
-sibling-bestanden maken:&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;Bestand&lt;/th&gt;
- &lt;th&gt;Rol&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;code&gt;{stam}.pdf&lt;/code&gt;&lt;/td&gt;
- &lt;td&gt;A4-afdruk om te lezen of te printen&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;code&gt;{stam}.mxl&lt;/code&gt;&lt;/td&gt;
- &lt;td&gt;MusicXML voor &lt;strong&gt;Coria&lt;/strong&gt; (online oefenen)&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Beide krijgen een ingebedde &lt;code&gt;partituur-sha256&lt;/code&gt; zodat &lt;code&gt;check&lt;/code&gt; kan zien of PDF/MXL
-nog bij de huidige basispartituur horen. Technische transforms staan in
-&lt;code&gt;scripts\mscz-product-transforms.md&lt;/code&gt; in &lt;code&gt;VSA-demo&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Afgeleiden bijwerken</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/6-afgeleiden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/6-afgeleiden/</guid><description>&lt;h1 id="afgeleiden-bijwerken"&gt;Afgeleiden bijwerken&lt;/h1&gt;
+sibling-bestanden maken:&lt;/p&gt;</description></item><item><title>Afgeleiden bijwerken</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/6-afgeleiden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/6-afgeleiden/</guid><description>&lt;h1 id="afgeleiden-bijwerken"&gt;Afgeleiden bijwerken&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -139,6 +126,10 @@ commit &lt;code&gt;.vsa&lt;/code&gt; + &lt;code&gt;.vsa.mxl&lt;/code&gt; samen.&
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; afgeleiden opnieuw laten maken nadat de &lt;strong&gt;bron&lt;/strong&gt; is
 gewijzigd, en controleren of preview en &lt;code&gt;check&lt;/code&gt; geen verouderde-afgeleiden-
 banner of -fout tonen.&lt;/p&gt;</description></item><item><title>Print-.mscz (koormap-vel)</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/7-print-mscz/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/partituur/7-print-mscz/</guid><description>&lt;h1 id="print-mscz-koormap-vel"&gt;Print-&lt;code&gt;.mscz&lt;/code&gt; (koormap-vel)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Werktraject&lt;/strong&gt; (waartoe, criteria, CI):
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/print-vel/"&gt;Print-vel&lt;/a&gt;
+.
+Deze pagina is de HOW.&lt;/p&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;

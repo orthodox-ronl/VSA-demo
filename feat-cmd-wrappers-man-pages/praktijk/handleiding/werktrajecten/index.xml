@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Werktrajecten on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/</link><description>Recent content in Werktrajecten on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/index.xml" rel="self" type="application/rss+xml"/><item><title>Opnemen in de bibliotheek</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/opnemen-in-bibliotheek/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/opnemen-in-bibliotheek/</guid><description>&lt;h1 id="opnemen-in-de-bibliotheek"&gt;Opnemen in de bibliotheek&lt;/h1&gt;
+&lt;p&gt;Dit werktraject is de &lt;strong&gt;poort&lt;/strong&gt; naar de catalogus: van ruw aangeleverd
+materiaal naar een map onder &lt;code&gt;oefenhoek\bibliotheek\&lt;/code&gt; met een
+&lt;strong&gt;bibliotheek-id&lt;/strong&gt; (&lt;code&gt;zangstuk/variant/uitvoeringsvorm&lt;/code&gt;). Publicatiesporen
+(&lt;a href="../basispartituur/"&gt;Basispartituur&lt;/a&gt;
+, &lt;a href="../vsa/"&gt;VSA&lt;/a&gt;
+,
+&lt;a href="../print-vel/"&gt;Print-vel&lt;/a&gt;
+) sluiten hierop aan — nádat het bestand klaar
+genoeg is om op te nemen.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;ol&gt;
+&lt;li&gt;Bewaar het ruwe bestand onder &lt;code&gt;content-source\praktijk\oefenhoek\input\&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Werk de tabel
+&lt;code&gt;content-source\praktijk\oefenhoek\input\werkvoorraad.md&lt;/code&gt; bij
+(&lt;code&gt;update-werkvoorraad&lt;/code&gt; of &lt;code&gt;check&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Vul het &lt;strong&gt;doel-id&lt;/strong&gt; in — niet raden; zie het
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/oefenhoek/bibliotheek/id-register/"&gt;Id-register&lt;/a&gt;
+.&lt;/li&gt;
+&lt;li&gt;Als het bestand klaar is (basispartituur-&lt;code&gt;.mscz&lt;/code&gt;, &lt;code&gt;.vsa&lt;/code&gt; of &lt;code&gt;.print.mscz&lt;/code&gt;):
+&lt;code&gt;scripts\bieb-accepteer.cmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Controleer met &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Koorleden zien alleen wat in de &lt;strong&gt;bibliotheek&lt;/strong&gt; staat (of via een
+&lt;strong&gt;koormap&lt;/strong&gt;-slot ernaar verwijst). Ruwe Capella-, PDF- of VOW-bestanden
+horen niet rechtstreeks in die catalogus. Dit traject houdt de input
+bij, en zet een &lt;strong&gt;klaar&lt;/strong&gt; oefenbestand op de juiste plek met de juiste
+naam.&lt;/p&gt;</description></item><item><title>Basispartituur → PDF en Coria</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/basispartituur/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/basispartituur/</guid><description>&lt;h1 id="basispartituur--pdf-en-coria"&gt;Basispartituur → PDF en Coria&lt;/h1&gt;
+&lt;p&gt;Dit werktraject maakt uit een &lt;strong&gt;basispartituur-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; (MuseScore) de
+bestanden die koorleden downloaden en in Coria oefenen. Representatie-id:
+&lt;code&gt;partituur&lt;/code&gt;.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Na normaliseren en review in MuseScore 4:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\mscz-products.cmd content-source\praktijk\oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Daarna &lt;code&gt;scripts\check.cmd --strict&lt;/code&gt;. Geen &lt;code&gt;*.print.mscz&lt;/code&gt; in deze keten.&lt;/p&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Een vierstemmig (of meer) blad in de bibliotheek moet op de site als
+A4-PDF leesbaar zijn en via de knop &lt;strong&gt;Oefenen&lt;/strong&gt; in Coria afspeelbaar. Dit
+traject houdt PDF en Coria-&lt;code&gt;.mxl&lt;/code&gt; synchroon met de canonieke
+basispartituur.&lt;/p&gt;</description></item><item><title>VSA → SVG en Coria</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/vsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/vsa/</guid><description>&lt;h1 id="vsa--svg-en-coria"&gt;VSA → SVG en Coria&lt;/h1&gt;
+&lt;p&gt;Dit werktraject maakt uit een canonieke &lt;strong&gt;&lt;code&gt;.vsa&lt;/code&gt;&lt;/strong&gt; in de oefenhoek-bibliotheek
+een SVG-plaatje op de site en een Coria-bestand &lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;.
+Representatie-id: &lt;code&gt;vsa&lt;/code&gt;.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Na een werkende &lt;code&gt;{stam}.vsa&lt;/code&gt; in de bladermap:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\vsa-products.cmd content-source\praktijk\oefenhoek\bibliotheek\&amp;lt;zangstuk&amp;gt;\&amp;lt;variant&amp;gt;\&amp;lt;uitvoeringsvorm&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\oefenhoek-index.cmd --svg
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\check.cmd --strict
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Eenstemmige notatie (antifoon, communievers, tropaar-regels, …) moet op
+de bibliotheekpagina als plaatje verschijnen en via &lt;strong&gt;Oefenen&lt;/strong&gt; in Coria
+afspeelbaar zijn — zonder een volledige MuseScore-basispartituur.&lt;/p&gt;</description></item><item><title>Print-vel</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/print-vel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/print-vel/</guid><description>&lt;h1 id="print-vel"&gt;Print-vel&lt;/h1&gt;
+&lt;p&gt;Dit werktraject houdt een &lt;strong&gt;print-&lt;code&gt;.mscz&lt;/code&gt;&lt;/strong&gt; en een &lt;strong&gt;handmatige PDF&lt;/strong&gt; bij
+buiten de basispartituur-keten. Representatie-id: &lt;code&gt;print&lt;/code&gt;.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Bestandsnaam eindigt op &lt;strong&gt;&lt;code&gt;.print.mscz&lt;/code&gt;&lt;/strong&gt;. Geen &lt;code&gt;scripts\layout.cmd&lt;/code&gt;, geen
+&lt;code&gt;mscz-products&lt;/code&gt;. Exporteer de PDF zelf in MuseScore 4 en commit die naast
+het print-bestand in de bibliotheek. Zet op de bibliotheek-&lt;code&gt;index.md&lt;/code&gt;
+&lt;code&gt;artefacten_handmatig: true&lt;/code&gt;.
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Soms heb je één A4-vel voor de koormap met layout of tekstregels die de
+basispartituur-normalisatie zou vernielen, of een template-SATB-blad dat
+jij zelf bijhoudt. Dat hoort &lt;strong&gt;niet&lt;/strong&gt; door &lt;code&gt;layout&lt;/code&gt; / &lt;code&gt;mscz-products&lt;/code&gt; te
+lopen.&lt;/p&gt;</description></item><item><title>Site-build</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/site-build/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/site-build/</guid><description>&lt;h1 id="site-build"&gt;Site-build&lt;/h1&gt;
+&lt;p&gt;Dit werktraject zet &lt;code&gt;content-source&lt;/code&gt; om naar een browsbare site:
+lokaal onder &lt;code&gt;generated\site&lt;/code&gt;, of op GitHub Pages na een push.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Vóór commit:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\check.cmd --strict
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lokale preview (als check al groen was):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\serve.cmd --no-build
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open http://127.0.0.1:18731/ — &lt;strong&gt;niet&lt;/strong&gt; poort 1313.&lt;/p&gt;
+
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Koorleden en jij zien markdown, SVG’s, PDF’s en knoppen pas nadat de
+site is gebouwd. Dit traject is de gemeenschappelijke keten achter
+&lt;code&gt;check&lt;/code&gt;, &lt;code&gt;build&lt;/code&gt;, &lt;code&gt;serve&lt;/code&gt; en de GitHub-workflows.&lt;/p&gt;</description></item><item><title>Markdown naar PDF</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/markdown-naar-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/markdown-naar-pdf/</guid><description>&lt;h1 id="markdown-naar-pdf"&gt;Markdown naar PDF&lt;/h1&gt;
+&lt;p&gt;Dit werktraject maakt van één Markdownbestand (tekst, VSA-blokken,
+includes, paginascheidingen) een &lt;strong&gt;A4-PDF&lt;/strong&gt;. Het is geen vervanging van
+bibliotheek-PDF’s uit MuseScore.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ &lt;p&gt;Willekeurig blad:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\pdf.cmd pad\naar\blad.md -o pad\naar\uit.pdf --content-root content-source
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Vaste demo (Tooling Demo «Markdown naar PDF»):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scripts\demo-pdf.cmd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Je wilt een printbaar blad (bijvoorbeeld een demo of een liturgisch
+leesblad) dat markdown en &lt;code&gt;::: vsa-notatie&lt;/code&gt; combineert, zonder een
+basispartituur-&lt;code&gt;.mscz&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="eindresultaat-en-criteria"&gt;Eindresultaat en criteria&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Bron (voorbeeld)&lt;/th&gt;
+ &lt;th&gt;Product&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;content-source\praktijk\demo\assets\voorbeeld-blad.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;static\demo\voorbeeld-blad.pdf&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Klaar&lt;/strong&gt; (demo) als: de PDF niet ouder is dan
+&lt;code&gt;voorbeeld-blad.md&lt;/code&gt; en eventuele includes (zoals &lt;code&gt;voorbeeld.vsa&lt;/code&gt;);
+&lt;code&gt;check_demo_pdf_fresh&lt;/code&gt; onder &lt;code&gt;check&lt;/code&gt; is groen. Op de demopagina staat een
+PDF-voorbeeldviewer.&lt;/p&gt;</description></item><item><title>Ingebedde VSA</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/ingebedde-vsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/ingebedde-vsa/</guid><description>&lt;h1 id="ingebedde-vsa"&gt;Ingebedde VSA&lt;/h1&gt;
+&lt;p&gt;Dit werktraject betreft &lt;strong&gt;VSA buiten&lt;/strong&gt; de oefenhoek-bibliotheek: notatie
+in gewone content-pagina’s (demo’s, feesteigen, samenstellingen,
+handleidingen). De site-build maakt daar SVG (en optioneel MusicXML)
+onder &lt;code&gt;static\vsa\&lt;/code&gt;.&lt;/p&gt;
+&lt;aside class="handleiding-cue"&gt;
+ &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
+ &lt;div class="handleiding-cue-body"&gt;
+ Zet &lt;code&gt;::: vsa-notatie&lt;/code&gt; … &lt;code&gt;:::&lt;/code&gt; of een &lt;code&gt;.vsa&lt;/code&gt;-include in een markdownpagina
+onder &lt;code&gt;content-source&lt;/code&gt;. Draai daarna &lt;code&gt;scripts\check.cmd&lt;/code&gt; of
+&lt;code&gt;scripts\build.cmd&lt;/code&gt; — de pipeline doet &lt;code&gt;vsa build-markdown&lt;/code&gt; en
+&lt;code&gt;vsa musicxml&lt;/code&gt;. Dit is &lt;strong&gt;geen&lt;/strong&gt; bibliotheek-&lt;code&gt;{stam}.vsa.mxl&lt;/code&gt;.
+ &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;h2 id="waartoe"&gt;Waartoe&lt;/h2&gt;
+&lt;p&gt;Je wilt VSA tonen op een pagina die geen bladermap onder
+&lt;code&gt;oefenhoek\bibliotheek\&lt;/code&gt; is — bijvoorbeeld een samenstelling of de
+Tooling Demo — zonder &lt;code&gt;bieb&lt;/code&gt; en zonder bibliotheek-id.&lt;/p&gt;</description></item><item><title>mvsa (voorzien)</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/mvsa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/mvsa/</guid><description>&lt;h1 id="mvsa-voorzien"&gt;mvsa (voorzien)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;mvsa&lt;/strong&gt; (meerstemmige VSA) is nog &lt;strong&gt;geen&lt;/strong&gt; actief publicatiespoor in
+VSA-demo. Deze pagina reserveert de plek in de werktrajecten-catalogus.&lt;/p&gt;
+&lt;h2 id="waartoe-toekomst"&gt;Waartoe (toekomst)&lt;/h2&gt;
+&lt;p&gt;Meerstemmige notatie in VSA-achtige syntax, met eigen afgeleiden (SVG,
+PDF, Coria) — analoog aan &lt;a href="../vsa/"&gt;VSA&lt;/a&gt;
+ en &lt;a href="../basispartituur/"&gt;Basispartituur&lt;/a&gt;
+.&lt;/p&gt;
+&lt;h2 id="eindresultaat-nog-te-bepalen"&gt;Eindresultaat (nog te bepalen)&lt;/h2&gt;
+&lt;p&gt;Verwacht patroon, nog niet geïmplementeerd:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;eigen &lt;strong&gt;representatie-id&lt;/strong&gt; (bijvoorbeeld &lt;code&gt;mvsa&lt;/code&gt;, of een naam uit de
+glossary in &lt;code&gt;bron&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;canonieke bron (verwacht: &lt;code&gt;.mvsa&lt;/code&gt;-bestand);&lt;/li&gt;
+&lt;li&gt;afgeleiden en stamps zoals bij &lt;code&gt;vsa-products&lt;/code&gt; / de partituur-gate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="wanneer-wel--wanneer-niet"&gt;Wanneer wel / wanneer niet&lt;/h2&gt;
+&lt;p&gt;Nu: &lt;strong&gt;niet gebruiken&lt;/strong&gt;. Voor eenstemmig werk: &lt;a href="../vsa/"&gt;VSA&lt;/a&gt;
+. Voor
+meerstemmig MuseScore-werk: &lt;a href="../basispartituur/"&gt;Basispartituur&lt;/a&gt;
+.&lt;/p&gt;</description></item></channel></rss>

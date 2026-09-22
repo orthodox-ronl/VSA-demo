@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publiceren on VSA Demo</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/</link><description>Recent content in Publiceren on VSA Demo</description><generator>Hugo</generator><language>nl</language><atom:link href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/index.xml" rel="self" type="application/rss+xml"/><item><title>Opnemen in de bibliotheek</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/1-opnemen-in-bibliotheek/</guid><description>&lt;h1 id="opnemen-in-de-bibliotheek"&gt;Opnemen in de bibliotheek&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Werktraject&lt;/strong&gt; (waartoe, criteria, CI, binnenhalen):
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/opnemen-in-bibliotheek/"&gt;Opnemen in de bibliotheek&lt;/a&gt;
+.
+Deze pagina is de HOW voor &lt;code&gt;bieb-accepteer&lt;/code&gt;.&lt;/p&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -38,6 +42,10 @@ uitvoeringsvorm-map. Zet &lt;code&gt;alias_van&lt;/code&gt; op de variant-&lt;co
 &lt;p&gt;Koormap-sectie (hoofdstuk): map met &lt;code&gt;_index.md&lt;/code&gt; — kindlijst of eigen TOC;
 zie &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koormappen&lt;/a&gt;
 .&lt;/p&gt;</description></item><item><title>Status, check en live</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/2-status-en-check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/2-status-en-check/</guid><description>&lt;h1 id="status-check-en-live"&gt;Status, check en live&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Werktraject&lt;/strong&gt; voor de hele site-keten:
+&lt;a href="https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/werktrajecten/site-build/"&gt;Site-build&lt;/a&gt;
+.
+Deze pagina is de HOW voor publicatiestatus en lokale controle.&lt;/p&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
@@ -52,10 +60,7 @@ zie &lt;a href="../../start/bibliotheek-en-koormappen/"&gt;Bibliotheek en koorma
 &lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Wat je nu doet:&lt;/strong&gt; zeggen wat koorleden mogen verwachten, de keten laten
-controleren, zelf de pagina nalopen, daarna pas publiceren op internet.&lt;/p&gt;
-&lt;h2 id="publicatiestatus"&gt;Publicatiestatus&lt;/h2&gt;
-&lt;p&gt;Op &lt;strong&gt;elke&lt;/strong&gt; Oefenhoek-pagina die koorleden zien (bibliotheek en koormap),
-in de &lt;code&gt;---&lt;/code&gt; bovenaan:&lt;/p&gt;</description></item><item><title>Als het misgaat</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/3-als-het-misgaat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/3-als-het-misgaat/</guid><description>&lt;h1 id="als-het-misgaat"&gt;Als het misgaat&lt;/h1&gt;
+controleren, zelf de pagina nalopen, daarna pas publiceren op internet.&lt;/p&gt;</description></item><item><title>Als het misgaat</title><link>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/3-als-het-misgaat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://orthodox-ronl.github.io/VSA-demo/feat-cmd-wrappers-man-pages/praktijk/handleiding/publiceren/3-als-het-misgaat/</guid><description>&lt;h1 id="als-het-misgaat"&gt;Als het misgaat&lt;/h1&gt;
 &lt;aside class="handleiding-cue"&gt;
  &lt;p class="handleiding-cue-label"&gt;Snel (als je het al eens deed)&lt;/p&gt;
  &lt;div class="handleiding-cue-body"&gt;
