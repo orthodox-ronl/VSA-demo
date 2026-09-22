@@ -6,14 +6,41 @@ alwaysApply: true
 # Documentatie: duidelijk voor de lezer
 
 Geldt voor **alle** documentatie in orthodox-ronl (handleidingen, manuals,
-specs-proza, README’s, demo-pagina’s). Canonieke aanvulling op
-`bron/docs/specs/schrijfconventies.md` (persoonas, paginatypen, jargon).
+specs-proza, README’s, demo-pagina’s, **script-man-pages**). Canonieke
+aanvulling op `bron/docs/specs/schrijfconventies.md` (persoonas,
+paginatypen, jargon).
+
+## Doelgroep (standaard)
+
+Schrijf alsof de lezer **beheerder** is: MuseScore en het Windows-opdrachtvenster
+kennen, maar **geen** programmeur. Jargon-labels (`preflight`, `CI-spiegel`,
+`demo-Markdownblad`) alleen ná uitleg in gewone taal, of vermijden.
 
 ## Zinnen
 
-- Schrijf **volledige zinnen**. Geen telegramstijl in lopende tekst.
+- Schrijf **volledige zinnen**. Geen telegramstijl in lopende tekst —
+  ook niet in catalogus-kolommen («Kort»), DESCRIPTION of WHEN.
 - Houd zinnen **kort genoeg** om in één keer te volgen; splits lange zinnen.
 - **Antwoord eerst**, daarna detail (schrijfconventies: pagina-kopnorm).
+
+## Spec versus voorbeeld
+
+- Eerst de **specificatie**: wat het commando doet, van welke bron, naar welk
+  resultaat, en **waartoe** (welk probleem lost het op).
+- Daarna pas **voorbeelden** (concrete paden, ids). Een voorbeeldbestand is
+  geen definitie: noem het pad en leg kort uit wat dat bestand in het traject is.
+- **Fout:** «Bouwt de demo-PDF uit het demo-Markdownblad.»
+- **Goed:** «Maakt het A4-PDF-bestand `static\demo\voorbeeld-blad.pdf` opnieuw
+  uit de bron
+  `content-source\praktijk\demo\assets\voorbeeld-blad.md` (Markdown met VSA).
+  Die PDF hoort bij de Tooling Demo-pagina *Markdown naar PDF* op de site.
+  `check` eist dat die PDF niet ouder is dan die bronnen.»
+
+## Catalogus / korte samenvattingen
+
+Een kolom «Kort» of een one-liner moet genoeg zijn zodat iemand die het
+traject **nog niet** kent begrijpt wat het commando doet — niet alleen een
+intern label. Liever één of twee korte volledige zinnen dan drie jargonwoorden.
 
 ## Geen zwevende verwijzers
 
@@ -67,5 +94,6 @@ Lees de tekst na in de rol van de bedoelde lezer. Vragen:
 2. Weet de lezer welk programma, welk pad, welk bestand bedoeld is?
 3. Is elke nieuwe term uitgelegd of gelinkt?
 4. Kan de lezer de volgende handeling uitvoeren zonder te gokken?
+5. Staat de **spec** (wat/waarom/vanwaar/waartoe) vóór het voorbeeld?
 
 Zo nee: herschrijf tot het antwoord ja is.

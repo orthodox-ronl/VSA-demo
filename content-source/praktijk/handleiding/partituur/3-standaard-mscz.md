@@ -9,20 +9,21 @@ weight: 30
 {{< cue >}}
 Van opgekuiste `.mxl`:
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mxl -o content-source\praktijk\oefenhoek\input\_werk\STAM\STAM.mscz
 ```
 Van ruwe `.mscz` (VOW e.d.): zelfde script; invoer is die `.mscz`; `-o` naar
 `_werk\STAM\STAM.mscz` (geen spaties in de bestandsnaam).
 Opnieuw op een bestaande basispartituur (in-place, na editslag):
 ```cmd
-python scripts\apply_mscz_layout.py pad\naar\bestand.mscz
+scripts\layout.cmd pad\naar\bestand.mscz
 ```
 Norm: bestand `scripts\mscz-partituur-contract.md` in `VSA-demo`. Weigert `*.print.mscz`.
+Man-page: [layout](../../scripts/layout/).
 {{< /cue >}}
 
 **Wat je nu doet:** **normaliseren** — in gewone taal vaak **layouten**
 genoemd. Je past de Oefenhoek-basispartituur-standaard toe met
-`scripts\apply_mscz_layout.py`. Uitkomst: een **basispartituur-`.mscz`** (canonieke
+`scripts\layout.cmd`. Uitkomst: een **basispartituur-`.mscz`** (canonieke
 MuseScore-partituur) op A4, klaar om na te kijken en later PDF + Coria van te
 maken.
 
@@ -37,7 +38,7 @@ tekst wilt wijzigen → [reviewen en opnieuw normaliseren](../4-reviewen/).
 | --- | --- |
 | **Normaliseren** | Contractterm: de basispartituur-regels toepassen op de `.mscz` |
 | **Layouten** | Gangbare naam voor dezelfde stap (“de layout opnieuw zetten”) |
-| **Script** | Altijd `python scripts\apply_mscz_layout.py …` |
+| **Script** | Altijd `scripts\layout.cmd …` |
 | **Niet** | Handmatig in MuseScore “A4 kiezen” en hopen dat fonts/recitatief/copyright kloppen — dat is niet de basispartituur-standaard |
 
 Opkuisen ≠ normaliseren. Opkuisen maakt de **inhoud** kloppend (stemmen,
@@ -57,7 +58,7 @@ reciteertoon-encoding, tempo, copyright-velden). Details over inhoud:
 4. Opdrachtvenster geopend in de repository-map `VSA-demo`
    ([hoe](../../start/wat-heb-je-nodig/)).
 
-## Wat `apply_mscz_layout.py` wél doet
+## Wat `scripts\layout.cmd` wél doet
 
 Alles hieronder komt uit die basispartituur-norm (`scripts\mscz-partituur-contract.md`).
 Het script is **idempotent**: opnieuw draaien mag en hoort na elke
@@ -122,7 +123,7 @@ feathered noot later tot één kwart per lettergreep.
 
 | Niet | Waar dan wel |
 | --- | --- |
-| Capella-lagen 1–3 (verborgen reciteerkwarten zichtbaar maken, Capella-titelrommel, …) | [Opkuisen](../2-opkuisen/) / `cleanup_capella_mxl.py` |
+| Capella-lagen 1–3 (verborgen reciteerkwarten zichtbaar maken, Capella-titelrommel, …) | [Opkuisen](../2-opkuisen/) / `scripts\opkuisen.cmd` |
 | Verkeerde stem op de verkeerde balk herschikken | Jij in MuseScore (opkuisen) |
 | PDF of Coria-`.mxl` maken | [PDF en Coria](../5-pdf-en-coria/) / `scripts\mscz-products.cmd` |
 | Print-vel normaliseren | Bewust geweigerd — [Print-.mscz](../7-print-mscz/) |
@@ -135,7 +136,7 @@ feathered noot later tot één kwart per lettergreep.
 Voorbeeld voor bibliotheek-id `8-trisagion/8a-nederlands/hemelum`:
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mxl -o content-source\praktijk\oefenhoek\input\_werk\8-trisagion-8a-nederlands-hemelum\8-trisagion-8a-nederlands-hemelum.mscz
 ```
 
 Het script converteert via MuseScore 4 naar `.mscz` en past daarna de
@@ -148,7 +149,7 @@ Kopieer de ruwe `.mscz` **niet** rechtstreeks naar de bibliotheek. Eerst
 normaliseren naar `_werk` met een naam zonder spaties:
 
 ```cmd
-python scripts\apply_mscz_layout.py content-source\praktijk\oefenhoek\input\vow\Cherubijnenlied-Kastorskij.mscz -o content-source\praktijk\oefenhoek\input\_werk\15-cherubijnenhymne-15c-kastorski-hemelum\15-cherubijnenhymne-15c-kastorski-hemelum.mscz
+scripts\layout.cmd content-source\praktijk\oefenhoek\input\vow\Cherubijnenlied-Kastorskij.mscz -o content-source\praktijk\oefenhoek\input\_werk\15-cherubijnenhymne-15c-kastorski-hemelum\15-cherubijnenhymne-15c-kastorski-hemelum.mscz
 ```
 
 Controleer vóór of na deze stap of stemmen en lettergrepen kloppen — dat is
@@ -172,7 +173,7 @@ Je hebt een `.mscz` in `_werk\<stam>\` (of al in de bibliotheek) die:
 
 - in MuseScore 4 opent op A4 met de basispartituur-typografie;
 - tekst tussen de balken toont;
-- door `apply_mscz_layout.py` is gehaald (meta `vsaPartituurContract`);
+- door `scripts\layout.cmd` is gehaald (meta `vsaPartituurContract`);
 - het ruwe origineel in `input\` onaangeroerd laat.
 
 Volgende stap: [reviewen en opnieuw normaliseren](../4-reviewen/).

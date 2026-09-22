@@ -3,7 +3,6 @@ do: F4
 mode: major
 tempo: 120
 ---
-
 <!-- Prokimen weekdag — Kiev-melodie (9a) -->
 <!-- Gelegenheid: vrijdag -->
 <!-- Toon: 7 -->
@@ -14,12 +13,9 @@ tempo: 120
 <!-- Bibliotheek-id: 9-prokimen/9a-vrijdag/groningen -->
 <!-- Publicatiestam: 9-prokimen-9a-vrijdag-groningen -->
 <!-- Bronbestand: content-source/praktijk/weekdagen/prokimena-weekdagen.md -->
-<!--
-  Tekst buiten het gezongen prokimen-vers (bewaard uit bronbestand):
--->
+<!--  Tekst buiten het gezongen prokimen-vers (bewaard uit bronbestand): -->
 <!-- Groot is de Heer in Sion; Hij is verheven boven alle volkeren. -->
 <!-- Verheft den Heer onzen God, en aanbidt op Zijn heilige berg; -->
 <!--     want heilig is de Heer onze God. -->
-
 [//:] Ver{\heft_} {/den} {/Heer} {on_}{\zen_} {\God_};
 {//valt} neer voor de steun Zijner {-&/voe}{\ten}, {\want} {\Hij_} {\&/is} {/&\hei_&_}{\lig_}. [:]

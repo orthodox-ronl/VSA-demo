@@ -26,11 +26,17 @@ from bibliotheek import (  # noqa: E402
     stem,
     under_alias_variant,
 )
-from score_filenames import is_print_mscz  # noqa: E402
+from score_filenames import is_print_mscz, is_tekstblad_md  # noqa: E402
 
 ALLOWED_STATUS = frozenset({"voorzien", "concept", "reviewable", "productie"})
 SCORE_SUFFIXES = frozenset({".mscz", ".vsa"})
 COMPANION_SUFFIXES = frozenset({".pdf", ".mxl"})
+
+TEKSTBLAD_BUILD_FM = (
+    "build:\n"
+    "  render: never\n"
+    "  list: never\n"
+)
 
 
 def _rel(path: Path) -> str:
@@ -68,12 +74,14 @@ def default_title(ident: str) -> str:
 
 
 def classify_source(path: Path) -> str:
-    """Geef soort: partituur_mscz | print_mscz | vsa | pdf | mxl | refuse:..."""
+    """Geef soort: partituur_mscz | print_mscz | vsa | tekstblad | pdf | mxl | refuse:..."""
     if not path.is_file():
         return f"refuse:bestaat niet ({path})"
     name = path.name.lower()
     if is_print_mscz(path):
         return "print_mscz"
+    if is_tekstblad_md(path):
+        return "tekstblad"
     suffix = path.suffix.lower()
     if suffix == ".mscz":
         return "partituur_mscz"
@@ -84,6 +92,11 @@ def classify_source(path: Path) -> str:
     if suffix == ".mxl":
         # Ruwe Capella-MXL hoort via opkuisen; alleen siblings (producten) ok.
         return "mxl"
+    if suffix == ".md":
+        return (
+            "refuse:gewone .md hoort niet als bibliotheek-bron; "
+            "gebruik {stam}.tekstblad.md voor het tekstblad-spoor"
+        )
     if suffix in {".musicxml", ".xml", ".cap", ".capx"}:
         return (
             "refuse:dit formaat hoort niet rechtstreeks in de bibliotheek "
@@ -100,6 +113,8 @@ def target_name(kind: str, ident: str, *, with_vsa: bool) -> str:
         return f"{stam}.print.mscz"
     if kind == "vsa":
         return f"{stam}.vsa"
+    if kind == "tekstblad":
+        return f"{stam}.tekstblad.md"
     if kind == "pdf":
         return f"{stam}.pdf"
     if kind == "mxl":
@@ -107,6 +122,50 @@ def target_name(kind: str, ident: str, *, with_vsa: bool) -> str:
             return f"{stam}.vsa.mxl"
         return f"{stam}.mxl"
     raise ValueError(kind)
+
+
+def ensure_tekstblad_frontmatter(text: str, *, title: str) -> str:
+    """Zorg voor ``build: render/list: never``; behoud bestaande frontmatter/body."""
+    import re
+
+    build_block = "build:\n  render: never\n  list: never\n"
+    if not text.lstrip().startswith("---"):
+        return f'---\ntitle: "{title}"\n{build_block}---\n\n{text.lstrip()}'
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return f'---\ntitle: "{title}"\n{build_block}---\n\n{text.lstrip()}'
+    fm = parts[1]
+    body = parts[2]
+    if not re.search(r"(?m)^title\s*:", fm):
+        fm = f'\ntitle: "{title}"' + fm
+    if "render: never" not in fm:
+        fm = fm.rstrip("\n") + "\n" + build_block
+    return f"---{fm}---{body}"
+
+
+def write_tekstblad_source(
+    dest: Path,
+    src: Path,
+    *,
+    title: str,
+    move: bool,
+    force: bool,
+    dry_run: bool,
+) -> None:
+    raw = src.read_text(encoding="utf-8")
+    text = ensure_tekstblad_frontmatter(raw, title=title)
+    if dry_run:
+        print(f"  would write {_rel(dest)} (tekstblad + frontmatter)", flush=True)
+        return
+    if dest.exists() and not force:
+        print(f"FAIL: bestaat al: {_rel(dest)} (gebruik --force)", flush=True)
+        raise SystemExit(1)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(text, encoding="utf-8", newline="\n")
+    print(f"  wrote {_rel(dest)}", flush=True)
+    if move and src.resolve() != dest.resolve():
+        src.unlink()
+        print(f"  removed source {_rel(src)}", flush=True)
 
 
 def section_index_text(title: str) -> str:
@@ -266,11 +325,14 @@ def accept(
             "sibling. Ruwe Capella: zie handleiding opkuisen."
         )
 
-    has_score = bool(kinds & {"partituur_mscz", "print_mscz", "vsa"}) or stub
+    has_score = (
+        bool(kinds & {"partituur_mscz", "print_mscz", "vsa", "tekstblad"}) or stub
+    )
     if not has_score and classified:
         errors.append(
-            "geen basispartituur-.mscz, .print.mscz of .vsa: de bibliotheek-leaf heeft "
-            "dan niets oefenbaars. Gebruik --stub voor een lege placeholder."
+            "geen basispartituur-.mscz, .print.mscz, .vsa of .tekstblad.md: "
+            "de bibliotheek-leaf heeft dan niets oefenbaars. "
+            "Gebruik --stub voor een lege placeholder."
         )
 
     if not skip_vsa_validate:
@@ -325,9 +387,23 @@ def accept(
         if " " in name:
             print(f"FAIL: doelnaam mag geen spaties hebben: {name}", flush=True)
             return 1
+        dest = dest_dir / name
+        if kind == "tekstblad":
+            try:
+                write_tekstblad_source(
+                    dest,
+                    src,
+                    title=resolved_title,
+                    move=move,
+                    force=force,
+                    dry_run=dry_run,
+                )
+            except SystemExit as exc:
+                return int(exc.code) if isinstance(exc.code, int) else 1
+            continue
         place_file(
             src,
-            dest_dir / name,
+            dest,
             move=move,
             force=force,
             dry_run=dry_run,
@@ -377,6 +453,12 @@ def accept(
             "(Coria-.vsa.mxl)",
             flush=True,
         )
+    if "tekstblad" in kinds:
+        print(
+            "Volgende (tekstblad): scripts\\tekstblad-products.cmd "
+            "({stam}.tekstblad.pdf), daarna commit bron + PDF",
+            flush=True,
+        )
     print(
         "Daarna: koormap-slot met bieb (handleiding publiceren) en "
         "scripts\\check.cmd --strict",
@@ -406,9 +488,11 @@ Toegestaan:
   - basispartituur-.mscz (MuseScore, genormaliseerd)
   - .vsa
   - bestandsnaam eindigend op .print.mscz
+  - bestandsnaam eindigend op .tekstblad.md (liturgische tekst / dialoog)
   - optioneel daarna nog .pdf of .mxl in een volgende vraag
 
 Niet toegestaan hier: ruwe Capella (.capx / alleen .mxl) - eerst opkuisen.
+Gewone .md zonder .tekstblad. in de naam: hernoem naar {stam}.tekstblad.md.
 
 Geen partituur, alleen een lege pagina reserveren? Typ: stub
 Typ daarna het pad opnieuw (of Enter om te stoppen).
@@ -506,7 +590,7 @@ def resolve_bestanden_en_stub(
     if any(str(p).strip() == "?" for p in bestanden):
         _print_help_block(HELP_BESTAND)
     print(
-        "Bestand ontbreekt. Typ het pad naar .mscz / .vsa / .print.mscz,",
+        "Bestand ontbreekt. Typ het pad naar .mscz / .vsa / .print.mscz / .tekstblad.md,",
         flush=True,
     )
     print(

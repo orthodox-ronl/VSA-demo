@@ -36,11 +36,29 @@ if /I "%FILTER%"=="check_bibliotheek_id" goto man_bibliotheek_id
 if /I "%FILTER%"=="check_bibliotheek_id.py" goto man_bibliotheek_id
 if /I "%FILTER%"=="vsa-products" goto man_vsa_products
 if /I "%FILTER%"=="sync_vsa_products.py" goto man_vsa_products
+if /I "%FILTER%"=="tekstblad-products" goto man_tekstblad_products
+if /I "%FILTER%"=="sync_tekstblad_products" goto man_tekstblad_products
+if /I "%FILTER%"=="sync_tekstblad_products.py" goto man_tekstblad_products
 if /I "%FILTER%"=="capella-mxl-to-mscz" goto man_capella_mxl
 if /I "%FILTER%"=="batch_capella_mxl_to_mscz.py" goto man_capella_mxl
 if /I "%FILTER%"=="bieb-accepteer" goto man_bieb_accepteer
 if /I "%FILTER%"=="bieb_accepteer" goto man_bieb_accepteer
 if /I "%FILTER%"=="bieb_accepteer.py" goto man_bieb_accepteer
+if /I "%FILTER%"=="opkuisen" goto man_opkuisen
+if /I "%FILTER%"=="cleanup_capella_mxl" goto man_opkuisen
+if /I "%FILTER%"=="cleanup_capella_mxl.py" goto man_opkuisen
+if /I "%FILTER%"=="layout" goto man_layout
+if /I "%FILTER%"=="apply_mscz_layout" goto man_layout
+if /I "%FILTER%"=="apply_mscz_layout.py" goto man_layout
+if /I "%FILTER%"=="ensure-bibliotheek-id" goto man_bibliotheek_id
+if /I "%FILTER%"=="ensure_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="ensure_bibliotheek_id.py" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id" goto man_bibliotheek_id
+if /I "%FILTER%"=="check_bibliotheek_id.py" goto man_bibliotheek_id
+if /I "%FILTER%"=="update-werkvoorraad" goto man_update_werkvoorraad
+if /I "%FILTER%"=="update_werkvoorraad" goto man_update_werkvoorraad
+if /I "%FILTER%"=="update_werkvoorraad.py" goto man_update_werkvoorraad
+if /I "%FILTER%"=="oefenhoek-index" goto man_oefenhoek_index
 if /I "%FILTER%"=="sync_oefenhoek_index" goto man_oefenhoek_index
 if /I "%FILTER%"=="sync_oefenhoek_index.py" goto man_oefenhoek_index
 if /I "%FILTER%"=="migrate_oefenhoek_bibliotheek" goto man_migrate_bibliotheek
@@ -65,26 +83,30 @@ call :emit_short serve "lokale Hugo-preview" "--no-build"
 call :emit_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :emit_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :emit_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
+call :emit_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pad> [--analyze|--dry-run] [-o] [--layout]"
+call :emit_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :emit_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :emit_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
+call :emit_short tekstblad-products "PDF uit bibliotheek-.tekstblad.md" "[pad] --force --dry-run"
+call :emit_short ensure-bibliotheek-id "bibliotheek-id in .mscz colofon/meta" "[root]"
+call :emit_short update-werkvoorraad "werkvoorraad-tabel uit input/ bijwerken" "-"
+call :emit_short oefenhoek-index "bladermap-index strippen / --svg" "[--svg --dry-run]"
 call :emit_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :emit_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :emit_short h "catalogus of man-page per script" "[naam]"
 echo.
-echo Python-helpers ^(via .cmd^): validate_content.py, sync_bron_zondagen.py,
+echo Uitgebreide man-pages: handleiding scripts\
+echo   content-source\praktijk\handleiding\scripts\
+echo.
+echo Python-helpers ^(pipeline / library, geen eigen .cmd^): validate_content.py,
 echo   update-nav-placeholders.py, inject_git_dates.py, copy_content_extras.py,
 echo   fingerprint_coria_mxl.py, write_build_stamp.py, check_demo_pdf_fresh.py,
 echo   check_hugo_links_and_assets.py, check_external_links.py, check_coria_mxl.py,
-echo   check_coria_retrieve.py, test_check_coria_retrieve.py,
-echo   test_check_hugo_links_and_assets.py, test_fingerprint_coria_mxl.py,
-echo   check_publicatiestatus.py, sync_mscz_products.py, update_werkvoorraad.py,
-echo   ensure_bibliotheek_id.py, check_bibliotheek_id.py, test_bibliotheek_id_colophon.py,
-echo   sync_oefenhoek_index.py, bibliotheek.py, migrate_oefenhoek_bibliotheek.py,
-echo   bieb_accepteer.py, test_bieb_accepteer.py,
-echo   cleanup_capella_mxl.py, apply_mscz_layout.py, staff_clefs.py, batch_capella_mxl_to_mscz.py, export_mscz_coria_mxl.py,
-echo   nl_hyphen.py, score_filenames.py, patch_oefenhoek_8-trisagion.py, rebar_20d_4kwart.py,
-echo   test_staff_clefs.py
-echo   - proef, niet in check; publicatienamen zonder spaties
+echo   check_coria_retrieve.py, check_publicatiestatus.py, check_partituur_products.py,
+echo   check_bibliotheek_id.py, check_vsa_products.py, bibliotheek.py,
+echo   export_mscz_coria_mxl.py, staff_clefs.py, nl_hyphen.py, score_filenames.py,
+echo   migrate_oefenhoek_bibliotheek.py, patch_oefenhoek_trisagion.py, rebar_20d_4kwart.py,
+echo   test_*.py
 echo.
 goto end_ok
 
@@ -100,20 +122,29 @@ call :try_short serve "lokale Hugo-preview" "--no-build"
 call :try_short pdf "Markdown + VSA naar A4-PDF" "-o --content-root"
 call :try_short demo-pdf "demo-PDF voorbeeld-blad.pdf bouwen" "-"
 call :try_short sync-bron-zondagen "sync zondag-VSA uit bron" "[bron-root]"
+call :try_short opkuisen "Herkomstanalyse + inhoudsopkuis (MusicXML/MSCZ)" "<pad> [--analyze|--dry-run] [-o] [--layout]"
+call :try_short layout "basispartituur-standaard op .mscz/.mxl" "<pad> [-o] [--id]"
 call :try_short mscz-products "PDF + Coria-MXL uit .mscz" "[pad] --force --dry-run"
 call :try_short vsa-products "Coria-.vsa.mxl uit bibliotheek-.vsa" "[pad] --force --dry-run"
+call :try_short tekstblad-products "PDF uit bibliotheek-.tekstblad.md" "[pad] --force --dry-run"
+call :try_short ensure-bibliotheek-id "bibliotheek-id in .mscz colofon/meta" "[root]"
+call :try_short update-werkvoorraad "werkvoorraad-tabel uit input/ bijwerken" "-"
+call :try_short oefenhoek-index "bladermap-index strippen / --svg" "[--svg --dry-run]"
 call :try_short capella-mxl-to-mscz "Capella-MXL map -> standaard-.mscz" "[bron] [doel] --force --dry-run --limit"
 call :try_short bieb-accepteer "partituur opnemen in bibliotheek" "<id> <bestand> [--dry-run]"
 call :try_short h "catalogus of man-page per script" "[naam]"
 if "!ANY!"=="0" goto unknown
 echo.
 echo Meer uitleg: scripts\README.md
+echo Handleiding: content-source\praktijk\handleiding\scripts\
 echo.
 goto end_ok
 
 :unknown
 echo Geen script gevonden voor "%FILTER%".
-echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen, mscz-products, vsa-products, capella-mxl-to-mscz, bieb-accepteer, h
+echo Bekende namen: check, build, serve, pdf, demo-pdf, sync-bron-zondagen,
+echo   opkuisen, layout, mscz-products, vsa-products, tekstblad-products, ensure-bibliotheek-id,
+echo   update-werkvoorraad, oefenhoek-index, capella-mxl-to-mscz, bieb-accepteer, h
 echo.
 goto end_fail
 
@@ -364,22 +395,26 @@ goto end_ok
 :man_bibliotheek_id
 echo.
 echo NAME
+echo   scripts\ensure-bibliotheek-id.cmd
 echo   scripts\ensure_bibliotheek_id.py / check_bibliotheek_id.py
 echo.
 echo SYNOPSIS
-echo   python scripts\ensure_bibliotheek_id.py [root]
-echo   python scripts\check_bibliotheek_id.py [root]
+echo   scripts\ensure-bibliotheek-id.cmd [root] [--check-only] [--fail]
 echo.
 echo DESCRIPTION
 echo   Basispartituur-.mscz onder bibliotheek/ moeten Bibliotheek-id in colofon
 echo   en meta vsaBibliotheekId hebben. ensure herstelt lokaal
 echo   (process_mscz); check-only / CI schrijft niet. main/strict: fail.
-echo   Daarna mscz-products voor verse PDF.
+echo   Zonder root: oefenhoek\bibliotheek. Daarna mscz-products voor verse PDF.
+echo.
+echo WHEN
+echo   Na layout / verplaatsing in bibliotheek, of als check id-mismatch meldt.
 echo.
 echo SEE ALSO
-echo   scripts\apply_mscz_layout.py
+echo   scripts\h.cmd layout
+echo   scripts\h.cmd mscz-products
+echo   handleiding scripts\ensure-bibliotheek-id
 echo   scripts\mscz-partituur-contract.md
-echo   scripts\oefenhoek-product-contract.md
 echo.
 goto end_ok
 
@@ -404,6 +439,31 @@ echo SEE ALSO
 echo   scripts\sync_vsa_products.py
 echo   scripts\check_vsa_products.py
 echo   scripts\oefenhoek-product-contract.md
+echo.
+goto end_ok
+
+:man_tekstblad_products
+echo.
+echo NAME
+echo   scripts\tekstblad-products.cmd
+echo.
+echo SYNOPSIS
+echo   scripts\tekstblad-products.cmd [pad] [--force] [--dry-run]
+echo.
+echo DESCRIPTION
+echo   Maakt sibling {stam}.tekstblad.pdf bij bibliotheek-.tekstblad.md
+echo   via vsa pdf + source-sha stamp. Slaat artefacten_handmatig over.
+echo   Zonder pad: oefenhoek\bibliotheek. Pipeline vernieuwt lokaal;
+echo   CI checkt alleen (check_tekstblad_products.py). Commit bron + PDF.
+echo.
+echo WHEN
+echo   Na .tekstblad.md-wijziging, of als check een ontbrekende/stale PDF meldt.
+echo.
+echo SEE ALSO
+echo   scripts\sync_tekstblad_products.py
+echo   scripts\check_tekstblad_products.py
+echo   scripts\oefenhoek-product-contract.md
+echo   handleiding scripts\tekstblad-products
 echo.
 goto end_ok
 
@@ -447,10 +507,11 @@ goto end_ok
 :man_oefenhoek_index
 echo.
 echo NAME
+echo   scripts\oefenhoek-index.cmd
 echo   scripts\sync_oefenhoek_index.py
 echo.
 echo SYNOPSIS
-echo   python scripts\sync_oefenhoek_index.py [--dry-run] [--svg] [--verbose]
+echo   scripts\oefenhoek-index.cmd [--dry-run] [--svg] [--verbose]
 echo.
 echo DESCRIPTION
 echo   Zonder flags: haalt auto-includes en score-shortcodes uit
@@ -464,12 +525,168 @@ echo   bibliotheek\.
 echo   Standaard alleen een samenvatting; --verbose toont elk pad.
 echo.
 echo WHEN
-echo   Automatisch in check/build/serve.
+echo   Automatisch in check/build/serve. Handmatig: alleen --svg na .vsa-edit
+echo   zonder volle check, of --dry-run om te zien wat de strip zou doen.
 echo.
 echo SEE ALSO
+echo   scripts\h.cmd check
+echo   handleiding scripts\oefenhoek-index
 echo   scripts\README.md
-echo   scripts\bibliotheek.py
-echo   CONTENT-STRUCTURE.md
+echo.
+goto end_ok
+
+:man_opkuisen
+echo.
+echo NAME
+echo   scripts\opkuisen.cmd
+echo   scripts\opkuisen.py
+echo   ^(compat: scripts\cleanup_capella_mxl.py -^> --assume capella^)
+echo.
+echo SYNOPSIS
+echo   scripts\opkuisen.cmd ^<pad^> [pad...] [opties]
+echo.
+echo DESCRIPTION
+echo   Opkuisen = muzikale/tekstuele INHOUD opschonen. Eerst herkomstanalyse
+echo   ^(hoek^), daarna alleen de manieren die bij die hoek horen.
+echo   Default-diepte: content ^(geen A4^). Met --layout ook normaliseren
+echo   ^(apply_mscz_layout^). PDF/Coria: mscz-products. Niet in check/build/serve.
+echo.
+echo   WAT WEL / NIET ^(kern^)
+echo   Wel: herkomst, inhoudsfixes per hoek, optioneel --layout, rapport
+echo        zonder schrijven ^(--analyze / --dry-run^).
+echo   Niet: stil Capella op elk bestand; PDF/Coria; *.print.mscz;
+echo         stemmen structureel herschikken; SVG / vsa.mxl bouwen.
+echo.
+echo INVOER
+echo   .mxl .musicxml .xml .mscz .mscx
+echo   .vsa / .mvsa: alleen --analyze/--dry-run ^(vsa: validate; mvsa: voorzien^)
+echo   Geweigerd: .cap .capx, *.print.mscz, corrupte zip/XML
+echo.
+echo DIRECTORY
+echo   Recursief. Mapscan slaat *.print.mscz over. Scan-root zonder segment
+echo   input: sla paden onder input\ over. Expliciet pad onder input\capella\
+echo   wordt wél meegenomen.
+echo.
+echo DIEPTES
+echo   content ^(default^)     inhoudsfixes, schrijft
+echo   --analyze             synoniem van --dry-run: rapport, GEEN schrijven
+echo   --dry-run             synoniem van --analyze
+echo   --layout              na content ook basispartituur-layout
+echo   --analyze + --layout  rapporteert alleen dat layout zou volgen
+echo.
+echo HERKOMST ^(hoek^)
+echo   CapToMusic/Capella in software/comment of veel print-object=no
+echo     -^> capella
+echo   MusicXML zonder Capella-signalen -^> musicxml-generic
+echo   .mscz/.mscx -^> musescore
+echo   .vsa / .mvsa -^> vsa / mvsa
+echo   Lage confidence zonder --assume: exit 2 ^(niet stil Capella toepassen^)
+echo   --assume capella^|musicxml-generic^|musescore^|vsa^|mvsa
+echo   --force: lage confidence toch doorzetten
+echo.
+echo MANIEREN WEL/NIET
+echo   capella-musicxml: unhide reciteerkwarten, lettergrepen, lyrics stem1,
+echo     backups, titel/pagina-rommel, lege maten, G/F bij 2 balken.
+echo     Niet: A4/PDF/Coria, stemmen herschikken, stil input\capella\ overschrijven.
+echo   generic-musicxml: alleen veilige G/F-sleutels. Niet: Capella-unhide.
+echo   musescore-content: lege balken, lyric-splits, noot-per-lettergreep.
+echo     Niet: A4/copyright/reciteer-collaps ^(dat is --layout^).
+echo   --layout: zelfde als layout.cmd; weigert print-.mscz; geen losse .mscx.
+echo   vsa v1: analyze=validate; content geweigerd. mvsa: voorzien.
+echo.
+echo UITVOER
+echo   -o bestand^|map     --in-place     --ext .mxl
+echo   Zonder -o: in-place alleen zonder spaties in de naam.
+echo   Schrijven naar ruwe oefenhoek\input\^<herkomst^>\ vereist --in-place;
+echo   voorkeur: -o naar input\_werk\STAM\STAM.mxl
+echo.
+echo EXITCODES
+echo   0 ok   1 fout   2 weigering ^(confidence/input/spaties/VSA-content^)
+echo.
+echo OPTIONS
+echo   --analyze / --dry-run   rapport, geen schrijven ^(synoniemen^)
+echo   --layout                content + layout
+echo   --assume HOEK           detectie overschrijven
+echo   --force                 lage confidence doorzetten
+echo   -o, --output            doelbestand of doelmap
+echo   --in-place              bron / ruwe input overschrijven
+echo   --ext EXT               doel-extensie
+echo   --id ID                 bibliotheek-id bij --layout
+echo.
+echo EXAMPLES
+echo   scripts\opkuisen.cmd "input\capella\NAAM.mxl" -o input\_werk\STAM\STAM.mxl
+echo   scripts\opkuisen.cmd input\capella --analyze
+echo   scripts\opkuisen.cmd input\capella --dry-run
+echo   scripts\opkuisen.cmd pad\stuk.mscz --layout
+echo   scripts\opkuisen.cmd pad\stuk.vsa --analyze
+echo.
+echo WHEN
+echo   Nieuwe Capella/MusicXML/MSCZ voor layout; eerst --analyze bij twijfel.
+echo.
+echo GRENZEN
+echo   Geen menselijke stemverdeling vervangen; geen roundtrip-reparatie;
+echo   geen stil Capella-origineel overschrijven; niet in check.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd layout
+echo   handleiding scripts\opkuisen
+echo   handleiding partituur\2-opkuisen
+echo   handleiding vsa\1-vsa-schrijven
+echo.
+goto end_ok
+
+:man_layout
+echo.
+echo NAME
+echo   scripts\layout.cmd
+echo   scripts\apply_mscz_layout.py
+echo.
+echo SYNOPSIS
+echo   scripts\layout.cmd ^<bestand.mscz^|.mxl^> [-o doel.mscz] [--id ID] [--no-extenders]
+echo.
+echo DESCRIPTION
+echo   Past de Oefenhoek-basispartituur-standaard toe (normaliseren / layouten):
+echo   A4, fonts, reciteer-collaps, copyright, bibliotheek-id-colofon.
+echo   .mxl: MuseScore-import + layout; zet -o. .mscz: default in-place.
+echo   Weigert *.print.mscz. Idempotent. Niet in check (handmatig / producten).
+echo.
+echo OPTIONS
+echo   -o, --output      doel-.mscz
+echo   --id              bibliotheek-id (anders uit pad onder bibliotheek/)
+echo   --no-extenders    geen lyric-underlines; meta vsaNoLyricExtenders
+echo.
+echo WHEN
+echo   Na opkuisen, of opnieuw na editslag in MuseScore, voor mscz-products.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd opkuisen
+echo   scripts\h.cmd mscz-products
+echo   handleiding scripts\layout
+echo   scripts\mscz-partituur-contract.md
+echo.
+goto end_ok
+
+:man_update_werkvoorraad
+echo.
+echo NAME
+echo   scripts\update-werkvoorraad.cmd
+echo   scripts\update_werkvoorraad.py
+echo.
+echo SYNOPSIS
+echo   scripts\update-werkvoorraad.cmd
+echo.
+echo DESCRIPTION
+echo   Vult de tabel in oefenhoek\input\werkvoorraad.md uit bestanden op schijf.
+echo   Doel-id, koormap en notitie in bestaande rijen blijven. Verwijdert
+echo   generated\...\oefenhoek\input zodat inputs geen Hugo-pagina's worden.
+echo.
+echo WHEN
+echo   Automatisch in check/build/serve. Handmatig na nieuwe files in input/.
+echo.
+echo SEE ALSO
+echo   scripts\h.cmd check
+echo   handleiding scripts\update-werkvoorraad
+echo   handleiding partituur\1-binnenhalen
 echo.
 goto end_ok
 
@@ -505,6 +722,7 @@ echo.
 echo SEE ALSO
 echo   scripts\h.cmd bibliotheek
 echo   handleiding publiceren/1-opnemen-in-bibliotheek
+echo   handleiding scripts\bieb-accepteer
 echo   layouts\shortcodes\bieb.html
 echo.
 goto end_ok

@@ -25,6 +25,20 @@ class ClassifyTests(unittest.TestCase):
             self.assertEqual(ba.classify_source(print_mscz), "print_mscz")
             self.assertEqual(ba.classify_source(vsa), "vsa")
 
+    def test_tekstblad_md(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            md = Path(tmp) / "x.tekstblad.md"
+            md.write_text("# hi\n", encoding="utf-8")
+            plain = Path(tmp) / "x.md"
+            plain.write_text("# hi\n", encoding="utf-8")
+            self.assertEqual(ba.classify_source(md), "tekstblad")
+            self.assertTrue(ba.classify_source(plain).startswith("refuse:"))
+            ident = "5-eniggeboren-zoon/default/hemelum"
+            self.assertEqual(
+                ba.target_name("tekstblad", ident, with_vsa=False),
+                f"{stem(ident)}.tekstblad.md",
+            )
+
     def test_refuse_capella(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             cap = Path(tmp) / "ruw.capx"

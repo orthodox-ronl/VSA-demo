@@ -7,4 +7,4 @@ publicatiestatus: concept
 automatische_inhoud: true
 ---
 
-Eerste antifonen voor verschillende gelegenheden.
+Eerste antifonen zijn er voor verschillende gelegenheden.

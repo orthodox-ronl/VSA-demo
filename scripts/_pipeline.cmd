@@ -45,6 +45,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\test_bibliotheek_id_colophon.py
 "%PY%" scripts\test_bieb_accepteer.py
 if errorlevel 1 exit /b 1
+"%PY%" scripts\test_opkuisen.py
+if errorlevel 1 exit /b 1
 "%PY%" scripts\test_sync_vsa_products.py
 if errorlevel 1 exit /b 1
 echo OK
@@ -64,6 +66,12 @@ echo.
 
 echo [2c/7] VSA-producten (Coria-.vsa.mxl) bijwerken indien nodig
 "%PY%" scripts\sync_vsa_products.py
+if errorlevel 1 exit /b 1
+echo OK
+echo.
+
+echo [2d/7] Tekstblad-producten (PDF) bijwerken indien nodig
+"%PY%" scripts\sync_tekstblad_products.py
 if errorlevel 1 exit /b 1
 echo OK
 echo.
@@ -108,6 +116,8 @@ if errorlevel 1 exit /b 1
 "%PY%" scripts\check_bibliotheek_id.py
 if errorlevel 1 exit /b 1
 "%PY%" scripts\check_vsa_products.py
+if errorlevel 1 exit /b 1
+"%PY%" scripts\check_tekstblad_products.py
 if errorlevel 1 exit /b 1
 echo OK
 echo.
