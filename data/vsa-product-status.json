@@ -13,6 +13,12 @@
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
     },
+    "praktijk/oefenhoek/bibliotheek/110-tropaar/geboorte-mg-toon-4/meneon-i-den-haag": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/110-tropaar/geboorte-mg-toon-4/meneon-i-den-haag/110-tropaar-geboorte-mg-toon-4-meneon-i-den-haag.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
     "praktijk/oefenhoek/bibliotheek/110-tropaar/heilig-kruis-toon-1/hemelum": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/110-tropaar/heilig-kruis-toon-1/hemelum/110-tropaar-heilig-kruis-toon-1-hemelum.vsa",
       "ok": true,
@@ -39,6 +45,12 @@
     },
     "praktijk/oefenhoek/bibliotheek/110-tropaar/mantel-moeder-gods-toon-4/hemelum": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/110-tropaar/mantel-moeder-gods-toon-4/hemelum/110-tropaar-mantel-moeder-gods-toon-4-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/110-tropaar/silouan-de-athoniet-toon-4/asten": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/110-tropaar/silouan-de-athoniet-toon-4/asten/110-tropaar-silouan-de-athoniet-toon-4-asten.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
@@ -115,6 +127,12 @@
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
     },
+    "praktijk/oefenhoek/bibliotheek/120-kondak/geboorte-moeder-gods-toon-4/liturgikon": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/120-kondak/geboorte-moeder-gods-toon-4/liturgikon/120-kondak-geboorte-moeder-gods-toon-4-liturgikon.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
     "praktijk/oefenhoek/bibliotheek/120-kondak/heilig-kruis-toon-1/hemelum": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/120-kondak/heilig-kruis-toon-1/hemelum/120-kondak-heilig-kruis-toon-1-hemelum.vsa",
       "ok": true,
@@ -141,6 +159,12 @@
     },
     "praktijk/oefenhoek/bibliotheek/120-kondak/nikolaas-van-myra-toon-3/hemelum": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/120-kondak/nikolaas-van-myra-toon-3/hemelum/120-kondak-nikolaas-van-myra-toon-3-hemelum.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/120-kondak/silouan-de-athoniet-toon-4/asten": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/120-kondak/silouan-de-athoniet-toon-4/asten/120-kondak-silouan-de-athoniet-toon-4-asten.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []
@@ -213,6 +237,12 @@
     },
     "praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/liturgikon": {
       "vsa": "content-source/praktijk/oefenhoek/bibliotheek/2-eerste-antifoon/weekdagen/liturgikon/2-eerste-antifoon-weekdagen-liturgikon.vsa",
+      "ok": true,
+      "fix_cmd": "scripts\\vsa-products.cmd",
+      "issues": []
+    },
+    "praktijk/oefenhoek/bibliotheek/20-moeder-godslied/verhef-mijn-ziel-met-blijde-zang/liturgikon": {
+      "vsa": "content-source/praktijk/oefenhoek/bibliotheek/20-moeder-godslied/verhef-mijn-ziel-met-blijde-zang/liturgikon/20-moeder-godslied-verhef-mijn-ziel-met-blijde-zang-liturgikon.vsa",
       "ok": true,
       "fix_cmd": "scripts\\vsa-products.cmd",
       "issues": []

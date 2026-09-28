@@ -1,6 +1,8 @@
 ---
 title: "Tropaar zaterdag heiligen toon 2"
 linkTitle: "hemelum"
+nav_sort: weight
+weight: 207
 publicatiestatus: reviewable
 automatische_inhoud: false
 ---
