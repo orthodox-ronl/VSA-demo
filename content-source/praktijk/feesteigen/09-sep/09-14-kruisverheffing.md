@@ -97,8 +97,13 @@ Die in {/Uw} {/vlees_} ge{\krui}{/sigd} {/zijt_},
 1. [//:] De Heer regeert, de volkeren {be_}{/ven_}; *
    Hij zetelt op de Cherubim, de aarde {\sid_}{dert_}. [//:]
 
-**TROPARION t.1** – Heer, red Uw volk en zegen uw erfdeel: *
-   en bescherm uw Gemeente door Uw Kruis.
+::: vsa-notatie
+<!-- Tropaar - Woensdag - H. Kruis - (Toon 1 - Hemelum, V. Jewsewy) -->
+[:] Heer red Uw {/&/volk_&_} {\\en} ze{/gen} {/Uw} {/erf_}{deel_}, * 
+<!-- {\schenk} aan de orthodoxe christenen de over{\win_}{\ning_}, ** -->
+<!-- {//en} bescherm uw Gemeente {/door_} {Uw_} {\Kruis_}. [//:] -->
+{\en} bescherm uw Gemeente {/door_} {Uw_} {\Kruis_}. [//:]
+:::
 
 2. [//:] Groot is de Heer in {Si_}{/on_}, *
    Hij is verheven boven alle {\vol}ke{ren_}. [//:] Heer, red...
@@ -158,11 +163,12 @@ God is van eeuwigheid onze Koning; Hij bewerkt Verlossing in het midden der aard
 
 ## Prijslied
 ::: vsa-notatie
-<!-- Prijslied - Verheerlijking op de berg Thabor (Liturgikon, p270) -->
+<!-- Prijslied - Verheerlijking op de berg Thabor (Liturgikon, p277) -->
 [\:] {/&/Ver}{/hef_}, {\mij}{/ne} {\\ziel_}, {/&/met} {/blij}{\\de} {/zang_} *
 het {kost_}{\ba}{/re} {/&\le_&-}, {\ven}{\schen}{\kend} {/Kruis_} {van_} {/on}{/ze} {/&\Heer_&_} {\&/dat.&.} {/&/he.&.}{\&\den.&.} {\&\ver.&.}{//he_}{\ven_} {\wordt_}. [:]
 
-**COMMUNIEVERS** – Heer, het Licht van Uw Aanschijn is een teken over ons.
+<!-- Liturgikon, p277: -->
+**COMMUNIEVERS** – Heer, het Licht van Uw Aanschijn is een teken over ons. 
 
 <!--
 ## Zaterdag NA kruisverheffing / 14 sept.

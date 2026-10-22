@@ -1,0 +1,76 @@
+---
+description: Cost control — stop bij dure scope; eerst goedkoper pad voorstellen
+alwaysApply: true
+---
+
+# Cost control (hard)
+
+## Models / modes
+
+- Alleen Cursor Models: **Composer** of **Grok**. Geen Auto, Opus, GPT-*-fast of andere premium-/third-party-modellen tenzij de gebruiker dat model **in dit bericht** noemt.
+- Geen Max Mode / Fast Mode tenzij expliciet gevraagd.
+- Korte, **single-agent** runs. Geen parallelle agents, geen lange onbegeleide loops.
+
+## STOP vóór dure uitvoering (verplicht)
+
+Als de taak waarschijnlijk duur is: **NIET beginnen met implementeren**. In **één korte reactie**:
+
+1. Waarom dit duur wordt (één zin).
+2. Goedkoper pad: 2–4 genummerde stappen / runs.
+3. Vraag: «Welke stap nu?» — **wacht op OK**.
+
+Triggers (niet uitputtend) — bij twijfel: **stop**:
+
+- «alles / allemaal / doe dat allemaal / tegelijk»
+- Meerdere systemen in één keer (CLI + check + bulk-content + docs + UI)
+- Bulk: tientallen bestanden, massale hernoem/titel-fix, hele catalogus-scan+schrijf
+- Grote merge/conflict-resolutie + regeneratie + docs in dezelfde run
+- Verwachte herhaalde retries, herstel na eigen fout, of «opnieuw hetzelfde onderzoek»
+- Veel context nodig (grote diffs, lange logs, herlezen van grote files)
+- **Werk hoort in een andere repo** (zie hieronder)
+
+«De gebruiker zei doe alles» is **geen** vrijbrief. Eerst goedkoper voorstel, dan pas uitvoeren na OK.
+
+## Verkeerde repo-chat — altijd waarschuwen
+
+Zodra duidelijk is dat het **hoofdwerk** in een *andere* orthodox-ronl-repo hoort
+dan de workspace van deze chat (bijv. fix in **bibliotheek** terwijl je in
+**VSA-tooling** zit, of omgekeerd): **stop met dure uitvoering** en waarschuw
+**vóór** je verder spitte of implementeert.
+
+In **één korte reactie**:
+
+1. Welke repo het hoofdwerk is (en waarom deze chat duurder is: verkeerde
+   index/ Grep, omwegen via sibling-paden, extra context).
+2. Voorstel: *nieuwe chat* met die repo als root, of Agent
+   «move to root» naar die map — plus de kleinste opdrachtzin.
+3. Wat je *hier* wél kort mag doen (bijv. 1 zin diagnose, 1 padnoot).
+4. «Wil je hier doorgaan (duurder) of eerst wisselen?» — **wacht op OK**.
+
+Niet stil doorwerken «omdat de sibling-map bereikbaar is». Diagnosedraad in
+de ene repo + implementatie in de andere mag; zeg dat expliciet als
+goedkoper pad.
+
+## Goedkoper pad (standaard voorstel)
+
+Eén run = **één merkbare mijlpaal**, bijvoorbeeld:
+
+1. Alleen code + unit tests  
+2. Pas daarna docs  
+3. Pas daarna bulk-content (met dry-run / steekproef van 1–3 files eerst)
+
+Zeg expliciet hoe de gebruiker goedkoper kan formuleren, bv.:  
+«Zeg: *alleen stap 1 — accepteer + tests; nog geen leafs/docs*.»
+
+## Tijdens de run
+
+- Minimale tokens: alleen benodigde files; niet herlezen; samenvatten i.p.v. dumpen.
+- Geen verbose test/CI-output in de context plakken; alleen exitcode + falende regels.
+- Bulk-schrijven: eerst dry-run of 1 voorbeeld, **dan** pas massaal — anders stop en vraag.
+- Eigen fout / interrupt / herstel-loop: **stop**, meld wat er misging in één zin, vraag of je mag doorgaan met de *kleinste* fix — niet opnieuw het hele plan.
+
+## Verboden
+
+- Doorwerken aan een «alles-tegelijk»-opdracht zonder stop+voorstel.
+- Na een mislukte bulk-actie meteen de hele catalogus opnieuw herschrijven.
+- Premium models / Max / Fast / parallel agents zonder expliciete vraag in *dit* bericht.
