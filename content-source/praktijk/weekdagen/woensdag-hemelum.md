@@ -25,9 +25,11 @@ sources:
 
 ::: vsa-notatie
 <!-- Tropaar - Woensdag - H. Kruis - (Toon 1 - Hemelum, V. Jewsewy) -->
-[:] Heer red Uw {/&/volk_&_} {\\en} ze{/gen} {/Uw} {/erf_}{deel_}, * 
-{\schenk} aan de orthodoxe christenen de over{\win_}{\ning_}, **
-{//en} bescherm uw Gemeente {/door_} {Uw_} {\Kruis_}. [//:]
+<!-- Uitvoeringsvorm: hemelum (vastgesteld 20261014)-->
+[:] Heer red Uw {/&/volk_&_} {\\en} ze{/gen} {/Uw} {/erf_}{deel_}, *
+{\schenk} de orthodoxe {\chris_}te{\nen_} *
+de over{/win_}{/ning_} {\\o}{/ver} {/Uw} {/vij_}an{den_} **
+{\en} bescherm uw gemeente {/door_} {Uw_} {\kruis_}. [//:]
 :::
 </details>
 <!-- 
