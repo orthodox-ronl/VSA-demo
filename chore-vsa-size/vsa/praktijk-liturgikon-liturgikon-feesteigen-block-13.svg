@@ -1,0 +1,13 @@
+<svg class="vsa-svg" xmlns="http://www.w3.org/2000/svg" width="126" height="55" viewBox="0 0 126 55">
+<rect width="100%" height="100%" fill="white"/>
+<g class="vsa-score">
+<g class="vsa-line" data-vsa-line="1">
+<g class="vsa-unit vsa-pitch-marker" data-vsa-unit="1">
+<line class="vsa-pitch-marker-dash" x1="13.50" y1="31.00" x2="22.50" y2="31.00" stroke="black" stroke-width="1.50" stroke-linecap="round"/>
+</g>
+<g class="vsa-unit vsa-unit-text" data-vsa-unit="3">
+<text class="vsa-text vsa-free-text" x="52.80" y="36.00" xml:space="preserve" font-family="DejaVu Sans" font-size="20.00">refrein</text>
+</g>
+</g>
+</g>
+</svg>
