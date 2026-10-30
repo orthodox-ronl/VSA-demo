@@ -4,6 +4,8 @@
   --border-color: #d0d0d0;
   --code-bg: #f4f4f4;
   --nav-bg: #f8f8f8;
+  /* VSA-SVG lettergrootte t.o.v. omliggende tekst (1em); zie js/vsa-size.js */
+  --vsa-size: 1.25;
 }
 
 * {
@@ -578,7 +580,6 @@ svg:not(.site-jump-icon),
 }
 
 .oefenhoek-page .vsa-notation {
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -973,9 +974,6 @@ a.btn.coria-play:focus,
     padding: 0;
   }
 
-  .keep-together .vsa-notation {
-    width: var(--vsa-scale, auto);
-  }
 }
 
 .publicatiestatus {
