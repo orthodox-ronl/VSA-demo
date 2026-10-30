@@ -1,2 +1,6 @@
 {{- $scale := .Get "scale" -}}
-<div class="keep-together"{{ if $scale }} style="width: {{ $scale }}"{{ end }}>{{ .Page.RenderString (printf "\n%s" .Inner) }}</div>
+{{- $size := .Get "size" -}}
+{{- $styles := slice -}}
+{{- with $size -}}{{- $styles = $styles | append (printf "--vsa-size: %s" .) -}}{{- end -}}
+{{- with $scale -}}{{- $styles = $styles | append (printf "width: %s" .) -}}{{- end -}}
+<div class="keep-together"{{ if $styles }} style="{{ delimit $styles "; " }}"{{ end }}>{{ .Page.RenderString (printf "\n%s" .Inner) }}</div>
